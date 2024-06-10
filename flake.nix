@@ -20,6 +20,12 @@
       url = "github:cachix/pre-commit-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # ptrs
+    LaphaeL-aicmd = {
+      url = "github:DataEraserC/LaphaeL-aicmd";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs =
     {
@@ -76,8 +82,13 @@
 
       perSystem =
         { pkgs, ... }:
+        let
+          ptr = {
+            LaphaeL-aicmd = inputs.LaphaeL-aicmd.packages.${pkgs.system}.laphael_aicmd;
+          };
+        in
         {
-          packages = import ./pkgs null { inherit inputs pkgs; };
+          packages = import ./pkgs null { inherit inputs pkgs; } // ptr;
           legacyPackages = import ./pkgs "legacy" { inherit inputs pkgs; };
         };
     };

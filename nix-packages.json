@@ -1,11 +1,41 @@
 {
+  "legacyPackages.x86_64-linux.Adobe_Illustrator_CS6_appimage": {
+    "description": "Adobe_Illustrator_CS6",
+    "pname": "Adobe_Illustrator_CS6-CS6",
+    "version": ""
+  },
+  "legacyPackages.x86_64-linux.Adobe_Photoshop_CS6_appimage": {
+    "description": "Adobe_Photoshop_CS6",
+    "pname": "Adobe_Photoshop_CS6-CS6",
+    "version": ""
+  },
+  "legacyPackages.x86_64-linux.AppimageLauncher_deb": {
+    "description": "appimagelauncher",
+    "pname": "appimagelauncher",
+    "version": "2.2.0"
+  },
+  "legacyPackages.x86_64-linux.CrossOver": {
+    "description": "CrossOver allows you to run Microsoft applications on your Mac.",
+    "pname": "crossover",
+    "version": "21.2.0"
+  },
+  "legacyPackages.x86_64-linux.MIO_KITCHEN_bin": {
+    "description": "The Android Rom Tool Use python language",
+    "pname": "MIO-KITCHEN_bin",
+    "version": "3.0.8"
+  },
+  "legacyPackages.x86_64-linux.XiaoMiToolV2": {
+    "description": "",
+    "pname": "XiaoMiToolV2",
+    "version": ""
+  },
   "legacyPackages.x86_64-linux._meta.howto": {
     "description": "This NUR has a binary cache. Use the following settings to access it:  nix.settings.substituters = [ \"https://attic.xuyh0120.win/lantian\" ]; nix.settings.trusted-public-keys = [ \"lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc=\" ];  Or, use variables from this repository in case I change them:  nix.settings.substituters = [ nur.repos.xddxdd._meta.url ]; nix.settings.trusted-public-keys = [ nur.repos.xddxdd._meta.publicKey ]; ",
     "pname": "00000-howto",
     "version": ""
   },
   "legacyPackages.x86_64-linux._meta.readme": {
-    "description": "README.md for Lan Tian's NUR Repo",
+    "description": "README.md for DataEraserC's NUR Repo",
     "pname": "README.md",
     "version": ""
   },
@@ -259,6 +289,16 @@
     "pname": "chmlib",
     "version": "0.40a"
   },
+  "legacyPackages.x86_64-linux.clang_dev_env": {
+    "description": "",
+    "pname": "clang_dev_env",
+    "version": ""
+  },
+  "legacyPackages.x86_64-linux.clang_dev_env_fhs": {
+    "description": "",
+    "pname": "clang_dev_env_fhs-shell",
+    "version": ""
+  },
   "legacyPackages.x86_64-linux.click-loglevel": {
     "description": "Log level parameter type for Click",
     "pname": "python3.11-click-loglevel",
@@ -278,6 +318,11 @@
     "description": "Device that allows access to Linux kernel cryptographic drivers",
     "pname": "cryptodev-linux-unstable",
     "version": "2023-12-12"
+  },
+  "legacyPackages.x86_64-linux.cudatoolkit_dev_env_fhs": {
+    "description": "",
+    "pname": "cudatoolkit_dev_env_fhs-shell",
+    "version": ""
   },
   "legacyPackages.x86_64-linux.decluttarr": {
     "description": "Watches radarr, sonarr, lidarr and readarr download queues and removes downloads if they become stalled or no longer needed.",
@@ -329,6 +374,16 @@
     "pname": "electron",
     "version": "11.5.0"
   },
+  "legacyPackages.x86_64-linux.escrcpy_appimage": {
+    "description": "Escrcpy",
+    "pname": "escrcpy",
+    "version": "1.16.3"
+  },
+  "legacyPackages.x86_64-linux.escrcpy_deb": {
+    "description": "Graphical Scrcpy to display and control Android, devices powered by Electron. ",
+    "pname": "escrcpy_deb",
+    "version": "1.18.2"
+  },
   "legacyPackages.x86_64-linux.etherguard": {
     "description": "Layer2 version of wireguard with Floyd Warshall implement in go",
     "pname": "etherguard-unstable",
@@ -343,6 +398,11 @@
     "description": "Fcitx5 theme to match KDE's Breeze style",
     "pname": "fcitx5-breeze",
     "version": "2.0.0"
+  },
+  "legacyPackages.x86_64-linux.fhs": {
+    "description": "",
+    "pname": "fhs",
+    "version": ""
   },
   "legacyPackages.x86_64-linux.flaresolverr": {
     "description": "Proxy server to bypass Cloudflare protection",
@@ -813,6 +873,11 @@
     "description": "Qt5 binding of CEF",
     "pname": "libqcef-unstable",
     "version": "2019-11-23"
+  },
+  "legacyPackages.x86_64-linux.llqqnt": {
+    "description": "Messaging app",
+    "pname": "qq",
+    "version": "3.2.9"
   },
   "legacyPackages.x86_64-linux.netboot-xyz": {
     "description": "Your favorite operating systems in one place. A network-based bootable operating system installer based on iPXE.",
@@ -2674,6 +2739,11 @@
     "pname": "qqmusic",
     "version": "1.1.5"
   },
+  "legacyPackages.x86_64-linux.qtscrcpy_git": {
+    "description": "Android real-time display control software",
+    "pname": "qtscrcpy",
+    "version": "2.2.1"
+  },
   "legacyPackages.x86_64-linux.r8125": {
     "description": "Linux device driver for Realtek 2.5/5 Gigabit Ethernet controllers with PCI-Express interface",
     "pname": "r8125",
@@ -2844,10 +2914,25 @@
     "pname": "vivado",
     "version": "2022.2"
   },
+  "legacyPackages.x86_64-linux.vmware-workstation": {
+    "description": "Industry standard desktop hypervisor for x86-64 architecture",
+    "pname": "vmware-workstation",
+    "version": "17.5.1"
+  },
   "legacyPackages.x86_64-linux.vpp": {
     "description": "Vector Packet Processing",
     "pname": "vpp",
     "version": "24.06"
+  },
+  "legacyPackages.x86_64-linux.watt-toolkit_2": {
+    "description": "A cross-platform Steam toolbox",
+    "pname": "watt-toolkit",
+    "version": "2.8.6"
+  },
+  "legacyPackages.x86_64-linux.waybar_bluetooth_battery_parse": {
+    "description": "",
+    "pname": "waybar-bluetooth_battery_parse",
+    "version": "0.0.2"
   },
   "legacyPackages.x86_64-linux.wechat-uos": {
     "description": "WeChat desktop with sandbox enabled ($HOME/Documents/WeChat_Data) (Adapted from https://aur.archlinux.org/packages/wechat-uos-bwrap)",
@@ -2864,6 +2949,26 @@
     "pname": "wechat-uos",
     "version": "1.0.0.241"
   },
+  "legacyPackages.x86_64-linux.wechat_dev_tools_appimage": {
+    "description": "The development tools for wechat projects",
+    "pname": "wechat_dev_tools_appimage",
+    "version": "1.06.2402040-1"
+  },
+  "legacyPackages.x86_64-linux.wechat_dev_tools_bin": {
+    "description": "The development tools for wechat projects",
+    "pname": "wechat_dev_tools_bin",
+    "version": "1.06.2402040-1"
+  },
+  "legacyPackages.x86_64-linux.wechat_dev_tools_fhs_appimage": {
+    "description": "",
+    "pname": "wechat_dev_tools-env",
+    "version": ""
+  },
+  "legacyPackages.x86_64-linux.wechat_dev_tools_fhs_bin": {
+    "description": "",
+    "pname": "wechat_dev_tools-env",
+    "version": ""
+  },
   "legacyPackages.x86_64-linux.win2xcur": {
     "description": "win2xcur is a tool that converts cursors from Windows format (*.cur, *.ani) to Xcursor format. It also contains x2wincur which does the opposite.",
     "pname": "python3.11-win2xcur",
@@ -2879,6 +2984,11 @@
     "pname": "wine-wechat-x86",
     "version": "3.9.11.16"
   },
+  "legacyPackages.x86_64-linux.xcursor-genshin-nahida": {
+    "description": "xcursor genshin nahida",
+    "pname": "xcursor-genshin-nahida",
+    "version": "1.0-2"
+  },
   "legacyPackages.x86_64-linux.xstatic-asciinema-player": {
     "description": "asciinema-player packaged for setuptools (easy_install) / pip.",
     "pname": "python3.11-xstatic-asciinema-player",
@@ -2888,6 +2998,41 @@
     "description": "Font Awesome packaged for setuptools (easy_install) / pip.",
     "pname": "python3.11-xstatic-font-awesome",
     "version": "4.7.0.0"
+  },
+  "packages.x86_64-linux.Adobe_Illustrator_CS6_appimage": {
+    "description": "Adobe_Illustrator_CS6",
+    "pname": "Adobe_Illustrator_CS6-CS6",
+    "version": ""
+  },
+  "packages.x86_64-linux.Adobe_Photoshop_CS6_appimage": {
+    "description": "Adobe_Photoshop_CS6",
+    "pname": "Adobe_Photoshop_CS6-CS6",
+    "version": ""
+  },
+  "packages.x86_64-linux.AppimageLauncher_deb": {
+    "description": "appimagelauncher",
+    "pname": "appimagelauncher",
+    "version": "2.2.0"
+  },
+  "packages.x86_64-linux.CrossOver": {
+    "description": "CrossOver allows you to run Microsoft applications on your Mac.",
+    "pname": "crossover",
+    "version": "21.2.0"
+  },
+  "packages.x86_64-linux.LaphaeL-aicmd": {
+    "description": "Enable chat AI to execute commands on linux with feedback-loop for multi-step missions",
+    "pname": "python3.11-laphael-aicmd",
+    "version": "1.2.3"
+  },
+  "packages.x86_64-linux.MIO_KITCHEN_bin": {
+    "description": "The Android Rom Tool Use python language",
+    "pname": "MIO-KITCHEN_bin",
+    "version": "3.0.8"
+  },
+  "packages.x86_64-linux.XiaoMiToolV2": {
+    "description": "",
+    "pname": "XiaoMiToolV2",
+    "version": ""
   },
   "packages.x86_64-linux._meta": {
     "description": "",
@@ -2969,6 +3114,16 @@
     "pname": "chmlib",
     "version": "0.40a"
   },
+  "packages.x86_64-linux.clang_dev_env": {
+    "description": "",
+    "pname": "clang_dev_env",
+    "version": ""
+  },
+  "packages.x86_64-linux.clang_dev_env_fhs": {
+    "description": "",
+    "pname": "clang_dev_env_fhs-shell",
+    "version": ""
+  },
   "packages.x86_64-linux.click-loglevel": {
     "description": "Log level parameter type for Click",
     "pname": "python3.11-click-loglevel",
@@ -2988,6 +3143,11 @@
     "description": "Device that allows access to Linux kernel cryptographic drivers",
     "pname": "cryptodev-linux-unstable",
     "version": "2023-12-12"
+  },
+  "packages.x86_64-linux.cudatoolkit_dev_env_fhs": {
+    "description": "",
+    "pname": "cudatoolkit_dev_env_fhs-shell",
+    "version": ""
   },
   "packages.x86_64-linux.decluttarr": {
     "description": "Watches radarr, sonarr, lidarr and readarr download queues and removes downloads if they become stalled or no longer needed.",
@@ -3044,6 +3204,16 @@
     "pname": "electron",
     "version": "11.5.0"
   },
+  "packages.x86_64-linux.escrcpy_appimage": {
+    "description": "Escrcpy",
+    "pname": "escrcpy",
+    "version": "1.16.3"
+  },
+  "packages.x86_64-linux.escrcpy_deb": {
+    "description": "Graphical Scrcpy to display and control Android, devices powered by Electron. ",
+    "pname": "escrcpy_deb",
+    "version": "1.18.2"
+  },
   "packages.x86_64-linux.etherguard": {
     "description": "Layer2 version of wireguard with Floyd Warshall implement in go",
     "pname": "etherguard-unstable",
@@ -3058,6 +3228,11 @@
     "description": "Fcitx5 theme to match KDE's Breeze style",
     "pname": "fcitx5-breeze",
     "version": "2.0.0"
+  },
+  "packages.x86_64-linux.fhs": {
+    "description": "",
+    "pname": "fhs",
+    "version": ""
   },
   "packages.x86_64-linux.flaresolverr": {
     "description": "Proxy server to bypass Cloudflare protection",
@@ -3198,6 +3373,11 @@
     "description": "Qt5 binding of CEF",
     "pname": "libqcef-unstable",
     "version": "2019-11-23"
+  },
+  "packages.x86_64-linux.llqqnt": {
+    "description": "Messaging app",
+    "pname": "qq",
+    "version": "3.2.9"
   },
   "packages.x86_64-linux.netboot-xyz": {
     "description": "Your favorite operating systems in one place. A network-based bootable operating system installer based on iPXE.",
@@ -3389,6 +3569,11 @@
     "pname": "qqmusic",
     "version": "1.1.5"
   },
+  "packages.x86_64-linux.qtscrcpy_git": {
+    "description": "Android real-time display control software",
+    "pname": "qtscrcpy",
+    "version": "2.2.1"
+  },
   "packages.x86_64-linux.r8125": {
     "description": "Linux device driver for Realtek 2.5/5 Gigabit Ethernet controllers with PCI-Express interface",
     "pname": "r8125",
@@ -3519,10 +3704,25 @@
     "pname": "vivado",
     "version": "2022.2"
   },
+  "packages.x86_64-linux.vmware-workstation": {
+    "description": "Industry standard desktop hypervisor for x86-64 architecture",
+    "pname": "vmware-workstation",
+    "version": "17.5.1"
+  },
   "packages.x86_64-linux.vpp": {
     "description": "Vector Packet Processing",
     "pname": "vpp",
     "version": "24.06"
+  },
+  "packages.x86_64-linux.watt-toolkit_2": {
+    "description": "A cross-platform Steam toolbox",
+    "pname": "watt-toolkit",
+    "version": "2.8.6"
+  },
+  "packages.x86_64-linux.waybar_bluetooth_battery_parse": {
+    "description": "",
+    "pname": "waybar-bluetooth_battery_parse",
+    "version": "0.0.2"
   },
   "packages.x86_64-linux.wechat-uos": {
     "description": "WeChat desktop with sandbox enabled ($HOME/Documents/WeChat_Data) (Adapted from https://aur.archlinux.org/packages/wechat-uos-bwrap)",
@@ -3539,6 +3739,26 @@
     "pname": "wechat-uos",
     "version": "1.0.0.241"
   },
+  "packages.x86_64-linux.wechat_dev_tools_appimage": {
+    "description": "The development tools for wechat projects",
+    "pname": "wechat_dev_tools_appimage",
+    "version": "1.06.2402040-1"
+  },
+  "packages.x86_64-linux.wechat_dev_tools_bin": {
+    "description": "The development tools for wechat projects",
+    "pname": "wechat_dev_tools_bin",
+    "version": "1.06.2402040-1"
+  },
+  "packages.x86_64-linux.wechat_dev_tools_fhs_appimage": {
+    "description": "",
+    "pname": "wechat_dev_tools-env",
+    "version": ""
+  },
+  "packages.x86_64-linux.wechat_dev_tools_fhs_bin": {
+    "description": "",
+    "pname": "wechat_dev_tools-env",
+    "version": ""
+  },
   "packages.x86_64-linux.win2xcur": {
     "description": "win2xcur is a tool that converts cursors from Windows format (*.cur, *.ani) to Xcursor format. It also contains x2wincur which does the opposite.",
     "pname": "python3.11-win2xcur",
@@ -3553,6 +3773,11 @@
     "description": "Wine WeChat x86 (Packaging script adapted from https://aur.archlinux.org/packages/deepin-wine-wechat)",
     "pname": "wine-wechat-x86",
     "version": "3.9.11.16"
+  },
+  "packages.x86_64-linux.xcursor-genshin-nahida": {
+    "description": "xcursor genshin nahida",
+    "pname": "xcursor-genshin-nahida",
+    "version": "1.0-2"
   },
   "packages.x86_64-linux.xstatic-asciinema-player": {
     "description": "asciinema-player packaged for setuptools (easy_install) / pip.",
