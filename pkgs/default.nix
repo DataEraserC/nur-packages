@@ -230,5 +230,36 @@ mkScope (
     wine-wechat-x86 = lib.makeOverridable pkg ./uncategorized/wine-wechat-x86 { };
     xstatic-asciinema-player = pkg ./uncategorized/xstatic-asciinema-player { };
     xstatic-font-awesome = pkg ./uncategorized/xstatic-font-awesome { };
+
+    # DataEraserC's own packaging task
+    wechat_dev_tools_fhs_appimage = pkg ./uncategorized-DataEraserC/wechat_dev_tools_fhs_appimage { };
+    wechat_dev_tools_fhs_bin = pkg ./uncategorized-DataEraserC/wechat_dev_tools_fhs_bin { };
+    Adobe_Photoshop_CS6_appimage = pkg ./uncategorized-DataEraserC/Adobe_Photoshop_CS6_appimage { };
+    Adobe_Illustrator_CS6_appimage = pkg ./uncategorized-DataEraserC/Adobe_Illustrator_CS6_appimage { };
+    wechat_dev_tools_appimage = pkg ./uncategorized-DataEraserC/wechat_dev_tools_appimage { };
+    escrcpy_deb = pkg ./uncategorized-DataEraserC/escrcpy_deb { };
+    escrcpy_appimage = pkg ./uncategorized-DataEraserC/escrcpy_appimage { };
+    wechat_dev_tools_bin = pkg ./uncategorized-DataEraserC/wechat_dev_tools_bin { };
+    qtscrcpy_git = pkgs.libsForQt5.callPackage ./uncategorized-DataEraserC/qtscrcpy_git { };
+    waybar_bluetooth_battery_parse = pkg ./uncategorized-DataEraserC/waybar_bluetooth_battery_parse { };
+    llqqnt = pkg ./uncategorized-DataEraserC/llqqnt { };
+    CrossOver = pkg ./uncategorized-DataEraserC/CrossOver {
+      iUnderstandThatReplacingMoltenVKAndDXVKIsNotSupportedByCodeWeaversAndWillNotBotherThemForSupport =
+        true;
+    };
+    fhs = pkg ./uncategorized-DataEraserC/fhs { };
+    # Usage:
+    # nur-program-learning.packages.${pkgs.system}.xcursor-genshin-nahida
+    xcursor-genshin-nahida = pkg ./uncategorized-DataEraserC/xcursor-genshin-nahida { };
+    MIO_KITCHEN_bin = pkg ./uncategorized-DataEraserC/MIO_KITCHEN_bin { };
+    XiaoMiToolV2 = pkg ./uncategorized-DataEraserC/XiaoMiToolV2 { };
+    watt-toolkit_2 = pkg ./uncategorized-DataEraserC/watt-toolkit_2 { };
+    clang_dev_env_fhs = pkg ./uncategorized-DataEraserC/clang_dev_env_fhs { };
+    cudatoolkit_dev_env_fhs = pkg ./uncategorized-DataEraserC/cudatoolkit_dev_env_fhs { };
+    clang_dev_env = pkg ./uncategorized-DataEraserC/clang_dev_env { };
+    vmware-workstation = pkg ./uncategorized-DataEraserC/vmware-workstation { };
+    AppimageLauncher_deb =
+      pkgs.libsForQt5.callPackage ./uncategorized-DataEraserC/AppimageLauncher_deb
+        { };
   }
 )
