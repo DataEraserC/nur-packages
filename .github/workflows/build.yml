@@ -80,6 +80,9 @@ jobs:
             keep-going = true
             log-lines = 25
 
+      - name: Speed Up nix
+        uses: DeterminateSystems/magic-nix-cache-action@main
+
       - name: Setup cachix
         uses: cachix/cachix-action@v15
         # Don't replace <YOUR_CACHIX_NAME> here!
@@ -170,6 +173,8 @@ jobs:
             experimental-features = nix-command flakes
             access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
             extra-platforms = i686-linux aarch64-linux arm-linux
+      - name: Speed Up nix
+        uses: DeterminateSystems/magic-nix-cache-action@main
       - name: Build nix packages
         run: |
           nix run .#nur-check
