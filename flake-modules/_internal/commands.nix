@@ -85,7 +85,7 @@ _: {
 
         trace = ''
           rm -rf trace.txt*
-          strace -ff --trace=%file -o trace.txt "$@"
+          ${pkgs.strace}/bin/strace -ff --trace=%file -o trace.txt "$@"
         '';
 
         update =
