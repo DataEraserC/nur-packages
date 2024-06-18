@@ -107,14 +107,6 @@ jobs:
           cache: ${{ matrix.atticName }}
           token: ${{ secrets.ATTIC_TOKEN }}
 
-      - name: Setup Cachix cache
-        uses: cachix/cachix-action@master
-        if: ${{ matrix.cachixName != '<YOUR_CACHIX_NAME>' }}
-        with:
-          name: ${{ matrix.cachixName }}
-          signingKey: '${{ secrets.CACHIX_SIGNING_KEY }}'
-          authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
-
       - name: Set nix daemon tmpdir path
         run: |
           sudo mkdir -p /nix/tmpdir
