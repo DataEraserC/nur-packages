@@ -87,10 +87,10 @@ rec {
       ...
     }:
     let
-      patchesInPatchDir = builtins.map (n: {
+      patchesInPatchDir = if (patchDir != null) then builtins.map (n: {
         inherit n;
         patch = patchDir + "/${n}";
-      }) (builtins.attrNames (builtins.readDir patchDir));
+      }) (builtins.attrNames (builtins.readDir patchDir)) else [];
 
       combinedPatchFromCachyOS =
         let
@@ -166,8 +166,9 @@ rec {
 
       extraMeta = {
         description =
-          "Linux Xanmod Kernel with Lan Tian Modifications" + lib.optionalString lto " and Clang+ThinLTO";
+          "Linux Xanmod Kernel with DataEraserC Modifications" + lib.optionalString lto " and Clang+ThinLTO";
         broken = !stdenv.isx86_64;
       };
     });
+  checkPath = (path: if pkgs.lib.pathExists path && pkgs.lib.pathIsDirectory path then path else null);
 }

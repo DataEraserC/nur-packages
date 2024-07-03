@@ -7,6 +7,7 @@
 let
   helpers = callPackage ./helpers.nix { };
   inherit (helpers) mkKernel;
+  inherit (helpers) checkPath;
 
   x86_64-march = [
     "v1"
@@ -32,14 +33,14 @@ let
           name = "${prefix'}generic";
           inherit version src sources;
           configFile = definitionDir + "/config.nix";
-          patchDir = definitionDir + "/patches";
+          patchDir = checkPath (definitionDir + "/patches");
           lto = false;
         })
         (mkKernel {
           name = "${prefix'}generic-lto";
           inherit version src sources;
           configFile = definitionDir + "/config.nix";
-          patchDir = definitionDir + "/patches";
+          patchDir = checkPath (definitionDir + "/patches");
           lto = true;
         })
       ]
@@ -48,7 +49,7 @@ let
           name = "${prefix'}x86_64-${march}";
           inherit version src sources;
           configFile = definitionDir + "/config.nix";
-          patchDir = definitionDir + "/patches";
+          patchDir = checkPath (definitionDir + "/patches");
           lto = false;
           x86_64-march = march;
         })
@@ -56,7 +57,7 @@ let
           name = "${prefix'}x86_64-${march}-lto";
           inherit version src sources;
           configFile = definitionDir + "/config.nix";
-          patchDir = definitionDir + "/patches";
+          patchDir = checkPath (definitionDir + "/patches");
           lto = true;
           x86_64-march = march;
         })
