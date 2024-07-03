@@ -86,6 +86,8 @@ mkScope (
 
     lantianLinuxXanmod = ifNotCI (mergePkgs (pkg ./lantian-linux-xanmod { }));
     lantianLinuxXanmodPackages = ifNotCI (mergePkgs (pkg ./lantian-linux-xanmod/packages.nix { }));
+    dataerasercLinuxXanmod = ifNotCI (mergePkgs (pkg ./dataeraserc-linux-xanmod { }));
+    dataerasercLinuxXanmodPackages = ifNotCI (mergePkgs (pkg ./dataeraserc-linux-xanmod/packages.nix { }));
 
     lantianPersonal = ifNotCI (mergePkgs {
       # Personal packages with no intention to be used by others
