@@ -1,5 +1,11 @@
 #https://github.com/Prismwork/llqqnt-nix/blob/trunk/pkgs/llqqnt.nix
-{ pkgs, ... }:
+{
+  appimageTools,
+  buildFHSUserEnv,
+  pkg-config,
+  qq,
+  ...
+}:
 let
   LiteLoaderQQNT_REV = "af1d19abd92d11f2d0316a940592593f3b254705";
   LiteLoaderQQNT_URL = "https://github.com/LiteLoaderQQNT/LiteLoaderQQNT";
@@ -12,20 +18,20 @@ let
   fhs =
     # create a fhs environment by command `fhs`, so we can run non-nixos packages in nixos!
     let
-      base = pkgs.appimageTools.defaultFhsEnvArgs;
+      base = appimageTools.defaultFhsEnvArgs;
     in
-    pkgs.buildFHSUserEnv (
+    buildFHSUserEnv (
       base
       // {
         name = "fhs";
-        targetPkgs = pkgs: (base.targetPkgs pkgs) ++ [ pkgs.pkg-config ];
+        targetPkgs = pkgs: (base.targetPkgs pkgs) ++ [ pkg-config ];
         profile = "export FHS=1";
         runScript = "bash";
         extraOutputsToInstall = [ "dev" ];
       }
     );
 in
-(pkgs.qq.override {
+(qq.override {
   # can not work and i have no idea
   # inherit commandLineArgs;
 }).overrideAttrs
