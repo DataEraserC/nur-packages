@@ -1,7 +1,7 @@
 #https://github.com/Prismwork/llqqnt-nix/blob/trunk/pkgs/llqqnt.nix
 { pkgs, ... }:
 let
-  LiteLoaderQQNT_REV = "6f1972d2bc83fe1a1d26e82a49ee15d8cc079018";
+  LiteLoaderQQNT_REV = "af1d19abd92d11f2d0316a940592593f3b254705";
   LiteLoaderQQNT_URL = "https://github.com/LiteLoaderQQNT/LiteLoaderQQNT";
   LiteLoaderQQNT_SRC = fetchGit {
     url = LiteLoaderQQNT_URL;
@@ -31,12 +31,14 @@ in
 }).overrideAttrs
   (
     {
-      nativeBuildInputs ? [ ],
+      # nativeBuildInputs ? [ ],
+      runtimeDependencies ? [ ],
+      # buildInputs ? [ ],
       installPhase,
       ...
     }:
     {
-      nativeBuildInputs = nativeBuildInputs ++ [ fhs ];
+      runtimeDependencies = runtimeDependencies ++ [ fhs ];
       installPhase =
         builtins.replaceStrings
           [
@@ -47,7 +49,7 @@ in
           ]
           [
             ''
-              makeShellWrapper $out/opt/QQ/qq $out/bin/qq \
+              makeShellWrapper $out/opt/QQ/qq $out/bin/llqqnt \
                 --prefix LITELOADERQQNT_PROFILE_TEST : ''${XDG_DATA_HOME:-~/.local/share}/LLQQNT \
                 --prefix LITELOADERQQNT_PROFILE_TEST2 : ~/.local/share/LLQQNT \
             ''
@@ -60,7 +62,7 @@ in
         mkdir -vp $out/opt/QQ/resources/app/application/
         cp -f ${LiteLoaderQQNT_SRC}/src/preload.js $out/opt/QQ/resources/app/application/
         # Use FHS environment run Patched QQ
-        sed -i "s@^Exec=.*@Exec=${fhs}/bin/fhs -c 'LITELOADERQQNT_PROFILE=~/.local/share/LLQQNT $out/bin/qq %U'@g" $out/share/applications/qq.desktop
+        sed -i "s@^Exec=.*@Exec=${fhs}/bin/fhs -c 'LITELOADERQQNT_PROFILE=~/.local/share/LLQQNT $out/bin/llqqnt %U'@g" $out/share/applications/qq.desktop
       '';
     }
   )
