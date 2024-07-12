@@ -20,7 +20,7 @@ writeTextFile rec {
   meta = {
     maintainers = with lib.maintainers; [ xddxdd ];
     description = text;
-    homepage = "https://github.com/xddxdd/nur-packages";
+    homepage = "https://github.com/DataEraserC/nur-packages";
     license = lib.licenses.unlicense;
   };
 }

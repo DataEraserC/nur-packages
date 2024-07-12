@@ -1,11 +1,46 @@
 {
+  "legacyPackages.x86_64-linux.Adobe_Illustrator_CS6_appimage": {
+    "description": "Adobe_Illustrator_CS6",
+    "pname": "Adobe_Illustrator_CS6-CS6",
+    "version": ""
+  },
+  "legacyPackages.x86_64-linux.Adobe_Photoshop_CS6_appimage": {
+    "description": "Adobe_Photoshop_CS6",
+    "pname": "Adobe_Photoshop_CS6-CS6",
+    "version": ""
+  },
+  "legacyPackages.x86_64-linux.AppimageLauncher_deb": {
+    "description": "appimagelauncher",
+    "pname": "appimagelauncher",
+    "version": "2.2.0"
+  },
+  "legacyPackages.x86_64-linux.CrossOver": {
+    "description": "CrossOver allows you to run Microsoft applications on your Mac.",
+    "pname": "crossover",
+    "version": "21.2.0"
+  },
+  "legacyPackages.x86_64-linux.LaphaeL-aicmd": {
+    "description": "Enable chat AI to execute commands on linux with feedback-loop for multi-step missions",
+    "pname": "python3.12-laphael-aicmd",
+    "version": "1.2.3"
+  },
+  "legacyPackages.x86_64-linux.MIO_KITCHEN_bin": {
+    "description": "The Android Rom Tool Use python language",
+    "pname": "MIO-KITCHEN_bin",
+    "version": "3.0.8"
+  },
+  "legacyPackages.x86_64-linux.XiaoMiToolV2": {
+    "description": "",
+    "pname": "XiaoMiToolV2",
+    "version": ""
+  },
   "legacyPackages.x86_64-linux._meta.howto": {
     "description": "This NUR has a binary cache. Use the following settings to access it:  nix.settings.substituters = [ \"https://attic.xuyh0120.win/lantian\" ]; nix.settings.trusted-public-keys = [ \"lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc=\" ];  Or, use variables from this repository in case I change them:  nix.settings.substituters = [ nur.repos.xddxdd._meta.url ]; nix.settings.trusted-public-keys = [ nur.repos.xddxdd._meta.publicKey ]; ",
     "pname": "00000-howto",
     "version": ""
   },
   "legacyPackages.x86_64-linux._meta.readme": {
-    "description": "README.md for Lan Tian's NUR Repo",
+    "description": "README.md for DataEraserC's NUR Repo",
     "pname": "README.md",
     "version": ""
   },
@@ -264,6 +299,16 @@
     "pname": "chmlib",
     "version": "0.40a"
   },
+  "legacyPackages.x86_64-linux.clang_dev_env": {
+    "description": "",
+    "pname": "clang_dev_env",
+    "version": ""
+  },
+  "legacyPackages.x86_64-linux.clang_dev_env_fhs": {
+    "description": "",
+    "pname": "clang_dev_env_fhs-shell",
+    "version": ""
+  },
   "legacyPackages.x86_64-linux.click-loglevel": {
     "description": "Log level parameter type for Click",
     "pname": "python3.12-click-loglevel",
@@ -283,6 +328,311 @@
     "description": "Device that allows access to Linux kernel cryptographic drivers",
     "pname": "cryptodev-linux-unstable",
     "version": "2024-07-19"
+  },
+  "legacyPackages.x86_64-linux.cudatoolkit_dev_env_fhs": {
+    "description": "",
+    "pname": "cudatoolkit_dev_env_fhs-shell",
+    "version": ""
+  },
+  "legacyPackages.x86_64-linux.dataerasercLinuxXanmod.generic": {
+    "description": "Linux Xanmod Kernel with DataEraserC Modifications",
+    "pname": "linux",
+    "version": "6.10.5-xanmod1"
+  },
+  "legacyPackages.x86_64-linux.dataerasercLinuxXanmod.generic-lto": {
+    "description": "Linux Xanmod Kernel with DataEraserC Modifications and Clang+ThinLTO",
+    "pname": "linux",
+    "version": "6.10.5-xanmod1"
+  },
+  "legacyPackages.x86_64-linux.dataerasercLinuxXanmod.latest-generic": {
+    "description": "Linux Xanmod Kernel with DataEraserC Modifications",
+    "pname": "linux",
+    "version": "6.10.5-xanmod1"
+  },
+  "legacyPackages.x86_64-linux.dataerasercLinuxXanmod.latest-generic-lto": {
+    "description": "Linux Xanmod Kernel with DataEraserC Modifications and Clang+ThinLTO",
+    "pname": "linux",
+    "version": "6.10.5-xanmod1"
+  },
+  "legacyPackages.x86_64-linux.dataerasercLinuxXanmod.latest-x86_64-v1": {
+    "description": "Linux Xanmod Kernel with DataEraserC Modifications",
+    "pname": "linux",
+    "version": "6.10.5-xanmod1"
+  },
+  "legacyPackages.x86_64-linux.dataerasercLinuxXanmod.latest-x86_64-v1-lto": {
+    "description": "Linux Xanmod Kernel with DataEraserC Modifications and Clang+ThinLTO",
+    "pname": "linux",
+    "version": "6.10.5-xanmod1"
+  },
+  "legacyPackages.x86_64-linux.dataerasercLinuxXanmod.latest-x86_64-v2": {
+    "description": "Linux Xanmod Kernel with DataEraserC Modifications",
+    "pname": "linux",
+    "version": "6.10.5-xanmod1"
+  },
+  "legacyPackages.x86_64-linux.dataerasercLinuxXanmod.latest-x86_64-v2-lto": {
+    "description": "Linux Xanmod Kernel with DataEraserC Modifications and Clang+ThinLTO",
+    "pname": "linux",
+    "version": "6.10.5-xanmod1"
+  },
+  "legacyPackages.x86_64-linux.dataerasercLinuxXanmod.latest-x86_64-v3": {
+    "description": "Linux Xanmod Kernel with DataEraserC Modifications",
+    "pname": "linux",
+    "version": "6.10.5-xanmod1"
+  },
+  "legacyPackages.x86_64-linux.dataerasercLinuxXanmod.latest-x86_64-v3-lto": {
+    "description": "Linux Xanmod Kernel with DataEraserC Modifications and Clang+ThinLTO",
+    "pname": "linux",
+    "version": "6.10.5-xanmod1"
+  },
+  "legacyPackages.x86_64-linux.dataerasercLinuxXanmod.latest-x86_64-v4": {
+    "description": "Linux Xanmod Kernel with DataEraserC Modifications",
+    "pname": "linux",
+    "version": "6.10.5-xanmod1"
+  },
+  "legacyPackages.x86_64-linux.dataerasercLinuxXanmod.latest-x86_64-v4-lto": {
+    "description": "Linux Xanmod Kernel with DataEraserC Modifications and Clang+ThinLTO",
+    "pname": "linux",
+    "version": "6.10.5-xanmod1"
+  },
+  "legacyPackages.x86_64-linux.dataerasercLinuxXanmod.lts-generic": {
+    "description": "Linux Xanmod Kernel with DataEraserC Modifications",
+    "pname": "linux",
+    "version": "6.6.46-xanmod1"
+  },
+  "legacyPackages.x86_64-linux.dataerasercLinuxXanmod.lts-generic-lto": {
+    "description": "Linux Xanmod Kernel with DataEraserC Modifications and Clang+ThinLTO",
+    "pname": "linux",
+    "version": "6.6.46-xanmod1"
+  },
+  "legacyPackages.x86_64-linux.dataerasercLinuxXanmod.lts-x86_64-v1": {
+    "description": "Linux Xanmod Kernel with DataEraserC Modifications",
+    "pname": "linux",
+    "version": "6.6.46-xanmod1"
+  },
+  "legacyPackages.x86_64-linux.dataerasercLinuxXanmod.lts-x86_64-v1-lto": {
+    "description": "Linux Xanmod Kernel with DataEraserC Modifications and Clang+ThinLTO",
+    "pname": "linux",
+    "version": "6.6.46-xanmod1"
+  },
+  "legacyPackages.x86_64-linux.dataerasercLinuxXanmod.lts-x86_64-v2": {
+    "description": "Linux Xanmod Kernel with DataEraserC Modifications",
+    "pname": "linux",
+    "version": "6.6.46-xanmod1"
+  },
+  "legacyPackages.x86_64-linux.dataerasercLinuxXanmod.lts-x86_64-v2-lto": {
+    "description": "Linux Xanmod Kernel with DataEraserC Modifications and Clang+ThinLTO",
+    "pname": "linux",
+    "version": "6.6.46-xanmod1"
+  },
+  "legacyPackages.x86_64-linux.dataerasercLinuxXanmod.lts-x86_64-v3": {
+    "description": "Linux Xanmod Kernel with DataEraserC Modifications",
+    "pname": "linux",
+    "version": "6.6.46-xanmod1"
+  },
+  "legacyPackages.x86_64-linux.dataerasercLinuxXanmod.lts-x86_64-v3-lto": {
+    "description": "Linux Xanmod Kernel with DataEraserC Modifications and Clang+ThinLTO",
+    "pname": "linux",
+    "version": "6.6.46-xanmod1"
+  },
+  "legacyPackages.x86_64-linux.dataerasercLinuxXanmod.lts-x86_64-v4": {
+    "description": "Linux Xanmod Kernel with DataEraserC Modifications",
+    "pname": "linux",
+    "version": "6.6.46-xanmod1"
+  },
+  "legacyPackages.x86_64-linux.dataerasercLinuxXanmod.lts-x86_64-v4-lto": {
+    "description": "Linux Xanmod Kernel with DataEraserC Modifications and Clang+ThinLTO",
+    "pname": "linux",
+    "version": "6.6.46-xanmod1"
+  },
+  "legacyPackages.x86_64-linux.dataerasercLinuxXanmod.v6_0-generic": {
+    "description": "Linux Xanmod Kernel with DataEraserC Modifications",
+    "pname": "linux",
+    "version": "6.0.12-xanmod1"
+  },
+  "legacyPackages.x86_64-linux.dataerasercLinuxXanmod.v6_0-generic-lto": {
+    "description": "Linux Xanmod Kernel with DataEraserC Modifications and Clang+ThinLTO",
+    "pname": "linux",
+    "version": "6.0.12-xanmod1"
+  },
+  "legacyPackages.x86_64-linux.dataerasercLinuxXanmod.v6_0-x86_64-v1": {
+    "description": "Linux Xanmod Kernel with DataEraserC Modifications",
+    "pname": "linux",
+    "version": "6.0.12-xanmod1"
+  },
+  "legacyPackages.x86_64-linux.dataerasercLinuxXanmod.v6_0-x86_64-v1-lto": {
+    "description": "Linux Xanmod Kernel with DataEraserC Modifications and Clang+ThinLTO",
+    "pname": "linux",
+    "version": "6.0.12-xanmod1"
+  },
+  "legacyPackages.x86_64-linux.dataerasercLinuxXanmod.v6_0-x86_64-v2": {
+    "description": "Linux Xanmod Kernel with DataEraserC Modifications",
+    "pname": "linux",
+    "version": "6.0.12-xanmod1"
+  },
+  "legacyPackages.x86_64-linux.dataerasercLinuxXanmod.v6_0-x86_64-v2-lto": {
+    "description": "Linux Xanmod Kernel with DataEraserC Modifications and Clang+ThinLTO",
+    "pname": "linux",
+    "version": "6.0.12-xanmod1"
+  },
+  "legacyPackages.x86_64-linux.dataerasercLinuxXanmod.v6_0-x86_64-v3": {
+    "description": "Linux Xanmod Kernel with DataEraserC Modifications",
+    "pname": "linux",
+    "version": "6.0.12-xanmod1"
+  },
+  "legacyPackages.x86_64-linux.dataerasercLinuxXanmod.v6_0-x86_64-v3-lto": {
+    "description": "Linux Xanmod Kernel with DataEraserC Modifications and Clang+ThinLTO",
+    "pname": "linux",
+    "version": "6.0.12-xanmod1"
+  },
+  "legacyPackages.x86_64-linux.dataerasercLinuxXanmod.v6_0-x86_64-v4": {
+    "description": "Linux Xanmod Kernel with DataEraserC Modifications",
+    "pname": "linux",
+    "version": "6.0.12-xanmod1"
+  },
+  "legacyPackages.x86_64-linux.dataerasercLinuxXanmod.v6_0-x86_64-v4-lto": {
+    "description": "Linux Xanmod Kernel with DataEraserC Modifications and Clang+ThinLTO",
+    "pname": "linux",
+    "version": "6.0.12-xanmod1"
+  },
+  "legacyPackages.x86_64-linux.dataerasercLinuxXanmod.v6_1-generic": {
+    "description": "Linux Xanmod Kernel with DataEraserC Modifications",
+    "pname": "linux",
+    "version": "6.1.77-xanmod1"
+  },
+  "legacyPackages.x86_64-linux.dataerasercLinuxXanmod.v6_1-generic-lto": {
+    "description": "Linux Xanmod Kernel with DataEraserC Modifications and Clang+ThinLTO",
+    "pname": "linux",
+    "version": "6.1.77-xanmod1"
+  },
+  "legacyPackages.x86_64-linux.dataerasercLinuxXanmod.v6_1-x86_64-v1": {
+    "description": "Linux Xanmod Kernel with DataEraserC Modifications",
+    "pname": "linux",
+    "version": "6.1.77-xanmod1"
+  },
+  "legacyPackages.x86_64-linux.dataerasercLinuxXanmod.v6_1-x86_64-v1-lto": {
+    "description": "Linux Xanmod Kernel with DataEraserC Modifications and Clang+ThinLTO",
+    "pname": "linux",
+    "version": "6.1.77-xanmod1"
+  },
+  "legacyPackages.x86_64-linux.dataerasercLinuxXanmod.v6_1-x86_64-v2": {
+    "description": "Linux Xanmod Kernel with DataEraserC Modifications",
+    "pname": "linux",
+    "version": "6.1.77-xanmod1"
+  },
+  "legacyPackages.x86_64-linux.dataerasercLinuxXanmod.v6_1-x86_64-v2-lto": {
+    "description": "Linux Xanmod Kernel with DataEraserC Modifications and Clang+ThinLTO",
+    "pname": "linux",
+    "version": "6.1.77-xanmod1"
+  },
+  "legacyPackages.x86_64-linux.dataerasercLinuxXanmod.v6_1-x86_64-v3": {
+    "description": "Linux Xanmod Kernel with DataEraserC Modifications",
+    "pname": "linux",
+    "version": "6.1.77-xanmod1"
+  },
+  "legacyPackages.x86_64-linux.dataerasercLinuxXanmod.v6_1-x86_64-v3-lto": {
+    "description": "Linux Xanmod Kernel with DataEraserC Modifications and Clang+ThinLTO",
+    "pname": "linux",
+    "version": "6.1.77-xanmod1"
+  },
+  "legacyPackages.x86_64-linux.dataerasercLinuxXanmod.v6_1-x86_64-v4": {
+    "description": "Linux Xanmod Kernel with DataEraserC Modifications",
+    "pname": "linux",
+    "version": "6.1.77-xanmod1"
+  },
+  "legacyPackages.x86_64-linux.dataerasercLinuxXanmod.v6_1-x86_64-v4-lto": {
+    "description": "Linux Xanmod Kernel with DataEraserC Modifications and Clang+ThinLTO",
+    "pname": "linux",
+    "version": "6.1.77-xanmod1"
+  },
+  "legacyPackages.x86_64-linux.dataerasercLinuxXanmod.v6_6-generic": {
+    "description": "Linux Xanmod Kernel with DataEraserC Modifications",
+    "pname": "linux",
+    "version": "6.6.46-xanmod1"
+  },
+  "legacyPackages.x86_64-linux.dataerasercLinuxXanmod.v6_6-generic-lto": {
+    "description": "Linux Xanmod Kernel with DataEraserC Modifications and Clang+ThinLTO",
+    "pname": "linux",
+    "version": "6.6.46-xanmod1"
+  },
+  "legacyPackages.x86_64-linux.dataerasercLinuxXanmod.v6_6-x86_64-v1": {
+    "description": "Linux Xanmod Kernel with DataEraserC Modifications",
+    "pname": "linux",
+    "version": "6.6.46-xanmod1"
+  },
+  "legacyPackages.x86_64-linux.dataerasercLinuxXanmod.v6_6-x86_64-v1-lto": {
+    "description": "Linux Xanmod Kernel with DataEraserC Modifications and Clang+ThinLTO",
+    "pname": "linux",
+    "version": "6.6.46-xanmod1"
+  },
+  "legacyPackages.x86_64-linux.dataerasercLinuxXanmod.v6_6-x86_64-v2": {
+    "description": "Linux Xanmod Kernel with DataEraserC Modifications",
+    "pname": "linux",
+    "version": "6.6.46-xanmod1"
+  },
+  "legacyPackages.x86_64-linux.dataerasercLinuxXanmod.v6_6-x86_64-v2-lto": {
+    "description": "Linux Xanmod Kernel with DataEraserC Modifications and Clang+ThinLTO",
+    "pname": "linux",
+    "version": "6.6.46-xanmod1"
+  },
+  "legacyPackages.x86_64-linux.dataerasercLinuxXanmod.v6_6-x86_64-v3": {
+    "description": "Linux Xanmod Kernel with DataEraserC Modifications",
+    "pname": "linux",
+    "version": "6.6.46-xanmod1"
+  },
+  "legacyPackages.x86_64-linux.dataerasercLinuxXanmod.v6_6-x86_64-v3-lto": {
+    "description": "Linux Xanmod Kernel with DataEraserC Modifications and Clang+ThinLTO",
+    "pname": "linux",
+    "version": "6.6.46-xanmod1"
+  },
+  "legacyPackages.x86_64-linux.dataerasercLinuxXanmod.v6_6-x86_64-v4": {
+    "description": "Linux Xanmod Kernel with DataEraserC Modifications",
+    "pname": "linux",
+    "version": "6.6.46-xanmod1"
+  },
+  "legacyPackages.x86_64-linux.dataerasercLinuxXanmod.v6_6-x86_64-v4-lto": {
+    "description": "Linux Xanmod Kernel with DataEraserC Modifications and Clang+ThinLTO",
+    "pname": "linux",
+    "version": "6.6.46-xanmod1"
+  },
+  "legacyPackages.x86_64-linux.dataerasercLinuxXanmod.x86_64-v1": {
+    "description": "Linux Xanmod Kernel with DataEraserC Modifications",
+    "pname": "linux",
+    "version": "6.10.5-xanmod1"
+  },
+  "legacyPackages.x86_64-linux.dataerasercLinuxXanmod.x86_64-v1-lto": {
+    "description": "Linux Xanmod Kernel with DataEraserC Modifications and Clang+ThinLTO",
+    "pname": "linux",
+    "version": "6.10.5-xanmod1"
+  },
+  "legacyPackages.x86_64-linux.dataerasercLinuxXanmod.x86_64-v2": {
+    "description": "Linux Xanmod Kernel with DataEraserC Modifications",
+    "pname": "linux",
+    "version": "6.10.5-xanmod1"
+  },
+  "legacyPackages.x86_64-linux.dataerasercLinuxXanmod.x86_64-v2-lto": {
+    "description": "Linux Xanmod Kernel with DataEraserC Modifications and Clang+ThinLTO",
+    "pname": "linux",
+    "version": "6.10.5-xanmod1"
+  },
+  "legacyPackages.x86_64-linux.dataerasercLinuxXanmod.x86_64-v3": {
+    "description": "Linux Xanmod Kernel with DataEraserC Modifications",
+    "pname": "linux",
+    "version": "6.10.5-xanmod1"
+  },
+  "legacyPackages.x86_64-linux.dataerasercLinuxXanmod.x86_64-v3-lto": {
+    "description": "Linux Xanmod Kernel with DataEraserC Modifications and Clang+ThinLTO",
+    "pname": "linux",
+    "version": "6.10.5-xanmod1"
+  },
+  "legacyPackages.x86_64-linux.dataerasercLinuxXanmod.x86_64-v4": {
+    "description": "Linux Xanmod Kernel with DataEraserC Modifications",
+    "pname": "linux",
+    "version": "6.10.5-xanmod1"
+  },
+  "legacyPackages.x86_64-linux.dataerasercLinuxXanmod.x86_64-v4-lto": {
+    "description": "Linux Xanmod Kernel with DataEraserC Modifications and Clang+ThinLTO",
+    "pname": "linux",
+    "version": "6.10.5-xanmod1"
   },
   "legacyPackages.x86_64-linux.decluttarr": {
     "description": "Watches radarr, sonarr, lidarr and readarr download queues and removes downloads if they become stalled or no longer needed.",
@@ -334,6 +684,16 @@
     "pname": "electron",
     "version": "11.5.0"
   },
+  "legacyPackages.x86_64-linux.escrcpy_appimage": {
+    "description": "Escrcpy",
+    "pname": "escrcpy",
+    "version": "1.16.3"
+  },
+  "legacyPackages.x86_64-linux.escrcpy_deb": {
+    "description": "Graphical Scrcpy to display and control Android, devices powered by Electron. ",
+    "pname": "escrcpy_deb",
+    "version": "1.18.2"
+  },
   "legacyPackages.x86_64-linux.etherguard": {
     "description": "Layer2 version of wireguard with Floyd Warshall implement in go",
     "pname": "etherguard-unstable",
@@ -348,6 +708,11 @@
     "description": "Fcitx5 theme to match KDE's Breeze style",
     "pname": "fcitx5-breeze",
     "version": "2.0.0"
+  },
+  "legacyPackages.x86_64-linux.fhs": {
+    "description": "",
+    "pname": "fhs",
+    "version": ""
   },
   "legacyPackages.x86_64-linux.flasgger": {
     "description": "Easy OpenAPI specs and Swagger UI for your Flask API",
@@ -828,6 +1193,11 @@
     "description": "Qt5 binding of CEF",
     "pname": "libqcef-unstable",
     "version": "2019-11-23"
+  },
+  "legacyPackages.x86_64-linux.llqqnt": {
+    "description": "QQ for Linux",
+    "pname": "qq",
+    "version": "3.2.12"
   },
   "legacyPackages.x86_64-linux.lyrica": {
     "description": "Linux desktop lyrics widget focused on simplicity and integration",
@@ -2819,6 +3189,11 @@
     "pname": "qqmusic",
     "version": "1.1.5"
   },
+  "legacyPackages.x86_64-linux.qtscrcpy_git": {
+    "description": "Android real-time display control software",
+    "pname": "qtscrcpy",
+    "version": "2.2.1"
+  },
   "legacyPackages.x86_64-linux.r8125": {
     "description": "Linux device driver for Realtek 2.5/5 Gigabit Ethernet controllers with PCI-Express interface",
     "pname": "r8125",
@@ -2984,10 +3359,25 @@
     "pname": "vbmeta-disable-verification",
     "version": "1.0"
   },
+  "legacyPackages.x86_64-linux.vmware-workstation": {
+    "description": "Industry standard desktop hypervisor for x86-64 architecture",
+    "pname": "vmware-workstation",
+    "version": "17.5.1"
+  },
   "legacyPackages.x86_64-linux.vpp": {
     "description": "Vector Packet Processing",
     "pname": "vpp",
     "version": "24.06"
+  },
+  "legacyPackages.x86_64-linux.watt-toolkit_2": {
+    "description": "A cross-platform Steam toolbox",
+    "pname": "watt-toolkit",
+    "version": "2.8.6"
+  },
+  "legacyPackages.x86_64-linux.waybar_bluetooth_battery_parse": {
+    "description": "",
+    "pname": "waybar-bluetooth_battery_parse",
+    "version": "0.0.2"
   },
   "legacyPackages.x86_64-linux.wechat-uos": {
     "description": "WeChat desktop with sandbox enabled ($HOME/Documents/WeChat_Data) (Adapted from https://aur.archlinux.org/packages/wechat-uos-bwrap)",
@@ -3004,6 +3394,26 @@
     "pname": "wechat-uos",
     "version": "1.0.0.241"
   },
+  "legacyPackages.x86_64-linux.wechat_dev_tools_appimage": {
+    "description": "The development tools for wechat projects",
+    "pname": "wechat_dev_tools_appimage",
+    "version": "1.06.2402040-1"
+  },
+  "legacyPackages.x86_64-linux.wechat_dev_tools_bin": {
+    "description": "The development tools for wechat projects",
+    "pname": "wechat_dev_tools_bin",
+    "version": "1.06.2402040-1"
+  },
+  "legacyPackages.x86_64-linux.wechat_dev_tools_fhs_appimage": {
+    "description": "",
+    "pname": "wechat_dev_tools-env",
+    "version": ""
+  },
+  "legacyPackages.x86_64-linux.wechat_dev_tools_fhs_bin": {
+    "description": "",
+    "pname": "wechat_dev_tools-env",
+    "version": ""
+  },
   "legacyPackages.x86_64-linux.wine-wechat": {
     "description": "Wine WeChat x64 (Packaging script adapted from https://aur.archlinux.org/packages/deepin-wine-wechat)",
     "pname": "wine-wechat",
@@ -3014,6 +3424,11 @@
     "pname": "wine-wechat-x86",
     "version": "3.9.11.24"
   },
+  "legacyPackages.x86_64-linux.xcursor-genshin-nahida": {
+    "description": "xcursor genshin nahida",
+    "pname": "xcursor-genshin-nahida",
+    "version": "1.0-2"
+  },
   "legacyPackages.x86_64-linux.xstatic-asciinema-player": {
     "description": "asciinema-player packaged for setuptools (easy_install) / pip.",
     "pname": "python3.12-xstatic-asciinema-player",
@@ -3023,6 +3438,41 @@
     "description": "Font Awesome packaged for setuptools (easy_install) / pip.",
     "pname": "python3.12-xstatic-font-awesome",
     "version": "4.7.0.0"
+  },
+  "packages.x86_64-linux.Adobe_Illustrator_CS6_appimage": {
+    "description": "Adobe_Illustrator_CS6",
+    "pname": "Adobe_Illustrator_CS6-CS6",
+    "version": ""
+  },
+  "packages.x86_64-linux.Adobe_Photoshop_CS6_appimage": {
+    "description": "Adobe_Photoshop_CS6",
+    "pname": "Adobe_Photoshop_CS6-CS6",
+    "version": ""
+  },
+  "packages.x86_64-linux.AppimageLauncher_deb": {
+    "description": "appimagelauncher",
+    "pname": "appimagelauncher",
+    "version": "2.2.0"
+  },
+  "packages.x86_64-linux.CrossOver": {
+    "description": "CrossOver allows you to run Microsoft applications on your Mac.",
+    "pname": "crossover",
+    "version": "21.2.0"
+  },
+  "packages.x86_64-linux.LaphaeL-aicmd": {
+    "description": "Enable chat AI to execute commands on linux with feedback-loop for multi-step missions",
+    "pname": "python3.12-laphael-aicmd",
+    "version": "1.2.3"
+  },
+  "packages.x86_64-linux.MIO_KITCHEN_bin": {
+    "description": "The Android Rom Tool Use python language",
+    "pname": "MIO-KITCHEN_bin",
+    "version": "3.0.8"
+  },
+  "packages.x86_64-linux.XiaoMiToolV2": {
+    "description": "",
+    "pname": "XiaoMiToolV2",
+    "version": ""
   },
   "packages.x86_64-linux._meta": {
     "description": "",
@@ -3109,6 +3559,16 @@
     "pname": "chmlib",
     "version": "0.40a"
   },
+  "packages.x86_64-linux.clang_dev_env": {
+    "description": "",
+    "pname": "clang_dev_env",
+    "version": ""
+  },
+  "packages.x86_64-linux.clang_dev_env_fhs": {
+    "description": "",
+    "pname": "clang_dev_env_fhs-shell",
+    "version": ""
+  },
   "packages.x86_64-linux.click-loglevel": {
     "description": "Log level parameter type for Click",
     "pname": "python3.12-click-loglevel",
@@ -3128,6 +3588,21 @@
     "description": "Device that allows access to Linux kernel cryptographic drivers",
     "pname": "cryptodev-linux-unstable",
     "version": "2024-07-19"
+  },
+  "packages.x86_64-linux.cudatoolkit_dev_env_fhs": {
+    "description": "",
+    "pname": "cudatoolkit_dev_env_fhs-shell",
+    "version": ""
+  },
+  "packages.x86_64-linux.dataerasercLinuxXanmod": {
+    "description": "",
+    "pname": "merged-packages",
+    "version": ""
+  },
+  "packages.x86_64-linux.dataerasercLinuxXanmodPackages": {
+    "description": "",
+    "pname": "merged-packages",
+    "version": ""
   },
   "packages.x86_64-linux.decluttarr": {
     "description": "Watches radarr, sonarr, lidarr and readarr download queues and removes downloads if they become stalled or no longer needed.",
@@ -3179,6 +3654,16 @@
     "pname": "electron",
     "version": "11.5.0"
   },
+  "packages.x86_64-linux.escrcpy_appimage": {
+    "description": "Escrcpy",
+    "pname": "escrcpy",
+    "version": "1.16.3"
+  },
+  "packages.x86_64-linux.escrcpy_deb": {
+    "description": "Graphical Scrcpy to display and control Android, devices powered by Electron. ",
+    "pname": "escrcpy_deb",
+    "version": "1.18.2"
+  },
   "packages.x86_64-linux.etherguard": {
     "description": "Layer2 version of wireguard with Floyd Warshall implement in go",
     "pname": "etherguard-unstable",
@@ -3193,6 +3678,11 @@
     "description": "Fcitx5 theme to match KDE's Breeze style",
     "pname": "fcitx5-breeze",
     "version": "2.0.0"
+  },
+  "packages.x86_64-linux.fhs": {
+    "description": "",
+    "pname": "fhs",
+    "version": ""
   },
   "packages.x86_64-linux.flasgger": {
     "description": "Easy OpenAPI specs and Swagger UI for your Flask API",
@@ -3343,6 +3833,11 @@
     "description": "Qt5 binding of CEF",
     "pname": "libqcef-unstable",
     "version": "2019-11-23"
+  },
+  "packages.x86_64-linux.llqqnt": {
+    "description": "QQ for Linux",
+    "pname": "qq",
+    "version": "3.2.12"
   },
   "packages.x86_64-linux.lyrica": {
     "description": "Linux desktop lyrics widget focused on simplicity and integration",
@@ -3554,6 +4049,11 @@
     "pname": "qqmusic",
     "version": "1.1.5"
   },
+  "packages.x86_64-linux.qtscrcpy_git": {
+    "description": "Android real-time display control software",
+    "pname": "qtscrcpy",
+    "version": "2.2.1"
+  },
   "packages.x86_64-linux.r8125": {
     "description": "Linux device driver for Realtek 2.5/5 Gigabit Ethernet controllers with PCI-Express interface",
     "pname": "r8125",
@@ -3679,10 +4179,25 @@
     "pname": "vbmeta-disable-verification",
     "version": "1.0"
   },
+  "packages.x86_64-linux.vmware-workstation": {
+    "description": "Industry standard desktop hypervisor for x86-64 architecture",
+    "pname": "vmware-workstation",
+    "version": "17.5.1"
+  },
   "packages.x86_64-linux.vpp": {
     "description": "Vector Packet Processing",
     "pname": "vpp",
     "version": "24.06"
+  },
+  "packages.x86_64-linux.watt-toolkit_2": {
+    "description": "A cross-platform Steam toolbox",
+    "pname": "watt-toolkit",
+    "version": "2.8.6"
+  },
+  "packages.x86_64-linux.waybar_bluetooth_battery_parse": {
+    "description": "",
+    "pname": "waybar-bluetooth_battery_parse",
+    "version": "0.0.2"
   },
   "packages.x86_64-linux.wechat-uos": {
     "description": "WeChat desktop with sandbox enabled ($HOME/Documents/WeChat_Data) (Adapted from https://aur.archlinux.org/packages/wechat-uos-bwrap)",
@@ -3699,6 +4214,26 @@
     "pname": "wechat-uos",
     "version": "1.0.0.241"
   },
+  "packages.x86_64-linux.wechat_dev_tools_appimage": {
+    "description": "The development tools for wechat projects",
+    "pname": "wechat_dev_tools_appimage",
+    "version": "1.06.2402040-1"
+  },
+  "packages.x86_64-linux.wechat_dev_tools_bin": {
+    "description": "The development tools for wechat projects",
+    "pname": "wechat_dev_tools_bin",
+    "version": "1.06.2402040-1"
+  },
+  "packages.x86_64-linux.wechat_dev_tools_fhs_appimage": {
+    "description": "",
+    "pname": "wechat_dev_tools-env",
+    "version": ""
+  },
+  "packages.x86_64-linux.wechat_dev_tools_fhs_bin": {
+    "description": "",
+    "pname": "wechat_dev_tools-env",
+    "version": ""
+  },
   "packages.x86_64-linux.wine-wechat": {
     "description": "Wine WeChat x64 (Packaging script adapted from https://aur.archlinux.org/packages/deepin-wine-wechat)",
     "pname": "wine-wechat",
@@ -3708,6 +4243,11 @@
     "description": "Wine WeChat x86 (Packaging script adapted from https://aur.archlinux.org/packages/deepin-wine-wechat)",
     "pname": "wine-wechat-x86",
     "version": "3.9.11.24"
+  },
+  "packages.x86_64-linux.xcursor-genshin-nahida": {
+    "description": "xcursor genshin nahida",
+    "pname": "xcursor-genshin-nahida",
+    "version": "1.0-2"
   },
   "packages.x86_64-linux.xstatic-asciinema-player": {
     "description": "asciinema-player packaged for setuptools (easy_install) / pip.",

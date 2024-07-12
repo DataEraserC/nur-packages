@@ -5,6 +5,11 @@ on:
     branches:
       - main
       - master
+  schedule:
+    # rebuild everyday at 2:51
+    # TIP: Choose a random time here so not all repositories are build at once:
+    # https://www.random.org/clock-times/?num=1&earliest=01%3A00&latest=08%3A00&interval=5&format=html&rnd=new
+    - cron: '35 4 * * *'
 jobs:
   build-packages:
     strategy:
@@ -13,6 +18,36 @@ jobs:
         system:
           - x86_64-linux
           # - aarch64-linux
+        # Set this to notify the global nur package registry that changes are
+        # available.
+        #
+        # The repo name as used in
+        # https://github.com/nix-community/NUR/blob/master/repos.json
+        nurRepo:
+          - <YOUR_REPO_NAME>
+        # Set this to cache your build results in cachix for faster builds
+        # in CI and for everyone who uses your cache.
+        #
+        # Format: Your cachix cache host name without the ".cachix.org" suffix.
+        # Example: mycache (for mycache.cachix.org)
+        #
+        # For this to work, you also need to set the CACHIX_SIGNING_KEY or
+        # CACHIX_AUTH_TOKEN secret in your repository secrets settings in
+        # Github found at
+        # https://github.com/Program-Learning/nur-packages/settings/secrets
+        cachixName:
+          - dataeraserc
+        atticName:
+          # - <YOUR_ATTIC_NAME>
+          - lantian
+        atticEndpoint:
+          # - <YOUR_ATTIC_ENDPOINT>
+          - https://attic.xuyh0120.win
+        nixPath:
+          - nixpkgs=channel:nixos-unstable
+          - nixpkgs=channel:nixpkgs-unstable
+          # - nixpkgs=channel:nixos-23.05
+
     runs-on: ubuntu-latest
     env:
       GIT_SSL_NO_VERIFY: 'true'
@@ -44,7 +79,7 @@ jobs:
       - name: Install nix
         uses: cachix/install-nix-action@V27
         with:
-          nix_path: nixpkgs=channel:nixos-unstable
+          nix_path: "${{ matrix.nixPath }}"
           extra_nix_config: |
             experimental-features = nix-command flakes
             access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
@@ -52,12 +87,25 @@ jobs:
             keep-going = true
             log-lines = 25
 
+      - name: Speed Up nix
+        uses: DeterminateSystems/magic-nix-cache-action@main
+
+      - name: Setup cachix
+        uses: cachix/cachix-action@v15
+        # Don't replace <YOUR_CACHIX_NAME> here!
+        if: ${{ matrix.cachixName != '<YOUR_CACHIX_NAME>' }}
+        with:
+          name: ${{ matrix.cachixName }}
+          signingKey: '${{ secrets.CACHIX_SIGNING_KEY }}'
+          authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+
       - name: Setup Attic cache
         uses: ryanccn/attic-action@v0
+        if: ${{ matrix.atticName != '<YOUR_ATTIC_NAME>' && matrix.atticEndpoint != '<YOUR_ATTIC_ENDPOINT>' }}
         continue-on-error: true
         with:
-          endpoint: https://attic.xuyh0120.win
-          cache: lantian
+          endpoint: ${{ matrix.atticEndpoint }}
+          cache: ${{ matrix.atticName }}
           token: ${{ secrets.ATTIC_TOKEN }}
 
       - name: Set nix daemon tmpdir path
@@ -91,6 +139,35 @@ jobs:
         system:
           - x86_64-linux
           # - aarch64-linux
+        # Set this to notify the global nur package registry that changes are
+        # available.
+        #
+        # The repo name as used in
+        # https://github.com/nix-community/NUR/blob/master/repos.json
+        nurRepo:
+          - <YOUR_REPO_NAME>
+        # Set this to cache your build results in cachix for faster builds
+        # in CI and for everyone who uses your cache.
+        #
+        # Format: Your cachix cache host name without the ".cachix.org" suffix.
+        # Example: mycache (for mycache.cachix.org)
+        #
+        # For this to work, you also need to set the CACHIX_SIGNING_KEY or
+        # CACHIX_AUTH_TOKEN secret in your repository secrets settings in
+        # Github found at
+        # https://github.com/Program-Learning/nur-packages/settings/secrets
+        cachixName:
+          - dataeraserc
+        atticName:
+          # - <YOUR_ATTIC_NAME>
+          - lantian
+        atticEndpoint:
+          # - <YOUR_ATTIC_ENDPOINT>
+          - https://attic.xuyh0120.win
+        nixPath:
+          - nixpkgs=channel:nixos-unstable
+          - nixpkgs=channel:nixpkgs-unstable
+          # - nixpkgs=channel:nixos-23.05
     runs-on: ubuntu-latest
     env:
       GIT_SSL_NO_VERIFY: 'true'
@@ -106,25 +183,99 @@ jobs:
       - name: Install nix
         uses: cachix/install-nix-action@V27
         with:
-          nix_path: nixpkgs=channel:nixos-unstable
+          nix_path: "${{ matrix.nixPath }}"
           extra_nix_config: |
             experimental-features = nix-command flakes
             access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
             extra-platforms = i686-linux aarch64-linux arm-linux
+      - name: Speed Up nix
+        uses: DeterminateSystems/magic-nix-cache-action@main
       - name: Build nix packages
         run: |
           nix run .#nur-check
 
   update-nur:
+    strategy:
+      fail-fast: false
+      matrix:
+        system:
+          - x86_64-linux
+          # - aarch64-linux
+        # Set this to notify the global nur package registry that changes are
+        # available.
+        #
+        # The repo name as used in
+        # https://github.com/nix-community/NUR/blob/master/repos.json
+        nurRepo:
+          - <YOUR_REPO_NAME>
+        # Set this to cache your build results in cachix for faster builds
+        # in CI and for everyone who uses your cache.
+        #
+        # Format: Your cachix cache host name without the ".cachix.org" suffix.
+        # Example: mycache (for mycache.cachix.org)
+        #
+        # For this to work, you also need to set the CACHIX_SIGNING_KEY or
+        # CACHIX_AUTH_TOKEN secret in your repository secrets settings in
+        # Github found at
+        # https://github.com/Program-Learning/nur-packages/settings/secrets
+        cachixName:
+          - dataeraserc
+        atticName:
+          # - <YOUR_ATTIC_NAME>
+          - lantian
+        atticEndpoint:
+          # - <YOUR_ATTIC_ENDPOINT>
+          - https://attic.xuyh0120.win
+        nixPath:
+          - nixpkgs=channel:nixos-unstable
+          - nixpkgs=channel:nixpkgs-unstable
+          # - nixpkgs=channel:nixos-23.05
     runs-on: ubuntu-latest
     needs:
       - build-packages
       - test-nur-eval
     steps:
       - name: Trigger NUR update
-        run: curl -XPOST "https://nur-update.nix-community.org/update?repo=xddxdd"
+        # Don't replace <YOUR_REPO_NAME> here!
+        if: ${{ matrix.nurRepo != '<YOUR_REPO_NAME>' }}
+        run: curl -XPOST "https://nur-update.nix-community.org/update?repo=${{ matrix.nurRepo }}"
 
   update-flakehub:
+    strategy:
+      fail-fast: false
+      matrix:
+        system:
+          - x86_64-linux
+          # - aarch64-linux
+        # Set this to notify the global nur package registry that changes are
+        # available.
+        #
+        # The repo name as used in
+        # https://github.com/nix-community/NUR/blob/master/repos.json
+        nurRepo:
+          - <YOUR_REPO_NAME>
+        # Set this to cache your build results in cachix for faster builds
+        # in CI and for everyone who uses your cache.
+        #
+        # Format: Your cachix cache host name without the ".cachix.org" suffix.
+        # Example: mycache (for mycache.cachix.org)
+        #
+        # For this to work, you also need to set the CACHIX_SIGNING_KEY or
+        # CACHIX_AUTH_TOKEN secret in your repository secrets settings in
+        # Github found at
+        # https://github.com/Program-Learning/nur-packages/settings/secrets
+        cachixName:
+          - dataeraserc
+        atticName:
+          # - <YOUR_ATTIC_NAME>
+          - lantian
+        atticEndpoint:
+          # - <YOUR_ATTIC_ENDPOINT>
+          - https://attic.xuyh0120.win
+        nixPath:
+          - nixpkgs=channel:nixos-unstable
+          - nixpkgs=channel:nixpkgs-unstable
+          # - nixpkgs=channel:nixos-23.05
     runs-on: ubuntu-latest
     needs:
       - build-packages
@@ -137,6 +288,6 @@ jobs:
       - uses: 'DeterminateSystems/nix-installer-action@main'
       - uses: 'DeterminateSystems/flakehub-push@main'
         with:
-          name: 'xddxdd/nur-packages'
+          name: 'DataEraserC/nur-packages'
           rolling: true
           visibility: 'public'

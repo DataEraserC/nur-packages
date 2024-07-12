@@ -32,6 +32,8 @@ jobs:
           path: ~/.local/share/nvfetcher
           key: nvfetcher
 
+      - name: Speed Up nix
+        uses: DeterminateSystems/magic-nix-cache-action@main
       - name: Build nix packages
         run: |
           cat > secrets.toml <<EOF

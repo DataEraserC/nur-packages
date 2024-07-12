@@ -1,8 +1,10 @@
-# Lan Tian's NUR Packages
+# DataEraserC's NUR Packages
 
-![Build and populate cache](https://github.com/xddxdd/nur-packages/workflows/Build%20and%20populate%20cache/badge.svg)
+![Build and populate cache](https://github.com/DataEraserC/nur-packages/workflows/Build%20and%20populate%20cache/badge.svg)
 
-[![built with garnix](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fgarnix.io%2Fapi%2Fbadges%2Fxddxdd%2Fnur-packages)](https://garnix.io)
+[![Cachix Cache](https://img.shields.io/badge/cachix-dataeraserc-blue.svg)](https://dataeraserc.cachix.org)
+
+[![built with garnix](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fgarnix.io%2Fapi%2Fbadges%2Fdataeraserc%2Fnur-packages)](https://garnix.io)
 
 ## Warning
 
@@ -17,8 +19,8 @@ Packages in all other categories are for public use. I will try my best to minim
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nur-xddxdd = {
-      url = "github:xddxdd/nur-packages";
+    nur-DataEraserC = {
+      url = "github:DataEraserC/nur-packages";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -28,14 +30,15 @@ Packages in all other categories are for public use. I will try my best to minim
       system = "x86_64-linux";
       modules = [
         # Add packages from this repo
-        inputs.nur-xddxdd.nixosModules.setupOverlay
+        inputs.nur-DataEraserC.nixosModules.setupOverlay
 
         # Setup QEMU userspace emulation that works with Docker
-        inputs.nur-xddxdd.nixosModules.qemu-user-static-binfmt
+        inputs.nur-DataEraserC.nixosModules.qemu-user-static-binfmt
 
         # Binary cache (optional, choose any one, or see guide below)
-        inputs.nur-xddxdd.nixosModules.nix-cache-attic
-        inputs.nur-xddxdd.nixosModules.nix-cache-garnix
+        inputs.nur-DataEraserC.nixosModules.nix-cache-attic
+        inputs.nur-DataEraserC.nixosModules.nix-cache-cachix
+        inputs.nur-DataEraserC.nixosModules.nix-cache-garnix
       ];
     };
   };
@@ -85,10 +88,15 @@ Or, use variables from this repository in case I change them:
 ## Packages
 
 <details>
-<summary>Package set: (Uncategorized) (128 packages)</summary>
+<summary>Package set: (Uncategorized) (149 packages)</summary>
 
 | State | Path | Name | Version | Description |
 | ----- | ---- | ---- | ------- | ----------- |
+|  | `Adobe_Illustrator_CS6_appimage` | [Adobe_Illustrator_CS6](https://t.me/Linux_Appimages/1052) | CS6 | Adobe_Illustrator_CS6 |
+|  | `Adobe_Photoshop_CS6_appimage` | [Adobe_Photoshop_CS6](https://t.me/Linux_Appimages/1042) | CS6 | Adobe_Photoshop_CS6 |
+|  | `AppimageLauncher_deb` | [appimagelauncher-2.2.0](https://github.com/TheAssassin/AppImageLauncher) |  | appimagelauncher |
+| `Broken` | `MIO_KITCHEN_bin` | [MIO-KITCHEN_bin](https://github.com/ColdWindScholar/MIO-KITCHEN-SOURCE) | 3.0.8 | The Android Rom Tool Use python language |
+|  | `XiaoMiToolV2` | XiaoMiToolV2 |  |  |
 |  | `acpi-ec` | [acpi-ec](https://github.com/musikid/acpi_ec) | 1.0.4 | Kernel module to access directly to the ACPI EC |
 |  | `amule-dlp` | [amule-dlp](https://github.com/amule-project/amule) | unstable-2023-03-02 | Peer-to-peer client for the eD2K and Kademlia networks |
 |  | `ast` | [ast](https://www.aspeedtech.com/support_driver/) | 1.14.3_3 | Aspeed Graphics Driver |
@@ -104,10 +112,13 @@ Or, use variables from this repository in case I change them:
 |  | `browser360` | [browser360](https://browser.360.net/gc/index.html) | 13.3.1015.14 | 360 Browser |
 |  | `calibre-cops` | [calibre-cops](http://blog.slucas.fr/en/oss/calibre-opds-php-server) | 2.7.2 | Calibre OPDS (and HTML) PHP Server : web-based light alternative to Calibre content server / Calibre2OPDS to serve ebooks (epub, mobi, pdf, ...) |
 |  | `chmlib-utils` | [chmlib](http://www.jedrea.com/chmlib) | 0.40a | Library for dealing with Microsoft ITSS/CHM format files |
+|  | `clang_dev_env` | clang_dev_env |  |  |
+|  | `clang_dev_env_fhs` | clang_dev_env_fhs-shell |  |  |
 |  | `click-loglevel` | [click-loglevel](https://github.com/jwodder/click-loglevel) | 0.5.0 | Log level parameter type for Click |
 |  | `cloudpan189-go` | [cloudpan189-go](https://github.com/tickstep/cloudpan189-go) | 0.1.3 | CLI for China Telecom 189 Cloud Drive service, implemented in Go |
 |  | `cockpy` | [cockpy](https://github.com/Hiro420/CockPY) | unstable-2023-04-19 | public and open source version of the cbt2 ps im working on  |
 |  | `cryptodev-unstable` | [cryptodev-linux](http://cryptodev-linux.org/) | unstable-2024-07-19 | Device that allows access to Linux kernel cryptographic drivers |
+|  | `cudatoolkit_dev_env_fhs` | cudatoolkit_dev_env_fhs-shell |  |  |
 |  | `decluttarr` | [decluttarr](https://github.com/ManiMatter/decluttarr) | 1.47.1 | Watches radarr, sonarr, lidarr and readarr download queues and removes downloads if they become stalled or no longer needed. |
 |  | `deepspeech-gpu` | [deepspeech-gpu](https://github.com/mozilla/DeepSpeech) | 0.9.3 | Speech-to-text engine which can run in real time on devices ranging from a Raspberry Pi 4 to high power GPU servers. |
 |  | `deepspeech-wrappers` | [deepspeech](https://github.com/mozilla/DeepSpeech) | 0.9.3 | Speech-to-text engine which can run in real time on devices ranging from a Raspberry Pi 4 to high power GPU servers. |
@@ -118,9 +129,12 @@ Or, use variables from this repository in case I change them:
 |  | `drone-file-secret` | [drone-file-secret](https://github.com/xddxdd/drone-file-secret) | unstable-2023-06-25 | A secret provider for Drone CI. It simply reads secrets from a given folder, suitable for private use Drone CI instances where running a Vault instance can be undesirable. |
 |  | `drone-vault` | [drone-vault](https://docs.drone.io/configure/secrets/external/vault/) | 1.3.0 | Drone plugin for integrating with the Vault secrets manager |
 |  | `electron_11` | [electron](https://github.com/electron/electron) | 11.5.0 | Cross platform desktop application shell |
+|  | `escrcpy_appimage` | [escrcpy](https://github.com/viarotel-org/escrcpy) | 1.16.3 | Escrcpy |
+| `Broken` | `escrcpy_deb` | [escrcpy_deb](https://github.com/viarotel-org/escrcpy) | 1.18.2 | Graphical Scrcpy to display and control Android, devices powered by Electron.  |
 |  | `etherguard` | [etherguard](https://github.com/KusakabeShi/EtherGuard-VPN) | unstable-2024-01-12 | Layer2 version of wireguard with Floyd Warshall implement in go |
 |  | `fastapi-dls` | [fastapi-dls](https://gitea.publichub.eu/oscar.krause/fastapi-dls) | unstable-2024-06-18 | Minimal Delegated License Service (DLS) |
 |  | `fcitx5-breeze` | [fcitx5-breeze](https://github.com/scratch-er/fcitx5-breeze) | 2.0.0 | Fcitx5 theme to match KDE's Breeze style |
+|  | `fhs` | fhs |  |  |
 |  | `flasgger` | [flasgger](http://flasgger.pythonanywhere.com/) | 0.9.5 | Easy OpenAPI specs and Swagger UI for your Flask API |
 |  | `ftp-proxy` | [ftp-proxy](http://www.ftpproxy.org/) | 1.2.3 | ftp.proxy - FTP Proxy Server |
 |  | `genshin-checkin-helper` | [genshin-checkin-helper](https://gitlab.com/y1ndan/genshin-checkin-helper) | unstable-2021-11-09 | More than check-in for Genshin Impact. |
@@ -147,6 +161,7 @@ Or, use variables from this repository in case I change them:
 |  | `liboqs` | [liboqs](https://openquantumsafe.org) | 0.10.1 | C library for prototyping and experimenting with quantum-resistant cryptography |
 |  | `liboqs-unstable` | [liboqs](https://openquantumsafe.org) | unstable-2024-08-18 | C library for prototyping and experimenting with quantum-resistant cryptography |
 |  | `libqcef` | [libqcef](https://github.com/martyr-deepin/libqcef) | unstable-2019-11-23 | Qt5 binding of CEF |
+|  | `llqqnt` | [qq](https://im.qq.com/linuxqq/index.html) | 3.2.12 | QQ for Linux |
 |  | `lyrica` | [lyrica](https://github.com/chiyuki0325/lyrica) | 0.8 | Linux desktop lyrics widget focused on simplicity and integration |
 |  | `lyrica-plasmoid` | [lyrica](https://github.com/chiyuki0325/lyrica) | 0.8 | Linux desktop lyrics widget focused on simplicity and integration (Plasmoid component) |
 |  | `magiskboot` | [magiskboot](https://topjohnwu.github.io/Magisk/tools.html) | 27.0 | A tool to unpack / repack boot images, parse / patch / extract cpio, patch dtb, hex patch binaries, and compress / decompress files with multiple algorithms. |
@@ -185,6 +200,7 @@ Or, use variables from this repository in case I change them:
 |  | `qhttpengine` | [qhttpengine](https://github.com/nitroshare/qhttpengine) | unstable-2018-03-22 | HTTP server for Qt applications |
 |  | `qq` | [qq](https://im.qq.com/linuxqq/index.html) | 3.2.12 | QQ for Linux |
 |  | `qqmusic` | [qqmusic](https://y.qq.com/) | 1.1.5 | Tencent QQ Music |
+| `Broken` | `qtscrcpy_git` | [qtscrcpy](https://github.com/barry-ran/QtScrcpy) | 2.2.1 | Android real-time display control software |
 |  | `r8125` | [r8125](https://www.realtek.com/en/component/zoo/category/network-interface-controllers-10-100-1000m-gigabit-ethernet-pci-express-software) | 9.013.02-2 | Linux device driver for Realtek 2.5/5 Gigabit Ethernet controllers with PCI-Express interface |
 |  | `r8168` | [r8168](https://www.realtek.com/en/component/zoo/category/network-interface-controllers-10-100-1000m-gigabit-ethernet-pci-express-software) | 8.053.00 | Linux device driver for Realtek Ethernet controllers |
 |  | `rime-aurora-pinyin` | [rime-aurora-pinyin](https://github.com/hosxy/rime-aurora-pinyin) | unstable-2022-08-28 | 【极光拼音】输入方案 |
@@ -209,12 +225,20 @@ Or, use variables from this repository in case I change them:
 |  | `uesave-0_3_0` | [uesave](https://github.com/trumank/uesave-rs) | 0.3.0 | A library for reading and writing Unreal Engine save files (commonly referred to as GVAS). Older version that works with Palworld. |
 |  | `uksmd` | [uksmd](https://github.com/CachyOS/uksmd) | 1.2.11 | Userspace KSM helper daemon |
 |  | `vbmeta-disable-verification` | [vbmeta-disable-verification](https://github.com/libxzr/vbmeta-disable-verification) | 1.0 | Patch Android vbmeta image and disable verification flags inside. |
+| `Broken` | `vmware-workstation` | [vmware-workstation](https://www.vmware.com/products/workstation-pro.html) | 17.5.1 | Industry standard desktop hypervisor for x86-64 architecture |
 |  | `vpp` | [vpp](https://wiki.fd.io/view/VPP/What_is_VPP%3F) | 24.06 | Vector Packet Processing |
+|  | `watt-toolkit_2` | [watt-toolkit](https://steampp.net) | 2.8.6 | A cross-platform Steam toolbox |
+|  | `waybar_bluetooth_battery_parse` | waybar-bluetooth_battery_parse | 0.0.2 |  |
 |  | `wechat-uos` | [wechat-uos](https://weixin.qq.com/) | 1.0.0.241 | WeChat desktop with sandbox enabled ($HOME/Documents/WeChat_Data) (Adapted from https://aur.archlinux.org/packages/wechat-uos-bwrap) |
 |  | `wechat-uos-bin` | [wechat-uos](https://weixin.qq.com/) | 1.0.0.241 | WeChat desktop with sandbox enabled ($HOME/Documents/WeChat_Data) (Adapted from https://aur.archlinux.org/packages/wechat-uos-bwrap) |
 |  | `wechat-uos-without-sandbox` | [wechat-uos](https://weixin.qq.com/) | 1.0.0.241 | WeChat desktop without sandbox (Adapted from https://aur.archlinux.org/packages/wechat-uos-bwrap) |
+|  | `wechat_dev_tools_appimage` | [wechat_dev_tools_appimage](https://github.com/msojocs/wechat-web-devtools-linux) | 1.06.2402040-1 | The development tools for wechat projects |
+|  | `wechat_dev_tools_bin` | [wechat_dev_tools_bin](https://github.com/msojocs/wechat-web-devtools-linux) | 1.06.2402040-1 | The development tools for wechat projects |
+|  | `wechat_dev_tools_fhs_appimage` | wechat_dev_tools-env |  |  |
+|  | `wechat_dev_tools_fhs_bin` | wechat_dev_tools-env |  |  |
 |  | `wine-wechat` | [wine-wechat](https://weixin.qq.com/) | 3.9.11.25 | Wine WeChat x64 (Packaging script adapted from https://aur.archlinux.org/packages/deepin-wine-wechat) |
 |  | `wine-wechat-x86` | [wine-wechat-x86](https://weixin.qq.com/) | 3.9.11.24 | Wine WeChat x86 (Packaging script adapted from https://aur.archlinux.org/packages/deepin-wine-wechat) |
+|  | `xcursor-genshin-nahida` | [xcursor-genshin-nahida](https://aur.archlinux.org/packages/xcursor-genshin-nahida) | 1.0-2 | xcursor genshin nahida |
 |  | `xstatic-asciinema-player` | [xstatic-asciinema-player](https://github.com/asciinema/asciinema-player) | 2.6.1.1 | asciinema-player packaged for setuptools (easy_install) / pip. |
 |  | `xstatic-font-awesome` | [xstatic-font-awesome](https://github.com/FortAwesome/Font-Awesome) | 4.7.0.0 | Font Awesome packaged for setuptools (easy_install) / pip. |
 </details>
@@ -261,6 +285,81 @@ Or, use variables from this repository in case I change them:
 |  | `asteriskDigiumCodecs.20.silk` | [asterisk-20-codec-silk](https://downloads.digium.com/pub/telephony/codec_silk/) | 1.0.3 | Asterisk 20 silk Codec by Digium |
 |  | `asteriskDigiumCodecs.20.siren14` | [asterisk-20-codec-siren14](https://downloads.digium.com/pub/telephony/codec_siren14/) | 1.0.7 | Asterisk 20 siren14 Codec by Digium |
 |  | `asteriskDigiumCodecs.20.siren7` | [asterisk-20-codec-siren7](https://downloads.digium.com/pub/telephony/codec_siren7/) | 1.0.7 | Asterisk 20 siren7 Codec by Digium |
+</details>
+
+<details>
+<summary>Package set: dataerasercLinuxXanmod (60 packages)</summary>
+
+| State | Path | Name | Version | Description |
+| ----- | ---- | ---- | ------- | ----------- |
+|  | `dataerasercLinuxXanmod.generic` | [linux](https://www.kernel.org/) | 6.10.5-xanmod1 | Linux Xanmod Kernel with DataEraserC Modifications |
+|  | `dataerasercLinuxXanmod.generic-lto` | [linux](https://www.kernel.org/) | 6.10.5-xanmod1 | Linux Xanmod Kernel with DataEraserC Modifications and Clang+ThinLTO |
+|  | `dataerasercLinuxXanmod.latest-generic` | [linux](https://www.kernel.org/) | 6.10.5-xanmod1 | Linux Xanmod Kernel with DataEraserC Modifications |
+|  | `dataerasercLinuxXanmod.latest-generic-lto` | [linux](https://www.kernel.org/) | 6.10.5-xanmod1 | Linux Xanmod Kernel with DataEraserC Modifications and Clang+ThinLTO |
+|  | `dataerasercLinuxXanmod.latest-x86_64-v1` | [linux](https://www.kernel.org/) | 6.10.5-xanmod1 | Linux Xanmod Kernel with DataEraserC Modifications |
+|  | `dataerasercLinuxXanmod.latest-x86_64-v1-lto` | [linux](https://www.kernel.org/) | 6.10.5-xanmod1 | Linux Xanmod Kernel with DataEraserC Modifications and Clang+ThinLTO |
+|  | `dataerasercLinuxXanmod.latest-x86_64-v2` | [linux](https://www.kernel.org/) | 6.10.5-xanmod1 | Linux Xanmod Kernel with DataEraserC Modifications |
+|  | `dataerasercLinuxXanmod.latest-x86_64-v2-lto` | [linux](https://www.kernel.org/) | 6.10.5-xanmod1 | Linux Xanmod Kernel with DataEraserC Modifications and Clang+ThinLTO |
+|  | `dataerasercLinuxXanmod.latest-x86_64-v3` | [linux](https://www.kernel.org/) | 6.10.5-xanmod1 | Linux Xanmod Kernel with DataEraserC Modifications |
+|  | `dataerasercLinuxXanmod.latest-x86_64-v3-lto` | [linux](https://www.kernel.org/) | 6.10.5-xanmod1 | Linux Xanmod Kernel with DataEraserC Modifications and Clang+ThinLTO |
+|  | `dataerasercLinuxXanmod.latest-x86_64-v4` | [linux](https://www.kernel.org/) | 6.10.5-xanmod1 | Linux Xanmod Kernel with DataEraserC Modifications |
+|  | `dataerasercLinuxXanmod.latest-x86_64-v4-lto` | [linux](https://www.kernel.org/) | 6.10.5-xanmod1 | Linux Xanmod Kernel with DataEraserC Modifications and Clang+ThinLTO |
+|  | `dataerasercLinuxXanmod.lts-generic` | [linux](https://www.kernel.org/) | 6.6.46-xanmod1 | Linux Xanmod Kernel with DataEraserC Modifications |
+|  | `dataerasercLinuxXanmod.lts-generic-lto` | [linux](https://www.kernel.org/) | 6.6.46-xanmod1 | Linux Xanmod Kernel with DataEraserC Modifications and Clang+ThinLTO |
+|  | `dataerasercLinuxXanmod.lts-x86_64-v1` | [linux](https://www.kernel.org/) | 6.6.46-xanmod1 | Linux Xanmod Kernel with DataEraserC Modifications |
+|  | `dataerasercLinuxXanmod.lts-x86_64-v1-lto` | [linux](https://www.kernel.org/) | 6.6.46-xanmod1 | Linux Xanmod Kernel with DataEraserC Modifications and Clang+ThinLTO |
+|  | `dataerasercLinuxXanmod.lts-x86_64-v2` | [linux](https://www.kernel.org/) | 6.6.46-xanmod1 | Linux Xanmod Kernel with DataEraserC Modifications |
+|  | `dataerasercLinuxXanmod.lts-x86_64-v2-lto` | [linux](https://www.kernel.org/) | 6.6.46-xanmod1 | Linux Xanmod Kernel with DataEraserC Modifications and Clang+ThinLTO |
+|  | `dataerasercLinuxXanmod.lts-x86_64-v3` | [linux](https://www.kernel.org/) | 6.6.46-xanmod1 | Linux Xanmod Kernel with DataEraserC Modifications |
+|  | `dataerasercLinuxXanmod.lts-x86_64-v3-lto` | [linux](https://www.kernel.org/) | 6.6.46-xanmod1 | Linux Xanmod Kernel with DataEraserC Modifications and Clang+ThinLTO |
+|  | `dataerasercLinuxXanmod.lts-x86_64-v4` | [linux](https://www.kernel.org/) | 6.6.46-xanmod1 | Linux Xanmod Kernel with DataEraserC Modifications |
+|  | `dataerasercLinuxXanmod.lts-x86_64-v4-lto` | [linux](https://www.kernel.org/) | 6.6.46-xanmod1 | Linux Xanmod Kernel with DataEraserC Modifications and Clang+ThinLTO |
+|  | `dataerasercLinuxXanmod.v6_0-generic` | [linux](https://www.kernel.org/) | 6.0.12-xanmod1 | Linux Xanmod Kernel with DataEraserC Modifications |
+|  | `dataerasercLinuxXanmod.v6_0-generic-lto` | [linux](https://www.kernel.org/) | 6.0.12-xanmod1 | Linux Xanmod Kernel with DataEraserC Modifications and Clang+ThinLTO |
+|  | `dataerasercLinuxXanmod.v6_0-x86_64-v1` | [linux](https://www.kernel.org/) | 6.0.12-xanmod1 | Linux Xanmod Kernel with DataEraserC Modifications |
+|  | `dataerasercLinuxXanmod.v6_0-x86_64-v1-lto` | [linux](https://www.kernel.org/) | 6.0.12-xanmod1 | Linux Xanmod Kernel with DataEraserC Modifications and Clang+ThinLTO |
+|  | `dataerasercLinuxXanmod.v6_0-x86_64-v2` | [linux](https://www.kernel.org/) | 6.0.12-xanmod1 | Linux Xanmod Kernel with DataEraserC Modifications |
+|  | `dataerasercLinuxXanmod.v6_0-x86_64-v2-lto` | [linux](https://www.kernel.org/) | 6.0.12-xanmod1 | Linux Xanmod Kernel with DataEraserC Modifications and Clang+ThinLTO |
+|  | `dataerasercLinuxXanmod.v6_0-x86_64-v3` | [linux](https://www.kernel.org/) | 6.0.12-xanmod1 | Linux Xanmod Kernel with DataEraserC Modifications |
+|  | `dataerasercLinuxXanmod.v6_0-x86_64-v3-lto` | [linux](https://www.kernel.org/) | 6.0.12-xanmod1 | Linux Xanmod Kernel with DataEraserC Modifications and Clang+ThinLTO |
+|  | `dataerasercLinuxXanmod.v6_0-x86_64-v4` | [linux](https://www.kernel.org/) | 6.0.12-xanmod1 | Linux Xanmod Kernel with DataEraserC Modifications |
+|  | `dataerasercLinuxXanmod.v6_0-x86_64-v4-lto` | [linux](https://www.kernel.org/) | 6.0.12-xanmod1 | Linux Xanmod Kernel with DataEraserC Modifications and Clang+ThinLTO |
+|  | `dataerasercLinuxXanmod.v6_1-generic` | [linux](https://www.kernel.org/) | 6.1.77-xanmod1 | Linux Xanmod Kernel with DataEraserC Modifications |
+|  | `dataerasercLinuxXanmod.v6_1-generic-lto` | [linux](https://www.kernel.org/) | 6.1.77-xanmod1 | Linux Xanmod Kernel with DataEraserC Modifications and Clang+ThinLTO |
+|  | `dataerasercLinuxXanmod.v6_1-x86_64-v1` | [linux](https://www.kernel.org/) | 6.1.77-xanmod1 | Linux Xanmod Kernel with DataEraserC Modifications |
+|  | `dataerasercLinuxXanmod.v6_1-x86_64-v1-lto` | [linux](https://www.kernel.org/) | 6.1.77-xanmod1 | Linux Xanmod Kernel with DataEraserC Modifications and Clang+ThinLTO |
+|  | `dataerasercLinuxXanmod.v6_1-x86_64-v2` | [linux](https://www.kernel.org/) | 6.1.77-xanmod1 | Linux Xanmod Kernel with DataEraserC Modifications |
+|  | `dataerasercLinuxXanmod.v6_1-x86_64-v2-lto` | [linux](https://www.kernel.org/) | 6.1.77-xanmod1 | Linux Xanmod Kernel with DataEraserC Modifications and Clang+ThinLTO |
+|  | `dataerasercLinuxXanmod.v6_1-x86_64-v3` | [linux](https://www.kernel.org/) | 6.1.77-xanmod1 | Linux Xanmod Kernel with DataEraserC Modifications |
+|  | `dataerasercLinuxXanmod.v6_1-x86_64-v3-lto` | [linux](https://www.kernel.org/) | 6.1.77-xanmod1 | Linux Xanmod Kernel with DataEraserC Modifications and Clang+ThinLTO |
+|  | `dataerasercLinuxXanmod.v6_1-x86_64-v4` | [linux](https://www.kernel.org/) | 6.1.77-xanmod1 | Linux Xanmod Kernel with DataEraserC Modifications |
+|  | `dataerasercLinuxXanmod.v6_1-x86_64-v4-lto` | [linux](https://www.kernel.org/) | 6.1.77-xanmod1 | Linux Xanmod Kernel with DataEraserC Modifications and Clang+ThinLTO |
+|  | `dataerasercLinuxXanmod.v6_6-generic` | [linux](https://www.kernel.org/) | 6.6.46-xanmod1 | Linux Xanmod Kernel with DataEraserC Modifications |
+|  | `dataerasercLinuxXanmod.v6_6-generic-lto` | [linux](https://www.kernel.org/) | 6.6.46-xanmod1 | Linux Xanmod Kernel with DataEraserC Modifications and Clang+ThinLTO |
+|  | `dataerasercLinuxXanmod.v6_6-x86_64-v1` | [linux](https://www.kernel.org/) | 6.6.46-xanmod1 | Linux Xanmod Kernel with DataEraserC Modifications |
+|  | `dataerasercLinuxXanmod.v6_6-x86_64-v1-lto` | [linux](https://www.kernel.org/) | 6.6.46-xanmod1 | Linux Xanmod Kernel with DataEraserC Modifications and Clang+ThinLTO |
+|  | `dataerasercLinuxXanmod.v6_6-x86_64-v2` | [linux](https://www.kernel.org/) | 6.6.46-xanmod1 | Linux Xanmod Kernel with DataEraserC Modifications |
+|  | `dataerasercLinuxXanmod.v6_6-x86_64-v2-lto` | [linux](https://www.kernel.org/) | 6.6.46-xanmod1 | Linux Xanmod Kernel with DataEraserC Modifications and Clang+ThinLTO |
+|  | `dataerasercLinuxXanmod.v6_6-x86_64-v3` | [linux](https://www.kernel.org/) | 6.6.46-xanmod1 | Linux Xanmod Kernel with DataEraserC Modifications |
+|  | `dataerasercLinuxXanmod.v6_6-x86_64-v3-lto` | [linux](https://www.kernel.org/) | 6.6.46-xanmod1 | Linux Xanmod Kernel with DataEraserC Modifications and Clang+ThinLTO |
+|  | `dataerasercLinuxXanmod.v6_6-x86_64-v4` | [linux](https://www.kernel.org/) | 6.6.46-xanmod1 | Linux Xanmod Kernel with DataEraserC Modifications |
+|  | `dataerasercLinuxXanmod.v6_6-x86_64-v4-lto` | [linux](https://www.kernel.org/) | 6.6.46-xanmod1 | Linux Xanmod Kernel with DataEraserC Modifications and Clang+ThinLTO |
+|  | `dataerasercLinuxXanmod.x86_64-v1` | [linux](https://www.kernel.org/) | 6.10.5-xanmod1 | Linux Xanmod Kernel with DataEraserC Modifications |
+|  | `dataerasercLinuxXanmod.x86_64-v1-lto` | [linux](https://www.kernel.org/) | 6.10.5-xanmod1 | Linux Xanmod Kernel with DataEraserC Modifications and Clang+ThinLTO |
+|  | `dataerasercLinuxXanmod.x86_64-v2` | [linux](https://www.kernel.org/) | 6.10.5-xanmod1 | Linux Xanmod Kernel with DataEraserC Modifications |
+|  | `dataerasercLinuxXanmod.x86_64-v2-lto` | [linux](https://www.kernel.org/) | 6.10.5-xanmod1 | Linux Xanmod Kernel with DataEraserC Modifications and Clang+ThinLTO |
+|  | `dataerasercLinuxXanmod.x86_64-v3` | [linux](https://www.kernel.org/) | 6.10.5-xanmod1 | Linux Xanmod Kernel with DataEraserC Modifications |
+|  | `dataerasercLinuxXanmod.x86_64-v3-lto` | [linux](https://www.kernel.org/) | 6.10.5-xanmod1 | Linux Xanmod Kernel with DataEraserC Modifications and Clang+ThinLTO |
+|  | `dataerasercLinuxXanmod.x86_64-v4` | [linux](https://www.kernel.org/) | 6.10.5-xanmod1 | Linux Xanmod Kernel with DataEraserC Modifications |
+|  | `dataerasercLinuxXanmod.x86_64-v4-lto` | [linux](https://www.kernel.org/) | 6.10.5-xanmod1 | Linux Xanmod Kernel with DataEraserC Modifications and Clang+ThinLTO |
+</details>
+
+<details>
+<summary>Package set: dataerasercLinuxXanmodPackages (0 packages)</summary>
+
+| State | Path | Name | Version | Description |
+| ----- | ---- | ---- | ------- | ----------- |
+
 </details>
 
 <details>
