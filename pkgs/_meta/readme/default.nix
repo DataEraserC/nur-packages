@@ -80,11 +80,13 @@ in
 writeTextFile {
   name = "README.md";
   text = ''
-    # Lan Tian's NUR Packages
+    # DataEraserC's NUR Packages
 
-    ![Build and populate cache](https://github.com/xddxdd/nur-packages/workflows/Build%20and%20populate%20cache/badge.svg)
+    ![Build and populate cache](https://github.com/DataEraserC/nur-packages/workflows/Build%20and%20populate%20cache/badge.svg)
 
-    [![built with garnix](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fgarnix.io%2Fapi%2Fbadges%2Fxddxdd%2Fnur-packages)](https://garnix.io)
+    [![Cachix Cache](https://img.shields.io/badge/cachix-dataeraserc-blue.svg)](https://dataeraserc.cachix.org)
+
+    [![built with garnix](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fgarnix.io%2Fapi%2Fbadges%2Fdataeraserc%2Fnur-packages)](https://garnix.io)
 
     ## Warning
 
@@ -99,8 +101,8 @@ writeTextFile {
     {
       inputs = {
         nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-        nur-xddxdd = {
-          url = "github:xddxdd/nur-packages";
+        nur-DataEraserC = {
+          url = "github:DataEraserC/nur-packages";
           inputs.nixpkgs.follows = "nixpkgs";
         };
       };
@@ -110,14 +112,15 @@ writeTextFile {
           system = "x86_64-linux";
           modules = [
             # Add packages from this repo
-            inputs.nur-xddxdd.nixosModules.setupOverlay
+            inputs.nur-DataEraserC.nixosModules.setupOverlay
 
             # Setup QEMU userspace emulation that works with Docker
-            inputs.nur-xddxdd.nixosModules.qemu-user-static-binfmt
+            inputs.nur-DataEraserC.nixosModules.qemu-user-static-binfmt
 
             # Binary cache (optional, choose any one, or see guide below)
-            inputs.nur-xddxdd.nixosModules.nix-cache-attic
-            inputs.nur-xddxdd.nixosModules.nix-cache-garnix
+            inputs.nur-DataEraserC.nixosModules.nix-cache-attic
+            inputs.nur-DataEraserC.nixosModules.nix-cache-cachix
+            inputs.nur-DataEraserC.nixosModules.nix-cache-garnix
           ];
         };
       };
@@ -172,8 +175,8 @@ writeTextFile {
   '';
   meta = {
     maintainers = with lib.maintainers; [ xddxdd ];
-    description = "README.md for Lan Tian's NUR Repo";
-    homepage = "https://github.com/xddxdd/nur-packages";
+    description = "README.md for DataEraserC's NUR Repo";
+    homepage = "https://github.com/DataEraserC/nur-packages";
     license = lib.licenses.unlicense;
   };
 }

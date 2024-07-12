@@ -84,8 +84,10 @@ def verify_package(platform: str, name: str, package: dict) -> bool:
         print(f"{platform}: {name}: no license set")
         valid = False
 
-    if not any([m.get("github") == "xddxdd" for m in package.get("maintainers", [])]):
-        print(f"{platform}: {name}: xddxdd not in maintainers")
+    if not any(
+        [m.get("github") == "DataEraserC" for m in package.get("maintainers", [])]
+    ):
+        print(f"{platform}: {name}: DataEraserC not in maintainers")
         valid = False
 
     if not valid:
