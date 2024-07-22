@@ -8,6 +8,6 @@ rec {
   garnixPublicKey = "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g=";
 
   # Backwards compatibility
-  url = atticUrl;
-  publicKey = atticPublicKey;
+  url = cachixUrl;
+  publicKey = cachixPublicKey;
 }

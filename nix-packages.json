@@ -35,7 +35,7 @@
     "version": ""
   },
   "legacyPackages.x86_64-linux._meta.howto": {
-    "description": "This NUR has a binary cache. Use the following settings to access it:  nix.settings.substituters = [ \"https://attic.xuyh0120.win/lantian\" ]; nix.settings.trusted-public-keys = [ \"lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc=\" ];  Or, use variables from this repository in case I change them:  nix.settings.substituters = [ nur.repos.xddxdd._meta.url ]; nix.settings.trusted-public-keys = [ nur.repos.xddxdd._meta.publicKey ]; ",
+    "description": "This NUR has a binary cache. Use the following settings to access it:  nix.settings.substituters = [ \"https://dataeraserc.cachix.org\" ]; nix.settings.trusted-public-keys = [ \"dataeraserc.cachix.org-1:VB/XTSZLKIg0sLnZxr+op45pII4pInaOP8pbfgUJ+Uc=\" ];  Or, use variables from this repository in case I change them:  nix.settings.substituters = [ nur.repos.xddxdd._meta.url ]; nix.settings.trusted-public-keys = [ nur.repos.xddxdd._meta.publicKey ]; ",
     "pname": "00000-howto",
     "version": ""
   },
