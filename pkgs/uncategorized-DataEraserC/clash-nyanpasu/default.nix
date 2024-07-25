@@ -1,0 +1,1 @@
+import ./clash-nyanpasu.nix

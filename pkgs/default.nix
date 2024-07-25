@@ -88,7 +88,9 @@ mkScope (
     lantianLinuxXanmod = ifNotCI (mergePkgs (pkg ./lantian-linux-xanmod { }));
     lantianLinuxXanmodPackages = ifNotCI (mergePkgs (pkg ./lantian-linux-xanmod/packages.nix { }));
     dataerasercLinuxXanmod = ifNotCI (mergePkgs (pkg ./dataeraserc-linux-xanmod { }));
-    dataerasercLinuxXanmodPackages = ifNotCI (mergePkgs (pkg ./dataeraserc-linux-xanmod/packages.nix { }));
+    dataerasercLinuxXanmodPackages = ifNotCI (
+      mergePkgs (pkg ./dataeraserc-linux-xanmod/packages.nix { })
+    );
 
     lantianPersonal = ifNotCI (mergePkgs {
       # Personal packages with no intention to be used by others
@@ -268,6 +270,7 @@ mkScope (
     cudatoolkit_dev_env_fhs = pkg ./uncategorized-DataEraserC/cudatoolkit_dev_env_fhs { };
     clang_dev_env = pkg ./uncategorized-DataEraserC/clang_dev_env { };
     vmware-workstation = pkg ./uncategorized-DataEraserC/vmware-workstation { };
+    clash-nyanpasu = pkg ./uncategorized-DataEraserC/clash-nyanpasu { };
     AppimageLauncher_deb =
       pkgs.libsForQt5.callPackage ./uncategorized-DataEraserC/AppimageLauncher_deb
         { };
