@@ -88,7 +88,7 @@ Or, use variables from this repository in case I change them:
 ## Packages
 
 <details>
-<summary>Package set: (Uncategorized) (149 packages)</summary>
+<summary>Package set: (Uncategorized) (150 packages)</summary>
 
 | State | Path | Name | Version | Description |
 | ----- | ---- | ---- | ------- | ----------- |
@@ -114,6 +114,7 @@ Or, use variables from this repository in case I change them:
 |  | `chmlib-utils` | [chmlib](http://www.jedrea.com/chmlib) | 0.40a | Library for dealing with Microsoft ITSS/CHM format files |
 |  | `clang_dev_env` | clang_dev_env |  |  |
 |  | `clang_dev_env_fhs` | clang_dev_env_fhs-shell |  |  |
+|  | `clash-nyanpasu` | [clash-nyanpasu](https://github.com/keiko233/clash-nyanpasu) | 1.4.5 | Clash GUI based on tauri |
 |  | `click-loglevel` | [click-loglevel](https://github.com/jwodder/click-loglevel) | 0.5.0 | Log level parameter type for Click |
 |  | `cloudpan189-go` | [cloudpan189-go](https://github.com/tickstep/cloudpan189-go) | 0.1.3 | CLI for China Telecom 189 Cloud Drive service, implemented in Go |
 |  | `cockpy` | [cockpy](https://github.com/Hiro420/CockPY) | unstable-2023-04-19 | public and open source version of the cbt2 ps im working on  |

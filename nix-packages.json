@@ -309,6 +309,11 @@
     "pname": "clang_dev_env_fhs-shell",
     "version": ""
   },
+  "legacyPackages.x86_64-linux.clash-nyanpasu": {
+    "description": "Clash GUI based on tauri",
+    "pname": "clash-nyanpasu",
+    "version": "1.4.5"
+  },
   "legacyPackages.x86_64-linux.click-loglevel": {
     "description": "Log level parameter type for Click",
     "pname": "python3.12-click-loglevel",
@@ -3568,6 +3573,11 @@
     "description": "",
     "pname": "clang_dev_env_fhs-shell",
     "version": ""
+  },
+  "packages.x86_64-linux.clash-nyanpasu": {
+    "description": "Clash GUI based on tauri",
+    "pname": "clash-nyanpasu",
+    "version": "1.4.5"
   },
   "packages.x86_64-linux.click-loglevel": {
     "description": "Log level parameter type for Click",
