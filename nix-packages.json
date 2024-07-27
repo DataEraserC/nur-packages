@@ -334,6 +334,11 @@
     "pname": "cryptodev-linux-unstable",
     "version": "2024-07-19"
   },
+  "legacyPackages.x86_64-linux.cudatoolkit_dev_env": {
+    "description": "",
+    "pname": "cudatoolkit_dev_env",
+    "version": ""
+  },
   "legacyPackages.x86_64-linux.cudatoolkit_dev_env_fhs": {
     "description": "",
     "pname": "cudatoolkit_dev_env_fhs-shell",
@@ -3598,6 +3603,11 @@
     "description": "Device that allows access to Linux kernel cryptographic drivers",
     "pname": "cryptodev-linux-unstable",
     "version": "2024-07-19"
+  },
+  "packages.x86_64-linux.cudatoolkit_dev_env": {
+    "description": "",
+    "pname": "cudatoolkit_dev_env",
+    "version": ""
   },
   "packages.x86_64-linux.cudatoolkit_dev_env_fhs": {
     "description": "",

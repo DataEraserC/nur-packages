@@ -88,7 +88,7 @@ Or, use variables from this repository in case I change them:
 ## Packages
 
 <details>
-<summary>Package set: (Uncategorized) (150 packages)</summary>
+<summary>Package set: (Uncategorized) (151 packages)</summary>
 
 | State | Path | Name | Version | Description |
 | ----- | ---- | ---- | ------- | ----------- |
@@ -119,6 +119,7 @@ Or, use variables from this repository in case I change them:
 |  | `cloudpan189-go` | [cloudpan189-go](https://github.com/tickstep/cloudpan189-go) | 0.1.3 | CLI for China Telecom 189 Cloud Drive service, implemented in Go |
 |  | `cockpy` | [cockpy](https://github.com/Hiro420/CockPY) | unstable-2023-04-19 | public and open source version of the cbt2 ps im working on  |
 |  | `cryptodev-unstable` | [cryptodev-linux](http://cryptodev-linux.org/) | unstable-2024-07-19 | Device that allows access to Linux kernel cryptographic drivers |
+|  | `cudatoolkit_dev_env` | cudatoolkit_dev_env |  |  |
 |  | `cudatoolkit_dev_env_fhs` | cudatoolkit_dev_env_fhs-shell |  |  |
 |  | `decluttarr` | [decluttarr](https://github.com/ManiMatter/decluttarr) | 1.47.1 | Watches radarr, sonarr, lidarr and readarr download queues and removes downloads if they become stalled or no longer needed. |
 |  | `deepspeech-gpu` | [deepspeech-gpu](https://github.com/mozilla/DeepSpeech) | 0.9.3 | Speech-to-text engine which can run in real time on devices ranging from a Raspberry Pi 4 to high power GPU servers. |
