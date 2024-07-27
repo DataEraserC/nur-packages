@@ -2,12 +2,10 @@
   pkgs ? import <nixpkgs> {},
 }: let
   devShellPackages = with pkgs; [
-    clang-tools
-    ccls
-    llvmPackages.clang # c/c++ tools with clang-tools such as clangd
+    cudatoolkit
   ];
 in
   pkgs.buildEnv {
-    name = "clang_dev_env";
+    name = "cudatoolkit_dev_env";
     paths = devShellPackages;
   }
