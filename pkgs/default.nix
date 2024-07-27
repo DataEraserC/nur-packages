@@ -266,9 +266,10 @@ mkScope (
     MIO_KITCHEN_bin = pkg ./uncategorized-DataEraserC/MIO_KITCHEN_bin { };
     XiaoMiToolV2 = pkg ./uncategorized-DataEraserC/XiaoMiToolV2 { };
     watt-toolkit_2 = pkg ./uncategorized-DataEraserC/watt-toolkit_2 { };
-    clang_dev_env_fhs = pkg ./uncategorized-DataEraserC/clang_dev_env_fhs { };
-    cudatoolkit_dev_env_fhs = pkg ./uncategorized-DataEraserC/cudatoolkit_dev_env_fhs { };
     clang_dev_env = pkg ./uncategorized-DataEraserC/clang_dev_env { };
+    clang_dev_env_fhs = pkg ./uncategorized-DataEraserC/clang_dev_env_fhs { };
+    cudatoolkit_dev_env = pkg ./uncategorized-DataEraserC/cudatoolkit_dev_env { };
+    cudatoolkit_dev_env_fhs = pkg ./uncategorized-DataEraserC/cudatoolkit_dev_env_fhs { };
     vmware-workstation = pkg ./uncategorized-DataEraserC/vmware-workstation { };
     clash-nyanpasu = pkg ./uncategorized-DataEraserC/clash-nyanpasu { };
     AppimageLauncher_deb =
