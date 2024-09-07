@@ -81,7 +81,8 @@ jobs:
         with:
           nix_path: "${{ matrix.nixPath }}"
           extra_nix_config: |
-            experimental-features = nix-command flakes
+            experimental-features = nix-command flakes ca-derivations
+            extra-experimental-features = nix-command flakes ca-derivations
             access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
             extra-platforms = i686-linux aarch64-linux arm-linux
             keep-going = true
@@ -129,6 +130,7 @@ jobs:
 
       - name: Commit back to repository
         uses: stefanzweifel/git-auto-commit-action@v5
+        if: ${{ success() || failure() }}
         with:
           commit_message: 'auto: update package hashes'
 

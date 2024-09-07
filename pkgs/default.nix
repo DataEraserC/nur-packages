@@ -85,11 +85,13 @@ mkScope (
       transmission-with-webui = pkg ./lantian-customized/transmission-with-webui { };
     };
 
-    lantianLinuxXanmod = ifNotCI (mergePkgs (pkg ./lantian-linux-xanmod { }));
-    lantianLinuxXanmodPackages = ifNotCI (mergePkgs (pkg ./lantian-linux-xanmod/packages.nix { }));
-    dataerasercLinuxXanmod = ifNotCI (mergePkgs (pkg ./dataeraserc-linux-xanmod { }));
+    lantianLinuxXanmod = ifNotCI (mergePkgs (pkg ./lantian-linux-xanmod { inherit mode; }));
+    lantianLinuxXanmodPackages = ifNotCI (
+      mergePkgs (pkg ./lantian-linux-xanmod/packages.nix { inherit mode; })
+    );
+    dataerasercLinuxXanmod = ifNotCI (mergePkgs (pkg ./dataeraserc-linux-xanmod { inherit mode; }));
     dataerasercLinuxXanmodPackages = ifNotCI (
-      mergePkgs (pkg ./dataeraserc-linux-xanmod/packages.nix { })
+      mergePkgs (pkg ./dataeraserc-linux-xanmod/packages.nix { inherit mode; })
     );
 
     lantianPersonal = ifNotCI (mergePkgs {
@@ -154,10 +156,12 @@ mkScope (
     gopherus = pkg ./uncategorized/gopherus { };
     grasscutter = pkg ./uncategorized/grasscutter { };
     hath = pkg ./uncategorized/hath { };
+    helium-gateway-rs = pkg ./uncategorized/helium-gateway-rs { };
     hesuvi-hrir = pkg ./uncategorized/hesuvi-hrir { };
     hi3-ii-martian-font = pkg ./uncategorized/hi3-ii-martian-font { };
     hoyo-glyphs = pkg ./uncategorized/hoyo-glyphs { };
     imewlconverter = pkg ./uncategorized/imewlconverter { };
+    inter-knot = pkg ./uncategorized/inter-knot { };
     jproxy = pkg ./uncategorized/jproxy { };
     kaixinsong-fonts = pkg ./uncategorized/kaixinsong-fonts { };
     kata-image = pkg ./uncategorized/kata-image { };
@@ -220,6 +224,7 @@ mkScope (
     space-cadet-pinball-full-tilt = pkg ./uncategorized/space-cadet-pinball-full-tilt { };
     svp = pkg ./uncategorized/svp { };
     svp-mpv = pkg ./uncategorized/svp/mpv.nix { };
+    sx1302-hal = pkg ./uncategorized/sx1302-hal { };
     suwayomi-server = pkg ./uncategorized/suwayomi-server { };
     tqdm-loggable = pkg ./uncategorized/tqdm-loggable { };
     uesave = pkg ./uncategorized/uesave { };
