@@ -89,10 +89,6 @@ mkScope (
     lantianLinuxXanmodPackages = ifNotCI (
       mergePkgs (pkg ./lantian-linux-xanmod/packages.nix { inherit mode; })
     );
-    dataerasercLinuxXanmod = ifNotCI (mergePkgs (pkg ./dataeraserc-linux-xanmod { inherit mode; }));
-    dataerasercLinuxXanmodPackages = ifNotCI (
-      mergePkgs (pkg ./dataeraserc-linux-xanmod/packages.nix { inherit mode; })
-    );
 
     lantianPersonal = ifNotCI (mergePkgs {
       # Personal packages with no intention to be used by others
