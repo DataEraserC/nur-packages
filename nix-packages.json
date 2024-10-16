@@ -27,7 +27,7 @@
   "legacyPackages.x86_64-linux.PiliPalaX": {
     "description": "PiliPalaX",
     "pname": "PiliPalaX-unstable",
-    "version": "2024-10-11"
+    "version": "2024-10-14"
   },
   "legacyPackages.x86_64-linux.XiaoMiToolV2": {
     "description": "",
@@ -62,7 +62,7 @@
   "legacyPackages.x86_64-linux.asterisk-g72x": {
     "description": "G.729 and G.723.1 codecs for Asterisk (Only G.729 is enabled)",
     "pname": "asterisk-g72x-unstable",
-    "version": "2024-09-10"
+    "version": "2024-10-12"
   },
   "legacyPackages.x86_64-linux.asteriskDigiumCodecs.11.silk": {
     "description": "Asterisk 11 silk Codec by Digium",
@@ -282,7 +282,7 @@
   "legacyPackages.x86_64-linux.boringssl-oqs": {
     "description": "Fork of BoringSSL that includes prototype quantum-resistant key exchange and authentication in the TLS handshake based on liboqs",
     "pname": "boringssl-oqs-unstable",
-    "version": "2024-09-19"
+    "version": "2024-10-09"
   },
   "legacyPackages.x86_64-linux.browser360": {
     "description": "360 Browser",
@@ -352,7 +352,7 @@
   "legacyPackages.x86_64-linux.cryptodev-unstable": {
     "description": "Device that allows access to Linux kernel cryptographic drivers",
     "pname": "cryptodev-linux-unstable",
-    "version": "2024-08-26"
+    "version": "2024-10-10"
   },
   "legacyPackages.x86_64-linux.cudatoolkit_dev_env": {
     "description": "",
@@ -367,7 +367,7 @@
   "legacyPackages.x86_64-linux.decluttarr": {
     "description": "Watches radarr, sonarr, lidarr and readarr download queues and removes downloads if they become stalled or no longer needed.",
     "pname": "decluttarr",
-    "version": "1.48.0"
+    "version": "1.48.1"
   },
   "legacyPackages.x86_64-linux.deepspeech-gpu": {
     "description": "Speech-to-text engine which can run in real time on devices ranging from a Raspberry Pi 4 to high power GPU servers.",
@@ -532,7 +532,7 @@
   "legacyPackages.x86_64-linux.imewlconverter": {
     "description": "”深蓝词库转换“ 一款开源免费的输入法词库转换程序",
     "pname": "imewlconverter",
-    "version": "3.1.0"
+    "version": "3.1.1"
   },
   "legacyPackages.x86_64-linux.inter-knot": {
     "description": "绳网是一个游戏、技术交流平台",
@@ -597,7 +597,12 @@
   "legacyPackages.x86_64-linux.lantianCustomized.llama-cpp": {
     "description": "Inference of Meta's LLaMA model (and others) in pure C/C++",
     "pname": "llama-cpp",
-    "version": "3899"
+    "version": "3917"
+  },
+  "legacyPackages.x86_64-linux.lantianCustomized.materialgram": {
+    "description": "Telegram Desktop fork with material icons and some improvements (Without anti-features)",
+    "pname": "materialgram",
+    "version": "5.6.1.1"
   },
   "legacyPackages.x86_64-linux.lantianCustomized.nbfc-linux": {
     "description": "NoteBook FanControl ported to Linux (with Lan Tian's modifications)",
@@ -607,7 +612,7 @@
   "legacyPackages.x86_64-linux.lantianCustomized.nginx": {
     "description": "OpenResty with Lan Tian modifications",
     "pname": "nginx-lantian-unstable",
-    "version": "2024-09-14"
+    "version": "2024-10-10"
   },
   "legacyPackages.x86_64-linux.lantianCustomized.transmission-with-webui": {
     "description": "Fast, easy and free BitTorrent client",
@@ -617,222 +622,222 @@
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.generic": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications",
     "pname": "linux",
-    "version": "6.11.2-xanmod1"
+    "version": "6.11.3-xanmod2"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.generic-configfile": {
     "description": "",
     "pname": "linux-config",
-    "version": "6.11.2-xanmod1"
+    "version": "6.11.3-xanmod2"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.generic-lto": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
     "pname": "linux",
-    "version": "6.11.2-xanmod1"
+    "version": "6.11.3-xanmod2"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.generic-lto-configfile": {
     "description": "",
     "pname": "linux-config",
-    "version": "6.11.2-xanmod1"
+    "version": "6.11.3-xanmod2"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.latest-generic": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications",
     "pname": "linux",
-    "version": "6.11.2-xanmod1"
+    "version": "6.11.3-xanmod2"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.latest-generic-configfile": {
     "description": "",
     "pname": "linux-config",
-    "version": "6.11.2-xanmod1"
+    "version": "6.11.3-xanmod2"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.latest-generic-lto": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
     "pname": "linux",
-    "version": "6.11.2-xanmod1"
+    "version": "6.11.3-xanmod2"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.latest-generic-lto-configfile": {
     "description": "",
     "pname": "linux-config",
-    "version": "6.11.2-xanmod1"
+    "version": "6.11.3-xanmod2"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.latest-x86_64-v1": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications",
     "pname": "linux",
-    "version": "6.11.2-xanmod1"
+    "version": "6.11.3-xanmod2"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.latest-x86_64-v1-configfile": {
     "description": "",
     "pname": "linux-config",
-    "version": "6.11.2-xanmod1"
+    "version": "6.11.3-xanmod2"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.latest-x86_64-v1-lto": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
     "pname": "linux",
-    "version": "6.11.2-xanmod1"
+    "version": "6.11.3-xanmod2"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.latest-x86_64-v1-lto-configfile": {
     "description": "",
     "pname": "linux-config",
-    "version": "6.11.2-xanmod1"
+    "version": "6.11.3-xanmod2"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.latest-x86_64-v2": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications",
     "pname": "linux",
-    "version": "6.11.2-xanmod1"
+    "version": "6.11.3-xanmod2"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.latest-x86_64-v2-configfile": {
     "description": "",
     "pname": "linux-config",
-    "version": "6.11.2-xanmod1"
+    "version": "6.11.3-xanmod2"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.latest-x86_64-v2-lto": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
     "pname": "linux",
-    "version": "6.11.2-xanmod1"
+    "version": "6.11.3-xanmod2"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.latest-x86_64-v2-lto-configfile": {
     "description": "",
     "pname": "linux-config",
-    "version": "6.11.2-xanmod1"
+    "version": "6.11.3-xanmod2"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.latest-x86_64-v3": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications",
     "pname": "linux",
-    "version": "6.11.2-xanmod1"
+    "version": "6.11.3-xanmod2"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.latest-x86_64-v3-configfile": {
     "description": "",
     "pname": "linux-config",
-    "version": "6.11.2-xanmod1"
+    "version": "6.11.3-xanmod2"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.latest-x86_64-v3-lto": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
     "pname": "linux",
-    "version": "6.11.2-xanmod1"
+    "version": "6.11.3-xanmod2"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.latest-x86_64-v3-lto-configfile": {
     "description": "",
     "pname": "linux-config",
-    "version": "6.11.2-xanmod1"
+    "version": "6.11.3-xanmod2"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.latest-x86_64-v4": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications",
     "pname": "linux",
-    "version": "6.11.2-xanmod1"
+    "version": "6.11.3-xanmod2"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.latest-x86_64-v4-configfile": {
     "description": "",
     "pname": "linux-config",
-    "version": "6.11.2-xanmod1"
+    "version": "6.11.3-xanmod2"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.latest-x86_64-v4-lto": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
     "pname": "linux",
-    "version": "6.11.2-xanmod1"
+    "version": "6.11.3-xanmod2"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.latest-x86_64-v4-lto-configfile": {
     "description": "",
     "pname": "linux-config",
-    "version": "6.11.2-xanmod1"
+    "version": "6.11.3-xanmod2"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.lts-generic": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications",
     "pname": "linux",
-    "version": "6.6.54-xanmod1"
+    "version": "6.6.56-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.lts-generic-configfile": {
     "description": "",
     "pname": "linux-config",
-    "version": "6.6.54-xanmod1"
+    "version": "6.6.56-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.lts-generic-lto": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
     "pname": "linux",
-    "version": "6.6.54-xanmod1"
+    "version": "6.6.56-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.lts-generic-lto-configfile": {
     "description": "",
     "pname": "linux-config",
-    "version": "6.6.54-xanmod1"
+    "version": "6.6.56-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.lts-x86_64-v1": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications",
     "pname": "linux",
-    "version": "6.6.54-xanmod1"
+    "version": "6.6.56-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.lts-x86_64-v1-configfile": {
     "description": "",
     "pname": "linux-config",
-    "version": "6.6.54-xanmod1"
+    "version": "6.6.56-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.lts-x86_64-v1-lto": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
     "pname": "linux",
-    "version": "6.6.54-xanmod1"
+    "version": "6.6.56-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.lts-x86_64-v1-lto-configfile": {
     "description": "",
     "pname": "linux-config",
-    "version": "6.6.54-xanmod1"
+    "version": "6.6.56-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.lts-x86_64-v2": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications",
     "pname": "linux",
-    "version": "6.6.54-xanmod1"
+    "version": "6.6.56-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.lts-x86_64-v2-configfile": {
     "description": "",
     "pname": "linux-config",
-    "version": "6.6.54-xanmod1"
+    "version": "6.6.56-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.lts-x86_64-v2-lto": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
     "pname": "linux",
-    "version": "6.6.54-xanmod1"
+    "version": "6.6.56-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.lts-x86_64-v2-lto-configfile": {
     "description": "",
     "pname": "linux-config",
-    "version": "6.6.54-xanmod1"
+    "version": "6.6.56-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.lts-x86_64-v3": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications",
     "pname": "linux",
-    "version": "6.6.54-xanmod1"
+    "version": "6.6.56-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.lts-x86_64-v3-configfile": {
     "description": "",
     "pname": "linux-config",
-    "version": "6.6.54-xanmod1"
+    "version": "6.6.56-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.lts-x86_64-v3-lto": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
     "pname": "linux",
-    "version": "6.6.54-xanmod1"
+    "version": "6.6.56-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.lts-x86_64-v3-lto-configfile": {
     "description": "",
     "pname": "linux-config",
-    "version": "6.6.54-xanmod1"
+    "version": "6.6.56-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.lts-x86_64-v4": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications",
     "pname": "linux",
-    "version": "6.6.54-xanmod1"
+    "version": "6.6.56-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.lts-x86_64-v4-configfile": {
     "description": "",
     "pname": "linux-config",
-    "version": "6.6.54-xanmod1"
+    "version": "6.6.56-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.lts-x86_64-v4-lto": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
     "pname": "linux",
-    "version": "6.6.54-xanmod1"
+    "version": "6.6.56-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.lts-x86_64-v4-lto-configfile": {
     "description": "",
     "pname": "linux-config",
-    "version": "6.6.54-xanmod1"
+    "version": "6.6.56-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_0-generic": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications",
@@ -1037,182 +1042,182 @@
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_6-generic": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications",
     "pname": "linux",
-    "version": "6.6.54-xanmod1"
+    "version": "6.6.56-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_6-generic-configfile": {
     "description": "",
     "pname": "linux-config",
-    "version": "6.6.54-xanmod1"
+    "version": "6.6.56-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_6-generic-lto": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
     "pname": "linux",
-    "version": "6.6.54-xanmod1"
+    "version": "6.6.56-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_6-generic-lto-configfile": {
     "description": "",
     "pname": "linux-config",
-    "version": "6.6.54-xanmod1"
+    "version": "6.6.56-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_6-x86_64-v1": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications",
     "pname": "linux",
-    "version": "6.6.54-xanmod1"
+    "version": "6.6.56-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_6-x86_64-v1-configfile": {
     "description": "",
     "pname": "linux-config",
-    "version": "6.6.54-xanmod1"
+    "version": "6.6.56-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_6-x86_64-v1-lto": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
     "pname": "linux",
-    "version": "6.6.54-xanmod1"
+    "version": "6.6.56-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_6-x86_64-v1-lto-configfile": {
     "description": "",
     "pname": "linux-config",
-    "version": "6.6.54-xanmod1"
+    "version": "6.6.56-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_6-x86_64-v2": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications",
     "pname": "linux",
-    "version": "6.6.54-xanmod1"
+    "version": "6.6.56-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_6-x86_64-v2-configfile": {
     "description": "",
     "pname": "linux-config",
-    "version": "6.6.54-xanmod1"
+    "version": "6.6.56-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_6-x86_64-v2-lto": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
     "pname": "linux",
-    "version": "6.6.54-xanmod1"
+    "version": "6.6.56-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_6-x86_64-v2-lto-configfile": {
     "description": "",
     "pname": "linux-config",
-    "version": "6.6.54-xanmod1"
+    "version": "6.6.56-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_6-x86_64-v3": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications",
     "pname": "linux",
-    "version": "6.6.54-xanmod1"
+    "version": "6.6.56-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_6-x86_64-v3-configfile": {
     "description": "",
     "pname": "linux-config",
-    "version": "6.6.54-xanmod1"
+    "version": "6.6.56-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_6-x86_64-v3-lto": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
     "pname": "linux",
-    "version": "6.6.54-xanmod1"
+    "version": "6.6.56-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_6-x86_64-v3-lto-configfile": {
     "description": "",
     "pname": "linux-config",
-    "version": "6.6.54-xanmod1"
+    "version": "6.6.56-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_6-x86_64-v4": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications",
     "pname": "linux",
-    "version": "6.6.54-xanmod1"
+    "version": "6.6.56-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_6-x86_64-v4-configfile": {
     "description": "",
     "pname": "linux-config",
-    "version": "6.6.54-xanmod1"
+    "version": "6.6.56-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_6-x86_64-v4-lto": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
     "pname": "linux",
-    "version": "6.6.54-xanmod1"
+    "version": "6.6.56-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_6-x86_64-v4-lto-configfile": {
     "description": "",
     "pname": "linux-config",
-    "version": "6.6.54-xanmod1"
+    "version": "6.6.56-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.x86_64-v1": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications",
     "pname": "linux",
-    "version": "6.11.2-xanmod1"
+    "version": "6.11.3-xanmod2"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.x86_64-v1-configfile": {
     "description": "",
     "pname": "linux-config",
-    "version": "6.11.2-xanmod1"
+    "version": "6.11.3-xanmod2"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.x86_64-v1-lto": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
     "pname": "linux",
-    "version": "6.11.2-xanmod1"
+    "version": "6.11.3-xanmod2"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.x86_64-v1-lto-configfile": {
     "description": "",
     "pname": "linux-config",
-    "version": "6.11.2-xanmod1"
+    "version": "6.11.3-xanmod2"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.x86_64-v2": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications",
     "pname": "linux",
-    "version": "6.11.2-xanmod1"
+    "version": "6.11.3-xanmod2"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.x86_64-v2-configfile": {
     "description": "",
     "pname": "linux-config",
-    "version": "6.11.2-xanmod1"
+    "version": "6.11.3-xanmod2"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.x86_64-v2-lto": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
     "pname": "linux",
-    "version": "6.11.2-xanmod1"
+    "version": "6.11.3-xanmod2"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.x86_64-v2-lto-configfile": {
     "description": "",
     "pname": "linux-config",
-    "version": "6.11.2-xanmod1"
+    "version": "6.11.3-xanmod2"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.x86_64-v3": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications",
     "pname": "linux",
-    "version": "6.11.2-xanmod1"
+    "version": "6.11.3-xanmod2"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.x86_64-v3-configfile": {
     "description": "",
     "pname": "linux-config",
-    "version": "6.11.2-xanmod1"
+    "version": "6.11.3-xanmod2"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.x86_64-v3-lto": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
     "pname": "linux",
-    "version": "6.11.2-xanmod1"
+    "version": "6.11.3-xanmod2"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.x86_64-v3-lto-configfile": {
     "description": "",
     "pname": "linux-config",
-    "version": "6.11.2-xanmod1"
+    "version": "6.11.3-xanmod2"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.x86_64-v4": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications",
     "pname": "linux",
-    "version": "6.11.2-xanmod1"
+    "version": "6.11.3-xanmod2"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.x86_64-v4-configfile": {
     "description": "",
     "pname": "linux-config",
-    "version": "6.11.2-xanmod1"
+    "version": "6.11.3-xanmod2"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.x86_64-v4-lto": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
     "pname": "linux",
-    "version": "6.11.2-xanmod1"
+    "version": "6.11.3-xanmod2"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.x86_64-v4-lto-configfile": {
     "description": "",
     "pname": "linux-config",
-    "version": "6.11.2-xanmod1"
+    "version": "6.11.3-xanmod2"
   },
   "legacyPackages.x86_64-linux.lantianPersonal.libltnginx": {
     "description": "Libltnginx",
@@ -1237,7 +1242,7 @@
   "legacyPackages.x86_64-linux.liboqs-unstable": {
     "description": "C library for prototyping and experimenting with quantum-resistant cryptography",
     "pname": "liboqs-unstable",
-    "version": "2024-10-03"
+    "version": "2024-10-09"
   },
   "legacyPackages.x86_64-linux.libqcef": {
     "description": "Qt5 binding of CEF",
@@ -1246,8 +1251,8 @@
   },
   "legacyPackages.x86_64-linux.llqqnt": {
     "description": "QQ for Linux",
-    "pname": "llqqnt",
-    "version": "3.2.12_unstable-2024-09-26"
+    "pname": "qq-qq=3.2.12+llqqnt_rev=unstable",
+    "version": "2024-09-26"
   },
   "legacyPackages.x86_64-linux.lyrica": {
     "description": "Linux desktop lyrics widget focused on simplicity and integration",
@@ -1262,7 +1267,7 @@
   "legacyPackages.x86_64-linux.magiskboot": {
     "description": "A tool to unpack / repack boot images, parse / patch / extract cpio, patch dtb, hex patch binaries, and compress / decompress files with multiple algorithms.",
     "pname": "magiskboot",
-    "version": "27.0"
+    "version": "28.0"
   },
   "legacyPackages.x86_64-linux.mtkclient": {
     "description": "MTK reverse engineering and flash tool",
@@ -3252,7 +3257,7 @@
   "legacyPackages.x86_64-linux.peerbanhelper": {
     "description": "自动封禁不受欢迎、吸血和异常的 BT 客户端，并支持自定义规则。PeerId黑名单/UserAgent黑名单/IP CIDR/假进度检测/超量下载检测/主动探测 支持 qBittorrent/Transmission",
     "pname": "peerbanhelper",
-    "version": "6.4.1"
+    "version": "6.4.6"
   },
   "legacyPackages.x86_64-linux.phpmyadmin": {
     "description": "A web interface for MySQL and MariaDB",
@@ -3266,12 +3271,12 @@
   },
   "legacyPackages.x86_64-linux.plangothic-fonts.allideo": {
     "description": "Plangothic Project",
-    "pname": "plangothic-fonts-allideo-V1.8.5764",
+    "pname": "plangothic-fonts-allideo-V1.9.5766",
     "version": ""
   },
   "legacyPackages.x86_64-linux.plangothic-fonts.fallback": {
     "description": "Plangothic Project",
-    "pname": "plangothic-fonts-fallback-V1.8.5764",
+    "pname": "plangothic-fonts-fallback-V1.9.5766",
     "version": ""
   },
   "legacyPackages.x86_64-linux.plasma-panel-transparency-toggle": {
@@ -3352,12 +3357,12 @@
   "legacyPackages.x86_64-linux.rime-ice": {
     "description": "Rime 配置：雾凇拼音 | 长期维护的简体词库 ",
     "pname": "rime-ice-unstable",
-    "version": "2024-10-09"
+    "version": "2024-10-12"
   },
   "legacyPackages.x86_64-linux.rime-moegirl": {
     "description": "Releases for dict of zh.moegirl.org.cn",
     "pname": "rime-moegirl",
-    "version": "20240909"
+    "version": "20241009"
   },
   "legacyPackages.x86_64-linux.rime-zhwiki": {
     "description": "Fcitx 5 Pinyin Dictionary from zh.wikipedia.org",
@@ -3537,7 +3542,7 @@
   "legacyPackages.x86_64-linux.v2ray-rules-dat": {
     "description": "V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria.",
     "pname": "v2ray-rules-dat",
-    "version": "202410102212"
+    "version": "202410152212"
   },
   "legacyPackages.x86_64-linux.vbmeta-disable-verification": {
     "description": "Patch Android vbmeta image and disable verification flags inside.",
@@ -3667,7 +3672,7 @@
   "packages.x86_64-linux.PiliPalaX": {
     "description": "PiliPalaX",
     "pname": "PiliPalaX-unstable",
-    "version": "2024-10-11"
+    "version": "2024-10-14"
   },
   "packages.x86_64-linux.XiaoMiToolV2": {
     "description": "",
@@ -3697,7 +3702,7 @@
   "packages.x86_64-linux.asterisk-g72x": {
     "description": "G.729 and G.723.1 codecs for Asterisk (Only G.729 is enabled)",
     "pname": "asterisk-g72x-unstable",
-    "version": "2024-09-10"
+    "version": "2024-10-12"
   },
   "packages.x86_64-linux.asteriskDigiumCodecs": {
     "description": "",
@@ -3742,7 +3747,7 @@
   "packages.x86_64-linux.boringssl-oqs": {
     "description": "Fork of BoringSSL that includes prototype quantum-resistant key exchange and authentication in the TLS handshake based on liboqs",
     "pname": "boringssl-oqs-unstable",
-    "version": "2024-09-19"
+    "version": "2024-10-09"
   },
   "packages.x86_64-linux.browser360": {
     "description": "360 Browser",
@@ -3812,7 +3817,7 @@
   "packages.x86_64-linux.cryptodev-unstable": {
     "description": "Device that allows access to Linux kernel cryptographic drivers",
     "pname": "cryptodev-linux-unstable",
-    "version": "2024-08-26"
+    "version": "2024-10-10"
   },
   "packages.x86_64-linux.cudatoolkit_dev_env": {
     "description": "",
@@ -3827,7 +3832,7 @@
   "packages.x86_64-linux.decluttarr": {
     "description": "Watches radarr, sonarr, lidarr and readarr download queues and removes downloads if they become stalled or no longer needed.",
     "pname": "decluttarr",
-    "version": "1.48.0"
+    "version": "1.48.1"
   },
   "packages.x86_64-linux.deepspeech-gpu": {
     "description": "Speech-to-text engine which can run in real time on devices ranging from a Raspberry Pi 4 to high power GPU servers.",
@@ -3992,7 +3997,7 @@
   "packages.x86_64-linux.imewlconverter": {
     "description": "”深蓝词库转换“ 一款开源免费的输入法词库转换程序",
     "pname": "imewlconverter",
-    "version": "3.1.0"
+    "version": "3.1.1"
   },
   "packages.x86_64-linux.inter-knot": {
     "description": "绳网是一个游戏、技术交流平台",
@@ -4067,7 +4072,7 @@
   "packages.x86_64-linux.liboqs-unstable": {
     "description": "C library for prototyping and experimenting with quantum-resistant cryptography",
     "pname": "liboqs-unstable",
-    "version": "2024-10-03"
+    "version": "2024-10-09"
   },
   "packages.x86_64-linux.libqcef": {
     "description": "Qt5 binding of CEF",
@@ -4076,8 +4081,8 @@
   },
   "packages.x86_64-linux.llqqnt": {
     "description": "QQ for Linux",
-    "pname": "llqqnt",
-    "version": "3.2.12_unstable-2024-09-26"
+    "pname": "qq-qq=3.2.12+llqqnt_rev=unstable",
+    "version": "2024-09-26"
   },
   "packages.x86_64-linux.lyrica": {
     "description": "Linux desktop lyrics widget focused on simplicity and integration",
@@ -4092,7 +4097,7 @@
   "packages.x86_64-linux.magiskboot": {
     "description": "A tool to unpack / repack boot images, parse / patch / extract cpio, patch dtb, hex patch binaries, and compress / decompress files with multiple algorithms.",
     "pname": "magiskboot",
-    "version": "27.0"
+    "version": "28.0"
   },
   "packages.x86_64-linux.mtkclient": {
     "description": "MTK reverse engineering and flash tool",
@@ -4217,7 +4222,7 @@
   "packages.x86_64-linux.peerbanhelper": {
     "description": "自动封禁不受欢迎、吸血和异常的 BT 客户端，并支持自定义规则。PeerId黑名单/UserAgent黑名单/IP CIDR/假进度检测/超量下载检测/主动探测 支持 qBittorrent/Transmission",
     "pname": "peerbanhelper",
-    "version": "6.4.1"
+    "version": "6.4.6"
   },
   "packages.x86_64-linux.phpmyadmin": {
     "description": "A web interface for MySQL and MariaDB",
@@ -4312,12 +4317,12 @@
   "packages.x86_64-linux.rime-ice": {
     "description": "Rime 配置：雾凇拼音 | 长期维护的简体词库 ",
     "pname": "rime-ice-unstable",
-    "version": "2024-10-09"
+    "version": "2024-10-12"
   },
   "packages.x86_64-linux.rime-moegirl": {
     "description": "Releases for dict of zh.moegirl.org.cn",
     "pname": "rime-moegirl",
-    "version": "20240909"
+    "version": "20241009"
   },
   "packages.x86_64-linux.rime-zhwiki": {
     "description": "Fcitx 5 Pinyin Dictionary from zh.wikipedia.org",
@@ -4457,7 +4462,7 @@
   "packages.x86_64-linux.v2ray-rules-dat": {
     "description": "V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria.",
     "pname": "v2ray-rules-dat",
-    "version": "202410102212"
+    "version": "202410152212"
   },
   "packages.x86_64-linux.vbmeta-disable-verification": {
     "description": "Patch Android vbmeta image and disable verification flags inside.",
