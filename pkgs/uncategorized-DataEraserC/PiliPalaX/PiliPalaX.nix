@@ -5,6 +5,7 @@
   flutter,
   makeDesktopItem,
   copyDesktopItems,
+  alsa-lib,
 }:
 flutter.buildFlutterApplication rec {
   inherit (sources.PiliPalaX) pname version src;
@@ -17,7 +18,24 @@ flutter.buildFlutterApplication rec {
   nativeBuildInputs = [
     pkg-config
     copyDesktopItems
+    alsa-lib
   ];
+  buildInputs = [
+    pkg-config
+    alsa-lib
+  ];
+  gitHashes = {
+    auto_orientation = "sha256-0QOEW8+0PpBIELmzilZ8+z7ozNRxKgI0BzuBS8c1Fng=";
+    chat_bottom_container = "sha256-ZdIJODKh9vVrw3FEcC3wsHnXfTKwW9doTVnrdoJ4pM8=";
+    floating = "sha256-CdL6reYyTAMYvwVrFw0rYh4QW9fspOIn/+sA6McUvZs=";
+    ns_danmaku = "sha256-OHlKscybKSLS1Jd1S99rCjHMZfuJXjkQB8U2Tx5iWeA=";
+    share_plus = "sha256-uB1zszih4+AN5heeGZq0bdH/eJos2smabEw/5dTOyOI=";
+  };
+
+  preBuild = ''
+    export ALSA_LIBRARIES=${alsa-lib}/lib
+    export ALSA_INCLUDE_DIRS=${alsa-lib.dev}/include
+  '';
 
   postInstall = ''
     _postinstall() {
@@ -39,14 +57,14 @@ flutter.buildFlutterApplication rec {
     categories = [ "Network" ];
     extraConfig = {
       "Name[en_US]" = pname;
-      "Name[zh_CN]" = "PiliPalaX";
-      "Name[zh_TW]" = "PiliPalaX";
-      "Comment[zh_CN]" = "PiliPalaX";
-      "Comment[zh_TW]" = "PiliPalaX";
+      "Name[zh_CN]" = pname;
+      "Name[zh_TW]" = pname;
+      "Comment[zh_CN]" = pname;
+      "Comment[zh_TW]" = pname;
     };
   });
   meta = with lib; {
-    description = "PiliPalaX";
+    description = pname;
     homepage = "https://github.com/bggRGjQaUbCoE/PiliPalaX";
     license = licenses.gpl3Only;
     platforms = platforms.linux;
