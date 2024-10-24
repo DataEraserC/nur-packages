@@ -1766,15 +1766,15 @@
   };
   PiliPalaX = {
     pname = "PiliPalaX";
-    version = "270bf0a4b635fc9f04ce1cd226cb899b9fbf60f9";
+    version = "e2d342cc967945c77b023407e16a8401d7909c98";
     src = fetchFromGitHub {
       owner = "bggRGjQaUbCoE";
       repo = "PiliPalaX";
-      rev = "270bf0a4b635fc9f04ce1cd226cb899b9fbf60f9";
+      rev = "e2d342cc967945c77b023407e16a8401d7909c98";
       fetchSubmodules = true;
-      sha256 = "sha256-MzJCDSz/fUU70eU/IznbpuxXQHHQNTACr4E49FZpeGA=";
+      sha256 = "sha256-NXUGEgeGKwU+0VwBtWZ7XfryV8daUpQUU1gH0MQJPyc=";
     };
-    date = "2024-10-14";
+    date = "2024-10-24";
   };
   buffybox = {
     pname = "buffybox";
@@ -1840,10 +1840,10 @@
   };
   v2ray-rules-dat = {
     pname = "v2ray-rules-dat";
-    version = "202410152212";
+    version = "202410232212";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202410152212/rules.zip";
-      sha256 = "sha256-92uCa43ZKtAYQZkcs31EcH/VrQxEF6yqHUT4M7lmCrQ=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202410232212/rules.zip";
+      sha256 = "sha256-Tg5DClRKYeSuJc9jakelQhkRHv6dPCrBNGZfnj6XXcw=";
     };
   };
   wechat-web-devtools-linux_appimage = {

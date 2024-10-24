@@ -3209,7 +3209,7 @@
     },
     "PiliPalaX": {
         "cargoLocks": null,
-        "date": "2024-10-14",
+        "date": "2024-10-24",
         "extract": null,
         "name": "PiliPalaX",
         "passthru": null,
@@ -3221,11 +3221,11 @@
             "name": null,
             "owner": "bggRGjQaUbCoE",
             "repo": "PiliPalaX",
-            "rev": "270bf0a4b635fc9f04ce1cd226cb899b9fbf60f9",
-            "sha256": "sha256-MzJCDSz/fUU70eU/IznbpuxXQHHQNTACr4E49FZpeGA=",
+            "rev": "e2d342cc967945c77b023407e16a8401d7909c98",
+            "sha256": "sha256-NXUGEgeGKwU+0VwBtWZ7XfryV8daUpQUU1gH0MQJPyc=",
             "type": "github"
         },
-        "version": "270bf0a4b635fc9f04ce1cd226cb899b9fbf60f9"
+        "version": "e2d342cc967945c77b023407e16a8401d7909c98"
     },
     "buffybox": {
         "cargoLocks": null,
@@ -3334,11 +3334,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-92uCa43ZKtAYQZkcs31EcH/VrQxEF6yqHUT4M7lmCrQ=",
+            "sha256": "sha256-Tg5DClRKYeSuJc9jakelQhkRHv6dPCrBNGZfnj6XXcw=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202410152212/rules.zip"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202410232212/rules.zip"
         },
-        "version": "202410152212"
+        "version": "202410232212"
     },
     "wechat-web-devtools-linux_appimage": {
         "cargoLocks": null,
