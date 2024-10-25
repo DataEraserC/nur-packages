@@ -1766,15 +1766,40 @@
   };
   PiliPalaX = {
     pname = "PiliPalaX";
-    version = "e2d342cc967945c77b023407e16a8401d7909c98";
+    version = "dc68d088df85873b19e5453b3b9ad30889bc4bd1";
     src = fetchFromGitHub {
       owner = "bggRGjQaUbCoE";
       repo = "PiliPalaX";
-      rev = "e2d342cc967945c77b023407e16a8401d7909c98";
+      rev = "dc68d088df85873b19e5453b3b9ad30889bc4bd1";
       fetchSubmodules = true;
-      sha256 = "sha256-NXUGEgeGKwU+0VwBtWZ7XfryV8daUpQUU1gH0MQJPyc=";
+      sha256 = "sha256-x9CY6GiA6H7ElzOB5TtZt8mmpnxIVfM5QzATUCzjb8w=";
+    };
+    date = "2024-10-25";
+  };
+  UnknownAnimeGamePS = {
+    pname = "UnknownAnimeGamePS";
+    version = "6d7e8eee3148870c3c014012ba2d583771084fc0";
+    src = fetchFromGitHub {
+      owner = "XeonSucksLAB";
+      repo = "UnknownAnimeGamePS";
+      rev = "6d7e8eee3148870c3c014012ba2d583771084fc0";
+      fetchSubmodules = true;
+      sha256 = "sha256-53f4QgtAOgcMjhuuY2+Jm4o5LvLXPFv0LJFs+Pg+PVU=";
     };
     date = "2024-10-24";
+  };
+  UnknownAnimeGamePS-resources = {
+    pname = "UnknownAnimeGamePS-resources";
+    version = "316c31f7b0b2fc2565d99548de44ba7b024177c1";
+    src = fetchgit {
+      url = "https://gitlab.com/YuukiPS/GC-Resources.git";
+      rev = "316c31f7b0b2fc2565d99548de44ba7b024177c1";
+      fetchSubmodules = false;
+      deepClone = false;
+      leaveDotGit = false;
+      sha256 = "sha256-Zae3MymhyrkCmIJXWQuIXmQSBUT1aKmwyHEYMnmUyVU=";
+    };
+    date = "2024-08-29";
   };
   buffybox = {
     pname = "buffybox";
@@ -1840,10 +1865,10 @@
   };
   v2ray-rules-dat = {
     pname = "v2ray-rules-dat";
-    version = "202410232212";
+    version = "202410242211";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202410232212/rules.zip";
-      sha256 = "sha256-Tg5DClRKYeSuJc9jakelQhkRHv6dPCrBNGZfnj6XXcw=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202410242211/rules.zip";
+      sha256 = "sha256-HKy/10tmfo6T65MRLP0jVGJrw6Vj4y2VcDxnIeoaajM=";
     };
   };
   wechat-web-devtools-linux_appimage = {

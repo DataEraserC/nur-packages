@@ -781,3 +781,12 @@ git.fetchSubmodules = true
 src.git = "https://github.com/LiteLoaderQQNT/LiteLoaderQQNT"
 fetch.github = "LiteLoaderQQNT/LiteLoaderQQNT"
 git.fetchSubmodules = true
+
+[UnknownAnimeGamePS]
+src.git = "https://github.com/XeonSucksLAB/UnknownAnimeGamePS"
+fetch.github = "XeonSucksLAB/UnknownAnimeGamePS"
+git.fetchSubmodules = true
+
+[UnknownAnimeGamePS-resources]
+src.git = "https://gitlab.com/YuukiPS/GC-Resources.git"
+fetch.git = "https://gitlab.com/YuukiPS/GC-Resources.git"

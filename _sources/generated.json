@@ -3209,7 +3209,7 @@
     },
     "PiliPalaX": {
         "cargoLocks": null,
-        "date": "2024-10-24",
+        "date": "2024-10-25",
         "extract": null,
         "name": "PiliPalaX",
         "passthru": null,
@@ -3221,11 +3221,50 @@
             "name": null,
             "owner": "bggRGjQaUbCoE",
             "repo": "PiliPalaX",
-            "rev": "e2d342cc967945c77b023407e16a8401d7909c98",
-            "sha256": "sha256-NXUGEgeGKwU+0VwBtWZ7XfryV8daUpQUU1gH0MQJPyc=",
+            "rev": "dc68d088df85873b19e5453b3b9ad30889bc4bd1",
+            "sha256": "sha256-x9CY6GiA6H7ElzOB5TtZt8mmpnxIVfM5QzATUCzjb8w=",
             "type": "github"
         },
-        "version": "e2d342cc967945c77b023407e16a8401d7909c98"
+        "version": "dc68d088df85873b19e5453b3b9ad30889bc4bd1"
+    },
+    "UnknownAnimeGamePS": {
+        "cargoLocks": null,
+        "date": "2024-10-24",
+        "extract": null,
+        "name": "UnknownAnimeGamePS",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": true,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "XeonSucksLAB",
+            "repo": "UnknownAnimeGamePS",
+            "rev": "6d7e8eee3148870c3c014012ba2d583771084fc0",
+            "sha256": "sha256-53f4QgtAOgcMjhuuY2+Jm4o5LvLXPFv0LJFs+Pg+PVU=",
+            "type": "github"
+        },
+        "version": "6d7e8eee3148870c3c014012ba2d583771084fc0"
+    },
+    "UnknownAnimeGamePS-resources": {
+        "cargoLocks": null,
+        "date": "2024-08-29",
+        "extract": null,
+        "name": "UnknownAnimeGamePS-resources",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "rev": "316c31f7b0b2fc2565d99548de44ba7b024177c1",
+            "sha256": "sha256-Zae3MymhyrkCmIJXWQuIXmQSBUT1aKmwyHEYMnmUyVU=",
+            "type": "git",
+            "url": "https://gitlab.com/YuukiPS/GC-Resources.git"
+        },
+        "version": "316c31f7b0b2fc2565d99548de44ba7b024177c1"
     },
     "buffybox": {
         "cargoLocks": null,
@@ -3334,11 +3373,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-Tg5DClRKYeSuJc9jakelQhkRHv6dPCrBNGZfnj6XXcw=",
+            "sha256": "sha256-HKy/10tmfo6T65MRLP0jVGJrw6Vj4y2VcDxnIeoaajM=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202410232212/rules.zip"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202410242211/rules.zip"
         },
-        "version": "202410232212"
+        "version": "202410242211"
     },
     "wechat-web-devtools-linux_appimage": {
         "cargoLocks": null,
