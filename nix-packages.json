@@ -39,6 +39,11 @@
     "pname": "UnknownAnimeGamePS-wrapper-unstable",
     "version": "2024-10-24"
   },
+  "legacyPackages.x86_64-linux.UnknownAnimeGamePS_env": {
+    "description": "",
+    "pname": "clang_dev_env",
+    "version": ""
+  },
   "legacyPackages.x86_64-linux.XiaoMiToolV2": {
     "description": "",
     "pname": "XiaoMiToolV2",
@@ -3933,6 +3938,11 @@
     "description": "A server software reimplementation for a certain anime game.",
     "pname": "UnknownAnimeGamePS-wrapper-unstable",
     "version": "2024-10-24"
+  },
+  "packages.x86_64-linux.UnknownAnimeGamePS_env": {
+    "description": "",
+    "pname": "clang_dev_env",
+    "version": ""
   },
   "packages.x86_64-linux.XiaoMiToolV2": {
     "description": "",

@@ -88,7 +88,7 @@ Or, use variables from this repository in case I change them:
 ## Packages
 
 <details>
-<summary>Package set: (Uncategorized) (175 packages)</summary>
+<summary>Package set: (Uncategorized) (176 packages)</summary>
 
 | State | Path | Name | Version | Description |
 | ----- | ---- | ---- | ------- | ----------- |
@@ -99,6 +99,7 @@ Or, use variables from this repository in case I change them:
 | `Broken` | `PiliPalaX` | [PiliPalaX](https://github.com/bggRGjQaUbCoE/PiliPalaX) | unstable-2024-10-25 | PiliPalaX |
 |  | `UnknownAnimeGamePS` | UnknownAnimeGamePS | unstable-2024-10-24 |  |
 |  | `UnknownAnimeGamePS-wrapper` | [UnknownAnimeGamePS-wrapper](https://github.com/XeonSucksLAB/UnknownAnimeGamePS) | unstable-2024-10-24 | A server software reimplementation for a certain anime game. |
+|  | `UnknownAnimeGamePS_env` | clang_dev_env |  |  |
 |  | `XiaoMiToolV2` | XiaoMiToolV2 |  |  |
 |  | `acpi-ec` | [acpi-ec](https://github.com/musikid/acpi_ec) | 1.0.4 | Kernel module to access directly to the ACPI EC |
 |  | `amule-dlp` | [amule-dlp](https://github.com/amule-project/amule) | unstable-2023-03-02 | Peer-to-peer client for the eD2K and Kademlia networks |
