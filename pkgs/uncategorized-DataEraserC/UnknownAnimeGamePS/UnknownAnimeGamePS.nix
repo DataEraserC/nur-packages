@@ -3,7 +3,7 @@
   stdenv,
   makeBinaryWrapper,
   gradle,
-  jdk22,
+  nodejs,
   sources,
 }:
 let
@@ -12,6 +12,7 @@ let
 
     nativeBuildInputs = [
       gradle
+      nodejs
       makeBinaryWrapper
     ];
 
@@ -33,9 +34,6 @@ let
     installPhase = ''
       mkdir -p $out/{bin,share/UnknownAnimeGamePS}
       cp UnknownAnimeGamePS*.jar $out/share/UnknownAnimeGamePS/UnknownAnimeGamePS.jar
-
-      makeWrapper ${jdk22}/bin/java $out/bin/UnknownAnimeGamePS \
-        --add-flags "-jar $out/share/UnknownAnimeGamePS/UnknownAnimeGamePS.jar"
     '';
 
     meta.sourceProvenance = with lib.sourceTypes; [
