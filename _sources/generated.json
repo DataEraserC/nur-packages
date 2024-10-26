@@ -3266,6 +3266,26 @@
         },
         "version": "316c31f7b0b2fc2565d99548de44ba7b024177c1"
     },
+    "XiaoMiToolV2": {
+        "cargoLocks": null,
+        "date": "2024-01-13",
+        "extract": null,
+        "name": "XiaoMiToolV2",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": true,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "topminipie",
+            "repo": "XiaoMiToolV2",
+            "rev": "9ee136335ce0e1666fc75829056f6edfcbbd4e04",
+            "sha256": "sha256-LlZTTtU9g7cVnyLWgFU8zgfUZIVi9bkVQyT5VeYGjSo=",
+            "type": "github"
+        },
+        "version": "9ee136335ce0e1666fc75829056f6edfcbbd4e04"
+    },
     "buffybox": {
         "cargoLocks": null,
         "date": "2024-10-05",

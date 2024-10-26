@@ -1801,6 +1801,18 @@
     };
     date = "2024-08-29";
   };
+  XiaoMiToolV2 = {
+    pname = "XiaoMiToolV2";
+    version = "9ee136335ce0e1666fc75829056f6edfcbbd4e04";
+    src = fetchFromGitHub {
+      owner = "topminipie";
+      repo = "XiaoMiToolV2";
+      rev = "9ee136335ce0e1666fc75829056f6edfcbbd4e04";
+      fetchSubmodules = true;
+      sha256 = "sha256-LlZTTtU9g7cVnyLWgFU8zgfUZIVi9bkVQyT5VeYGjSo=";
+    };
+    date = "2024-01-13";
+  };
   buffybox = {
     pname = "buffybox";
     version = "c683350b9fb944e38cb484f04f98e4e3f85b41a5";

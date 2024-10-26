@@ -41,13 +41,18 @@
   },
   "legacyPackages.x86_64-linux.UnknownAnimeGamePS_env": {
     "description": "",
-    "pname": "clang_dev_env",
+    "pname": "UnknownAnimeGamePS_env",
+    "version": ""
+  },
+  "legacyPackages.x86_64-linux.UnknownAnimeGamePS_env_fhs": {
+    "description": "",
+    "pname": "UnknownAnimeGamePS_env_fhs-shell",
     "version": ""
   },
   "legacyPackages.x86_64-linux.XiaoMiToolV2": {
     "description": "",
-    "pname": "XiaoMiToolV2",
-    "version": ""
+    "pname": "XiaoMiToolV2-unstable",
+    "version": "2024-01-13"
   },
   "legacyPackages.x86_64-linux._meta.howto": {
     "description": "This NUR has a binary cache. Use the following settings to access it:  nix.settings.substituters = [ \"https://dataeraserc.cachix.org\" ]; nix.settings.trusted-public-keys = [ \"dataeraserc.cachix.org-1:t0lYPod3nkn0ijiOzjwT57MmBDeJnxVurvV8ZdPpIHo=\" ];  Or, use variables from this repository in case I change them:  nix.settings.substituters = [ nur.repos.xddxdd._meta.url ]; nix.settings.trusted-public-keys = [ nur.repos.xddxdd._meta.publicKey ]; ",
@@ -2169,6 +2174,11 @@
     "pname": "python3.12-onepush-unstable",
     "version": "2023-11-28"
   },
+  "legacyPackages.x86_64-linux.open-interpreter": {
+    "description": "A natural language interface for computers",
+    "pname": "open-interpreter-unstable",
+    "version": "2024-10-25"
+  },
   "legacyPackages.x86_64-linux.openj9-ibm-semeru.jdk-bin-11": {
     "description": "OpenJ9 binaries built by IBM Semeru",
     "pname": "openj9-ibm-semeru-jdk-bin",
@@ -3797,7 +3807,7 @@
   "legacyPackages.x86_64-linux.v2ray-rules-dat": {
     "description": "V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria.",
     "pname": "v2ray-rules-dat",
-    "version": "202410242211"
+    "version": "202410252211"
   },
   "legacyPackages.x86_64-linux.vbmeta-disable-verification": {
     "description": "Patch Android vbmeta image and disable verification flags inside.",
@@ -3941,13 +3951,18 @@
   },
   "packages.x86_64-linux.UnknownAnimeGamePS_env": {
     "description": "",
-    "pname": "clang_dev_env",
+    "pname": "UnknownAnimeGamePS_env",
+    "version": ""
+  },
+  "packages.x86_64-linux.UnknownAnimeGamePS_env_fhs": {
+    "description": "",
+    "pname": "UnknownAnimeGamePS_env_fhs-shell",
     "version": ""
   },
   "packages.x86_64-linux.XiaoMiToolV2": {
     "description": "",
-    "pname": "XiaoMiToolV2",
-    "version": ""
+    "pname": "XiaoMiToolV2-unstable",
+    "version": "2024-01-13"
   },
   "packages.x86_64-linux._meta": {
     "description": "",
@@ -4444,6 +4459,11 @@
     "pname": "python3.12-onepush-unstable",
     "version": "2023-11-28"
   },
+  "packages.x86_64-linux.open-interpreter": {
+    "description": "A natural language interface for computers",
+    "pname": "open-interpreter-unstable",
+    "version": "2024-10-25"
+  },
   "packages.x86_64-linux.openj9-ibm-semeru": {
     "description": "",
     "pname": "merged-packages",
@@ -4737,7 +4757,7 @@
   "packages.x86_64-linux.v2ray-rules-dat": {
     "description": "V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria.",
     "pname": "v2ray-rules-dat",
-    "version": "202410242211"
+    "version": "202410252211"
   },
   "packages.x86_64-linux.vbmeta-disable-verification": {
     "description": "Patch Android vbmeta image and disable verification flags inside.",

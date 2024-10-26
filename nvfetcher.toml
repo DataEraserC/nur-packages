@@ -795,3 +795,9 @@ fetch.git = "https://gitlab.com/YuukiPS/GC-Resources.git"
 src.git = "https://github.com/OpenInterpreter/open-interpreter"
 fetch.github = "OpenInterpreter/open-interpreter"
 git.fetchSubmodules = true
+
+[XiaoMiToolV2]
+src.git = "https://github.com/topminipie/XiaoMiToolV2"
+src.branch = "tested"
+fetch.github = "topminipie/XiaoMiToolV2"
+git.fetchSubmodules = true

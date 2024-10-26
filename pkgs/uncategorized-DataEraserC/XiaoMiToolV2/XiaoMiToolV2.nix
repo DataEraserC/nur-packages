@@ -1,52 +1,78 @@
 {
-  requireFile,
-  stdenvNoCC,
-  pkgs,
   lib,
-  ...
+  stdenv,
+  makeBinaryWrapper,
+  gradle_8,
+  gradle ? gradle_8,
+  jdk21,
+  jdk ? jdk21,
+  sources,
+  libGL,
+  xorg,
+  libX11 ? xorg.libX11,
+  libXrender ? xorg.libXrender,
+  libXxf86vm ? xorg.libXxf86vm,
+  libXtst ? xorg.libXtst,
 }:
 let
-  package_nane = "XiaoMiToolV2";
-  package_type = "bin";
-  package_version = "20.7.28";
-  github_release_tag = "v" + package_version;
-  github_url = "https://github.com/francescotescari/XiaoMiToolV2";
-  package_description = "XiaomiTool V2 - Modding tool for xiaomi devices";
+  self = stdenv.mkDerivation rec {
+    inherit (sources.XiaoMiToolV2) pname version src;
+
+    nativeBuildInputs = [
+      gradle
+      jdk
+      makeBinaryWrapper
+    ] ++ libraries;
+
+    postPatch = ''
+      sed -i "s/languageVersion = JavaLanguageVersion.of(17)//g" build.gradle
+    '';
+
+    # if the package has dependencies, mitmCache must be set
+    mitmCache = gradle.fetchDeps {
+      pkg = self;
+      data = ./deps.json;
+    };
+
+    # this is required for using mitm-cache on Darwin
+    __darwinAllowLocalNetworking = true;
+
+    gradleFlags = [ "-Dfile.encoding=utf-8" ];
+
+    gradleBuildTask = "build";
+
+    doCheck = false;
+
+    libraries = [
+      libGL
+      libX11
+      libXrender
+      libXxf86vm
+      libXtst
+    ];
+
+    runtimeLibs = lib.makeLibraryPath libraries;
+
+    installPhase = ''
+      mkdir -p $out/{bin,share/XiaoMiToolV2/bin}
+
+      tar xf build/distributions/XiaomiToolV2-shadow-*.tar --directory=$out/share/XiaoMiToolV2
+
+      extracted_dir=$(find $out/share/XiaoMiToolV2 -maxdepth 1 -type d -name "XiaomiToolV2-shadow-*")
+
+      mv $extracted_dir/bin $out/share/XiaoMiToolV2
+      mv $extracted_dir/lib $out/share/XiaoMiToolV2
+      rm -rf $extracted_dir
+
+      makeWrapper "$out/share/XiaoMiToolV2/bin/XiaoMiTool V2" $out/bin/XiaoMiToolV2 \
+        --set JAVA_HOME "${jdk21}" \
+        --prefix LD_LIBRARY_PATH : "${runtimeLibs}"
+    '';
+
+    meta.sourceProvenance = with lib.sourceTypes; [
+      fromSource
+      binaryBytecode # mitm cache
+    ];
+  };
 in
-stdenvNoCC.mkDerivation rec {
-  pname = package_nane + "_" + package_type;
-  version = package_version;
-
-  src = requireFile {
-    name = "XMT2_Linux_${version}.run";
-    url = "${github_url}/releases/download/${github_release_tag}/XMT2_Linux_${version}.run";
-    hash = "sha256-vnsjU3bAbRWMJIXuvCK6KZ7nhGOb7lLcUOIQzaIGr8Y=";
-  };
-
-  dontUnpack = true;
-
-  nativeBuildInputs = with pkgs; [
-    #makeWrapper
-    #autoPatchelfHook
-  ];
-  buildInputs = [ ];
-  installPhase = ''
-    runHook preInstall
-    _install() {
-      mkdir -p $out/{bin,XiaoMiToolV2}
-      ln -s ${src} $out/bin/XiaoMiToolV2
-    }
-    _install
-    runHook postInstall
-  '';
-  preFixup = '''';
-
-  meta = with lib; {
-    description = package_description;
-    homepage = github_url;
-    license = licenses.unfree;
-    platforms = [ "x86_64-linux" ];
-    # maintainers = with maintainers; [ Program-Learning ];
-    broken = true;
-  };
-}
+self

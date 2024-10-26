@@ -97,8 +97,13 @@ def verify_package_meta(package_path: str, meta: dict) -> bool:
         print(f"{package_path}: no license set")
         valid = False
 
-    if not any([m.get("github") == "xddxdd" for m in meta.get("maintainers", [])]):
-        print(f"{package_path}: xddxdd not in maintainers")
+    if not any(
+        [
+            m.get("github") == "xddxdd" or m.get("github") == "DataEraserC"
+            for m in meta.get("maintainers", [])
+        ]
+    ):
+        print(f"{package_path}: Both of xddxdd and DataEraserC not in maintainers")
         valid = False
 
     return valid
