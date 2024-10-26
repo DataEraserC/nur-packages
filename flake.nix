@@ -112,6 +112,7 @@
             openssl-oqs-provider = import ./modules/openssl-oqs-provider.nix;
             qemu-user-static-binfmt = import ./modules/qemu-user-static-binfmt.nix;
             wireguard-remove-lingering-links = import ./modules/wireguard-remove-lingering-links.nix;
+            hkdm = import ./modules/hkdm.nix;
           };
         };
 
