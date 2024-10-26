@@ -1766,13 +1766,13 @@
   };
   PiliPalaX = {
     pname = "PiliPalaX";
-    version = "dc68d088df85873b19e5453b3b9ad30889bc4bd1";
+    version = "b5a9393a1e3c7fd60e296d978f55984e94a48ece";
     src = fetchFromGitHub {
       owner = "bggRGjQaUbCoE";
       repo = "PiliPalaX";
-      rev = "dc68d088df85873b19e5453b3b9ad30889bc4bd1";
+      rev = "b5a9393a1e3c7fd60e296d978f55984e94a48ece";
       fetchSubmodules = true;
-      sha256 = "sha256-x9CY6GiA6H7ElzOB5TtZt8mmpnxIVfM5QzATUCzjb8w=";
+      sha256 = "sha256-TDGPjwvo25QoV4pGItlXPFQNQWlhCA52jDrLwYpXrDo=";
     };
     date = "2024-10-25";
   };
@@ -1826,6 +1826,18 @@
     };
     date = "2024-09-17";
   };
+  open-interpreter = {
+    pname = "open-interpreter";
+    version = "36ec07125efec86594c91e990f68e0ab214e7edf";
+    src = fetchFromGitHub {
+      owner = "OpenInterpreter";
+      repo = "open-interpreter";
+      rev = "36ec07125efec86594c91e990f68e0ab214e7edf";
+      fetchSubmodules = true;
+      sha256 = "sha256-Bx2tGgmlhm/o9X6iAKaqX75DudBjc8O3qOQgJRRSG78=";
+    };
+    date = "2024-10-25";
+  };
   scrcpy-mask = {
     pname = "scrcpy-mask";
     version = "0f8bb0c52e5f1b421784f9121138b2f7755c06ed";
@@ -1865,26 +1877,26 @@
   };
   v2ray-rules-dat = {
     pname = "v2ray-rules-dat";
-    version = "202410242211";
+    version = "202410252211";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202410242211/rules.zip";
-      sha256 = "sha256-HKy/10tmfo6T65MRLP0jVGJrw6Vj4y2VcDxnIeoaajM=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202410252211/rules.zip";
+      sha256 = "sha256-mL5Z+x26t6IyTnfxnclDJ1JC1w4sp624tEQxsfCRpw0=";
     };
   };
   wechat-web-devtools-linux_appimage = {
     pname = "wechat-web-devtools-linux_appimage";
-    version = "1.06.2407120-1";
+    version = "1.06.2409140-1";
     src = fetchurl {
-      url = "https://github.com/msojocs/wechat-web-devtools-linux/releases/download/v1.06.2407120-1/WeChat_Dev_Tools_v1.06.2407120-1_x86_64_linux.AppImage";
-      sha256 = "sha256-/bn7hQb4A7R9vrk278IEVCG43AYoX5pYannLunybXGY=";
+      url = "https://github.com/msojocs/wechat-web-devtools-linux/releases/download/v1.06.2409140-1/WeChat_Dev_Tools_v1.06.2409140-1_x86_64_linux.AppImage";
+      sha256 = "sha256-wH1HaFmujmWW37E3chdJlIp8zRpkP0lPdSyDprCOLs4=";
     };
   };
   wechat-web-devtools-linux_bin = {
     pname = "wechat-web-devtools-linux_bin";
-    version = "1.06.2407120-1";
+    version = "1.06.2409140-1";
     src = fetchurl {
-      url = "https://github.com/msojocs/wechat-web-devtools-linux/releases/download/v1.06.2407120-1/WeChat_Dev_Tools_v1.06.2407120-1_x86_64_linux.tar.gz";
-      sha256 = "sha256-NFsrk+srxYmp2Ob8AMXn1oRN/UMuoAZ35xgOZNgPn1U=";
+      url = "https://github.com/msojocs/wechat-web-devtools-linux/releases/download/v1.06.2409140-1/WeChat_Dev_Tools_v1.06.2409140-1_x86_64_linux.tar.gz";
+      sha256 = "sha256-JIfYqha/OmlE9PxBn/8rkhKghf8p/ZiSkf/tQqI4XGA=";
     };
   };
 }

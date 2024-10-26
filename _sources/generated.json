@@ -3221,11 +3221,11 @@
             "name": null,
             "owner": "bggRGjQaUbCoE",
             "repo": "PiliPalaX",
-            "rev": "dc68d088df85873b19e5453b3b9ad30889bc4bd1",
-            "sha256": "sha256-x9CY6GiA6H7ElzOB5TtZt8mmpnxIVfM5QzATUCzjb8w=",
+            "rev": "b5a9393a1e3c7fd60e296d978f55984e94a48ece",
+            "sha256": "sha256-TDGPjwvo25QoV4pGItlXPFQNQWlhCA52jDrLwYpXrDo=",
             "type": "github"
         },
-        "version": "dc68d088df85873b19e5453b3b9ad30889bc4bd1"
+        "version": "b5a9393a1e3c7fd60e296d978f55984e94a48ece"
     },
     "UnknownAnimeGamePS": {
         "cargoLocks": null,
@@ -3305,6 +3305,26 @@
         },
         "version": "72f4cf2494db6c8834c4136de70109bc95ed9374"
     },
+    "open-interpreter": {
+        "cargoLocks": null,
+        "date": "2024-10-25",
+        "extract": null,
+        "name": "open-interpreter",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": true,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "OpenInterpreter",
+            "repo": "open-interpreter",
+            "rev": "36ec07125efec86594c91e990f68e0ab214e7edf",
+            "sha256": "sha256-Bx2tGgmlhm/o9X6iAKaqX75DudBjc8O3qOQgJRRSG78=",
+            "type": "github"
+        },
+        "version": "36ec07125efec86594c91e990f68e0ab214e7edf"
+    },
     "scrcpy-mask": {
         "cargoLocks": null,
         "date": "2024-10-11",
@@ -3373,11 +3393,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-HKy/10tmfo6T65MRLP0jVGJrw6Vj4y2VcDxnIeoaajM=",
+            "sha256": "sha256-mL5Z+x26t6IyTnfxnclDJ1JC1w4sp624tEQxsfCRpw0=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202410242211/rules.zip"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202410252211/rules.zip"
         },
-        "version": "202410242211"
+        "version": "202410252211"
     },
     "wechat-web-devtools-linux_appimage": {
         "cargoLocks": null,
@@ -3388,11 +3408,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-/bn7hQb4A7R9vrk278IEVCG43AYoX5pYannLunybXGY=",
+            "sha256": "sha256-wH1HaFmujmWW37E3chdJlIp8zRpkP0lPdSyDprCOLs4=",
             "type": "url",
-            "url": "https://github.com/msojocs/wechat-web-devtools-linux/releases/download/v1.06.2407120-1/WeChat_Dev_Tools_v1.06.2407120-1_x86_64_linux.AppImage"
+            "url": "https://github.com/msojocs/wechat-web-devtools-linux/releases/download/v1.06.2409140-1/WeChat_Dev_Tools_v1.06.2409140-1_x86_64_linux.AppImage"
         },
-        "version": "1.06.2407120-1"
+        "version": "1.06.2409140-1"
     },
     "wechat-web-devtools-linux_bin": {
         "cargoLocks": null,
@@ -3403,10 +3423,10 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-NFsrk+srxYmp2Ob8AMXn1oRN/UMuoAZ35xgOZNgPn1U=",
+            "sha256": "sha256-JIfYqha/OmlE9PxBn/8rkhKghf8p/ZiSkf/tQqI4XGA=",
             "type": "url",
-            "url": "https://github.com/msojocs/wechat-web-devtools-linux/releases/download/v1.06.2407120-1/WeChat_Dev_Tools_v1.06.2407120-1_x86_64_linux.tar.gz"
+            "url": "https://github.com/msojocs/wechat-web-devtools-linux/releases/download/v1.06.2409140-1/WeChat_Dev_Tools_v1.06.2409140-1_x86_64_linux.tar.gz"
         },
-        "version": "1.06.2407120-1"
+        "version": "1.06.2409140-1"
     }
 }

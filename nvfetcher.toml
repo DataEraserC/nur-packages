@@ -790,3 +790,8 @@ git.fetchSubmodules = true
 [UnknownAnimeGamePS-resources]
 src.git = "https://gitlab.com/YuukiPS/GC-Resources.git"
 fetch.git = "https://gitlab.com/YuukiPS/GC-Resources.git"
+
+[open-interpreter]
+src.git = "https://github.com/OpenInterpreter/open-interpreter"
+fetch.github = "OpenInterpreter/open-interpreter"
+git.fetchSubmodules = true
