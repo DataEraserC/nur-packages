@@ -1,7 +1,7 @@
 {
   config,
   lib,
-  pkgs,
+  hkdm,
   ...
 }:
 
@@ -35,7 +35,7 @@
       wantedBy = [ "multi-user.target" ];
       serviceConfig = {
         Restart = "on-failure";
-        ExecStart = "${pkgs.hkdm}/bin/hkdm -i -c ${config.services.hkdm.configFile}";
+        ExecStart = "${hkdm}/bin/hkdm -i -c ${config.services.hkdm.configFile}";
       };
     };
   };
