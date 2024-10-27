@@ -1,4 +1,6 @@
 {
+  lib,
+  config,
   pkgs ? import <nixpkgs> { },
   ...
 }@args:
@@ -13,6 +15,6 @@
     openssl-oqs-provider = import ./modules/openssl-oqs-provider.nix args;
     qemu-user-static-binfmt = import ./modules/qemu-user-static-binfmt.nix args;
     wireguard-remove-lingering-links = import ./modules/wireguard-remove-lingering-links.nix args;
-    hkdm = import ./modules/hkdm.nix args;
+    hkdm = import ./modules/hkdm.nix { inherit lib config pkgs; };
   };
 }
