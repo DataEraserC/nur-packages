@@ -5,7 +5,13 @@
   gradle_8,
   gradle ? gradle_8,
   jdk21,
-  jdk ? jdk21,
+  openjfx,
+  jdk21_with_openjfx ? jdk21.override (
+    lib.optionalAttrs stdenv.hostPlatform.isLinux {
+      enableJavaFX = true;
+      openjfx = openjfx.override { withWebKit = true; };
+    }
+  ),
   sources,
   libGL,
   xorg,
@@ -15,6 +21,7 @@
   libXtst ? xorg.libXtst,
 }:
 let
+  jdk = jdk21_with_openjfx;
   self = stdenv.mkDerivation rec {
     inherit (sources.XiaoMiToolV2) pname version src;
 
@@ -65,7 +72,7 @@ let
       rm -rf $extracted_dir
 
       makeWrapper "$out/share/XiaoMiToolV2/bin/XiaoMiTool V2" $out/bin/XiaoMiToolV2 \
-        --set JAVA_HOME "${jdk21}" \
+        --set JAVA_HOME "${jdk}" \
         --prefix LD_LIBRARY_PATH : "${runtimeLibs}"
     '';
 
