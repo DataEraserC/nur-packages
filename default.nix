@@ -1,5 +1,5 @@
-{
-  pkgs = import ./pkgs "nur";
+rec {
+  pkgs = import ./pkgs null;
   nixosModules = {
     kata-containers = import ./modules/kata-containers.nix;
     lyrica = import ./modules/lyrica.nix;
