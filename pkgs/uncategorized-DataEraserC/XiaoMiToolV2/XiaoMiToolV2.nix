@@ -69,6 +69,7 @@ let
 
       mv $extracted_dir/bin $out/share/XiaoMiToolV2
       mv $extracted_dir/lib $out/share/XiaoMiToolV2
+      ln -s $out/share/XiaoMiToolV2/lib/XiaomiToolV2-*-all.jar $out/share/XiaoMiToolV2/lib/XiaoMiTool.jar
       rm -rf $extracted_dir
 
       makeWrapper "$out/share/XiaoMiToolV2/bin/XiaoMiTool V2" $out/bin/XiaoMiToolV2 \
