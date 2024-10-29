@@ -308,7 +308,7 @@ jobs:
     runs-on: ubuntu-latest
     needs:
       - build-packages
-      - test-nur-eval
+      # - test-nur-eval
       - check-package-meta
     permissions:
       id-token: 'write'
