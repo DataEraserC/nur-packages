@@ -17,6 +17,9 @@ let
   };
 in
 pkgs.stdenv.mkDerivation {
+  # mark it as broken so it wont be build
+  # build this will cause github action failing
+  broken = true;
   name = "UnknownAnimeGamePS_env_fhs-shell";
   nativeBuildInputs = [ fhs ];
   src = builtins.path { path = ./.; };
