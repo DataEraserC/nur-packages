@@ -7,7 +7,7 @@ let
   wechat_dev_tools = callPackage ./wechat_dev_tools_appimage.nix { };
 in
 buildFHSEnvChroot {
-  name = "wechat_dev_tools-env";
+  name = "wechat_dev_tools_appimage_fhs";
   targetPkgs =
     pkgs: with pkgs; [
       wechat_dev_tools

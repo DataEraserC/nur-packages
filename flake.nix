@@ -26,6 +26,11 @@
       url = "github:DataEraserC/LaphaeL-aicmd";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    meme-generator = {
+      url = "github:DataEraserC/meme-generator";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
   outputs =
     { self, flake-parts, ... }@inputs:
@@ -130,7 +135,8 @@
           { pkgs, system, ... }:
           let
             ptr = {
-              LaphaeL-aicmd = inputs.LaphaeL-aicmd.packages.${pkgs.system}.laphael_aicmd;
+              inherit (inputs.LaphaeL-aicmd.packages.${pkgs.system}) laphael_aicmd;
+              inherit (inputs.meme-generator.packages.${pkgs.system}) meme-generator;
             };
           in
           {
