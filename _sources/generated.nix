@@ -1766,15 +1766,15 @@
   };
   PiliPalaX = {
     pname = "PiliPalaX";
-    version = "b5a9393a1e3c7fd60e296d978f55984e94a48ece";
+    version = "23bd32a35c2bee8ab6950ce7bc9bb09ce8c07ffe";
     src = fetchFromGitHub {
       owner = "bggRGjQaUbCoE";
       repo = "PiliPalaX";
-      rev = "b5a9393a1e3c7fd60e296d978f55984e94a48ece";
+      rev = "23bd32a35c2bee8ab6950ce7bc9bb09ce8c07ffe";
       fetchSubmodules = true;
-      sha256 = "sha256-TDGPjwvo25QoV4pGItlXPFQNQWlhCA52jDrLwYpXrDo=";
+      sha256 = "sha256-+1SyUJuG57uO5v9vArlVvs/jnYYewtI9S3ugTVDMvQ4=";
     };
-    date = "2024-10-25";
+    date = "2024-10-31";
   };
   UnknownAnimeGamePS = {
     pname = "UnknownAnimeGamePS";
@@ -1838,6 +1838,14 @@
     };
     date = "2024-09-17";
   };
+  escrcpy_appimage = {
+    pname = "escrcpy_appimage";
+    version = "1.25.4";
+    src = fetchurl {
+      url = "https://github.com/viarotel-org/escrcpy/releases/download/v1.25.4/Escrcpy-1.25.4-linux-x86_64.AppImage";
+      sha256 = "sha256-HBIbgwVGDl67U3P/tK7h/w3fAcsJnYbltZXvHrY5dHQ=";
+    };
+  };
   open-interpreter = {
     pname = "open-interpreter";
     version = "36ec07125efec86594c91e990f68e0ab214e7edf";
@@ -1889,10 +1897,10 @@
   };
   v2ray-rules-dat = {
     pname = "v2ray-rules-dat";
-    version = "202410252211";
+    version = "202410302212";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202410252211/rules.zip";
-      sha256 = "sha256-mL5Z+x26t6IyTnfxnclDJ1JC1w4sp624tEQxsfCRpw0=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202410302212/rules.zip";
+      sha256 = "sha256-wXof1bYD4TBVmSaG5egm0lmmraXckn4XtBcgNZqEN08=";
     };
   };
   wechat-web-devtools-linux_appimage = {

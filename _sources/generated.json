@@ -3209,7 +3209,7 @@
     },
     "PiliPalaX": {
         "cargoLocks": null,
-        "date": "2024-10-25",
+        "date": "2024-10-31",
         "extract": null,
         "name": "PiliPalaX",
         "passthru": null,
@@ -3221,11 +3221,11 @@
             "name": null,
             "owner": "bggRGjQaUbCoE",
             "repo": "PiliPalaX",
-            "rev": "b5a9393a1e3c7fd60e296d978f55984e94a48ece",
-            "sha256": "sha256-TDGPjwvo25QoV4pGItlXPFQNQWlhCA52jDrLwYpXrDo=",
+            "rev": "23bd32a35c2bee8ab6950ce7bc9bb09ce8c07ffe",
+            "sha256": "sha256-+1SyUJuG57uO5v9vArlVvs/jnYYewtI9S3ugTVDMvQ4=",
             "type": "github"
         },
-        "version": "b5a9393a1e3c7fd60e296d978f55984e94a48ece"
+        "version": "23bd32a35c2bee8ab6950ce7bc9bb09ce8c07ffe"
     },
     "UnknownAnimeGamePS": {
         "cargoLocks": null,
@@ -3325,6 +3325,21 @@
         },
         "version": "72f4cf2494db6c8834c4136de70109bc95ed9374"
     },
+    "escrcpy_appimage": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "escrcpy_appimage",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-HBIbgwVGDl67U3P/tK7h/w3fAcsJnYbltZXvHrY5dHQ=",
+            "type": "url",
+            "url": "https://github.com/viarotel-org/escrcpy/releases/download/v1.25.4/Escrcpy-1.25.4-linux-x86_64.AppImage"
+        },
+        "version": "1.25.4"
+    },
     "open-interpreter": {
         "cargoLocks": null,
         "date": "2024-10-25",
@@ -3413,11 +3428,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-mL5Z+x26t6IyTnfxnclDJ1JC1w4sp624tEQxsfCRpw0=",
+            "sha256": "sha256-wXof1bYD4TBVmSaG5egm0lmmraXckn4XtBcgNZqEN08=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202410252211/rules.zip"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202410302212/rules.zip"
         },
-        "version": "202410252211"
+        "version": "202410302212"
     },
     "wechat-web-devtools-linux_appimage": {
         "cargoLocks": null,
