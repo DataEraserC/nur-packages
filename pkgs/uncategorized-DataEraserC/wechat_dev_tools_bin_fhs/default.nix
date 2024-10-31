@@ -20,7 +20,7 @@ buildFHSEnvChroot {
       libpulseaudio
       glib
       dbus
-      libusb
+      libusb1
     ];
   profile = ''
       export QT_XKB_CONFIG_ROOT="${xkeyboard_config}/etc/X11/xkb"

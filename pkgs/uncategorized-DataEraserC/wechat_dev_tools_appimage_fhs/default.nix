@@ -20,7 +20,7 @@ buildFHSEnvChroot {
       libpulseaudio
       glib
       dbus
-      libusb
+      libusb1
       curl
       nss
       libdrm
