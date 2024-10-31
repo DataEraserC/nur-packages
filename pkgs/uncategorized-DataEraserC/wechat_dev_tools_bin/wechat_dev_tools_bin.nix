@@ -36,6 +36,7 @@ stdenv.mkDerivation rec {
       substituteInPlace $out/WeChat_Dev_Tools/bin/wechat-devtools \
         --replace "#!/bin/bash" "#!${pkgs.bash}/bin/bash"
       ln -s $out/WeChat_Dev_Tools/bin/wechat-devtools $out/bin/wechat_dev_tools_bin
+      ln -s $out/WeChat_Dev_Tools/bin/wechat-devtools $out/bin/wechat_dev_tools-bin
     }
     _package-ide
     runHook postInstall
@@ -64,6 +65,7 @@ stdenv.mkDerivation rec {
     description = package_description;
     homepage = github_url;
     license = licenses.unfree;
+    mainProgram = "wechat_dev_tools_bin";
     platforms = [ "x86_64-linux" ];
   };
 }

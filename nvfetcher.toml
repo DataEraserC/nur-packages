@@ -801,3 +801,10 @@ src.git = "https://github.com/topminipie/XiaoMiToolV2"
 src.branch = "tested"
 fetch.github = "topminipie/XiaoMiToolV2"
 git.fetchSubmodules = true
+
+[escrcpy_appimage]
+src.github_tag = "viarotel-org/escrcpy"
+src.from_pattern = "v(.*)"
+src.to_pattern = "\\1"
+fetch.url = "https://github.com/viarotel-org/escrcpy/releases/download/v$ver/Escrcpy-$ver-linux-x86_64.AppImage"
+

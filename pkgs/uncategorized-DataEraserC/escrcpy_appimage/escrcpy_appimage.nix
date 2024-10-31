@@ -1,12 +1,10 @@
 {
-  fetchurl,
   lib,
-  stdenv,
-  pkgs,
-  appimage-run,
-  makeDesktopItem,
+  appimageTools,
+  fetchurl,
+  nix-update-script,
 }:
-stdenv.mkDerivation rec {
+appimageTools.wrapType2 rec {
   pname = "escrcpy";
   version = "1.16.3";
 
@@ -17,46 +15,24 @@ stdenv.mkDerivation rec {
 
   dontUnpack = true;
 
-  icon = fetchurl {
-    url = "https://raw.githubusercontent.com/viarotel-org/escrcpy/bb802943b19ecf9a6d094f6f0816c26d67cb39b9/electron/resources/build/logo.png";
-    sha256 = "sha256-KYvrwftIGfxjEImqDU8iIwqWUWeTPiejtrH3e1Gy0jw=";
-  };
+  extraInstallCommands =
+    let
+      appimageContents = appimageTools.extractType2 { inherit pname version src; };
+    in
+    ''
+      install -Dm444 ${appimageContents}/escrcpy.desktop -t $out/share/applications
+      cp -r ${appimageContents}/usr/share/icons $out/share
+    '';
 
-  buildInputs = with pkgs; [ ];
-  nativeBuildInputs = with pkgs; [
-    makeWrapper
-    copyDesktopItems
-  ];
+  passthru.updateScript = nix-update-script { };
 
-  installPhase = ''
-    runHook preInstall
-    _install() {
-      mkdir -p $out/{bin,lib/escrcpy}
-      ln -s $src $out/lib/escrcpy/escrcpy.AppImage
-      install -Dm644 $icon $out/share/icons/hicolor/48x48/apps/escrcpy.png
-      makeWrapper ${appimage-run}/bin/appimage-run $out/bin/escrcpy-appimage \
-      --argv0 "escrcpy" \
-      --add-flags "$out/lib/escrcpy/escrcpy.AppImage"
-    }
-    _install
-    runHook postInstall
-  '';
-
-  desktopItems = lib.toList (makeDesktopItem {
-    name = "Escrcpy";
-    genericName = "Escrcpy";
-    exec = "escrcpy-appimage";
-    icon = "escrcpy";
-    comment = "Scrcpy Powered by Electron";
-    desktopName = "Escrcpy";
-    categories = [ "Utility" ];
-  });
-
-  meta = with lib; {
-    description = "Escrcpy";
-    homepage = "https://github.com/viarotel-org/escrcpy";
-    # license = licenses.apache;
+  meta = {
+    description = "Clash GUI based on tauri";
+    homepage = "https://github.com/keiko233/clash-nyanpasu";
+    license = lib.licenses.gpl3Plus;
+    mainProgram = "escrcpy";
+    maintainers = with lib.maintainers; [ Guanran928 ];
     platforms = [ "x86_64-linux" ];
-    # maintainers = with maintainers; [ Program-Learning ];
+    sourceProvenance = with lib.sourceTypes; [ binaryNativeCode ];
   };
 }
