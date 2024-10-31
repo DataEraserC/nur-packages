@@ -14,11 +14,6 @@
     "pname": "appimagelauncher",
     "version": "2.2.0"
   },
-  "legacyPackages.x86_64-linux.LaphaeL-aicmd": {
-    "description": "Enable chat AI to execute commands on linux with feedback-loop for multi-step missions",
-    "pname": "python3.12-laphael-aicmd",
-    "version": "1.2.3"
-  },
   "legacyPackages.x86_64-linux.MIO_KITCHEN_bin": {
     "description": "The Android Rom Tool Use python language",
     "pname": "MIO-KITCHEN_bin",
@@ -27,7 +22,7 @@
   "legacyPackages.x86_64-linux.PiliPalaX": {
     "description": "PiliPalaX",
     "pname": "PiliPalaX-unstable",
-    "version": "2024-10-25"
+    "version": "2024-10-31"
   },
   "legacyPackages.x86_64-linux.UnknownAnimeGamePS": {
     "description": "",
@@ -38,16 +33,6 @@
     "description": "A server software reimplementation for a certain anime game.",
     "pname": "UnknownAnimeGamePS-wrapper-unstable",
     "version": "2024-10-24"
-  },
-  "legacyPackages.x86_64-linux.UnknownAnimeGamePS_env": {
-    "description": "",
-    "pname": "UnknownAnimeGamePS_env",
-    "version": ""
-  },
-  "legacyPackages.x86_64-linux.UnknownAnimeGamePS_env_fhs": {
-    "description": "",
-    "pname": "UnknownAnimeGamePS_env_fhs-shell",
-    "version": ""
   },
   "legacyPackages.x86_64-linux.XiaoMiToolV2": {
     "description": "",
@@ -520,7 +505,7 @@
     "version": ""
   },
   "legacyPackages.x86_64-linux.clash-nyanpasu": {
-    "description": "Clash GUI based on tauri",
+    "description": "A Clash GUI based on tauri",
     "pname": "clash-nyanpasu",
     "version": "1.4.5"
   },
@@ -605,7 +590,7 @@
     "version": "11.5.0"
   },
   "legacyPackages.x86_64-linux.escrcpy_appimage": {
-    "description": "Escrcpy",
+    "description": "Clash GUI based on tauri",
     "pname": "escrcpy",
     "version": "1.16.3"
   },
@@ -1419,6 +1404,11 @@
     "pname": "libltnginx-unstable",
     "version": "2021-10-02"
   },
+  "legacyPackages.x86_64-linux.laphael_aicmd": {
+    "description": "Enable chat AI to execute commands on linux with feedback-loop for multi-step missions",
+    "pname": "python3.12-laphael-aicmd",
+    "version": "1.2.3"
+  },
   "legacyPackages.x86_64-linux.ldap-auth-proxy": {
     "description": "A simple drop-in HTTP proxy for transparent LDAP authentication which is also a HTTP auth backend.",
     "pname": "ldap-auth-proxy-unstable",
@@ -1463,6 +1453,11 @@
     "description": "A tool to unpack / repack boot images, parse / patch / extract cpio, patch dtb, hex patch binaries, and compress / decompress files with multiple algorithms.",
     "pname": "magiskboot",
     "version": "28.0"
+  },
+  "legacyPackages.x86_64-linux.meme-generator": {
+    "description": "meme generator",
+    "pname": "python3.12-meme-generator",
+    "version": "0.1.5"
   },
   "legacyPackages.x86_64-linux.mtkclient": {
     "description": "MTK reverse engineering and flash tool",
@@ -3807,7 +3802,7 @@
   "legacyPackages.x86_64-linux.v2ray-rules-dat": {
     "description": "V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria.",
     "pname": "v2ray-rules-dat",
-    "version": "202410252211"
+    "version": "202410302212"
   },
   "legacyPackages.x86_64-linux.vbmeta-disable-verification": {
     "description": "Patch Android vbmeta image and disable verification flags inside.",
@@ -3866,23 +3861,13 @@
   },
   "legacyPackages.x86_64-linux.wechat_dev_tools_appimage": {
     "description": "The development tools for wechat projects",
-    "pname": "wechat_dev_tools_appimage",
-    "version": "1.06.2402040-1"
+    "pname": "wechat-web-devtools-linux_appimage",
+    "version": "1.06.2409140-1"
   },
   "legacyPackages.x86_64-linux.wechat_dev_tools_bin": {
     "description": "The development tools for wechat projects",
-    "pname": "wechat_dev_tools_bin",
-    "version": "1.06.2402040-1"
-  },
-  "legacyPackages.x86_64-linux.wechat_dev_tools_fhs_appimage": {
-    "description": "",
-    "pname": "wechat_dev_tools-env",
-    "version": ""
-  },
-  "legacyPackages.x86_64-linux.wechat_dev_tools_fhs_bin": {
-    "description": "",
-    "pname": "wechat_dev_tools-env",
-    "version": ""
+    "pname": "wechat-web-devtools-linux_bin",
+    "version": "1.06.2409140-1"
   },
   "legacyPackages.x86_64-linux.wine-wechat": {
     "description": "Wine WeChat x64 (Packaging script adapted from https://aur.archlinux.org/packages/deepin-wine-wechat)",
@@ -3924,11 +3909,6 @@
     "pname": "appimagelauncher",
     "version": "2.2.0"
   },
-  "packages.x86_64-linux.LaphaeL-aicmd": {
-    "description": "Enable chat AI to execute commands on linux with feedback-loop for multi-step missions",
-    "pname": "python3.12-laphael-aicmd",
-    "version": "1.2.3"
-  },
   "packages.x86_64-linux.MIO_KITCHEN_bin": {
     "description": "The Android Rom Tool Use python language",
     "pname": "MIO-KITCHEN_bin",
@@ -3937,7 +3917,7 @@
   "packages.x86_64-linux.PiliPalaX": {
     "description": "PiliPalaX",
     "pname": "PiliPalaX-unstable",
-    "version": "2024-10-25"
+    "version": "2024-10-31"
   },
   "packages.x86_64-linux.UnknownAnimeGamePS": {
     "description": "",
@@ -3948,16 +3928,6 @@
     "description": "A server software reimplementation for a certain anime game.",
     "pname": "UnknownAnimeGamePS-wrapper-unstable",
     "version": "2024-10-24"
-  },
-  "packages.x86_64-linux.UnknownAnimeGamePS_env": {
-    "description": "",
-    "pname": "UnknownAnimeGamePS_env",
-    "version": ""
-  },
-  "packages.x86_64-linux.UnknownAnimeGamePS_env_fhs": {
-    "description": "",
-    "pname": "UnknownAnimeGamePS_env_fhs-shell",
-    "version": ""
   },
   "packages.x86_64-linux.XiaoMiToolV2": {
     "description": "",
@@ -4080,7 +4050,7 @@
     "version": ""
   },
   "packages.x86_64-linux.clash-nyanpasu": {
-    "description": "Clash GUI based on tauri",
+    "description": "A Clash GUI based on tauri",
     "pname": "clash-nyanpasu",
     "version": "1.4.5"
   },
@@ -4165,7 +4135,7 @@
     "version": "11.5.0"
   },
   "packages.x86_64-linux.escrcpy_appimage": {
-    "description": "Escrcpy",
+    "description": "Clash GUI based on tauri",
     "pname": "escrcpy",
     "version": "1.16.3"
   },
@@ -4339,6 +4309,11 @@
     "pname": "merged-packages",
     "version": ""
   },
+  "packages.x86_64-linux.laphael_aicmd": {
+    "description": "Enable chat AI to execute commands on linux with feedback-loop for multi-step missions",
+    "pname": "python3.12-laphael-aicmd",
+    "version": "1.2.3"
+  },
   "packages.x86_64-linux.ldap-auth-proxy": {
     "description": "A simple drop-in HTTP proxy for transparent LDAP authentication which is also a HTTP auth backend.",
     "pname": "ldap-auth-proxy-unstable",
@@ -4383,6 +4358,11 @@
     "description": "A tool to unpack / repack boot images, parse / patch / extract cpio, patch dtb, hex patch binaries, and compress / decompress files with multiple algorithms.",
     "pname": "magiskboot",
     "version": "28.0"
+  },
+  "packages.x86_64-linux.meme-generator": {
+    "description": "meme generator",
+    "pname": "python3.12-meme-generator",
+    "version": "0.1.5"
   },
   "packages.x86_64-linux.mtkclient": {
     "description": "MTK reverse engineering and flash tool",
@@ -4757,7 +4737,7 @@
   "packages.x86_64-linux.v2ray-rules-dat": {
     "description": "V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria.",
     "pname": "v2ray-rules-dat",
-    "version": "202410252211"
+    "version": "202410302212"
   },
   "packages.x86_64-linux.vbmeta-disable-verification": {
     "description": "Patch Android vbmeta image and disable verification flags inside.",
@@ -4816,23 +4796,13 @@
   },
   "packages.x86_64-linux.wechat_dev_tools_appimage": {
     "description": "The development tools for wechat projects",
-    "pname": "wechat_dev_tools_appimage",
-    "version": "1.06.2402040-1"
+    "pname": "wechat-web-devtools-linux_appimage",
+    "version": "1.06.2409140-1"
   },
   "packages.x86_64-linux.wechat_dev_tools_bin": {
     "description": "The development tools for wechat projects",
-    "pname": "wechat_dev_tools_bin",
-    "version": "1.06.2402040-1"
-  },
-  "packages.x86_64-linux.wechat_dev_tools_fhs_appimage": {
-    "description": "",
-    "pname": "wechat_dev_tools-env",
-    "version": ""
-  },
-  "packages.x86_64-linux.wechat_dev_tools_fhs_bin": {
-    "description": "",
-    "pname": "wechat_dev_tools-env",
-    "version": ""
+    "pname": "wechat-web-devtools-linux_bin",
+    "version": "1.06.2409140-1"
   },
   "packages.x86_64-linux.wine-wechat": {
     "description": "Wine WeChat x64 (Packaging script adapted from https://aur.archlinux.org/packages/deepin-wine-wechat)",

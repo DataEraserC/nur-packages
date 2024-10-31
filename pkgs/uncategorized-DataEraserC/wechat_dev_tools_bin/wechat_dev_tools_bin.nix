@@ -29,7 +29,7 @@ stdenv.mkDerivation rec {
       mkdir -p $out/{bin,share/applications,WeChat_Dev_Tools}
 
 
-      tar xzvf ${src} -C $out/WeChat_Dev_Tools --strip-components=1
+      tar xzf ${src} -C $out/WeChat_Dev_Tools --strip-components=1
 
       install -Dm644 ${icon} $out/share/icons/hicolor/48x48/apps/wechat_dev_tools.png
 
