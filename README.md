@@ -88,7 +88,7 @@ Or, use variables from this repository in case I change them:
 ## Packages
 
 <details>
-<summary>Package set: (Uncategorized) (178 packages)</summary>
+<summary>Package set: (Uncategorized) (174 packages)</summary>
 
 | State | Path | Name | Version | Description |
 | ----- | ---- | ---- | ------- | ----------- |
@@ -96,11 +96,9 @@ Or, use variables from this repository in case I change them:
 | `x86_64-linux` | `Adobe_Photoshop_CS6_appimage` | [Adobe_Photoshop_CS6](https://t.me/Linux_Appimages/1042) | CS6 | Adobe_Photoshop_CS6 |
 | `x86_64-linux` | `AppimageLauncher_deb` | [appimagelauncher-2.2.0](https://github.com/TheAssassin/AppImageLauncher) |  | appimagelauncher |
 | `Broken` `x86_64-linux` | `MIO_KITCHEN_bin` | [MIO-KITCHEN_bin](https://github.com/ColdWindScholar/MIO-KITCHEN-SOURCE) | 3.0.8 | The Android Rom Tool Use python language |
-| `Broken` | `PiliPalaX` | [PiliPalaX](https://github.com/bggRGjQaUbCoE/PiliPalaX) | unstable-2024-10-25 | PiliPalaX |
+| `Broken` | `PiliPalaX` | [PiliPalaX](https://github.com/bggRGjQaUbCoE/PiliPalaX) | unstable-2024-10-31 | PiliPalaX |
 |  | `UnknownAnimeGamePS` | UnknownAnimeGamePS | unstable-2024-10-24 |  |
 |  | `UnknownAnimeGamePS-wrapper` | [UnknownAnimeGamePS-wrapper](https://github.com/XeonSucksLAB/UnknownAnimeGamePS) | unstable-2024-10-24 | A server software reimplementation for a certain anime game. |
-|  | `UnknownAnimeGamePS_env` | UnknownAnimeGamePS_env |  |  |
-|  | `UnknownAnimeGamePS_env_fhs` | UnknownAnimeGamePS_env_fhs-shell |  |  |
 |  | `XiaoMiToolV2` | XiaoMiToolV2 | unstable-2024-01-13 |  |
 |  | `acpi-ec` | [acpi-ec](https://github.com/musikid/acpi_ec) | 1.0.4 | Kernel module to access directly to the ACPI EC |
 |  | `amule-dlp` | [amule-dlp](https://github.com/amule-project/amule) | unstable-2023-03-02 | Peer-to-peer client for the eD2K and Kademlia networks |
@@ -118,12 +116,12 @@ Or, use variables from this repository in case I change them:
 |  | `buffyboard` | [buffyboard](https://gitlab.com/postmarketOS/buffybox/-/tree/master/buffyboard) | unstable-2023-11-20 |  |
 |  | `buffybox` | [buffybox](https://gitlab.com/postmarketOS/buffybox) | unstable-2024-10-05 | A suite of graphical applications for the terminal |
 |  | `c001apk-flutter` | [c001apk-flutter](https://github.com/bggRGjQaUbCoE/c001apk-flutter) | unstable-2024-09-17 | c001apk |
-|  | `calibre-cops` | [calibre-cops](http://blog.slucas.fr/en/oss/calibre-opds-php-server) | 2.7.2 | Calibre OPDS (and HTML) PHP Server : web-based light alternative to Calibre content server / Calibre2OPDS to serve ebooks (epub, mobi, pdf, ...) |
+|  | `calibre-cops` | [calibre-cops](http://blog.slucas.fr/en/oss/calibre-opds-php-server) | 3.3.1 | Calibre OPDS (and HTML) PHP Server : web-based light alternative to Calibre content server / Calibre2OPDS to serve ebooks (epub, mobi, pdf, ...) |
 |  | `cargo-tauri` | [tauri](https://tauri.app/) | 2.0.1 | Build smaller, faster, and more secure desktop applications with a web frontend |
 |  | `chmlib-utils` | [chmlib](http://www.jedrea.com/chmlib) | 0.40a | Library for dealing with Microsoft ITSS/CHM format files |
 |  | `clang_dev_env` | clang_dev_env |  |  |
 |  | `clang_dev_env_fhs` | clang_dev_env_fhs-shell |  |  |
-|  | `clash-nyanpasu` | [clash-nyanpasu](https://github.com/keiko233/clash-nyanpasu) | 1.4.5 | Clash GUI based on tauri |
+| `x86_64-linux` | `clash-nyanpasu` | [clash-nyanpasu](https://github.com/keiko233/clash-nyanpasu) | 1.4.5 | A Clash GUI based on tauri |
 |  | `click-loglevel` | [click-loglevel](https://github.com/jwodder/click-loglevel) | 0.5.0 | Log level parameter type for Click |
 |  | `cloudpan189-go` | [cloudpan189-go](https://github.com/tickstep/cloudpan189-go) | 0.1.3 | CLI for China Telecom 189 Cloud Drive service, implemented in Go |
 |  | `cockpy` | [cockpy](https://github.com/Hiro420/CockPY) | unstable-2024-09-07 | public and open source version of the cbt2 ps im working on |
@@ -140,7 +138,7 @@ Or, use variables from this repository in case I change them:
 |  | `drone-file-secret` | [drone-file-secret](https://github.com/xddxdd/drone-file-secret) | unstable-2023-06-25 | A secret provider for Drone CI. It simply reads secrets from a given folder, suitable for private use Drone CI instances where running a Vault instance can be undesirable. |
 |  | `drone-vault` | [drone-vault](https://docs.drone.io/configure/secrets/external/vault/) | 1.3.0 | Drone plugin for integrating with the Vault secrets manager |
 |  | `electron_11` | [electron](https://github.com/electron/electron) | 11.5.0 | Cross platform desktop application shell |
-| `x86_64-linux` | `escrcpy_appimage` | [escrcpy](https://github.com/viarotel-org/escrcpy) | 1.16.3 | Escrcpy |
+| `x86_64-linux` | `escrcpy_appimage` | [escrcpy](https://github.com/keiko233/clash-nyanpasu) | 1.16.3 | Clash GUI based on tauri |
 | `Broken` | `escrcpy_deb` | [escrcpy_deb](https://github.com/viarotel-org/escrcpy) | 1.18.2 | Graphical Scrcpy to display and control Android, devices powered by Electron.  |
 |  | `etherguard` | [etherguard](https://github.com/KusakabeShi/EtherGuard-VPN) | unstable-2024-01-12 | Layer2 version of wireguard with Floyd Warshall implement in go |
 |  | `example-package` | example-package-1.0 | 1.0 |  |
@@ -161,20 +159,20 @@ Or, use variables from this repository in case I change them:
 |  | `hesuvi-hrir` | [hesuvi-hrir](https://sourceforge.net/projects/hesuvi/) | 2.0.0.1 | Headphone Surround Virtualizations for Equalizer APO |
 |  | `hi3-ii-martian-font` | [hi3-ii-martian-font](https://github.com/Wenti-D/HI3IIMartianFont) | unstable-2023-10-12 | Font for Martian in Honkai Impact 3rd |
 |  | `hkdm` | [hkdm](https://gitlab.com/postmarketOS/hkdm) | 0.2.1 | A lighter-weight hotkey daemon |
-|  | `hoyo-glyphs` | [hoyo-glyphs](https://github.com/SpeedyOrc-C/Hoyo-Glyphs) | 20240919 | Constructed scripts by Hoyoverse 米哈游的架空文字 |
+|  | `hoyo-glyphs` | [hoyo-glyphs](https://github.com/SpeedyOrc-C/Hoyo-Glyphs) | 20241027 | Constructed scripts by Hoyoverse 米哈游的架空文字 |
 | `x86_64-linux` | `i915-sriov` | [i915-sriov](https://github.com/strongtz/i915-sriov-dkms) | unstable-2024-10-04 | DKMS module of Linux i915 driver with SR-IOV support |
 |  | `imewlconverter` | [imewlconverter](https://github.com/studyzy/imewlconverter) | 3.1.1 | ”深蓝词库转换“ 一款开源免费的输入法词库转换程序 |
 | `x86_64-linux` | `inter-knot` | [inter-knot](https://inot.top) | 2.16.9+36 | 绳网是一个游戏、技术交流平台 |
 |  | `jproxy` | [jproxy](https://github.com/LuckyPuppy514/jproxy) | 3.4.1 | A proxy between Sonarr / Radarr and Jackett / Prowlarr, mainly used to optimize search and improve recognition rate |
 |  | `kaixinsong-fonts` | [kaixinsong-fonts](http://www.guoxuedashi.net/zidian/bujian/KaiXinSong.php) | 3.0 | KaiXinSong |
-|  | `kata-image` | [kata-image](https://github.com/kata-containers/kata-containers) | 3.10.0 | Kata Containers is an open source project and community working to build a standard implementation of lightweight Virtual Machines (VMs) that feel and perform like containers, but provide the workload isolation and security advantages of VMs. (Packaging script adapted from https://github.com/TUM-DSE/doctor-cluster-config/blob/0c40be8dd86282122f8f04df738c409ef5e3da1c/pkgs/kata-images/default.nix) |
-|  | `kata-runtime` | [kata-runtime](https://github.com/kata-containers/kata-containers) | 3.10.0 | Kata Containers is an open source project and community working to build a standard implementation of lightweight Virtual Machines (VMs) that feel and perform like containers, but provide the workload isolation and security advantages of VMs. (Packaging script adapted from https://github.com/TUM-DSE/doctor-cluster-config/blob/0c40be8dd86282122f8f04df738c409ef5e3da1c/pkgs/kata-runtime/default.nix) |
+|  | `kata-image` | [kata-image](https://github.com/kata-containers/kata-containers) | 3.10.1 | Kata Containers is an open source project and community working to build a standard implementation of lightweight Virtual Machines (VMs) that feel and perform like containers, but provide the workload isolation and security advantages of VMs. (Packaging script adapted from https://github.com/TUM-DSE/doctor-cluster-config/blob/0c40be8dd86282122f8f04df738c409ef5e3da1c/pkgs/kata-images/default.nix) |
+|  | `kata-runtime` | [kata-runtime](https://github.com/kata-containers/kata-containers) | 3.10.1 | Kata Containers is an open source project and community working to build a standard implementation of lightweight Virtual Machines (VMs) that feel and perform like containers, but provide the workload isolation and security advantages of VMs. (Packaging script adapted from https://github.com/TUM-DSE/doctor-cluster-config/blob/0c40be8dd86282122f8f04df738c409ef5e3da1c/pkgs/kata-runtime/default.nix) |
 |  | `kikoplay` | [kikoplay](https://kikoplay.fun) | 1.0.3 | KikoPlay - NOT ONLY A Full-Featured Danmu Player 不仅仅是全功能弹幕播放器 |
 |  | `konnect` | [konnect](https://github.com/Kopano-dev/konnect) | 0.34.0 | Kopano Konnect implements an OpenID provider (OP) with integrated web login and consent forms. |
 |  | `ldap-auth-proxy` | [ldap-auth-proxy](https://github.com/pinepain/ldap-auth-proxy) | unstable-2020-07-29 | A simple drop-in HTTP proxy for transparent LDAP authentication which is also a HTTP auth backend. |
-|  | `libnftnl-fullcone` | [libnftnl](https://netfilter.org/projects/libnftnl/) | 1.2.7 | Userspace library providing a low-level netlink API to the in-kernel nf_tables subsystem |
+|  | `libnftnl-fullcone` | [libnftnl](https://netfilter.org/projects/libnftnl/) | 1.2.8 | Userspace library providing a low-level netlink API to the in-kernel nf_tables subsystem |
 |  | `liboqs` | [liboqs](https://openquantumsafe.org) | 0.11.0 | C library for prototyping and experimenting with quantum-resistant cryptography |
-|  | `liboqs-unstable` | [liboqs](https://openquantumsafe.org) | unstable-2024-10-23 | C library for prototyping and experimenting with quantum-resistant cryptography |
+|  | `liboqs-unstable` | [liboqs](https://openquantumsafe.org) | unstable-2024-10-30 | C library for prototyping and experimenting with quantum-resistant cryptography |
 | `x86_64-linux` | `libqcef` | [libqcef](https://github.com/martyr-deepin/libqcef) | unstable-2019-11-23 | Qt5 binding of CEF |
 |  | `llqqnt` | [qq](https://im.qq.com/linuxqq/index.html) | qq=3.2.13+llqqnt_rev=unstable-2024-09-26 | QQ for Linux |
 |  | `lyrica` | [lyrica](https://github.com/chiyuki0325/lyrica) | 0.12 | Linux desktop lyrics widget focused on simplicity and integration |
@@ -186,7 +184,7 @@ Or, use variables from this repository in case I change them:
 | `x86_64-linux` | `netease-cloud-music` | [netease-cloud-music](https://music.163.com) | 1.2.1 | NetEase Cloud Music Linux Client (package script adapted from NixOS-CN and Freed-Wu) |
 |  | `netns-exec` | [netns-exec](https://github.com/pekman/netns-exec) | unstable-2016-07-30 | Run command in Linux network namespace as normal user |
 |  | `nft-fullcone` | [nft-fullcone](https://github.com/fullcone-nat-nftables/nft-fullcone) | unstable-2023-05-17 | Nftables fullcone expression kernel module |
-|  | `nftables-fullcone` | [nftables](https://netfilter.org/projects/nftables/) | 1.1.0 | Project that aims to replace the existing {ip,ip6,arp,eb}tables framework |
+|  | `nftables-fullcone` | [nftables](https://netfilter.org/projects/nftables/) | 1.1.1 | Project that aims to replace the existing {ip,ip6,arp,eb}tables framework |
 |  | `noise-suppression-for-voice` | [noise-suppression-for-voice](https://github.com/werman/noise-suppression-for-voice) | 1.10 | Noise suppression plugin based on Xiph's RNNoise |
 |  | `nullfs` | [nullfs](https://github.com/xrgtn/nullfs) | unstable-2016-01-28 | FUSE nullfs drivers |
 |  | `nullfsvfs` | [nullfsvfs](https://github.com/abbbi/nullfsvfs) | 0.17 | A virtual black hole file system that behaves like /dev/null |
@@ -202,7 +200,7 @@ Or, use variables from this repository in case I change them:
 |  | `palworld-exporter` | [palworld-exporter](https://github.com/palworldlol/palworld-exporter) | 1.3.1 | Prometheus exporter for Palword Server |
 |  | `palworld-worldoptions` | [palworld-worldoptions](https://github.com/legoduded/palworld-worldoptions) | 1.10.0 | A tool for creating WorldOption.sav and applying the PalWorldSettings.ini for dedicated servers |
 |  | `payload-dumper-go` | [payload-dumper-go](https://github.com/ssut/payload-dumper-go) | 1.2.2 | An android OTA payload dumper written in Go |
-|  | `peerbanhelper` | [peerbanhelper](https://github.com/Ghost-chu/PeerBanHelper) | 6.4.8 | 自动封禁不受欢迎、吸血和异常的 BT 客户端，并支持自定义规则。PeerId黑名单/UserAgent黑名单/IP CIDR/假进度检测/超量下载检测/主动探测 支持 qBittorrent/Transmission |
+|  | `peerbanhelper` | [peerbanhelper](https://github.com/Ghost-chu/PeerBanHelper) | 7.0.0 | 自动封禁不受欢迎、吸血和异常的 BT 客户端，并支持自定义规则。PeerId黑名单/UserAgent黑名单/IP CIDR/假进度检测/超量下载检测/主动探测 支持 qBittorrent/Transmission |
 |  | `phpmyadmin` | [phpmyadmin](https://www.phpmyadmin.net/) | 5.2.1 | A web interface for MySQL and MariaDB |
 |  | `phppgadmin` | [phppgadmin](https://github.com/phppgadmin/phppgadmin) | 7.14.7-mod | The premier web-based administration tool for PostgreSQL |
 |  | `plasma-panel-transparency-toggle` | [plasma-panel-transparency-toggle](https://github.com/sanjay-kr-commit/panelTransparencyToggleForPlasma6) | unstable-2024-04-17 | A rewrite of [Panel Transparency Button](https://github.com/psifidotos/paneltransparencybutton) for plasma 6 |
@@ -221,7 +219,7 @@ Or, use variables from this repository in case I change them:
 |  | `rime-aurora-pinyin` | [rime-aurora-pinyin](https://github.com/hosxy/rime-aurora-pinyin) | unstable-2022-08-28 | 【极光拼音】输入方案 |
 |  | `rime-custom-pinyin-dictionary` | [rime-custom-pinyin-dictionary](https://github.com/wuhgit/CustomPinyinDictionary) | 20240824 | 自建拼音输入法词库，百万常用词汇量，适配 Fcitx5 (Linux / Android) 及 Gboard (Android + Magisk or KernelSU) 。 |
 |  | `rime-dict` | [rime-dict](https://github.com/Iorest/rime-dict) | unstable-2020-12-26 | RIME 词库增强 |
-|  | `rime-ice` | [rime-ice](https://dvel.me/posts/rime-ice/) | unstable-2024-10-12 | Rime 配置：雾凇拼音 | 长期维护的简体词库 |
+|  | `rime-ice` | [rime-ice](https://dvel.me/posts/rime-ice/) | unstable-2024-10-30 | Rime 配置：雾凇拼音 | 长期维护的简体词库 |
 |  | `rime-moegirl` | [rime-moegirl](https://github.com/outloudvi/mw2fcitx/releases) | 20241009 | Releases for dict of zh.moegirl.org.cn |
 |  | `rime-zhwiki` | [rime-zhwiki](https://github.com/felixonmars/fcitx5-pinyin-zhwiki) | 20240426 | Fcitx 5 Pinyin Dictionary from zh.wikipedia.org |
 |  | `route-chain` | [route-chain](https://github.com/xddxdd/route-chain) | unstable-2023-09-09 | A small app to generate a long path in traceroute. |
@@ -249,22 +247,20 @@ Or, use variables from this repository in case I change them:
 | `x86_64-linux` | `unigine-tropics` | [unigine-tropics](https://benchmark.unigine.com/tropics) | 1.3 | Extreme performance and stability test for PC hardware: video card, power supply, cooling system. |
 | `x86_64-linux` | `unigine-valley` | [unigine-valley](https://benchmark.unigine.com/valley) | 1.0 | Extreme performance and stability test for PC hardware: video card, power supply, cooling system. |
 |  | `v2dat` | [v2dat](https://github.com/urlesistiana/v2dat) | unstable-2022-12-15 | A cli tool that can unpack v2ray data packages. (Note: This project is for fun ONLY. You should build your own data dirctly from upstreams instead of unpacking a v2ray data pack.) |
-|  | `v2ray-rules-dat` | [v2ray-rules-dat](https://github.com/Loyalsoldier/v2ray-rules-dat) | 202410252211 | V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria. |
+|  | `v2ray-rules-dat` | [v2ray-rules-dat](https://github.com/Loyalsoldier/v2ray-rules-dat) | 202410302212 | V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria. |
 |  | `vbmeta-disable-verification` | [vbmeta-disable-verification](https://github.com/libxzr/vbmeta-disable-verification) | 1.0 | Patch Android vbmeta image and disable verification flags inside. |
 |  | `vgpu-unlock-rs` | [vgpu-unlock-rs](https://github.com/mbilker/vgpu_unlock-rs) | 2.5.0 | Unlock vGPU functionality for consumer grade GPUs |
 |  | `vk-hdr-layer` | [vk-hdr-layer](https://github.com/Zamundaaa/VK_hdr_layer) | unstable-2024-10-19 | Vulkan layer utilizing a small color management / HDR protocol for experimentation |
 | `Broken` `x86_64-linux` | `vmware-workstation` | [vmware-workstation](https://www.vmware.com/products/workstation-pro.html) | 17.5.1 | Industry standard desktop hypervisor for x86-64 architecture |
-|  | `vpp` | [vpp](https://wiki.fd.io/view/VPP/What_is_VPP%3F) | 24.06 | Vector Packet Processing |
+|  | `vpp` | [vpp](https://wiki.fd.io/view/VPP/What_is_VPP%3F) | 24.10 | Vector Packet Processing |
 |  | `watt-toolkit_2` | [watt-toolkit](https://steampp.net) | 2.8.6 | A cross-platform Steam toolbox |
 | `Broken` | `watt-toolkit_3` | [watt-toolkit](https://steampp.net) | 2.8.6 | A cross-platform Steam toolbox |
 |  | `waybar_bluetooth_battery_parse` | waybar-bluetooth_battery_parse | 0.0.2 |  |
 | `x86_64-linux` | `wechat-uos` | [wechat-uos](https://weixin.qq.com/) | 1.0.0.241 | WeChat desktop with sandbox enabled ($HOME/Documents/WeChat_Data) (Adapted from https://aur.archlinux.org/packages/wechat-uos-bwrap) |
 | `x86_64-linux` | `wechat-uos-bin` | [wechat-uos](https://weixin.qq.com/) | 1.0.0.241 | WeChat desktop with sandbox enabled ($HOME/Documents/WeChat_Data) (Adapted from https://aur.archlinux.org/packages/wechat-uos-bwrap) |
 | `x86_64-linux` | `wechat-uos-without-sandbox` | [wechat-uos](https://weixin.qq.com/) | 1.0.0.241 | WeChat desktop without sandbox (Adapted from https://aur.archlinux.org/packages/wechat-uos-bwrap) |
-| `x86_64-linux` | `wechat_dev_tools_appimage` | [wechat_dev_tools_appimage](https://github.com/msojocs/wechat-web-devtools-linux) | 1.06.2402040-1 | The development tools for wechat projects |
-| `x86_64-linux` | `wechat_dev_tools_bin` | [wechat_dev_tools_bin](https://github.com/msojocs/wechat-web-devtools-linux) | 1.06.2402040-1 | The development tools for wechat projects |
-|  | `wechat_dev_tools_fhs_appimage` | wechat_dev_tools-env |  |  |
-|  | `wechat_dev_tools_fhs_bin` | wechat_dev_tools-env |  |  |
+| `x86_64-linux` | `wechat_dev_tools_appimage` | [wechat-web-devtools-linux_appimage](https://github.com/msojocs/wechat-web-devtools-linux) | 1.06.2409140-1 | The development tools for wechat projects |
+| `x86_64-linux` | `wechat_dev_tools_bin` | [wechat-web-devtools-linux_bin](https://github.com/msojocs/wechat-web-devtools-linux) | 1.06.2409140-1 | The development tools for wechat projects |
 | `x86_64-linux` | `wine-wechat` | [wine-wechat](https://weixin.qq.com/) | 3.9.12.17 | Wine WeChat x64 (Packaging script adapted from https://aur.archlinux.org/packages/deepin-wine-wechat) |
 | `x86_64-linux` | `wine-wechat-x86` | [wine-wechat-x86](https://weixin.qq.com/) | 3.9.12.16 | Wine WeChat x86 (Packaging script adapted from https://aur.archlinux.org/packages/deepin-wine-wechat) |
 |  | `xcursor-genshin-nahida` | [xcursor-genshin-nahida](https://aur.archlinux.org/packages/xcursor-genshin-nahida) | 1.0-2 | xcursor genshin nahida |
@@ -360,7 +356,7 @@ Or, use variables from this repository in case I change them:
 |  | `lantianCustomized.coredns` | [coredns](https://github.com/xddxdd/coredns) | 1.11.3 | CoreDNS with Lan Tian's modifications |
 |  | `lantianCustomized.firefox-icon-mikozilla-fireyae` | [firefox-icon-mikozilla-fireyae](https://www.reddit.com/r/Genshin_Impact/comments/x73g4p/mikozilla_fireyae/) |  | Custom icon "Mikozilla Fireyae" for Firefox |
 |  | `lantianCustomized.librime-with-plugins` | [librime](https://rime.im/) | 1.11.2 | Librime with plugins (librime-charcode, librime-lua, librime-octagram, librime-proto) |
-|  | `lantianCustomized.llama-cpp` | [llama-cpp](https://github.com/ggerganov/llama.cpp/) | 3982 | Inference of Meta's LLaMA model (and others) in pure C/C++ |
+|  | `lantianCustomized.llama-cpp` | [llama-cpp](https://github.com/ggerganov/llama.cpp/) | 3995 | Inference of Meta's LLaMA model (and others) in pure C/C++ |
 | `Broken` | `lantianCustomized.materialgram` | [materialgram](https://kukuruzka165.github.io/materialgram/) | 5.6.1.1 | Telegram Desktop fork with material icons and some improvements (Without anti-features) |
 |  | `lantianCustomized.nbfc-linux` | [nbfc-linux-lantian](https://github.com/xddxdd/nbfc-linux) | unstable-2022-06-13 | NoteBook FanControl ported to Linux (with Lan Tian's modifications) |
 |  | `lantianCustomized.nginx` | [nginx-lantian](https://openresty.org) | unstable-2024-10-10 | OpenResty with Lan Tian modifications |
