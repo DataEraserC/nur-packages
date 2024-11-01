@@ -1764,6 +1764,18 @@
     };
     date = "2024-09-26";
   };
+  OpenFreebuds = {
+    pname = "OpenFreebuds";
+    version = "fa1b625205783de0e8f78d5d49b28271762844b1";
+    src = fetchFromGitHub {
+      owner = "melianmiko";
+      repo = "OpenFreebuds";
+      rev = "fa1b625205783de0e8f78d5d49b28271762844b1";
+      fetchSubmodules = true;
+      sha256 = "sha256-HxIo7WtIrtZ3oYZnu9pwZ/rdVW4Xxcv/Hx7W3duU1Ro=";
+    };
+    date = "2024-10-15";
+  };
   PiliPalaX = {
     pname = "PiliPalaX";
     version = "23bd32a35c2bee8ab6950ce7bc9bb09ce8c07ffe";
@@ -1897,10 +1909,10 @@
   };
   v2ray-rules-dat = {
     pname = "v2ray-rules-dat";
-    version = "202410302212";
+    version = "202410312211";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202410302212/rules.zip";
-      sha256 = "sha256-wXof1bYD4TBVmSaG5egm0lmmraXckn4XtBcgNZqEN08=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202410312211/rules.zip";
+      sha256 = "sha256-0SDEh/EQXq21/uyUt0NaNBrieL4PM7GeT2PI0pzxBUE=";
     };
   };
   wechat-web-devtools-linux_appimage = {

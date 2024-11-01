@@ -799,6 +799,11 @@ src.branch = "tested"
 fetch.github = "topminipie/XiaoMiToolV2"
 git.fetchSubmodules = true
 
+[OpenFreebuds]
+src.git = "https://github.com/melianmiko/OpenFreebuds"
+fetch.github = "melianmiko/OpenFreebuds"
+git.fetchSubmodules = true
+
 [escrcpy_appimage]
 src.github_tag = "viarotel-org/escrcpy"
 src.from_pattern = "v(.*)"

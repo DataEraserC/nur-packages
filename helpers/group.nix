@@ -2,6 +2,7 @@
   pkgs,
   lib,
   mode,
+  inputs,
 }:
 rec {
   # Wrapper will greatly increase NUR evaluation time. Disable on NUR to stay within 15s time limit.
@@ -23,6 +24,7 @@ rec {
     _packages:
     lib.callPackageWith (
       pkgs
+      // inputs
       // _packages
       // {
         inherit

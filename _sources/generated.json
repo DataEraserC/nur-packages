@@ -3207,6 +3207,26 @@
         },
         "version": "3e8bcb3aa3af4532c52eb5a77626d8573980e7b1"
     },
+    "OpenFreebuds": {
+        "cargoLocks": null,
+        "date": "2024-10-15",
+        "extract": null,
+        "name": "OpenFreebuds",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": true,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "melianmiko",
+            "repo": "OpenFreebuds",
+            "rev": "fa1b625205783de0e8f78d5d49b28271762844b1",
+            "sha256": "sha256-HxIo7WtIrtZ3oYZnu9pwZ/rdVW4Xxcv/Hx7W3duU1Ro=",
+            "type": "github"
+        },
+        "version": "fa1b625205783de0e8f78d5d49b28271762844b1"
+    },
     "PiliPalaX": {
         "cargoLocks": null,
         "date": "2024-10-31",
@@ -3428,11 +3448,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-wXof1bYD4TBVmSaG5egm0lmmraXckn4XtBcgNZqEN08=",
+            "sha256": "sha256-0SDEh/EQXq21/uyUt0NaNBrieL4PM7GeT2PI0pzxBUE=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202410302212/rules.zip"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202410312211/rules.zip"
         },
-        "version": "202410302212"
+        "version": "202410312211"
     },
     "wechat-web-devtools-linux_appimage": {
         "cargoLocks": null,

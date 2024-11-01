@@ -13,11 +13,20 @@
 mode:
 {
   pkgs ? import <nixpkgs> { },
+  inputs,
   ...
 }:
 let
   inherit (pkgs) lib;
-  inherit (import ../helpers/group.nix { inherit pkgs lib mode; })
+  inherit
+    (import ../helpers/group.nix {
+      inherit
+        pkgs
+        lib
+        mode
+        inputs
+        ;
+    })
     doFlatGroupPackages
     doGroupPackages
     doMergePkgs
