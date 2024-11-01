@@ -5,11 +5,11 @@
   gradle_8,
   gradle ? gradle_8,
   jdk21,
-  openjfx22,
+  openjfx21,
   jdk21_with_openjfx ? jdk21.override (
     lib.optionalAttrs stdenv.hostPlatform.isLinux {
       enableJavaFX = true;
-      openjfx = openjfx22.override { withWebKit = true; };
+      openjfx21 = openjfx21.override { withWebKit = true; };
     }
   ),
   sources,
