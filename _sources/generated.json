@@ -3448,11 +3448,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-0SDEh/EQXq21/uyUt0NaNBrieL4PM7GeT2PI0pzxBUE=",
+            "sha256": "sha256-vBqNp//kB2XpRtCfQW1iPlKrwoavoa08yLsr9BxZCZA=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202410312211/rules.zip"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202411012212/rules.zip"
         },
-        "version": "202410312211"
+        "version": "202411012212"
     },
     "wechat-web-devtools-linux_appimage": {
         "cargoLocks": null,

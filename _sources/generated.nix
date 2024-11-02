@@ -1638,7 +1638,7 @@
       repo = "LiteLoaderQQNT";
       rev = "3e8bcb3aa3af4532c52eb5a77626d8573980e7b1";
       fetchSubmodules = true;
-      sha256 = "sha256-WQoE1Gyjqtba6K0jihkpe/K7lF/alFUIiEuh1EZdzgM=";
+      hash = "sha256-WQoE1Gyjqtba6K0jihkpe/K7lF/alFUIiEuh1EZdzgM=";
     };
     date = "2024-09-26";
   };
@@ -1650,7 +1650,7 @@
       repo = "OpenFreebuds";
       rev = "fa1b625205783de0e8f78d5d49b28271762844b1";
       fetchSubmodules = true;
-      sha256 = "sha256-HxIo7WtIrtZ3oYZnu9pwZ/rdVW4Xxcv/Hx7W3duU1Ro=";
+      hash = "sha256-HxIo7WtIrtZ3oYZnu9pwZ/rdVW4Xxcv/Hx7W3duU1Ro=";
     };
     date = "2024-10-15";
   };
@@ -1662,7 +1662,7 @@
       repo = "PiliPalaX";
       rev = "23bd32a35c2bee8ab6950ce7bc9bb09ce8c07ffe";
       fetchSubmodules = true;
-      sha256 = "sha256-+1SyUJuG57uO5v9vArlVvs/jnYYewtI9S3ugTVDMvQ4=";
+      hash = "sha256-+1SyUJuG57uO5v9vArlVvs/jnYYewtI9S3ugTVDMvQ4=";
     };
     date = "2024-10-31";
   };
@@ -1674,7 +1674,7 @@
       repo = "UnknownAnimeGamePS";
       rev = "6d7e8eee3148870c3c014012ba2d583771084fc0";
       fetchSubmodules = true;
-      sha256 = "sha256-53f4QgtAOgcMjhuuY2+Jm4o5LvLXPFv0LJFs+Pg+PVU=";
+      hash = "sha256-53f4QgtAOgcMjhuuY2+Jm4o5LvLXPFv0LJFs+Pg+PVU=";
     };
     date = "2024-10-24";
   };
@@ -1684,10 +1684,7 @@
     src = fetchgit {
       url = "https://gitlab.com/YuukiPS/GC-Resources.git";
       rev = "316c31f7b0b2fc2565d99548de44ba7b024177c1";
-      fetchSubmodules = false;
-      deepClone = false;
-      leaveDotGit = false;
-      sha256 = "sha256-Zae3MymhyrkCmIJXWQuIXmQSBUT1aKmwyHEYMnmUyVU=";
+      hash = "sha256-Zae3MymhyrkCmIJXWQuIXmQSBUT1aKmwyHEYMnmUyVU=";
     };
     date = "2024-08-29";
   };
@@ -1699,7 +1696,7 @@
       repo = "XiaoMiToolV2";
       rev = "9ee136335ce0e1666fc75829056f6edfcbbd4e04";
       fetchSubmodules = true;
-      sha256 = "sha256-LlZTTtU9g7cVnyLWgFU8zgfUZIVi9bkVQyT5VeYGjSo=";
+      hash = "sha256-LlZTTtU9g7cVnyLWgFU8zgfUZIVi9bkVQyT5VeYGjSo=";
     };
     date = "2024-01-13";
   };
@@ -1710,9 +1707,7 @@
       url = "https://gitlab.com/postmarketOS/buffybox.git";
       rev = "c683350b9fb944e38cb484f04f98e4e3f85b41a5";
       fetchSubmodules = true;
-      deepClone = false;
-      leaveDotGit = false;
-      sha256 = "sha256-z7siroBDauvs8TxfO/h+5HUU5G5aOWwNUxDaZm80I5A=";
+      hash = "sha256-z7siroBDauvs8TxfO/h+5HUU5G5aOWwNUxDaZm80I5A=";
     };
     date = "2024-10-05";
   };
@@ -1724,7 +1719,7 @@
       repo = "c001apk-flutter";
       rev = "72f4cf2494db6c8834c4136de70109bc95ed9374";
       fetchSubmodules = true;
-      sha256 = "sha256-xEVmSOryTu6EvI3FRqc89mR4X8aLNcH8fY5p12KVMQ8=";
+      hash = "sha256-xEVmSOryTu6EvI3FRqc89mR4X8aLNcH8fY5p12KVMQ8=";
     };
     date = "2024-09-17";
   };
@@ -1733,7 +1728,7 @@
     version = "1.25.4";
     src = fetchurl {
       url = "https://github.com/viarotel-org/escrcpy/releases/download/v1.25.4/Escrcpy-1.25.4-linux-x86_64.AppImage";
-      sha256 = "sha256-HBIbgwVGDl67U3P/tK7h/w3fAcsJnYbltZXvHrY5dHQ=";
+      hash = "sha256-HBIbgwVGDl67U3P/tK7h/w3fAcsJnYbltZXvHrY5dHQ=";
     };
   };
   open-interpreter = {
@@ -1744,7 +1739,7 @@
       repo = "open-interpreter";
       rev = "36ec07125efec86594c91e990f68e0ab214e7edf";
       fetchSubmodules = true;
-      sha256 = "sha256-Bx2tGgmlhm/o9X6iAKaqX75DudBjc8O3qOQgJRRSG78=";
+      hash = "sha256-Bx2tGgmlhm/o9X6iAKaqX75DudBjc8O3qOQgJRRSG78=";
     };
     date = "2024-10-25";
   };
@@ -1756,7 +1751,7 @@
       repo = "scrcpy-mask";
       rev = "0f8bb0c52e5f1b421784f9121138b2f7755c06ed";
       fetchSubmodules = true;
-      sha256 = "sha256-Jn9BPQ3mubWOg5h6UZMTR7pF7CRJFB1mgz/Wt3FU5Zo=";
+      hash = "sha256-Jn9BPQ3mubWOg5h6UZMTR7pF7CRJFB1mgz/Wt3FU5Zo=";
     };
     date = "2024-10-11";
   };
@@ -1767,9 +1762,7 @@
       url = "https://gitlab.com/postmarketOS/ttyescape.git";
       rev = "810a195f19f68e817d95da5169b1fc4f22242630";
       fetchSubmodules = true;
-      deepClone = false;
-      leaveDotGit = false;
-      sha256 = "sha256-HUAxjUelCvMgS7zHMXI4vPbyUe+wBMpL23xjPRzIaWY=";
+      hash = "sha256-HUAxjUelCvMgS7zHMXI4vPbyUe+wBMpL23xjPRzIaWY=";
     };
     date = "2023-03-08";
   };
@@ -1781,16 +1774,16 @@
       repo = "v2dat";
       rev = "47b8ee51fb528e11e1a83453b7e767a18d20d1f7";
       fetchSubmodules = true;
-      sha256 = "sha256-dJld4hYdfnpphIEJvYsj5VvEF4snLvXZ059HJ2BXwok=";
+      hash = "sha256-dJld4hYdfnpphIEJvYsj5VvEF4snLvXZ059HJ2BXwok=";
     };
     date = "2022-12-15";
   };
   v2ray-rules-dat = {
     pname = "v2ray-rules-dat";
-    version = "202410312211";
+    version = "202411012212";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202410312211/rules.zip";
-      sha256 = "sha256-0SDEh/EQXq21/uyUt0NaNBrieL4PM7GeT2PI0pzxBUE=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202411012212/rules.zip";
+      hash = "sha256-vBqNp//kB2XpRtCfQW1iPlKrwoavoa08yLsr9BxZCZA=";
     };
   };
   wechat-web-devtools-linux_appimage = {
@@ -1798,7 +1791,7 @@
     version = "1.06.2409140-1";
     src = fetchurl {
       url = "https://github.com/msojocs/wechat-web-devtools-linux/releases/download/v1.06.2409140-1/WeChat_Dev_Tools_v1.06.2409140-1_x86_64_linux.AppImage";
-      sha256 = "sha256-wH1HaFmujmWW37E3chdJlIp8zRpkP0lPdSyDprCOLs4=";
+      hash = "sha256-wH1HaFmujmWW37E3chdJlIp8zRpkP0lPdSyDprCOLs4=";
     };
   };
   wechat-web-devtools-linux_bin = {
@@ -1806,7 +1799,7 @@
     version = "1.06.2409140-1";
     src = fetchurl {
       url = "https://github.com/msojocs/wechat-web-devtools-linux/releases/download/v1.06.2409140-1/WeChat_Dev_Tools_v1.06.2409140-1_x86_64_linux.tar.gz";
-      sha256 = "sha256-JIfYqha/OmlE9PxBn/8rkhKghf8p/ZiSkf/tQqI4XGA=";
+      hash = "sha256-JIfYqha/OmlE9PxBn/8rkhKghf8p/ZiSkf/tQqI4XGA=";
     };
   };
 }

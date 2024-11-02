@@ -78,7 +78,7 @@ stdenv.mkDerivation rec {
 
   meta = {
     homepage = "https://steampp.net";
-    description = "A cross-platform Steam toolbox";
+    description = "Cross-platform Steam toolbox";
     license = lib.licenses.gpl3Only;
     sourceProvenance = with lib.sourceTypes; [ binaryNativeCode ];
     platforms = [
