@@ -69,11 +69,11 @@ rustPlatform.buildRustPackage rec {
   buildType = "debug";
   doCheck = false;
 
-  meta = with lib; {
+  meta = {
     description = "scrcpy-mask";
     homepage = "https://github.com/AkiChase/scrcpy-mask";
     mainProgram = "program";
-    maintainers = with maintainers; [ ];
+    maintainers = with lib.maintainers; [ ];
     broken = true;
   };
 }

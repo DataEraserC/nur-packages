@@ -56,9 +56,9 @@ stdenvNoCC.mkDerivation rec {
     runHook postInstall
   '';
 
-  meta = with lib; {
+  meta = {
     description = "A server software reimplementation for a certain anime game.";
     homepage = "https://github.com/XeonSucksLAB/UnknownAnimeGamePS";
-    license = with licenses; [ agpl3Only ];
+    license = [ lib.licenses.agpl3Only ];
   };
 }

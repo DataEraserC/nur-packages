@@ -51,13 +51,13 @@ stdenv.mkDerivation rec {
     ln -sf ${lib.getExe clash-meta} $out/bin/${clash-meta.meta.mainProgram}
   '';
 
-  meta = with lib; {
-    description = "A Clash GUI based on tauri";
+  meta = {
+    description = "Clash GUI based on tauri";
     homepage = "https://github.com/keiko233/clash-nyanpasu";
     platforms = [ "x86_64-linux" ];
-    license = licenses.gpl3Plus;
-    sourceProvenance = with sourceTypes; [ binaryNativeCode ];
-    maintainers = with maintainers; [ Guanran928 ];
+    license = lib.licenses.gpl3Plus;
+    sourceProvenance = with lib.sourceTypes; [ binaryNativeCode ];
+    maintainers = [ lib.maintainers.Guanran928 ];
     mainProgram = "clash-nyanpasu";
   };
 }

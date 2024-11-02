@@ -61,10 +61,10 @@ stdenv.mkDerivation rec {
 
   runtimeLibs = pkgs.lib.makeLibraryPath libraries;
 
-  meta = with lib; {
+  meta = {
     description = package_description;
     homepage = github_url;
-    license = licenses.unfree;
+    license = lib.licenses.unfree;
     mainProgram = "wechat_dev_tools_bin";
     platforms = [ "x86_64-linux" ];
   };

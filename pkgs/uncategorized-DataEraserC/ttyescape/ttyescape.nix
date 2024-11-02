@@ -1,4 +1,5 @@
 {
+  lib,
   stdenvNoCC,
   sources,
   bash,
@@ -24,4 +25,11 @@ stdenvNoCC.mkDerivation rec {
     _install
     runHook postInstall
   '';
+
+  meta = {
+    description = "ttyescape";
+    homepage = "https://gitlab.com/postmarketOS/ttyescape";
+    mainProgram = "togglevt.sh";
+    maintainers = with lib.maintainers; [ ];
+  };
 }

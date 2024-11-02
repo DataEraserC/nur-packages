@@ -33,11 +33,11 @@ stdenv.mkDerivation (_finalAttrs: {
     libxkbcommon
   ];
 
-  meta = with lib; {
-    description = "A suite of graphical applications for the terminal";
+  meta = {
+    description = "Suite of graphical applications for the terminal";
     mainProgram = "buffyboard";
     homepage = "https://gitlab.com/postmarketOS/buffybox";
-    license = licenses.gpl3Plus;
-    platforms = platforms.linux;
+    license = lib.licenses.gpl3Plus;
+    platforms = lib.platforms.linux;
   };
 })

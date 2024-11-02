@@ -42,10 +42,10 @@ flutter.buildFlutterApplication rec {
       "Comment[zh_TW]" = "酷市场";
     };
   });
-  meta = with lib; {
+  meta = {
     description = "c001apk";
     homepage = "https://github.com/bggRGjQaUbCoE/c001apk-flutter";
-    license = licenses.agpl3Only;
-    platforms = platforms.linux;
+    license = lib.licenses.agpl3Only;
+    platforms = lib.platforms.linux;
   };
 }

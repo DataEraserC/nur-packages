@@ -63,11 +63,11 @@ flutter.buildFlutterApplication rec {
       "Comment[zh_TW]" = pname;
     };
   });
-  meta = with lib; {
+  meta = {
     description = pname;
     homepage = "https://github.com/bggRGjQaUbCoE/PiliPalaX";
-    license = licenses.gpl3Only;
-    platforms = platforms.linux;
+    license = lib.licenses.gpl3Only;
+    platforms = lib.platforms.linux;
     broken = true;
   };
 }

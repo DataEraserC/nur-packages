@@ -24,11 +24,10 @@ stdenvNoCC.mkDerivation rec {
     runHook postInstall
   '';
 
-  meta = with lib; {
+  meta = {
     description = "xcursor genshin nahida";
     homepage = "https://aur.archlinux.org/packages/xcursor-genshin-nahida";
-    platforms = platforms.linux;
-    license = licenses.gpl3;
-    # maintainers = with maintainers; [ Program-Learning ];
+    platforms = lib.platforms.linux;
+    license = lib.licenses.gpl3;
   };
 }

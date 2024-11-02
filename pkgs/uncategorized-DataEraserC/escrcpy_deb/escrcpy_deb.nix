@@ -77,7 +77,7 @@ stdenv.mkDerivation rec {
     runHook postInstall
   '';
 
-  meta = with lib; {
+  meta = {
     homepage = github_url;
     description = package_description;
     # license = licenses.apache;
@@ -85,8 +85,7 @@ stdenv.mkDerivation rec {
       "x86_64-linux"
       "aarch64-linux"
     ];
-    sourceProvenance = with sourceTypes; [ binaryNativeCode ];
-    # maintainers = with maintainers; [ Program-Learning ];
+    sourceProvenance = with lib.sourceTypes; [ binaryNativeCode ];
     broken = true;
   };
 }

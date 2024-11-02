@@ -11,9 +11,9 @@ buildGoModule {
   inherit vendorHash;
   inherit (sources.v2dat) src pname version;
 
-  meta = with lib; {
-    description = "A cli tool that can unpack v2ray data packages. (Note: This project is for fun ONLY. You should build your own data dirctly from upstreams instead of unpacking a v2ray data pack.)";
+  meta = {
+    description = "Cli tool that can unpack v2ray data packages. (Note: This project is for fun ONLY. You should build your own data dirctly from upstreams instead of unpacking a v2ray data pack.)";
     homepage = "https://github.com/urlesistiana/v2dat";
-    license = licenses.gpl3;
+    license = lib.licenses.gpl3;
   };
 }

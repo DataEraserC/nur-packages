@@ -31,11 +31,11 @@ rustPlatform.buildRustPackage rec {
       {
       };
   };
-  meta = with lib; {
-    description = "A lighter-weight hotkey daemon";
+  meta = {
+    description = "Lighter-weight hotkey daemon";
     homepage = "https://gitlab.com/postmarketOS/hkdm";
-    license = licenses.gpl3Only;
-    platforms = platforms.linux;
+    license = lib.licenses.gpl3Only;
+    platforms = lib.platforms.linux;
     maintainers = [ ];
   };
 }

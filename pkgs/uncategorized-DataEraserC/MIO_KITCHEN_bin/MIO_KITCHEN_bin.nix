@@ -3,7 +3,6 @@
   stdenvNoCC,
   autoPatchelfHook,
   makeWrapper,
-  lib,
   ...
 }:
 let
@@ -46,13 +45,12 @@ stdenvNoCC.mkDerivation rec {
     makeWrapper $out/MIO-KITCHEN/tool $out/bin/MIO-KITCHEN
   '';
 
-  meta = with lib; {
+  meta = {
     description = package_description;
     homepage = github_url;
     # do not upload to cachix
-    # license = licenses.gpl3;
+    # license = lib.licenses.gpl3;
     platforms = [ "x86_64-linux" ];
-    # maintainers = with maintainers; [ Program-Learning ];
     broken = true;
   };
 }

@@ -69,12 +69,11 @@ stdenv.mkDerivation rec {
     comment = "Android real-time screencast control tool";
   });
 
-  meta = with lib; {
+  meta = {
     description = "Android real-time display control software";
     homepage = "https://github.com/barry-ran/QtScrcpy";
-    license = licenses.asl20;
-    # maintainers = with maintainers; [ Program-Learning ];
-    platforms = platforms.linux;
+    license = lib.licenses.asl20;
+    platforms = lib.platforms.linux;
     # https://github.com/NixOS/nixpkgs/issues/195117
     broken = true;
   };

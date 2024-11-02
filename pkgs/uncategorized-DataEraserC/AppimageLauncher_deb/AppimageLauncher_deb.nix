@@ -118,10 +118,10 @@ stdenv.mkDerivation rec {
     #  $out/lib/x86_64-linux-gnu/appimagelauncher/libappimageupdate.so
   '';
 
-  meta = with lib; {
+  meta = {
     description = "appimagelauncher";
     homepage = "https://github.com/TheAssassin/AppImageLauncher";
-    license = licenses.mit;
+    license = lib.licenses.mit;
     maintainers = [ ];
     platforms = [ "x86_64-linux" ];
   };

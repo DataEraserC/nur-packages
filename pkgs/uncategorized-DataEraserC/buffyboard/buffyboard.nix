@@ -41,12 +41,12 @@ stdenv.mkDerivation {
     libxkbcommon
   ];
 
-  meta = with lib; {
-    description = "";
+  meta = {
+    description = "Touch-enabled framebuffer keyboard (not only) for vampire slayers";
     homepage = "https://gitlab.com/postmarketOS/buffybox/-/tree/master/buffyboard";
-    license = licenses.gpl3Only;
-    maintainers = with maintainers; [ chayleaf ];
+    license = lib.licenses.gpl3Only;
+    maintainers = [ lib.maintainers.chayleaf ];
     mainProgram = "buffyboard";
-    platforms = platforms.all;
+    platforms = lib.platforms.all;
   };
 }
