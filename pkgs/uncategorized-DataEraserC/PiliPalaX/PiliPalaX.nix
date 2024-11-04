@@ -29,7 +29,7 @@ flutter.buildFlutterApplication rec {
     chat_bottom_container = "sha256-ZdIJODKh9vVrw3FEcC3wsHnXfTKwW9doTVnrdoJ4pM8=";
     floating = "sha256-CdL6reYyTAMYvwVrFw0rYh4QW9fspOIn/+sA6McUvZs=";
     ns_danmaku = "sha256-OHlKscybKSLS1Jd1S99rCjHMZfuJXjkQB8U2Tx5iWeA=";
-    share_plus = "sha256-uB1zszih4+AN5heeGZq0bdH/eJos2smabEw/5dTOyOI=";
+    share_plus = "sha256-6vS4ZHugkBhHPVQCS2L02BU24PHMMS+VTsO/GS9mgbI=";
   };
 
   preBuild = ''
