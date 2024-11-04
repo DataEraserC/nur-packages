@@ -1656,15 +1656,15 @@
   };
   PiliPalaX = {
     pname = "PiliPalaX";
-    version = "23bd32a35c2bee8ab6950ce7bc9bb09ce8c07ffe";
+    version = "3a5b1f37f87187ac85147098ef1ccdcd167bc36e";
     src = fetchFromGitHub {
       owner = "bggRGjQaUbCoE";
       repo = "PiliPalaX";
-      rev = "23bd32a35c2bee8ab6950ce7bc9bb09ce8c07ffe";
+      rev = "3a5b1f37f87187ac85147098ef1ccdcd167bc36e";
       fetchSubmodules = true;
-      hash = "sha256-+1SyUJuG57uO5v9vArlVvs/jnYYewtI9S3ugTVDMvQ4=";
+      hash = "sha256-ZaBk3B/PKDm7TmozA0XJyBF0ffUuy3jkg/FO+N0ecxQ=";
     };
-    date = "2024-10-31";
+    date = "2024-11-04";
   };
   UnknownAnimeGamePS = {
     pname = "UnknownAnimeGamePS";
@@ -1780,10 +1780,10 @@
   };
   v2ray-rules-dat = {
     pname = "v2ray-rules-dat";
-    version = "202411012212";
+    version = "202411032213";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202411012212/rules.zip";
-      hash = "sha256-vBqNp//kB2XpRtCfQW1iPlKrwoavoa08yLsr9BxZCZA=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202411032213/rules.zip";
+      hash = "sha256-ObMswA6V1hAMlfFNOX6ZZmTfgmuFei+JZ826s3sKFJ8=";
     };
   };
   wechat-web-devtools-linux_appimage = {
