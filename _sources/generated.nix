@@ -22,6 +22,14 @@
     };
     date = "2023-03-02";
   };
+  amule-dlp-stable = {
+    pname = "amule-dlp-stable";
+    version = "2.3.2";
+    src = fetchurl {
+      url = "https://google.com/generate_204";
+      hash = "sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=";
+    };
+  };
   asterisk-alaw16 = {
     pname = "asterisk-alaw16";
     version = "3f81697eec6388a3cdf74743a436ef4faea542d6";
@@ -97,12 +105,21 @@
   };
   baidupcs-go = {
     pname = "baidupcs-go";
-    version = "v3.9.5";
+    version = "5612fc337b9556ed330274987a2f876961639cff";
     src = fetchFromGitHub {
       owner = "qjfoidnh";
       repo = "BaiduPCS-Go";
-      rev = "v3.9.5";
-      hash = "sha256-zNodRQzflOOB3hAeq4KbjRFlHQwknVy+4ucipUcoufY=";
+      rev = "5612fc337b9556ed330274987a2f876961639cff";
+      hash = "sha256-4mCJ5gVHjjvR6HNo47NTJvQEu7cdZZMfO8qQA7Kqzqo=";
+    };
+    date = "2024-06-23";
+  };
+  baidupcs-go-stable = {
+    pname = "baidupcs-go-stable";
+    version = "v3.9.5";
+    src = fetchurl {
+      url = "https://google.com/generate_204";
+      hash = "sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=";
     };
   };
   bepasty = {
@@ -115,20 +132,20 @@
   };
   bilibili = {
     pname = "bilibili";
-    version = "1.14.2-1";
+    version = "v1.15.2-2";
     src = fetchurl {
-      url = "https://github.com/msojocs/bilibili-linux/releases/download/v1.14.2-1/bilibili-asar-v1.14.2-1.tar.gz";
-      hash = "sha256-S9Ib/hn9Wzl1bFRJcGPDNWONJpbh0zUGcfdHDN7dPfY=";
+      url = "https://github.com/msojocs/bilibili-linux/releases/download/v1.15.2-2/bilibili-asar-v1.15.2-2.tar.gz";
+      hash = "sha256-0xBegfw3ScfxyoQ8SjeLY3gzPL0SqPzkp77ZmC48heg=";
     };
   };
   bilibili-src = {
     pname = "bilibili-src";
-    version = "v1.14.2-1";
+    version = "v1.15.2-2";
     src = fetchFromGitHub {
       owner = "msojocs";
       repo = "bilibili-linux";
-      rev = "v1.14.2-1";
-      hash = "sha256-wNEfzmVk1WJHSiRGmf6BS9GvfXJ1FAaY1EkHAXqvUxY=";
+      rev = "v1.15.2-2";
+      hash = "sha256-ldzh0Jf/5N88DGAENAFS38yaWnZlp8w/K3pb7ijo8bQ=";
     };
   };
   bird-lg-go = {
@@ -170,21 +187,21 @@
   };
   cachyos-kernel-patches = {
     pname = "cachyos-kernel-patches";
-    version = "d1fbde46fd09a05aa4ce90ed46fa012627efee6d";
+    version = "a67f3e9c12346eb45dc29b7fad1b2aa3b8b24efd";
     src = fetchFromGitHub {
       owner = "CachyOS";
       repo = "kernel-patches";
-      rev = "d1fbde46fd09a05aa4ce90ed46fa012627efee6d";
-      hash = "sha256-EMb4Zi1lqva8lnN/jmNaF/GQ8zagnGFXr7qCXc9QUY8=";
+      rev = "a67f3e9c12346eb45dc29b7fad1b2aa3b8b24efd";
+      hash = "sha256-067B9S9qRW0kSNRrLrc5tHm3WO2VmVHUdx9qbVFYxEE=";
     };
-    date = "2024-11-01";
+    date = "2024-11-09";
   };
   calibre-cops = {
     pname = "calibre-cops";
-    version = "3.3.1";
+    version = "3.4.5";
     src = fetchurl {
-      url = "https://github.com/mikespub-org/seblucas-cops/releases/download/3.3.1/cops-3.3.1-php82.zip";
-      hash = "sha256-OcEYFBwkK2o6eGzqaJut19vyh41R7/z5p8YjXkfGd0Y=";
+      url = "https://github.com/mikespub-org/seblucas-cops/releases/download/3.4.5/cops-3.4.5-php82.zip";
+      hash = "sha256-xYPaHjRC04ogpUt7ZQaHpuzs5DBX+tDhbcbE6CoAsW8=";
     };
   };
   cef-binary = {
@@ -261,6 +278,14 @@
     };
     date = "2024-10-10";
   };
+  cryptodev-linux-stable = {
+    pname = "cryptodev-linux-stable";
+    version = "1.14";
+    src = fetchurl {
+      url = "https://google.com/generate_204";
+      hash = "sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=";
+    };
+  };
   decluttarr = {
     pname = "decluttarr";
     version = "v1.50.0";
@@ -323,14 +348,13 @@
   };
   etherguard = {
     pname = "etherguard";
-    version = "f622f2a15b91fc54286f3d1f95d59adebab1a4f7";
+    version = "v0.3.5-f5";
     src = fetchFromGitHub {
       owner = "KusakabeShi";
       repo = "EtherGuard-VPN";
-      rev = "f622f2a15b91fc54286f3d1f95d59adebab1a4f7";
+      rev = "v0.3.5-f5";
       hash = "sha256-67ocXHf+AN3nyPt4636ZJHGRqWSjkpTiDvU5243urBw=";
     };
-    date = "2024-01-12";
   };
   fastapi-dls = {
     pname = "fastapi-dls";
@@ -341,6 +365,14 @@
       hash = "sha256-14OJXuxAq348VCww3oKMl5b2NtZWHiShEHo/Gey1WAE=";
     };
     date = "2024-10-24";
+  };
+  fastapi-dls-stable = {
+    pname = "fastapi-dls-stable";
+    version = "1.3.12";
+    src = fetchurl {
+      url = "https://google.com/generate_204";
+      hash = "sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=";
+    };
   };
   fcitx5-breeze = {
     pname = "fcitx5-breeze";
@@ -367,27 +399,6 @@
       url = "http://www.ftpproxy.org/download/ftpproxy-1.2.3.tgz";
       hash = "sha256-36r+iOaKEA9DMHBufEW+eoiRlEu1+VsYaWvK957l1uU=";
     };
-  };
-  genshin-checkin-helper = {
-    pname = "genshin-checkin-helper";
-    version = "b9e36543bfe5b042e015463e5d0398cd234cba90";
-    src = fetchgit {
-      url = "https://gitlab.com/y1ndan/genshin-checkin-helper.git";
-      rev = "b9e36543bfe5b042e015463e5d0398cd234cba90";
-      hash = "sha256-sweiJeZx+/uShHxT0gXiVxADeHSyeTtK1G6jgMcMpZE=";
-    };
-    date = "2021-11-09";
-  };
-  genshinhelper2 = {
-    pname = "genshinhelper2";
-    version = "1382b89d0ee1f5dfcbe1425398fb4cfc260ddcdd";
-    src = fetchFromGitHub {
-      owner = "y1ndan";
-      repo = "genshinhelper2";
-      rev = "1382b89d0ee1f5dfcbe1425398fb4cfc260ddcdd";
-      hash = "sha256-jkg3ndR9t/v5TFsda6e94Duce5BexbUFvW8ZevJO35A=";
-    };
-    date = "2023-05-22";
   };
   glauth = {
     pname = "glauth";
@@ -443,6 +454,14 @@
       hash = "sha256-kAeLnvh5N4W/BiBDmGPo097egliZsZJuD49dVsmlk8s=";
     };
     date = "2024-08-01";
+  };
+  helium-gateway-rs-stable = {
+    pname = "helium-gateway-rs-stable";
+    version = "v1.3.0";
+    src = fetchurl {
+      url = "https://google.com/generate_204";
+      hash = "sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=";
+    };
   };
   hi3-ii-martian-font = {
     pname = "hi3-ii-martian-font";
@@ -571,6 +590,14 @@
     };
     date = "2020-07-29";
   };
+  ldap-auth-proxy-stable = {
+    pname = "ldap-auth-proxy-stable";
+    version = "0.2.0";
+    src = fetchurl {
+      url = "https://google.com/generate_204";
+      hash = "sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=";
+    };
+  };
   libltnginx = {
     pname = "libltnginx";
     version = "96698a667740ac45ca4571a04a6cfe39caf926c0";
@@ -594,14 +621,14 @@
   };
   liboqs-unstable = {
     pname = "liboqs-unstable";
-    version = "05257da106b908e22b54ad1a6b0c6563a2fec009";
+    version = "e26d36ead919fc5f74d7e90a95379fe1a04663c2";
     src = fetchFromGitHub {
       owner = "open-quantum-safe";
       repo = "liboqs";
-      rev = "05257da106b908e22b54ad1a6b0c6563a2fec009";
-      hash = "sha256-TTXKXWq8a3yHvtB0EWp3cOZOsKtBdunrL+WrNFLYqb4=";
+      rev = "e26d36ead919fc5f74d7e90a95379fe1a04663c2";
+      hash = "sha256-JnzVcn5eewRj7dNKWpzqWbbq5yYXv/xMZD9ujHXQtXw=";
     };
-    date = "2024-11-01";
+    date = "2024-11-11";
   };
   libqcef = {
     pname = "libqcef";
@@ -660,11 +687,11 @@
   };
   linux-xanmod = {
     pname = "linux-xanmod";
-    version = "6.11.6-xanmod1";
+    version = "6.11.7-xanmod1";
     src = fetchgit {
       url = "https://gitlab.com/xanmod/linux.git";
-      rev = "6.11.6-xanmod1";
-      hash = "sha256-t0kuKK2f8D1vxoX5dJnodTu3aBmzCc8F7tHwVAUHP1M=";
+      rev = "6.11.7-xanmod1";
+      hash = "sha256-+gj6sR20v4+NHR4cqsVK5fVpqXs9zxcBh0kJUH5qpNE=";
     };
   };
   linux-xanmod-6_0 = {
@@ -687,21 +714,21 @@
   };
   linux-xanmod-6_6 = {
     pname = "linux-xanmod-6_6";
-    version = "6.6.59-xanmod1";
+    version = "6.6.60-xanmod1";
     src = fetchgit {
       url = "https://gitlab.com/xanmod/linux.git";
-      rev = "6.6.59-xanmod1";
-      hash = "sha256-VImhbdU+WAP0QRnYjHBNKYw5NlMDCBy8HJyP2NQBNHY=";
+      rev = "6.6.60-xanmod1";
+      hash = "sha256-hbuMuLoXVaFb/HnkVlJm8BSwStxsWmz5e4y65kXBJto=";
     };
   };
   llama-cpp = {
     pname = "llama-cpp";
-    version = "b4016";
+    version = "b4065";
     src = fetchFromGitHub {
       owner = "ggerganov";
       repo = "llama.cpp";
-      rev = "b4016";
-      hash = "sha256-K32sNlvz5FGJQJijd6FRRjBhJeJH9ZQCm7cvvzalCV0=";
+      rev = "b4065";
+      hash = "sha256-YvlOPSNLg6f0s8K5MgVAHefFXSuAG/II7HBVfqbCIR8=";
     };
   };
   lyrica = {
@@ -755,18 +782,18 @@
   };
   netboot-xyz-efi = {
     pname = "netboot-xyz-efi";
-    version = "2.0.82";
+    version = "2.0.83";
     src = fetchurl {
-      url = "https://github.com/netbootxyz/netboot.xyz/releases/download/2.0.82/netboot.xyz.efi";
-      hash = "sha256-cO8MCkroQ0s/j8wnwwIWfnxEvChLeOZw+gD4wrYBAog=";
+      url = "https://github.com/netbootxyz/netboot.xyz/releases/download/2.0.83/netboot.xyz.efi";
+      hash = "sha256-VyMha+mtlDBuPAs6HPunpEQswANApB6fFgfOnfXE2H0=";
     };
   };
   netboot-xyz-lkrn = {
     pname = "netboot-xyz-lkrn";
-    version = "2.0.82";
+    version = "2.0.83";
     src = fetchurl {
-      url = "https://github.com/netbootxyz/netboot.xyz/releases/download/2.0.82/netboot.xyz.lkrn";
-      hash = "sha256-TwIpHtsyNoHXtXA5B3YnQA0T18tu6RU4CCuG00IVC6c=";
+      url = "https://github.com/netbootxyz/netboot.xyz/releases/download/2.0.83/netboot.xyz.lkrn";
+      hash = "sha256-EXnQBlSHQXWA9FSIbxlCnObsm6lk+ZQnozf3ZLZpVtI=";
     };
   };
   netns-exec = {
@@ -899,27 +926,40 @@
     };
     date = "2024-08-13";
   };
-  onepush = {
-    pname = "onepush";
-    version = "8b09e62330ad74ba3221bfc2b080d1732a1dcc55";
-    src = fetchFromGitHub {
-      owner = "y1ndan";
-      repo = "onepush";
-      rev = "8b09e62330ad74ba3221bfc2b080d1732a1dcc55";
-      hash = "sha256-xBhHe2q5oxXUuo7G50TBUC1o07dZSjQ8M8YkPRJELkk=";
+  one-api-amd64 = {
+    pname = "one-api-amd64";
+    version = "v0.6.8";
+    src = fetchurl {
+      url = "https://github.com/songquanpeng/one-api/releases/download/v0.6.8/one-api";
+      hash = "sha256-vW+VnIyLGgEmHhgeEvXecR/ZeSWQ9DD1s5bZke3JwC8=";
     };
-    date = "2023-11-28";
+  };
+  one-api-arm64 = {
+    pname = "one-api-arm64";
+    version = "v0.6.8";
+    src = fetchurl {
+      url = "https://github.com/songquanpeng/one-api/releases/download/v0.6.8/one-api-arm64";
+      hash = "sha256-iaFzBcAk7XOmkfqHz/v4nx7GmKQ+XxvmJgs46/eCx1M=";
+    };
   };
   openresty = {
     pname = "openresty";
-    version = "8c37412c31621225e7aa7e825b5b50106c9c71c4";
+    version = "67aff27ddca1a5d9e31614025d2934b569b9ab3e";
     src = fetchFromGitHub {
       owner = "openresty";
       repo = "openresty";
-      rev = "8c37412c31621225e7aa7e825b5b50106c9c71c4";
-      hash = "sha256-bpUMAV126ADCA39Dg4M2piS+QkN8wynkBRJqKDO4El4=";
+      rev = "67aff27ddca1a5d9e31614025d2934b569b9ab3e";
+      hash = "sha256-3VQUWF3O3gPcPUkurSlQO1PPlRwvxPM1nOVHN/B8nW4=";
     };
-    date = "2024-10-10";
+    date = "2024-11-05";
+  };
+  openresty-stable = {
+    pname = "openresty-stable";
+    version = "v1.27.1.1";
+    src = fetchurl {
+      url = "https://google.com/generate_204";
+      hash = "sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=";
+    };
   };
   openssl-oqs-provider = {
     pname = "openssl-oqs-provider";
@@ -943,14 +983,13 @@
   };
   ovpn-dco = {
     pname = "ovpn-dco";
-    version = "d22d04e4cea22ff0dd5ae375a92de20ddd6317d4";
+    version = "v0.2.20240712";
     src = fetchFromGitHub {
       owner = "OpenVPN";
       repo = "ovpn-dco";
-      rev = "d22d04e4cea22ff0dd5ae375a92de20ddd6317d4";
+      rev = "v0.2.20240712";
       hash = "sha256-SjAp4rzi/DVm0QAFoRpFXwzuh04UJyQBRnfbyvjHgTo=";
     };
-    date = "2024-07-12";
   };
   palworld-exporter = {
     pname = "palworld-exporter";
@@ -984,10 +1023,10 @@
   };
   peerbanhelper = {
     pname = "peerbanhelper";
-    version = "7.0.2";
+    version = "7.1.3";
     src = fetchurl {
-      url = "https://github.com/Ghost-chu/PeerBanHelper/releases/download/v7.0.2/PeerBanHelper_7.0.2.zip";
-      hash = "sha256-NJCQV5eRw2V3vHiKhUwrF+N1YN35baynY2svzwn+qVo=";
+      url = "https://github.com/Ghost-chu/PeerBanHelper/releases/download/v7.1.3/PeerBanHelper_7.1.3.zip";
+      hash = "sha256-89aQWJk5SVncYSVMA6Ug3st3cFDZffM8I7fA4rfhgVw=";
     };
   };
   phpmyadmin = {
@@ -1039,6 +1078,25 @@
       hash = "sha256-FdNA4ijvx+v0b4mN9yNH4tYsnFVhUS4nFj0b0LBSy7o=";
     };
   };
+  plasma-yesplaymusic-lyric = {
+    pname = "plasma-yesplaymusic-lyric";
+    version = "3d0f6c40ff3b5004d8f625dfb154767c819dc936";
+    src = fetchFromGitHub {
+      owner = "zsiothsu";
+      repo = "org.kde.plasma.yesplaymusic-lyrics";
+      rev = "3d0f6c40ff3b5004d8f625dfb154767c819dc936";
+      hash = "sha256-T853HgudSGYo5COCLSiWlk4GOrDJXLEdeAoRYXF4F7I=";
+    };
+    date = "2024-08-10";
+  };
+  plasma-yesplaymusic-lyric-stable = {
+    pname = "plasma-yesplaymusic-lyric-stable";
+    version = "v0.2.2";
+    src = fetchurl {
+      url = "https://google.com/generate_204";
+      hash = "sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=";
+    };
+  };
   pocl = {
     pname = "pocl";
     version = "v6.0";
@@ -1079,34 +1137,34 @@
   };
   qemu-user-static-amd64 = {
     pname = "qemu-user-static-amd64";
-    version = "9.1.1+ds-2";
+    version = "9.1.1+ds-3";
     src = fetchurl {
-      url = "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user_9.1.1+ds-2_amd64.deb";
-      hash = "sha256-Gtwej57m7wnjP2rTftOJ7O/jDFqhv9tYP+SAgf6gFFc=";
+      url = "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user_9.1.1+ds-3_amd64.deb";
+      hash = "sha256-k0aCFbonkN+Fu+JNM+e5TL0uqJbv3V1VF/GCs9j1IoI=";
     };
   };
   qemu-user-static-arm64 = {
     pname = "qemu-user-static-arm64";
-    version = "9.1.1+ds-2";
+    version = "9.1.1+ds-3";
     src = fetchurl {
-      url = "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user_9.1.1+ds-2_arm64.deb";
-      hash = "sha256-enjyzwfQAXVSFVEP2h0Ecm+c92ZOwjOw9ihKmHbbGgk=";
+      url = "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user_9.1.1+ds-3_arm64.deb";
+      hash = "sha256-+GhYp/XEBJDFiUtQ4QajpqTam7XGR+GP9Gtt/l/ZcVM=";
     };
   };
   qemu-user-static-armhf = {
     pname = "qemu-user-static-armhf";
-    version = "9.1.1+ds-2";
+    version = "9.1.1+ds-3";
     src = fetchurl {
-      url = "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user_9.1.1+ds-2_armhf.deb";
-      hash = "sha256-vcSxoKAcUlPcS3dvo4VgleE5BNBazGkV9sKBQS2Ir+w=";
+      url = "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user_9.1.1+ds-3_armhf.deb";
+      hash = "sha256-d9/m67Rksoq7CxDtM0mrJPUcWy7yEym3kY0cdX4GCgA=";
     };
   };
   qemu-user-static-i386 = {
     pname = "qemu-user-static-i386";
-    version = "9.1.1+ds-2";
+    version = "9.1.1+ds-3";
     src = fetchurl {
-      url = "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user_9.1.1+ds-2_i386.deb";
-      hash = "sha256-DM7EmWLSkBqElEDxOQXqAVhNWKG3tfqAxqK3cQvBbUM=";
+      url = "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user_9.1.1+ds-3_i386.deb";
+      hash = "sha256-hJtzj1lsMzEu5vA7FaFkiDITy+1XlHCH/ZfH1UyS0XQ=";
     };
   };
   qhttpengine = {
@@ -1122,18 +1180,18 @@
   };
   qq-amd64 = {
     pname = "qq-amd64";
-    version = "Linux/QQ_3.2.13_241023_amd64_01";
+    version = "Linux/QQ_3.2.13_241104_amd64_01";
     src = fetchurl {
-      url = "https://dldir1.qq.com/qqfile/qq/QQNT/Linux/QQ_3.2.13_241023_amd64_01.deb";
-      hash = "sha256-H5ACKFVV4AQ3de9UV4i9ejL1WjuuPJhTLTVqK5EcssM=";
+      url = "https://dldir1.qq.com/qqfile/qq/QQNT/Linux/QQ_3.2.13_241104_amd64_01.deb";
+      hash = "sha256-jvqsgPoGuk9rfXPwj3td0CnOgk0C76JXFLoL8WHsGiY=";
     };
   };
   qq-arm64 = {
     pname = "qq-arm64";
-    version = "Linux/QQ_3.2.13_241023_arm64_01";
+    version = "Linux/QQ_3.2.13_241104_arm64_01";
     src = fetchurl {
-      url = "https://dldir1.qq.com/qqfile/qq/QQNT/Linux/QQ_3.2.13_241023_arm64_01.deb";
-      hash = "sha256-n2ezKgLfmugUZYvGzDvaLKy+Tf8ooUC6Oc6xCDp5rYA=";
+      url = "https://dldir1.qq.com/qqfile/qq/QQNT/Linux/QQ_3.2.13_241104_arm64_01.deb";
+      hash = "sha256-Eha3/wvcA8IcKhjbfKrMPQm/ZjIPGgLPYEafR1NYdmc=";
     };
   };
   qqmusic = {
@@ -1177,14 +1235,14 @@
   };
   qsp-lib = {
     pname = "qsp-lib";
-    version = "f972e5895021a170f70648dbbd00ba823e13af46";
+    version = "707f31703fdb091c7a27a740d173890654a88cab";
     src = fetchFromGitHub {
       owner = "QSPFoundation";
       repo = "qsp";
-      rev = "f972e5895021a170f70648dbbd00ba823e13af46";
-      hash = "sha256-Z9DBTJ4tzk5Ep5E53Hp7f3YYmgocyi4TePKAoqxm+Rc=";
+      rev = "707f31703fdb091c7a27a740d173890654a88cab";
+      hash = "sha256-E2B/HNATjL41IsXfiNICSEPabKW4NPBQiK3tC54SpZE=";
     };
-    date = "2024-10-29";
+    date = "2024-11-08";
   };
   qsp-wx = {
     pname = "qsp-wx";
@@ -1249,29 +1307,29 @@
   };
   rime-ice = {
     pname = "rime-ice";
-    version = "7e5fb5270bdb95beb47517cb879801b9c8e2b5d0";
+    version = "9a2a217bf57f53212b114aa7c0a702e4d8b55519";
     src = fetchFromGitHub {
       owner = "iDvel";
       repo = "rime-ice";
-      rev = "7e5fb5270bdb95beb47517cb879801b9c8e2b5d0";
-      hash = "sha256-uN6j4jIa9JytDIBw/8+aEfiTzODiKKI6Nk2MbI2c7+A=";
+      rev = "9a2a217bf57f53212b114aa7c0a702e4d8b55519";
+      hash = "sha256-OyaOriiyIMRsZz59LyOS/LtG1J4DU02NHcaJ6PdaffU=";
     };
-    date = "2024-11-01";
+    date = "2024-11-10";
   };
   rime-moegirl = {
     pname = "rime-moegirl";
-    version = "20241009";
+    version = "20241109";
     src = fetchurl {
-      url = "https://github.com/outloudvi/mw2fcitx/releases/download/20241009/moegirl.dict.yaml";
-      hash = "sha256-G96BILorMWL6QXt5DYnyKZiF+9VHrMVCqN4rqFJQ2/o=";
+      url = "https://github.com/outloudvi/mw2fcitx/releases/download/20241109/moegirl.dict.yaml";
+      hash = "sha256-Bnpv7iqTPRNnSiZ6ZpzcQXLZkbFbZ0nQgw2d+IyTZOQ=";
     };
   };
   rime-zhwiki = {
     pname = "rime-zhwiki";
-    version = "20240426";
+    version = "20240909";
     src = fetchurl {
-      url = "https://github.com/felixonmars/fcitx5-pinyin-zhwiki/releases/download/0.2.4/zhwiki-20240426.dict.yaml";
-      hash = "sha256-CcXyC/vnplJleDlhpgiYhwcA4hHjzqt5K1FMDjmamqc=";
+      url = "https://github.com/felixonmars/fcitx5-pinyin-zhwiki/releases/download/0.2.5/zhwiki-20240909.dict.yaml";
+      hash = "sha256-ZQ8orW7jEbPtOEvYYxdnTJGTwdXVZBEWjUMYR93vOCE=";
     };
   };
   route-chain = {
@@ -1325,6 +1383,14 @@
       hash = "sha256-xBmFCrnNQq0xKwv7irJFN8YRfBCLmSxtak5dtHFv/xk=";
     };
     date = "2023-01-06";
+  };
+  sgx-software-enable-stable = {
+    pname = "sgx-software-enable-stable";
+    version = "v1.0";
+    src = fetchurl {
+      url = "https://google.com/generate_204";
+      hash = "sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=";
+    };
   };
   smartrent_py = {
     pname = "smartrent_py";
@@ -1392,6 +1458,14 @@
       hash = "sha256-8u4gQ1ifNrXzoOiXAZ535ZMZi8w6VRCljOC0u9xbJOg=";
     };
     date = "2023-02-06";
+  };
+  sx1302-hal-stable = {
+    pname = "sx1302-hal-stable";
+    version = "2.1.0";
+    src = fetchurl {
+      url = "https://google.com/generate_204";
+      hash = "sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=";
+    };
   };
   telegram-desktop-patches = {
     pname = "telegram-desktop-patches";
@@ -1517,13 +1591,24 @@
   };
   uksmd = {
     pname = "uksmd";
-    version = "v1.2.11";
+    version = "v1.2.12";
     src = fetchFromGitHub {
       owner = "CachyOS";
       repo = "uksmd";
-      rev = "v1.2.11";
-      hash = "sha256-mcqiTqu/KIZ+W9yvZfyFekjRdiVavkHVKVRh0xUytg0=";
+      rev = "v1.2.12";
+      hash = "sha256-7w9/3x5DCWPlM+6LrWszuCvHZSk/z0qdr2h8MPBPHvc=";
     };
+  };
+  uni-api = {
+    pname = "uni-api";
+    version = "974f096fd299811da2588c5cdd0b1e05674c6a66";
+    src = fetchFromGitHub {
+      owner = "yym68686";
+      repo = "uni-api";
+      rev = "974f096fd299811da2588c5cdd0b1e05674c6a66";
+      hash = "sha256-fonOm+lc3Z4QKaWHDIqndpu/wSK8KCf5Ve5FV6cnVC8=";
+    };
+    date = "2024-11-09";
   };
   unigine-heaven = {
     pname = "unigine-heaven";
@@ -1619,10 +1704,10 @@
   };
   wechat-uos = {
     pname = "wechat-uos";
-    version = "1.0.0.241";
+    version = "4.0.0.23";
     src = fetchurl {
-      url = "https://home-store-packages.uniontech.com/appstore/pool/appstore/c/com.tencent.wechat/com.tencent.wechat_1.0.0.241_amd64.deb";
-      hash = "sha256-J2ipc3byBzvVFe+B1k+nsgZo+mwRpBd6LtF/ybAzmKM=";
+      url = "https://home-store-packages.uniontech.com/appstore/pool/appstore/c/com.tencent.wechat/com.tencent.wechat_4.0.0.23_amd64.deb";
+      hash = "sha256-Q3gmo83vJddj9p4prhBHm16LK6CAtW3ltd5j4FqPcgM=";
     };
   };
   wine-wechat-x64 = {
@@ -1655,6 +1740,14 @@
     src = fetchurl {
       url = "https://pypi.org/packages/source/X/XStatic-Font-Awesome/XStatic-Font-Awesome-4.7.0.0.tar.gz";
       hash = "sha256-4B+0gMqqfHlj3LMyikcA5jG+9gcNsOi2hYFtIg5oX2w=";
+    };
+  };
+  xue = {
+    pname = "xue";
+    version = "0.0.34";
+    src = fetchurl {
+      url = "https://pypi.org/packages/source/x/xue/xue-0.0.34.tar.gz";
+      hash = "sha256-1fTAmCuZYVOrNihGQZfGK0pwV910KD19KK+MYkuyA3w=";
     };
   };
   zstd-nginx-module = {

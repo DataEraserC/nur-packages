@@ -34,6 +34,7 @@ let
     ;
 
   flatGroups = {
+    deprecated = ifNotCI ./deprecated;
     kernel-modules = ./kernel-modules;
     uncategorized = ./uncategorized;
     uncategorized-DataEraserC = ./uncategorized-DataEraserC;
