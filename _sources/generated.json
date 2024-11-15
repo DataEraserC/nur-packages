@@ -3444,7 +3444,7 @@
     },
     "LiteLoaderQQNT": {
         "cargoLocks": null,
-        "date": "2024-09-26",
+        "date": "2024-11-05",
         "extract": null,
         "name": "LiteLoaderQQNT",
         "passthru": null,
@@ -3456,11 +3456,11 @@
             "name": null,
             "owner": "LiteLoaderQQNT",
             "repo": "LiteLoaderQQNT",
-            "rev": "3e8bcb3aa3af4532c52eb5a77626d8573980e7b1",
-            "sha256": "sha256-WQoE1Gyjqtba6K0jihkpe/K7lF/alFUIiEuh1EZdzgM=",
+            "rev": "745e89ccd4469510c3b96fcfb21dd8026629eec8",
+            "sha256": "sha256-R/CXxweWScfe3ktygnoXKh0XFkURG+lsFGFY7KRaHJg=",
             "type": "github"
         },
-        "version": "3e8bcb3aa3af4532c52eb5a77626d8573980e7b1"
+        "version": "745e89ccd4469510c3b96fcfb21dd8026629eec8"
     },
     "OpenFreebuds": {
         "cargoLocks": null,
@@ -3484,7 +3484,7 @@
     },
     "PiliPalaX": {
         "cargoLocks": null,
-        "date": "2024-11-04",
+        "date": "2024-11-14",
         "extract": null,
         "name": "PiliPalaX",
         "passthru": null,
@@ -3496,11 +3496,11 @@
             "name": null,
             "owner": "bggRGjQaUbCoE",
             "repo": "PiliPalaX",
-            "rev": "3a5b1f37f87187ac85147098ef1ccdcd167bc36e",
-            "sha256": "sha256-ZaBk3B/PKDm7TmozA0XJyBF0ffUuy3jkg/FO+N0ecxQ=",
+            "rev": "f91a1879db8347ceeb4b55b500e4c4491361341f",
+            "sha256": "sha256-UeZlmLl9Bru5HoSkNKXZeKOhVquJTEXIhqnSQYraE20=",
             "type": "github"
         },
-        "version": "3a5b1f37f87187ac85147098ef1ccdcd167bc36e"
+        "version": "f91a1879db8347ceeb4b55b500e4c4491361341f"
     },
     "UnknownAnimeGamePS": {
         "cargoLocks": null,
@@ -3609,11 +3609,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-HBIbgwVGDl67U3P/tK7h/w3fAcsJnYbltZXvHrY5dHQ=",
+            "sha256": "sha256-ftSkKESZW1iTcx/WILhYLAZ354HnT7gTapHX4L4FsP4=",
             "type": "url",
-            "url": "https://github.com/viarotel-org/escrcpy/releases/download/v1.25.4/Escrcpy-1.25.4-linux-x86_64.AppImage"
+            "url": "https://github.com/viarotel-org/escrcpy/releases/download/v1.26.4/Escrcpy-1.26.4-linux-x86_64.AppImage"
         },
-        "version": "1.25.4"
+        "version": "1.26.4"
     },
     "open-interpreter": {
         "cargoLocks": null,
@@ -3703,11 +3703,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-ObMswA6V1hAMlfFNOX6ZZmTfgmuFei+JZ826s3sKFJ8=",
+            "sha256": "sha256-iOGuazdN426WbhfWdThtbVnsB1inqXRHqDn2P/B4lE0=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202411032213/rules.zip"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202411142212/rules.zip"
         },
-        "version": "202411032213"
+        "version": "202411142212"
     },
     "wechat-web-devtools-linux_appimage": {
         "cargoLocks": null,
@@ -3718,11 +3718,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-wH1HaFmujmWW37E3chdJlIp8zRpkP0lPdSyDprCOLs4=",
+            "sha256": "sha256-mHifxTaCWzYJ6cpjqLRX0Gkhq0PylcuUlss9H3gZWoQ=",
             "type": "url",
-            "url": "https://github.com/msojocs/wechat-web-devtools-linux/releases/download/v1.06.2409140-1/WeChat_Dev_Tools_v1.06.2409140-1_x86_64_linux.AppImage"
+            "url": "https://github.com/msojocs/wechat-web-devtools-linux/releases/download/v1.06.2409140-2/WeChat_Dev_Tools_v1.06.2409140-2_x86_64_linux.AppImage"
         },
-        "version": "1.06.2409140-1"
+        "version": "1.06.2409140-2"
     },
     "wechat-web-devtools-linux_bin": {
         "cargoLocks": null,
@@ -3733,10 +3733,10 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-JIfYqha/OmlE9PxBn/8rkhKghf8p/ZiSkf/tQqI4XGA=",
+            "sha256": "sha256-nAE9jpmmB/3O+tgW+2Vu3NU/tCNcuMRyKrhwVZh7tro=",
             "type": "url",
-            "url": "https://github.com/msojocs/wechat-web-devtools-linux/releases/download/v1.06.2409140-1/WeChat_Dev_Tools_v1.06.2409140-1_x86_64_linux.tar.gz"
+            "url": "https://github.com/msojocs/wechat-web-devtools-linux/releases/download/v1.06.2409140-2/WeChat_Dev_Tools_v1.06.2409140-2_x86_64_linux.tar.gz"
         },
-        "version": "1.06.2409140-1"
+        "version": "1.06.2409140-2"
     }
 }
