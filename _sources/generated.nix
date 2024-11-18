@@ -187,14 +187,14 @@
   };
   cachyos-kernel-patches = {
     pname = "cachyos-kernel-patches";
-    version = "9c4fcfc7b1391a5df69af0425dbc8ea76829e323";
+    version = "c4cebd5f555b53a0d42514fa80145f9aa48e3020";
     src = fetchFromGitHub {
       owner = "CachyOS";
       repo = "kernel-patches";
-      rev = "9c4fcfc7b1391a5df69af0425dbc8ea76829e323";
-      hash = "sha256-gm22OEqwkYWkMbt4WnbccailRsRMR+2ST1IxF7Ne95o=";
+      rev = "c4cebd5f555b53a0d42514fa80145f9aa48e3020";
+      hash = "sha256-ddZoXOGeBXGpfnvMC0gY+FZZxvs+eXAiXruUsVbZnFM=";
     };
-    date = "2024-11-15";
+    date = "2024-11-18";
   };
   calibre-cops = {
     pname = "calibre-cops";
@@ -476,10 +476,10 @@
   };
   hoyo-glyphs = {
     pname = "hoyo-glyphs";
-    version = "20241027";
+    version = "20241116";
     src = fetchurl {
-      url = "https://github.com/SpeedyOrc-C/HoYo-Glyphs/releases/download/20241027/HoYo-Glyphs-20241027.zip";
-      hash = "sha256-8HTy5y+OypD2Dgb9YtfoAwCuC9yOXD3pm5yN617zA00=";
+      url = "https://github.com/SpeedyOrc-C/HoYo-Glyphs/releases/download/20241116/HoYo-Glyphs-20241116.zip";
+      hash = "sha256-kjH9G1Zm+/YFs7IguWaauwCc3ynNRcD3jqvCk2vAHPE=";
     };
   };
   i915-sriov-dkms = {
@@ -665,14 +665,14 @@
   };
   librime-octagram = {
     pname = "librime-octagram";
-    version = "bd12863f45fbbd5c7db06d5ec8be8987b10253bf";
+    version = "dfcc15115788c828d9dd7b4bff68067d3ce2ffb8";
     src = fetchFromGitHub {
       owner = "lotem";
       repo = "librime-octagram";
-      rev = "bd12863f45fbbd5c7db06d5ec8be8987b10253bf";
-      hash = "sha256-77g72tee4ahNcu3hfW1Okqr9z8Y6WrPgUhw316O72Ng=";
+      rev = "dfcc15115788c828d9dd7b4bff68067d3ce2ffb8";
+      hash = "sha256-dgUsH10V87mEcX/k3N118qbKo3fKDFcS8inhS6p5bJc=";
     };
-    date = "2024-02-05";
+    date = "2024-11-18";
   };
   librime-proto = {
     pname = "librime-proto";
@@ -687,11 +687,11 @@
   };
   linux-xanmod = {
     pname = "linux-xanmod";
-    version = "6.11.8-xanmod1";
+    version = "6.11.9-xanmod1";
     src = fetchgit {
       url = "https://gitlab.com/xanmod/linux.git";
-      rev = "6.11.8-xanmod1";
-      hash = "sha256-ytn4b230zVGEbdQwQwSDOVMdLbDJWVd6v/BnR76dEt4=";
+      rev = "6.11.9-xanmod1";
+      hash = "sha256-lR7GXFy3eYq75+LwVlXScPYWbdVW6wAV+He0YZ+5AF4=";
     };
   };
   linux-xanmod-6_0 = {
@@ -714,21 +714,21 @@
   };
   linux-xanmod-6_6 = {
     pname = "linux-xanmod-6_6";
-    version = "6.6.61-xanmod1";
+    version = "6.6.62-xanmod1";
     src = fetchgit {
       url = "https://gitlab.com/xanmod/linux.git";
-      rev = "6.6.61-xanmod1";
-      hash = "sha256-zpZk3lrUZSsedc5CatR1PhwMxqqxgYFbT14pm1ur5HY=";
+      rev = "6.6.62-xanmod1";
+      hash = "sha256-KbD5YaaZLDDsp5wuEkenUe+/KrFjOgUomXtLKHtQzvs=";
     };
   };
   llama-cpp = {
     pname = "llama-cpp";
-    version = "b4082";
+    version = "b4120";
     src = fetchFromGitHub {
       owner = "ggerganov";
       repo = "llama.cpp";
-      rev = "b4082";
-      hash = "sha256-bJbkDD1iH+giVyrpkc9rAsjX4wQlcisuuMUswQhAiT0=";
+      rev = "b4120";
+      hash = "sha256-PpwUrknsbHZ1jueDjfw0LqfkpctbSA3clfPJmf6arBA=";
     };
   };
   lyrica = {
@@ -1137,34 +1137,34 @@
   };
   qemu-user-static-amd64 = {
     pname = "qemu-user-static-amd64";
-    version = "9.1.1+ds-4";
+    version = "9.1.1+ds-5";
     src = fetchurl {
-      url = "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user_9.1.1+ds-4_amd64.deb";
-      hash = "sha256-PiKQks+eEJaWrIxB9C4JWxZ3sP3ItnCluUzAlmRZwqY=";
+      url = "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user_9.1.1+ds-5_amd64.deb";
+      hash = "sha256-Geh4p1c6hoGGXt1B63bc6A67YvEELXlnn9ISdm6S7V8=";
     };
   };
   qemu-user-static-arm64 = {
     pname = "qemu-user-static-arm64";
-    version = "9.1.1+ds-4";
+    version = "9.1.1+ds-5";
     src = fetchurl {
-      url = "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user_9.1.1+ds-4_arm64.deb";
-      hash = "sha256-U6bmFecbYT6wf/fEteiIopm3LtAVrxtHExW7N1mPYzI=";
+      url = "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user_9.1.1+ds-5_arm64.deb";
+      hash = "sha256-9d5FfwYEsLYbIN/g+FfIsDHr2hhAJws3pHp4nXlD3Qs=";
     };
   };
   qemu-user-static-armhf = {
     pname = "qemu-user-static-armhf";
-    version = "9.1.1+ds-4";
+    version = "9.1.1+ds-5";
     src = fetchurl {
-      url = "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user_9.1.1+ds-4_armhf.deb";
-      hash = "sha256-WS2664E42ThgY/0Dy/gTZmrCaSCz5ZeC8/oGKy+BJpk=";
+      url = "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user_9.1.1+ds-5_armhf.deb";
+      hash = "sha256-quWGUrRaDGuBYSNSFMDBt04Viu+iw5jfB4pZCKhrV+4=";
     };
   };
   qemu-user-static-i386 = {
     pname = "qemu-user-static-i386";
-    version = "9.1.1+ds-4";
+    version = "9.1.1+ds-5";
     src = fetchurl {
-      url = "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user_9.1.1+ds-4_i386.deb";
-      hash = "sha256-Ue7HZF2G2NDjn0yhhm/eSekfzWzHzeAlqYXKn8f1xzM=";
+      url = "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user_9.1.1+ds-5_i386.deb";
+      hash = "sha256-fXltD4kh8VF7jU1RlFvzE79KBU58UJqNL4dGzLJPbDQ=";
     };
   };
   qhttpengine = {
@@ -1257,12 +1257,12 @@
   };
   r8125 = {
     pname = "r8125";
-    version = "9.013.02-2";
+    version = "9.014.01-1";
     src = fetchFromGitHub {
       owner = "awesometic";
       repo = "realtek-r8125-dkms";
-      rev = "9.013.02-2";
-      hash = "sha256-AeDJZRF03Jo/51A+o57toVpcVljsVPgLLk3rQnuqexQ=";
+      rev = "9.014.01-1";
+      hash = "sha256-f+O6LbLcCmRxLgcsYSqO14Y8IS3gUxHaBzZdY4VZS5k=";
     };
   };
   r8168 = {
@@ -1307,14 +1307,14 @@
   };
   rime-ice = {
     pname = "rime-ice";
-    version = "8caa4114f4054455c34da0b806822a724ecd8132";
+    version = "728dcc5051a62b5b481cd52126eaecf3408d8f72";
     src = fetchFromGitHub {
       owner = "iDvel";
       repo = "rime-ice";
-      rev = "8caa4114f4054455c34da0b806822a724ecd8132";
-      hash = "sha256-GRmZTlTtD2yCJANBj80idoRjBK8wpx0OLOKmsvNXW2Y=";
+      rev = "728dcc5051a62b5b481cd52126eaecf3408d8f72";
+      hash = "sha256-riM18c1fcEP5N/0jAcrpqrqF9ldNA8JMnd3gSV20Odk=";
     };
-    date = "2024-11-15";
+    date = "2024-11-17";
   };
   rime-moegirl = {
     pname = "rime-moegirl";
@@ -1601,14 +1601,14 @@
   };
   uni-api = {
     pname = "uni-api";
-    version = "ae1a71ea1f3db08d3ffc015b65f2eb9fda295ccd";
+    version = "88cac46b648d4f1abe093409bc404be6c9913c62";
     src = fetchFromGitHub {
       owner = "yym68686";
       repo = "uni-api";
-      rev = "ae1a71ea1f3db08d3ffc015b65f2eb9fda295ccd";
-      hash = "sha256-uLIzqZCVPe31rgNUyXSyBViBibV00Uw9CXadi5u9ywE=";
+      rev = "88cac46b648d4f1abe093409bc404be6c9913c62";
+      hash = "sha256-kwgNVkjanxpeZylBBGy0zJcKudGMzqehEKxBwPX2trM=";
     };
-    date = "2024-11-14";
+    date = "2024-11-17";
   };
   unigine-heaven = {
     pname = "unigine-heaven";
