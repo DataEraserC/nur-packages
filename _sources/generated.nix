@@ -1775,27 +1775,27 @@
   };
   OpenFreebuds = {
     pname = "OpenFreebuds";
-    version = "fa1b625205783de0e8f78d5d49b28271762844b1";
+    version = "c7dcc86fb983c2a054b2fbb4ca6c23118d5831bf";
     src = fetchFromGitHub {
       owner = "melianmiko";
       repo = "OpenFreebuds";
-      rev = "fa1b625205783de0e8f78d5d49b28271762844b1";
+      rev = "c7dcc86fb983c2a054b2fbb4ca6c23118d5831bf";
       fetchSubmodules = true;
-      hash = "sha256-HxIo7WtIrtZ3oYZnu9pwZ/rdVW4Xxcv/Hx7W3duU1Ro=";
+      hash = "sha256-dkYc1J53mh7IkP/ebiR3JfDF93s6iHBeI4rVdO7/EXg=";
     };
-    date = "2024-10-15";
+    date = "2024-11-18";
   };
   PiliPalaX = {
     pname = "PiliPalaX";
-    version = "f91a1879db8347ceeb4b55b500e4c4491361341f";
+    version = "a0c54ced966af449797db25b3bd58f84b1a4aafe";
     src = fetchFromGitHub {
       owner = "bggRGjQaUbCoE";
       repo = "PiliPalaX";
-      rev = "f91a1879db8347ceeb4b55b500e4c4491361341f";
+      rev = "a0c54ced966af449797db25b3bd58f84b1a4aafe";
       fetchSubmodules = true;
-      hash = "sha256-UeZlmLl9Bru5HoSkNKXZeKOhVquJTEXIhqnSQYraE20=";
+      hash = "sha256-wDWJ9LjXqP4GhQguGFJY2iG5mrkM08pt4Ac5/NfEu/w=";
     };
-    date = "2024-11-14";
+    date = "2024-11-18";
   };
   UnknownAnimeGamePS = {
     pname = "UnknownAnimeGamePS";
@@ -1911,10 +1911,10 @@
   };
   v2ray-rules-dat = {
     pname = "v2ray-rules-dat";
-    version = "202411142212";
+    version = "202411172211";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202411142212/rules.zip";
-      hash = "sha256-iOGuazdN426WbhfWdThtbVnsB1inqXRHqDn2P/B4lE0=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202411172211/rules.zip";
+      hash = "sha256-kB7p4L4cD0+AT3ggmsv9hSZwUH7ozDK5g8jxuMnHXWo=";
     };
   };
   wechat-web-devtools-linux_appimage = {

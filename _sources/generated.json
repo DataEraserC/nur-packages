@@ -3464,7 +3464,7 @@
     },
     "OpenFreebuds": {
         "cargoLocks": null,
-        "date": "2024-10-15",
+        "date": "2024-11-18",
         "extract": null,
         "name": "OpenFreebuds",
         "passthru": null,
@@ -3476,15 +3476,15 @@
             "name": null,
             "owner": "melianmiko",
             "repo": "OpenFreebuds",
-            "rev": "fa1b625205783de0e8f78d5d49b28271762844b1",
-            "sha256": "sha256-HxIo7WtIrtZ3oYZnu9pwZ/rdVW4Xxcv/Hx7W3duU1Ro=",
+            "rev": "c7dcc86fb983c2a054b2fbb4ca6c23118d5831bf",
+            "sha256": "sha256-dkYc1J53mh7IkP/ebiR3JfDF93s6iHBeI4rVdO7/EXg=",
             "type": "github"
         },
-        "version": "fa1b625205783de0e8f78d5d49b28271762844b1"
+        "version": "c7dcc86fb983c2a054b2fbb4ca6c23118d5831bf"
     },
     "PiliPalaX": {
         "cargoLocks": null,
-        "date": "2024-11-14",
+        "date": "2024-11-18",
         "extract": null,
         "name": "PiliPalaX",
         "passthru": null,
@@ -3496,11 +3496,11 @@
             "name": null,
             "owner": "bggRGjQaUbCoE",
             "repo": "PiliPalaX",
-            "rev": "f91a1879db8347ceeb4b55b500e4c4491361341f",
-            "sha256": "sha256-UeZlmLl9Bru5HoSkNKXZeKOhVquJTEXIhqnSQYraE20=",
+            "rev": "a0c54ced966af449797db25b3bd58f84b1a4aafe",
+            "sha256": "sha256-wDWJ9LjXqP4GhQguGFJY2iG5mrkM08pt4Ac5/NfEu/w=",
             "type": "github"
         },
-        "version": "f91a1879db8347ceeb4b55b500e4c4491361341f"
+        "version": "a0c54ced966af449797db25b3bd58f84b1a4aafe"
     },
     "UnknownAnimeGamePS": {
         "cargoLocks": null,
@@ -3703,11 +3703,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-iOGuazdN426WbhfWdThtbVnsB1inqXRHqDn2P/B4lE0=",
+            "sha256": "sha256-kB7p4L4cD0+AT3ggmsv9hSZwUH7ozDK5g8jxuMnHXWo=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202411142212/rules.zip"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202411172211/rules.zip"
         },
-        "version": "202411142212"
+        "version": "202411172211"
     },
     "wechat-web-devtools-linux_appimage": {
         "cargoLocks": null,
