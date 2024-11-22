@@ -370,12 +370,12 @@
             "name": null,
             "owner": "CachyOS",
             "repo": "kernel-patches",
-            "rev": "c4cebd5f555b53a0d42514fa80145f9aa48e3020",
-            "sha256": "sha256-ddZoXOGeBXGpfnvMC0gY+FZZxvs+eXAiXruUsVbZnFM=",
+            "rev": "9b6b1179249de412549aba2449d9a6e39bb04262",
+            "sha256": "sha256-QZL3OYo/MZKw62GY39yVheGbtNxuDW86jk9063ua94Y=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "c4cebd5f555b53a0d42514fa80145f9aa48e3020"
+        "version": "9b6b1179249de412549aba2449d9a6e39bb04262"
     },
     "calibre-cops": {
         "cargoLocks": null,
@@ -1018,12 +1018,12 @@
             "name": null,
             "owner": "kata-containers",
             "repo": "kata-containers",
-            "rev": "3.10.1",
-            "sha256": "sha256-lk9BZeNc8StLxu0frRfh7h5Xk3w75SUeZP1ddES7a20=",
+            "rev": "3.11.0",
+            "sha256": "sha256-fIjHtTBWeU6Kp83YGuaL3h0wq4lqUyNKrkFIsCzII6c=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "3.10.1"
+        "version": "3.11.0"
     },
     "kata-image": {
         "cargoLocks": null,
@@ -1034,11 +1034,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-IThnhxcD5bP1xWpMUBVZ89m71f5gDIYFW74U/PCXpjI=",
+            "sha256": "sha256-7yDWEOAWiIfwBhWOKSkT+PGRytnmmVpB8UGm9Nkmv4E=",
             "type": "url",
-            "url": "https://github.com/kata-containers/kata-containers/releases/download/3.10.1/kata-static-3.10.1-amd64.tar.xz"
+            "url": "https://github.com/kata-containers/kata-containers/releases/download/3.11.0/kata-static-3.11.0-amd64.tar.xz"
         },
-        "version": "3.10.1"
+        "version": "3.11.0"
     },
     "kikoplay": {
         "cargoLocks": null,
@@ -1340,13 +1340,13 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "6.11.9-xanmod1",
-            "sha256": "sha256-lR7GXFy3eYq75+LwVlXScPYWbdVW6wAV+He0YZ+5AF4=",
+            "rev": "6.12.0-xanmod1",
+            "sha256": "sha256-QrKiBqvDB65lu6+L7g6rTjkZtN0Ynpsw2fpRoDJnk3I=",
             "sparseCheckout": [],
             "type": "git",
             "url": "https://gitlab.com/xanmod/linux.git"
         },
-        "version": "6.11.9-xanmod1"
+        "version": "6.12.0-xanmod1"
     },
     "linux-xanmod-6_0": {
         "cargoLocks": null,
@@ -1422,12 +1422,12 @@
             "name": null,
             "owner": "ggerganov",
             "repo": "llama.cpp",
-            "rev": "b4120",
-            "sha256": "sha256-PpwUrknsbHZ1jueDjfw0LqfkpctbSA3clfPJmf6arBA=",
+            "rev": "b4142",
+            "sha256": "sha256-BgAqf/WTcsL/CGehju4mxM0zLwUmHt6Y3u9GKSjhVtQ=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "b4120"
+        "version": "b4142"
     },
     "lyrica": {
         "cargoLocks": null,
@@ -2320,11 +2320,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-ycGNihLYcemA37PGpGT5hCaiq5nD4KumqSMF7TKk4iI=",
+            "sha256": "sha256-idtDl6TpUR2v1Zdbrc3D0poSCK+IUo9HR77pHR6SaMA=",
             "type": "url",
-            "url": "https://dldir1.qq.com/qqfile/qq/QQNT/Linux/QQ_3.2.13_241112_amd64_01.deb"
+            "url": "https://dldir1.qq.com/qqfile/qq/QQNT/Linux/QQ_3.2.13_241118_amd64_01.deb"
         },
-        "version": "Linux/QQ_3.2.13_241112_amd64_01"
+        "version": "Linux/QQ_3.2.13_241118_amd64_01"
     },
     "qq-arm64": {
         "cargoLocks": null,
@@ -2335,11 +2335,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-eAWneMK6aJUVudQemganaRiDnEGtDcJB9z0OIehlD48=",
+            "sha256": "sha256-q+yYS/3/HrU6SlSZYiuSRUmgcIHwEpySkk7X0tdxtbo=",
             "type": "url",
-            "url": "https://dldir1.qq.com/qqfile/qq/QQNT/Linux/QQ_3.2.13_241112_arm64_01.deb"
+            "url": "https://dldir1.qq.com/qqfile/qq/QQNT/Linux/QQ_3.2.13_241118_arm64_01.deb"
         },
-        "version": "Linux/QQ_3.2.13_241112_arm64_01"
+        "version": "Linux/QQ_3.2.13_241118_arm64_01"
     },
     "qqmusic": {
         "cargoLocks": null,
@@ -2421,7 +2421,7 @@
     },
     "qsp-lib": {
         "cargoLocks": null,
-        "date": "2024-11-14",
+        "date": "2024-11-19",
         "extract": null,
         "name": "qsp-lib",
         "passthru": null,
@@ -2433,12 +2433,12 @@
             "name": null,
             "owner": "QSPFoundation",
             "repo": "qsp",
-            "rev": "e9a8c54b8252baad23fd49f9797497f417ec61ea",
-            "sha256": "sha256-c1axIG3wbkYyxkZyCiTcNtg9NkTruZ7OEu1h65jYN6A=",
+            "rev": "a1904cf1a5a352e0eebeaeec7d0c6769cc6b0994",
+            "sha256": "sha256-7SXcx6r1tZI8Hkb7QyNiUO8ccXDE+9OSl6COMnMOKMQ=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "e9a8c54b8252baad23fd49f9797497f417ec61ea"
+        "version": "a1904cf1a5a352e0eebeaeec7d0c6769cc6b0994"
     },
     "qsp-wx": {
         "cargoLocks": null,
@@ -2562,7 +2562,7 @@
     },
     "rime-ice": {
         "cargoLocks": null,
-        "date": "2024-11-17",
+        "date": "2024-11-19",
         "extract": null,
         "name": "rime-ice",
         "passthru": null,
@@ -2574,12 +2574,12 @@
             "name": null,
             "owner": "iDvel",
             "repo": "rime-ice",
-            "rev": "728dcc5051a62b5b481cd52126eaecf3408d8f72",
-            "sha256": "sha256-riM18c1fcEP5N/0jAcrpqrqF9ldNA8JMnd3gSV20Odk=",
+            "rev": "08ff0b095f631e1d7ca068eb2d36b0d10782686a",
+            "sha256": "sha256-pmO6l82lI0aOdWW61jdA4nIgwSC6GH0ckBE/Z4LVkh4=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "728dcc5051a62b5b481cd52126eaecf3408d8f72"
+        "version": "08ff0b095f631e1d7ca068eb2d36b0d10782686a"
     },
     "rime-moegirl": {
         "cargoLocks": null,
@@ -3132,7 +3132,7 @@
     },
     "uni-api": {
         "cargoLocks": null,
-        "date": "2024-11-17",
+        "date": "2024-11-19",
         "extract": null,
         "name": "uni-api",
         "passthru": null,
@@ -3144,12 +3144,12 @@
             "name": null,
             "owner": "yym68686",
             "repo": "uni-api",
-            "rev": "88cac46b648d4f1abe093409bc404be6c9913c62",
-            "sha256": "sha256-kwgNVkjanxpeZylBBGy0zJcKudGMzqehEKxBwPX2trM=",
+            "rev": "570d6caf90716ede1882297afe2aca095f98406e",
+            "sha256": "sha256-qvuxvbW1j8gRDjMY7CPIi7Q/mY5x3d76JGY4CZPjD9E=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "88cac46b648d4f1abe093409bc404be6c9913c62"
+        "version": "570d6caf90716ede1882297afe2aca095f98406e"
     },
     "unigine-heaven": {
         "cargoLocks": null,
@@ -3484,7 +3484,7 @@
     },
     "PiliPalaX": {
         "cargoLocks": null,
-        "date": "2024-11-18",
+        "date": "2024-11-22",
         "extract": null,
         "name": "PiliPalaX",
         "passthru": null,
@@ -3496,15 +3496,15 @@
             "name": null,
             "owner": "bggRGjQaUbCoE",
             "repo": "PiliPalaX",
-            "rev": "a0c54ced966af449797db25b3bd58f84b1a4aafe",
-            "sha256": "sha256-wDWJ9LjXqP4GhQguGFJY2iG5mrkM08pt4Ac5/NfEu/w=",
+            "rev": "bd46678a26dc9e1c5d1437eafab206d03f95de2c",
+            "sha256": "sha256-xF1COZfcp5v215c+8n2ikzOKkupGlJuXmqpSExhPVCw=",
             "type": "github"
         },
-        "version": "a0c54ced966af449797db25b3bd58f84b1a4aafe"
+        "version": "bd46678a26dc9e1c5d1437eafab206d03f95de2c"
     },
     "UnknownAnimeGamePS": {
         "cargoLocks": null,
-        "date": "2024-10-24",
+        "date": "2024-11-20",
         "extract": null,
         "name": "UnknownAnimeGamePS",
         "passthru": null,
@@ -3516,11 +3516,11 @@
             "name": null,
             "owner": "XeonSucksLAB",
             "repo": "UnknownAnimeGamePS",
-            "rev": "6d7e8eee3148870c3c014012ba2d583771084fc0",
-            "sha256": "sha256-53f4QgtAOgcMjhuuY2+Jm4o5LvLXPFv0LJFs+Pg+PVU=",
+            "rev": "02e3bb2424d9c294da48989f120e89557e88dd27",
+            "sha256": "sha256-ZWQtrj1j2U/mQx0smsGuGfZ9EwigUNGP2rutUwFmHG4=",
             "type": "github"
         },
-        "version": "6d7e8eee3148870c3c014012ba2d583771084fc0"
+        "version": "02e3bb2424d9c294da48989f120e89557e88dd27"
     },
     "UnknownAnimeGamePS-resources": {
         "cargoLocks": null,
@@ -3609,11 +3609,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-ftSkKESZW1iTcx/WILhYLAZ354HnT7gTapHX4L4FsP4=",
+            "sha256": "sha256-/0N4Yc4/0OqVasR71DF8aK+78eghoHVnKjNylHdtHYw=",
             "type": "url",
-            "url": "https://github.com/viarotel-org/escrcpy/releases/download/v1.26.4/Escrcpy-1.26.4-linux-x86_64.AppImage"
+            "url": "https://github.com/viarotel-org/escrcpy/releases/download/v1.27.0/Escrcpy-1.27.0-linux-x86_64.AppImage"
         },
-        "version": "1.26.4"
+        "version": "1.27.0"
     },
     "open-interpreter": {
         "cargoLocks": null,
@@ -3703,11 +3703,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-kB7p4L4cD0+AT3ggmsv9hSZwUH7ozDK5g8jxuMnHXWo=",
+            "sha256": "sha256-293lrWcnhuT8Mq/60hKfVj3xJACjRnq1vsrSfNfvxTU=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202411172211/rules.zip"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202411212212/rules.zip"
         },
-        "version": "202411172211"
+        "version": "202411212212"
     },
     "wechat-web-devtools-linux_appimage": {
         "cargoLocks": null,
