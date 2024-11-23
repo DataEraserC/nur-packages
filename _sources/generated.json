@@ -3484,7 +3484,7 @@
     },
     "PiliPalaX": {
         "cargoLocks": null,
-        "date": "2024-11-22",
+        "date": "2024-11-23",
         "extract": null,
         "name": "PiliPalaX",
         "passthru": null,
@@ -3496,11 +3496,11 @@
             "name": null,
             "owner": "bggRGjQaUbCoE",
             "repo": "PiliPalaX",
-            "rev": "bd46678a26dc9e1c5d1437eafab206d03f95de2c",
-            "sha256": "sha256-xF1COZfcp5v215c+8n2ikzOKkupGlJuXmqpSExhPVCw=",
+            "rev": "e2da6a2936b0418a548ee12e1475d8e91b3a304b",
+            "sha256": "sha256-r2XUAe0GDK7m3zsv80ym4aKWrnVuTgT5dxht7Yfk2Tc=",
             "type": "github"
         },
-        "version": "bd46678a26dc9e1c5d1437eafab206d03f95de2c"
+        "version": "e2da6a2936b0418a548ee12e1475d8e91b3a304b"
     },
     "UnknownAnimeGamePS": {
         "cargoLocks": null,
@@ -3635,6 +3635,21 @@
         },
         "version": "36ec07125efec86594c91e990f68e0ab214e7edf"
     },
+    "rwkv": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "rwkv",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-nt6sVb+Al+7FHEdX0R+U/ksoEWOCQtgu1NNmbPkQIBA=",
+            "type": "url",
+            "url": "https://pypi.org/packages/source/r/rwkv/rwkv-0.8.26.tar.gz"
+        },
+        "version": "0.8.26"
+    },
     "scrcpy-mask": {
         "cargoLocks": null,
         "date": "2024-10-11",
@@ -3703,11 +3718,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-293lrWcnhuT8Mq/60hKfVj3xJACjRnq1vsrSfNfvxTU=",
+            "sha256": "sha256-GpLfcbE5UY+6gjAALxFgd/z4T9uKJeeMjjdazces9t0=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202411212212/rules.zip"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202411222212/rules.zip"
         },
-        "version": "202411212212"
+        "version": "202411222212"
     },
     "wechat-web-devtools-linux_appimage": {
         "cargoLocks": null,

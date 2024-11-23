@@ -1787,15 +1787,15 @@
   };
   PiliPalaX = {
     pname = "PiliPalaX";
-    version = "bd46678a26dc9e1c5d1437eafab206d03f95de2c";
+    version = "e2da6a2936b0418a548ee12e1475d8e91b3a304b";
     src = fetchFromGitHub {
       owner = "bggRGjQaUbCoE";
       repo = "PiliPalaX";
-      rev = "bd46678a26dc9e1c5d1437eafab206d03f95de2c";
+      rev = "e2da6a2936b0418a548ee12e1475d8e91b3a304b";
       fetchSubmodules = true;
-      hash = "sha256-xF1COZfcp5v215c+8n2ikzOKkupGlJuXmqpSExhPVCw=";
+      hash = "sha256-r2XUAe0GDK7m3zsv80ym4aKWrnVuTgT5dxht7Yfk2Tc=";
     };
-    date = "2024-11-22";
+    date = "2024-11-23";
   };
   UnknownAnimeGamePS = {
     pname = "UnknownAnimeGamePS";
@@ -1874,6 +1874,14 @@
     };
     date = "2024-10-25";
   };
+  rwkv = {
+    pname = "rwkv";
+    version = "0.8.26";
+    src = fetchurl {
+      url = "https://pypi.org/packages/source/r/rwkv/rwkv-0.8.26.tar.gz";
+      hash = "sha256-nt6sVb+Al+7FHEdX0R+U/ksoEWOCQtgu1NNmbPkQIBA=";
+    };
+  };
   scrcpy-mask = {
     pname = "scrcpy-mask";
     version = "0f8bb0c52e5f1b421784f9121138b2f7755c06ed";
@@ -1911,10 +1919,10 @@
   };
   v2ray-rules-dat = {
     pname = "v2ray-rules-dat";
-    version = "202411212212";
+    version = "202411222212";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202411212212/rules.zip";
-      hash = "sha256-293lrWcnhuT8Mq/60hKfVj3xJACjRnq1vsrSfNfvxTU=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202411222212/rules.zip";
+      hash = "sha256-GpLfcbE5UY+6gjAALxFgd/z4T9uKJeeMjjdazces9t0=";
     };
   };
   wechat-web-devtools-linux_appimage = {
