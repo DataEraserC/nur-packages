@@ -31,6 +31,7 @@ let
     doGroupPackages
     doMergePkgs
     ifNotCI
+    ifNotNUR
     ;
 
   flatGroups = {
@@ -47,6 +48,8 @@ let
     # Package groups
     asteriskDigiumCodecs = ./asterisk-digium-codecs;
     lantianCustomized = ./lantian-customized;
+    lantianLinuxCachyOS = ifNotNUR (ifNotCI ./lantian-linux-cachyos);
+    lantianLinuxCachyOSPackages = ifNotNUR (ifNotCI ./lantian-linux-cachyos/packages.nix);
     lantianLinuxXanmod = ./lantian-linux-xanmod;
     lantianLinuxXanmodPackages = ifNotCI ./lantian-linux-xanmod/packages.nix;
     lantianPersonal = ifNotCI ./lantian-personal;
