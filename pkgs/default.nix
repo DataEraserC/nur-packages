@@ -35,8 +35,9 @@ let
     ;
 
   flatGroups = {
-    deprecated = ifNotCI ./deprecated;
+    deprecated = ./deprecated;
     kernel-modules = ./kernel-modules;
+    python3Packages = ./python-packages;
     uncategorized = ./uncategorized;
     uncategorized-DataEraserC = ./uncategorized-DataEraserC;
   };
@@ -60,8 +61,8 @@ let
     th-fonts = ./th-fonts;
   };
 
-  self = lib.foldl (a: b: a // b) (doGroupPackages self groups) (
-    builtins.attrValues (doFlatGroupPackages self flatGroups)
-  );
+  self = lib.foldl (a: b: a // b) (
+    (doGroupPackages self groups) // (doGroupPackages self flatGroups)
+  ) (builtins.attrValues (doFlatGroupPackages self flatGroups));
 in
 doMergePkgs self

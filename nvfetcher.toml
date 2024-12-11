@@ -2,6 +2,11 @@
 src.github = "musikid/acpi_ec"
 fetch.github = "musikid/acpi_ec"
 
+[adspower]
+src.webpage = "https://www.adspower.com/download"
+src.regex = "\"https://version.adspower.net/software/linux-x64-global/AdsPower-Global-([^\"]+)-x64.deb\""
+fetch.url = "https://version.adspower.net/software/linux-x64-global/AdsPower-Global-$ver-x64.deb"
+
 [amule-dlp]
 src.git = "https://github.com/persmule/amule-dlp.git"
 fetch.github = "persmule/amule-dlp"
@@ -95,8 +100,8 @@ src.git = "https://github.com/martyr-deepin/cef-binary.git"
 fetch.github = "martyr-deepin/cef-binary"
 
 [click-loglevel]
-src.pypi = "click-loglevel"
-fetch.pypi = "click-loglevel"
+src.github = "jwodder/click-loglevel"
+fetch.github = "jwodder/click-loglevel"
 
 [cloudpan189-go]
 src.github = "tickstep/cloudpan189-go"
@@ -110,6 +115,10 @@ fetch.github = "Hiro420/CockPY"
 src.git = "https://github.com/lilmayofuksu/pyenet.git"
 fetch.github = "lilmayofuksu/pyenet"
 git.fetchSubmodules = true
+
+[coqui-tts]
+src.github = "coqui-ai/TTS"
+fetch.github = "coqui-ai/TTS"
 
 [coredns-lantian]
 src.git = "https://github.com/xddxdd/coredns.git"
@@ -158,6 +167,10 @@ fetch.github = "xddxdd/drone-file-secret"
 src.github_tag = "drone/drone-vault"
 fetch.github = "drone/drone-vault"
 
+[edge-tts]
+src.github = "rany2/edge-tts"
+fetch.github = "rany2/edge-tts"
+
 [etherguard]
 src.github = "KusakabeShi/EtherGuard-VPN"
 fetch.github = "KusakabeShi/EtherGuard-VPN"
@@ -176,6 +189,10 @@ src.webpage = "https://gitlab.com/api/v4/projects/53966606/releases/"
 src.regex = "\"https://gitlab.com/scratch-er/fcitx5-breeze/-/archive/v([0-9\\.]+)/fcitx5-breeze-"
 fetch.url = "https://gitlab.com/scratch-er/fcitx5-breeze/-/archive/v$ver/fcitx5-breeze-v$ver.tar.gz"
 
+[fish-speech]
+src.github = "fishaudio/fish-speech"
+fetch.github = "fishaudio/fish-speech"
+
 [flasgger]
 src.github = "flasgger/flasgger"
 fetch.github = "flasgger/flasgger"
@@ -188,6 +205,10 @@ fetch.github = "21hsmw/FlareSolverr"
 src.webpage = "http://www.ftpproxy.org/download/"
 src.regex = "\"ftpproxy-([0-9\\.]+).tgz\""
 fetch.url = "http://www.ftpproxy.org/download/ftpproxy-$ver.tgz"
+
+[funasr]
+src.git = "https://github.com/modelscope/FunASR.git"
+fetch.github = "modelscope/FunASR"
 
 [glauth]
 src.github = "glauth/glauth"
@@ -244,6 +265,10 @@ fetch.url = "https://github.com/share121/inter-knot/releases/download/$ver/inter
 src.manual = "v3.4.1"
 fetch.url = "https://github.com/LuckyPuppy514/jproxy/releases/download/$ver/windows-$ver.zip"
 
+[kaldiio]
+src.github = "nttcslab-sp/kaldiio"
+fetch.github = "nttcslab-sp/kaldiio"
+
 [kata-containers]
 src.github_tag = "kata-containers/kata-containers"
 src.include_regex = "^[0-9\\.]+$"
@@ -269,6 +294,10 @@ fetch.github = "KikoPlayProject/KikoPlayScript"
 [konnect]
 src.github_tag = "Kopano-dev/konnect"
 fetch.github = "Kopano-dev/konnect"
+
+[kui]
+src.github_tag = "abersheeran/kui"
+fetch.github = "abersheeran/kui"
 
 [ldap-auth-proxy]
 src.git = "https://github.com/pinepain/ldap-auth-proxy.git"
@@ -338,6 +367,10 @@ fetch.git = "https://gitlab.com/xanmod/linux.git"
 src.github = "ggerganov/llama.cpp"
 fetch.github = "ggerganov/llama.cpp"
 
+[loralib]
+src.git = "https://github.com/microsoft/LoRA.git"
+fetch.github = "microsoft/LoRA"
+
 [lyrica]
 src.github = "chiyuki0325/lyrica"
 fetch.github = "chiyuki0325/lyrica"
@@ -345,6 +378,14 @@ fetch.github = "chiyuki0325/lyrica"
 [magiskboot]
 src.github = "topjohnwu/Magisk"
 fetch.url = "https://github.com/topjohnwu/Magisk/releases/download/$ver/Magisk-$ver.apk"
+
+[mautrix-gmessages]
+src.github = "mautrix/gmessages"
+fetch.github = "mautrix/gmessages"
+
+[modelscope]
+src.github = "modelscope/modelscope"
+fetch.github = "modelscope/modelscope"
 
 [mtkclient]
 src.github = "bkerler/mtkclient"
@@ -426,6 +467,18 @@ fetch.url = "https://github.com/songquanpeng/one-api/releases/download/$ver/one-
 src.github = "songquanpeng/one-api"
 fetch.url = "https://github.com/songquanpeng/one-api/releases/download/$ver/one-api-arm64"
 
+[openai-edge-tts]
+src.git = "https://github.com/travisvn/openai-edge-tts.git"
+fetch.github = "travisvn/openai-edge-tts"
+
+[opencc-python-reimplemented]
+src.git = "https://github.com/yichen0831/opencc-python.git"
+fetch.github = "yichen0831/opencc-python"
+
+[openedai-speech]
+src.github = "matatonic/openedai-speech"
+fetch.github = "matatonic/openedai-speech"
+
 [openresty]
 src.git = "https://github.com/openresty/openresty.git"
 fetch.github = "openresty/openresty"
@@ -437,6 +490,10 @@ fetch.url = "https://google.com/generate_204"
 [openssl-oqs-provider]
 src.github = "open-quantum-safe/oqs-provider"
 fetch.github = "open-quantum-safe/oqs-provider"
+
+[ormsgpack]
+src.github = "aviramha/ormsgpack"
+fetch.github = "aviramha/ormsgpack"
 
 [osdlyrics]
 src.github = "osdlyrics/osdlyrics"
@@ -505,6 +562,10 @@ fetch.url = "https://sourceforge.net/projects/procps-ng/files/Production/procps-
 [pterodactyl-wings]
 src.github = "pterodactyl/wings"
 fetch.github = "pterodactyl/wings"
+
+[pytorch-wpe]
+src.github = "nttcslab-sp/dnn_wpe"
+fetch.github = "nttcslab-sp/dnn_wpe"
 
 [py-rcon]
 src.github_tag = "ttk1/py-rcon"
@@ -609,6 +670,10 @@ src.webpage = "https://github.com/felixonmars/fcitx5-pinyin-zhwiki/releases/expa
 src.regex = "zhwiki-([0-9]{8})\\.dict\\.yaml"
 fetch.url = "https://github.com/felixonmars/fcitx5-pinyin-zhwiki/releases/download/0.2.5/zhwiki-$ver.dict.yaml"
 
+[rootutils]
+src.github = "ashleve/rootutils"
+fetch.github = "ashleve/rootutils"
+
 [route-chain]
 src.git = "https://github.com/xddxdd/route-chain.git"
 fetch.github = "xddxdd/route-chain"
@@ -633,10 +698,13 @@ fetch.github = "intel/sgx-software-enable"
 src.github_tag = "intel/sgx-software-enable"
 fetch.url = "https://google.com/generate_204"
 
+[silero-vad]
+src.github = "snakers4/silero-vad"
+fetch.github = "snakers4/silero-vad"
+
 [smartrent_py]
-# src.pypi = "smartrent.py"
-src.manual = "0.4.0"
-fetch.pypi = "smartrent.py"
+src.github = "zacherythomas/smartrent-py"
+fetch.github = "zacherythomas/smartrent-py"
 
 [smfc]
 src.github = "petersulyok/smfc"
@@ -720,9 +788,13 @@ src.webpage = "http://cheonhyeong.com/Simplified/download.html"
 src.regex = "File/TH-Sy-([0-9.]+).7z"
 fetch.url = "http://cheonhyeong.com/File/TH-Sy-$ver.7z"
 
+[torch-complex]
+src.pypi = "torch_complex"
+fetch.pypi = "torch_complex"
+
 [tqdm-loggable]
-src.pypi = "tqdm-loggable"
-fetch.url = "https://pypi.org/packages/source/t/tqdm-loggable/tqdm_loggable-$ver.tar.gz"
+src.git = "https://github.com/tradingstrategy-ai/tqdm-loggable.git"
+fetch.github = "tradingstrategy-ai/tqdm-loggable"
 
 [transmission-web-control]
 src.git = "https://github.com/ronggang/transmission-web-control.git"
@@ -773,6 +845,10 @@ fetch.url = "https://assets.unigine.com/d/Unigine_Valley-$ver.run"
 src.github = "libxzr/vbmeta-disable-verification"
 fetch.github = "libxzr/vbmeta-disable-verification"
 
+[vector-quantize-pytorch]
+src.github = "lucidrains/vector-quantize-pytorch"
+fetch.github = "lucidrains/vector-quantize-pytorch"
+
 [vgpu-unlock-rs]
 src.github_tag = "mbilker/vgpu_unlock-rs"
 fetch.github = "mbilker/vgpu_unlock-rs"
@@ -791,10 +867,7 @@ src.include_regex = "^v[0-9.]+$"
 fetch.github = "FDio/vpp"
 
 [wechat-uos]
-src.webpage = "https://aur.archlinux.org/rpc/?v=5&type=info&arg[]=wechat"
-src.regex = "\"Version\":\"([^\"]+)\""
-src.from_pattern = "(.+)-(.+)"
-src.to_pattern = "\\1"
+src.manual = "4.0.0.21"
 fetch.url = "https://home-store-packages.uniontech.com/appstore/pool/appstore/c/com.tencent.wechat/com.tencent.wechat_$ver_amd64.deb"
 
 [wine-wechat-x86]

@@ -31,6 +31,16 @@ let
         description = "List of insecure packages to be allowed";
         default = [ ];
       };
+      allowInsecurePredicate = lib.mkOption {
+        type = lib.types.anything;
+        description = "Predicate to check if insecure package is allowed";
+        default = null;
+      };
+      settings = lib.mkOption {
+        type = lib.types.attrs;
+        description = "Extra attributes to pass to nixpkgs.config";
+        default = { };
+      };
     };
   };
 in
@@ -48,9 +58,14 @@ in
         lib.mkForce (
           import packages."${n}-patched" {
             inherit system;
-            config = {
-              inherit (v) allowUnfree permittedInsecurePackages;
-            };
+            config =
+              {
+                inherit (v) allowUnfree permittedInsecurePackages;
+              }
+              // (lib.optionalAttrs (v.allowInsecurePredicate != null) {
+                inherit (v) allowInsecurePredicate;
+              })
+              // v.settings;
             inherit (v) overlays;
           }
         )

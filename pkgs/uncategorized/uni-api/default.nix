@@ -4,7 +4,7 @@
   stdenv,
   python3,
   makeWrapper,
-  xue,
+  curl,
 }:
 let
   python = python3.withPackages (
@@ -16,6 +16,7 @@ let
       greenlet
       h2
       httpx
+      pillow
       pytest
       python-multipart
       ruamel-yaml
@@ -31,6 +32,7 @@ stdenv.mkDerivation {
 
   nativeBuildInputs = [
     makeWrapper
+    curl
   ];
 
   installPhase = ''
@@ -38,6 +40,8 @@ stdenv.mkDerivation {
 
     mkdir -p $out/bin $out/opt
     cp -r * $out/opt/
+    substituteInPlace $out/opt/main.py \
+      --replace-fail '"./static"' "\"$out/opt/static\""
 
     makeWrapper ${python}/bin/python $out/bin/uni-api \
       --add-flags "-m" \

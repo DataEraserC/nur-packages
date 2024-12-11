@@ -39,7 +39,12 @@
   outputs =
     { self, flake-parts, ... }@inputs:
     flake-parts.lib.mkFlake { inherit inputs; } (
-      { flake-parts-lib, config, ... }:
+      {
+        flake-parts-lib,
+        lib,
+        config,
+        ...
+      }:
       let
         inherit (flake-parts-lib) importApply;
         flakeModules = {
@@ -88,10 +93,28 @@
             {
               default =
                 final: prev:
-                import ./pkgs null {
-                  pkgs = prev;
-                  pkgs-24_05 = pkgsForSystem-24_05 final.system;
-                  inherit inputs;
+                let
+                  _packages = import ./pkgs null {
+                    pkgs = prev;
+                    pkgs-24_05 = pkgsForSystem-24_05 final.system;
+                    inherit inputs;
+                  };
+                  _legacyPackages = import ./pkgs "legacy" {
+                    pkgs = prev;
+                    pkgs-24_05 = pkgsForSystem-24_05 final.system;
+                    inherit inputs;
+                  };
+                in
+                _packages
+                // rec {
+                  # Integrate to nixpkgs python3Packages
+                  python = prev.python.override {
+                    packageOverrides = _final: _prev: _legacyPackages.python3Packages;
+                  };
+                  python3 = prev.python3.override {
+                    packageOverrides = _final: _prev: _legacyPackages.python3Packages;
+                  };
+                  python3Packages = python3.pkgs;
                 };
               inSubTree = final: prev: {
                 nur-xddxdd = import ./pkgs null {
@@ -103,12 +126,23 @@
               inSubTree-pinnedNixpkgs = final: _prev: {
                 nur-xddxdd = self.legacyPackages.${final.system};
               };
+              inSubTree-pinnedNixpkgsWithCuda = final: _prev: {
+                nur-xddxdd = self.legacyPackagesWithCuda.${final.system};
+              };
             }
             // (builtins.listToAttrs (
-              builtins.map (s: {
-                name = "pinnedNixpkgs-${s}";
-                value = _final: _prev: self.legacyPackages.${s};
-              }) systems
+              lib.flatten (
+                builtins.map (s: [
+                  {
+                    name = "pinnedNixpkgs-${s}";
+                    value = _final: _prev: self.legacyPackages.${s};
+                  }
+                  {
+                    name = "pinnedNixpkgsWithCuda-${s}";
+                    value = _final: _prev: self.legacyPackagesWithCuda.${s};
+                  }
+                ]) systems
+              )
             ));
 
           inherit flakeModules;
@@ -127,22 +161,29 @@
           };
         };
 
-        nixpkgs-options.pkgs = {
-          sourceInput = inputs.nixpkgs;
-          permittedInsecurePackages = [
-            "electron-11.5.0"
-            "electron-19.1.9"
-            "openssl-1.1.1w"
-            "python-2.7.18.7"
-          ];
+        nixpkgs-options = {
+          pkgs = {
+            sourceInput = inputs.nixpkgs;
+            allowInsecurePredicate = _: true;
+          };
+          pkgsWithCuda = {
+            sourceInput = inputs.nixpkgs;
+            allowInsecurePredicate = _: true;
+            settings.enableCuda = true;
+          };
         };
 
         perSystem =
-          { pkgs, system, ... }:
+          {
+            pkgs,
+            pkgsWithCuda,
+            system,
+            ...
+          }:
           let
             ptr = {
               inherit (inputs.LaphaeL-aicmd.packages.${pkgs.system}) laphael_aicmd;
-              inherit (inputs.meme-generator.packages.${pkgs.system}) meme-generator;
+              # inherit (inputs.meme-generator.packages.${pkgs.system}) meme-generator;
             };
           in
           {
@@ -152,9 +193,23 @@
                 pkgs-24_05 = pkgsForSystem-24_05 system;
               }
               // ptr;
+            packagesWithCuda =
+              import ./pkgs null {
+                inherit inputs;
+                pkgs = pkgsWithCuda;
+                pkgs-24_05 = pkgsForSystem-24_05 system;
+              }
+              // ptr;
             legacyPackages =
               import ./pkgs "legacy" {
                 inherit inputs pkgs;
+                pkgs-24_05 = pkgsForSystem-24_05 system;
+              }
+              // ptr;
+            legacyPackagesWithCuda =
+              import ./pkgs "legacy" {
+                inherit inputs;
+                pkgs = pkgsWithCuda;
                 pkgs-24_05 = pkgsForSystem-24_05 system;
               }
               // ptr;
