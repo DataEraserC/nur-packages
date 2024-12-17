@@ -80,12 +80,12 @@ jobs:
         run: |
           # https://github.com/cpina/github-action-push-to-another-repository/issues/75
           git config --unset-all http.https://github.com/.extraheader
-          git config --global user.email "xddxdd-bot@users.noreply.github.com"
-          git config --global user.name "xddxdd-bot"
+          git config --global user.email "DataEraserC-bot@users.noreply.github.com"
+          git config --global user.name "DataEraserC-bot"
 
           git add .
           if git commit -m "auto: update packages" ; then
             git remote remove origin
-            git remote add origin "https://xddxdd-bot:$API_TOKEN_GITHUB@github.com/xddxdd/nur-packages.git"
+            git remote add origin "https://DataEraserC:$API_TOKEN_GITHUB@github.com/DataEraserC/nur-packages.git"
             git push -u origin master --force
           fi
