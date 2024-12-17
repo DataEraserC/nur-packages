@@ -169,7 +169,7 @@
           pkgsWithCuda = {
             sourceInput = inputs.nixpkgs;
             allowInsecurePredicate = _: true;
-            settings.enableCuda = true;
+            settings.cudaSupport = true;
           };
         };
 
