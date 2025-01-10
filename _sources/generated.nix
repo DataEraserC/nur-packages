@@ -2059,6 +2059,14 @@
     };
     date = "2024-04-22";
   };
+  CustomPinyinDictionary_Fcitx = {
+    pname = "CustomPinyinDictionary_Fcitx";
+    version = "20250101";
+    src = fetchurl {
+      url = "https://github.com/wuhgit/CustomPinyinDictionary/releases/download/assets/CustomPinyinDictionary_Fcitx_20250101.tar.gz";
+      hash = "sha256-3LQmbfRfmS5sfmhKBovtis9aXJGf4L9ahHKhepqRreU=";
+    };
+  };
   LiteLoaderQQNT = {
     pname = "LiteLoaderQQNT";
     version = "5a1a08aed69d128ec4b711aaaba8f3d255a1916c";
@@ -2085,15 +2093,15 @@
   };
   PiliPalaX = {
     pname = "PiliPalaX";
-    version = "31e8c36653cee02790938a63b132e75d9d343f49";
+    version = "7b3d1328022039251d2778110274c974344ce16d";
     src = fetchFromGitHub {
       owner = "bggRGjQaUbCoE";
       repo = "PiliPalaX";
-      rev = "31e8c36653cee02790938a63b132e75d9d343f49";
+      rev = "7b3d1328022039251d2778110274c974344ce16d";
       fetchSubmodules = true;
-      hash = "sha256-UicdtO4X2Gxu15o4vW5r6h7xb0qLClBQ/q/IeeMHf5Y=";
+      hash = "sha256-vNlIh3QerNJOAEcdfVXHcqUTKb9pvwT7XR/OHdvMJyQ=";
     };
-    date = "2025-01-08";
+    date = "2025-01-10";
   };
   UnknownAnimeGamePS = {
     pname = "UnknownAnimeGamePS";
@@ -2217,10 +2225,10 @@
   };
   v2ray-rules-dat = {
     pname = "v2ray-rules-dat";
-    version = "202501072211";
+    version = "202501092212";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202501072211/rules.zip";
-      hash = "sha256-NeGpD5otaol2riPivijZeB/UjJrAk8OR5CYyL7P0rio=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202501092212/rules.zip";
+      hash = "sha256-Ama/llop7HO0s1ZIHN1R887scsh4Cnl6/PGH4iAFnc4=";
     };
   };
   wechat-web-devtools-linux_appimage = {

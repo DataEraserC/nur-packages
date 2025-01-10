@@ -1007,3 +1007,8 @@ fetch.url = "https://github.com/viarotel-org/escrcpy/releases/download/v$ver/Esc
 [rwkv]
 src.pypi = "rwkv"
 fetch.pypi = "rwkv"
+
+[CustomPinyinDictionary_Fcitx]
+src.webpage = "https://api.github.com/repos/wuhgit/CustomPinyinDictionary/releases/latest"
+src.regex = "https://github.com/wuhgit/CustomPinyinDictionary/releases/download/assets/CustomPinyinDictionary_Fcitx_([0-9]{8}).tar.gz"
+fetch.url = "https://github.com/wuhgit/CustomPinyinDictionary/releases/download/assets/CustomPinyinDictionary_Fcitx_$ver.tar.gz"
