@@ -575,9 +575,8 @@ fetch.url = "https://google.com/generate_204"
 src.github = "pocl/pocl"
 fetch.github = "pocl/pocl"
 
-[procps4]
-# src.archpkg = "procps-ng"
-src.manual = "4.0.4"
+[uksmd-procps]
+src.archpkg = "procps-ng"
 fetch.url = "https://sourceforge.net/projects/procps-ng/files/Production/procps-ng-$ver.tar.xz"
 
 [pterodactyl-wings]
@@ -915,6 +914,10 @@ fetch.pypi = "XStatic-Font-Awesome"
 [xue]
 src.pypi = "xue"
 fetch.url = "https://pypi.org/packages/source/x/xue/xue-$ver.tar.gz"
+
+[xvcd]
+src.git = "https://github.com/RHSResearchLLC/xvcd.git"
+fetch.github = "RHSResearchLLC/xvcd"
 
 [zstd-nginx-module]
 src.git = "https://github.com/tokers/zstd-nginx-module.git"
