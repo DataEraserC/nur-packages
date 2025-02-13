@@ -2092,27 +2092,27 @@
   };
   OpenFreebuds = {
     pname = "OpenFreebuds";
-    version = "c7dcc86fb983c2a054b2fbb4ca6c23118d5831bf";
+    version = "707d63f6f3e0fb7fdc5a378aba43e1929eaf56e9";
     src = fetchFromGitHub {
       owner = "melianmiko";
       repo = "OpenFreebuds";
-      rev = "c7dcc86fb983c2a054b2fbb4ca6c23118d5831bf";
+      rev = "707d63f6f3e0fb7fdc5a378aba43e1929eaf56e9";
       fetchSubmodules = true;
-      hash = "sha256-dkYc1J53mh7IkP/ebiR3JfDF93s6iHBeI4rVdO7/EXg=";
+      hash = "sha256-Rt2QfGIAUYTW3SP4QJ4i5Pmf3I3dH+x/dnUOfTolzy4=";
     };
-    date = "2024-11-18";
+    date = "2025-02-08";
   };
   PiliPalaX = {
     pname = "PiliPalaX";
-    version = "7b3d1328022039251d2778110274c974344ce16d";
+    version = "84cc65489f7877fc57f9c95c2a7d61bf7100b3d2";
     src = fetchFromGitHub {
       owner = "bggRGjQaUbCoE";
-      repo = "PiliPalaX";
-      rev = "7b3d1328022039251d2778110274c974344ce16d";
+      repo = "PiliPlus";
+      rev = "84cc65489f7877fc57f9c95c2a7d61bf7100b3d2";
       fetchSubmodules = true;
-      hash = "sha256-vNlIh3QerNJOAEcdfVXHcqUTKb9pvwT7XR/OHdvMJyQ=";
+      hash = "sha256-ngeoeUnLhYNxuv8HW/bZRE3/RZB/BaKlXeuAacF5AkM=";
     };
-    date = "2025-01-10";
+    date = "2025-02-13";
   };
   UnknownAnimeGamePS = {
     pname = "UnknownAnimeGamePS";
@@ -2161,22 +2161,22 @@
   };
   c001apk-flutter = {
     pname = "c001apk-flutter";
-    version = "72f4cf2494db6c8834c4136de70109bc95ed9374";
+    version = "4183b921e3989c8f3965fca5e04609552e832b32";
     src = fetchFromGitHub {
-      owner = "bggRGjQaUbCoE";
+      owner = "Apps-Used-By-Myself";
       repo = "c001apk-flutter";
-      rev = "72f4cf2494db6c8834c4136de70109bc95ed9374";
+      rev = "4183b921e3989c8f3965fca5e04609552e832b32";
       fetchSubmodules = true;
-      hash = "sha256-xEVmSOryTu6EvI3FRqc89mR4X8aLNcH8fY5p12KVMQ8=";
+      hash = "sha256-StEFqohuMxi8GD3CmH38+LzlJtPN5GrYLdhcDswru4c=";
     };
-    date = "2024-09-17";
+    date = "2025-02-13";
   };
   escrcpy_appimage = {
     pname = "escrcpy_appimage";
-    version = "1.28.3";
+    version = "1.28.6";
     src = fetchurl {
-      url = "https://github.com/viarotel-org/escrcpy/releases/download/v1.28.3/Escrcpy-1.28.3-linux-x86_64.AppImage";
-      hash = "sha256-z7wOUU0XhId0bICtvvRLt4Swcjo5PMTaxZ8xEcpoVMI=";
+      url = "https://github.com/viarotel-org/escrcpy/releases/download/v1.28.6/Escrcpy-1.28.6-linux-x86_64.AppImage";
+      hash = "sha256-ttF23vXyJjUF7DifA/tJhcTCyOQjgDwEWWQFwApsb/g=";
     };
   };
   open-interpreter = {
@@ -2236,26 +2236,26 @@
   };
   v2ray-rules-dat = {
     pname = "v2ray-rules-dat";
-    version = "202501092212";
+    version = "202502122211";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202501092212/rules.zip";
-      hash = "sha256-Ama/llop7HO0s1ZIHN1R887scsh4Cnl6/PGH4iAFnc4=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202502122211/rules.zip";
+      hash = "sha256-a9yqGE3Sr7jFfeE+Y3sbfKc7tEfw5VjXuhekNd2WTWs=";
     };
   };
   wechat-web-devtools-linux_appimage = {
     pname = "wechat-web-devtools-linux_appimage";
-    version = "1.06.2409140-3";
+    version = "1.06.2412040-1";
     src = fetchurl {
-      url = "https://github.com/msojocs/wechat-web-devtools-linux/releases/download/v1.06.2409140-3/WeChat_Dev_Tools_v1.06.2409140-3_x86_64_linux.AppImage";
-      hash = "sha256-jGtRRBfe23YBjH6Ejmy80aKmjPtpgaOZaSmtpQK8XZ8=";
+      url = "https://github.com/msojocs/wechat-web-devtools-linux/releases/download/v1.06.2412040-1/WeChat_Dev_Tools_v1.06.2412040-1_x86_64_linux.AppImage";
+      hash = "sha256-fyOJER8xp7o4dvjaXzJSvKsZYJEDbxR0cGMbvvn8Jc8=";
     };
   };
   wechat-web-devtools-linux_bin = {
     pname = "wechat-web-devtools-linux_bin";
-    version = "1.06.2409140-3";
+    version = "1.06.2412040-1";
     src = fetchurl {
-      url = "https://github.com/msojocs/wechat-web-devtools-linux/releases/download/v1.06.2409140-3/WeChat_Dev_Tools_v1.06.2409140-3_x86_64_linux.tar.gz";
-      hash = "sha256-OBf4azKFQTqI74NtRi5QAeYU0GIm686QiYEECXSsDYE=";
+      url = "https://github.com/msojocs/wechat-web-devtools-linux/releases/download/v1.06.2412040-1/WeChat_Dev_Tools_v1.06.2412040-1_x86_64_linux.tar.gz";
+      hash = "sha256-ONFO5DTbCHjA9XRhP/Ed3Akl7iStBK4YdBaem9sKVKY=";
     };
   };
 }

@@ -4049,11 +4049,11 @@
         },
         "version": "f4ba115e0b0eaecde545e5f37db6aa18917d8f4b"
     },
-    "CustomPinyinDictionary": {
+    "CustomPinyinDictionary_Fcitx": {
         "cargoLocks": null,
         "date": null,
         "extract": null,
-        "name": "CustomPinyinDictionary",
+        "name": "CustomPinyinDictionary_Fcitx",
         "passthru": null,
         "pinned": false,
         "src": {
@@ -4086,7 +4086,7 @@
     },
     "OpenFreebuds": {
         "cargoLocks": null,
-        "date": "2024-11-18",
+        "date": "2025-02-08",
         "extract": null,
         "name": "OpenFreebuds",
         "passthru": null,
@@ -4098,15 +4098,15 @@
             "name": null,
             "owner": "melianmiko",
             "repo": "OpenFreebuds",
-            "rev": "c7dcc86fb983c2a054b2fbb4ca6c23118d5831bf",
-            "sha256": "sha256-dkYc1J53mh7IkP/ebiR3JfDF93s6iHBeI4rVdO7/EXg=",
+            "rev": "707d63f6f3e0fb7fdc5a378aba43e1929eaf56e9",
+            "sha256": "sha256-Rt2QfGIAUYTW3SP4QJ4i5Pmf3I3dH+x/dnUOfTolzy4=",
             "type": "github"
         },
-        "version": "c7dcc86fb983c2a054b2fbb4ca6c23118d5831bf"
+        "version": "707d63f6f3e0fb7fdc5a378aba43e1929eaf56e9"
     },
     "PiliPalaX": {
         "cargoLocks": null,
-        "date": "2025-01-10",
+        "date": "2025-02-13",
         "extract": null,
         "name": "PiliPalaX",
         "passthru": null,
@@ -4117,12 +4117,12 @@
             "leaveDotGit": false,
             "name": null,
             "owner": "bggRGjQaUbCoE",
-            "repo": "PiliPalaX",
-            "rev": "7b3d1328022039251d2778110274c974344ce16d",
-            "sha256": "sha256-vNlIh3QerNJOAEcdfVXHcqUTKb9pvwT7XR/OHdvMJyQ=",
+            "repo": "PiliPlus",
+            "rev": "84cc65489f7877fc57f9c95c2a7d61bf7100b3d2",
+            "sha256": "sha256-ngeoeUnLhYNxuv8HW/bZRE3/RZB/BaKlXeuAacF5AkM=",
             "type": "github"
         },
-        "version": "7b3d1328022039251d2778110274c974344ce16d"
+        "version": "84cc65489f7877fc57f9c95c2a7d61bf7100b3d2"
     },
     "UnknownAnimeGamePS": {
         "cargoLocks": null,
@@ -4204,7 +4204,7 @@
     },
     "c001apk-flutter": {
         "cargoLocks": null,
-        "date": "2024-09-17",
+        "date": "2025-02-13",
         "extract": null,
         "name": "c001apk-flutter",
         "passthru": null,
@@ -4214,13 +4214,13 @@
             "fetchSubmodules": true,
             "leaveDotGit": false,
             "name": null,
-            "owner": "bggRGjQaUbCoE",
+            "owner": "Apps-Used-By-Myself",
             "repo": "c001apk-flutter",
-            "rev": "72f4cf2494db6c8834c4136de70109bc95ed9374",
-            "sha256": "sha256-xEVmSOryTu6EvI3FRqc89mR4X8aLNcH8fY5p12KVMQ8=",
+            "rev": "4183b921e3989c8f3965fca5e04609552e832b32",
+            "sha256": "sha256-StEFqohuMxi8GD3CmH38+LzlJtPN5GrYLdhcDswru4c=",
             "type": "github"
         },
-        "version": "72f4cf2494db6c8834c4136de70109bc95ed9374"
+        "version": "4183b921e3989c8f3965fca5e04609552e832b32"
     },
     "escrcpy_appimage": {
         "cargoLocks": null,
@@ -4231,11 +4231,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-z7wOUU0XhId0bICtvvRLt4Swcjo5PMTaxZ8xEcpoVMI=",
+            "sha256": "sha256-ttF23vXyJjUF7DifA/tJhcTCyOQjgDwEWWQFwApsb/g=",
             "type": "url",
-            "url": "https://github.com/viarotel-org/escrcpy/releases/download/v1.28.3/Escrcpy-1.28.3-linux-x86_64.AppImage"
+            "url": "https://github.com/viarotel-org/escrcpy/releases/download/v1.28.6/Escrcpy-1.28.6-linux-x86_64.AppImage"
         },
-        "version": "1.28.3"
+        "version": "1.28.6"
     },
     "open-interpreter": {
         "cargoLocks": null,
@@ -4340,11 +4340,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-Ama/llop7HO0s1ZIHN1R887scsh4Cnl6/PGH4iAFnc4=",
+            "sha256": "sha256-a9yqGE3Sr7jFfeE+Y3sbfKc7tEfw5VjXuhekNd2WTWs=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202501092212/rules.zip"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202502122211/rules.zip"
         },
-        "version": "202501092212"
+        "version": "202502122211"
     },
     "wechat-web-devtools-linux_appimage": {
         "cargoLocks": null,
@@ -4355,11 +4355,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-jGtRRBfe23YBjH6Ejmy80aKmjPtpgaOZaSmtpQK8XZ8=",
+            "sha256": "sha256-fyOJER8xp7o4dvjaXzJSvKsZYJEDbxR0cGMbvvn8Jc8=",
             "type": "url",
-            "url": "https://github.com/msojocs/wechat-web-devtools-linux/releases/download/v1.06.2409140-3/WeChat_Dev_Tools_v1.06.2409140-3_x86_64_linux.AppImage"
+            "url": "https://github.com/msojocs/wechat-web-devtools-linux/releases/download/v1.06.2412040-1/WeChat_Dev_Tools_v1.06.2412040-1_x86_64_linux.AppImage"
         },
-        "version": "1.06.2409140-3"
+        "version": "1.06.2412040-1"
     },
     "wechat-web-devtools-linux_bin": {
         "cargoLocks": null,
@@ -4370,10 +4370,10 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-OBf4azKFQTqI74NtRi5QAeYU0GIm686QiYEECXSsDYE=",
+            "sha256": "sha256-ONFO5DTbCHjA9XRhP/Ed3Akl7iStBK4YdBaem9sKVKY=",
             "type": "url",
-            "url": "https://github.com/msojocs/wechat-web-devtools-linux/releases/download/v1.06.2409140-3/WeChat_Dev_Tools_v1.06.2409140-3_x86_64_linux.tar.gz"
+            "url": "https://github.com/msojocs/wechat-web-devtools-linux/releases/download/v1.06.2412040-1/WeChat_Dev_Tools_v1.06.2412040-1_x86_64_linux.tar.gz"
         },
-        "version": "1.06.2409140-3"
+        "version": "1.06.2412040-1"
     }
 }

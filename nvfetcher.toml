@@ -934,13 +934,13 @@ fetch.git = "https://gitlab.com/postmarketOS/ttyescape.git"
 git.fetchSubmodules = true
 
 [c001apk-flutter]
-src.git = "https://github.com/bggRGjQaUbCoE/c001apk-flutter.git"
-fetch.github = "bggRGjQaUbCoE/c001apk-flutter"
+src.git = "https://github.com/Apps-Used-By-Myself/c001apk-flutter.git"
+fetch.github = "Apps-Used-By-Myself/c001apk-flutter"
 git.fetchSubmodules = true
 
 [PiliPalaX]
-src.git = "https://github.com/bggRGjQaUbCoE/PiliPalaX"
-fetch.github = "bggRGjQaUbCoE/PiliPalaX"
+src.git = "https://github.com/bggRGjQaUbCoE/PiliPlus"
+fetch.github = "bggRGjQaUbCoE/PiliPlus"
 git.fetchSubmodules = true
 
 [wechat-web-devtools-linux_appimage]
