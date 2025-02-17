@@ -2104,15 +2104,15 @@
   };
   PiliPalaX = {
     pname = "PiliPalaX";
-    version = "84cc65489f7877fc57f9c95c2a7d61bf7100b3d2";
+    version = "5dd3ff32b643f79f273d5a4134bf42969d32afb5";
     src = fetchFromGitHub {
       owner = "bggRGjQaUbCoE";
       repo = "PiliPlus";
-      rev = "84cc65489f7877fc57f9c95c2a7d61bf7100b3d2";
+      rev = "5dd3ff32b643f79f273d5a4134bf42969d32afb5";
       fetchSubmodules = true;
-      hash = "sha256-ngeoeUnLhYNxuv8HW/bZRE3/RZB/BaKlXeuAacF5AkM=";
+      hash = "sha256-nxNVZ6Mi715akCTfD2zsroOlYpmLQqYMxxfzAtFwU1I=";
     };
-    date = "2025-02-13";
+    date = "2025-02-16";
   };
   UnknownAnimeGamePS = {
     pname = "UnknownAnimeGamePS";
@@ -2170,6 +2170,62 @@
       hash = "sha256-w1WtuZHdfFQg3fRUib3IjIOgudJ81g/ejiaubGG6gqs=";
     };
     date = "2025-02-13";
+  };
+  cpolar-aarch64-darwin = {
+    pname = "cpolar-aarch64-darwin";
+    version = "3.3.12";
+    src = fetchurl {
+      url = "https://www.cpolar.com/static/downloads/releases/3.3.12/cpolar-stable-darwin-arm64.zip";
+      hash = "sha256-hXa4xwsnrMiO4K+lfJeCsBsq0dH7ZU/nK/p4eVbgB44=";
+    };
+  };
+  cpolar-aarch64-linux = {
+    pname = "cpolar-aarch64-linux";
+    version = "3.3.12";
+    src = fetchurl {
+      url = "https://www.cpolar.com/static/downloads/releases/3.3.12/cpolar-stable-linux-arm64.zip";
+      hash = "sha256-uI2nzXHy/MG0GJwaNumoiTQ49eFpF4nAcwPoM2CWf/s=";
+    };
+  };
+  cpolar-aarch32-linux = {
+    pname = "cpolar-aarch32-linux";
+    version = "3.3.12";
+    src = fetchurl {
+      url = "https://www.cpolar.com/static/downloads/releases/3.3.12/cpolar-stable-linux-mips.zip";
+      hash = "sha256-Ii+kRQdqr5xKt7QwWeOZaLq+i+DlDng+9lhFcrIAEeU=";
+    };
+  };
+  cpolar-i686-linux = {
+    pname = "cpolar-i686-linux";
+    version = "3.3.12";
+    src = fetchurl {
+      url = "https://www.cpolar.com/static/downloads/releases/3.3.12/cpolar-stable-linux-386.zip";
+      hash = "sha256-HY8UB0SCi6/2uTr51oZxn2comBq/1l30/pG84ihZGFk=";
+    };
+  };
+  cpolar-mips-linux = {
+    pname = "cpolar-mips-linux";
+    version = "3.3.12";
+    src = fetchurl {
+      url = "https://www.cpolar.com/static/downloads/releases/3.3.12/cpolar-stable-linux-arm64.zip";
+      hash = "sha256-uI2nzXHy/MG0GJwaNumoiTQ49eFpF4nAcwPoM2CWf/s=";
+    };
+  };
+  cpolar-x86_64-darwin = {
+    pname = "cpolar-x86_64-darwin";
+    version = "3.3.12";
+    src = fetchurl {
+      url = "https://www.cpolar.com/static/downloads/releases/3.3.12/cpolar-stable-darwin-amd64.zip";
+      hash = "sha256-S/d1DF24/AO7yruEw06UipacW5VF4yYFFNnTk90LSPI=";
+    };
+  };
+  cpolar-x86_64-linux = {
+    pname = "cpolar-x86_64-linux";
+    version = "3.3.12";
+    src = fetchurl {
+      url = "https://www.cpolar.com/static/downloads/releases/3.3.12/cpolar-stable-linux-amd64.zip";
+      hash = "sha256-89Z28kjg7EYyjeFKKu9EJlsLF5gvn8vwmI4v/DfHikU=";
+    };
   };
   escrcpy_appimage = {
     pname = "escrcpy_appimage";
@@ -2236,10 +2292,10 @@
   };
   v2ray-rules-dat = {
     pname = "v2ray-rules-dat";
-    version = "202502122211";
+    version = "202502162210";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202502122211/rules.zip";
-      hash = "sha256-a9yqGE3Sr7jFfeE+Y3sbfKc7tEfw5VjXuhekNd2WTWs=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202502162210/rules.zip";
+      hash = "sha256-MSNIepj/ffmqVwmmmv7LAEbbhe6bIsgD/TDzFLXpNyQ=";
     };
   };
   wechat-web-devtools-linux_appimage = {

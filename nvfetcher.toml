@@ -1015,3 +1015,38 @@ fetch.pypi = "rwkv"
 src.webpage = "https://api.github.com/repos/wuhgit/CustomPinyinDictionary/releases/latest"
 src.regex = "https://github.com/wuhgit/CustomPinyinDictionary/releases/download/assets/CustomPinyinDictionary_Fcitx_([0-9]{8}).tar.gz"
 fetch.url = "https://github.com/wuhgit/CustomPinyinDictionary/releases/download/assets/CustomPinyinDictionary_Fcitx_$ver.tar.gz"
+
+[cpolar-x86_64-linux]
+src.webpage = "https://www.cpolar.com/download"
+src.regex = "https://www.cpolar.com/static/downloads/releases/(.*)/"
+fetch.url = "https://www.cpolar.com/static/downloads/releases/$ver/cpolar-stable-linux-amd64.zip"
+
+[cpolar-i686-linux]
+src.webpage = "https://www.cpolar.com/download"
+src.regex = "https://www.cpolar.com/static/downloads/releases/(.*)/"
+fetch.url = "https://www.cpolar.com/static/downloads/releases/$ver/cpolar-stable-linux-386.zip"
+
+[cpolar-aarch32-linux]
+src.webpage = "https://www.cpolar.com/download"
+src.regex = "https://www.cpolar.com/static/downloads/releases/(.*)/"
+fetch.url = "https://www.cpolar.com/static/downloads/releases/$ver/cpolar-stable-linux-mips.zip"
+
+[cpolar-mips-linux]
+src.webpage = "https://www.cpolar.com/download"
+src.regex = "https://www.cpolar.com/static/downloads/releases/(.*)/"
+fetch.url = "https://www.cpolar.com/static/downloads/releases/$ver/cpolar-stable-linux-arm64.zip"
+
+[cpolar-aarch64-linux]
+src.webpage = "https://www.cpolar.com/download"
+src.regex = "https://www.cpolar.com/static/downloads/releases/(.*)/"
+fetch.url = "https://www.cpolar.com/static/downloads/releases/$ver/cpolar-stable-linux-arm64.zip"
+
+[cpolar-x86_64-darwin]
+src.webpage = "https://www.cpolar.com/download"
+src.regex = "https://www.cpolar.com/static/downloads/releases/(.*)/"
+fetch.url = "https://www.cpolar.com/static/downloads/releases/$ver/cpolar-stable-darwin-amd64.zip"
+
+[cpolar-aarch64-darwin]
+src.webpage = "https://www.cpolar.com/download"
+src.regex = "https://www.cpolar.com/static/downloads/releases/(.*)/"
+fetch.url = "https://www.cpolar.com/static/downloads/releases/$ver/cpolar-stable-darwin-arm64.zip"

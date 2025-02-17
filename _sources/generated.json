@@ -4080,6 +4080,7 @@
             "repo": "LiteLoaderQQNT",
             "rev": "5a1a08aed69d128ec4b711aaaba8f3d255a1916c",
             "sha256": "sha256-zNX+ouRJx7YddcdL2rkhOT9JqYaap7EgyhVKpXQWCNI=",
+            "sparseCheckout": [],
             "type": "github"
         },
         "version": "5a1a08aed69d128ec4b711aaaba8f3d255a1916c"
@@ -4100,13 +4101,14 @@
             "repo": "OpenFreebuds",
             "rev": "707d63f6f3e0fb7fdc5a378aba43e1929eaf56e9",
             "sha256": "sha256-Rt2QfGIAUYTW3SP4QJ4i5Pmf3I3dH+x/dnUOfTolzy4=",
+            "sparseCheckout": [],
             "type": "github"
         },
         "version": "707d63f6f3e0fb7fdc5a378aba43e1929eaf56e9"
     },
     "PiliPalaX": {
         "cargoLocks": null,
-        "date": "2025-02-13",
+        "date": "2025-02-16",
         "extract": null,
         "name": "PiliPalaX",
         "passthru": null,
@@ -4118,11 +4120,12 @@
             "name": null,
             "owner": "bggRGjQaUbCoE",
             "repo": "PiliPlus",
-            "rev": "84cc65489f7877fc57f9c95c2a7d61bf7100b3d2",
-            "sha256": "sha256-ngeoeUnLhYNxuv8HW/bZRE3/RZB/BaKlXeuAacF5AkM=",
+            "rev": "5dd3ff32b643f79f273d5a4134bf42969d32afb5",
+            "sha256": "sha256-nxNVZ6Mi715akCTfD2zsroOlYpmLQqYMxxfzAtFwU1I=",
+            "sparseCheckout": [],
             "type": "github"
         },
-        "version": "84cc65489f7877fc57f9c95c2a7d61bf7100b3d2"
+        "version": "5dd3ff32b643f79f273d5a4134bf42969d32afb5"
     },
     "UnknownAnimeGamePS": {
         "cargoLocks": null,
@@ -4140,6 +4143,7 @@
             "repo": "UnknownAnimeGamePS",
             "rev": "02e3bb2424d9c294da48989f120e89557e88dd27",
             "sha256": "sha256-ZWQtrj1j2U/mQx0smsGuGfZ9EwigUNGP2rutUwFmHG4=",
+            "sparseCheckout": [],
             "type": "github"
         },
         "version": "02e3bb2424d9c294da48989f120e89557e88dd27"
@@ -4158,6 +4162,7 @@
             "name": null,
             "rev": "6e83bd13ba95d07e017ebaf4037dbd76ac76fda7",
             "sha256": "sha256-T2SApSv+UTezRoY9hwFVDr/Zaz5WVGK2QWSpRNeFI0w=",
+            "sparseCheckout": [],
             "type": "git",
             "url": "https://gitlab.com/YuukiPS/GC-Resources.git"
         },
@@ -4179,6 +4184,7 @@
             "repo": "XiaoMiToolV2",
             "rev": "c150b381f68ff9199dc4301928dd4f0f6941caa8",
             "sha256": "sha256-7cHg8fOcPW1lKnRuJQCjkUfmC6fqx3m17FzzEtpp398=",
+            "sparseCheckout": [],
             "type": "github"
         },
         "version": "c150b381f68ff9199dc4301928dd4f0f6941caa8"
@@ -4197,6 +4203,7 @@
             "name": null,
             "rev": "c683350b9fb944e38cb484f04f98e4e3f85b41a5",
             "sha256": "sha256-z7siroBDauvs8TxfO/h+5HUU5G5aOWwNUxDaZm80I5A=",
+            "sparseCheckout": [],
             "type": "git",
             "url": "https://gitlab.com/postmarketOS/buffybox.git"
         },
@@ -4218,9 +4225,115 @@
             "repo": "c001apk-flutter",
             "rev": "facfe13ced547dbe5cccbdb483c2d6b8d9ce7031",
             "sha256": "sha256-w1WtuZHdfFQg3fRUib3IjIOgudJ81g/ejiaubGG6gqs=",
+            "sparseCheckout": [],
             "type": "github"
         },
         "version": "facfe13ced547dbe5cccbdb483c2d6b8d9ce7031"
+    },
+    "cpolar-aarch64-darwin": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "cpolar-aarch64-darwin",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-hXa4xwsnrMiO4K+lfJeCsBsq0dH7ZU/nK/p4eVbgB44=",
+            "type": "url",
+            "url": "https://www.cpolar.com/static/downloads/releases/3.3.12/cpolar-stable-darwin-arm64.zip"
+        },
+        "version": "3.3.12"
+    },
+    "cpolar-aarch64-linux": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "cpolar-aarch64-linux",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-uI2nzXHy/MG0GJwaNumoiTQ49eFpF4nAcwPoM2CWf/s=",
+            "type": "url",
+            "url": "https://www.cpolar.com/static/downloads/releases/3.3.12/cpolar-stable-linux-arm64.zip"
+        },
+        "version": "3.3.12"
+    },
+    "cpolar-aarch32-linux": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "cpolar-arm-linux",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-Ii+kRQdqr5xKt7QwWeOZaLq+i+DlDng+9lhFcrIAEeU=",
+            "type": "url",
+            "url": "https://www.cpolar.com/static/downloads/releases/3.3.12/cpolar-stable-linux-mips.zip"
+        },
+        "version": "3.3.12"
+    },
+    "cpolar-i686-linux": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "cpolar-i686-linux",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-HY8UB0SCi6/2uTr51oZxn2comBq/1l30/pG84ihZGFk=",
+            "type": "url",
+            "url": "https://www.cpolar.com/static/downloads/releases/3.3.12/cpolar-stable-linux-386.zip"
+        },
+        "version": "3.3.12"
+    },
+    "cpolar-mips-linux": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "cpolar-mips-linux",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-uI2nzXHy/MG0GJwaNumoiTQ49eFpF4nAcwPoM2CWf/s=",
+            "type": "url",
+            "url": "https://www.cpolar.com/static/downloads/releases/3.3.12/cpolar-stable-linux-arm64.zip"
+        },
+        "version": "3.3.12"
+    },
+    "cpolar-x86_64-darwin": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "cpolar-x86_64-darwin",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-S/d1DF24/AO7yruEw06UipacW5VF4yYFFNnTk90LSPI=",
+            "type": "url",
+            "url": "https://www.cpolar.com/static/downloads/releases/3.3.12/cpolar-stable-darwin-amd64.zip"
+        },
+        "version": "3.3.12"
+    },
+    "cpolar-x86_64-linux": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "cpolar-x86_64-linux",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-89Z28kjg7EYyjeFKKu9EJlsLF5gvn8vwmI4v/DfHikU=",
+            "type": "url",
+            "url": "https://www.cpolar.com/static/downloads/releases/3.3.12/cpolar-stable-linux-amd64.zip"
+        },
+        "version": "3.3.12"
     },
     "escrcpy_appimage": {
         "cargoLocks": null,
@@ -4253,6 +4366,7 @@
             "repo": "open-interpreter",
             "rev": "21babb186f13e263a72cf525d15d79788edf4644",
             "sha256": "sha256-5tYaLWSzzG8jvRHgFF7MEjH4Nt97B0j2AS2lCEWxCgY=",
+            "sparseCheckout": [],
             "type": "github"
         },
         "version": "21babb186f13e263a72cf525d15d79788edf4644"
@@ -4288,6 +4402,7 @@
             "repo": "scrcpy-mask",
             "rev": "8228ffd39be8850ec609e274bd526b01328199a6",
             "sha256": "sha256-spXSamWONZCf7ZHFhrIzdilJi1Heg9ZhfmVqWROVqD0=",
+            "sparseCheckout": [],
             "type": "github"
         },
         "version": "8228ffd39be8850ec609e274bd526b01328199a6"
@@ -4306,6 +4421,7 @@
             "name": null,
             "rev": "810a195f19f68e817d95da5169b1fc4f22242630",
             "sha256": "sha256-HUAxjUelCvMgS7zHMXI4vPbyUe+wBMpL23xjPRzIaWY=",
+            "sparseCheckout": [],
             "type": "git",
             "url": "https://gitlab.com/postmarketOS/ttyescape.git"
         },
@@ -4327,6 +4443,7 @@
             "repo": "v2dat",
             "rev": "47b8ee51fb528e11e1a83453b7e767a18d20d1f7",
             "sha256": "sha256-dJld4hYdfnpphIEJvYsj5VvEF4snLvXZ059HJ2BXwok=",
+            "sparseCheckout": [],
             "type": "github"
         },
         "version": "47b8ee51fb528e11e1a83453b7e767a18d20d1f7"
@@ -4340,11 +4457,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-a9yqGE3Sr7jFfeE+Y3sbfKc7tEfw5VjXuhekNd2WTWs=",
+            "sha256": "sha256-MSNIepj/ffmqVwmmmv7LAEbbhe6bIsgD/TDzFLXpNyQ=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202502122211/rules.zip"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202502162210/rules.zip"
         },
-        "version": "202502122211"
+        "version": "202502162210"
     },
     "wechat-web-devtools-linux_appimage": {
         "cargoLocks": null,

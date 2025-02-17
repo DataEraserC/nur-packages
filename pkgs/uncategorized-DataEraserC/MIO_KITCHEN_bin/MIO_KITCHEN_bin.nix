@@ -6,7 +6,7 @@
   ...
 }:
 let
-  package_nane = "MIO-KITCHEN";
+  package_name = "MIO-KITCHEN";
   package_type = "bin";
   package_version = "3.0.8";
   github_release_tag = "CI_BUILD_264";
@@ -14,7 +14,7 @@ let
   package_description = "The Android Rom Tool Use python language";
 in
 stdenvNoCC.mkDerivation rec {
-  pname = "${package_nane}_${package_type}";
+  pname = "${package_name}_${package_type}";
   version = package_version;
 
   src = fetchzip {
