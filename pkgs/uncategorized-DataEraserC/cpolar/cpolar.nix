@@ -51,6 +51,7 @@ stdenvNoCC.mkDerivation rec {
 
   meta = {
     description = "cpolar";
+    mainProgram = "cpolar";
     license = lib.licenses.unfree;
     platforms = SupportedPlatforms;
   };
