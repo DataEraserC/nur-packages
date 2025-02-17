@@ -50,7 +50,7 @@ stdenvNoCC.mkDerivation rec {
   '';
 
   meta = {
-    description = "cpolar";
+    description = "cpolar (Polar Cloud): Expose local web services to the public internet with ease.";
     mainProgram = "cpolar";
     license = lib.licenses.unfree;
     platforms = SupportedPlatforms;
