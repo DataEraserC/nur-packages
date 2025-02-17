@@ -23,8 +23,8 @@
 
     package = lib.mkOption {
       type = lib.types.package;
-      default = pkgs.cpolar;
-      description = "The cpolar package to use. Must be specified if `services.cpolar.enable` is true.";
+      default = null;
+      description = "The cpolar package to use. Must be specified if `services.cpolar.enable` is true. Example: `nur-repo.packages.${pkgs.system}.cpolar`";
     };
 
     logDir = lib.mkOption {
@@ -46,6 +46,14 @@
       }
     ];
 
+    users.users.cpolar = {
+      isSystemUser = true;
+      group = "cpolar";
+      description = "cpolar service user";
+    };
+
+    users.groups.cpolar = { };
+
     systemd.services.cpolar = {
       description = "cpolar secure tunnels to localhost webhook development tool and debugging tool.";
       after = [ "network.target" ];
@@ -58,6 +66,8 @@
         '';
         Restart = "on-failure";
         RestartSec = "5s";
+        User = "cpolar";
+        Group = "cpolar";
       };
     };
 
