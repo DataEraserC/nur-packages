@@ -27,13 +27,13 @@ rustPlatform.buildRustPackage rec {
 
   cargoLock = {
     lockFile = ./Cargo.lock;
-    outputHashes =
-      {
-      };
+    outputHashes = {
+    };
   };
   meta = {
     description = "Lighter-weight hotkey daemon";
     homepage = "https://gitlab.com/postmarketOS/hkdm";
+    mainProgram = "hkdm";
     license = lib.licenses.gpl3Only;
     platforms = lib.platforms.linux;
     maintainers = [ ];

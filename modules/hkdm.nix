@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }:
 {
@@ -21,7 +22,7 @@
 
     package = lib.mkOption {
       type = lib.types.package;
-      default = null;
+      default = pkgs.hkdm;
       description = "The package to use for the Hotkey Daemon. Must be specified if `services.hkdm.enable` is true.";
     };
   };
@@ -44,7 +45,7 @@
       wantedBy = [ "multi-user.target" ];
       serviceConfig = {
         Restart = "on-failure";
-        ExecStart = "${config.services.hkdm.package}/bin/hkdm -i -c ${config.services.hkdm.configFile}";
+        ExecStart = "${lib.getExe config.services.hkdm.package} -i -c ${config.services.hkdm.configFile}";
       };
     };
   };
