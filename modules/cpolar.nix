@@ -4,7 +4,6 @@
   pkgs,
   ...
 }:
-
 {
   options.services.cpolar = {
     enable = lib.mkOption {
@@ -76,6 +75,10 @@
     system.activationScripts.cpolarLogDir = ''
       mkdir -p ${config.services.cpolar.logDir}
       chown cpolar:cpolar ${config.services.cpolar.logDir}
+    '';
+
+    system.activationScripts.cpolarConfigFile = ''
+      chown cpolar:cpolar ${config.services.cpolar.configFile}
     '';
   };
 }
