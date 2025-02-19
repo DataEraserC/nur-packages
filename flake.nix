@@ -21,7 +21,14 @@
       url = "github:cachix/pre-commit-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     # ptrs
+
+    # ptrs for outside nix packages
+
+    ZeroBot-Plugin = {
+      url = "github:FloatTech/ZeroBot-Plugin";
+    };
     LaphaeL-aicmd = {
       url = "github:DataEraserC/LaphaeL-aicmd";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -30,6 +37,9 @@
       url = "github:DataEraserC/meme-generator";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # some outside deps
+
     flake-utils.url = "github:numtide/flake-utils";
     poetry2nix = {
       url = "github:nix-community/poetry2nix";
@@ -184,6 +194,7 @@
           let
             ptr = {
               inherit (inputs.LaphaeL-aicmd.packages.${pkgs.system}) laphael_aicmd;
+              inherit (inputs.ZeroBot-Plugin.packages.${pkgs.system}) ZeroBot-Plugin;
               # inherit (inputs.meme-generator.packages.${pkgs.system}) meme-generator;
             };
           in

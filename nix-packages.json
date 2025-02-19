@@ -44,6 +44,11 @@
     "pname": "XiaoMiToolV2",
     "version": "0-unstable-2024-12-18"
   },
+  "legacyPackages.x86_64-linux.ZeroBot-Plugin": {
+    "description": "",
+    "pname": "ZeroBot-Plugin",
+    "version": "1.8.0"
+  },
   "legacyPackages.x86_64-linux._meta.howto": {
     "description": "This NUR has a binary cache. Use the following settings to access it:  nix.settings.substituters = [ \"https://dataeraserc.cachix.org\" ]; nix.settings.trusted-public-keys = [ \"dataeraserc.cachix.org-1:t0lYPod3nkn0ijiOzjwT57MmBDeJnxVurvV8ZdPpIHo=\" ];  Or, use variables from this repository in case I change them:  nix.settings.substituters = [ nur.repos.xddxdd._meta.url ]; nix.settings.trusted-public-keys = [ nur.repos.xddxdd._meta.publicKey ]; ",
     "pname": "00000-howto",
@@ -5113,6 +5118,11 @@
     "description": "",
     "pname": "XiaoMiToolV2",
     "version": "0-unstable-2024-12-18"
+  },
+  "packages.x86_64-linux.ZeroBot-Plugin": {
+    "description": "",
+    "pname": "ZeroBot-Plugin",
+    "version": "1.8.0"
   },
   "packages.x86_64-linux._meta": {
     "description": "",
