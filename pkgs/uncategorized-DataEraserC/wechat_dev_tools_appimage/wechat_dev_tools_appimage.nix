@@ -6,8 +6,12 @@
 }:
 appimageTools.wrapType2 rec {
   inherit (sources.wechat-web-devtools-linux_appimage) pname src version;
-  dontUnpack = true;
-
+  extraPkgs =
+    pkgs: with pkgs; [
+      gnome2.GConf
+      xorg.libxkbfile
+      xorg.libxshmfence
+    ];
   extraInstallCommands =
     let
       appimageContents = appimageTools.extractType2 { inherit pname version src; };
@@ -22,7 +26,7 @@ appimageTools.wrapType2 rec {
   meta = {
     description = "The development tools for wechat projects";
     homepage = "https://github.com/msojocs/wechat-web-devtools-linux";
-    license = lib.licenses.gpl3Plus;
+    license = lib.licenses.unfree;
     mainProgram = "wechat-web-devtools-linux_appimage";
     maintainers = with lib.maintainers; [ Guanran928 ];
     platforms = [ "x86_64-linux" ];

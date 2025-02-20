@@ -5,6 +5,8 @@
   sources,
   fetchurl,
   musl,
+  nwjs,
+  krb5,
 }:
 let
   github_url = "https://github.com/msojocs/wechat-web-devtools-linux";
