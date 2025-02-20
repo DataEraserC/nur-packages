@@ -7,6 +7,7 @@
   musl,
   nwjs,
   krb5,
+  makeDesktopItem,
 }:
 let
   github_url = "https://github.com/msojocs/wechat-web-devtools-linux";
@@ -19,6 +20,7 @@ stdenv.mkDerivation rec {
     wrapGAppsHook
     autoPatchelfHook
     makeWrapper
+    copyDesktopItems
   ];
   icon = fetchurl {
     url = "https://github.com/Program-Learning/nur-packages/releases/download/v1.06.2307260-1_wechat_dev_tool_appimage/wechat-devtools.png";
@@ -44,6 +46,19 @@ stdenv.mkDerivation rec {
     runHook postInstall
   '';
 
+  desktopItems = lib.toList (makeDesktopItem {
+    name = "Wechat_Dev_Tools";
+    genericName = "Wechat_Dev_Tools";
+    exec = "wechat_dev_tools_bin";
+    icon = "wechat_dev_tools";
+    comment = "wechat_dev_tools";
+    desktopName = "wechat_dev_tools";
+    categories = [
+      "Development"
+      "WebDevelopment"
+      "IDE"
+    ];
+  });
   libraries = with pkgs; [
     musl
     nwjs
