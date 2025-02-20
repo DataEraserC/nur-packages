@@ -52,7 +52,7 @@ stdenv.mkDerivation rec {
     exec = "wechat_dev_tools_bin";
     icon = "wechat_dev_tools";
     comment = "wechat_dev_tools";
-    desktopName = "Wechat Dev Tools";
+    desktopName = "wechat_dev_tools";
     categories = [
       "Development"
       "WebDevelopment"
