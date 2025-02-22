@@ -36,11 +36,6 @@ stdenv.mkDerivation rec {
   # This disables some automatic fixes applied to CMake-based software
   dontFixCmake = true;
 
-  # Add CMake to the building environment, to generate Makefile with it
-  nativeBuildInputs = [
-    cmake
-    gcc
-  ];
   installPhase = ''
     mkdir -p $out/bin
     mv waybar-bluetooth_battery_parse $out/bin

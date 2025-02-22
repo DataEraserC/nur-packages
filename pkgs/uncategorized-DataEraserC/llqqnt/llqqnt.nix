@@ -36,6 +36,7 @@ in
       # buildInputs ? [ ],
       installPhase,
       version,
+      meta,
       ...
     }:
     {
@@ -59,5 +60,6 @@ in
           sed -i "s@^Exec=.*@Exec=${fhs}/bin/fhs -c '$out/bin/llqqnt %U'@g" $out/share/applications/llqqnt.desktop
           sed -i "s@^Name=.*@Name=LLQQNT@g" $out/share/applications/llqqnt.desktop
         '';
+      meta.broken = true;
     }
   )
