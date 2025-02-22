@@ -22,7 +22,6 @@ stdenv.mkDerivation rec {
     mkdir -p $out/lib
     install -Dm755 ${src}/bstar-0.5.10.so $out/lib/bstar-0.5.10.so
     ln -svf $out/lib/bstar-0.5.10.so $out/lib/libbstar.so
-
   '';
 
   meta = with lib; {
