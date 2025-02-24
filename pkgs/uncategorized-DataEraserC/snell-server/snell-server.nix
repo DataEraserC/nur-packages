@@ -1,3 +1,4 @@
+#https://t.me/nixos_zhcn/590791
 {
   lib,
   stdenv,
@@ -42,6 +43,6 @@ stdenv.mkDerivation {
   meta = with lib; {
     homepage = "https://nssurge.com";
     mainProgram = "snell-server";
-    platforms = platforms.linux;
+    platforms = SupportedPlatforms;
   };
 }

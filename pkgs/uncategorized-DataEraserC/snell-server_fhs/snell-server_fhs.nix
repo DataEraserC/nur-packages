@@ -42,10 +42,7 @@ let
 
     meta = {
       description = "https://manual.nssurge.com/others/snell.html";
-      platforms = [
-        "x86_64-linux"
-        "aarch64-linux"
-      ];
+      platforms = SupportedPlatforms;
     };
   };
 in
