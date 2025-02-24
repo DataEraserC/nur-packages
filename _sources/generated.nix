@@ -2124,15 +2124,15 @@
   };
   PiliPalaX = {
     pname = "PiliPalaX";
-    version = "6a615c408b3654fa3f33a203398ad951f2d3e95d";
+    version = "307db51aec6860ed76de9fcdcc3b6ae1b4b87c52";
     src = fetchFromGitHub {
       owner = "bggRGjQaUbCoE";
       repo = "PiliPlus";
-      rev = "6a615c408b3654fa3f33a203398ad951f2d3e95d";
+      rev = "307db51aec6860ed76de9fcdcc3b6ae1b4b87c52";
       fetchSubmodules = true;
-      hash = "sha256-O4ZwtgFbOK2E6u+MJ7MeLv25OCR+tCyq+aKCoWeeUSg=";
+      hash = "sha256-ofuhWd72Knxjfib95ee2FbaIMVbNUTNlQwbXNKedqSM=";
     };
-    date = "2025-02-22";
+    date = "2025-02-24";
   };
   SteamTools = {
     pname = "SteamTools";
@@ -2231,8 +2231,8 @@
     pname = "cpolar-aarch32-linux";
     version = "3.3.12";
     src = fetchurl {
-      url = "https://www.cpolar.com/static/downloads/releases/3.3.12/cpolar-stable-linux-mips.zip";
-      hash = "sha256-Ii+kRQdqr5xKt7QwWeOZaLq+i+DlDng+9lhFcrIAEeU=";
+      url = "https://www.cpolar.com/static/downloads/releases/3.3.12/cpolar-stable-linux-arm.zip";
+      hash = "sha256-npqA+rnaSnKPjOnRSsetN8F0uWdSNz9b+BE5F+vmim8=";
     };
   };
   cpolar-aarch64-darwin = {
@@ -2263,8 +2263,8 @@
     pname = "cpolar-mips-linux";
     version = "3.3.12";
     src = fetchurl {
-      url = "https://www.cpolar.com/static/downloads/releases/3.3.12/cpolar-stable-linux-arm64.zip";
-      hash = "sha256-uI2nzXHy/MG0GJwaNumoiTQ49eFpF4nAcwPoM2CWf/s=";
+      url = "https://www.cpolar.com/static/downloads/releases/3.3.12/cpolar-stable-linux-mips.zip";
+      hash = "sha256-Ii+kRQdqr5xKt7QwWeOZaLq+i+DlDng+9lhFcrIAEeU=";
     };
   };
   cpolar-x86_64-darwin = {
@@ -2323,6 +2323,38 @@
     };
     date = "2024-06-11";
   };
+  snell-server-aarch32-linux = {
+    pname = "snell-server-aarch32-linux";
+    version = "v4.1.1";
+    src = fetchurl {
+      url = "https://dl.nssurge.com/snell/snell-server-v4.1.1-linux-armv7l.zip";
+      hash = "sha256-0AuY7YA75AOfDwYwuBCTLNPT2H7j5u0iQQb9xjNH2OY=";
+    };
+  };
+  snell-server-aarch64-linux = {
+    pname = "snell-server-aarch64-linux";
+    version = "v4.1.1";
+    src = fetchurl {
+      url = "https://dl.nssurge.com/snell/snell-server-v4.1.1-linux-aarch64.zip";
+      hash = "sha256-ONTNwD3Ns2CK+FlN+D4XlSZRZ/r8XYAvgVFIkIkC11g=";
+    };
+  };
+  snell-server-i686-linux = {
+    pname = "snell-server-i686-linux";
+    version = "v4.1.1";
+    src = fetchurl {
+      url = "https://dl.nssurge.com/snell/snell-server-v4.1.1-linux-i386.zip";
+      hash = "sha256-CVefzuv2n/KRRTuOJSqfdMfKgiRuyFcqbiN2AI3yWuE=";
+    };
+  };
+  snell-server-x86_64-linux = {
+    pname = "snell-server-x86_64-linux";
+    version = "v4.1.1";
+    src = fetchurl {
+      url = "https://dl.nssurge.com/snell/snell-server-v4.1.1-linux-amd64.zip";
+      hash = "sha256-zCJxt5x1BoiLNOZR6HQbOqf8fV9gqmXvi7CW8zE6GTs=";
+    };
+  };
   ttyescape = {
     pname = "ttyescape";
     version = "810a195f19f68e817d95da5169b1fc4f22242630";
@@ -2348,10 +2380,10 @@
   };
   v2ray-rules-dat = {
     pname = "v2ray-rules-dat";
-    version = "202502212211";
+    version = "202502232211";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202502212211/rules.zip";
-      hash = "sha256-TGb+5tB9PRJmAzzS892aN/BBGX2u2gxpIbtiiBnPlaY=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202502232211/rules.zip";
+      hash = "sha256-BQFjT9xD71qICLUu9UmCKvkfnXHDTKt5aCt9KhQk6Ds=";
     };
   };
   wechat-web-devtools-linux_appimage = {

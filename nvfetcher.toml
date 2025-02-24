@@ -1052,20 +1052,20 @@ src.webpage = "https://www.cpolar.com/download"
 src.regex = "https://www.cpolar.com/static/downloads/releases/(.*)/"
 fetch.url = "https://www.cpolar.com/static/downloads/releases/$ver/cpolar-stable-linux-386.zip"
 
-[cpolar-aarch32-linux]
-src.webpage = "https://www.cpolar.com/download"
-src.regex = "https://www.cpolar.com/static/downloads/releases/(.*)/"
-fetch.url = "https://www.cpolar.com/static/downloads/releases/$ver/cpolar-stable-linux-mips.zip"
-
-[cpolar-mips-linux]
-src.webpage = "https://www.cpolar.com/download"
-src.regex = "https://www.cpolar.com/static/downloads/releases/(.*)/"
-fetch.url = "https://www.cpolar.com/static/downloads/releases/$ver/cpolar-stable-linux-arm64.zip"
-
 [cpolar-aarch64-linux]
 src.webpage = "https://www.cpolar.com/download"
 src.regex = "https://www.cpolar.com/static/downloads/releases/(.*)/"
 fetch.url = "https://www.cpolar.com/static/downloads/releases/$ver/cpolar-stable-linux-arm64.zip"
+
+[cpolar-aarch32-linux]
+src.webpage = "https://www.cpolar.com/download"
+src.regex = "https://www.cpolar.com/static/downloads/releases/(.*)/"
+fetch.url = "https://www.cpolar.com/static/downloads/releases/$ver/cpolar-stable-linux-arm.zip"
+
+[cpolar-mips-linux]
+src.webpage = "https://www.cpolar.com/download"
+src.regex = "https://www.cpolar.com/static/downloads/releases/(.*)/"
+fetch.url = "https://www.cpolar.com/static/downloads/releases/$ver/cpolar-stable-linux-mips.zip"
 
 [cpolar-x86_64-darwin]
 src.webpage = "https://www.cpolar.com/download"
@@ -1076,3 +1076,23 @@ fetch.url = "https://www.cpolar.com/static/downloads/releases/$ver/cpolar-stable
 src.webpage = "https://www.cpolar.com/download"
 src.regex = "https://www.cpolar.com/static/downloads/releases/(.*)/"
 fetch.url = "https://www.cpolar.com/static/downloads/releases/$ver/cpolar-stable-darwin-arm64.zip"
+
+[snell-server-x86_64-linux]
+src.webpage = "http://manual.nssurge.com/others/snell.html"
+src.regex = "https://dl.nssurge.com/snell/snell-server-(.*)-linux-amd64.zip\""
+fetch.url = "https://dl.nssurge.com/snell/snell-server-$ver-linux-amd64.zip"
+
+[snell-server-i686-linux]
+src.webpage = "http://manual.nssurge.com/others/snell.html"
+src.regex = "https://dl.nssurge.com/snell/snell-server-(.*)-linux-i386.zip\""
+fetch.url = "https://dl.nssurge.com/snell/snell-server-$ver-linux-i386.zip"
+
+[snell-server-aarch64-linux]
+src.webpage = "http://manual.nssurge.com/others/snell.html"
+src.regex = "https://dl.nssurge.com/snell/snell-server-(.*)-linux-aarch64.zip\""
+fetch.url = "https://dl.nssurge.com/snell/snell-server-$ver-linux-aarch64.zip"
+
+[snell-server-aarch32-linux]
+src.webpage = "http://manual.nssurge.com/others/snell.html"
+src.regex = "https://dl.nssurge.com/snell/snell-server-(.*)-linux-armv7l.zip\""
+fetch.url = "https://dl.nssurge.com/snell/snell-server-$ver-linux-armv7l.zip"

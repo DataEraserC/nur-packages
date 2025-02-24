@@ -4150,7 +4150,7 @@
     },
     "PiliPalaX": {
         "cargoLocks": null,
-        "date": "2025-02-22",
+        "date": "2025-02-24",
         "extract": null,
         "name": "PiliPalaX",
         "passthru": null,
@@ -4162,12 +4162,12 @@
             "name": null,
             "owner": "bggRGjQaUbCoE",
             "repo": "PiliPlus",
-            "rev": "6a615c408b3654fa3f33a203398ad951f2d3e95d",
-            "sha256": "sha256-O4ZwtgFbOK2E6u+MJ7MeLv25OCR+tCyq+aKCoWeeUSg=",
+            "rev": "307db51aec6860ed76de9fcdcc3b6ae1b4b87c52",
+            "sha256": "sha256-ofuhWd72Knxjfib95ee2FbaIMVbNUTNlQwbXNKedqSM=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "6a615c408b3654fa3f33a203398ad951f2d3e95d"
+        "version": "307db51aec6860ed76de9fcdcc3b6ae1b4b87c52"
     },
     "SteamTools": {
         "cargoLocks": null,
@@ -4347,9 +4347,9 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-Ii+kRQdqr5xKt7QwWeOZaLq+i+DlDng+9lhFcrIAEeU=",
+            "sha256": "sha256-npqA+rnaSnKPjOnRSsetN8F0uWdSNz9b+BE5F+vmim8=",
             "type": "url",
-            "url": "https://www.cpolar.com/static/downloads/releases/3.3.12/cpolar-stable-linux-mips.zip"
+            "url": "https://www.cpolar.com/static/downloads/releases/3.3.12/cpolar-stable-linux-arm.zip"
         },
         "version": "3.3.12"
     },
@@ -4407,9 +4407,9 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-uI2nzXHy/MG0GJwaNumoiTQ49eFpF4nAcwPoM2CWf/s=",
+            "sha256": "sha256-Ii+kRQdqr5xKt7QwWeOZaLq+i+DlDng+9lhFcrIAEeU=",
             "type": "url",
-            "url": "https://www.cpolar.com/static/downloads/releases/3.3.12/cpolar-stable-linux-arm64.zip"
+            "url": "https://www.cpolar.com/static/downloads/releases/3.3.12/cpolar-stable-linux-mips.zip"
         },
         "version": "3.3.12"
     },
@@ -4515,6 +4515,66 @@
         },
         "version": "8228ffd39be8850ec609e274bd526b01328199a6"
     },
+    "snell-server-aarch32-linux": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "snell-server-aarch32-linux",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-0AuY7YA75AOfDwYwuBCTLNPT2H7j5u0iQQb9xjNH2OY=",
+            "type": "url",
+            "url": "https://dl.nssurge.com/snell/snell-server-v4.1.1-linux-armv7l.zip"
+        },
+        "version": "v4.1.1"
+    },
+    "snell-server-aarch64-linux": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "snell-server-aarch64-linux",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-ONTNwD3Ns2CK+FlN+D4XlSZRZ/r8XYAvgVFIkIkC11g=",
+            "type": "url",
+            "url": "https://dl.nssurge.com/snell/snell-server-v4.1.1-linux-aarch64.zip"
+        },
+        "version": "v4.1.1"
+    },
+    "snell-server-i686-linux": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "snell-server-i686-linux",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-CVefzuv2n/KRRTuOJSqfdMfKgiRuyFcqbiN2AI3yWuE=",
+            "type": "url",
+            "url": "https://dl.nssurge.com/snell/snell-server-v4.1.1-linux-i386.zip"
+        },
+        "version": "v4.1.1"
+    },
+    "snell-server-x86_64-linux": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "snell-server-x86_64-linux",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-zCJxt5x1BoiLNOZR6HQbOqf8fV9gqmXvi7CW8zE6GTs=",
+            "type": "url",
+            "url": "https://dl.nssurge.com/snell/snell-server-v4.1.1-linux-amd64.zip"
+        },
+        "version": "v4.1.1"
+    },
     "ttyescape": {
         "cargoLocks": null,
         "date": "2023-03-08",
@@ -4565,11 +4625,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-TGb+5tB9PRJmAzzS892aN/BBGX2u2gxpIbtiiBnPlaY=",
+            "sha256": "sha256-BQFjT9xD71qICLUu9UmCKvkfnXHDTKt5aCt9KhQk6Ds=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202502212211/rules.zip"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202502232211/rules.zip"
         },
-        "version": "202502212211"
+        "version": "202502232211"
     },
     "wechat-web-devtools-linux_appimage": {
         "cargoLocks": null,
