@@ -31,15 +31,14 @@ in
       autoPatchelfHook
     ];
     buildInputs = [
-      glibc
       gcc.cc.lib
     ];
     unpackPhase = ''
       unzip $src
+      upx -d snell-server
     '';
     installPhase = ''
       install -Dm755 snell-server $out/bin/snell-server
-      upx -d $out/bin/snell-server
     '';
     meta = with lib; {
       homepage = "https://nssurge.com";
