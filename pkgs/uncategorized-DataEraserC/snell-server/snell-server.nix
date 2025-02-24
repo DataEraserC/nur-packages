@@ -22,7 +22,7 @@ let
     else
       throw "Unsupported platform: ${HostPlatform}";
 in
-stdenv.mkDerivation rec {
+stdenv.mkDerivation {
   inherit (source) version pname src;
   nativeBuildInputs = [
     unzip
@@ -32,16 +32,12 @@ stdenv.mkDerivation rec {
     glibc
     gcc.cc.lib
   ];
-  runtimeDependencies = [
-    glibc
-    gcc.cc.lib
-  ];
-  runtimeLibraryPath = lib.makeLibraryPath runtimeDependencies;
   unpackPhase = ''
     unzip $src
   '';
   installPhase = ''
     install -Dm755 snell-server $out/bin/snell-server
+    patchelf --print-needed $out/bin/snell-server
   '';
   meta = with lib; {
     homepage = "https://nssurge.com";
