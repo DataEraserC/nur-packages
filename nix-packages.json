@@ -27,7 +27,7 @@
   "legacyPackages.x86_64-linux.PiliPalaX": {
     "description": "PiliPalaX",
     "pname": "PiliPalaX",
-    "version": "0-unstable-2025-02-24"
+    "version": "0-unstable-2025-02-28"
   },
   "legacyPackages.x86_64-linux.UnknownAnimeGamePS": {
     "description": "",
@@ -4182,7 +4182,7 @@
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.PiliPalaX": {
     "description": "PiliPalaX",
     "pname": "PiliPalaX",
-    "version": "0-unstable-2025-02-24"
+    "version": "0-unstable-2025-02-28"
   },
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.UnknownAnimeGamePS": {
     "description": "",
@@ -4342,7 +4342,7 @@
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.v2ray-rules-dat": {
     "description": "V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria.",
     "pname": "v2ray-rules-dat",
-    "version": "202502232211"
+    "version": "202502272213"
   },
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.vmware-workstation": {
     "description": "Industry standard desktop hypervisor for x86-64 architecture",
@@ -4352,7 +4352,7 @@
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.watt-toolkit": {
     "description": "an open source cross-platform multi-purpose game toolkit",
     "pname": "SteamTools",
-    "version": "0-unstable-2025-02-13"
+    "version": "0-unstable-2025-02-26"
   },
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.watt-toolkit_2": {
     "description": "Cross-platform Steam toolbox",
@@ -5037,7 +5037,7 @@
   "legacyPackages.x86_64-linux.v2ray-rules-dat": {
     "description": "V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria.",
     "pname": "v2ray-rules-dat",
-    "version": "202502232211"
+    "version": "202502272213"
   },
   "legacyPackages.x86_64-linux.vbmeta-disable-verification": {
     "description": "Patch Android vbmeta image and disable verification flags inside",
@@ -5072,7 +5072,7 @@
   "legacyPackages.x86_64-linux.watt-toolkit": {
     "description": "an open source cross-platform multi-purpose game toolkit",
     "pname": "SteamTools",
-    "version": "0-unstable-2025-02-13"
+    "version": "0-unstable-2025-02-26"
   },
   "legacyPackages.x86_64-linux.watt-toolkit_2": {
     "description": "Cross-platform Steam toolbox",
@@ -5182,7 +5182,7 @@
   "packages.x86_64-linux.PiliPalaX": {
     "description": "PiliPalaX",
     "pname": "PiliPalaX",
-    "version": "0-unstable-2025-02-24"
+    "version": "0-unstable-2025-02-28"
   },
   "packages.x86_64-linux.UnknownAnimeGamePS": {
     "description": "",
@@ -6212,7 +6212,7 @@
   "packages.x86_64-linux.v2ray-rules-dat": {
     "description": "V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria.",
     "pname": "v2ray-rules-dat",
-    "version": "202502232211"
+    "version": "202502272213"
   },
   "packages.x86_64-linux.vbmeta-disable-verification": {
     "description": "Patch Android vbmeta image and disable verification flags inside",
@@ -6247,7 +6247,7 @@
   "packages.x86_64-linux.watt-toolkit": {
     "description": "an open source cross-platform multi-purpose game toolkit",
     "pname": "SteamTools",
-    "version": "0-unstable-2025-02-13"
+    "version": "0-unstable-2025-02-26"
   },
   "packages.x86_64-linux.watt-toolkit_2": {
     "description": "Cross-platform Steam toolbox",
