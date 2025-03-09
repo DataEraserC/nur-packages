@@ -2170,27 +2170,27 @@
   };
   PiliPalaX = {
     pname = "PiliPalaX";
-    version = "139b48c4575c46f0dd3a260dca821816ddb73176";
+    version = "847ac80d5f89fb46c4a727902b173fd3e140c28d";
     src = fetchFromGitHub {
       owner = "bggRGjQaUbCoE";
       repo = "PiliPlus";
-      rev = "139b48c4575c46f0dd3a260dca821816ddb73176";
+      rev = "847ac80d5f89fb46c4a727902b173fd3e140c28d";
       fetchSubmodules = true;
-      hash = "sha256-MlAmqqzMMRa9KL1sXCB0s3TtRVBFo/tZQ2j398ko2dA=";
+      hash = "sha256-tnwvpl/Egb9cPTghvmrSXUEE1nWUcqJG/ovhQDkWq7Q=";
     };
-    date = "2025-02-28";
+    date = "2025-03-09";
   };
   SteamTools = {
     pname = "SteamTools";
-    version = "ed6df52998801b4b7440f4ab42f8bf8237c4bbde";
+    version = "eb065d7c7eb41279edfa40699741e010c315090c";
     src = fetchFromGitHub {
       owner = "BeyondDimension";
       repo = "SteamTools";
-      rev = "ed6df52998801b4b7440f4ab42f8bf8237c4bbde";
+      rev = "eb065d7c7eb41279edfa40699741e010c315090c";
       fetchSubmodules = true;
-      hash = "sha256-RpcSO+n81XIfHIjaq2Ue16h5tJqqcLY89n8+n35CP+U=";
+      hash = "sha256-jlR23alDhfPO/7LYbI6dx8w1AFL8fnLi2nfDm8aZwmg=";
     };
-    date = "2025-02-26";
+    date = "2025-03-08";
   };
   SteamTools-aarch64-linux = {
     pname = "SteamTools-aarch64-linux";
@@ -2426,10 +2426,10 @@
   };
   v2ray-rules-dat = {
     pname = "v2ray-rules-dat";
-    version = "202502272213";
+    version = "202503082210";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202502272213/rules.zip";
-      hash = "sha256-ri0/uiG9R+dzqqlY1fkbXaycPgjQp7XFDMyBTW5l1J4=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202503082210/rules.zip";
+      hash = "sha256-wi2ItpmuwMl7w4bon3W2ie8ytVeUnkwg8M8U4r16bq4=";
     };
   };
   wechat-web-devtools-linux_appimage = {

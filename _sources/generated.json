@@ -4237,7 +4237,7 @@
     },
     "PiliPalaX": {
         "cargoLocks": null,
-        "date": "2025-02-28",
+        "date": "2025-03-09",
         "extract": null,
         "name": "PiliPalaX",
         "passthru": null,
@@ -4249,16 +4249,16 @@
             "name": null,
             "owner": "bggRGjQaUbCoE",
             "repo": "PiliPlus",
-            "rev": "139b48c4575c46f0dd3a260dca821816ddb73176",
-            "sha256": "sha256-MlAmqqzMMRa9KL1sXCB0s3TtRVBFo/tZQ2j398ko2dA=",
+            "rev": "847ac80d5f89fb46c4a727902b173fd3e140c28d",
+            "sha256": "sha256-tnwvpl/Egb9cPTghvmrSXUEE1nWUcqJG/ovhQDkWq7Q=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "139b48c4575c46f0dd3a260dca821816ddb73176"
+        "version": "847ac80d5f89fb46c4a727902b173fd3e140c28d"
     },
     "SteamTools": {
         "cargoLocks": null,
-        "date": "2025-02-26",
+        "date": "2025-03-08",
         "extract": null,
         "name": "SteamTools",
         "passthru": null,
@@ -4270,12 +4270,12 @@
             "name": null,
             "owner": "BeyondDimension",
             "repo": "SteamTools",
-            "rev": "ed6df52998801b4b7440f4ab42f8bf8237c4bbde",
-            "sha256": "sha256-RpcSO+n81XIfHIjaq2Ue16h5tJqqcLY89n8+n35CP+U=",
+            "rev": "eb065d7c7eb41279edfa40699741e010c315090c",
+            "sha256": "sha256-jlR23alDhfPO/7LYbI6dx8w1AFL8fnLi2nfDm8aZwmg=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "ed6df52998801b4b7440f4ab42f8bf8237c4bbde"
+        "version": "eb065d7c7eb41279edfa40699741e010c315090c"
     },
     "SteamTools-aarch64-linux": {
         "cargoLocks": null,
@@ -4712,11 +4712,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-ri0/uiG9R+dzqqlY1fkbXaycPgjQp7XFDMyBTW5l1J4=",
+            "sha256": "sha256-wi2ItpmuwMl7w4bon3W2ie8ytVeUnkwg8M8U4r16bq4=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202502272213/rules.zip"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202503082210/rules.zip"
         },
-        "version": "202502272213"
+        "version": "202503082210"
     },
     "wechat-web-devtools-linux_appimage": {
         "cargoLocks": null,
