@@ -3,10 +3,7 @@
   ...
 }:
 let
-  packages =
-    loadPackages ./.
-      {
-      };
+  packages = loadPackages ./. { };
 in
 packages
 // {

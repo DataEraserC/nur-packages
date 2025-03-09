@@ -195,25 +195,25 @@
   };
   cachyos-kernel = {
     pname = "cachyos-kernel";
-    version = "7f2abaee0147008889f78c6acebda9b8abc7ec96";
+    version = "fcc0c0128769ec81ac4e7a9b5a9f3570619cac15";
     src = fetchFromGitHub {
       owner = "CachyOS";
       repo = "linux-cachyos";
-      rev = "7f2abaee0147008889f78c6acebda9b8abc7ec96";
-      hash = "sha256-hSppJXfVDrVhLEvCE5BVMSaJhcczcqieCKxd6/rAwtQ=";
+      rev = "fcc0c0128769ec81ac4e7a9b5a9f3570619cac15";
+      hash = "sha256-uBNWO1rN28QsZwSVih7evmhqSlmuGANQmeMfW6IzhdU=";
     };
-    date = "2025-02-21";
+    date = "2025-03-04";
   };
   cachyos-kernel-patches = {
     pname = "cachyos-kernel-patches";
-    version = "ba60fcffc6b1a5df65ca84a858d98dff897b8f6e";
+    version = "c80f5ad485b99320d60bfb309c2c50b72eeede7e";
     src = fetchFromGitHub {
       owner = "CachyOS";
       repo = "kernel-patches";
-      rev = "ba60fcffc6b1a5df65ca84a858d98dff897b8f6e";
-      hash = "sha256-Njngz7pslbPtPUUeMAyaGyiRaJOJPT9OQSV06b+rkyE=";
+      rev = "c80f5ad485b99320d60bfb309c2c50b72eeede7e";
+      hash = "sha256-UlqhHREInW+bC0WapviQM7QlLT3iO2foq1+z3VvIzAg=";
     };
-    date = "2025-02-21";
+    date = "2025-03-05";
   };
   calibre-cops = {
     pname = "calibre-cops";
@@ -317,6 +317,14 @@
       hash = "sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=";
     };
   };
+  data-recorder = {
+    pname = "data-recorder";
+    version = "3.6.2";
+    src = fetchurl {
+      url = "https://pypi.org/packages/source/D/DataRecorder/DataRecorder-3.6.2.tar.gz";
+      hash = "sha256-jJAkc2aSr2i5R/2IRYnmhcTye8KdAxuBFkRXsJxg4eU=";
+    };
+  };
   decluttarr = {
     pname = "decluttarr";
     version = "v1.50.2";
@@ -365,6 +373,14 @@
     };
     date = "2022-12-17";
   };
+  download-kit = {
+    pname = "download-kit";
+    version = "2.0.7";
+    src = fetchurl {
+      url = "https://pypi.org/packages/source/D/DownloadKit/DownloadKit-2.0.7.tar.gz";
+      hash = "sha256-YB5CPR1NC9PpM1JNBskT50RXfUVZkOwgr8P7H3muqac=";
+    };
+  };
   dpdk-kmod = {
     pname = "dpdk-kmod";
     version = "9b182be2ee4bf003c892e1312440e1e5d93eff2c";
@@ -375,6 +391,14 @@
       hash = "sha256-8XXLJT18ivnTJcHaCefRpbsuG9K/yERaHbNMHH4l62A=";
     };
     date = "2024-11-20";
+  };
+  drission-page = {
+    pname = "drission-page";
+    version = "4.1.0.17";
+    src = fetchurl {
+      url = "https://pypi.org/packages/source/d/DrissionPage/drissionpage-4.1.0.17.tar.gz";
+      hash = "sha256-feQ9+ZA2jGjKulYqswOjv9mEVUiyZ6zjPhph39g6F1w=";
+    };
   };
   drone-file-secret = {
     pname = "drone-file-secret";
@@ -417,6 +441,17 @@
       hash = "sha256-67ocXHf+AN3nyPt4636ZJHGRqWSjkpTiDvU5243urBw=";
     };
   };
+  fake-ollama = {
+    pname = "fake-ollama";
+    version = "4a788616cee7d0f3b39f7623d9f627b79acae405";
+    src = fetchFromGitHub {
+      owner = "spoonnotfound";
+      repo = "fake-ollama";
+      rev = "4a788616cee7d0f3b39f7623d9f627b79acae405";
+      hash = "sha256-ChktqmEoZ2PN13XqynExyjYbX2uhbeAfubNKhTZ4cUY=";
+    };
+    date = "2025-02-14";
+  };
   fastapi-dls = {
     pname = "fastapi-dls";
     version = "aec6535391f1ef19538e072dfbc4c3dc1c145fec";
@@ -456,14 +491,25 @@
   };
   flaresolverr-21hsmw = {
     pname = "flaresolverr-21hsmw";
-    version = "23273a62a0d1f5cf3afb89a3ca016053ad82f88b";
+    version = "008ff71315baa40761d9d6283a248e50c43db491";
     src = fetchFromGitHub {
       owner = "21hsmw";
       repo = "FlareSolverr";
-      rev = "23273a62a0d1f5cf3afb89a3ca016053ad82f88b";
-      hash = "sha256-yb43jzBIxHAhsReZUuGWNduyM2Qm/P+FaSTQf1O06ew=";
+      rev = "008ff71315baa40761d9d6283a248e50c43db491";
+      hash = "sha256-Xf8eXXUV38Yl9fG+ToP0uNqBl+M6JdiRn3rUMltQ3a0=";
     };
-    date = "2025-01-19";
+    date = "2025-03-04";
+  };
+  flaresolverr-alexfozor = {
+    pname = "flaresolverr-alexfozor";
+    version = "aa768039d92b37b34467ddca9ab72d7e19ef67b9";
+    src = fetchFromGitHub {
+      owner = "AlexFozor";
+      repo = "FlareSolverr";
+      rev = "aa768039d92b37b34467ddca9ab72d7e19ef67b9";
+      hash = "sha256-OQgt1SUl3prc2FBVBerElRpKbYwJTPNa7ToSEgWhZyg=";
+    };
+    date = "2024-08-04";
   };
   flasgger = {
     pname = "flasgger";
@@ -485,14 +531,14 @@
   };
   funasr = {
     pname = "funasr";
-    version = "57e023e5cfa522007e24d87c8e3d82bf7c4a19cd";
+    version = "37fb08962d4e0b1f44c5405631a78a00c235babb";
     src = fetchFromGitHub {
       owner = "modelscope";
       repo = "FunASR";
-      rev = "57e023e5cfa522007e24d87c8e3d82bf7c4a19cd";
-      hash = "sha256-4VXjQLLhVl6UJY3T1c1FQVz9hMLIDIZ7r5qNK3RV4Uk=";
+      rev = "37fb08962d4e0b1f44c5405631a78a00c235babb";
+      hash = "sha256-TGELdTYzHvyYj/YCJqhmhj0AiNOusVvnewgYIs7EtBc=";
     };
-    date = "2025-02-18";
+    date = "2025-03-05";
   };
   glauth = {
     pname = "glauth";
@@ -647,12 +693,12 @@
   };
   kaldiio = {
     pname = "kaldiio";
-    version = "v2.18.0";
+    version = "v2.18.1";
     src = fetchFromGitHub {
       owner = "nttcslab-sp";
       repo = "kaldiio";
-      tag = "v2.18.0";
-      hash = "sha256-B7jkz7GK3emgVrAFTKV5+CS1BWKnxk608rHWRLCBX8o=";
+      tag = "v2.18.1";
+      hash = "sha256-CssVH+Oxsw+it1mHdBhGIEYxoZ3OSr09eoankSjcxR0=";
     };
   };
   kata-containers = {
@@ -767,14 +813,14 @@
   };
   liboqs-unstable = {
     pname = "liboqs-unstable";
-    version = "ef47d9af27a7d143826f170637ef9c2946701573";
+    version = "d4eb7a6d61cfddd20c14a0a7c9c58ccde6d5d8d7";
     src = fetchFromGitHub {
       owner = "open-quantum-safe";
       repo = "liboqs";
-      rev = "ef47d9af27a7d143826f170637ef9c2946701573";
-      hash = "sha256-M2pwDJ5a391QHw9DuqMrNJfOiilkt9OlBc61Un0uFBc=";
+      rev = "d4eb7a6d61cfddd20c14a0a7c9c58ccde6d5d8d7";
+      hash = "sha256-xSNjWaAkjErI3Fm8ByYJLLqfc8THtPM30AWTjbcRx0M=";
     };
-    date = "2025-02-21";
+    date = "2025-03-05";
   };
   libqcef = {
     pname = "libqcef";
@@ -833,12 +879,12 @@
   };
   linux-xanmod = {
     pname = "linux-xanmod";
-    version = "6.13.4-xanmod1";
+    version = "6.13.5-xanmod1";
     src = fetchgit {
       url = "https://gitlab.com/xanmod/linux.git";
-      tag = "6.13.4-xanmod1";
+      tag = "6.13.5-xanmod1";
       fetchSubmodules = false;
-      hash = "sha256-ggOIjYPFShjEltrYz4p4y8KzBVcpQDSmTZwA/8Vb7pw=";
+      hash = "sha256-GwOpa1//Y3KWsApvk8jmSFmeKchehtg9DLFzZTeWgRA=";
     };
   };
   linux-xanmod-6_0 = {
@@ -863,12 +909,12 @@
   };
   linux-xanmod-6_12 = {
     pname = "linux-xanmod-6_12";
-    version = "6.12.16-xanmod1";
+    version = "6.12.17-xanmod1";
     src = fetchgit {
       url = "https://gitlab.com/xanmod/linux.git";
-      tag = "6.12.16-xanmod1";
+      tag = "6.12.17-xanmod1";
       fetchSubmodules = false;
-      hash = "sha256-fuWlirNfup6M2XC4Tu8GX2CE46bVwTo30sm7XwO8qG4=";
+      hash = "sha256-tyYjwNVJapFZ6vnt4/6KgaB6yKbH3X9YB0927uvIb/M=";
     };
   };
   linux-xanmod-6_6 = {
@@ -883,12 +929,12 @@
   };
   llama-cpp = {
     pname = "llama-cpp";
-    version = "b4755";
+    version = "b4847";
     src = fetchFromGitHub {
       owner = "ggerganov";
       repo = "llama.cpp";
-      tag = "b4755";
-      hash = "sha256-+EjsR0otKlTfk5ahnh+048yW9PUPxlYkWgdS5K+b1ZE=";
+      tag = "b4847";
+      hash = "sha256-3aSCj3KeiS4qAbo4W6YiGuuXv8Knc7SzseoVj2dmOIg=";
     };
   };
   loralib = {
@@ -942,12 +988,12 @@
   };
   modelscope = {
     pname = "modelscope";
-    version = "v1.23.0";
+    version = "v1.23.2";
     src = fetchFromGitHub {
       owner = "modelscope";
       repo = "modelscope";
-      tag = "v1.23.0";
-      hash = "sha256-Juhw1xS1xps5OA9ZjLa0yOrUXbaKw/Yy8n6YnEi1/Zw=";
+      tag = "v1.23.2";
+      hash = "sha256-J837wGaVN1ziJeXmw3mt+b8RWGpmrznX9E+ZvfIblLA=";
     };
   };
   mtkclient = {
@@ -983,18 +1029,18 @@
   };
   netboot-xyz-efi = {
     pname = "netboot-xyz-efi";
-    version = "2.0.84";
+    version = "2.0.85";
     src = fetchurl {
-      url = "https://github.com/netbootxyz/netboot.xyz/releases/download/2.0.84/netboot.xyz.efi";
-      hash = "sha256-l8FKNBuMK5nPR50oK++mY6IYThw7QkA1r3K+mxpbaa4=";
+      url = "https://github.com/netbootxyz/netboot.xyz/releases/download/2.0.85/netboot.xyz.efi";
+      hash = "sha256-H5cE6JtZCSRaJC8PT+Fqv7YakmAJyPFq46D6CIBp+kU=";
     };
   };
   netboot-xyz-lkrn = {
     pname = "netboot-xyz-lkrn";
-    version = "2.0.84";
+    version = "2.0.85";
     src = fetchurl {
-      url = "https://github.com/netbootxyz/netboot.xyz/releases/download/2.0.84/netboot.xyz.lkrn";
-      hash = "sha256-IqhrzHbHoU2rkrjOhQh5TNLaB3lfoLD3WyN9wJgz0t8=";
+      url = "https://github.com/netbootxyz/netboot.xyz/releases/download/2.0.85/netboot.xyz.lkrn";
+      hash = "sha256-k1JUzJAnqyCbqdGKKFDNUDXQBwTnNQoinA90rzZbcHg=";
     };
   };
   netns-exec = {
@@ -1177,14 +1223,14 @@
   };
   openresty = {
     pname = "openresty";
-    version = "4ad3978ec863590fab8bb488f39d73fa5908497c";
+    version = "177ba250ccc748a8b644fe300a14d4ece477010e";
     src = fetchFromGitHub {
       owner = "openresty";
       repo = "openresty";
-      rev = "4ad3978ec863590fab8bb488f39d73fa5908497c";
-      hash = "sha256-r6KE0/hqk3+9Ve5NZiZ0YNZQSWEzcjSzAChvnZpG7M0=";
+      rev = "177ba250ccc748a8b644fe300a14d4ece477010e";
+      hash = "sha256-LbCDfYSBAQvGco7ke2oL1tD+IjDEuviv6rDw5b21Um8=";
     };
-    date = "2025-02-07";
+    date = "2025-03-04";
   };
   openresty-stable = {
     pname = "openresty-stable";
@@ -1217,12 +1263,12 @@
   };
   ormsgpack = {
     pname = "ormsgpack";
-    version = "1.7.0";
+    version = "1.8.0";
     src = fetchFromGitHub {
       owner = "aviramha";
       repo = "ormsgpack";
-      tag = "1.7.0";
-      hash = "sha256-YVkG5XyJ3eBgAwvLwJaCcL+584NhGVFMZ4/XbQ9UZWc=";
+      tag = "1.8.0";
+      hash = "sha256-nKAdLiZYeFwIt+jfbNngc3E+tpjuuSV4/RvMuYujOhI=";
     };
   };
   osdlyrics = {
@@ -1324,12 +1370,12 @@
   };
   plasma-smart-video-wallpaper-reborn = {
     pname = "plasma-smart-video-wallpaper-reborn";
-    version = "v1.1.1";
+    version = "v2.0.0";
     src = fetchFromGitHub {
       owner = "luisbocanegra";
       repo = "plasma-smart-video-wallpaper-reborn";
-      tag = "v1.1.1";
-      hash = "sha256-cq0h9NewaUNpk8TxuYCW9qWHqZNlq5S0OvVv3lO8/r0=";
+      tag = "v2.0.0";
+      hash = "sha256-hwJzUTPYQoROA56E3pm9BWRH1/cKpa0ahCtIj8B9wjM=";
     };
   };
   plasma-yesplaymusic-lyric = {
@@ -1393,34 +1439,34 @@
   };
   qemu-user-static-amd64 = {
     pname = "qemu-user-static-amd64";
-    version = "9.2.1+ds-1";
+    version = "9.2.2+ds-1";
     src = fetchurl {
-      url = "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user_9.2.1+ds-1_amd64.deb";
-      hash = "sha256-wvpjcVxA+9L1mdwICB94K8lNBv+vlgsGI9eJIJU4ZCI=";
+      url = "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user_9.2.2+ds-1_amd64.deb";
+      hash = "sha256-IcX4z2BsPifwIbnmXENpJ4bthAr+xElE9b0Ygo1lw3Y=";
     };
   };
   qemu-user-static-arm64 = {
     pname = "qemu-user-static-arm64";
-    version = "9.2.1+ds-1";
+    version = "9.2.2+ds-1";
     src = fetchurl {
-      url = "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user_9.2.1+ds-1_arm64.deb";
-      hash = "sha256-PlLjC58H2UedmKnnoySVCL9N0JSqJt8qJobOTauXkUM=";
+      url = "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user_9.2.2+ds-1_arm64.deb";
+      hash = "sha256-66AzsYOrQ0eDO+ha2ZNRY9PhjhK0uMq3uWvzIhtGFbI=";
     };
   };
   qemu-user-static-armhf = {
     pname = "qemu-user-static-armhf";
-    version = "9.2.1+ds-1";
+    version = "9.2.2+ds-1";
     src = fetchurl {
-      url = "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user_9.2.1+ds-1_armhf.deb";
-      hash = "sha256-KfJ+9+uKIKLPwkJu+vIGcO0MyJXzbKnhOTjEk03TtLc=";
+      url = "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user_9.2.2+ds-1_armhf.deb";
+      hash = "sha256-HryeQjLKsAFaaK4dM6trkrotbeaTd4QtDIWBu7JtqRM=";
     };
   };
   qemu-user-static-i386 = {
     pname = "qemu-user-static-i386";
-    version = "9.2.1+ds-1";
+    version = "9.2.2+ds-1";
     src = fetchurl {
-      url = "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user_9.2.1+ds-1_i386.deb";
-      hash = "sha256-46hq9HD2wtz2RiEvBO2r4PF18BpiDMezHFZHrfnMECQ=";
+      url = "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user_9.2.2+ds-1_i386.deb";
+      hash = "sha256-Av6YxOc6WfYG2+kTdB20DqNU1PPeGvJrEqVE3nPHs/0=";
     };
   };
   qhttpengine = {
@@ -1436,18 +1482,18 @@
   };
   qq-amd64 = {
     pname = "qq-amd64";
-    version = "Linux/QQ_3.2.15_250110_amd64_01";
+    version = "Linux/QQ_3.2.16_250307_amd64_01";
     src = fetchurl {
-      url = "https://dldir1.qq.com/qqfile/qq/QQNT/Linux/QQ_3.2.15_250110_amd64_01.deb";
-      hash = "sha256-hDfaxxXchdZons8Tb5I7bsd7xEjiKpQrJjxyFnz3Y94=";
+      url = "https://dldir1.qq.com/qqfile/qq/QQNT/Linux/QQ_3.2.16_250307_amd64_01.deb";
+      hash = "sha256-TyfWhVeQm7ghe1Li4PvNiZ/X1JAdaZYcWv/fnChawBU=";
     };
   };
   qq-arm64 = {
     pname = "qq-arm64";
-    version = "Linux/QQ_3.2.15_250110_arm64_01";
+    version = "Linux/QQ_3.2.16_250307_arm64_01";
     src = fetchurl {
-      url = "https://dldir1.qq.com/qqfile/qq/QQNT/Linux/QQ_3.2.15_250110_arm64_01.deb";
-      hash = "sha256-F2R5j0x2BnD9/kIsiUe+IbZpAKDOQdjxwOENzzb4RJo=";
+      url = "https://dldir1.qq.com/qqfile/qq/QQNT/Linux/QQ_3.2.16_250307_arm64_01.deb";
+      hash = "sha256-ZzrG0rkwtgJ9YnA+WsrLqN93fwFx0u5SGJcnNw+H4qM=";
     };
   };
   qqmusic = {
@@ -1574,14 +1620,14 @@
   };
   rime-ice = {
     pname = "rime-ice";
-    version = "65f915247295ca8097d29f36afa2927740558c7a";
+    version = "22699f5ade55cf27b33417e7e53346218e8c83e4";
     src = fetchFromGitHub {
       owner = "iDvel";
       repo = "rime-ice";
-      rev = "65f915247295ca8097d29f36afa2927740558c7a";
-      hash = "sha256-xzAPMRVBjR+0S7nGO9TBJmf5ZaFB49nB0Od9gU1jsh4=";
+      rev = "22699f5ade55cf27b33417e7e53346218e8c83e4";
+      hash = "sha256-TXe5dScOsyqMwKg03CDmhiSWLHV0QOKOyZGvfG4LFzY=";
     };
-    date = "2025-02-20";
+    date = "2025-03-07";
   };
   rime-moegirl = {
     pname = "rime-moegirl";
@@ -1909,14 +1955,14 @@
   };
   uni-api = {
     pname = "uni-api";
-    version = "1afd3fad61afa569bb3b7ee87f0bef8af2f6bb21";
+    version = "d0ca90b7d6a9fb2c5314c91222be78ceac4aa115";
     src = fetchFromGitHub {
       owner = "yym68686";
       repo = "uni-api";
-      rev = "1afd3fad61afa569bb3b7ee87f0bef8af2f6bb21";
-      hash = "sha256-ri4e17XwiWyFAXk/LFxh0c5Kn7YGlo+Hghy5to5aZ48=";
+      rev = "d0ca90b7d6a9fb2c5314c91222be78ceac4aa115";
+      hash = "sha256-frVRUN8u4qpC5K157/GTXjB/uC3YNEEIJFuFwPY6QtE=";
     };
-    date = "2025-02-19";
+    date = "2025-03-06";
   };
   unigine-heaven = {
     pname = "unigine-heaven";
@@ -1970,12 +2016,12 @@
   };
   vector-quantize-pytorch = {
     pname = "vector-quantize-pytorch";
-    version = "1.21.8";
+    version = "1.21.9";
     src = fetchFromGitHub {
       owner = "lucidrains";
       repo = "vector-quantize-pytorch";
-      tag = "1.21.8";
-      hash = "sha256-6XonE8hAtRPoBGGz+o8wvpyT2MY/6PvSiQQpWlgqluU=";
+      tag = "1.21.9";
+      hash = "sha256-jt3rLsI846EB/RRDapSr73RFOKR0hT+kQSdNJBfpGoI=";
     };
   };
   vgpu-unlock-rs = {
@@ -2012,12 +2058,12 @@
   };
   vpp = {
     pname = "vpp";
-    version = "v24.10";
+    version = "v25.02";
     src = fetchFromGitHub {
       owner = "FDio";
       repo = "vpp";
-      tag = "v24.10";
-      hash = "sha256-GcmblIAu/BDbqZRycmnBsHkvzJe07qB2lSfDnO7ZYtg=";
+      tag = "v25.02";
+      hash = "sha256-UDO1mlOEQNCmtR18CCTF+ng5Ms9gfTsnohSygLlPopY=";
     };
   };
   wechat-uos = {
@@ -2030,18 +2076,18 @@
   };
   wine-wechat-x64 = {
     pname = "wine-wechat-x64";
-    version = "3.9.12.17";
+    version = "3.9.12.45";
     src = fetchurl {
-      url = "https://github.com/tom-snow/wechat-windows-versions/releases/download/v3.9.12.17/WeChatSetup-3.9.12.17.exe";
-      hash = "sha256-SYX5YjUVT8QXbjly8UcJ9fEPwGBuVYkHWm2pttx/zNM=";
+      url = "https://github.com/tom-snow/wechat-windows-versions/releases/download/v3.9.12.45/WeChatSetup-3.9.12.45.exe";
+      hash = "sha256-RypZspQhaVjNG751GEcwSdxhg42lBWQ1iGQrXGsReA0=";
     };
   };
   wine-wechat-x86 = {
     pname = "wine-wechat-x86";
-    version = "3.9.12.16";
+    version = "3.9.12.44";
     src = fetchurl {
-      url = "https://github.com/tom-snow/wechat-windows-versions-x86/releases/download/v3.9.12.16/WeChatSetupX86-3.9.12.16.exe";
-      hash = "sha256-oISntkFvSvSnEIpGzgpPKIViR1WStgU74E7puNkdjZY=";
+      url = "https://github.com/tom-snow/wechat-windows-versions-x86/releases/download/v3.9.12.44/WeChatSetupX86-3.9.12.44.exe";
+      hash = "sha256-XCiGIGbyj+ZyPXs8l4Fwi3+v5hE0tjIt2fjmR8flmZI=";
     };
   };
   xstatic-asciinema-player = {
