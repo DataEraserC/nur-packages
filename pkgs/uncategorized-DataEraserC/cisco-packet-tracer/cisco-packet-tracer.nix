@@ -133,6 +133,7 @@ stdenv.mkDerivation {
     description = "Network simulation tool from Cisco";
     homepage = "https://www.netacad.com/courses/packet-tracer";
     license = licenses.unfree;
+    mainProgram = "packettracer8";
     maintainers = with maintainers; [ lucasew ];
     platforms = [ "x86_64-linux" ];
   };
