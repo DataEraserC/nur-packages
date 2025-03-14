@@ -48,8 +48,14 @@ stdenvNoCC.mkDerivation rec {
     popd
 
     makeWrapper ${jre_headless}/bin/java $out/bin/UnknownAnimeGamePS \
-      --run "cp -r $out/opt/* ." \
-      --run "chmod -R +rw ." \
+      --run "echo mkdir UnknownAnimeGamePS" \
+      --run "mkdir UnknownAnimeGamePS" \
+      --run "echo cp -r $out/opt/* UnknownAnimeGamePS/" \
+      --run "cp -r $out/opt/* UnknownAnimeGamePS/" \
+      --run "echo chmod -R +rw UnknownAnimeGamePS" \
+      --run "chmod -R +rw UnknownAnimeGamePS" \
+      --run "echo cd UnknownAnimeGamePS" \
+      --run "cd UnknownAnimeGamePS" \
       --add-flags "-jar" \
       --add-flags "$out/UnknownAnimeGamePS.jar"
 
@@ -59,6 +65,7 @@ stdenvNoCC.mkDerivation rec {
   meta = {
     description = "A server software reimplementation for a certain anime game.";
     homepage = "https://github.com/XeonSucksLAB/UnknownAnimeGamePS";
+    mainProgram = "UnknownAnimeGamePS";
     license = [ lib.licenses.agpl3Only ];
   };
 }
