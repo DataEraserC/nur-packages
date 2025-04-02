@@ -57,7 +57,7 @@ stdenv.mkDerivation rec {
     _install_SteamTools() {
       mkdir -p $out/{SteamTools,bin}
       tar -xzf ${src} -C $out/SteamTools
-      patchelf --replace-needed liblttng-ust.so.0 liblttng-ust.so $out/SteamTools/dotnet/shared/Microsoft.NETCore.App/9.0.1/libcoreclrtraceptprovider.so
+      patchelf --replace-needed liblttng-ust.so.0 liblttng-ust.so $out/SteamTools/dotnet/shared/Microsoft.NETCore.App/*/libcoreclrtraceptprovider.so || echo "ignore error"
       install -Dm644 $out/SteamTools/Icons/Watt-Toolkit.png $out/share/icons/hicolor/256x256/apps/Watt-Toolkit.png
       sed -i "s|\$run_path|$out/SteamTools|g" "$out/SteamTools/Steam++.sh"
       ln -s $out/SteamTools/Steam++.sh $out/bin/watt-toolkit
