@@ -2,12 +2,14 @@
   lib,
   sources,
   pkg-config,
-  flutter,
+  mpv,
+  autoPatchelfHook,
+  flutter324,
   makeDesktopItem,
   copyDesktopItems,
   alsa-lib,
 }:
-flutter.buildFlutterApplication rec {
+flutter324.buildFlutterApplication rec {
   inherit (sources.PiliPalaX) pname version src;
 
   sourceRoot = "${src.name}";
@@ -16,13 +18,13 @@ flutter.buildFlutterApplication rec {
   autoPubspecLock = src + "/pubspec.lock";
 
   nativeBuildInputs = [
-    pkg-config
+    autoPatchelfHook
     copyDesktopItems
-    alsa-lib
   ];
   buildInputs = [
-    pkg-config
+    mpv
     alsa-lib
+    pkg-config
   ];
   gitHashes = {
     auto_orientation = "sha256-0QOEW8+0PpBIELmzilZ8+z7ozNRxKgI0BzuBS8c1Fng=";
@@ -32,11 +34,16 @@ flutter.buildFlutterApplication rec {
     share_plus = "sha256-6vS4ZHugkBhHPVQCS2L02BU24PHMMS+VTsO/GS9mgbI=";
   };
 
+  # copy from xddxdd
   preBuild = ''
-    export ALSA_LIBRARIES=${alsa-lib}/lib
-    export ALSA_INCLUDE_DIRS=${alsa-lib.dev}/include
+    cat <<EOL > lib/build_config.dart
+    class BuildConfig {
+      static const bool isDebug = false;
+      static const String buildTime = '1980-01-01 00:00:00';
+      static const String commitHash = '0000000000000000000000000000000000000000';
+    }
+    EOL
   '';
-
   postInstall = ''
     _postinstall() {
       for n in 16 32 48 64 128 256 1024; do
@@ -54,7 +61,10 @@ flutter.buildFlutterApplication rec {
     icon = pname;
     comment = pname;
     desktopName = pname;
-    categories = [ "Network" ];
+    categories = [
+      "Network"
+      "AudioVideo"
+    ];
     extraConfig = {
       "Name[en_US]" = pname;
       "Name[zh_CN]" = pname;
