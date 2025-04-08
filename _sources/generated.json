@@ -3941,6 +3941,27 @@
         },
         "version": "1.0"
     },
+    "usque": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "usque",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "Diniboy1123",
+            "repo": "usque",
+            "rev": "v1.0.2",
+            "sha256": "sha256-0nIKBLjuh0chycpCuqG31/TGe8oTzdENS8sTFYHA3I8=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "v1.0.2"
+    },
     "vbmeta-disable-verification": {
         "cargoLocks": null,
         "date": null,
@@ -4237,7 +4258,7 @@
     },
     "OpenFreebuds": {
         "cargoLocks": null,
-        "date": "2025-03-25",
+        "date": "2025-04-05",
         "extract": null,
         "name": "OpenFreebuds",
         "passthru": null,
@@ -4249,16 +4270,16 @@
             "name": null,
             "owner": "melianmiko",
             "repo": "OpenFreebuds",
-            "rev": "421a3709d1ddbc1f97e41fdfce904a3ebf5c9ebe",
-            "sha256": "sha256-4IPx2Jo2TyS6HvhmyfIhf9FzfaBEttEkI8zPUNGid7E=",
+            "rev": "2a6a06d0cf72246a177eab0b6c5bfe4bb1d12004",
+            "sha256": "sha256-1NfcF1MoBXb+PPNJx993fzQNcGOZAZwf9QxzTvZcbxw=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "421a3709d1ddbc1f97e41fdfce904a3ebf5c9ebe"
+        "version": "2a6a06d0cf72246a177eab0b6c5bfe4bb1d12004"
     },
     "PiliPalaX": {
         "cargoLocks": null,
-        "date": "2025-04-02",
+        "date": "2025-04-08",
         "extract": null,
         "name": "PiliPalaX",
         "passthru": null,
@@ -4270,12 +4291,12 @@
             "name": null,
             "owner": "bggRGjQaUbCoE",
             "repo": "PiliPlus",
-            "rev": "2d0e801a1ae332908f174dc657676feb1e01e444",
-            "sha256": "sha256-l9QhpwPAeR6E+INL0gqI5c8xctoUfoiMs7xGCWCZbpM=",
+            "rev": "560b1e40ccccaa9f038f783feccc407b031f6f23",
+            "sha256": "sha256-Kkovg46fTOR8jl7LS3aBFGTJ1chXrVR+QZygARLATrI=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "2d0e801a1ae332908f174dc657676feb1e01e444"
+        "version": "560b1e40ccccaa9f038f783feccc407b031f6f23"
     },
     "SteamTools": {
         "cargoLocks": null,
@@ -4733,11 +4754,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-edp2NXEjWvfqegaAkgyNzBP36oMEri40uvqFB/cFIjU=",
+            "sha256": "sha256-MxE9HqFm3I/sUv+YhBG3FMqi/9NhWHj+HcafXJAna7A=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202504012212/rules.zip"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202504072213/rules.zip"
         },
-        "version": "202504012212"
+        "version": "202504072213"
     },
     "wechat-web-devtools-linux_appimage": {
         "cargoLocks": null,

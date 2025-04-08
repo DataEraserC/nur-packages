@@ -27,7 +27,7 @@
   "legacyPackages.x86_64-linux.PiliPalaX": {
     "description": "PiliPalaX",
     "pname": "PiliPalaX",
-    "version": "0-unstable-2025-04-02"
+    "version": "0-unstable-2025-04-08"
   },
   "legacyPackages.x86_64-linux.UnknownAnimeGamePS": {
     "description": "",
@@ -550,7 +550,7 @@
     "version": "0.6.0"
   },
   "legacyPackages.x86_64-linux.cloudpan189-go": {
-    "description": "CLI for China Telecom 189 Cloud Drive service, implemented in Go",
+    "description": "(DEPRECATED: cloudpan189-go is abandoned upstream and no longer works) CLI for China Telecom 189 Cloud Drive service, implemented in Go",
     "pname": "cloudpan189-go",
     "version": "0.1.3"
   },
@@ -594,15 +594,10 @@
     "pname": "decluttarr",
     "version": "1.50.2"
   },
-  "legacyPackages.x86_64-linux.deepspeech-gpu": {
-    "description": "Speech-to-text engine which can run in real time on devices ranging from a Raspberry Pi 4 to high power GPU servers",
-    "pname": "python3.9-deepspeech-gpu",
-    "version": "0.9.3"
-  },
-  "legacyPackages.x86_64-linux.deepspeech-wrappers": {
-    "description": "Speech-to-text engine which can run in real time on devices ranging from a Raspberry Pi 4 to high power GPU servers",
-    "pname": "deepspeech",
-    "version": "0.9.3"
+  "legacyPackages.x86_64-linux.deprecated.cloudpan189-go": {
+    "description": "(DEPRECATED: cloudpan189-go is abandoned upstream and no longer works) CLI for China Telecom 189 Cloud Drive service, implemented in Go",
+    "pname": "cloudpan189-go",
+    "version": "0.1.3"
   },
   "legacyPackages.x86_64-linux.deprecated.glauth": {
     "description": "(DEPRECATED: glauth is available in nixpkgs by a different maintainer) Lightweight LDAP server for development, home use, or CI",
@@ -3829,16 +3824,6 @@
     "pname": "python3.12-data-recorder",
     "version": "3.6.2"
   },
-  "legacyPackages.x86_64-linux.python3Packages.deepspeech-gpu": {
-    "description": "Speech-to-text engine which can run in real time on devices ranging from a Raspberry Pi 4 to high power GPU servers",
-    "pname": "python3.9-deepspeech-gpu",
-    "version": "0.9.3"
-  },
-  "legacyPackages.x86_64-linux.python3Packages.deepspeech-wrappers": {
-    "description": "Speech-to-text engine which can run in real time on devices ranging from a Raspberry Pi 4 to high power GPU servers",
-    "pname": "deepspeech",
-    "version": "0.9.3"
-  },
   "legacyPackages.x86_64-linux.python3Packages.download-kit": {
     "description": "Simple to use multi-threaded download toolkit",
     "pname": "python3.12-download-kit",
@@ -4247,7 +4232,7 @@
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.PiliPalaX": {
     "description": "PiliPalaX",
     "pname": "PiliPalaX",
-    "version": "0-unstable-2025-04-02"
+    "version": "0-unstable-2025-04-08"
   },
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.UnknownAnimeGamePS": {
     "description": "",
@@ -4407,7 +4392,7 @@
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.v2ray-rules-dat": {
     "description": "V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria.",
     "pname": "v2ray-rules-dat",
-    "version": "202504012212"
+    "version": "202504072213"
   },
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.vmware-workstation": {
     "description": "Industry standard desktop hypervisor for x86-64 architecture",
@@ -4518,11 +4503,6 @@
     "description": "Library for dealing with Microsoft ITSS/CHM format files",
     "pname": "chmlib",
     "version": "0.40a"
-  },
-  "legacyPackages.x86_64-linux.uncategorized.cloudpan189-go": {
-    "description": "CLI for China Telecom 189 Cloud Drive service, implemented in Go",
-    "pname": "cloudpan189-go",
-    "version": "0.1.3"
   },
   "legacyPackages.x86_64-linux.uncategorized.cockpy": {
     "description": "Public and open source version of the cbt2 ps im working on",
@@ -5039,6 +5019,11 @@
     "pname": "unigine-valley",
     "version": "1.0"
   },
+  "legacyPackages.x86_64-linux.uncategorized.usque": {
+    "description": "Open-source reimplementation of the Cloudflare WARP client's MASQUE protocol",
+    "pname": "usque",
+    "version": "1.0.2"
+  },
   "legacyPackages.x86_64-linux.uncategorized.vbmeta-disable-verification": {
     "description": "Patch Android vbmeta image and disable verification flags inside",
     "pname": "vbmeta-disable-verification",
@@ -5109,6 +5094,11 @@
     "pname": "unigine-valley",
     "version": "1.0"
   },
+  "legacyPackages.x86_64-linux.usque": {
+    "description": "Open-source reimplementation of the Cloudflare WARP client's MASQUE protocol",
+    "pname": "usque",
+    "version": "1.0.2"
+  },
   "legacyPackages.x86_64-linux.v2dat": {
     "description": "Cli tool that can unpack v2ray data packages. (Note: This project is for fun ONLY. You should build your own data dirctly from upstreams instead of unpacking a v2ray data pack.)",
     "pname": "v2dat",
@@ -5117,7 +5107,7 @@
   "legacyPackages.x86_64-linux.v2ray-rules-dat": {
     "description": "V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria.",
     "pname": "v2ray-rules-dat",
-    "version": "202504012212"
+    "version": "202504072213"
   },
   "legacyPackages.x86_64-linux.vbmeta-disable-verification": {
     "description": "Patch Android vbmeta image and disable verification flags inside",
@@ -5262,7 +5252,7 @@
   "packages.x86_64-linux.PiliPalaX": {
     "description": "PiliPalaX",
     "pname": "PiliPalaX",
-    "version": "0-unstable-2025-04-02"
+    "version": "0-unstable-2025-04-08"
   },
   "packages.x86_64-linux.UnknownAnimeGamePS": {
     "description": "",
@@ -5435,7 +5425,7 @@
     "version": "0.6.0"
   },
   "packages.x86_64-linux.cloudpan189-go": {
-    "description": "CLI for China Telecom 189 Cloud Drive service, implemented in Go",
+    "description": "(DEPRECATED: cloudpan189-go is abandoned upstream and no longer works) CLI for China Telecom 189 Cloud Drive service, implemented in Go",
     "pname": "cloudpan189-go",
     "version": "0.1.3"
   },
@@ -5478,16 +5468,6 @@
     "description": "Watches radarr, sonarr, lidarr and readarr download queues and removes downloads if they become stalled or no longer needed",
     "pname": "decluttarr",
     "version": "1.50.2"
-  },
-  "packages.x86_64-linux.deepspeech-gpu": {
-    "description": "Speech-to-text engine which can run in real time on devices ranging from a Raspberry Pi 4 to high power GPU servers",
-    "pname": "python3.9-deepspeech-gpu",
-    "version": "0.9.3"
-  },
-  "packages.x86_64-linux.deepspeech-wrappers": {
-    "description": "Speech-to-text engine which can run in real time on devices ranging from a Raspberry Pi 4 to high power GPU servers",
-    "pname": "deepspeech",
-    "version": "0.9.3"
   },
   "packages.x86_64-linux.deprecated": {
     "description": "",
@@ -6314,6 +6294,11 @@
     "pname": "unigine-valley",
     "version": "1.0"
   },
+  "packages.x86_64-linux.usque": {
+    "description": "Open-source reimplementation of the Cloudflare WARP client's MASQUE protocol",
+    "pname": "usque",
+    "version": "1.0.2"
+  },
   "packages.x86_64-linux.v2dat": {
     "description": "Cli tool that can unpack v2ray data packages. (Note: This project is for fun ONLY. You should build your own data dirctly from upstreams instead of unpacking a v2ray data pack.)",
     "pname": "v2dat",
@@ -6322,7 +6307,7 @@
   "packages.x86_64-linux.v2ray-rules-dat": {
     "description": "V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria.",
     "pname": "v2ray-rules-dat",
-    "version": "202504012212"
+    "version": "202504072213"
   },
   "packages.x86_64-linux.vbmeta-disable-verification": {
     "description": "Patch Android vbmeta image and disable verification flags inside",

@@ -2015,6 +2015,16 @@
       hash = "sha256-XwyL0kMRGFURgrq79fHCD7FOekB4lpckDcr1RkQ2YPQ=";
     };
   };
+  usque = {
+    pname = "usque";
+    version = "v1.0.2";
+    src = fetchFromGitHub {
+      owner = "Diniboy1123";
+      repo = "usque";
+      tag = "v1.0.2";
+      hash = "sha256-0nIKBLjuh0chycpCuqG31/TGe8oTzdENS8sTFYHA3I8=";
+    };
+  };
   vbmeta-disable-verification = {
     pname = "vbmeta-disable-verification";
     version = "v1.0";
@@ -2169,27 +2179,27 @@
   };
   OpenFreebuds = {
     pname = "OpenFreebuds";
-    version = "421a3709d1ddbc1f97e41fdfce904a3ebf5c9ebe";
+    version = "2a6a06d0cf72246a177eab0b6c5bfe4bb1d12004";
     src = fetchFromGitHub {
       owner = "melianmiko";
       repo = "OpenFreebuds";
-      rev = "421a3709d1ddbc1f97e41fdfce904a3ebf5c9ebe";
+      rev = "2a6a06d0cf72246a177eab0b6c5bfe4bb1d12004";
       fetchSubmodules = true;
-      hash = "sha256-4IPx2Jo2TyS6HvhmyfIhf9FzfaBEttEkI8zPUNGid7E=";
+      hash = "sha256-1NfcF1MoBXb+PPNJx993fzQNcGOZAZwf9QxzTvZcbxw=";
     };
-    date = "2025-03-25";
+    date = "2025-04-05";
   };
   PiliPalaX = {
     pname = "PiliPalaX";
-    version = "2d0e801a1ae332908f174dc657676feb1e01e444";
+    version = "560b1e40ccccaa9f038f783feccc407b031f6f23";
     src = fetchFromGitHub {
       owner = "bggRGjQaUbCoE";
       repo = "PiliPlus";
-      rev = "2d0e801a1ae332908f174dc657676feb1e01e444";
+      rev = "560b1e40ccccaa9f038f783feccc407b031f6f23";
       fetchSubmodules = true;
-      hash = "sha256-l9QhpwPAeR6E+INL0gqI5c8xctoUfoiMs7xGCWCZbpM=";
+      hash = "sha256-Kkovg46fTOR8jl7LS3aBFGTJ1chXrVR+QZygARLATrI=";
     };
-    date = "2025-04-02";
+    date = "2025-04-08";
   };
   SteamTools = {
     pname = "SteamTools";
@@ -2437,10 +2447,10 @@
   };
   v2ray-rules-dat = {
     pname = "v2ray-rules-dat";
-    version = "202504012212";
+    version = "202504072213";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202504012212/rules.zip";
-      hash = "sha256-edp2NXEjWvfqegaAkgyNzBP36oMEri40uvqFB/cFIjU=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202504072213/rules.zip";
+      hash = "sha256-MxE9HqFm3I/sUv+YhBG3FMqi/9NhWHj+HcafXJAna7A=";
     };
   };
   wechat-web-devtools-linux_appimage = {
