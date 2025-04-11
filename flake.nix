@@ -37,6 +37,10 @@
       url = "github:DataEraserC/meme-generator";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    android-attestation-keybox-generator = {
+      url = "github:AndroidAppsUsedByMyself/android-attestation-keybox-generator";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # some outside deps
 
@@ -195,6 +199,7 @@
             ptr = {
               inherit (inputs.LaphaeL-aicmd.packages.${pkgs.system}) laphael_aicmd;
               inherit (inputs.ZeroBot-Plugin.packages.${pkgs.system}) ZeroBot-Plugin;
+              inherit (inputs.android-attestation-keybox-generator.packages.${pkgs.system}) android-attestation-keybox-generator;
               # inherit (inputs.meme-generator.packages.${pkgs.system}) meme-generator;
             };
           in
