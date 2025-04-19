@@ -2191,15 +2191,15 @@
   };
   PiliPalaX = {
     pname = "PiliPalaX";
-    version = "560b1e40ccccaa9f038f783feccc407b031f6f23";
+    version = "9d4d37f2e7114084928556df3ce156fa38f01adc";
     src = fetchFromGitHub {
       owner = "bggRGjQaUbCoE";
       repo = "PiliPlus";
-      rev = "560b1e40ccccaa9f038f783feccc407b031f6f23";
+      rev = "9d4d37f2e7114084928556df3ce156fa38f01adc";
       fetchSubmodules = true;
-      hash = "sha256-Kkovg46fTOR8jl7LS3aBFGTJ1chXrVR+QZygARLATrI=";
+      hash = "sha256-EOnhWBqdrKTC11Gnj0vFbfyT0HWUU/SZ6MbID0i+Ib8=";
     };
-    date = "2025-04-08";
+    date = "2025-04-19";
   };
   SteamTools = {
     pname = "SteamTools";
@@ -2352,10 +2352,10 @@
   };
   escrcpy_appimage = {
     pname = "escrcpy_appimage";
-    version = "1.29.3";
+    version = "1.29.5";
     src = fetchurl {
-      url = "https://github.com/viarotel-org/escrcpy/releases/download/v1.29.3/Escrcpy-1.29.3-linux-x86_64.AppImage";
-      hash = "sha256-DZS47mWtE5N+dDGeNgbrggwIT6gnB6QUd/9xKP0IVEc=";
+      url = "https://github.com/viarotel-org/escrcpy/releases/download/v1.29.5/Escrcpy-1.29.5-linux-x86_64.AppImage";
+      hash = "sha256-wsqrrKn+UUhF5L+vKATokdksZQON6k1ia1zhmvrhUzA=";
     };
   };
   open-interpreter = {
@@ -2447,10 +2447,10 @@
   };
   v2ray-rules-dat = {
     pname = "v2ray-rules-dat";
-    version = "202504072213";
+    version = "202504182212";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202504072213/rules.zip";
-      hash = "sha256-MxE9HqFm3I/sUv+YhBG3FMqi/9NhWHj+HcafXJAna7A=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202504182212/rules.zip";
+      hash = "sha256-di3bvMb3m4Mhc31Hp5PhFkfTh3faxoTDk16Z71/WGE4=";
     };
   };
   wechat-web-devtools-linux_appimage = {

@@ -4279,7 +4279,7 @@
     },
     "PiliPalaX": {
         "cargoLocks": null,
-        "date": "2025-04-08",
+        "date": "2025-04-19",
         "extract": null,
         "name": "PiliPalaX",
         "passthru": null,
@@ -4291,12 +4291,12 @@
             "name": null,
             "owner": "bggRGjQaUbCoE",
             "repo": "PiliPlus",
-            "rev": "560b1e40ccccaa9f038f783feccc407b031f6f23",
-            "sha256": "sha256-Kkovg46fTOR8jl7LS3aBFGTJ1chXrVR+QZygARLATrI=",
+            "rev": "9d4d37f2e7114084928556df3ce156fa38f01adc",
+            "sha256": "sha256-EOnhWBqdrKTC11Gnj0vFbfyT0HWUU/SZ6MbID0i+Ib8=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "560b1e40ccccaa9f038f783feccc407b031f6f23"
+        "version": "9d4d37f2e7114084928556df3ce156fa38f01adc"
     },
     "SteamTools": {
         "cargoLocks": null,
@@ -4581,11 +4581,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-DZS47mWtE5N+dDGeNgbrggwIT6gnB6QUd/9xKP0IVEc=",
+            "sha256": "sha256-wsqrrKn+UUhF5L+vKATokdksZQON6k1ia1zhmvrhUzA=",
             "type": "url",
-            "url": "https://github.com/viarotel-org/escrcpy/releases/download/v1.29.3/Escrcpy-1.29.3-linux-x86_64.AppImage"
+            "url": "https://github.com/viarotel-org/escrcpy/releases/download/v1.29.5/Escrcpy-1.29.5-linux-x86_64.AppImage"
         },
-        "version": "1.29.3"
+        "version": "1.29.5"
     },
     "open-interpreter": {
         "cargoLocks": null,
@@ -4754,11 +4754,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-MxE9HqFm3I/sUv+YhBG3FMqi/9NhWHj+HcafXJAna7A=",
+            "sha256": "sha256-di3bvMb3m4Mhc31Hp5PhFkfTh3faxoTDk16Z71/WGE4=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202504072213/rules.zip"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202504182212/rules.zip"
         },
-        "version": "202504072213"
+        "version": "202504182212"
     },
     "wechat-web-devtools-linux_appimage": {
         "cargoLocks": null,
