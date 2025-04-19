@@ -88,7 +88,7 @@ Or, use variables from this repository in case I change them:
 ## Packages
 
 <details>
-<summary>Package set: (Uncategorized) (220 packages)</summary>
+<summary>Package set: (Uncategorized) (221 packages)</summary>
 
 | State | Path | Name | Version | Description |
 | ----- | ---- | ---- | ------- | ----------- |
@@ -121,6 +121,7 @@ Or, use variables from this repository in case I change them:
 |  | `cargo-tauri` | [tauri](https://tauri.app/) | 2.0.1 | Build smaller, faster, and more secure desktop applications with a web frontend |
 |  | `chmlib-utils` | [chmlib](http://www.jedrea.com/chmlib) | 0.40a | Library for dealing with Microsoft ITSS/CHM format files |
 | `x86_64-linux` | `cisco-packet-tracer` | [ciscoPacketTracer8](https://www.netacad.com/courses/packet-tracer) | 8.0.1 | Network simulation tool from Cisco |
+| `x86_64-linux` | `ciscoPacketTracer` | [ciscoPacketTracer8](https://www.netacad.com/courses/packet-tracer) | 8.2.2 | Network simulation tool from Cisco |
 |  | `clang_dev_env` | clang_dev_env |  |  |
 |  | `clang_dev_env_fhs` | clang_dev_env_fhs-shell |  |  |
 | `x86_64-linux` | `clash-nyanpasu` | [clash-nyanpasu](https://github.com/keiko233/clash-nyanpasu) | 1.4.5 | Clash GUI based on tauri |
@@ -1205,7 +1206,7 @@ Or, use variables from this repository in case I change them:
 </details>
 
 <details>
-<summary>Package set: uncategorized-DataEraserC (46 packages)</summary>
+<summary>Package set: uncategorized-DataEraserC (47 packages)</summary>
 
 | State | Path | Name | Version | Description |
 | ----- | ---- | ---- | ------- | ----------- |
@@ -1223,6 +1224,7 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized-DataEraserC.c001apk-flutter` | [c001apk-flutter](https://github.com/bggRGjQaUbCoE/c001apk-flutter) | 0-unstable-2025-02-13 | c001apk |
 |  | `uncategorized-DataEraserC.cargo-tauri` | [tauri](https://tauri.app/) | 2.0.1 | Build smaller, faster, and more secure desktop applications with a web frontend |
 | `x86_64-linux` | `uncategorized-DataEraserC.cisco-packet-tracer` | [ciscoPacketTracer8](https://www.netacad.com/courses/packet-tracer) | 8.0.1 | Network simulation tool from Cisco |
+| `x86_64-linux` | `uncategorized-DataEraserC.ciscoPacketTracer` | [ciscoPacketTracer8](https://www.netacad.com/courses/packet-tracer) | 8.2.2 | Network simulation tool from Cisco |
 |  | `uncategorized-DataEraserC.clang_dev_env` | clang_dev_env |  |  |
 |  | `uncategorized-DataEraserC.clang_dev_env_fhs` | clang_dev_env_fhs-shell |  |  |
 | `x86_64-linux` | `uncategorized-DataEraserC.clash-nyanpasu` | [clash-nyanpasu](https://github.com/keiko233/clash-nyanpasu) | 1.4.5 | Clash GUI based on tauri |
