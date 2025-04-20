@@ -88,7 +88,7 @@ Or, use variables from this repository in case I change them:
 ## Packages
 
 <details>
-<summary>Package set: (Uncategorized) (221 packages)</summary>
+<summary>Package set: (Uncategorized) (222 packages)</summary>
 
 | State | Path | Name | Version | Description |
 | ----- | ---- | ---- | ------- | ----------- |
@@ -96,6 +96,7 @@ Or, use variables from this repository in case I change them:
 | `x86_64-linux` | `Adobe_Photoshop_CS6_appimage` | [Adobe_Photoshop_CS6](https://t.me/Linux_Appimages/1042) | CS6 | Adobe_Photoshop_CS6 |
 | `x86_64-linux` | `AppimageLauncher_deb` | [appimagelauncher-2.2.0](https://github.com/TheAssassin/AppImageLauncher) |  | appimagelauncher |
 |  | `ChatRWKV` | [rwkv](https://github.com/BlinkDL/ChatRWKV) | 0.8.28 | The RWKV Language Model |
+|  | `SakuraFrp` | [netfrp-x86_64-linux](https://www.natfrp.com/) | 3.1.6 |  |
 |  | `UnknownAnimeGamePS` | UnknownAnimeGamePS | 0-unstable-2024-11-20 |  |
 |  | `UnknownAnimeGamePS-wrapper` | [UnknownAnimeGamePS-wrapper](https://github.com/XeonSucksLAB/UnknownAnimeGamePS) | 0-unstable-2024-11-20 | A server software reimplementation for a certain anime game. |
 |  | `XiaoMiToolV2` | XiaoMiToolV2 | 0-unstable-2024-12-18 |  |
@@ -266,7 +267,7 @@ Or, use variables from this repository in case I change them:
 | `x86_64-linux` | `unigine-valley` | [unigine-valley](https://benchmark.unigine.com/valley) | 1.0 | Extreme performance and stability test for PC hardware: video card, power supply, cooling system |
 |  | `usque` | [usque](https://github.com/Diniboy1123/usque) | 1.0.2 | Open-source reimplementation of the Cloudflare WARP client's MASQUE protocol |
 |  | `v2dat` | [v2dat](https://github.com/urlesistiana/v2dat) | 0-unstable-2022-12-15 | Cli tool that can unpack v2ray data packages. (Note: This project is for fun ONLY. You should build your own data dirctly from upstreams instead of unpacking a v2ray data pack.) |
-|  | `v2ray-rules-dat` | [v2ray-rules-dat](https://github.com/Loyalsoldier/v2ray-rules-dat) | 202504182212 | V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria. |
+|  | `v2ray-rules-dat` | [v2ray-rules-dat](https://github.com/Loyalsoldier/v2ray-rules-dat) | 202504192212 | V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria. |
 |  | `vbmeta-disable-verification` | [vbmeta-disable-verification](https://github.com/libxzr/vbmeta-disable-verification) | 1.0 | Patch Android vbmeta image and disable verification flags inside |
 |  | `vector-quantize-pytorch` | [vector-quantize-pytorch](https://github.com/lucidrains/vector-quantize-pytorch) | 1.22.4 | Vector (and Scalar) Quantization, in Pytorch |
 |  | `vgpu-unlock-rs` | [vgpu-unlock-rs](https://github.com/mbilker/vgpu_unlock-rs) | 2.5.0 | Unlock vGPU functionality for consumer grade GPUs |
@@ -286,7 +287,7 @@ Or, use variables from this repository in case I change them:
 |  | `xue` | [xue](https://pypi.org/project/xue/) | 0.0.34 | Minimalist web front-end framework composed of HTMX and Python |
 |  | `xvcd` | [xvcd](https://github.com/RHSResearchLLC/xvcd) | 0-unstable-2019-11-20 | Xilinx Virtual Cable Daemon |
 | `Broken` `x86_64-linux` | `MIO_KITCHEN_bin` | [MIO-KITCHEN_bin](https://github.com/ColdWindScholar/MIO-KITCHEN-SOURCE) | 3.0.8 | The Android Rom Tool Use python language |
-| `Broken` | `PiliPalaX` | [PiliPalaX](https://github.com/bggRGjQaUbCoE/PiliPalaX) | 0-unstable-2025-04-19 | PiliPalaX |
+| `Broken` | `PiliPalaX` | [PiliPalaX](https://github.com/bggRGjQaUbCoE/PiliPalaX) | 0-unstable-2025-04-20 | PiliPalaX |
 | `Broken` | `amule-dlp` | [amule-dlp](https://github.com/persmule/amule-dlp) | 2.3.2-unstable-2023-03-02 | Peer-to-peer client for the eD2K and Kademlia networks (with Dynamic Leech Protection) |
 | `Broken` | `ast` | [ast](https://www.aspeedtech.com/support_driver/) | 1.15.1_4 | Aspeed Graphics Driver |
 | `Deprecated` | `cloudpan189-go` | [cloudpan189-go](https://github.com/tickstep/cloudpan189-go) | 0.1.3 | (DEPRECATED: cloudpan189-go is abandoned upstream and no longer works) CLI for China Telecom 189 Cloud Drive service, implemented in Go |
@@ -1206,7 +1207,7 @@ Or, use variables from this repository in case I change them:
 </details>
 
 <details>
-<summary>Package set: uncategorized-DataEraserC (47 packages)</summary>
+<summary>Package set: uncategorized-DataEraserC (48 packages)</summary>
 
 | State | Path | Name | Version | Description |
 | ----- | ---- | ---- | ------- | ----------- |
@@ -1214,6 +1215,7 @@ Or, use variables from this repository in case I change them:
 | `x86_64-linux` | `uncategorized-DataEraserC.Adobe_Photoshop_CS6_appimage` | [Adobe_Photoshop_CS6](https://t.me/Linux_Appimages/1042) | CS6 | Adobe_Photoshop_CS6 |
 | `x86_64-linux` | `uncategorized-DataEraserC.AppimageLauncher_deb` | [appimagelauncher-2.2.0](https://github.com/TheAssassin/AppImageLauncher) |  | appimagelauncher |
 |  | `uncategorized-DataEraserC.ChatRWKV` | [rwkv](https://github.com/BlinkDL/ChatRWKV) | 0.8.28 | The RWKV Language Model |
+|  | `uncategorized-DataEraserC.SakuraFrp` | [netfrp-x86_64-linux](https://www.natfrp.com/) | 3.1.6 |  |
 |  | `uncategorized-DataEraserC.UnknownAnimeGamePS` | UnknownAnimeGamePS | 0-unstable-2024-11-20 |  |
 |  | `uncategorized-DataEraserC.UnknownAnimeGamePS-wrapper` | [UnknownAnimeGamePS-wrapper](https://github.com/XeonSucksLAB/UnknownAnimeGamePS) | 0-unstable-2024-11-20 | A server software reimplementation for a certain anime game. |
 |  | `uncategorized-DataEraserC.XiaoMiToolV2` | XiaoMiToolV2 | 0-unstable-2024-12-18 |  |
@@ -1240,7 +1242,7 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized-DataEraserC.snell-server_fhs` | snell |  |  |
 |  | `uncategorized-DataEraserC.ttyescape` | [ttyescape](https://gitlab.com/postmarketOS/ttyescape) | 0-unstable-2023-03-08 | ttyescape |
 |  | `uncategorized-DataEraserC.v2dat` | [v2dat](https://github.com/urlesistiana/v2dat) | 0-unstable-2022-12-15 | Cli tool that can unpack v2ray data packages. (Note: This project is for fun ONLY. You should build your own data dirctly from upstreams instead of unpacking a v2ray data pack.) |
-|  | `uncategorized-DataEraserC.v2ray-rules-dat` | [v2ray-rules-dat](https://github.com/Loyalsoldier/v2ray-rules-dat) | 202504182212 | V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria. |
+|  | `uncategorized-DataEraserC.v2ray-rules-dat` | [v2ray-rules-dat](https://github.com/Loyalsoldier/v2ray-rules-dat) | 202504192212 | V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria. |
 |  | `uncategorized-DataEraserC.watt-toolkit_2` | [watt-toolkit](https://steampp.net) | 2.8.6 | Cross-platform Steam toolbox |
 |  | `uncategorized-DataEraserC.watt-toolkit_bin` | [SteamTools-x86_64-linux](https://steampp.net) | 3.0.0-rc.16 | an open source cross-platform multi-purpose game toolkit |
 |  | `uncategorized-DataEraserC.waybar_bluetooth_battery_parse` | waybar-bluetooth_battery_parse | 0.0.2 |  |
@@ -1248,7 +1250,7 @@ Or, use variables from this repository in case I change them:
 | `x86_64-linux` | `uncategorized-DataEraserC.wechat_dev_tools_bin` | [wechat-web-devtools-linux_bin](https://github.com/msojocs/wechat-web-devtools-linux) | 1.06.2412050-2 | The development tools for wechat projects |
 |  | `uncategorized-DataEraserC.xcursor-genshin-nahida` | [xcursor-genshin-nahida](https://aur.archlinux.org/packages/xcursor-genshin-nahida) | 1.0-2 | xcursor genshin nahida |
 | `Broken` `x86_64-linux` | `uncategorized-DataEraserC.MIO_KITCHEN_bin` | [MIO-KITCHEN_bin](https://github.com/ColdWindScholar/MIO-KITCHEN-SOURCE) | 3.0.8 | The Android Rom Tool Use python language |
-| `Broken` | `uncategorized-DataEraserC.PiliPalaX` | [PiliPalaX](https://github.com/bggRGjQaUbCoE/PiliPalaX) | 0-unstable-2025-04-19 | PiliPalaX |
+| `Broken` | `uncategorized-DataEraserC.PiliPalaX` | [PiliPalaX](https://github.com/bggRGjQaUbCoE/PiliPalaX) | 0-unstable-2025-04-20 | PiliPalaX |
 | `Broken` | `uncategorized-DataEraserC.escrcpy_deb` | [escrcpy_deb](https://github.com/viarotel-org/escrcpy) | 1.18.2 | Graphical Scrcpy to display and control Android, devices powered by Electron.  |
 | `Broken` `x86_64-linux` | `uncategorized-DataEraserC.example-package-appimage` | [dingtalk](https://www.dingtalk.com/) | 2.1.22 | DingTalk desktop messaging application |
 | `Broken` | `uncategorized-DataEraserC.llqqnt` | qq | qq=3.2.16+llqqnt_rev=0-unstable-2025-02-19 |  |

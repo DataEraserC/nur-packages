@@ -2191,15 +2191,15 @@
   };
   PiliPalaX = {
     pname = "PiliPalaX";
-    version = "9d4d37f2e7114084928556df3ce156fa38f01adc";
+    version = "f9e28d1de90dee4beb495fa8b1c83225c14e85f2";
     src = fetchFromGitHub {
       owner = "bggRGjQaUbCoE";
       repo = "PiliPlus";
-      rev = "9d4d37f2e7114084928556df3ce156fa38f01adc";
+      rev = "f9e28d1de90dee4beb495fa8b1c83225c14e85f2";
       fetchSubmodules = true;
-      hash = "sha256-EOnhWBqdrKTC11Gnj0vFbfyT0HWUU/SZ6MbID0i+Ib8=";
+      hash = "sha256-iu/Cgic0nzl2F9iIjplCPt2Wh7KH7Qn7mwynks+BTt4=";
     };
-    date = "2025-04-19";
+    date = "2025-04-20";
   };
   SteamTools = {
     pname = "SteamTools";
@@ -2358,6 +2358,62 @@
       hash = "sha256-wsqrrKn+UUhF5L+vKATokdksZQON6k1ia1zhmvrhUzA=";
     };
   };
+  netfrp-aarch32-linux = {
+    pname = "netfrp-aarch32-linux";
+    version = "3.1.6";
+    src = fetchurl {
+      url = "https://nya.globalslb.net/natfrp/client/launcher-unix/3.1.6/natfrp-service_linux_armv7.tar.zst";
+      hash = "sha256-YxAsjKUsawTMUb8ADqfjySpspPmIlGYXHNykanqKBSc=";
+    };
+  };
+  netfrp-aarch64-linux = {
+    pname = "netfrp-aarch64-linux";
+    version = "3.1.6";
+    src = fetchurl {
+      url = "https://nya.globalslb.net/natfrp/client/launcher-unix/3.1.6/natfrp-service_linux_arm64.tar.zst";
+      hash = "sha256-OoCmIdNxeHZTm8YoR86S/SbX5qcsV5xUcdUO2VZfRYw=";
+    };
+  };
+  netfrp-i686-linux = {
+    pname = "netfrp-i686-linux";
+    version = "3.1.6";
+    src = fetchurl {
+      url = "https://nya.globalslb.net/natfrp/client/launcher-unix/3.1.6/natfrp-service_linux_386.tar.zst";
+      hash = "sha256-H2hHFbkEwhYkFboCXIbpx9lRkaDvdlQp2txhIAu+Uho=";
+    };
+  };
+  netfrp-loong64-linux = {
+    pname = "netfrp-loong64-linux";
+    version = "3.1.6";
+    src = fetchurl {
+      url = "https://nya.globalslb.net/natfrp/client/launcher-unix/3.1.6/natfrp-service_linux_loong64.tar.zst";
+      hash = "sha256-NinJOzVuwOdLKyVTFsPRTzMHB1ce0JlV416FC8R+7lg=";
+    };
+  };
+  netfrp-mips-linux = {
+    pname = "netfrp-mips-linux";
+    version = "3.1.6";
+    src = fetchurl {
+      url = "https://nya.globalslb.net/natfrp/client/launcher-unix/3.1.6/natfrp-service_linux_mips.tar.zst";
+      hash = "sha256-660Ugfd8e4Obiq2eXr8aY7+tBywGFOiHHpmZRwo0sk8=";
+    };
+  };
+  netfrp-mips64-linux = {
+    pname = "netfrp-mips64-linux";
+    version = "3.1.6";
+    src = fetchurl {
+      url = "https://nya.globalslb.net/natfrp/client/launcher-unix/3.1.6/natfrp-service_linux_mips64.tar.zst";
+      hash = "sha256-wdihScSf15J4mUFAg4BJzHqiUtDb2514aS2esbDONaQ=";
+    };
+  };
+  netfrp-x86_64-linux = {
+    pname = "netfrp-x86_64-linux";
+    version = "3.1.6";
+    src = fetchurl {
+      url = "https://nya.globalslb.net/natfrp/client/launcher-unix/3.1.6/natfrp-service_linux_amd64.tar.zst";
+      hash = "sha256-w6LfnHsa1fd7R88lO8cL+jxGDMWO8IT9RDcfgTVZhE0=";
+    };
+  };
   open-interpreter = {
     pname = "open-interpreter";
     version = "21babb186f13e263a72cf525d15d79788edf4644";
@@ -2447,10 +2503,10 @@
   };
   v2ray-rules-dat = {
     pname = "v2ray-rules-dat";
-    version = "202504182212";
+    version = "202504192212";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202504182212/rules.zip";
-      hash = "sha256-di3bvMb3m4Mhc31Hp5PhFkfTh3faxoTDk16Z71/WGE4=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202504192212/rules.zip";
+      hash = "sha256-0QX4wlD03Bag4L56zmdqhbF3o8LpzucyJF8JguK12wE=";
     };
   };
   wechat-web-devtools-linux_appimage = {

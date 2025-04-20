@@ -1126,3 +1126,38 @@ fetch.url = "https://dl.nssurge.com/snell/snell-server-$ver-linux-aarch64.zip"
 src.webpage = "http://manual.nssurge.com/others/snell.html"
 src.regex = "https://dl.nssurge.com/snell/snell-server-(.*)-linux-armv7l.zip\""
 fetch.url = "https://dl.nssurge.com/snell/snell-server-$ver-linux-armv7l.zip"
+
+[netfrp-x86_64-linux]
+src.webpage = "https://nya.globalslb.net/natfrp/client/launcher-unix/"
+src.regex = "(\\d+(?:\\.\\d+)+)"
+fetch.url = "https://nya.globalslb.net/natfrp/client/launcher-unix/$ver/natfrp-service_linux_amd64.tar.zst"
+
+[netfrp-i686-linux]
+src.webpage = "https://nya.globalslb.net/natfrp/client/launcher-unix/"
+src.regex = "(\\d+(?:\\.\\d+)+)"
+fetch.url = "https://nya.globalslb.net/natfrp/client/launcher-unix/$ver/natfrp-service_linux_386.tar.zst"
+
+[netfrp-aarch64-linux]
+src.webpage = "https://nya.globalslb.net/natfrp/client/launcher-unix/"
+src.regex = "(\\d+(?:\\.\\d+)+)"
+fetch.url = "https://nya.globalslb.net/natfrp/client/launcher-unix/$ver/natfrp-service_linux_arm64.tar.zst"
+
+[netfrp-aarch32-linux]
+src.webpage = "https://nya.globalslb.net/natfrp/client/launcher-unix/"
+src.regex = "(\\d+(?:\\.\\d+)+)"
+fetch.url = "https://nya.globalslb.net/natfrp/client/launcher-unix/$ver/natfrp-service_linux_armv7.tar.zst"
+
+[netfrp-mips64-linux]
+src.webpage = "https://nya.globalslb.net/natfrp/client/launcher-unix/"
+src.regex = "(\\d+(?:\\.\\d+)+)"
+fetch.url = "https://nya.globalslb.net/natfrp/client/launcher-unix/$ver/natfrp-service_linux_mips64.tar.zst"
+
+[netfrp-mips-linux]
+src.webpage = "https://nya.globalslb.net/natfrp/client/launcher-unix/"
+src.regex = "(\\d+(?:\\.\\d+)+)"
+fetch.url = "https://nya.globalslb.net/natfrp/client/launcher-unix/$ver/natfrp-service_linux_mips.tar.zst"
+
+[netfrp-loong64-linux]
+src.webpage = "https://nya.globalslb.net/natfrp/client/launcher-unix/"
+src.regex = "(\\d+(?:\\.\\d+)+)"
+fetch.url = "https://nya.globalslb.net/natfrp/client/launcher-unix/$ver/natfrp-service_linux_loong64.tar.zst"

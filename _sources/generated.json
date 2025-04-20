@@ -4279,7 +4279,7 @@
     },
     "PiliPalaX": {
         "cargoLocks": null,
-        "date": "2025-04-19",
+        "date": "2025-04-20",
         "extract": null,
         "name": "PiliPalaX",
         "passthru": null,
@@ -4291,12 +4291,12 @@
             "name": null,
             "owner": "bggRGjQaUbCoE",
             "repo": "PiliPlus",
-            "rev": "9d4d37f2e7114084928556df3ce156fa38f01adc",
-            "sha256": "sha256-EOnhWBqdrKTC11Gnj0vFbfyT0HWUU/SZ6MbID0i+Ib8=",
+            "rev": "f9e28d1de90dee4beb495fa8b1c83225c14e85f2",
+            "sha256": "sha256-iu/Cgic0nzl2F9iIjplCPt2Wh7KH7Qn7mwynks+BTt4=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "9d4d37f2e7114084928556df3ce156fa38f01adc"
+        "version": "f9e28d1de90dee4beb495fa8b1c83225c14e85f2"
     },
     "SteamTools": {
         "cargoLocks": null,
@@ -4587,6 +4587,111 @@
         },
         "version": "1.29.5"
     },
+    "netfrp-aarch32-linux": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "netfrp-aarch32-linux",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-YxAsjKUsawTMUb8ADqfjySpspPmIlGYXHNykanqKBSc=",
+            "type": "url",
+            "url": "https://nya.globalslb.net/natfrp/client/launcher-unix/3.1.6/natfrp-service_linux_armv7.tar.zst"
+        },
+        "version": "3.1.6"
+    },
+    "netfrp-aarch64-linux": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "netfrp-aarch64-linux",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-OoCmIdNxeHZTm8YoR86S/SbX5qcsV5xUcdUO2VZfRYw=",
+            "type": "url",
+            "url": "https://nya.globalslb.net/natfrp/client/launcher-unix/3.1.6/natfrp-service_linux_arm64.tar.zst"
+        },
+        "version": "3.1.6"
+    },
+    "netfrp-i686-linux": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "netfrp-i686-linux",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-H2hHFbkEwhYkFboCXIbpx9lRkaDvdlQp2txhIAu+Uho=",
+            "type": "url",
+            "url": "https://nya.globalslb.net/natfrp/client/launcher-unix/3.1.6/natfrp-service_linux_386.tar.zst"
+        },
+        "version": "3.1.6"
+    },
+    "netfrp-loong64-linux": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "netfrp-loong64-linux",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-NinJOzVuwOdLKyVTFsPRTzMHB1ce0JlV416FC8R+7lg=",
+            "type": "url",
+            "url": "https://nya.globalslb.net/natfrp/client/launcher-unix/3.1.6/natfrp-service_linux_loong64.tar.zst"
+        },
+        "version": "3.1.6"
+    },
+    "netfrp-mips-linux": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "netfrp-mips-linux",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-660Ugfd8e4Obiq2eXr8aY7+tBywGFOiHHpmZRwo0sk8=",
+            "type": "url",
+            "url": "https://nya.globalslb.net/natfrp/client/launcher-unix/3.1.6/natfrp-service_linux_mips.tar.zst"
+        },
+        "version": "3.1.6"
+    },
+    "netfrp-mips64-linux": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "netfrp-mips64-linux",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-wdihScSf15J4mUFAg4BJzHqiUtDb2514aS2esbDONaQ=",
+            "type": "url",
+            "url": "https://nya.globalslb.net/natfrp/client/launcher-unix/3.1.6/natfrp-service_linux_mips64.tar.zst"
+        },
+        "version": "3.1.6"
+    },
+    "netfrp-x86_64-linux": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "netfrp-x86_64-linux",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-w6LfnHsa1fd7R88lO8cL+jxGDMWO8IT9RDcfgTVZhE0=",
+            "type": "url",
+            "url": "https://nya.globalslb.net/natfrp/client/launcher-unix/3.1.6/natfrp-service_linux_amd64.tar.zst"
+        },
+        "version": "3.1.6"
+    },
     "open-interpreter": {
         "cargoLocks": null,
         "date": "2024-12-02",
@@ -4754,11 +4859,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-di3bvMb3m4Mhc31Hp5PhFkfTh3faxoTDk16Z71/WGE4=",
+            "sha256": "sha256-0QX4wlD03Bag4L56zmdqhbF3o8LpzucyJF8JguK12wE=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202504182212/rules.zip"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202504192212/rules.zip"
         },
-        "version": "202504182212"
+        "version": "202504192212"
     },
     "wechat-web-devtools-linux_appimage": {
         "cargoLocks": null,
