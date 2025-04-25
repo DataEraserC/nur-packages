@@ -1,7 +1,7 @@
 #https://github.com/Prismwork/llqqnt-nix/blob/trunk/pkgs/llqqnt.nix
 {
   appimageTools,
-  buildFHSUserEnv,
+  buildFHSEnv,
   pkg-config,
   qq,
   sources,
@@ -14,7 +14,7 @@ let
     let
       base = appimageTools.defaultFhsEnvArgs;
     in
-    buildFHSUserEnv (
+    buildFHSEnv (
       base
       // {
         name = "fhs";

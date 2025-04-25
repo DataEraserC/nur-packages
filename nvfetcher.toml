@@ -1161,3 +1161,24 @@ fetch.url = "https://nya.globalslb.net/natfrp/client/launcher-unix/$ver/natfrp-s
 src.webpage = "https://nya.globalslb.net/natfrp/client/launcher-unix/"
 src.regex = "(\\d+(?:\\.\\d+)+)"
 fetch.url = "https://nya.globalslb.net/natfrp/client/launcher-unix/$ver/natfrp-service_linux_loong64.tar.zst"
+
+[MC-LauncherX-JSON]
+src.webpage = "https://api.corona.studio/Build/get/latest/all/stable"
+src.regex = "\"releaseDate\":\"(\\d+-\\d+-\\d+T\\d+:\\d+:\\d+)\""
+fetch.url = "https://api.corona.studio/Build/get/latest/all/stable"
+
+[MC-LauncherX-aarch64-linux]
+src.cmd = "curl -s https://api.corona.studio/Build/get/latest/all/stable | jq -r '.[\"Linux Arm\"].id + \"/\" + .[\"Linux Arm\"].framework + \".\" + .[\"Linux Arm\"].runtime'"
+fetch.url = "https://api.corona.studio/Build/get/$ver.zip"
+
+[MC-LauncherX-x86_64-linux]
+src.cmd = "curl -s https://api.corona.studio/Build/get/latest/all/stable | jq -r '.[\"Linux X64\"].id + \"/\" + .[\"Linux X64\"].framework + \".\" + .[\"Linux X64\"].runtime'"
+fetch.url = "https://api.corona.studio/Build/get/$ver.zip"
+
+[MC-LauncherX-x86_64-darwin]
+src.cmd = "curl -s https://api.corona.studio/Build/get/latest/all/stable | jq -r '.[\"macOS Intel\"].id + \"/\" + .[\"macOS Intel\"].framework + \".\" + .[\"macOS Intel\"].runtime'"
+fetch.url = "https://api.corona.studio/Build/get/$ver.zip"
+
+[MC-LauncherX-aarch64-darwin]
+src.cmd = "curl -s https://api.corona.studio/Build/get/latest/all/stable | jq -r '.[\"macOS Apple\"].id + \"/\" + .[\"macOS Apple\"].framework + \".\" + .[\"macOS Apple\"].runtime'"
+fetch.url = "https://api.corona.studio/Build/get/$ver.zip"

@@ -88,7 +88,7 @@ Or, use variables from this repository in case I change them:
 ## Packages
 
 <details>
-<summary>Package set: (Uncategorized) (222 packages)</summary>
+<summary>Package set: (Uncategorized) (223 packages)</summary>
 
 | State | Path | Name | Version | Description |
 | ----- | ---- | ---- | ------- | ----------- |
@@ -267,7 +267,7 @@ Or, use variables from this repository in case I change them:
 | `x86_64-linux` | `unigine-valley` | [unigine-valley](https://benchmark.unigine.com/valley) | 1.0 | Extreme performance and stability test for PC hardware: video card, power supply, cooling system |
 |  | `usque` | [usque](https://github.com/Diniboy1123/usque) | 1.0.2 | Open-source reimplementation of the Cloudflare WARP client's MASQUE protocol |
 |  | `v2dat` | [v2dat](https://github.com/urlesistiana/v2dat) | 0-unstable-2022-12-15 | Cli tool that can unpack v2ray data packages. (Note: This project is for fun ONLY. You should build your own data dirctly from upstreams instead of unpacking a v2ray data pack.) |
-|  | `v2ray-rules-dat` | [v2ray-rules-dat](https://github.com/Loyalsoldier/v2ray-rules-dat) | 202504192212 | V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria. |
+|  | `v2ray-rules-dat` | [v2ray-rules-dat](https://github.com/Loyalsoldier/v2ray-rules-dat) | 202504242213 | V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria. |
 |  | `vbmeta-disable-verification` | [vbmeta-disable-verification](https://github.com/libxzr/vbmeta-disable-verification) | 1.0 | Patch Android vbmeta image and disable verification flags inside |
 |  | `vector-quantize-pytorch` | [vector-quantize-pytorch](https://github.com/lucidrains/vector-quantize-pytorch) | 1.22.4 | Vector (and Scalar) Quantization, in Pytorch |
 |  | `vgpu-unlock-rs` | [vgpu-unlock-rs](https://github.com/mbilker/vgpu_unlock-rs) | 2.5.0 | Unlock vGPU functionality for consumer grade GPUs |
@@ -286,8 +286,9 @@ Or, use variables from this repository in case I change them:
 |  | `xstatic-font-awesome` | [xstatic-font-awesome](https://github.com/FortAwesome/Font-Awesome) | 4.7.0.0 | Font Awesome packaged for setuptools (easy_install) / pip |
 |  | `xue` | [xue](https://pypi.org/project/xue/) | 0.0.34 | Minimalist web front-end framework composed of HTMX and Python |
 |  | `xvcd` | [xvcd](https://github.com/RHSResearchLLC/xvcd) | 0-unstable-2019-11-20 | Xilinx Virtual Cable Daemon |
+| `Broken` | `MC-LauncherX` | [MC-LauncherX-x86_64-linux](https://kb.corona.studio/) | c4fce558-6332-43f1-8305-dda54857fb71/net9.0-linux.linux-x64 |  |
 | `Broken` `x86_64-linux` | `MIO_KITCHEN_bin` | [MIO-KITCHEN_bin](https://github.com/ColdWindScholar/MIO-KITCHEN-SOURCE) | 3.0.8 | The Android Rom Tool Use python language |
-| `Broken` | `PiliPalaX` | [PiliPalaX](https://github.com/bggRGjQaUbCoE/PiliPalaX) | 0-unstable-2025-04-20 | PiliPalaX |
+| `Broken` | `PiliPalaX` | [PiliPalaX](https://github.com/bggRGjQaUbCoE/PiliPalaX) | 0-unstable-2025-04-25 | PiliPalaX |
 | `Broken` | `amule-dlp` | [amule-dlp](https://github.com/persmule/amule-dlp) | 2.3.2-unstable-2023-03-02 | Peer-to-peer client for the eD2K and Kademlia networks (with Dynamic Leech Protection) |
 | `Broken` | `ast` | [ast](https://www.aspeedtech.com/support_driver/) | 1.15.1_4 | Aspeed Graphics Driver |
 | `Deprecated` | `cloudpan189-go` | [cloudpan189-go](https://github.com/tickstep/cloudpan189-go) | 0.1.3 | (DEPRECATED: cloudpan189-go is abandoned upstream and no longer works) CLI for China Telecom 189 Cloud Drive service, implemented in Go |
@@ -303,7 +304,7 @@ Or, use variables from this repository in case I change them:
 | `Deprecated` | `kata-runtime` | [kata-runtime](https://github.com/kata-containers/kata-containers) | 3.15.0 | (DEPRECATED: kata-runtime is available in nixpkgs by a different maintainer) Kata Containers is an open source project and community working to build a standard implementation of lightweight Virtual Machines (VMs) that feel and perform like containers, but provide the workload isolation and security advantages of VMs. (Packaging script adapted from https://github.com/TUM-DSE/doctor-cluster-config/blob/0c40be8dd86282122f8f04df738c409ef5e3da1c/pkgs/kata-runtime/default.nix) |
 | `Broken` | `kui` | [kui](https://kui.aber.sh/) | 1.8.1 | Easy-to-use web framework |
 | `Broken` | `llqqnt` | qq | qq=3.2.16+llqqnt_rev=0-unstable-2025-02-19 |  |
-| `Broken` | `open-interpreter` | [open-interpreter](https://github.com/OpenInterpreter/open-interpreter) | 0-unstable-2024-12-02 | A natural language interface for computers |
+| `Broken` | `open-interpreter` | [open-interpreter](https://github.com/OpenInterpreter/open-interpreter) | 0-unstable-2025-04-23 | A natural language interface for computers |
 | `Deprecated` | `payload-dumper-go` | [payload-dumper-go](https://github.com/ssut/payload-dumper-go) | 1.3.0 | (DEPRECATED: payload-dumper-go is available in nixpkgs by a different maintainer) Android OTA payload dumper written in Go |
 | `Broken` `x86_64-linux` | `piliplus` | [piliplus](https://github.com/bggRGjQaUbCoE/PiliPlus) | 1.1.3.26 | Third party Bilibili client built with Flutter |
 | `Broken` | `qtscrcpy_git` | [qtscrcpy](https://github.com/barry-ran/QtScrcpy) | 2.2.1 | Android real-time display control software |
@@ -1207,7 +1208,7 @@ Or, use variables from this repository in case I change them:
 </details>
 
 <details>
-<summary>Package set: uncategorized-DataEraserC (48 packages)</summary>
+<summary>Package set: uncategorized-DataEraserC (49 packages)</summary>
 
 | State | Path | Name | Version | Description |
 | ----- | ---- | ---- | ------- | ----------- |
@@ -1242,19 +1243,20 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized-DataEraserC.snell-server_fhs` | snell |  |  |
 |  | `uncategorized-DataEraserC.ttyescape` | [ttyescape](https://gitlab.com/postmarketOS/ttyescape) | 0-unstable-2023-03-08 | ttyescape |
 |  | `uncategorized-DataEraserC.v2dat` | [v2dat](https://github.com/urlesistiana/v2dat) | 0-unstable-2022-12-15 | Cli tool that can unpack v2ray data packages. (Note: This project is for fun ONLY. You should build your own data dirctly from upstreams instead of unpacking a v2ray data pack.) |
-|  | `uncategorized-DataEraserC.v2ray-rules-dat` | [v2ray-rules-dat](https://github.com/Loyalsoldier/v2ray-rules-dat) | 202504192212 | V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria. |
+|  | `uncategorized-DataEraserC.v2ray-rules-dat` | [v2ray-rules-dat](https://github.com/Loyalsoldier/v2ray-rules-dat) | 202504242213 | V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria. |
 |  | `uncategorized-DataEraserC.watt-toolkit_2` | [watt-toolkit](https://steampp.net) | 2.8.6 | Cross-platform Steam toolbox |
 |  | `uncategorized-DataEraserC.watt-toolkit_bin` | [SteamTools-x86_64-linux](https://steampp.net) | 3.0.0-rc.16 | an open source cross-platform multi-purpose game toolkit |
 |  | `uncategorized-DataEraserC.waybar_bluetooth_battery_parse` | waybar-bluetooth_battery_parse | 0.0.2 |  |
 | `x86_64-linux` | `uncategorized-DataEraserC.wechat_dev_tools_appimage` | [wechat-web-devtools-linux_appimage](https://github.com/msojocs/wechat-web-devtools-linux) | 1.06.2412050-2 | The development tools for wechat projects |
 | `x86_64-linux` | `uncategorized-DataEraserC.wechat_dev_tools_bin` | [wechat-web-devtools-linux_bin](https://github.com/msojocs/wechat-web-devtools-linux) | 1.06.2412050-2 | The development tools for wechat projects |
 |  | `uncategorized-DataEraserC.xcursor-genshin-nahida` | [xcursor-genshin-nahida](https://aur.archlinux.org/packages/xcursor-genshin-nahida) | 1.0-2 | xcursor genshin nahida |
+| `Broken` | `uncategorized-DataEraserC.MC-LauncherX` | [MC-LauncherX-x86_64-linux](https://kb.corona.studio/) | c4fce558-6332-43f1-8305-dda54857fb71/net9.0-linux.linux-x64 |  |
 | `Broken` `x86_64-linux` | `uncategorized-DataEraserC.MIO_KITCHEN_bin` | [MIO-KITCHEN_bin](https://github.com/ColdWindScholar/MIO-KITCHEN-SOURCE) | 3.0.8 | The Android Rom Tool Use python language |
-| `Broken` | `uncategorized-DataEraserC.PiliPalaX` | [PiliPalaX](https://github.com/bggRGjQaUbCoE/PiliPalaX) | 0-unstable-2025-04-20 | PiliPalaX |
+| `Broken` | `uncategorized-DataEraserC.PiliPalaX` | [PiliPalaX](https://github.com/bggRGjQaUbCoE/PiliPalaX) | 0-unstable-2025-04-25 | PiliPalaX |
 | `Broken` | `uncategorized-DataEraserC.escrcpy_deb` | [escrcpy_deb](https://github.com/viarotel-org/escrcpy) | 1.18.2 | Graphical Scrcpy to display and control Android, devices powered by Electron.  |
 | `Broken` `x86_64-linux` | `uncategorized-DataEraserC.example-package-appimage` | [dingtalk](https://www.dingtalk.com/) | 2.1.22 | DingTalk desktop messaging application |
 | `Broken` | `uncategorized-DataEraserC.llqqnt` | qq | qq=3.2.16+llqqnt_rev=0-unstable-2025-02-19 |  |
-| `Broken` | `uncategorized-DataEraserC.open-interpreter` | [open-interpreter](https://github.com/OpenInterpreter/open-interpreter) | 0-unstable-2024-12-02 | A natural language interface for computers |
+| `Broken` | `uncategorized-DataEraserC.open-interpreter` | [open-interpreter](https://github.com/OpenInterpreter/open-interpreter) | 0-unstable-2025-04-23 | A natural language interface for computers |
 | `Broken` | `uncategorized-DataEraserC.qtscrcpy_git` | [qtscrcpy](https://github.com/barry-ran/QtScrcpy) | 2.2.1 | Android real-time display control software |
 | `Broken` | `uncategorized-DataEraserC.scrcpy-mask-git` | [scrcpy-mask](https://github.com/AkiChase/scrcpy-mask) | 0-unstable-2025-03-10 | scrcpy-mask |
 | `Broken` `x86_64-linux` | `uncategorized-DataEraserC.vmware-workstation` | [vmware-workstation](https://www.vmware.com/products/workstation-pro.html) | 17.5.1 | Industry standard desktop hypervisor for x86-64 architecture |

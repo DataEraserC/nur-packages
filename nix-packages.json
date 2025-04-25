@@ -19,6 +19,11 @@
     "pname": "python3.12-rwkv",
     "version": "0.8.28"
   },
+  "legacyPackages.x86_64-linux.MC-LauncherX": {
+    "description": "",
+    "pname": "MC-LauncherX-x86_64-linux-c4fce558",
+    "version": "6332-43f1-8305-dda54857fb71-net9.0-linux.linux-x64"
+  },
   "legacyPackages.x86_64-linux.MIO_KITCHEN_bin": {
     "description": "The Android Rom Tool Use python language",
     "pname": "MIO-KITCHEN_bin",
@@ -27,7 +32,7 @@
   "legacyPackages.x86_64-linux.PiliPalaX": {
     "description": "PiliPalaX",
     "pname": "PiliPalaX",
-    "version": "0-unstable-2025-04-20"
+    "version": "0-unstable-2025-04-25"
   },
   "legacyPackages.x86_64-linux.SakuraFrp": {
     "description": "",
@@ -2272,7 +2277,7 @@
   "legacyPackages.x86_64-linux.open-interpreter": {
     "description": "A natural language interface for computers",
     "pname": "open-interpreter",
-    "version": "0-unstable-2024-12-02"
+    "version": "0-unstable-2025-04-23"
   },
   "legacyPackages.x86_64-linux.openai-edge-tts": {
     "description": "Text-to-speech API endpoint compatible with OpenAI's TTS API endpoint, using Microsoft Edge TTS to generate speech for free locally",
@@ -4239,6 +4244,11 @@
     "pname": "python3.12-rwkv",
     "version": "0.8.28"
   },
+  "legacyPackages.x86_64-linux.uncategorized-DataEraserC.MC-LauncherX": {
+    "description": "",
+    "pname": "MC-LauncherX-x86_64-linux-c4fce558",
+    "version": "6332-43f1-8305-dda54857fb71-net9.0-linux.linux-x64"
+  },
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.MIO_KITCHEN_bin": {
     "description": "The Android Rom Tool Use python language",
     "pname": "MIO-KITCHEN_bin",
@@ -4247,7 +4257,7 @@
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.PiliPalaX": {
     "description": "PiliPalaX",
     "pname": "PiliPalaX",
-    "version": "0-unstable-2025-04-20"
+    "version": "0-unstable-2025-04-25"
   },
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.SakuraFrp": {
     "description": "",
@@ -4382,7 +4392,7 @@
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.open-interpreter": {
     "description": "A natural language interface for computers",
     "pname": "open-interpreter",
-    "version": "0-unstable-2024-12-02"
+    "version": "0-unstable-2025-04-23"
   },
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.qtscrcpy_git": {
     "description": "Android real-time display control software",
@@ -4417,7 +4427,7 @@
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.v2ray-rules-dat": {
     "description": "V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria.",
     "pname": "v2ray-rules-dat",
-    "version": "202504192212"
+    "version": "202504242213"
   },
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.vmware-workstation": {
     "description": "Industry standard desktop hypervisor for x86-64 architecture",
@@ -5132,7 +5142,7 @@
   "legacyPackages.x86_64-linux.v2ray-rules-dat": {
     "description": "V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria.",
     "pname": "v2ray-rules-dat",
-    "version": "202504192212"
+    "version": "202504242213"
   },
   "legacyPackages.x86_64-linux.vbmeta-disable-verification": {
     "description": "Patch Android vbmeta image and disable verification flags inside",
@@ -5269,6 +5279,11 @@
     "pname": "python3.12-rwkv",
     "version": "0.8.28"
   },
+  "packages.x86_64-linux.MC-LauncherX": {
+    "description": "",
+    "pname": "MC-LauncherX-x86_64-linux-c4fce558",
+    "version": "6332-43f1-8305-dda54857fb71-net9.0-linux.linux-x64"
+  },
   "packages.x86_64-linux.MIO_KITCHEN_bin": {
     "description": "The Android Rom Tool Use python language",
     "pname": "MIO-KITCHEN_bin",
@@ -5277,7 +5292,7 @@
   "packages.x86_64-linux.PiliPalaX": {
     "description": "PiliPalaX",
     "pname": "PiliPalaX",
-    "version": "0-unstable-2025-04-20"
+    "version": "0-unstable-2025-04-25"
   },
   "packages.x86_64-linux.SakuraFrp": {
     "description": "",
@@ -5942,7 +5957,7 @@
   "packages.x86_64-linux.open-interpreter": {
     "description": "A natural language interface for computers",
     "pname": "open-interpreter",
-    "version": "0-unstable-2024-12-02"
+    "version": "0-unstable-2025-04-23"
   },
   "packages.x86_64-linux.openai-edge-tts": {
     "description": "Text-to-speech API endpoint compatible with OpenAI's TTS API endpoint, using Microsoft Edge TTS to generate speech for free locally",
@@ -6347,7 +6362,7 @@
   "packages.x86_64-linux.v2ray-rules-dat": {
     "description": "V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria.",
     "pname": "v2ray-rules-dat",
-    "version": "202504192212"
+    "version": "202504242213"
   },
   "packages.x86_64-linux.vbmeta-disable-verification": {
     "description": "Patch Android vbmeta image and disable verification flags inside",

@@ -2177,6 +2177,46 @@
     };
     date = "2025-02-19";
   };
+  MC-LauncherX-JSON = {
+    pname = "MC-LauncherX-JSON";
+    version = "2025-04-24T19:48:26";
+    src = fetchurl {
+      url = "https://api.corona.studio/Build/get/latest/all/stable";
+      hash = "sha256-7YX21Mb7SOUKymUxwGF4JDoLTVOn5u3ojb69xolEMqo=";
+    };
+  };
+  MC-LauncherX-aarch64-darwin = {
+    pname = "MC-LauncherX-aarch64-darwin";
+    version = "056156ca-4097-4aec-a7e4-05b6d1978e67/net9.0-osx.osx-arm64";
+    src = fetchurl {
+      url = "https://api.corona.studio/Build/get/056156ca-4097-4aec-a7e4-05b6d1978e67/net9.0-osx.osx-arm64.zip";
+      hash = "sha256-fFjCINRMmw+W/xPbbnV63GR8Wy1BR1URzRyabv/rfBo=";
+    };
+  };
+  MC-LauncherX-aarch64-linux = {
+    pname = "MC-LauncherX-aarch64-linux";
+    version = "df97d61d-8c10-4dc7-94be-b4e06f747efc/net9.0-linux.linux-arm64";
+    src = fetchurl {
+      url = "https://api.corona.studio/Build/get/df97d61d-8c10-4dc7-94be-b4e06f747efc/net9.0-linux.linux-arm64.zip";
+      hash = "sha256-d5kMXz43Voez2GhQK3poPkXEz8lQqDCzJKw/EZd2o7c=";
+    };
+  };
+  MC-LauncherX-x86_64-darwin = {
+    pname = "MC-LauncherX-x86_64-darwin";
+    version = "1a836690-e3a2-47df-b9be-2f33009909e9/net9.0-osx.osx-x64";
+    src = fetchurl {
+      url = "https://api.corona.studio/Build/get/1a836690-e3a2-47df-b9be-2f33009909e9/net9.0-osx.osx-x64.zip";
+      hash = "sha256-2YmigLDN/6899XIQa6C0dTx6a139K2YQgzWg+TCn+Vw=";
+    };
+  };
+  MC-LauncherX-x86_64-linux = {
+    pname = "MC-LauncherX-x86_64-linux";
+    version = "c4fce558-6332-43f1-8305-dda54857fb71/net9.0-linux.linux-x64";
+    src = fetchurl {
+      url = "https://api.corona.studio/Build/get/c4fce558-6332-43f1-8305-dda54857fb71/net9.0-linux.linux-x64.zip";
+      hash = "sha256-tDtuijJGGLvN3d9VTnwqaE5ZgcgHYa8HRuWwrfLy9qQ=";
+    };
+  };
   OpenFreebuds = {
     pname = "OpenFreebuds";
     version = "2a6a06d0cf72246a177eab0b6c5bfe4bb1d12004";
@@ -2191,15 +2231,15 @@
   };
   PiliPalaX = {
     pname = "PiliPalaX";
-    version = "f9e28d1de90dee4beb495fa8b1c83225c14e85f2";
+    version = "f10aa38bfded2506118c8ff8e8187c8f38bab5f7";
     src = fetchFromGitHub {
       owner = "bggRGjQaUbCoE";
       repo = "PiliPlus";
-      rev = "f9e28d1de90dee4beb495fa8b1c83225c14e85f2";
+      rev = "f10aa38bfded2506118c8ff8e8187c8f38bab5f7";
       fetchSubmodules = true;
-      hash = "sha256-iu/Cgic0nzl2F9iIjplCPt2Wh7KH7Qn7mwynks+BTt4=";
+      hash = "sha256-6Ju5PugDyAwboDejb9aMec+Wcj8ehz92b4ikzcKNQH8=";
     };
-    date = "2025-04-20";
+    date = "2025-04-25";
   };
   SteamTools = {
     pname = "SteamTools";
@@ -2416,15 +2456,15 @@
   };
   open-interpreter = {
     pname = "open-interpreter";
-    version = "21babb186f13e263a72cf525d15d79788edf4644";
+    version = "dcfcffa9af13737bee1fa128364a718b56324998";
     src = fetchFromGitHub {
       owner = "OpenInterpreter";
       repo = "open-interpreter";
-      rev = "21babb186f13e263a72cf525d15d79788edf4644";
+      rev = "dcfcffa9af13737bee1fa128364a718b56324998";
       fetchSubmodules = true;
-      hash = "sha256-5tYaLWSzzG8jvRHgFF7MEjH4Nt97B0j2AS2lCEWxCgY=";
+      hash = "sha256-VxnuiJdG1yXWQ9J1SjtM2Vuyq/nX4LnYjKlss5j37QE=";
     };
-    date = "2024-12-02";
+    date = "2025-04-23";
   };
   rwkv = {
     pname = "rwkv";
@@ -2503,10 +2543,10 @@
   };
   v2ray-rules-dat = {
     pname = "v2ray-rules-dat";
-    version = "202504192212";
+    version = "202504242213";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202504192212/rules.zip";
-      hash = "sha256-0QX4wlD03Bag4L56zmdqhbF3o8LpzucyJF8JguK12wE=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202504242213/rules.zip";
+      hash = "sha256-gcOELpkVs/RN9eilyNFmnA22Pbx9aVZk9COHbPadhDY=";
     };
   };
   wechat-web-devtools-linux_appimage = {

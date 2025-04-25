@@ -2,7 +2,7 @@
 {
   stdenvNoCC,
   unzip,
-  buildFHSUserEnv,
+  buildFHSEnv,
   writeShellScript,
   lib,
   sources,
@@ -46,7 +46,7 @@ let
     };
   };
 in
-buildFHSUserEnv {
+buildFHSEnv {
   name = "snell";
   runScript = writeShellScript "snell-run" ''
     exec ${snell-static}/snell-server "$@"
