@@ -31,7 +31,7 @@ let
     done
   '';
 in
-stdenv.mkDerivation {
+stdenv.mkDerivation rec {
   inherit (sources.pocl) pname version src;
 
   cmakeFlags = [
@@ -61,6 +61,7 @@ stdenv.mkDerivation {
   ];
 
   meta = {
+    changelog = "https://github.com/pocl/pocl/releases/tag/v${version}";
     mainProgram = "poclcc";
     description = "Portable open source (MIT-licensed) implementation of the OpenCL standard";
     homepage = "http://portablecl.org";
@@ -68,6 +69,9 @@ stdenv.mkDerivation {
     maintainers = with lib.maintainers; [
       jansol
       xddxdd
+    ];
+    knownVulnerabilities = [
+      "${pname} is available in nixpkgs"
     ];
     platforms = [ "x86_64-linux" ];
   };

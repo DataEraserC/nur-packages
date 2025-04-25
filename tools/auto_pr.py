@@ -6,6 +6,7 @@ import re
 import shutil
 import subprocess
 import sys
+import textwrap
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Iterable, Optional
@@ -48,6 +49,8 @@ class NvfetcherDefinition:
         src = re.search(r"^\s+src\s+=\s+((.|\n)+?\n\s+\});$", result, re.MULTILINE)[1]
 
         if version.startswith('"v'):
+            version = '"' + version[2:]
+        if version.startswith('"V'):
             version = '"' + version[2:]
 
         date_match = re.search(r"^\s+date\s+=\s+\"(.+)\";$", result, re.MULTILINE)
@@ -104,7 +107,7 @@ def substitute_nvfetcher_references(
         elif match[2] == "version":
             result = ref_value.version
         elif match[2] == "src":
-            result = f"({ref_value.src_with_version_replacement(use_final_attrs)})"
+            result = f"{ref_value.src_with_version_replacement(use_final_attrs)}"
         else:
             result = match[2]
 
@@ -113,17 +116,44 @@ def substitute_nvfetcher_references(
     regex = r"^([^#]+)sources\." + ref_name + r"\.([a-zA-Z0-9]+)([^a-zA-Z0-9]+)"
     result = re.sub(regex, replace_direct_reference, result, flags=re.MULTILINE)
 
-    # Step 3: inject function used to obtain src
-    regex = ref_value.src_func + r","
-    if re.search(regex, result):
-        pass
+    # Step 3: replace direct references to sources.xxx
+    # Do not include pname since only case this will happen is multi source for multiarch packages
+    def replace_direct_reference_entire_obj(match: re.Match[str]) -> str:
+        result = textwrap.dedent(
+            f"""
+                rec {{
+                    version = {ref_value.version};
+                    src = {ref_value.src_with_version_replacement(use_final_attrs)};
+                }}
+            """
+        ).strip()
+        return match[1] + result + match[2]
+
+    regex = r"^([^#]+)sources\." + ref_name + r"(\s+)"
+    result = re.sub(
+        regex, replace_direct_reference_entire_obj, result, flags=re.MULTILINE
+    )
+
+    # Step 4: inject function used to obtain src
+    if re.search(r"^\s*#\s*" + ref_value.src_func + r",", result, re.MULTILINE):
+        print("Uncomment existing placeholder...")
+        result = re.sub(
+            r"^\s*#\s*" + ref_value.src_func + r",",
+            ref_value.src_func + ",",
+            result,
+            1,
+            re.MULTILINE,
+        )
+    elif re.search(ref_value.src_func + r",", result):
+        print(f"{ref_value.src_func} already in args")
     else:
+        print(f"Inserting arg of {ref_value.src_func}")
         result = result.replace("{", "{" + ref_value.src_func + ",", 1)
 
-    # Step 4: remove sources import
+    # Step 5: remove sources import
     result = re.sub(r"\s+sources,\s+", "", result, count=1)
 
-    # Step 5: remove inherit sources
+    # Step 6: remove inherit sources
     result = re.sub(r"inherit\s+sources\s*;", "", result)
 
     return result
@@ -233,9 +263,18 @@ if __name__ == "__main__":
         default="/home/lantian/Projects/nixpkgs-xddxdd",
     )
     parser.add_argument(
-        "--no-git",
-        "-g",
-        help="Do not perform Git operations automatically. Default to on if dest is set",
+        "--no-branch",
+        help="Do not create Git branch automatically",
+        action="store_true",
+    )
+    parser.add_argument(
+        "--no-commit",
+        help="Do not create Git commit automatically. Default to on if dest is set",
+        action="store_true",
+    )
+    parser.add_argument(
+        "--no-push",
+        help="Do not push changes automatically. Default to on if dest is set",
         action="store_true",
     )
     args = parser.parse_args()
@@ -248,7 +287,7 @@ if __name__ == "__main__":
     if not pkg_name:
         raise ValueError("Invalid path")
 
-    if not args.no_git:
+    if not args.no_branch:
         existing_pkg_version = nixpkgs_get_existing_version(args.nixpkgs_path, pkg_name)
         print(f"Existing version is {existing_pkg_version}")
 
@@ -303,9 +342,10 @@ if __name__ == "__main__":
     else:
         version_to = "[UNKNOWN VERSION]"
 
-    if not args.no_git and not custom_target_path:
+    if not args.no_commit and not custom_target_path:
         nixpkgs_create_commit(
             args.nixpkgs_path, f"{pkg_name}: {version_from} {version_to}"
         )
         nixpkgs_test_build(args.nixpkgs_path, pkg_name)
-        nixpkgs_push(args.nixpkgs_path, pkg_name)
+        if not args.no_push:
+            nixpkgs_push(args.nixpkgs_path, pkg_name)

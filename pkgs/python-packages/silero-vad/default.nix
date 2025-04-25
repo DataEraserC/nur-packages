@@ -1,4 +1,5 @@
 {
+  stdenv,
   lib,
   sources,
   buildPythonPackage,
@@ -21,10 +22,11 @@ buildPythonPackage rec {
     torchaudio
   ];
 
-  # onnxruntime may fail to start in sandbox, disable check if onnxruntime does too
-  pythonImportsCheck = lib.optionals onnxruntime.doCheck [ "silero_vad" ];
+  # onnxruntime may fail to start on ARM64
+  pythonImportsCheck = lib.optionals stdenv.isx86_64 [ "silero_vad" ];
 
   meta = {
+    changelog = "https://github.com/snakers4/silero-vad/releases/tag/v${version}";
     maintainers = with lib.maintainers; [ xddxdd ];
     description = "Pre-trained enterprise-grade Voice Activity Detector";
     homepage = "https://github.com/snakers4/silero-vad";
