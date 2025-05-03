@@ -39,7 +39,7 @@ flutter.buildFlutterApplication rec {
   desktopItems = lib.toList (makeDesktopItem {
     name = pname;
     genericName = pname;
-    exec = pname;
+    exec = "ServerBox";
     icon = pname;
     comment = pname;
     desktopName = pname;
