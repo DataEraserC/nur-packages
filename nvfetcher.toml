@@ -1219,3 +1219,13 @@ fetch.url = "https://api.corona.studio/Build/get/$ver.zip"
 [MC-LauncherX-aarch64-darwin]
 src.cmd = "curl -s https://api.corona.studio/Build/get/latest/all/stable | jq -r '.[\"macOS Apple\"].id + \"/\" + .[\"macOS Apple\"].framework + \".\" + .[\"macOS Apple\"].runtime'"
 fetch.url = "https://api.corona.studio/Build/get/$ver.zip"
+
+[flutter_server_box_appimage]
+src.webpage = "https://api.github.com/repos/lollipopkit/flutter_server_box/releases/latest"
+src.regex = "https://github.com/lollipopkit/flutter_server_box/releases/download/(v\\d+.\\d+.\\d+/ServerBox_\\d+_amd64.appimage)"
+fetch.url = "https://github.com/lollipopkit/flutter_server_box/releases/download/$ver"
+
+[flutter_server_box]
+src.git = "https://github.com/Apps-Used-By-Myself/flutter_server_box.git"
+fetch.github = "Apps-Used-By-Myself/flutter_server_box"
+git.fetchSubmodules = true

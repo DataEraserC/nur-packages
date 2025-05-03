@@ -2248,7 +2248,7 @@
   };
   MC-LauncherX-JSON = {
     pname = "MC-LauncherX-JSON";
-    version = "2025-04-24T19:48:26";
+    version = "2025-05-02T01:55:24";
     src = fetchurl {
       url = "https://api.corona.studio/Build/get/latest/all/stable";
       hash = "sha256-7YX21Mb7SOUKymUxwGF4JDoLTVOn5u3ojb69xolEMqo=";
@@ -2256,34 +2256,34 @@
   };
   MC-LauncherX-aarch64-darwin = {
     pname = "MC-LauncherX-aarch64-darwin";
-    version = "056156ca-4097-4aec-a7e4-05b6d1978e67/net9.0-osx.osx-arm64";
+    version = "c38c4b06-00d3-4dc7-b83c-f27afa6da055/net9.0-osx.osx-arm64";
     src = fetchurl {
-      url = "https://api.corona.studio/Build/get/056156ca-4097-4aec-a7e4-05b6d1978e67/net9.0-osx.osx-arm64.zip";
-      hash = "sha256-fFjCINRMmw+W/xPbbnV63GR8Wy1BR1URzRyabv/rfBo=";
+      url = "https://api.corona.studio/Build/get/c38c4b06-00d3-4dc7-b83c-f27afa6da055/net9.0-osx.osx-arm64.zip";
+      hash = "sha256-GjZkiSVJ77ypnjAORp5N1HUfs05GycZGtVwyYsvQ6X8=";
     };
   };
   MC-LauncherX-aarch64-linux = {
     pname = "MC-LauncherX-aarch64-linux";
-    version = "df97d61d-8c10-4dc7-94be-b4e06f747efc/net9.0-linux.linux-arm64";
+    version = "262e2125-4124-4724-840d-2dd4791e4631/net9.0-linux.linux-arm64";
     src = fetchurl {
-      url = "https://api.corona.studio/Build/get/df97d61d-8c10-4dc7-94be-b4e06f747efc/net9.0-linux.linux-arm64.zip";
-      hash = "sha256-d5kMXz43Voez2GhQK3poPkXEz8lQqDCzJKw/EZd2o7c=";
+      url = "https://api.corona.studio/Build/get/262e2125-4124-4724-840d-2dd4791e4631/net9.0-linux.linux-arm64.zip";
+      hash = "sha256-L8dJIDGrSMvAuN4DvvFBnwCpiL0iKYu59CSNStFpOjw=";
     };
   };
   MC-LauncherX-x86_64-darwin = {
     pname = "MC-LauncherX-x86_64-darwin";
-    version = "1a836690-e3a2-47df-b9be-2f33009909e9/net9.0-osx.osx-x64";
+    version = "101f5a91-36a3-4825-a6dc-f3f03ba3dbd6/net9.0-osx.osx-x64";
     src = fetchurl {
-      url = "https://api.corona.studio/Build/get/1a836690-e3a2-47df-b9be-2f33009909e9/net9.0-osx.osx-x64.zip";
-      hash = "sha256-2YmigLDN/6899XIQa6C0dTx6a139K2YQgzWg+TCn+Vw=";
+      url = "https://api.corona.studio/Build/get/101f5a91-36a3-4825-a6dc-f3f03ba3dbd6/net9.0-osx.osx-x64.zip";
+      hash = "sha256-suTIpd4ExPgh/oyI6LlTI3gDJw5ADrxS7aoDxjHYxQs=";
     };
   };
   MC-LauncherX-x86_64-linux = {
     pname = "MC-LauncherX-x86_64-linux";
-    version = "c4fce558-6332-43f1-8305-dda54857fb71/net9.0-linux.linux-x64";
+    version = "11c5c5fc-a6de-444e-b2ef-3481486e360b/net9.0-linux.linux-x64";
     src = fetchurl {
-      url = "https://api.corona.studio/Build/get/c4fce558-6332-43f1-8305-dda54857fb71/net9.0-linux.linux-x64.zip";
-      hash = "sha256-tDtuijJGGLvN3d9VTnwqaE5ZgcgHYa8HRuWwrfLy9qQ=";
+      url = "https://api.corona.studio/Build/get/11c5c5fc-a6de-444e-b2ef-3481486e360b/net9.0-linux.linux-x64.zip";
+      hash = "sha256-aDu583X+Pbk9Gp4b0I5bZE6grY3CKymsq+mo6ZLxT6A=";
     };
   };
   OpenFreebuds = {
@@ -2300,15 +2300,15 @@
   };
   PiliPalaX = {
     pname = "PiliPalaX";
-    version = "f10aa38bfded2506118c8ff8e8187c8f38bab5f7";
+    version = "9b3c3efb09e20c851af88167aee86928bed78e13";
     src = fetchFromGitHub {
       owner = "bggRGjQaUbCoE";
       repo = "PiliPlus";
-      rev = "f10aa38bfded2506118c8ff8e8187c8f38bab5f7";
+      rev = "9b3c3efb09e20c851af88167aee86928bed78e13";
       fetchSubmodules = true;
-      hash = "sha256-6Ju5PugDyAwboDejb9aMec+Wcj8ehz92b4ikzcKNQH8=";
+      hash = "sha256-2/yVF/uaXh1GbeKySJpCeV+LhpS/IwVWsi540GgtoCM=";
     };
-    date = "2025-04-25";
+    date = "2025-05-03";
   };
   SteamTools = {
     pname = "SteamTools";
@@ -2461,10 +2461,30 @@
   };
   escrcpy_appimage = {
     pname = "escrcpy_appimage";
-    version = "1.29.5";
+    version = "1.29.6";
     src = fetchurl {
-      url = "https://github.com/viarotel-org/escrcpy/releases/download/v1.29.5/Escrcpy-1.29.5-linux-x86_64.AppImage";
-      hash = "sha256-wsqrrKn+UUhF5L+vKATokdksZQON6k1ia1zhmvrhUzA=";
+      url = "https://github.com/viarotel-org/escrcpy/releases/download/v1.29.6/Escrcpy-1.29.6-linux-x86_64.AppImage";
+      hash = "sha256-n+kPNb53bZPJlL9ib3HHpW42pfm9VJvceEYpOfH2KKU=";
+    };
+  };
+  flutter_server_box = {
+    pname = "flutter_server_box";
+    version = "8f09085cf30f9b48209c7c3c1e9dceac5aa5eeeb";
+    src = fetchFromGitHub {
+      owner = "Apps-Used-By-Myself";
+      repo = "flutter_server_box";
+      rev = "8f09085cf30f9b48209c7c3c1e9dceac5aa5eeeb";
+      fetchSubmodules = true;
+      hash = "sha256-D2FzL34FV+7FnxyEVi/Rm2qO3c9eQmCjlH/4pMWlU5s=";
+    };
+    date = "2025-04-25";
+  };
+  flutter_server_box_appimage = {
+    pname = "flutter_server_box_appimage";
+    version = "v1.0.1130/ServerBox_1128_amd64.appimage";
+    src = fetchurl {
+      url = "https://github.com/lollipopkit/flutter_server_box/releases/download/v1.0.1130/ServerBox_1128_amd64.appimage";
+      hash = "sha256-Q0no6oCJ1/GOXqrtEuERs1Vv0Q9B65A21RzRyI1S5TU=";
     };
   };
   netfrp-aarch32-linux = {
@@ -2537,10 +2557,10 @@
   };
   rwkv = {
     pname = "rwkv";
-    version = "0.8.28";
+    version = "0.8.29";
     src = fetchurl {
-      url = "https://pypi.org/packages/source/r/rwkv/rwkv-0.8.28.tar.gz";
-      hash = "sha256-Ytq3r+eRwDd7k23NIp/dEDGd5xSsXlFLqNs9I8FClag=";
+      url = "https://pypi.org/packages/source/r/rwkv/rwkv-0.8.29.tar.gz";
+      hash = "sha256-jPeZELioUufEphaSL3JmTI6nPFEAVVdfjmyEJlZ30RE=";
     };
   };
   scrcpy-mask = {
@@ -2612,26 +2632,26 @@
   };
   v2ray-rules-dat = {
     pname = "v2ray-rules-dat";
-    version = "202504242213";
+    version = "202505022213";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202504242213/rules.zip";
-      hash = "sha256-gcOELpkVs/RN9eilyNFmnA22Pbx9aVZk9COHbPadhDY=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202505022213/rules.zip";
+      hash = "sha256-s0uXvtTDxcRxwnmKaMrcP1PKw4RI6YDm4mf5RMgwF78=";
     };
   };
   wechat-web-devtools-linux_appimage = {
     pname = "wechat-web-devtools-linux_appimage";
-    version = "1.06.2412050-2";
+    version = "1.06.2503290-2";
     src = fetchurl {
-      url = "https://github.com/msojocs/wechat-web-devtools-linux/releases/download/v1.06.2412050-2/WeChat_Dev_Tools_v1.06.2412050-2_x86_64_linux.AppImage";
-      hash = "sha256-xoO2au4ROUf+IMbcUfRH6zd6rxSITjT8g2BUCrsEGG8=";
+      url = "https://github.com/msojocs/wechat-web-devtools-linux/releases/download/v1.06.2503290-2/WeChat_Dev_Tools_v1.06.2503290-2_x86_64_linux.AppImage";
+      hash = "sha256-tc77Xkk4IRWy+N55mT6WcAFGyOnXQpFG2HPagoJogTM=";
     };
   };
   wechat-web-devtools-linux_bin = {
     pname = "wechat-web-devtools-linux_bin";
-    version = "1.06.2412050-2";
+    version = "1.06.2503290-2";
     src = fetchurl {
-      url = "https://github.com/msojocs/wechat-web-devtools-linux/releases/download/v1.06.2412050-2/WeChat_Dev_Tools_v1.06.2412050-2_x86_64_linux.tar.gz";
-      hash = "sha256-LaqKLiw0OGWrQmWWZLxLkXqV2RBt6M/+HorOgdAk2Ag=";
+      url = "https://github.com/msojocs/wechat-web-devtools-linux/releases/download/v1.06.2503290-2/WeChat_Dev_Tools_v1.06.2503290-2_x86_64_linux.tar.gz";
+      hash = "sha256-B2j8cXLrqyPXQGFoVYyBUudGP3XTkpUOPMxzUOQtNno=";
     };
   };
 }

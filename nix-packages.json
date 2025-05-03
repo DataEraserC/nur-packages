@@ -17,12 +17,12 @@
   "legacyPackages.x86_64-linux.ChatRWKV": {
     "description": "The RWKV Language Model",
     "pname": "python3.12-rwkv",
-    "version": "0.8.28"
+    "version": "0.8.29"
   },
   "legacyPackages.x86_64-linux.MC-LauncherX": {
     "description": "",
-    "pname": "MC-LauncherX-x86_64-linux-c4fce558",
-    "version": "6332-43f1-8305-dda54857fb71-net9.0-linux.linux-x64"
+    "pname": "MC-LauncherX-x86_64-linux",
+    "version": "11c5c5fc-a6de-444e-b2ef-3481486e360b-net9.0-linux.linux-x64"
   },
   "legacyPackages.x86_64-linux.MIO_KITCHEN_bin": {
     "description": "The Android Rom Tool Use python language",
@@ -32,7 +32,7 @@
   "legacyPackages.x86_64-linux.PiliPalaX": {
     "description": "PiliPalaX",
     "pname": "PiliPalaX",
-    "version": "0-unstable-2025-04-25"
+    "version": "0-unstable-2025-05-03"
   },
   "legacyPackages.x86_64-linux.SakuraFrp": {
     "description": "",
@@ -773,6 +773,16 @@
     "description": "Proxy server to bypass Cloudflare protection, with AlexFozor modifications to support Drission Page",
     "pname": "flaresolverr-alexfozor",
     "version": "0-unstable-2024-08-04"
+  },
+  "legacyPackages.x86_64-linux.flutter_server_box": {
+    "description": "flutter_server_box",
+    "pname": "flutter_server_box",
+    "version": "0-unstable-2025-04-25"
+  },
+  "legacyPackages.x86_64-linux.flutter_server_box_appimage": {
+    "description": "flutter_server_box",
+    "pname": "flutter_server_box_appimage",
+    "version": "1.0.1130-ServerBox_1128_amd64.appimage"
   },
   "legacyPackages.x86_64-linux.fr24feed": {
     "description": "Flightradar24 Decoder & Feeder lets you effortlessly share ADS-B data with Flightradar24",
@@ -4337,12 +4347,12 @@
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.ChatRWKV": {
     "description": "The RWKV Language Model",
     "pname": "python3.12-rwkv",
-    "version": "0.8.28"
+    "version": "0.8.29"
   },
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.MC-LauncherX": {
     "description": "",
-    "pname": "MC-LauncherX-x86_64-linux-c4fce558",
-    "version": "6332-43f1-8305-dda54857fb71-net9.0-linux.linux-x64"
+    "pname": "MC-LauncherX-x86_64-linux",
+    "version": "11c5c5fc-a6de-444e-b2ef-3481486e360b-net9.0-linux.linux-x64"
   },
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.MIO_KITCHEN_bin": {
     "description": "The Android Rom Tool Use python language",
@@ -4352,7 +4362,7 @@
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.PiliPalaX": {
     "description": "PiliPalaX",
     "pname": "PiliPalaX",
-    "version": "0-unstable-2025-04-25"
+    "version": "0-unstable-2025-05-03"
   },
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.SakuraFrp": {
     "description": "",
@@ -4474,6 +4484,16 @@
     "pname": "fhs",
     "version": ""
   },
+  "legacyPackages.x86_64-linux.uncategorized-DataEraserC.flutter_server_box": {
+    "description": "flutter_server_box",
+    "pname": "flutter_server_box",
+    "version": "0-unstable-2025-04-25"
+  },
+  "legacyPackages.x86_64-linux.uncategorized-DataEraserC.flutter_server_box_appimage": {
+    "description": "flutter_server_box",
+    "pname": "flutter_server_box_appimage",
+    "version": "1.0.1130-ServerBox_1128_amd64.appimage"
+  },
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.hkdm": {
     "description": "Lighter-weight hotkey daemon",
     "pname": "hkdm",
@@ -4522,7 +4542,7 @@
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.v2ray-rules-dat": {
     "description": "V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria.",
     "pname": "v2ray-rules-dat",
-    "version": "202504242213"
+    "version": "202505022213"
   },
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.vmware-workstation": {
     "description": "Industry standard desktop hypervisor for x86-64 architecture",
@@ -4552,12 +4572,12 @@
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.wechat_dev_tools_appimage": {
     "description": "The development tools for wechat projects",
     "pname": "wechat-web-devtools-linux_appimage",
-    "version": "1.06.2412050-2"
+    "version": "1.06.2503290-2"
   },
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.wechat_dev_tools_bin": {
     "description": "The development tools for wechat projects",
     "pname": "wechat-web-devtools-linux_bin",
-    "version": "1.06.2412050-2"
+    "version": "1.06.2503290-2"
   },
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.xcursor-genshin-nahida": {
     "description": "xcursor genshin nahida",
@@ -5257,7 +5277,7 @@
   "legacyPackages.x86_64-linux.v2ray-rules-dat": {
     "description": "V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria.",
     "pname": "v2ray-rules-dat",
-    "version": "202504242213"
+    "version": "202505022213"
   },
   "legacyPackages.x86_64-linux.vbmeta-disable-verification": {
     "description": "Patch Android vbmeta image and disable verification flags inside",
@@ -5332,12 +5352,12 @@
   "legacyPackages.x86_64-linux.wechat_dev_tools_appimage": {
     "description": "The development tools for wechat projects",
     "pname": "wechat-web-devtools-linux_appimage",
-    "version": "1.06.2412050-2"
+    "version": "1.06.2503290-2"
   },
   "legacyPackages.x86_64-linux.wechat_dev_tools_bin": {
     "description": "The development tools for wechat projects",
     "pname": "wechat-web-devtools-linux_bin",
-    "version": "1.06.2412050-2"
+    "version": "1.06.2503290-2"
   },
   "legacyPackages.x86_64-linux.wine-wechat": {
     "description": "Wine WeChat x64 (Packaging script adapted from https://aur.archlinux.org/packages/deepin-wine-wechat)",
@@ -5392,12 +5412,12 @@
   "packages.x86_64-linux.ChatRWKV": {
     "description": "The RWKV Language Model",
     "pname": "python3.12-rwkv",
-    "version": "0.8.28"
+    "version": "0.8.29"
   },
   "packages.x86_64-linux.MC-LauncherX": {
     "description": "",
-    "pname": "MC-LauncherX-x86_64-linux-c4fce558",
-    "version": "6332-43f1-8305-dda54857fb71-net9.0-linux.linux-x64"
+    "pname": "MC-LauncherX-x86_64-linux",
+    "version": "11c5c5fc-a6de-444e-b2ef-3481486e360b-net9.0-linux.linux-x64"
   },
   "packages.x86_64-linux.MIO_KITCHEN_bin": {
     "description": "The Android Rom Tool Use python language",
@@ -5407,7 +5427,7 @@
   "packages.x86_64-linux.PiliPalaX": {
     "description": "PiliPalaX",
     "pname": "PiliPalaX",
-    "version": "0-unstable-2025-04-25"
+    "version": "0-unstable-2025-05-03"
   },
   "packages.x86_64-linux.SakuraFrp": {
     "description": "",
@@ -5758,6 +5778,16 @@
     "description": "Proxy server to bypass Cloudflare protection, with AlexFozor modifications to support Drission Page",
     "pname": "flaresolverr-alexfozor",
     "version": "0-unstable-2024-08-04"
+  },
+  "packages.x86_64-linux.flutter_server_box": {
+    "description": "flutter_server_box",
+    "pname": "flutter_server_box",
+    "version": "0-unstable-2025-04-25"
+  },
+  "packages.x86_64-linux.flutter_server_box_appimage": {
+    "description": "flutter_server_box",
+    "pname": "flutter_server_box_appimage",
+    "version": "1.0.1130-ServerBox_1128_amd64.appimage"
   },
   "packages.x86_64-linux.fr24feed": {
     "description": "Flightradar24 Decoder & Feeder lets you effortlessly share ADS-B data with Flightradar24",
@@ -6487,7 +6517,7 @@
   "packages.x86_64-linux.v2ray-rules-dat": {
     "description": "V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria.",
     "pname": "v2ray-rules-dat",
-    "version": "202504242213"
+    "version": "202505022213"
   },
   "packages.x86_64-linux.vbmeta-disable-verification": {
     "description": "Patch Android vbmeta image and disable verification flags inside",
@@ -6562,12 +6592,12 @@
   "packages.x86_64-linux.wechat_dev_tools_appimage": {
     "description": "The development tools for wechat projects",
     "pname": "wechat-web-devtools-linux_appimage",
-    "version": "1.06.2412050-2"
+    "version": "1.06.2503290-2"
   },
   "packages.x86_64-linux.wechat_dev_tools_bin": {
     "description": "The development tools for wechat projects",
     "pname": "wechat-web-devtools-linux_bin",
-    "version": "1.06.2412050-2"
+    "version": "1.06.2503290-2"
   },
   "packages.x86_64-linux.wine-wechat": {
     "description": "Wine WeChat x64 (Packaging script adapted from https://aur.archlinux.org/packages/deepin-wine-wechat)",
