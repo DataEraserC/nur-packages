@@ -27,7 +27,7 @@
     # ptrs for outside nix packages
 
     ZeroBot-Plugin = {
-      url = "github:FloatTech/ZeroBot-Plugin";
+      url = "github:Nobooooody/ZeroBot-Plugin/master";
     };
     LaphaeL-aicmd = {
       url = "github:DataEraserC/LaphaeL-aicmd";
@@ -198,7 +198,7 @@
           let
             ptr = {
               inherit (inputs.LaphaeL-aicmd.packages.${pkgs.system}) laphael_aicmd;
-              # inherit (inputs.ZeroBot-Plugin.packages.${pkgs.system}) ZeroBot-Plugin;
+              inherit (inputs.ZeroBot-Plugin.packages.${pkgs.system}) ZeroBot-Plugin;
               inherit (inputs.android-attestation-keybox-generator.packages.${pkgs.system})
                 android-attestation-keybox-generator
                 ;
