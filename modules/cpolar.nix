@@ -20,11 +20,7 @@
       '';
     };
 
-    package = lib.mkOption {
-      type = lib.types.package;
-      default = null;
-      description = "The cpolar package to use. Must be specified if `services.cpolar.enable` is true. Example: `nur-repo.packages.${pkgs.system}.cpolar`";
-    };
+    package = lib.mkPackageOption pkgs "cpolar" { };
 
     logDir = lib.mkOption {
       type = lib.types.str;

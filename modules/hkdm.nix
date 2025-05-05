@@ -20,11 +20,8 @@
       '';
     };
 
-    package = lib.mkOption {
-      type = lib.types.package;
-      default = null;
-      description = "The package to use for the Hotkey Daemon. Must be specified if `services.hkdm.enable` is true. Example: `nur-repo.packages.${pkgs.system}.hkdm`";
-    };
+    package = lib.mkPackageOption pkgs "hkdm" { };
+
   };
 
   config = lib.mkIf config.services.hkdm.enable {
