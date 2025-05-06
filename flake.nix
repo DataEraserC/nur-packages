@@ -27,7 +27,7 @@
     # ptrs for outside nix packages
 
     ZeroBot-Plugin = {
-      url = "github:Nobooooody/ZeroBot-Plugin/master";
+      url = "github:FloatTech/ZeroBot-Plugin/master";
     };
     LaphaeL-aicmd = {
       url = "github:DataEraserC/LaphaeL-aicmd";
