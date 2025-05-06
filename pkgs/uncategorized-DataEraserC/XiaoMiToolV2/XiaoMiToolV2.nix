@@ -19,6 +19,8 @@
   libXrender ? xorg.libXrender,
   libXxf86vm ? xorg.libXxf86vm,
   libXtst ? xorg.libXtst,
+  android-tools,
+  ...
 }:
 let
   jdk = jdk21_with_openjfx;
@@ -62,13 +64,18 @@ let
 
     installPhase = ''
       mkdir -p $out/{bin,share/XiaoMiToolV2/bin}
+      mkdir -p $out/share/XiaoMiToolV2/lib/res/tools/lin
+      ln -s ${android-tools}/bin/adb $out/share/XiaoMiToolV2/lib/res/tools/lin/adb
+      ln -s ${android-tools}/bin/fastboot $out/share/XiaoMiToolV2/lib/res/tools/lin/fastboot
+      ln -s ${android-tools}/bin/adb $out/share/XiaoMiToolV2/lib/res/tools/adb
+      ln -s ${android-tools}/bin/fastboot $out/share/XiaoMiToolV2/lib/res/tools/fastboot
 
       tar xf build/distributions/XiaomiToolV2-shadow-*.tar --directory=$out/share/XiaoMiToolV2
 
       extracted_dir=$(find $out/share/XiaoMiToolV2 -maxdepth 1 -type d -name "XiaomiToolV2-shadow-*")
 
-      mv $extracted_dir/bin $out/share/XiaoMiToolV2
-      mv $extracted_dir/lib $out/share/XiaoMiToolV2
+      mv $extracted_dir/bin/* $out/share/XiaoMiToolV2/bin
+      mv $extracted_dir/lib/* $out/share/XiaoMiToolV2/lib
       ln -s $out/share/XiaoMiToolV2/lib/XiaomiToolV2-*-all.jar $out/share/XiaoMiToolV2/lib/XiaoMiTool.jar
       rm -rf $extracted_dir
 
