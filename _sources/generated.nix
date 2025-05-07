@@ -2300,27 +2300,27 @@
   };
   PiliPalaX = {
     pname = "PiliPalaX";
-    version = "9b3c3efb09e20c851af88167aee86928bed78e13";
+    version = "286193f08f769700e9d15c372d9dfb819267e52b";
     src = fetchFromGitHub {
       owner = "bggRGjQaUbCoE";
       repo = "PiliPlus";
-      rev = "9b3c3efb09e20c851af88167aee86928bed78e13";
+      rev = "286193f08f769700e9d15c372d9dfb819267e52b";
       fetchSubmodules = true;
-      hash = "sha256-2/yVF/uaXh1GbeKySJpCeV+LhpS/IwVWsi540GgtoCM=";
+      hash = "sha256-xvAFs01o6XXpbIEc8ib7nddp471qAb5pBAaa7gtkMAY=";
     };
-    date = "2025-05-03";
+    date = "2025-05-07";
   };
   SteamTools = {
     pname = "SteamTools";
-    version = "c749fad3be0c52e4aa5d9b583e78650da9b831e0";
+    version = "ece1768b2a9388aeef3474421fe16a7ebcf6880b";
     src = fetchFromGitHub {
       owner = "BeyondDimension";
       repo = "SteamTools";
-      rev = "c749fad3be0c52e4aa5d9b583e78650da9b831e0";
+      rev = "ece1768b2a9388aeef3474421fe16a7ebcf6880b";
       fetchSubmodules = true;
-      hash = "sha256-wSf+rCvOBKcGQbHAZGxKnAllTYd/xt21s9yZwV5Bwyw=";
+      hash = "sha256-IWAHIItRoHNIMp0WWmM6Xjh+K7c9ydb/ZWHxegDOqi8=";
     };
-    date = "2025-03-24";
+    date = "2025-05-06";
   };
   SteamTools-aarch64-linux = {
     pname = "SteamTools-aarch64-linux";
@@ -2487,6 +2487,30 @@
       hash = "sha256-Q0no6oCJ1/GOXqrtEuERs1Vv0Q9B65A21RzRyI1S5TU=";
     };
   };
+  hdrop = {
+    pname = "hdrop";
+    version = "c42d27aa7776cf4d3665390738890cb8597ffc28";
+    src = fetchFromGitHub {
+      owner = "Schweber";
+      repo = "hdrop";
+      rev = "c42d27aa7776cf4d3665390738890cb8597ffc28";
+      fetchSubmodules = true;
+      hash = "sha256-zRZRKzZ5MY9hD5g704OVWDjxpmDHYoFgL87r2m1oDUg=";
+    };
+    date = "2025-04-17";
+  };
+  ndrop = {
+    pname = "ndrop";
+    version = "12c4f87f56cfd03c75db6518228ca5077b44e3c5";
+    src = fetchFromGitHub {
+      owner = "Schweber";
+      repo = "ndrop";
+      rev = "12c4f87f56cfd03c75db6518228ca5077b44e3c5";
+      fetchSubmodules = true;
+      hash = "sha256-/a0W2/c4RW/ZGJ5uhk4r0VRyLI1uOb5ef7Ww+T9Yh+0=";
+    };
+    date = "2025-01-22";
+  };
   netfrp-aarch32-linux = {
     pname = "netfrp-aarch32-linux";
     version = "3.1.6";
@@ -2632,10 +2656,10 @@
   };
   v2ray-rules-dat = {
     pname = "v2ray-rules-dat";
-    version = "202505022213";
+    version = "202505062213";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202505022213/rules.zip";
-      hash = "sha256-s0uXvtTDxcRxwnmKaMrcP1PKw4RI6YDm4mf5RMgwF78=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202505062213/rules.zip";
+      hash = "sha256-vMuC7/5BFxKm5A03jeLc7hkcz0WwTFDehE39zjyo944=";
     };
   };
   wechat-web-devtools-linux_appimage = {

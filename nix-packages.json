@@ -32,7 +32,7 @@
   "legacyPackages.x86_64-linux.PiliPalaX": {
     "description": "PiliPalaX",
     "pname": "PiliPalaX",
-    "version": "0-unstable-2025-05-03"
+    "version": "0-unstable-2025-05-07"
   },
   "legacyPackages.x86_64-linux.SakuraFrp": {
     "description": "",
@@ -53,6 +53,11 @@
     "description": "",
     "pname": "XiaoMiToolV2",
     "version": "0-unstable-2024-12-18"
+  },
+  "legacyPackages.x86_64-linux.ZeroBot-Plugin": {
+    "description": "",
+    "pname": "ZeroBot-Plugin",
+    "version": "1.8.0"
   },
   "legacyPackages.x86_64-linux._meta.howto": {
     "description": "This NUR has a binary cache. Use the following settings to access it:  nix.settings.substituters = [ \"https://dataeraserc.cachix.org\" ]; nix.settings.trusted-public-keys = [ \"dataeraserc.cachix.org-1:t0lYPod3nkn0ijiOzjwT57MmBDeJnxVurvV8ZdPpIHo=\" ];  Or, use variables from this repository in case I change them:  nix.settings.substituters = [ nur.repos.xddxdd._meta.url ]; nix.settings.trusted-public-keys = [ nur.repos.xddxdd._meta.publicKey ]; ",
@@ -834,6 +839,11 @@
     "pname": "hath",
     "version": "1.6.2"
   },
+  "legacyPackages.x86_64-linux.hdrop": {
+    "description": "Emulate 'tdrop' in Hyprland (run, show and hide specific programs per keybind)",
+    "pname": "hdrop",
+    "version": "0-unstable-2025-04-17"
+  },
   "legacyPackages.x86_64-linux.helium-gateway-rs": {
     "description": "Helium Gateway",
     "pname": "helium-gateway-rs",
@@ -1493,6 +1503,11 @@
     "description": "NetEase Cloud Music copyright protection file dump by rust",
     "pname": "ncmdump-rs",
     "version": "0.8.0"
+  },
+  "legacyPackages.x86_64-linux.ndrop": {
+    "description": "Emulate 'tdrop' in Hyprland (run, show and hide specific programs per keybind)",
+    "pname": "ndrop",
+    "version": "0-unstable-2025-01-22"
   },
   "legacyPackages.x86_64-linux.netboot-xyz": {
     "description": "Your favorite operating systems in one place. A network-based bootable operating system installer based on iPXE",
@@ -4362,7 +4377,7 @@
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.PiliPalaX": {
     "description": "PiliPalaX",
     "pname": "PiliPalaX",
-    "version": "0-unstable-2025-05-03"
+    "version": "0-unstable-2025-05-07"
   },
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.SakuraFrp": {
     "description": "",
@@ -4494,6 +4509,11 @@
     "pname": "flutter_server_box_appimage",
     "version": "1.0.1130-ServerBox_1128_amd64.appimage"
   },
+  "legacyPackages.x86_64-linux.uncategorized-DataEraserC.hdrop": {
+    "description": "Emulate 'tdrop' in Hyprland (run, show and hide specific programs per keybind)",
+    "pname": "hdrop",
+    "version": "0-unstable-2025-04-17"
+  },
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.hkdm": {
     "description": "Lighter-weight hotkey daemon",
     "pname": "hkdm",
@@ -4503,6 +4523,11 @@
     "description": "",
     "pname": "qq-qq=3.2.17+llqqnt_rev=0-unstable",
     "version": "2025-02-19"
+  },
+  "legacyPackages.x86_64-linux.uncategorized-DataEraserC.ndrop": {
+    "description": "Emulate 'tdrop' in Hyprland (run, show and hide specific programs per keybind)",
+    "pname": "ndrop",
+    "version": "0-unstable-2025-01-22"
   },
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.open-interpreter": {
     "description": "A natural language interface for computers",
@@ -4542,7 +4567,7 @@
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.v2ray-rules-dat": {
     "description": "V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria.",
     "pname": "v2ray-rules-dat",
-    "version": "202505022213"
+    "version": "202505062213"
   },
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.vmware-workstation": {
     "description": "Industry standard desktop hypervisor for x86-64 architecture",
@@ -4552,7 +4577,7 @@
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.watt-toolkit": {
     "description": "an open source cross-platform multi-purpose game toolkit",
     "pname": "SteamTools",
-    "version": "0-unstable-2025-03-24"
+    "version": "0-unstable-2025-05-06"
   },
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.watt-toolkit_2": {
     "description": "Cross-platform Steam toolbox",
@@ -5277,7 +5302,7 @@
   "legacyPackages.x86_64-linux.v2ray-rules-dat": {
     "description": "V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria.",
     "pname": "v2ray-rules-dat",
-    "version": "202505022213"
+    "version": "202505062213"
   },
   "legacyPackages.x86_64-linux.vbmeta-disable-verification": {
     "description": "Patch Android vbmeta image and disable verification flags inside",
@@ -5312,7 +5337,7 @@
   "legacyPackages.x86_64-linux.watt-toolkit": {
     "description": "an open source cross-platform multi-purpose game toolkit",
     "pname": "SteamTools",
-    "version": "0-unstable-2025-03-24"
+    "version": "0-unstable-2025-05-06"
   },
   "legacyPackages.x86_64-linux.watt-toolkit_2": {
     "description": "Cross-platform Steam toolbox",
@@ -5427,7 +5452,7 @@
   "packages.x86_64-linux.PiliPalaX": {
     "description": "PiliPalaX",
     "pname": "PiliPalaX",
-    "version": "0-unstable-2025-05-03"
+    "version": "0-unstable-2025-05-07"
   },
   "packages.x86_64-linux.SakuraFrp": {
     "description": "",
@@ -5448,6 +5473,11 @@
     "description": "",
     "pname": "XiaoMiToolV2",
     "version": "0-unstable-2024-12-18"
+  },
+  "packages.x86_64-linux.ZeroBot-Plugin": {
+    "description": "",
+    "pname": "ZeroBot-Plugin",
+    "version": "1.8.0"
   },
   "packages.x86_64-linux._meta": {
     "description": "",
@@ -5839,6 +5869,11 @@
     "pname": "hath",
     "version": "1.6.2"
   },
+  "packages.x86_64-linux.hdrop": {
+    "description": "Emulate 'tdrop' in Hyprland (run, show and hide specific programs per keybind)",
+    "pname": "hdrop",
+    "version": "0-unstable-2025-04-17"
+  },
   "packages.x86_64-linux.helium-gateway-rs": {
     "description": "Helium Gateway",
     "pname": "helium-gateway-rs",
@@ -6043,6 +6078,11 @@
     "description": "NetEase Cloud Music copyright protection file dump by rust",
     "pname": "ncmdump-rs",
     "version": "0.8.0"
+  },
+  "packages.x86_64-linux.ndrop": {
+    "description": "Emulate 'tdrop' in Hyprland (run, show and hide specific programs per keybind)",
+    "pname": "ndrop",
+    "version": "0-unstable-2025-01-22"
   },
   "packages.x86_64-linux.netboot-xyz": {
     "description": "Your favorite operating systems in one place. A network-based bootable operating system installer based on iPXE",
@@ -6517,7 +6557,7 @@
   "packages.x86_64-linux.v2ray-rules-dat": {
     "description": "V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria.",
     "pname": "v2ray-rules-dat",
-    "version": "202505022213"
+    "version": "202505062213"
   },
   "packages.x86_64-linux.vbmeta-disable-verification": {
     "description": "Patch Android vbmeta image and disable verification flags inside",
@@ -6552,7 +6592,7 @@
   "packages.x86_64-linux.watt-toolkit": {
     "description": "an open source cross-platform multi-purpose game toolkit",
     "pname": "SteamTools",
-    "version": "0-unstable-2025-03-24"
+    "version": "0-unstable-2025-05-06"
   },
   "packages.x86_64-linux.watt-toolkit_2": {
     "description": "Cross-platform Steam toolbox",

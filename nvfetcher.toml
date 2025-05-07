@@ -1228,3 +1228,13 @@ fetch.url = "https://github.com/lollipopkit/flutter_server_box/releases/download
 src.git = "https://github.com/Apps-Used-By-Myself/flutter_server_box.git"
 fetch.github = "Apps-Used-By-Myself/flutter_server_box"
 git.fetchSubmodules = true
+
+[ndrop]
+src.git = "https://github.com/Schweber/ndrop.git"
+fetch.github = "Schweber/ndrop"
+git.fetchSubmodules = true
+
+[hdrop]
+src.git = "https://github.com/Schweber/hdrop.git"
+fetch.github = "Schweber/hdrop"
+git.fetchSubmodules = true
