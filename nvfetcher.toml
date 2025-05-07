@@ -1230,8 +1230,8 @@ fetch.github = "Apps-Used-By-Myself/flutter_server_box"
 git.fetchSubmodules = true
 
 [ndrop]
-src.git = "https://github.com/Schweber/ndrop.git"
-fetch.github = "Schweber/ndrop"
+src.git = "https://github.com/Apps-Used-By-Myself/ndrop.git"
+fetch.github = "Apps-Used-By-Myself/ndrop"
 git.fetchSubmodules = true
 
 [hdrop]

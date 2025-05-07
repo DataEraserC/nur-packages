@@ -1507,7 +1507,7 @@
   "legacyPackages.x86_64-linux.ndrop": {
     "description": "Emulate 'tdrop' in Hyprland (run, show and hide specific programs per keybind)",
     "pname": "ndrop",
-    "version": "0-unstable-2025-01-22"
+    "version": "0-unstable-2025-05-07"
   },
   "legacyPackages.x86_64-linux.netboot-xyz": {
     "description": "Your favorite operating systems in one place. A network-based bootable operating system installer based on iPXE",
@@ -4527,7 +4527,7 @@
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.ndrop": {
     "description": "Emulate 'tdrop' in Hyprland (run, show and hide specific programs per keybind)",
     "pname": "ndrop",
-    "version": "0-unstable-2025-01-22"
+    "version": "0-unstable-2025-05-07"
   },
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.open-interpreter": {
     "description": "A natural language interface for computers",
@@ -6082,7 +6082,7 @@
   "packages.x86_64-linux.ndrop": {
     "description": "Emulate 'tdrop' in Hyprland (run, show and hide specific programs per keybind)",
     "pname": "ndrop",
-    "version": "0-unstable-2025-01-22"
+    "version": "0-unstable-2025-05-07"
   },
   "packages.x86_64-linux.netboot-xyz": {
     "description": "Your favorite operating systems in one place. A network-based bootable operating system installer based on iPXE",

@@ -2300,13 +2300,13 @@
   };
   PiliPalaX = {
     pname = "PiliPalaX";
-    version = "286193f08f769700e9d15c372d9dfb819267e52b";
+    version = "11a0f2faca85de3e320fc17e17359af2add50a2f";
     src = fetchFromGitHub {
       owner = "bggRGjQaUbCoE";
       repo = "PiliPlus";
-      rev = "286193f08f769700e9d15c372d9dfb819267e52b";
+      rev = "11a0f2faca85de3e320fc17e17359af2add50a2f";
       fetchSubmodules = true;
-      hash = "sha256-xvAFs01o6XXpbIEc8ib7nddp471qAb5pBAaa7gtkMAY=";
+      hash = "sha256-4A2GzK8MgaBH4ZTlA6L8QS7RVBRlxW4eP/nSscVuZ2o=";
     };
     date = "2025-05-07";
   };
@@ -2501,15 +2501,15 @@
   };
   ndrop = {
     pname = "ndrop";
-    version = "12c4f87f56cfd03c75db6518228ca5077b44e3c5";
+    version = "44c09048fa66a460a78447cf389f510b45adbfe2";
     src = fetchFromGitHub {
-      owner = "Schweber";
+      owner = "Apps-Used-By-Myself";
       repo = "ndrop";
-      rev = "12c4f87f56cfd03c75db6518228ca5077b44e3c5";
+      rev = "44c09048fa66a460a78447cf389f510b45adbfe2";
       fetchSubmodules = true;
-      hash = "sha256-/a0W2/c4RW/ZGJ5uhk4r0VRyLI1uOb5ef7Ww+T9Yh+0=";
+      hash = "sha256-vmE53wqP1a8PLnt4JclZhw5HuY77MajTxJc4Yg85bBI=";
     };
-    date = "2025-01-22";
+    date = "2025-05-07";
   };
   netfrp-aarch32-linux = {
     pname = "netfrp-aarch32-linux";
