@@ -41,7 +41,7 @@ stdenvNoCC.mkDerivation {
   '';
 
   meta = with lib; {
-    description = "Emulate 'tdrop' in Hyprland (run, show and hide specific programs per keybind)";
+    description = "Emulate 'tdrop' in niri (run, show and hide programs via keybind - similar to a dropdown terminal)";
     homepage = "https://github.com/Schweber/ndrop";
     changelog = "https://github.com/Schweber/ndrop/releases/tag/v${version}";
     license = licenses.agpl3Only;
