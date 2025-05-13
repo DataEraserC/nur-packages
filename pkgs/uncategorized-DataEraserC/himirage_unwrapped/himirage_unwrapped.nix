@@ -150,7 +150,7 @@ stdenv.mkDerivation {
 
     cat << EOF > "$out/bin/himirage"
     #!${runtimeShell}
-    $out/lib/himirage/himirage $@
+    $out/lib/himirage/himirage \$@
     EOF
 
     chmod +x $out/bin/himirage
