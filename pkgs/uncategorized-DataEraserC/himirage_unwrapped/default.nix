@@ -1,9 +1,8 @@
 {
   libsForQt5,
+  sources,
   ...
-}@input:
-libsForQt5.callPackage ./himirage_unwrapped.nix (
-  {
-  }
-  // input
-)
+}:
+libsForQt5.callPackage ./himirage_unwrapped.nix {
+  inherit sources;
+}

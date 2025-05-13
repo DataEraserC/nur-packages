@@ -23,6 +23,8 @@
   autoPatchelfHook,
   wrapQtAppsHook,
 
+  runtimeShell,
+
   libsForQt5,
 
   # Qt modules
@@ -145,7 +147,14 @@ stdenv.mkDerivation {
 
     # Create bin directory and symlinks
     mkdir -p $out/bin
-    ln -s $out/lib/himirage/himirage $out/bin/himirage
+
+    cat << EOF > "$out/bin/himirage"
+    #!${runtimeShell}
+    $out/lib/himirage/himirage $@
+    EOF
+
+    chmod +x $out/bin/himirage
+
     ln -s $out/lib/himirage/himirage.sh $out/bin/himirage.sh
 
     # Update desktop entry
@@ -155,9 +164,6 @@ stdenv.mkDerivation {
     rm -rf $out/lib/himirage/plugins/wayland-graphics-integration-client
     ln -s ${qtwayland}/lib/qt-*/plugins/* $out/lib/himirage/plugins/
 
-     # Wrap executable to load nix Qt libraries
-    wrapProgram $out/lib/himirage/himirage
-
     runHook postInstall
   '';
 
@@ -165,7 +171,7 @@ stdenv.mkDerivation {
     homepage = "https://photosir.com";
     mainProgram = "himirage.sh";
     platforms = SupportedPlatforms;
-    broken = true;
-    license = lib.licenses.unfree;
+    # broken = true;
+    # license = lib.licenses.unfree;
   };
 }
