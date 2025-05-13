@@ -4392,7 +4392,7 @@
             "type": "url",
             "url": "https://api.corona.studio/Build/get/latest/all/stable"
         },
-        "version": "2025-05-02T01:55:24"
+        "version": "2025-05-09T20:44:05"
     },
     "MC-LauncherX-aarch64-darwin": {
         "cargoLocks": null,
@@ -4403,11 +4403,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-GjZkiSVJ77ypnjAORp5N1HUfs05GycZGtVwyYsvQ6X8=",
+            "sha256": "sha256-YUAMq0J1azNlhFV1RIP74OiTkgd2ZVWUWEj2tmNacUU=",
             "type": "url",
-            "url": "https://api.corona.studio/Build/get/c38c4b06-00d3-4dc7-b83c-f27afa6da055/net9.0-osx.osx-arm64.zip"
+            "url": "https://api.corona.studio/Build/get/a6ea9000-4c57-4cc1-8591-9a360424f2ca/net9.0-osx.osx-arm64.zip"
         },
-        "version": "c38c4b06-00d3-4dc7-b83c-f27afa6da055/net9.0-osx.osx-arm64"
+        "version": "a6ea9000-4c57-4cc1-8591-9a360424f2ca/net9.0-osx.osx-arm64"
     },
     "MC-LauncherX-aarch64-linux": {
         "cargoLocks": null,
@@ -4418,11 +4418,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-L8dJIDGrSMvAuN4DvvFBnwCpiL0iKYu59CSNStFpOjw=",
+            "sha256": "sha256-G3uderUKuXaMkV1AlfZS4t0mpjC++23PoIsfQvvYwTU=",
             "type": "url",
-            "url": "https://api.corona.studio/Build/get/262e2125-4124-4724-840d-2dd4791e4631/net9.0-linux.linux-arm64.zip"
+            "url": "https://api.corona.studio/Build/get/850e0803-5c0f-4586-a67e-0ae6fcc98a08/net9.0-linux.linux-arm64.zip"
         },
-        "version": "262e2125-4124-4724-840d-2dd4791e4631/net9.0-linux.linux-arm64"
+        "version": "850e0803-5c0f-4586-a67e-0ae6fcc98a08/net9.0-linux.linux-arm64"
     },
     "MC-LauncherX-x86_64-darwin": {
         "cargoLocks": null,
@@ -4433,11 +4433,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-suTIpd4ExPgh/oyI6LlTI3gDJw5ADrxS7aoDxjHYxQs=",
+            "sha256": "sha256-hISH73Nlr3sQ6yZfrlYAbnVh4Mb7XIZZQcrPN+VEqYQ=",
             "type": "url",
-            "url": "https://api.corona.studio/Build/get/101f5a91-36a3-4825-a6dc-f3f03ba3dbd6/net9.0-osx.osx-x64.zip"
+            "url": "https://api.corona.studio/Build/get/9536ed4b-8a13-48d5-898f-439374fc85fc/net9.0-osx.osx-x64.zip"
         },
-        "version": "101f5a91-36a3-4825-a6dc-f3f03ba3dbd6/net9.0-osx.osx-x64"
+        "version": "9536ed4b-8a13-48d5-898f-439374fc85fc/net9.0-osx.osx-x64"
     },
     "MC-LauncherX-x86_64-linux": {
         "cargoLocks": null,
@@ -4448,11 +4448,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-aDu583X+Pbk9Gp4b0I5bZE6grY3CKymsq+mo6ZLxT6A=",
+            "sha256": "sha256-YUuYerlT9A4I0V+gDwL2TRX8RjmP7DY8l0urxKvfh5Y=",
             "type": "url",
-            "url": "https://api.corona.studio/Build/get/11c5c5fc-a6de-444e-b2ef-3481486e360b/net9.0-linux.linux-x64.zip"
+            "url": "https://api.corona.studio/Build/get/8cddf076-36d6-41f7-9cfa-bcd430e41ac6/net9.0-linux.linux-x64.zip"
         },
-        "version": "11c5c5fc-a6de-444e-b2ef-3481486e360b/net9.0-linux.linux-x64"
+        "version": "8cddf076-36d6-41f7-9cfa-bcd430e41ac6/net9.0-linux.linux-x64"
     },
     "OpenFreebuds": {
         "cargoLocks": null,
@@ -4477,7 +4477,7 @@
     },
     "PiliPalaX": {
         "cargoLocks": null,
-        "date": "2025-05-07",
+        "date": "2025-05-12",
         "extract": null,
         "name": "PiliPalaX",
         "passthru": null,
@@ -4489,12 +4489,12 @@
             "name": null,
             "owner": "bggRGjQaUbCoE",
             "repo": "PiliPlus",
-            "rev": "11a0f2faca85de3e320fc17e17359af2add50a2f",
-            "sha256": "sha256-4A2GzK8MgaBH4ZTlA6L8QS7RVBRlxW4eP/nSscVuZ2o=",
+            "rev": "9a97a5d110b381044fcaed72c957929e35b92efa",
+            "sha256": "sha256-a9/L9MAF2+6PBcq7vI7ThF5U8GmXkBT93Def0ibnyLc=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "11a0f2faca85de3e320fc17e17359af2add50a2f"
+        "version": "9a97a5d110b381044fcaed72c957929e35b92efa"
     },
     "SteamTools": {
         "cargoLocks": null,
@@ -4989,6 +4989,111 @@
         },
         "version": "dcfcffa9af13737bee1fa128364a718b56324998"
     },
+    "himirage-JSON": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "himirage-JSON",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-rSkIvo6nYiSaobTWvXXtOFpogW/aN4WewPE4NM5eciA=",
+            "type": "url",
+            "url": "https://album.photosir.cn/upgradePackage/infoall/photosir"
+        },
+        "version": "2025-05-12 23:57:55"
+    },
+    "himirage-aarch64-darwin": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "himirage-aarch64-darwin",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-s/PtvE+sYO3jwr1SY6etHkfDaT7J7bWmeuExKq7F3NM=",
+            "type": "url",
+            "url": "https://cdn.photosir.cn/package/Mac/himirage_50317.dmg"
+        },
+        "version": "https://cdn.photosir.cn/package/Mac/himirage_50317.dmg"
+    },
+    "himirage-aarch64-linux": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "himirage-aarch64-linux",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-JHiDo2WUPtkWcjX7S0ti4N8zJO5KDQitOxV8wby/HQk=",
+            "type": "url",
+            "url": "https://cdn.photosir.cn/package/Ky/40407/himirage_2.0.3.40408_arm64.deb"
+        },
+        "version": "https://cdn.photosir.cn/package/Ky/40407/himirage_2.0.3.40408_arm64.deb"
+    },
+    "himirage-loongarch64-linux": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "himirage-loongarch64-linux",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-cGy+0guLA7pDbtp5UcLWbbgIlXU6vxq0S8ZlFwK8fLE=",
+            "type": "url",
+            "url": "https://cdn.photosir.cn/package/Ky/40407/himirage_2.0.8.40408_loongarch64.deb"
+        },
+        "version": "https://cdn.photosir.cn/package/Ky/40407/himirage_2.0.8.40408_loongarch64.deb"
+    },
+    "himirage-mips-linux": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "himirage-mips-linux",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-YHl6zEj48N3xbiXvOj2Vbu+6n9PEV07eVqH/n0MjQ2s=",
+            "type": "url",
+            "url": "https://cdn.photosir.com/package/prod/new/himirage_1.5.2.20210_mips64.deb"
+        },
+        "version": "https://cdn.photosir.com/package/prod/new/himirage_1.5.2.20210_mips64.deb"
+    },
+    "himirage-x86_64-darwin": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "himirage-x86_64-darwin",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-s/PtvE+sYO3jwr1SY6etHkfDaT7J7bWmeuExKq7F3NM=",
+            "type": "url",
+            "url": "https://cdn.photosir.cn/package/Mac/himirage_50317.dmg"
+        },
+        "version": "https://cdn.photosir.cn/package/Mac/himirage_50317.dmg"
+    },
+    "himirage-x86_64-linux": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "himirage-x86_64-linux",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-kSP7G82Nle2Sabgbj4WqSBk0OCjTR33L78x+AlrRyg4=",
+            "type": "url",
+            "url": "https://cdn.photosir.cn/package/Ky/40407/himirage_2.0.1.40407_amd64.deb"
+        },
+        "version": "https://cdn.photosir.cn/package/Ky/40407/himirage_2.0.1.40407_amd64.deb"
+    },
     "rwkv": {
         "cargoLocks": null,
         "date": null,
@@ -5135,11 +5240,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-vMuC7/5BFxKm5A03jeLc7hkcz0WwTFDehE39zjyo944=",
+            "sha256": "sha256-cNv6l2JO2AQ32qhyEw5MOJ6aiiAuLrCws6WXu1M8Vcs=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202505062213/rules.zip"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202505112212/rules.zip"
         },
-        "version": "202505062213"
+        "version": "202505112212"
     },
     "wechat-web-devtools-linux_appimage": {
         "cargoLocks": null,

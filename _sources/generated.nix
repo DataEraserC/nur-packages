@@ -2248,7 +2248,7 @@
   };
   MC-LauncherX-JSON = {
     pname = "MC-LauncherX-JSON";
-    version = "2025-05-02T01:55:24";
+    version = "2025-05-09T20:44:05";
     src = fetchurl {
       url = "https://api.corona.studio/Build/get/latest/all/stable";
       hash = "sha256-7YX21Mb7SOUKymUxwGF4JDoLTVOn5u3ojb69xolEMqo=";
@@ -2256,34 +2256,34 @@
   };
   MC-LauncherX-aarch64-darwin = {
     pname = "MC-LauncherX-aarch64-darwin";
-    version = "c38c4b06-00d3-4dc7-b83c-f27afa6da055/net9.0-osx.osx-arm64";
+    version = "a6ea9000-4c57-4cc1-8591-9a360424f2ca/net9.0-osx.osx-arm64";
     src = fetchurl {
-      url = "https://api.corona.studio/Build/get/c38c4b06-00d3-4dc7-b83c-f27afa6da055/net9.0-osx.osx-arm64.zip";
-      hash = "sha256-GjZkiSVJ77ypnjAORp5N1HUfs05GycZGtVwyYsvQ6X8=";
+      url = "https://api.corona.studio/Build/get/a6ea9000-4c57-4cc1-8591-9a360424f2ca/net9.0-osx.osx-arm64.zip";
+      hash = "sha256-YUAMq0J1azNlhFV1RIP74OiTkgd2ZVWUWEj2tmNacUU=";
     };
   };
   MC-LauncherX-aarch64-linux = {
     pname = "MC-LauncherX-aarch64-linux";
-    version = "262e2125-4124-4724-840d-2dd4791e4631/net9.0-linux.linux-arm64";
+    version = "850e0803-5c0f-4586-a67e-0ae6fcc98a08/net9.0-linux.linux-arm64";
     src = fetchurl {
-      url = "https://api.corona.studio/Build/get/262e2125-4124-4724-840d-2dd4791e4631/net9.0-linux.linux-arm64.zip";
-      hash = "sha256-L8dJIDGrSMvAuN4DvvFBnwCpiL0iKYu59CSNStFpOjw=";
+      url = "https://api.corona.studio/Build/get/850e0803-5c0f-4586-a67e-0ae6fcc98a08/net9.0-linux.linux-arm64.zip";
+      hash = "sha256-G3uderUKuXaMkV1AlfZS4t0mpjC++23PoIsfQvvYwTU=";
     };
   };
   MC-LauncherX-x86_64-darwin = {
     pname = "MC-LauncherX-x86_64-darwin";
-    version = "101f5a91-36a3-4825-a6dc-f3f03ba3dbd6/net9.0-osx.osx-x64";
+    version = "9536ed4b-8a13-48d5-898f-439374fc85fc/net9.0-osx.osx-x64";
     src = fetchurl {
-      url = "https://api.corona.studio/Build/get/101f5a91-36a3-4825-a6dc-f3f03ba3dbd6/net9.0-osx.osx-x64.zip";
-      hash = "sha256-suTIpd4ExPgh/oyI6LlTI3gDJw5ADrxS7aoDxjHYxQs=";
+      url = "https://api.corona.studio/Build/get/9536ed4b-8a13-48d5-898f-439374fc85fc/net9.0-osx.osx-x64.zip";
+      hash = "sha256-hISH73Nlr3sQ6yZfrlYAbnVh4Mb7XIZZQcrPN+VEqYQ=";
     };
   };
   MC-LauncherX-x86_64-linux = {
     pname = "MC-LauncherX-x86_64-linux";
-    version = "11c5c5fc-a6de-444e-b2ef-3481486e360b/net9.0-linux.linux-x64";
+    version = "8cddf076-36d6-41f7-9cfa-bcd430e41ac6/net9.0-linux.linux-x64";
     src = fetchurl {
-      url = "https://api.corona.studio/Build/get/11c5c5fc-a6de-444e-b2ef-3481486e360b/net9.0-linux.linux-x64.zip";
-      hash = "sha256-aDu583X+Pbk9Gp4b0I5bZE6grY3CKymsq+mo6ZLxT6A=";
+      url = "https://api.corona.studio/Build/get/8cddf076-36d6-41f7-9cfa-bcd430e41ac6/net9.0-linux.linux-x64.zip";
+      hash = "sha256-YUuYerlT9A4I0V+gDwL2TRX8RjmP7DY8l0urxKvfh5Y=";
     };
   };
   OpenFreebuds = {
@@ -2300,15 +2300,15 @@
   };
   PiliPalaX = {
     pname = "PiliPalaX";
-    version = "11a0f2faca85de3e320fc17e17359af2add50a2f";
+    version = "9a97a5d110b381044fcaed72c957929e35b92efa";
     src = fetchFromGitHub {
       owner = "bggRGjQaUbCoE";
       repo = "PiliPlus";
-      rev = "11a0f2faca85de3e320fc17e17359af2add50a2f";
+      rev = "9a97a5d110b381044fcaed72c957929e35b92efa";
       fetchSubmodules = true;
-      hash = "sha256-4A2GzK8MgaBH4ZTlA6L8QS7RVBRlxW4eP/nSscVuZ2o=";
+      hash = "sha256-a9/L9MAF2+6PBcq7vI7ThF5U8GmXkBT93Def0ibnyLc=";
     };
-    date = "2025-05-07";
+    date = "2025-05-12";
   };
   SteamTools = {
     pname = "SteamTools";
@@ -2579,6 +2579,62 @@
     };
     date = "2025-04-23";
   };
+  himirage-JSON = {
+    pname = "himirage-JSON";
+    version = "2025-05-12 23:57:55";
+    src = fetchurl {
+      url = "https://album.photosir.cn/upgradePackage/infoall/photosir";
+      hash = "sha256-rSkIvo6nYiSaobTWvXXtOFpogW/aN4WewPE4NM5eciA=";
+    };
+  };
+  himirage-aarch64-darwin = {
+    pname = "himirage-aarch64-darwin";
+    version = "https://cdn.photosir.cn/package/Mac/himirage_50317.dmg";
+    src = fetchurl {
+      url = "https://cdn.photosir.cn/package/Mac/himirage_50317.dmg";
+      hash = "sha256-s/PtvE+sYO3jwr1SY6etHkfDaT7J7bWmeuExKq7F3NM=";
+    };
+  };
+  himirage-aarch64-linux = {
+    pname = "himirage-aarch64-linux";
+    version = "https://cdn.photosir.cn/package/Ky/40407/himirage_2.0.3.40408_arm64.deb";
+    src = fetchurl {
+      url = "https://cdn.photosir.cn/package/Ky/40407/himirage_2.0.3.40408_arm64.deb";
+      hash = "sha256-JHiDo2WUPtkWcjX7S0ti4N8zJO5KDQitOxV8wby/HQk=";
+    };
+  };
+  himirage-loongarch64-linux = {
+    pname = "himirage-loongarch64-linux";
+    version = "https://cdn.photosir.cn/package/Ky/40407/himirage_2.0.8.40408_loongarch64.deb";
+    src = fetchurl {
+      url = "https://cdn.photosir.cn/package/Ky/40407/himirage_2.0.8.40408_loongarch64.deb";
+      hash = "sha256-cGy+0guLA7pDbtp5UcLWbbgIlXU6vxq0S8ZlFwK8fLE=";
+    };
+  };
+  himirage-mips-linux = {
+    pname = "himirage-mips-linux";
+    version = "https://cdn.photosir.com/package/prod/new/himirage_1.5.2.20210_mips64.deb";
+    src = fetchurl {
+      url = "https://cdn.photosir.com/package/prod/new/himirage_1.5.2.20210_mips64.deb";
+      hash = "sha256-YHl6zEj48N3xbiXvOj2Vbu+6n9PEV07eVqH/n0MjQ2s=";
+    };
+  };
+  himirage-x86_64-darwin = {
+    pname = "himirage-x86_64-darwin";
+    version = "https://cdn.photosir.cn/package/Mac/himirage_50317.dmg";
+    src = fetchurl {
+      url = "https://cdn.photosir.cn/package/Mac/himirage_50317.dmg";
+      hash = "sha256-s/PtvE+sYO3jwr1SY6etHkfDaT7J7bWmeuExKq7F3NM=";
+    };
+  };
+  himirage-x86_64-linux = {
+    pname = "himirage-x86_64-linux";
+    version = "https://cdn.photosir.cn/package/Ky/40407/himirage_2.0.1.40407_amd64.deb";
+    src = fetchurl {
+      url = "https://cdn.photosir.cn/package/Ky/40407/himirage_2.0.1.40407_amd64.deb";
+      hash = "sha256-kSP7G82Nle2Sabgbj4WqSBk0OCjTR33L78x+AlrRyg4=";
+    };
+  };
   rwkv = {
     pname = "rwkv";
     version = "0.8.29";
@@ -2656,10 +2712,10 @@
   };
   v2ray-rules-dat = {
     pname = "v2ray-rules-dat";
-    version = "202505062213";
+    version = "202505112212";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202505062213/rules.zip";
-      hash = "sha256-vMuC7/5BFxKm5A03jeLc7hkcz0WwTFDehE39zjyo944=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202505112212/rules.zip";
+      hash = "sha256-cNv6l2JO2AQ32qhyEw5MOJ6aiiAuLrCws6WXu1M8Vcs=";
     };
   };
   wechat-web-devtools-linux_appimage = {

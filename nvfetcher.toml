@@ -998,6 +998,9 @@ fetch.github = "RHSResearchLLC/xvcd"
 src.git = "https://github.com/tokers/zstd-nginx-module.git"
 fetch.github = "tokers/zstd-nginx-module"
 
+
+# My additions
+
 [buffybox]
 src.git = "https://gitlab.com/postmarketOS/buffybox.git"
 fetch.git = "https://gitlab.com/postmarketOS/buffybox.git"
@@ -1238,3 +1241,86 @@ git.fetchSubmodules = true
 src.git = "https://github.com/Schweber/hdrop.git"
 fetch.github = "Schweber/hdrop"
 git.fetchSubmodules = true
+
+[himirage-JSON]
+src.webpage = "https://album.photosir.cn/upgradePackage/infoall/photosir"
+src.regex = "\"time\":\"(\\d+-\\d+-\\d+ \\d+:\\d+:\\d+)\""
+fetch.url = "https://album.photosir.cn/upgradePackage/infoall/photosir"
+
+[himirage-loongarch64-linux]
+src.cmd = '''
+curl -s https://album.photosir.cn/upgradePackage/infoall \
+  | jq -r '
+      .data
+      | map(select(.productid=="products_name_1"))[0]
+      | .upgradepackagevolist[]
+      | select(.backedsys=="ql" and .sysversion=="ql_arch")
+      | .url
+    '
+'''
+fetch.url = "$ver"
+
+[himirage-aarch64-linux]
+src.cmd = '''
+curl -s https://album.photosir.cn/upgradePackage/infoall \
+  | jq -r '
+      .data
+      | map(select(.productid=="products_name_1"))[0]
+      | .upgradepackagevolist[]
+      | select(.backedsys=="ql" and .sysversion=="ql_03")
+      | .url
+    '
+'''
+fetch.url = "$ver"
+
+[himirage-x86_64-linux]
+src.cmd = '''
+curl -s https://album.photosir.cn/upgradePackage/infoall \
+  | jq -r '
+      .data
+      | map(select(.productid=="products_name_1"))[0]
+      | .upgradepackagevolist[]
+      | select(.backedsys=="ql" and .sysversion=="ql_01")
+      | .url
+    '
+'''
+fetch.url = "$ver"
+
+[himirage-mips-linux]
+src.cmd = '''
+curl -s https://album.photosir.cn/upgradePackage/infoall \
+  | jq -r '
+      .data
+      | map(select(.productid=="products_name_1"))[0]
+      | .upgradepackagevolist[]
+      | select(.backedsys=="ql" and .sysversion=="ql_02")
+      | .url
+    '
+'''
+fetch.url = "$ver"
+
+[himirage-aarch64-darwin]
+src.cmd = '''
+curl -s https://album.photosir.cn/upgradePackage/infoall \
+  | jq -r '
+      .data
+      | map(select(.productid=="products_name_1"))[0]
+      | .upgradepackagevolist[]
+      | select(.backedsys=="mac" and .sysversion=="mac_01")
+      | .url
+    '
+'''
+fetch.url = "$ver"
+
+[himirage-x86_64-darwin]
+src.cmd = '''
+curl -s https://album.photosir.cn/upgradePackage/infoall \
+  | jq -r '
+      .data
+      | map(select(.productid=="products_name_1"))[0]
+      | .upgradepackagevolist[]
+      | select(.backedsys=="mac" and .sysversion=="mac_01")
+      | .url
+    '
+'''
+fetch.url = "$ver"
