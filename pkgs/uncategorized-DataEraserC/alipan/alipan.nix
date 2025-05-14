@@ -68,7 +68,7 @@ stdenv.mkDerivation rec {
   meta = with lib; {
     description = "Aliyun aDrive";
     homepage = "https://www.alipan.com/";
-    license = licenses.unfreeRedistributable;
+    license = licenses.unfree;
     maintainers = [ ];
     inherit (wine.meta) platforms;
     mainProgram = "aDrive";

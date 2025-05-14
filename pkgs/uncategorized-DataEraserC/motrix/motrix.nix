@@ -71,7 +71,8 @@
     description = "Full-featured download manager";
     homepage = "https://motrix.app";
     license = licenses.mit;
-    platforms = [ "x86_64-linux" ];
+    platforms = platforms.linux;
     mainProgram = "motrix";
+    broken = true;
   };
 })

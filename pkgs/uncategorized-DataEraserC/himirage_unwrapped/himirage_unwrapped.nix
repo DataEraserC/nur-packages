@@ -178,7 +178,7 @@ stdenv.mkDerivation {
     homepage = "https://photosir.com";
     mainProgram = "himirage.sh";
     platforms = SupportedPlatforms;
-    # broken = true;
-    # license = lib.licenses.unfree;
+    broken = true;
+    license = licenses.unfreeRedistributable;
   };
 }
