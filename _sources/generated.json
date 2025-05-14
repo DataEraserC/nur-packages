@@ -4360,7 +4360,7 @@
     },
     "LiteLoaderQQNT": {
         "cargoLocks": null,
-        "date": "2025-02-19",
+        "date": "2025-05-13",
         "extract": null,
         "name": "LiteLoaderQQNT",
         "passthru": null,
@@ -4372,12 +4372,12 @@
             "name": null,
             "owner": "LiteLoaderQQNT",
             "repo": "LiteLoaderQQNT",
-            "rev": "a72c8084755dbc0d797ee9d6af61a4ef0e5b9f52",
-            "sha256": "sha256-5oiNjHG8ExmZ/++9Vkx8CINTxNDN2ujtHqupj/BHyA8=",
+            "rev": "0f462786c471065dbb3c67a495405afb47fd2969",
+            "sha256": "sha256-8ohV7t7wEEKTNx/FxAUirZrux4e0ut4drgQ90YOBUzY=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "a72c8084755dbc0d797ee9d6af61a4ef0e5b9f52"
+        "version": "0f462786c471065dbb3c67a495405afb47fd2969"
     },
     "MC-LauncherX-JSON": {
         "cargoLocks": null,
@@ -4477,7 +4477,7 @@
     },
     "PiliPalaX": {
         "cargoLocks": null,
-        "date": "2025-05-12",
+        "date": "2025-05-13",
         "extract": null,
         "name": "PiliPalaX",
         "passthru": null,
@@ -4489,12 +4489,12 @@
             "name": null,
             "owner": "bggRGjQaUbCoE",
             "repo": "PiliPlus",
-            "rev": "9a97a5d110b381044fcaed72c957929e35b92efa",
-            "sha256": "sha256-a9/L9MAF2+6PBcq7vI7ThF5U8GmXkBT93Def0ibnyLc=",
+            "rev": "3f71e798093030b31264ef5d3dc4cd84e7809a8c",
+            "sha256": "sha256-EGAd4C1Rxy2C0rLxIs3rP+uw1e9PmXebfSZa29LjtPU=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "9a97a5d110b381044fcaed72c957929e35b92efa"
+        "version": "3f71e798093030b31264ef5d3dc4cd84e7809a8c"
     },
     "SteamTools": {
         "cargoLocks": null,
@@ -4623,6 +4623,36 @@
             "type": "github"
         },
         "version": "c150b381f68ff9199dc4301928dd4f0f6941caa8"
+    },
+    "alipan": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "alipan",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-g6RlkSDQDQQ9cj0R5EOPmgLLENpSgekWCHpP/lgh65A=",
+            "type": "url",
+            "url": "https://github.com/DataEraserC/nur-packages/releases/download/aDrive-6.8.6.exe/aDrive-6.8.6.exe"
+        },
+        "version": "6.8.6"
+    },
+    "alipan-version": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "alipan-version",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-vr6/E4O4EfpwfsqARH8CtJ3HYMvoJQiA1FTrybOodOg=",
+            "type": "url",
+            "url": "https://www.alipan.com/"
+        },
+        "version": "V2.2.8"
     },
     "buffybox": {
         "cargoLocks": null,
@@ -4842,6 +4872,132 @@
         },
         "version": "c42d27aa7776cf4d3665390738890cb8597ffc28"
     },
+    "himirage-JSON": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "himirage-JSON",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-rSkIvo6nYiSaobTWvXXtOFpogW/aN4WewPE4NM5eciA=",
+            "type": "url",
+            "url": "https://album.photosir.cn/upgradePackage/infoall/photosir"
+        },
+        "version": "2025-05-15 00:46:03"
+    },
+    "himirage-aarch64-darwin": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "himirage-aarch64-darwin",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-s/PtvE+sYO3jwr1SY6etHkfDaT7J7bWmeuExKq7F3NM=",
+            "type": "url",
+            "url": "https://cdn.photosir.cn/package/Mac/himirage_50317.dmg"
+        },
+        "version": "https://cdn.photosir.cn/package/Mac/himirage_50317.dmg"
+    },
+    "himirage-aarch64-linux": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "himirage-aarch64-linux",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-JHiDo2WUPtkWcjX7S0ti4N8zJO5KDQitOxV8wby/HQk=",
+            "type": "url",
+            "url": "https://cdn.photosir.cn/package/Ky/40407/himirage_2.0.3.40408_arm64.deb"
+        },
+        "version": "https://cdn.photosir.cn/package/Ky/40407/himirage_2.0.3.40408_arm64.deb"
+    },
+    "himirage-loongarch64-linux": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "himirage-loongarch64-linux",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-cGy+0guLA7pDbtp5UcLWbbgIlXU6vxq0S8ZlFwK8fLE=",
+            "type": "url",
+            "url": "https://cdn.photosir.cn/package/Ky/40407/himirage_2.0.8.40408_loongarch64.deb"
+        },
+        "version": "https://cdn.photosir.cn/package/Ky/40407/himirage_2.0.8.40408_loongarch64.deb"
+    },
+    "himirage-mips-linux": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "himirage-mips-linux",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-YHl6zEj48N3xbiXvOj2Vbu+6n9PEV07eVqH/n0MjQ2s=",
+            "type": "url",
+            "url": "https://cdn.photosir.com/package/prod/new/himirage_1.5.2.20210_mips64.deb"
+        },
+        "version": "https://cdn.photosir.com/package/prod/new/himirage_1.5.2.20210_mips64.deb"
+    },
+    "himirage-x86_64-darwin": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "himirage-x86_64-darwin",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-s/PtvE+sYO3jwr1SY6etHkfDaT7J7bWmeuExKq7F3NM=",
+            "type": "url",
+            "url": "https://cdn.photosir.cn/package/Mac/himirage_50317.dmg"
+        },
+        "version": "https://cdn.photosir.cn/package/Mac/himirage_50317.dmg"
+    },
+    "himirage-x86_64-linux": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "himirage-x86_64-linux",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-kSP7G82Nle2Sabgbj4WqSBk0OCjTR33L78x+AlrRyg4=",
+            "type": "url",
+            "url": "https://cdn.photosir.cn/package/Ky/40407/himirage_2.0.1.40407_amd64.deb"
+        },
+        "version": "https://cdn.photosir.cn/package/Ky/40407/himirage_2.0.1.40407_amd64.deb"
+    },
+    "motrix": {
+        "cargoLocks": null,
+        "date": "2023-06-07",
+        "extract": null,
+        "name": "motrix",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": true,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "Apps-Used-By-Myself",
+            "repo": "motrix",
+            "rev": "7012040fec926e16fe8f6c403cf038527f5c18b9",
+            "sha256": "sha256-E4atb9gMAQDJ3P4TbaSeOHciRwnECi0wkEDXkNaB5Ds=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "7012040fec926e16fe8f6c403cf038527f5c18b9"
+    },
     "ndrop": {
         "cargoLocks": null,
         "date": "2025-05-07",
@@ -4989,111 +5145,6 @@
         },
         "version": "dcfcffa9af13737bee1fa128364a718b56324998"
     },
-    "himirage-JSON": {
-        "cargoLocks": null,
-        "date": null,
-        "extract": null,
-        "name": "himirage-JSON",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "name": null,
-            "sha256": "sha256-rSkIvo6nYiSaobTWvXXtOFpogW/aN4WewPE4NM5eciA=",
-            "type": "url",
-            "url": "https://album.photosir.cn/upgradePackage/infoall/photosir"
-        },
-        "version": "2025-05-12 23:57:55"
-    },
-    "himirage-aarch64-darwin": {
-        "cargoLocks": null,
-        "date": null,
-        "extract": null,
-        "name": "himirage-aarch64-darwin",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "name": null,
-            "sha256": "sha256-s/PtvE+sYO3jwr1SY6etHkfDaT7J7bWmeuExKq7F3NM=",
-            "type": "url",
-            "url": "https://cdn.photosir.cn/package/Mac/himirage_50317.dmg"
-        },
-        "version": "https://cdn.photosir.cn/package/Mac/himirage_50317.dmg"
-    },
-    "himirage-aarch64-linux": {
-        "cargoLocks": null,
-        "date": null,
-        "extract": null,
-        "name": "himirage-aarch64-linux",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "name": null,
-            "sha256": "sha256-JHiDo2WUPtkWcjX7S0ti4N8zJO5KDQitOxV8wby/HQk=",
-            "type": "url",
-            "url": "https://cdn.photosir.cn/package/Ky/40407/himirage_2.0.3.40408_arm64.deb"
-        },
-        "version": "https://cdn.photosir.cn/package/Ky/40407/himirage_2.0.3.40408_arm64.deb"
-    },
-    "himirage-loongarch64-linux": {
-        "cargoLocks": null,
-        "date": null,
-        "extract": null,
-        "name": "himirage-loongarch64-linux",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "name": null,
-            "sha256": "sha256-cGy+0guLA7pDbtp5UcLWbbgIlXU6vxq0S8ZlFwK8fLE=",
-            "type": "url",
-            "url": "https://cdn.photosir.cn/package/Ky/40407/himirage_2.0.8.40408_loongarch64.deb"
-        },
-        "version": "https://cdn.photosir.cn/package/Ky/40407/himirage_2.0.8.40408_loongarch64.deb"
-    },
-    "himirage-mips-linux": {
-        "cargoLocks": null,
-        "date": null,
-        "extract": null,
-        "name": "himirage-mips-linux",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "name": null,
-            "sha256": "sha256-YHl6zEj48N3xbiXvOj2Vbu+6n9PEV07eVqH/n0MjQ2s=",
-            "type": "url",
-            "url": "https://cdn.photosir.com/package/prod/new/himirage_1.5.2.20210_mips64.deb"
-        },
-        "version": "https://cdn.photosir.com/package/prod/new/himirage_1.5.2.20210_mips64.deb"
-    },
-    "himirage-x86_64-darwin": {
-        "cargoLocks": null,
-        "date": null,
-        "extract": null,
-        "name": "himirage-x86_64-darwin",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "name": null,
-            "sha256": "sha256-s/PtvE+sYO3jwr1SY6etHkfDaT7J7bWmeuExKq7F3NM=",
-            "type": "url",
-            "url": "https://cdn.photosir.cn/package/Mac/himirage_50317.dmg"
-        },
-        "version": "https://cdn.photosir.cn/package/Mac/himirage_50317.dmg"
-    },
-    "himirage-x86_64-linux": {
-        "cargoLocks": null,
-        "date": null,
-        "extract": null,
-        "name": "himirage-x86_64-linux",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "name": null,
-            "sha256": "sha256-kSP7G82Nle2Sabgbj4WqSBk0OCjTR33L78x+AlrRyg4=",
-            "type": "url",
-            "url": "https://cdn.photosir.cn/package/Ky/40407/himirage_2.0.1.40407_amd64.deb"
-        },
-        "version": "https://cdn.photosir.cn/package/Ky/40407/himirage_2.0.1.40407_amd64.deb"
-    },
     "rwkv": {
         "cargoLocks": null,
         "date": null,
@@ -5240,11 +5291,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-cNv6l2JO2AQ32qhyEw5MOJ6aiiAuLrCws6WXu1M8Vcs=",
+            "sha256": "sha256-MexZJTtqfcgODgMxn9Fh5w7Y2EIdTEOkrO8i2OyZZjQ=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202505112212/rules.zip"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202505132213/rules.zip"
         },
-        "version": "202505112212"
+        "version": "202505132213"
     },
     "wechat-web-devtools-linux_appimage": {
         "cargoLocks": null,

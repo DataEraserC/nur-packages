@@ -2236,15 +2236,15 @@
   };
   LiteLoaderQQNT = {
     pname = "LiteLoaderQQNT";
-    version = "a72c8084755dbc0d797ee9d6af61a4ef0e5b9f52";
+    version = "0f462786c471065dbb3c67a495405afb47fd2969";
     src = fetchFromGitHub {
       owner = "LiteLoaderQQNT";
       repo = "LiteLoaderQQNT";
-      rev = "a72c8084755dbc0d797ee9d6af61a4ef0e5b9f52";
+      rev = "0f462786c471065dbb3c67a495405afb47fd2969";
       fetchSubmodules = true;
-      hash = "sha256-5oiNjHG8ExmZ/++9Vkx8CINTxNDN2ujtHqupj/BHyA8=";
+      hash = "sha256-8ohV7t7wEEKTNx/FxAUirZrux4e0ut4drgQ90YOBUzY=";
     };
-    date = "2025-02-19";
+    date = "2025-05-13";
   };
   MC-LauncherX-JSON = {
     pname = "MC-LauncherX-JSON";
@@ -2300,15 +2300,15 @@
   };
   PiliPalaX = {
     pname = "PiliPalaX";
-    version = "9a97a5d110b381044fcaed72c957929e35b92efa";
+    version = "3f71e798093030b31264ef5d3dc4cd84e7809a8c";
     src = fetchFromGitHub {
       owner = "bggRGjQaUbCoE";
       repo = "PiliPlus";
-      rev = "9a97a5d110b381044fcaed72c957929e35b92efa";
+      rev = "3f71e798093030b31264ef5d3dc4cd84e7809a8c";
       fetchSubmodules = true;
-      hash = "sha256-a9/L9MAF2+6PBcq7vI7ThF5U8GmXkBT93Def0ibnyLc=";
+      hash = "sha256-EGAd4C1Rxy2C0rLxIs3rP+uw1e9PmXebfSZa29LjtPU=";
     };
-    date = "2025-05-12";
+    date = "2025-05-13";
   };
   SteamTools = {
     pname = "SteamTools";
@@ -2379,6 +2379,22 @@
       hash = "sha256-7cHg8fOcPW1lKnRuJQCjkUfmC6fqx3m17FzzEtpp398=";
     };
     date = "2024-12-18";
+  };
+  alipan = {
+    pname = "alipan";
+    version = "6.8.6";
+    src = fetchurl {
+      url = "https://github.com/DataEraserC/nur-packages/releases/download/aDrive-6.8.6.exe/aDrive-6.8.6.exe";
+      hash = "sha256-g6RlkSDQDQQ9cj0R5EOPmgLLENpSgekWCHpP/lgh65A=";
+    };
+  };
+  alipan-version = {
+    pname = "alipan-version";
+    version = "V2.2.8";
+    src = fetchurl {
+      url = "https://www.alipan.com/";
+      hash = "sha256-vr6/E4O4EfpwfsqARH8CtJ3HYMvoJQiA1FTrybOodOg=";
+    };
   };
   buffybox = {
     pname = "buffybox";
@@ -2499,6 +2515,74 @@
     };
     date = "2025-04-17";
   };
+  himirage-JSON = {
+    pname = "himirage-JSON";
+    version = "2025-05-15 00:46:03";
+    src = fetchurl {
+      url = "https://album.photosir.cn/upgradePackage/infoall/photosir";
+      hash = "sha256-rSkIvo6nYiSaobTWvXXtOFpogW/aN4WewPE4NM5eciA=";
+    };
+  };
+  himirage-aarch64-darwin = {
+    pname = "himirage-aarch64-darwin";
+    version = "https://cdn.photosir.cn/package/Mac/himirage_50317.dmg";
+    src = fetchurl {
+      url = "https://cdn.photosir.cn/package/Mac/himirage_50317.dmg";
+      hash = "sha256-s/PtvE+sYO3jwr1SY6etHkfDaT7J7bWmeuExKq7F3NM=";
+    };
+  };
+  himirage-aarch64-linux = {
+    pname = "himirage-aarch64-linux";
+    version = "https://cdn.photosir.cn/package/Ky/40407/himirage_2.0.3.40408_arm64.deb";
+    src = fetchurl {
+      url = "https://cdn.photosir.cn/package/Ky/40407/himirage_2.0.3.40408_arm64.deb";
+      hash = "sha256-JHiDo2WUPtkWcjX7S0ti4N8zJO5KDQitOxV8wby/HQk=";
+    };
+  };
+  himirage-loongarch64-linux = {
+    pname = "himirage-loongarch64-linux";
+    version = "https://cdn.photosir.cn/package/Ky/40407/himirage_2.0.8.40408_loongarch64.deb";
+    src = fetchurl {
+      url = "https://cdn.photosir.cn/package/Ky/40407/himirage_2.0.8.40408_loongarch64.deb";
+      hash = "sha256-cGy+0guLA7pDbtp5UcLWbbgIlXU6vxq0S8ZlFwK8fLE=";
+    };
+  };
+  himirage-mips-linux = {
+    pname = "himirage-mips-linux";
+    version = "https://cdn.photosir.com/package/prod/new/himirage_1.5.2.20210_mips64.deb";
+    src = fetchurl {
+      url = "https://cdn.photosir.com/package/prod/new/himirage_1.5.2.20210_mips64.deb";
+      hash = "sha256-YHl6zEj48N3xbiXvOj2Vbu+6n9PEV07eVqH/n0MjQ2s=";
+    };
+  };
+  himirage-x86_64-darwin = {
+    pname = "himirage-x86_64-darwin";
+    version = "https://cdn.photosir.cn/package/Mac/himirage_50317.dmg";
+    src = fetchurl {
+      url = "https://cdn.photosir.cn/package/Mac/himirage_50317.dmg";
+      hash = "sha256-s/PtvE+sYO3jwr1SY6etHkfDaT7J7bWmeuExKq7F3NM=";
+    };
+  };
+  himirage-x86_64-linux = {
+    pname = "himirage-x86_64-linux";
+    version = "https://cdn.photosir.cn/package/Ky/40407/himirage_2.0.1.40407_amd64.deb";
+    src = fetchurl {
+      url = "https://cdn.photosir.cn/package/Ky/40407/himirage_2.0.1.40407_amd64.deb";
+      hash = "sha256-kSP7G82Nle2Sabgbj4WqSBk0OCjTR33L78x+AlrRyg4=";
+    };
+  };
+  motrix = {
+    pname = "motrix";
+    version = "7012040fec926e16fe8f6c403cf038527f5c18b9";
+    src = fetchFromGitHub {
+      owner = "Apps-Used-By-Myself";
+      repo = "motrix";
+      rev = "7012040fec926e16fe8f6c403cf038527f5c18b9";
+      fetchSubmodules = true;
+      hash = "sha256-E4atb9gMAQDJ3P4TbaSeOHciRwnECi0wkEDXkNaB5Ds=";
+    };
+    date = "2023-06-07";
+  };
   ndrop = {
     pname = "ndrop";
     version = "44c09048fa66a460a78447cf389f510b45adbfe2";
@@ -2579,62 +2663,6 @@
     };
     date = "2025-04-23";
   };
-  himirage-JSON = {
-    pname = "himirage-JSON";
-    version = "2025-05-12 23:57:55";
-    src = fetchurl {
-      url = "https://album.photosir.cn/upgradePackage/infoall/photosir";
-      hash = "sha256-rSkIvo6nYiSaobTWvXXtOFpogW/aN4WewPE4NM5eciA=";
-    };
-  };
-  himirage-aarch64-darwin = {
-    pname = "himirage-aarch64-darwin";
-    version = "https://cdn.photosir.cn/package/Mac/himirage_50317.dmg";
-    src = fetchurl {
-      url = "https://cdn.photosir.cn/package/Mac/himirage_50317.dmg";
-      hash = "sha256-s/PtvE+sYO3jwr1SY6etHkfDaT7J7bWmeuExKq7F3NM=";
-    };
-  };
-  himirage-aarch64-linux = {
-    pname = "himirage-aarch64-linux";
-    version = "https://cdn.photosir.cn/package/Ky/40407/himirage_2.0.3.40408_arm64.deb";
-    src = fetchurl {
-      url = "https://cdn.photosir.cn/package/Ky/40407/himirage_2.0.3.40408_arm64.deb";
-      hash = "sha256-JHiDo2WUPtkWcjX7S0ti4N8zJO5KDQitOxV8wby/HQk=";
-    };
-  };
-  himirage-loongarch64-linux = {
-    pname = "himirage-loongarch64-linux";
-    version = "https://cdn.photosir.cn/package/Ky/40407/himirage_2.0.8.40408_loongarch64.deb";
-    src = fetchurl {
-      url = "https://cdn.photosir.cn/package/Ky/40407/himirage_2.0.8.40408_loongarch64.deb";
-      hash = "sha256-cGy+0guLA7pDbtp5UcLWbbgIlXU6vxq0S8ZlFwK8fLE=";
-    };
-  };
-  himirage-mips-linux = {
-    pname = "himirage-mips-linux";
-    version = "https://cdn.photosir.com/package/prod/new/himirage_1.5.2.20210_mips64.deb";
-    src = fetchurl {
-      url = "https://cdn.photosir.com/package/prod/new/himirage_1.5.2.20210_mips64.deb";
-      hash = "sha256-YHl6zEj48N3xbiXvOj2Vbu+6n9PEV07eVqH/n0MjQ2s=";
-    };
-  };
-  himirage-x86_64-darwin = {
-    pname = "himirage-x86_64-darwin";
-    version = "https://cdn.photosir.cn/package/Mac/himirage_50317.dmg";
-    src = fetchurl {
-      url = "https://cdn.photosir.cn/package/Mac/himirage_50317.dmg";
-      hash = "sha256-s/PtvE+sYO3jwr1SY6etHkfDaT7J7bWmeuExKq7F3NM=";
-    };
-  };
-  himirage-x86_64-linux = {
-    pname = "himirage-x86_64-linux";
-    version = "https://cdn.photosir.cn/package/Ky/40407/himirage_2.0.1.40407_amd64.deb";
-    src = fetchurl {
-      url = "https://cdn.photosir.cn/package/Ky/40407/himirage_2.0.1.40407_amd64.deb";
-      hash = "sha256-kSP7G82Nle2Sabgbj4WqSBk0OCjTR33L78x+AlrRyg4=";
-    };
-  };
   rwkv = {
     pname = "rwkv";
     version = "0.8.29";
@@ -2712,10 +2740,10 @@
   };
   v2ray-rules-dat = {
     pname = "v2ray-rules-dat";
-    version = "202505112212";
+    version = "202505132213";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202505112212/rules.zip";
-      hash = "sha256-cNv6l2JO2AQ32qhyEw5MOJ6aiiAuLrCws6WXu1M8Vcs=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202505132213/rules.zip";
+      hash = "sha256-MexZJTtqfcgODgMxn9Fh5w7Y2EIdTEOkrO8i2OyZZjQ=";
     };
   };
   wechat-web-devtools-linux_appimage = {

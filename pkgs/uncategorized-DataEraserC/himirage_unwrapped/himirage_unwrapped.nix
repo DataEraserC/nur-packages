@@ -126,6 +126,10 @@ stdenv.mkDerivation {
 
   # dontWrapQtApps = true;
 
+  # qtWrapperArgs = [
+  #   "--set QT_QPA_PLATFORM_PLUGIN_PATH ${qtbase}/${qtbase.qtPluginPrefix}/platforms"
+  # ];
+
   installPhase = ''
     runHook preInstall
 
@@ -154,6 +158,9 @@ stdenv.mkDerivation {
     EOF
 
     chmod +x $out/bin/himirage
+
+    wrapProgram $out/bin/himirage \
+        --set QT_QPA_PLATFORM_PLUGIN_PATH "${qtbase}/${qtbase.qtPluginPrefix}/platforms"
 
     ln -s $out/lib/himirage/himirage.sh $out/bin/himirage.sh
 

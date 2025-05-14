@@ -1324,3 +1324,20 @@ curl -s https://album.photosir.cn/upgradePackage/infoall \
     '
 '''
 fetch.url = "$ver"
+
+[motrix]
+src.git = "https://github.com/Apps-Used-By-Myself/motrix.git"
+fetch.github = "Apps-Used-By-Myself/motrix"
+git.fetchSubmodules = true
+
+[alipan-version]
+src.webpage = "https://www.alipan.com/"
+src.regex = "latest_version: '(.*)'"
+fetch.url = "https://www.alipan.com/"
+
+[alipan]
+# src.webpage = "https://www.alipan.com/"
+# src.regex = "app_windows_download_link: '(.*)'"
+# fetch.url = "$ver"
+src.cmd = "echo 6.8.6"
+fetch.url = "https://github.com/DataEraserC/nur-packages/releases/download/aDrive-6.8.6.exe/aDrive-6.8.6.exe"
