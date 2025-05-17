@@ -23,6 +23,14 @@ stdenv.mkDerivation {
 
     cp -r ${qq-original}/share $out
 
+    chmod 755 -R $out
+
+    cat $out/share/applications/qq.desktop > $out/share/applications/qq2.desktop
+
+    sed -i $out/share/applications/qq2.desktop \
+      -e "s|^Exec=.*$|Exec=bqqnt|" \
+      -e "s|^Name=.*$|Name=bqqnt|"
+
     cat > $out/bin/qq <<EOF
     #!${runtimeShell}
     exec ${qq-original}/bin/qq \$@
@@ -35,14 +43,7 @@ stdenv.mkDerivation {
 
     chmod +x $out/bin/qq $out/bin/bqqnt
   '';
-  postInstall = ''
-
-    cp $out/share/applications/qq.desktop $out/share/applications/qq2.desktop
-
-    sed -i $out/share/applications/qq2.desktop \
-      -e "s|^Exec=.*$|Exec=bqqnt|" \
-      -e "s|^Name=.*$|Name=bqqnt|"
-  '';
+  postInstall = '''';
   meta = qq-original.meta // {
     mainProgram = "bqqnt";
   };
