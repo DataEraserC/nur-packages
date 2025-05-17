@@ -18,11 +18,16 @@ stdenv.mkDerivation rec {
     gcc.cc.lib
   ];
 
-  installPhase = ''
-    mkdir -p $out/lib
-    install -Dm755 ${src}/liblightweight-v8-inject.so $out/lib/liblightweight-v8-inject.so
-    ln -svf $out/lib/liblightweight-v8-inject.so $out/lib/libbstar.so
-  '';
+  installPhase =
+    let
+      bstar_so_name = "bstar-0.5.10.so";
+    in
+    # bstar_so_name= "liblightweight-v8-inject.so";
+    ''
+      mkdir -p $out/lib
+      install -Dm755 ${src}/${bstar_so_name} $out/lib/${bstar_so_name}
+      ln -svf $out/lib/${bstar_so_name} $out/lib/libbstar.so
+    '';
 
   meta = with lib; {
     description = "BStar compatibility library";
