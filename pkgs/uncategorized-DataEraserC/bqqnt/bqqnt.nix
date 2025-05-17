@@ -1,8 +1,9 @@
 {
   stdenv,
   callPackage,
-  qq,
   runtimeShell,
+  autoPatchelfHook,
+  qq,
   qq-original ? qq,
   bstar ? callPackage ./../bstar { },
 }:
@@ -14,21 +15,33 @@ stdenv.mkDerivation {
     bstar
   ];
   nativeBuildInputs = [
-    # autoPatchelfHook
+    autoPatchelfHook
   ];
   unpackPhase = ":";
   installPhase = ''
     mkdir -p $out/{lib,bin}
+
     cp -r ${qq-original}/share $out
+
+    cat > $out/bin/qq <<EOF
+    #!${runtimeShell}
+    exec ${qq-original}/bin/qq \$@
+    EOF
+
     cat > $out/bin/bqqnt <<EOF
     #!${runtimeShell}
     LD_PRELOAD=${bstar}/lib/libbstar.so BQQNT_CC=1 exec ${qq-original}/bin/qq \$@
     EOF
-    chmod +x $out/bin/bqqnt
+
+    chmod +x $out/bin/qq $out/bin/bqqnt
   '';
   postInstall = ''
-    sed -i $out/share/applications/qq.desktop \
-      -e "s|^Exec=.*$|Exec=bqqnt|"
+
+    cp $out/share/applications/qq.desktop $out/share/applications/qq2.desktop
+
+    sed -i $out/share/applications/qq2.desktop \
+      -e "s|^Exec=.*$|Exec=bqqnt|" \
+      -e "s|^Name=.*$|Name=bqqnt|"
   '';
   meta = qq-original.meta // {
     mainProgram = "bqqnt";
