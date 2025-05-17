@@ -20,8 +20,8 @@ stdenv.mkDerivation rec {
 
   installPhase = ''
     mkdir -p $out/lib
-    install -Dm755 ${src}/bstar-0.5.10.so $out/lib/bstar-0.5.10.so
-    ln -svf $out/lib/bstar-0.5.10.so $out/lib/libbstar.so
+    install -Dm755 ${src}/liblightweight-v8-inject.so $out/lib/liblightweight-v8-inject.so
+    ln -svf $out/lib/liblightweight-v8-inject.so $out/lib/libbstar.so
   '';
 
   meta = with lib; {
