@@ -38,7 +38,7 @@ stdenv.mkDerivation {
 
     cat > $out/bin/bqqnt <<EOF
     #!${runtimeShell}
-    LD_PRELOAD=${bstar}/lib/libbstar.so exec ${qq-original}/bin/qq \$@
+    LD_PRELOAD=${bstar}/lib/libbstar.so BQQNT_CC=1 exec ${qq-original}/bin/qq \$@
     EOF
 
     chmod +x $out/bin/qq $out/bin/bqqnt
