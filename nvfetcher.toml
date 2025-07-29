@@ -1168,22 +1168,22 @@ src.github = "petersulyok/smfc"
 [snell-server-aarch32-linux]
 fetch.url = "https://dl.nssurge.com/snell/snell-server-$ver-linux-armv7l.zip"
 src.webpage = "https://kb.nssurge.com/surge-knowledge-base/zh/release-notes/snell"
-src.regex = "https://dl.nssurge.com/snell/snell-server-(.*)-linux-armv7l.zip\""
+src.regex = "https://dl.nssurge.com/snell/snell-server-(.*)-linux-armv7l.zip"
 
 [snell-server-aarch64-linux]
 fetch.url = "https://dl.nssurge.com/snell/snell-server-$ver-linux-aarch64.zip"
 src.webpage = "https://kb.nssurge.com/surge-knowledge-base/zh/release-notes/snell"
-src.regex = "https://dl.nssurge.com/snell/snell-server-(.*)-linux-aarch64.zip\""
+src.regex = "https://dl.nssurge.com/snell/snell-server-(.*)-linux-aarch64.zip"
 
 [snell-server-i686-linux]
 fetch.url = "https://dl.nssurge.com/snell/snell-server-$ver-linux-i386.zip"
 src.webpage = "https://kb.nssurge.com/surge-knowledge-base/zh/release-notes/snell"
-src.regex = "https://dl.nssurge.com/snell/snell-server-(.*)-linux-i386.zip\""
+src.regex = "https://dl.nssurge.com/snell/snell-server-(.*)-linux-i386.zip"
 
 [snell-server-x86_64-linux]
 fetch.url = "https://dl.nssurge.com/snell/snell-server-$ver-linux-amd64.zip"
 src.webpage = "https://kb.nssurge.com/surge-knowledge-base/zh/release-notes/snell"
-src.regex = "https://dl.nssurge.com/snell/snell-server-(.*)-linux-amd64.zip\""
+src.regex = "https://dl.nssurge.com/snell/snell-server-(.*)-linux-amd64.zip"
 
 [soggy]
 fetch.github = "LDAsuku/soggy"
