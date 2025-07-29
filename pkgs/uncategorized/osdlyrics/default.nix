@@ -17,6 +17,8 @@
 let
   osdlyricsPython = python3Packages.buildPythonPackage rec {
     inherit (sources.osdlyrics) pname version src;
+    pyproject = true;
+    build-system = [ python3Packages.setuptools ];
 
     configurePhase =
       let
@@ -47,7 +49,6 @@ let
     p: with p; [
       chardet
       dbus-python
-      future
       mpd2
       osdlyricsPython
       pycurl
@@ -55,7 +56,7 @@ let
     ]
   );
 in
-stdenv.mkDerivation rec {
+stdenv.mkDerivation (finalAttrs: {
   inherit (sources.osdlyrics) pname version src;
   nativeBuildInputs = [
     autoreconfHook
@@ -80,11 +81,11 @@ stdenv.mkDerivation rec {
   '';
 
   meta = {
-    changelog = "https://github.com/osdlyrics/osdlyrics/releases/tag/${version}";
+    changelog = "https://github.com/osdlyrics/osdlyrics/releases/tag/${finalAttrs.version}";
     maintainers = with lib.maintainers; [ xddxdd ];
     description = "Standalone lyrics fetcher/displayer (windowed and OSD mode)";
     homepage = "https://github.com/osdlyrics/osdlyrics";
     license = lib.licenses.gpl3Only;
     mainProgram = "osdlyrics";
   };
-}
+})

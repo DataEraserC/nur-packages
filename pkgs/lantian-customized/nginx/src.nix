@@ -49,5 +49,5 @@ stdenv.mkDerivation {
 
   outputHashAlgo = "sha256";
   outputHashMode = "recursive";
-  outputHash = "sha256-tJFeaXNDeArvMJJdWmapgxChdXFAfh/adZ+viU0JgWM=";
+  outputHash = "sha256-WE/EgBk11rQO1EAhG6aUstH9a7diz3aUdRTUSxkI7sc=";
 }

@@ -1,10 +1,15 @@
 {
   description = "My personal NUR repository";
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
     nixpkgs-24_05.url = "github:NixOS/nixpkgs/nixos-24.05";
+    nixpkgs-24_11.url = "github:NixOS/nixpkgs/nixos-24.11";
     flake-parts.url = "github:hercules-ci/flake-parts";
 
+    devshell = {
+      url = "github:numtide/devshell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -66,7 +71,11 @@
           auto-colmena-hive = ./flake-modules/auto-colmena-hive-v0.nix;
           auto-colmena-hive-v0 = ./flake-modules/auto-colmena-hive-v0.nix;
           auto-colmena-hive-v0_20241006 = ./flake-modules/auto-colmena-hive-v0_20241006.nix;
-          commands = ./flake-modules/commands.nix;
+          auto-colmena-hive-v0_5 = ./flake-modules/auto-colmena-hive-v0_5.nix;
+          commands = importApply ./flake-modules/commands.nix {
+            inherit (inputs) devshell;
+            inherit flake-parts-lib;
+          };
           lantian-pre-commit-hooks = importApply ./flake-modules/lantian-pre-commit-hooks.nix {
             inherit (inputs) pre-commit-hooks-nix;
           };
@@ -86,6 +95,7 @@
       in
       rec {
         imports = [
+          # keep-sorted start
           ./flake-modules/_internal/ci-outputs.nix
           ./flake-modules/_internal/commands.nix
           ./flake-modules/_internal/meta.nix
@@ -94,6 +104,7 @@
           flakeModules.lantian-pre-commit-hooks
           flakeModules.lantian-treefmt
           flakeModules.nixpkgs-options
+          # keep-sorted end
         ];
 
         systems = [
@@ -123,10 +134,10 @@
                 // rec {
                   # Integrate to nixpkgs python3Packages
                   python = prev.python.override {
-                    packageOverrides = _final: _prev: _legacyPackages.python3Packages;
+                    packageOverrides = final: prev: _legacyPackages.python3Packages;
                   };
                   python3 = prev.python3.override {
-                    packageOverrides = _final: _prev: _legacyPackages.python3Packages;
+                    packageOverrides = final: prev: _legacyPackages.python3Packages;
                   };
                   python3Packages = python3.pkgs;
                 };
@@ -137,10 +148,10 @@
                   inherit inputs;
                 };
               };
-              inSubTree-pinnedNixpkgs = final: _prev: {
+              inSubTree-pinnedNixpkgs = final: prev: {
                 nur-xddxdd = self.legacyPackages.${final.system};
               };
-              inSubTree-pinnedNixpkgsWithCuda = final: _prev: {
+              inSubTree-pinnedNixpkgsWithCuda = final: prev: {
                 nur-xddxdd = self.legacyPackagesWithCuda.${final.system};
               };
             }
@@ -149,11 +160,11 @@
                 builtins.map (s: [
                   {
                     name = "pinnedNixpkgs-${s}";
-                    value = _final: _prev: self.legacyPackages.${s};
+                    value = final: prev: self.legacyPackages.${s};
                   }
                   {
                     name = "pinnedNixpkgsWithCuda-${s}";
-                    value = _final: _prev: self.legacyPackagesWithCuda.${s};
+                    value = final: prev: self.legacyPackagesWithCuda.${s};
                   }
                 ]) systems
               )
@@ -162,29 +173,23 @@
           inherit flakeModules;
 
           nixosModules = {
-            setupOverlay = _: { nixpkgs.overlays = [ self.overlays.default ]; };
+            # keep-sorted start
             kata-containers = import ./modules/kata-containers.nix;
             lyrica = import ./modules/lyrica.nix;
             nix-cache-attic = import ./modules/nix-cache-attic.nix;
             nix-cache-cachix = import ./modules/nix-cache-cachix.nix;
             nix-cache-garnix = import ./modules/nix-cache-garnix.nix;
+            openssl-conf = import ./modules/openssl-conf.nix;
+            openssl-gost-engine = import ./modules/openssl-gost-engine.nix;
             openssl-oqs-provider = import ./modules/openssl-oqs-provider.nix;
             qemu-user-static-binfmt = import ./modules/qemu-user-static-binfmt.nix;
+            setupOverlay = _: { nixpkgs.overlays = [ self.overlays.default ]; };
             wireguard-remove-lingering-links = import ./modules/wireguard-remove-lingering-links.nix;
+            # keep-sorted end
+
+            # My  addition
             hkdm = import ./modules/hkdm.nix;
             cpolar = import ./modules/cpolar.nix;
-          };
-        };
-
-        nixpkgs-options = {
-          pkgs = {
-            sourceInput = inputs.nixpkgs;
-            allowInsecurePredicate = _: true;
-          };
-          pkgsWithCuda = {
-            sourceInput = inputs.nixpkgs;
-            allowInsecurePredicate = _: true;
-            settings.cudaSupport = true;
           };
         };
 
@@ -206,32 +211,46 @@
             };
           in
           {
-            packages =
-              import ./pkgs null {
-                inherit inputs pkgs;
-                pkgs-24_05 = pkgsForSystem-24_05 system;
-              }
-              // ptr;
-            packagesWithCuda =
-              import ./pkgs null {
-                inherit inputs;
-                pkgs = pkgsWithCuda;
-                pkgs-24_05 = pkgsForSystem-24_05 system;
-              }
-              // ptr;
-            legacyPackages =
-              import ./pkgs "legacy" {
-                inherit inputs pkgs;
-                pkgs-24_05 = pkgsForSystem-24_05 system;
-              }
-              // ptr;
-            legacyPackagesWithCuda =
-              import ./pkgs "legacy" {
-                inherit inputs;
-                pkgs = pkgsWithCuda;
-                pkgs-24_05 = pkgsForSystem-24_05 system;
-              }
-              // ptr;
+            nixpkgs-options = {
+              pkgs = {
+                sourceInput = inputs.nixpkgs;
+                allowInsecurePredicate = _: true;
+              };
+              pkgsWithCuda = {
+                sourceInput = inputs.nixpkgs;
+                allowInsecurePredicate = _: true;
+                settings.cudaSupport = true;
+              };
+            };
+
+            packages = import ./pkgs null {
+              inherit inputs pkgs;
+              pkgs-24_05 = pkgsForSystem-24_05 system;
+            } // ptr;
+            packagesWithCuda = import ./pkgs null {
+              inherit inputs;
+              pkgs = pkgsWithCuda;
+              pkgs-24_05 = pkgsForSystem-24_05 system;
+            } // ptr;
+            legacyPackages = import ./pkgs "legacy" {
+              inherit inputs pkgs;
+              pkgs-24_05 = pkgsForSystem-24_05 system;
+            } // ptr;
+            legacyPackagesWithCuda = import ./pkgs "legacy" {
+              inherit inputs;
+              pkgs = pkgsWithCuda;
+              pkgs-24_05 = pkgsForSystem-24_05 system;
+            } // ptr;
+
+            devshells.default = {
+              packages = [ pkgs.python3 ];
+              env = [
+                {
+                  name = "PYTHONPATH";
+                  unset = true;
+                }
+              ];
+            };
           };
       }
     );

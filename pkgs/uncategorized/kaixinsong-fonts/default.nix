@@ -5,15 +5,15 @@
 }:
 let
   kaixinsong-a = fetchurl {
-    url = "https://backblaze.lantian.pub/KaiXinSongA.ttf";
+    url = "https://us-central-1.telnyxstorage.com/lantian-public/KaiXinSongA.ttf";
     hash = "sha256-ThHI0V3O9k5bVVSOV2RELRsfO+b8UjRvEzivm0jPGb0=";
   };
   kaixinsong-b = fetchurl {
-    url = "https://backblaze.lantian.pub/KaiXinSongB.ttf";
+    url = "https://us-central-1.telnyxstorage.com/lantian-public/KaiXinSongB.ttf";
     hash = "sha256-2nvseKgZSVIy0oYkT+DB+V0UfoSBG4Ds4EcWnFfNSkU=";
   };
 in
-stdenvNoCC.mkDerivation rec {
+stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "kaixinsong-fonts";
   version = "3.0";
 
@@ -32,4 +32,4 @@ stdenvNoCC.mkDerivation rec {
     homepage = "http://www.guoxuedashi.net/zidian/bujian/KaiXinSong.php";
     license = with lib.licenses; [ unfreeRedistributable ];
   };
-}
+})

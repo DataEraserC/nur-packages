@@ -21,6 +21,9 @@
 }:
 buildPythonPackage rec {
   inherit (sources.modelscope) pname version src;
+  pyproject = true;
+
+  build-system = [ setuptools ];
 
   propagatedBuildInputs = [
     addict
@@ -32,7 +35,6 @@ buildPythonPackage rec {
     python-dateutil
     requests
     scipy
-    setuptools
     simplejson
     sortedcontainers
     tqdm
@@ -40,8 +42,9 @@ buildPythonPackage rec {
     urllib3
   ];
 
-  preInstall = ''
-    pushd package
+  postPatch = ''
+    substituteInPlace setup.py \
+      --replace-fail "return locals()['__version__']" "return '${sources.modelscope.version}'"
   '';
 
   pythonImportsCheck = [ "modelscope" ];

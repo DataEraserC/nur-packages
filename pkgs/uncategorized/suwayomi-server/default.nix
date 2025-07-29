@@ -6,7 +6,7 @@
   jre_headless,
   makeWrapper,
 }:
-stdenvNoCC.mkDerivation rec {
+stdenvNoCC.mkDerivation (finalAttrs: {
   inherit (sources.suwayomi-server) pname version src;
 
   dontUnpack = true;
@@ -30,10 +30,11 @@ stdenvNoCC.mkDerivation rec {
   '';
 
   meta = {
+    changelog = "https://github.com/Suwayomi/Suwayomi-Server/releases/tag/v${finalAttrs.version}";
     maintainers = with lib.maintainers; [ xddxdd ];
     description = "Rewrite of Tachiyomi for the Desktop";
     homepage = "https://github.com/Suwayomi/Suwayomi-Server";
     license = lib.licenses.mpl20;
     mainProgram = "suwayomi-server";
   };
-}
+})

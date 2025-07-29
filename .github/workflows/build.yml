@@ -61,6 +61,7 @@ jobs:
         uses: easimon/maximize-build-space@master
         with:
           root-reserve-mb: 8192
+          temp-reserve-mb: 1024
           swap-size-mb: 4096
           build-mount-path: '/nix'
           remove-dotnet: 'true'
@@ -135,10 +136,10 @@ jobs:
       - name: Build nix packages
         run: |
           echo "::group::Preparing"
-          env TMPDIR=/nix/tmpdir nix run .#${{ matrix.ci-command }} -- $(nix-instantiate --eval -E 'builtins.currentSystem')
+          env TMPDIR=/nix/tmpdir nix run .#${{ matrix.ci-command }} -- "$(nix-instantiate --eval -E 'builtins.currentSystem')"
 
       - name: Commit back to repository
-        uses: stefanzweifel/git-auto-commit-action@v5
+        uses: stefanzweifel/git-auto-commit-action@v6
         if: ${{ success() || failure() }}
         with:
           commit_message: 'auto: update package hashes'
@@ -174,7 +175,7 @@ jobs:
           - lantian
         atticEndpoint:
           # - <YOUR_ATTIC_ENDPOINT>
-          - https://attic.xuyh0120.win
+          - https://attic.hetzner-de.xuyh0120.win
         nixPath:
           - nixpkgs=channel:nixos-unstable
           - nixpkgs=channel:nixpkgs-unstable
