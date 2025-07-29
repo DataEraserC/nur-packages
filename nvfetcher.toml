@@ -8,6 +8,27 @@ fetch.github = "LiteLoaderQQNT/LiteLoaderQQNT"
 git.fetchSubmodules = true
 src.git = "https://github.com/LiteLoaderQQNT/LiteLoaderQQNT"
 
+[MC-LauncherX-JSON]
+fetch.url = "https://api.corona.studio/Build/get/latest/all/stable"
+src.webpage = "https://api.corona.studio/Build/get/latest/all/stable"
+src.regex = "\"releaseDate\":\"(\\d+-\\d+-\\d+T\\d+:\\d+:\\d+)\""
+
+[MC-LauncherX-aarch64-darwin]
+fetch.url = "https://api.corona.studio/Build/get/$ver.zip"
+src.cmd = "curl -s https://api.corona.studio/Build/get/latest/all/stable | jq -r '.[] | select(.framework == \"net9.0-osx\" and .runtime == \"osx-arm64\") | .id + \"/\" + .framework + \".\" + .runtime'"
+
+[MC-LauncherX-aarch64-linux]
+fetch.url = "https://api.corona.studio/Build/get/$ver.zip"
+src.cmd = "curl -s https://api.corona.studio/Build/get/latest/all/stable | jq -r '.[] | select(.framework == \"net9.0-linux\" and .runtime == \"linux-arm64\") | .id + \"/\" + .framework + \".\" + .runtime'"
+
+[MC-LauncherX-x86_64-darwin]
+fetch.url = "https://api.corona.studio/Build/get/$ver.zip"
+src.cmd = "curl -s https://api.corona.studio/Build/get/latest/all/stable | jq -r '.[] | select(.framework == \"net9.0-osx\" and .runtime == \"osx-x64\") | .id + \"/\" + .framework + \".\" + .runtime'"
+
+[MC-LauncherX-x86_64-linux]
+fetch.url = "https://api.corona.studio/Build/get/$ver.zip"
+src.cmd = "curl -s https://api.corona.studio/Build/get/latest/all/stable | jq -r '.[] | select(.framework == \"net9.0-linux\" and .runtime == \"linux-x64\") | .id + \"/\" + .framework + \".\" + .runtime'"
+
 [OpenFreebuds]
 fetch.github = "melianmiko/OpenFreebuds"
 git.fetchSubmodules = true
@@ -390,7 +411,7 @@ src.git = "https://github.com/Apps-Used-By-Myself/flutter_server_box.git"
 [flutter_server_box_appimage]
 fetch.url = "https://github.com/lollipopkit/flutter_server_box/releases/download/$ver"
 src.webpage = "https://api.github.com/repos/lollipopkit/flutter_server_box/releases/latest"
-src.regex = "https://github.com/lollipopkit/flutter_server_box/releases/download/(v\\d+.\\d+.\\d+/ServerBox_\\d+_amd64.appimage)"
+src.regex = "https://github.com/lollipopkit/flutter_server_box/releases/download/(v\\d+.\\d+.\\d+/ServerBox_\\d+_amd64.AppImage)"
 
 [fr24feed-amd64]
 fetch.url = "https://repo-feed.flightradar24.com/pool/linux-stable/f/fr24feed/fr24feed_$ver_amd64.deb"
@@ -788,27 +809,6 @@ src.regex = "(\\d+(?:\\.\\d+)+)"
 fetch.url = "https://nya.globalslb.net/natfrp/client/launcher-unix/$ver/natfrp-service_linux_amd64.tar.zst"
 src.webpage = "https://nya.globalslb.net/natfrp/client/launcher-unix/"
 src.regex = "(\\d+(?:\\.\\d+)+)"
-
-# [MC-LauncherX-JSON]
-# src.webpage = "https://api.corona.studio/Build/get/latest/all/stable"
-# src.regex = "\"releaseDate\":\"(\\d+-\\d+-\\d+T\\d+:\\d+:\\d+)\""
-# fetch.url = "https://api.corona.studio/Build/get/latest/all/stable"
-
-# [MC-LauncherX-aarch64-linux]
-# src.cmd = "curl -s https://api.corona.studio/Build/get/latest/all/stable | jq -r '.[\"Linux Arm\"].id + \"/\" + .[\"Linux Arm\"].framework + \".\" + .[\"Linux Arm\"].runtime'"
-# fetch.url = "https://api.corona.studio/Build/get/$ver.zip"
-
-# [MC-LauncherX-x86_64-linux]
-# src.cmd = "curl -s https://api.corona.studio/Build/get/latest/all/stable | jq -r '.[\"Linux X64\"].id + \"/\" + .[\"Linux X64\"].framework + \".\" + .[\"Linux X64\"].runtime'"
-# fetch.url = "https://api.corona.studio/Build/get/$ver.zip"
-
-# [MC-LauncherX-x86_64-darwin]
-# src.cmd = "curl -s https://api.corona.studio/Build/get/latest/all/stable | jq -r '.[\"macOS Intel\"].id + \"/\" + .[\"macOS Intel\"].framework + \".\" + .[\"macOS Intel\"].runtime'"
-# fetch.url = "https://api.corona.studio/Build/get/$ver.zip"
-
-# [MC-LauncherX-aarch64-darwin]
-# src.cmd = "curl -s https://api.corona.studio/Build/get/latest/all/stable | jq -r '.[\"macOS Apple\"].id + \"/\" + .[\"macOS Apple\"].framework + \".\" + .[\"macOS Apple\"].runtime'"
-# fetch.url = "https://api.corona.studio/Build/get/$ver.zip"
 
 [netns-exec]
 fetch.github = "pekman/netns-exec"
