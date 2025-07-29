@@ -40,6 +40,7 @@ in
       ...
     }:
     {
+      __intentionallyOverridingVersion = true;
       version = "qq=${version}+llqqnt_rev=${sources.LiteLoaderQQNT.version}";
       runtimeDependencies = runtimeDependencies ++ [ fhs ];
       installPhase =

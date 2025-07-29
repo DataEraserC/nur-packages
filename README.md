@@ -116,7 +116,7 @@ Or, use variables from this repository in case I change them:
 |  | `bird-lgproxy-go` | [bird-lgproxy-go](https://github.com/xddxdd/bird-lg-go) | 1.3.10 | BIRD looking glass in Go, for better maintainability, easier deployment & smaller memory footprint |
 |  | `bnxtnvm` | [bnxtnvm](https://resource.fs.com/mall/resource/broadcom-ethernet-network-adapter-user-manual.pdf) | 222.0.144.0 | Broadcom BNXTNVM utility |
 |  | `boringssl-oqs` | [boringssl-oqs](https://openquantumsafe.org) | 0-unstable-2025-05-20 | Fork of BoringSSL that includes prototype quantum-resistant key exchange and authentication in the TLS handshake based on liboqs |
-|  | `bqqnt` | [bstar](https://im.qq.com/linuxqq/index.html) |  | QQ for Linux |
+|  | `bqqnt` | [bqqnt](https://im.qq.com/linuxqq/index.html) | 0.5.10 | QQ for Linux |
 |  | `browser360` | [browser360](https://browser.360.net/gc/index.html) | 13.4.1000.63 | 360 Browser |
 | `x86_64-linux` | `bstar` | bstar | 0.5.10 | BStar compatibility library |
 |  | `buffyboard` | [buffyboard](https://gitlab.com/postmarketOS/buffybox/-/tree/master/buffyboard) | unstable-2023-11-20 | Touch-enabled framebuffer keyboard (not only) for vampire slayers |
@@ -1318,7 +1318,7 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized-DataEraserC.UnknownAnimeGamePS-wrapper` | [UnknownAnimeGamePS-wrapper](https://github.com/XeonSucksLAB/UnknownAnimeGamePS) | 0-unstable-2024-11-20 | A server software reimplementation for a certain anime game. |
 |  | `uncategorized-DataEraserC.XiaoMiToolV2` | XiaoMiToolV2 | 0-unstable-2024-12-18 |  |
 | `x86_64-linux` | `uncategorized-DataEraserC.alipan` | [alipan](https://www.alipan.com/) | 6.8.6 | Aliyun aDrive |
-|  | `uncategorized-DataEraserC.bqqnt` | [bstar](https://im.qq.com/linuxqq/index.html) |  | QQ for Linux |
+|  | `uncategorized-DataEraserC.bqqnt` | [bqqnt](https://im.qq.com/linuxqq/index.html) | 0.5.10 | QQ for Linux |
 | `x86_64-linux` | `uncategorized-DataEraserC.bstar` | bstar | 0.5.10 | BStar compatibility library |
 |  | `uncategorized-DataEraserC.buffyboard` | [buffyboard](https://gitlab.com/postmarketOS/buffybox/-/tree/master/buffyboard) | unstable-2023-11-20 | Touch-enabled framebuffer keyboard (not only) for vampire slayers |
 |  | `uncategorized-DataEraserC.buffybox` | [buffybox](https://gitlab.com/postmarketOS/buffybox) | 0-unstable-2024-10-05 | Suite of graphical applications for the terminal |

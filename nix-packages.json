@@ -511,7 +511,7 @@
   },
   "legacyPackages.x86_64-linux.bqqnt": {
     "description": "QQ for Linux",
-    "pname": "bstar",
+    "pname": "bqqnt",
     "version": ""
   },
   "legacyPackages.x86_64-linux.browser360": {
@@ -4721,7 +4721,7 @@
   },
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.bqqnt": {
     "description": "QQ for Linux",
-    "pname": "bstar",
+    "pname": "bqqnt",
     "version": ""
   },
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.bstar": {
@@ -5976,7 +5976,7 @@
   },
   "packages.x86_64-linux.bqqnt": {
     "description": "QQ for Linux",
-    "pname": "bstar",
+    "pname": "bqqnt",
     "version": ""
   },
   "packages.x86_64-linux.browser360": {
