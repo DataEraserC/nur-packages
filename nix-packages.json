@@ -26,8 +26,8 @@
   },
   "legacyPackages.x86_64-linux.MC-LauncherX": {
     "description": "",
-    "pname": "MC-LauncherX-x86_64-linux",
-    "version": "8cddf076-36d6-41f7-9cfa-bcd430e41ac6-net9.0-linux.linux-x64"
+    "pname": "MC-LauncherX-x86_64-linux-aa1e471d",
+    "version": "9acb-4e1e-ba76-0ca72f90df6c-net9.0-linux.linux-x64"
   },
   "legacyPackages.x86_64-linux.MIO_KITCHEN_bin": {
     "description": "The Android Rom Tool Use python language",
@@ -37,12 +37,12 @@
   "legacyPackages.x86_64-linux.PiliPalaX": {
     "description": "PiliPalaX",
     "pname": "PiliPalaX",
-    "version": "0-unstable-2025-05-13"
+    "version": "0-unstable-2025-07-29"
   },
   "legacyPackages.x86_64-linux.SakuraFrp": {
     "description": "",
     "pname": "netfrp-x86_64-linux",
-    "version": "3.1.6"
+    "version": "3.1.7"
   },
   "legacyPackages.x86_64-linux.UnknownAnimeGamePS": {
     "description": "",
@@ -802,7 +802,7 @@
   "legacyPackages.x86_64-linux.flapalerted": {
     "description": "BGP Update based flap detection",
     "pname": "flapalerted",
-    "version": "3.14.2"
+    "version": "3.14.3"
   },
   "legacyPackages.x86_64-linux.flaresolverr-21hsmw": {
     "description": "Proxy server to bypass Cloudflare protection, with 21hsmw modifications to support nodriver",
@@ -822,7 +822,7 @@
   "legacyPackages.x86_64-linux.flutter_server_box_appimage": {
     "description": "flutter_server_box",
     "pname": "flutter_server_box_appimage",
-    "version": "1.0.1130-ServerBox_1128_amd64.appimage"
+    "version": "1.0.1201-ServerBox_1201_amd64.AppImage"
   },
   "legacyPackages.x86_64-linux.fr24feed": {
     "description": "Flightradar24 Decoder & Feeder lets you effortlessly share ADS-B data with Flightradar24",
@@ -887,7 +887,7 @@
   "legacyPackages.x86_64-linux.hdrop": {
     "description": "Emulate 'tdrop' in Hyprland (run, show and hide specific programs per keybind)",
     "pname": "hdrop",
-    "version": "0-unstable-2025-04-17"
+    "version": "0-unstable-2025-07-01"
   },
   "legacyPackages.x86_64-linux.helium-gateway-rs": {
     "description": "Helium Gateway",
@@ -907,7 +907,7 @@
   "legacyPackages.x86_64-linux.himirage_unwrapped": {
     "description": "",
     "pname": "himirage-x86_64-linux-unwrapped",
-    "version": "2025-05-15-00-46-03"
+    "version": "2025-07-30-17-06-50"
   },
   "legacyPackages.x86_64-linux.hkdm": {
     "description": "Lighter-weight hotkey daemon",
@@ -1007,7 +1007,7 @@
   "legacyPackages.x86_64-linux.kernel-modules.ovpn-dco": {
     "description": "OpenVPN Data Channel Offload in the linux kernel",
     "pname": "ovpn-dco",
-    "version": "0.2.20250718"
+    "version": "0.2.20250728"
   },
   "legacyPackages.x86_64-linux.kernel-modules.r8125": {
     "description": "Linux device driver for Realtek 2.5/5 Gigabit Ethernet controllers with PCI-Express interface",
@@ -1067,7 +1067,7 @@
   "legacyPackages.x86_64-linux.lantianCustomized.llama-cpp": {
     "description": "Inference of Meta's LLaMA model (and others) in pure C/C++",
     "pname": "llama-cpp",
-    "version": "6002"
+    "version": "6029"
   },
   "legacyPackages.x86_64-linux.lantianCustomized.ls-iommu": {
     "description": "List IOMMUs on system",
@@ -1522,7 +1522,7 @@
   "legacyPackages.x86_64-linux.liboqs-unstable": {
     "description": "C library for prototyping and experimenting with quantum-resistant cryptography",
     "pname": "liboqs",
-    "version": "0-unstable-2025-07-14"
+    "version": "0-unstable-2025-07-29"
   },
   "legacyPackages.x86_64-linux.libqcef": {
     "description": "Qt5 binding of CEF",
@@ -1542,7 +1542,7 @@
   "legacyPackages.x86_64-linux.llqqnt": {
     "description": "",
     "pname": "qq-qq=3.2.18+llqqnt_rev=0-unstable",
-    "version": "2025-05-13"
+    "version": "2025-07-29"
   },
   "legacyPackages.x86_64-linux.loralib": {
     "description": "Implementation of \"LoRA: Low-Rank Adaptation of Large Language Models\"",
@@ -2547,7 +2547,7 @@
   "legacyPackages.x86_64-linux.open-interpreter": {
     "description": "A natural language interface for computers",
     "pname": "open-interpreter",
-    "version": "0-unstable-2025-04-23"
+    "version": "0-unstable-2025-07-29"
   },
   "legacyPackages.x86_64-linux.openai-edge-tts": {
     "description": "Text-to-speech API endpoint compatible with OpenAI's TTS API endpoint, using Microsoft Edge TTS to generate speech for free locally",
@@ -4112,7 +4112,7 @@
   "legacyPackages.x86_64-linux.openssl-oqs-provider": {
     "description": "OpenSSL 3 provider containing post-quantum algorithms",
     "pname": "openssl-oqs-provider",
-    "version": "0.9.0"
+    "version": "0.10.0"
   },
   "legacyPackages.x86_64-linux.openvswitch-dpdk": {
     "description": "Multilayer virtual switch",
@@ -4132,7 +4132,7 @@
   "legacyPackages.x86_64-linux.ovpn-dco": {
     "description": "OpenVPN Data Channel Offload in the linux kernel",
     "pname": "ovpn-dco",
-    "version": "0.2.20250718"
+    "version": "0.2.20250728"
   },
   "legacyPackages.x86_64-linux.palworld-exporter": {
     "description": "Prometheus exporter for Palword Server",
@@ -4152,7 +4152,7 @@
   "legacyPackages.x86_64-linux.peerbanhelper": {
     "description": "自动封禁不受欢迎、吸血和异常的 BT 客户端，并支持自定义规则。PeerId黑名单/UserAgent黑名单/IP CIDR/假进度检测/超量下载检测/主动探测 支持 qBittorrent/Transmission",
     "pname": "peerbanhelper",
-    "version": "8.0.9"
+    "version": "8.0.10"
   },
   "legacyPackages.x86_64-linux.phpmyadmin": {
     "description": "Web interface for MySQL and MariaDB",
@@ -4202,7 +4202,7 @@
   "legacyPackages.x86_64-linux.pterodactyl-wings": {
     "description": "Server control plane for Pterodactyl Panel",
     "pname": "pterodactyl-wings",
-    "version": "1.11.13-unstable-2025-07-01"
+    "version": "1.11.13-unstable-2025-07-29"
   },
   "legacyPackages.x86_64-linux.py-rcon": {
     "description": "Python implementation of RCON",
@@ -4422,7 +4422,7 @@
   "legacyPackages.x86_64-linux.qsp-lib": {
     "description": "QSP is an Interactive Fiction development platform (Game Library)",
     "pname": "qsp-lib",
-    "version": "0-unstable-2025-07-28"
+    "version": "0-unstable-2025-07-29"
   },
   "legacyPackages.x86_64-linux.qtscrcpy_git": {
     "description": "Android real-time display control software",
@@ -4542,7 +4542,7 @@
   "legacyPackages.x86_64-linux.snell-server": {
     "description": "",
     "pname": "snell-server-x86_64-linux",
-    "version": "4.1.1"
+    "version": "5.0.0"
   },
   "legacyPackages.x86_64-linux.snell-server_fhs": {
     "description": "",
@@ -4681,8 +4681,8 @@
   },
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.MC-LauncherX": {
     "description": "",
-    "pname": "MC-LauncherX-x86_64-linux",
-    "version": "8cddf076-36d6-41f7-9cfa-bcd430e41ac6-net9.0-linux.linux-x64"
+    "pname": "MC-LauncherX-x86_64-linux-aa1e471d",
+    "version": "9acb-4e1e-ba76-0ca72f90df6c-net9.0-linux.linux-x64"
   },
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.MIO_KITCHEN_bin": {
     "description": "The Android Rom Tool Use python language",
@@ -4692,12 +4692,12 @@
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.PiliPalaX": {
     "description": "PiliPalaX",
     "pname": "PiliPalaX",
-    "version": "0-unstable-2025-05-13"
+    "version": "0-unstable-2025-07-29"
   },
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.SakuraFrp": {
     "description": "",
     "pname": "netfrp-x86_64-linux",
-    "version": "3.1.6"
+    "version": "3.1.7"
   },
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.UnknownAnimeGamePS": {
     "description": "",
@@ -4827,17 +4827,17 @@
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.flutter_server_box_appimage": {
     "description": "flutter_server_box",
     "pname": "flutter_server_box_appimage",
-    "version": "1.0.1130-ServerBox_1128_amd64.appimage"
+    "version": "1.0.1201-ServerBox_1201_amd64.AppImage"
   },
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.hdrop": {
     "description": "Emulate 'tdrop' in Hyprland (run, show and hide specific programs per keybind)",
     "pname": "hdrop",
-    "version": "0-unstable-2025-04-17"
+    "version": "0-unstable-2025-07-01"
   },
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.himirage_unwrapped": {
     "description": "",
     "pname": "himirage-x86_64-linux-unwrapped",
-    "version": "2025-05-15-00-46-03"
+    "version": "2025-07-30-17-06-50"
   },
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.hkdm": {
     "description": "Lighter-weight hotkey daemon",
@@ -4847,7 +4847,7 @@
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.llqqnt": {
     "description": "",
     "pname": "qq-qq=3.2.18+llqqnt_rev=0-unstable",
-    "version": "2025-05-13"
+    "version": "2025-07-29"
   },
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.motrix": {
     "description": "Full-featured download manager",
@@ -4862,7 +4862,7 @@
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.open-interpreter": {
     "description": "A natural language interface for computers",
     "pname": "open-interpreter",
-    "version": "0-unstable-2025-04-23"
+    "version": "0-unstable-2025-07-29"
   },
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.qtscrcpy_git": {
     "description": "Android real-time display control software",
@@ -4877,7 +4877,7 @@
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.snell-server": {
     "description": "",
     "pname": "snell-server-x86_64-linux",
-    "version": "4.1.1"
+    "version": "5.0.0"
   },
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.snell-server_fhs": {
     "description": "",
@@ -4897,7 +4897,7 @@
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.v2ray-rules-dat": {
     "description": "V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria.",
     "pname": "v2ray-rules-dat",
-    "version": "202505132213"
+    "version": "202507292215"
   },
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.vmware-workstation": {
     "description": "Industry standard desktop hypervisor for x86-64 architecture",
@@ -4927,12 +4927,12 @@
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.wechat_dev_tools_appimage": {
     "description": "The development tools for wechat projects",
     "pname": "wechat-web-devtools-linux_appimage",
-    "version": "1.06.2503290-2"
+    "version": "1.06.2504010-2"
   },
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.wechat_dev_tools_bin": {
     "description": "The development tools for wechat projects",
     "pname": "wechat-web-devtools-linux_bin",
-    "version": "1.06.2503290-2"
+    "version": "1.06.2504010-2"
   },
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.xcursor-genshin-nahida": {
     "description": "xcursor genshin nahida",
@@ -5092,7 +5092,7 @@
   "legacyPackages.x86_64-linux.uncategorized.flapalerted": {
     "description": "BGP Update based flap detection",
     "pname": "flapalerted",
-    "version": "3.14.2"
+    "version": "3.14.3"
   },
   "legacyPackages.x86_64-linux.uncategorized.flaresolverr-21hsmw": {
     "description": "Proxy server to bypass Cloudflare protection, with 21hsmw modifications to support nodriver",
@@ -5227,7 +5227,7 @@
   "legacyPackages.x86_64-linux.uncategorized.liboqs-unstable": {
     "description": "C library for prototyping and experimenting with quantum-resistant cryptography",
     "pname": "liboqs",
-    "version": "0-unstable-2025-07-14"
+    "version": "0-unstable-2025-07-29"
   },
   "legacyPackages.x86_64-linux.uncategorized.libqcef": {
     "description": "Qt5 binding of CEF",
@@ -5347,7 +5347,7 @@
   "legacyPackages.x86_64-linux.uncategorized.openssl-oqs-provider": {
     "description": "OpenSSL 3 provider containing post-quantum algorithms",
     "pname": "openssl-oqs-provider",
-    "version": "0.9.0"
+    "version": "0.10.0"
   },
   "legacyPackages.x86_64-linux.uncategorized.openvswitch-dpdk": {
     "description": "Multilayer virtual switch",
@@ -5372,7 +5372,7 @@
   "legacyPackages.x86_64-linux.uncategorized.peerbanhelper": {
     "description": "自动封禁不受欢迎、吸血和异常的 BT 客户端，并支持自定义规则。PeerId黑名单/UserAgent黑名单/IP CIDR/假进度检测/超量下载检测/主动探测 支持 qBittorrent/Transmission",
     "pname": "peerbanhelper",
-    "version": "8.0.9"
+    "version": "8.0.10"
   },
   "legacyPackages.x86_64-linux.uncategorized.phpmyadmin": {
     "description": "Web interface for MySQL and MariaDB",
@@ -5412,7 +5412,7 @@
   "legacyPackages.x86_64-linux.uncategorized.pterodactyl-wings": {
     "description": "Server control plane for Pterodactyl Panel",
     "pname": "pterodactyl-wings",
-    "version": "1.11.13-unstable-2025-07-01"
+    "version": "1.11.13-unstable-2025-07-29"
   },
   "legacyPackages.x86_64-linux.uncategorized.pyhss": {
     "description": "Python HSS / Diameter Server",
@@ -5447,7 +5447,7 @@
   "legacyPackages.x86_64-linux.uncategorized.qsp-lib": {
     "description": "QSP is an Interactive Fiction development platform (Game Library)",
     "pname": "qsp-lib",
-    "version": "0-unstable-2025-07-28"
+    "version": "0-unstable-2025-07-29"
   },
   "legacyPackages.x86_64-linux.uncategorized.red-star-os-rgjanggi": {
     "description": "Rgjanggi game from DPRK Red Star OS 3.0, heavily sandboxed. Use at your own risk",
@@ -5567,7 +5567,7 @@
   "legacyPackages.x86_64-linux.uncategorized.uni-api": {
     "description": "Unifies the management of LLM APIs. Call multiple backend services through a unified API interface",
     "pname": "uni-api",
-    "version": "0-unstable-2025-07-26"
+    "version": "0-unstable-2025-07-29"
   },
   "legacyPackages.x86_64-linux.uncategorized.unigine-heaven": {
     "description": "Extreme performance and stability test for PC hardware: video card, power supply, cooling system",
@@ -5647,7 +5647,7 @@
   "legacyPackages.x86_64-linux.uni-api": {
     "description": "Unifies the management of LLM APIs. Call multiple backend services through a unified API interface",
     "pname": "uni-api",
-    "version": "0-unstable-2025-07-26"
+    "version": "0-unstable-2025-07-29"
   },
   "legacyPackages.x86_64-linux.unigine-heaven": {
     "description": "Extreme performance and stability test for PC hardware: video card, power supply, cooling system",
@@ -5687,7 +5687,7 @@
   "legacyPackages.x86_64-linux.v2ray-rules-dat": {
     "description": "V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria.",
     "pname": "v2ray-rules-dat",
-    "version": "202505132213"
+    "version": "202507292215"
   },
   "legacyPackages.x86_64-linux.vbmeta-disable-verification": {
     "description": "Patch Android vbmeta image and disable verification flags inside",
@@ -5767,12 +5767,12 @@
   "legacyPackages.x86_64-linux.wechat_dev_tools_appimage": {
     "description": "The development tools for wechat projects",
     "pname": "wechat-web-devtools-linux_appimage",
-    "version": "1.06.2503290-2"
+    "version": "1.06.2504010-2"
   },
   "legacyPackages.x86_64-linux.wechat_dev_tools_bin": {
     "description": "The development tools for wechat projects",
     "pname": "wechat-web-devtools-linux_bin",
-    "version": "1.06.2503290-2"
+    "version": "1.06.2504010-2"
   },
   "legacyPackages.x86_64-linux.wine-wechat": {
     "description": "Wine WeChat x64 (Packaging script adapted from https://aur.archlinux.org/packages/deepin-wine-wechat)",
@@ -5841,8 +5841,8 @@
   },
   "packages.x86_64-linux.MC-LauncherX": {
     "description": "",
-    "pname": "MC-LauncherX-x86_64-linux",
-    "version": "8cddf076-36d6-41f7-9cfa-bcd430e41ac6-net9.0-linux.linux-x64"
+    "pname": "MC-LauncherX-x86_64-linux-aa1e471d",
+    "version": "9acb-4e1e-ba76-0ca72f90df6c-net9.0-linux.linux-x64"
   },
   "packages.x86_64-linux.MIO_KITCHEN_bin": {
     "description": "The Android Rom Tool Use python language",
@@ -5852,12 +5852,12 @@
   "packages.x86_64-linux.PiliPalaX": {
     "description": "PiliPalaX",
     "pname": "PiliPalaX",
-    "version": "0-unstable-2025-05-13"
+    "version": "0-unstable-2025-07-29"
   },
   "packages.x86_64-linux.SakuraFrp": {
     "description": "",
     "pname": "netfrp-x86_64-linux",
-    "version": "3.1.6"
+    "version": "3.1.7"
   },
   "packages.x86_64-linux.UnknownAnimeGamePS": {
     "description": "",
@@ -6227,7 +6227,7 @@
   "packages.x86_64-linux.flapalerted": {
     "description": "BGP Update based flap detection",
     "pname": "flapalerted",
-    "version": "3.14.2"
+    "version": "3.14.3"
   },
   "packages.x86_64-linux.flaresolverr-21hsmw": {
     "description": "Proxy server to bypass Cloudflare protection, with 21hsmw modifications to support nodriver",
@@ -6247,7 +6247,7 @@
   "packages.x86_64-linux.flutter_server_box_appimage": {
     "description": "flutter_server_box",
     "pname": "flutter_server_box_appimage",
-    "version": "1.0.1130-ServerBox_1128_amd64.appimage"
+    "version": "1.0.1201-ServerBox_1201_amd64.AppImage"
   },
   "packages.x86_64-linux.fr24feed": {
     "description": "Flightradar24 Decoder & Feeder lets you effortlessly share ADS-B data with Flightradar24",
@@ -6312,7 +6312,7 @@
   "packages.x86_64-linux.hdrop": {
     "description": "Emulate 'tdrop' in Hyprland (run, show and hide specific programs per keybind)",
     "pname": "hdrop",
-    "version": "0-unstable-2025-04-17"
+    "version": "0-unstable-2025-07-01"
   },
   "packages.x86_64-linux.helium-gateway-rs": {
     "description": "Helium Gateway",
@@ -6332,7 +6332,7 @@
   "packages.x86_64-linux.himirage_unwrapped": {
     "description": "",
     "pname": "himirage-x86_64-linux-unwrapped",
-    "version": "2025-05-15-00-46-03"
+    "version": "2025-07-30-17-06-50"
   },
   "packages.x86_64-linux.hkdm": {
     "description": "Lighter-weight hotkey daemon",
@@ -6467,7 +6467,7 @@
   "packages.x86_64-linux.liboqs-unstable": {
     "description": "C library for prototyping and experimenting with quantum-resistant cryptography",
     "pname": "liboqs",
-    "version": "0-unstable-2025-07-14"
+    "version": "0-unstable-2025-07-29"
   },
   "packages.x86_64-linux.libqcef": {
     "description": "Qt5 binding of CEF",
@@ -6487,7 +6487,7 @@
   "packages.x86_64-linux.llqqnt": {
     "description": "",
     "pname": "qq-qq=3.2.18+llqqnt_rev=0-unstable",
-    "version": "2025-05-13"
+    "version": "2025-07-29"
   },
   "packages.x86_64-linux.loralib": {
     "description": "Implementation of \"LoRA: Low-Rank Adaptation of Large Language Models\"",
@@ -6617,7 +6617,7 @@
   "packages.x86_64-linux.open-interpreter": {
     "description": "A natural language interface for computers",
     "pname": "open-interpreter",
-    "version": "0-unstable-2025-04-23"
+    "version": "0-unstable-2025-07-29"
   },
   "packages.x86_64-linux.openai-edge-tts": {
     "description": "Text-to-speech API endpoint compatible with OpenAI's TTS API endpoint, using Microsoft Edge TTS to generate speech for free locally",
@@ -6652,7 +6652,7 @@
   "packages.x86_64-linux.openssl-oqs-provider": {
     "description": "OpenSSL 3 provider containing post-quantum algorithms",
     "pname": "openssl-oqs-provider",
-    "version": "0.9.0"
+    "version": "0.10.0"
   },
   "packages.x86_64-linux.openvswitch-dpdk": {
     "description": "Multilayer virtual switch",
@@ -6672,7 +6672,7 @@
   "packages.x86_64-linux.ovpn-dco": {
     "description": "OpenVPN Data Channel Offload in the linux kernel",
     "pname": "ovpn-dco",
-    "version": "0.2.20250718"
+    "version": "0.2.20250728"
   },
   "packages.x86_64-linux.palworld-exporter": {
     "description": "Prometheus exporter for Palword Server",
@@ -6692,7 +6692,7 @@
   "packages.x86_64-linux.peerbanhelper": {
     "description": "自动封禁不受欢迎、吸血和异常的 BT 客户端，并支持自定义规则。PeerId黑名单/UserAgent黑名单/IP CIDR/假进度检测/超量下载检测/主动探测 支持 qBittorrent/Transmission",
     "pname": "peerbanhelper",
-    "version": "8.0.9"
+    "version": "8.0.10"
   },
   "packages.x86_64-linux.phpmyadmin": {
     "description": "Web interface for MySQL and MariaDB",
@@ -6742,7 +6742,7 @@
   "packages.x86_64-linux.pterodactyl-wings": {
     "description": "Server control plane for Pterodactyl Panel",
     "pname": "pterodactyl-wings",
-    "version": "1.11.13-unstable-2025-07-01"
+    "version": "1.11.13-unstable-2025-07-29"
   },
   "packages.x86_64-linux.py-rcon": {
     "description": "Python implementation of RCON",
@@ -6802,7 +6802,7 @@
   "packages.x86_64-linux.qsp-lib": {
     "description": "QSP is an Interactive Fiction development platform (Game Library)",
     "pname": "qsp-lib",
-    "version": "0-unstable-2025-07-28"
+    "version": "0-unstable-2025-07-29"
   },
   "packages.x86_64-linux.qtscrcpy_git": {
     "description": "Android real-time display control software",
@@ -6922,7 +6922,7 @@
   "packages.x86_64-linux.snell-server": {
     "description": "",
     "pname": "snell-server-x86_64-linux",
-    "version": "4.1.1"
+    "version": "5.0.0"
   },
   "packages.x86_64-linux.snell-server_fhs": {
     "description": "",
@@ -7007,7 +7007,7 @@
   "packages.x86_64-linux.uni-api": {
     "description": "Unifies the management of LLM APIs. Call multiple backend services through a unified API interface",
     "pname": "uni-api",
-    "version": "0-unstable-2025-07-26"
+    "version": "0-unstable-2025-07-29"
   },
   "packages.x86_64-linux.unigine-heaven": {
     "description": "Extreme performance and stability test for PC hardware: video card, power supply, cooling system",
@@ -7047,7 +7047,7 @@
   "packages.x86_64-linux.v2ray-rules-dat": {
     "description": "V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria.",
     "pname": "v2ray-rules-dat",
-    "version": "202505132213"
+    "version": "202507292215"
   },
   "packages.x86_64-linux.vbmeta-disable-verification": {
     "description": "Patch Android vbmeta image and disable verification flags inside",
@@ -7127,12 +7127,12 @@
   "packages.x86_64-linux.wechat_dev_tools_appimage": {
     "description": "The development tools for wechat projects",
     "pname": "wechat-web-devtools-linux_appimage",
-    "version": "1.06.2503290-2"
+    "version": "1.06.2504010-2"
   },
   "packages.x86_64-linux.wechat_dev_tools_bin": {
     "description": "The development tools for wechat projects",
     "pname": "wechat-web-devtools-linux_bin",
-    "version": "1.06.2503290-2"
+    "version": "1.06.2504010-2"
   },
   "packages.x86_64-linux.wine-wechat": {
     "description": "Wine WeChat x64 (Packaging script adapted from https://aur.archlinux.org/packages/deepin-wine-wechat)",
