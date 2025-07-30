@@ -89,5 +89,5 @@ jobs:
           if git commit -m "auto: update packages" ; then
             git remote remove origin
             git remote add origin "https://DataEraserC:$API_TOKEN_GITHUB@github.com/DataEraserC/nur-packages.git"
-            git push -u origin master
+            git push -u origin main
           fi
