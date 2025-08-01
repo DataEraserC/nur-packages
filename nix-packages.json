@@ -37,7 +37,7 @@
   "legacyPackages.x86_64-linux.PiliPalaX": {
     "description": "PiliPalaX",
     "pname": "PiliPalaX",
-    "version": "0-unstable-2025-07-31"
+    "version": "0-unstable-2025-08-01"
   },
   "legacyPackages.x86_64-linux.SakuraFrp": {
     "description": "",
@@ -632,7 +632,7 @@
   "legacyPackages.x86_64-linux.dbip-lite": {
     "description": "DBIP's Lite GeoIP Country, City, and ASN databases",
     "pname": "dbip-lite",
-    "version": "2025-07"
+    "version": "2025-08"
   },
   "legacyPackages.x86_64-linux.decluttarr": {
     "description": "Watches radarr, sonarr, lidarr and readarr download queues and removes downloads if they become stalled or no longer needed",
@@ -842,7 +842,7 @@
   "legacyPackages.x86_64-linux.geolite2": {
     "description": "MaxMind's GeoIP2 GeoLite2 Country, City, and ASN databases",
     "pname": "geolite2",
-    "version": "2025.07.31"
+    "version": "2025.08.01"
   },
   "legacyPackages.x86_64-linux.glauth": {
     "description": "(DEPRECATED: glauth is available in nixpkgs by a different maintainer) Lightweight LDAP server for development, home use, or CI",
@@ -907,7 +907,7 @@
   "legacyPackages.x86_64-linux.himirage_unwrapped": {
     "description": "",
     "pname": "himirage-x86_64-linux-unwrapped",
-    "version": "2025-07-31-18-02-58"
+    "version": "2025-08-01-18-02-55"
   },
   "legacyPackages.x86_64-linux.hkdm": {
     "description": "Lighter-weight hotkey daemon",
@@ -1067,7 +1067,7 @@
   "legacyPackages.x86_64-linux.lantianCustomized.llama-cpp": {
     "description": "Inference of Meta's LLaMA model (and others) in pure C/C++",
     "pname": "llama-cpp",
-    "version": "6040"
+    "version": "6056"
   },
   "legacyPackages.x86_64-linux.lantianCustomized.ls-iommu": {
     "description": "List IOMMUs on system",
@@ -4562,7 +4562,7 @@
   "legacyPackages.x86_64-linux.suwayomi-server": {
     "description": "Rewrite of Tachiyomi for the Desktop",
     "pname": "suwayomi-server",
-    "version": "2.0.1727"
+    "version": "2.1.1867"
   },
   "legacyPackages.x86_64-linux.svp": {
     "description": "SmoothVideo Project 4 (SVP4) converts any video to 60 fps (and even higher) and performs this in real time right in your favorite video player",
@@ -4692,7 +4692,7 @@
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.PiliPalaX": {
     "description": "PiliPalaX",
     "pname": "PiliPalaX",
-    "version": "0-unstable-2025-07-31"
+    "version": "0-unstable-2025-08-01"
   },
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.SakuraFrp": {
     "description": "",
@@ -4837,7 +4837,7 @@
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.himirage_unwrapped": {
     "description": "",
     "pname": "himirage-x86_64-linux-unwrapped",
-    "version": "2025-07-31-18-02-58"
+    "version": "2025-08-01-18-02-55"
   },
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.hkdm": {
     "description": "Lighter-weight hotkey daemon",
@@ -4897,7 +4897,7 @@
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.v2ray-rules-dat": {
     "description": "V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria.",
     "pname": "v2ray-rules-dat",
-    "version": "202507302215"
+    "version": "202507312215"
   },
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.vmware-workstation": {
     "description": "Industry standard desktop hypervisor for x86-64 architecture",
@@ -5022,7 +5022,7 @@
   "legacyPackages.x86_64-linux.uncategorized.dbip-lite": {
     "description": "DBIP's Lite GeoIP Country, City, and ASN databases",
     "pname": "dbip-lite",
-    "version": "2025-07"
+    "version": "2025-08"
   },
   "legacyPackages.x86_64-linux.uncategorized.decluttarr": {
     "description": "Watches radarr, sonarr, lidarr and readarr download queues and removes downloads if they become stalled or no longer needed",
@@ -5117,7 +5117,7 @@
   "legacyPackages.x86_64-linux.uncategorized.geolite2": {
     "description": "MaxMind's GeoIP2 GeoLite2 Country, City, and ASN databases",
     "pname": "geolite2",
-    "version": "2025.07.31"
+    "version": "2025.08.01"
   },
   "legacyPackages.x86_64-linux.uncategorized.google-earth-pro": {
     "description": "World sphere viewer",
@@ -5532,7 +5532,7 @@
   "legacyPackages.x86_64-linux.uncategorized.suwayomi-server": {
     "description": "Rewrite of Tachiyomi for the Desktop",
     "pname": "suwayomi-server",
-    "version": "2.0.1727"
+    "version": "2.1.1867"
   },
   "legacyPackages.x86_64-linux.uncategorized.svp": {
     "description": "SmoothVideo Project 4 (SVP4) converts any video to 60 fps (and even higher) and performs this in real time right in your favorite video player",
@@ -5612,7 +5612,7 @@
   "legacyPackages.x86_64-linux.uncategorized.vk-hdr-layer": {
     "description": "Vulkan layer utilizing a small color management / HDR protocol for experimentation",
     "pname": "vk-hdr-layer",
-    "version": "0-unstable-2025-05-22"
+    "version": "0-unstable-2025-07-31"
   },
   "legacyPackages.x86_64-linux.uncategorized.vpp": {
     "description": "Vector Packet Processing",
@@ -5622,7 +5622,7 @@
   "legacyPackages.x86_64-linux.uncategorized.vuetorrent-backend": {
     "description": "FSimple backend service to store configuration server-side",
     "pname": "vuetorrent-backend",
-    "version": "2.6.0"
+    "version": "2.7.0"
   },
   "legacyPackages.x86_64-linux.uncategorized.wechat-uos-sandboxed": {
     "description": "WeChat desktop with sandbox enabled ($HOME/Documents/WeChat_Data) (Adapted from https://aur.archlinux.org/packages/wechat-uos-bwrap)",
@@ -5687,7 +5687,7 @@
   "legacyPackages.x86_64-linux.v2ray-rules-dat": {
     "description": "V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria.",
     "pname": "v2ray-rules-dat",
-    "version": "202507302215"
+    "version": "202507312215"
   },
   "legacyPackages.x86_64-linux.vbmeta-disable-verification": {
     "description": "Patch Android vbmeta image and disable verification flags inside",
@@ -5707,7 +5707,7 @@
   "legacyPackages.x86_64-linux.vk-hdr-layer": {
     "description": "Vulkan layer utilizing a small color management / HDR protocol for experimentation",
     "pname": "vk-hdr-layer",
-    "version": "0-unstable-2025-05-22"
+    "version": "0-unstable-2025-07-31"
   },
   "legacyPackages.x86_64-linux.vmware-workstation": {
     "description": "Industry standard desktop hypervisor for x86-64 architecture",
@@ -5722,7 +5722,7 @@
   "legacyPackages.x86_64-linux.vuetorrent-backend": {
     "description": "FSimple backend service to store configuration server-side",
     "pname": "vuetorrent-backend",
-    "version": "2.6.0"
+    "version": "2.7.0"
   },
   "legacyPackages.x86_64-linux.watt-toolkit": {
     "description": "an open source cross-platform multi-purpose game toolkit",
@@ -5852,7 +5852,7 @@
   "packages.x86_64-linux.PiliPalaX": {
     "description": "PiliPalaX",
     "pname": "PiliPalaX",
-    "version": "0-unstable-2025-07-31"
+    "version": "0-unstable-2025-08-01"
   },
   "packages.x86_64-linux.SakuraFrp": {
     "description": "",
@@ -6097,7 +6097,7 @@
   "packages.x86_64-linux.dbip-lite": {
     "description": "DBIP's Lite GeoIP Country, City, and ASN databases",
     "pname": "dbip-lite",
-    "version": "2025-07"
+    "version": "2025-08"
   },
   "packages.x86_64-linux.decluttarr": {
     "description": "Watches radarr, sonarr, lidarr and readarr download queues and removes downloads if they become stalled or no longer needed",
@@ -6267,7 +6267,7 @@
   "packages.x86_64-linux.geolite2": {
     "description": "MaxMind's GeoIP2 GeoLite2 Country, City, and ASN databases",
     "pname": "geolite2",
-    "version": "2025.07.31"
+    "version": "2025.08.01"
   },
   "packages.x86_64-linux.glauth": {
     "description": "(DEPRECATED: glauth is available in nixpkgs by a different maintainer) Lightweight LDAP server for development, home use, or CI",
@@ -6332,7 +6332,7 @@
   "packages.x86_64-linux.himirage_unwrapped": {
     "description": "",
     "pname": "himirage-x86_64-linux-unwrapped",
-    "version": "2025-07-31-18-02-58"
+    "version": "2025-08-01-18-02-55"
   },
   "packages.x86_64-linux.hkdm": {
     "description": "Lighter-weight hotkey daemon",
@@ -6942,7 +6942,7 @@
   "packages.x86_64-linux.suwayomi-server": {
     "description": "Rewrite of Tachiyomi for the Desktop",
     "pname": "suwayomi-server",
-    "version": "2.0.1727"
+    "version": "2.1.1867"
   },
   "packages.x86_64-linux.svp": {
     "description": "SmoothVideo Project 4 (SVP4) converts any video to 60 fps (and even higher) and performs this in real time right in your favorite video player",
@@ -7047,7 +7047,7 @@
   "packages.x86_64-linux.v2ray-rules-dat": {
     "description": "V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria.",
     "pname": "v2ray-rules-dat",
-    "version": "202507302215"
+    "version": "202507312215"
   },
   "packages.x86_64-linux.vbmeta-disable-verification": {
     "description": "Patch Android vbmeta image and disable verification flags inside",
@@ -7067,7 +7067,7 @@
   "packages.x86_64-linux.vk-hdr-layer": {
     "description": "Vulkan layer utilizing a small color management / HDR protocol for experimentation",
     "pname": "vk-hdr-layer",
-    "version": "0-unstable-2025-05-22"
+    "version": "0-unstable-2025-07-31"
   },
   "packages.x86_64-linux.vmware-workstation": {
     "description": "Industry standard desktop hypervisor for x86-64 architecture",
@@ -7082,7 +7082,7 @@
   "packages.x86_64-linux.vuetorrent-backend": {
     "description": "FSimple backend service to store configuration server-side",
     "pname": "vuetorrent-backend",
-    "version": "2.6.0"
+    "version": "2.7.0"
   },
   "packages.x86_64-linux.watt-toolkit": {
     "description": "an open source cross-platform multi-purpose game toolkit",
