@@ -75,15 +75,15 @@
   };
   PiliPalaX = {
     pname = "PiliPalaX";
-    version = "53ef4219eb8317edd34ac977261b0ecb47962303";
+    version = "3c964787df9f97c0736bc712722eac6a21f9a497";
     src = fetchFromGitHub {
       owner = "bggRGjQaUbCoE";
       repo = "PiliPlus";
-      rev = "53ef4219eb8317edd34ac977261b0ecb47962303";
+      rev = "3c964787df9f97c0736bc712722eac6a21f9a497";
       fetchSubmodules = true;
-      hash = "sha256-aTgSZwd09vq4GvNHMQBazU/qGhUOJQIrCNSjz6GXFsE=";
+      hash = "sha256-ApwMUHsUp4PKfiysQsoQFNLcYFMzeundpAkC9GEm/Oo=";
     };
-    date = "2025-08-01";
+    date = "2025-08-02";
   };
   SteamTools = {
     pname = "SteamTools";
@@ -1083,7 +1083,7 @@
   };
   himirage-JSON = {
     pname = "himirage-JSON";
-    version = "2025-08-01 18:02:55";
+    version = "2025-08-02 18:02:35";
     src = fetchurl {
       url = "https://album.photosir.cn/upgradePackage/infoall/photosir";
       hash = "sha256-nQjQwrKvih7iN5U5x6/vMmJeMOvkp+DrxmL8Q4HMVIU=";
@@ -1412,12 +1412,12 @@
   };
   linux-xanmod-6_12 = {
     pname = "linux-xanmod-6_12";
-    version = "6.12.40-xanmod1";
+    version = "6.12.41-xanmod1";
     src = fetchgit {
       url = "https://gitlab.com/xanmod/linux.git";
-      tag = "6.12.40-xanmod1";
+      tag = "6.12.41-xanmod1";
       fetchSubmodules = false;
-      hash = "sha256-L8wL47kD+lrnJsrp0B1MZ2Lg8zs+m1vQ24gPGuvxIA0=";
+      hash = "sha256-REi1cQBAYsfBLCkyhLQfbsREPMzvJHFbCUg1p8oNamA=";
     };
   };
   linux-xanmod-6_6 = {
@@ -1432,12 +1432,12 @@
   };
   llama-cpp = {
     pname = "llama-cpp";
-    version = "b6056";
+    version = "b6064";
     src = fetchFromGitHub {
       owner = "ggerganov";
       repo = "llama.cpp";
-      tag = "b6056";
-      hash = "sha256-oN1/zCrjwBheosFtZl+8SIyNSADyT1nlV1YjdlqmK/k=";
+      tag = "b6064";
+      hash = "sha256-SlKnXxnviaD/qF03ReRiHydzxp52HgG4RvBK3gtSST0=";
     };
   };
   loralib = {
@@ -1878,12 +1878,12 @@
   };
   ovpn-dco = {
     pname = "ovpn-dco";
-    version = "v0.2.20250728";
+    version = "v0.2.20250801";
     src = fetchFromGitHub {
       owner = "OpenVPN";
       repo = "ovpn-dco";
-      tag = "v0.2.20250728";
-      hash = "sha256-wImtZ+STpsGyrhsqEpFMw4BDl+I5KLFClMhUgksqAqg=";
+      tag = "v0.2.20250801";
+      hash = "sha256-F1R/tbxLd1guIApmTyYj1qSKiMfWjUFg8vkiL6HyLHc=";
     };
   };
   palworld-exporter = {
@@ -1918,10 +1918,10 @@
   };
   peerbanhelper = {
     pname = "peerbanhelper";
-    version = "8.0.10";
+    version = "8.0.11";
     src = fetchurl {
-      url = "https://github.com/Ghost-chu/PeerBanHelper/releases/download/v8.0.10/PeerBanHelper_8.0.10.zip";
-      hash = "sha256-rXYyESk4blaBSrrMPuk6+TdEBQBoquoYGEHoZPDOUB8=";
+      url = "https://github.com/Ghost-chu/PeerBanHelper/releases/download/v8.0.11/PeerBanHelper_8.0.11.zip";
+      hash = "sha256-JrAu/3V9PWrTOxPbvabcf0fGRrqR8j41lFJ3joKB1Ac=";
     };
   };
   phpmyadmin = {
@@ -2014,14 +2014,14 @@
   };
   pterodactyl-wings = {
     pname = "pterodactyl-wings";
-    version = "798cbe567d88f525c6429b9dccbd8a3ec94c69e7";
+    version = "0d9b0863f9582a49c2b2094c8529c72c99fc25d8";
     src = fetchFromGitHub {
       owner = "pterodactyl";
       repo = "wings";
-      rev = "798cbe567d88f525c6429b9dccbd8a3ec94c69e7";
-      hash = "sha256-WnV9xChkSPO4VPustxtvechosm649JHe6vQ2RZWRxCU=";
+      rev = "0d9b0863f9582a49c2b2094c8529c72c99fc25d8";
+      hash = "sha256-KL4z70In0kyQsqwWzxkao5EScX/ZnU+FQn25H9D7j3s=";
     };
-    date = "2025-07-29";
+    date = "2025-08-01";
   };
   pterodactyl-wings-stable = {
     pname = "pterodactyl-wings-stable";
@@ -2282,14 +2282,14 @@
   };
   rime-ice = {
     pname = "rime-ice";
-    version = "add77328136fbdcd3ded4e9e9c5a6d3e2b253e25";
+    version = "fd5a346d438537a350d956117b90871a087d8fd4";
     src = fetchFromGitHub {
       owner = "iDvel";
       repo = "rime-ice";
-      rev = "add77328136fbdcd3ded4e9e9c5a6d3e2b253e25";
-      hash = "sha256-mLOrX+kFdJreheVEgNszkakrq6BpSdf/BIWMFVeHCHU=";
+      rev = "fd5a346d438537a350d956117b90871a087d8fd4";
+      hash = "sha256-r9fCfHVYcofTQV+/L994Efz4J/mUrAHDzKZOu2SX0B4=";
     };
-    date = "2025-07-30";
+    date = "2025-08-01";
   };
   rime-moegirl = {
     pname = "rime-moegirl";
@@ -2700,15 +2700,15 @@
   };
   uni-api = {
     pname = "uni-api";
-    version = "8335719004727b06b743dcbcf4aa4e6a76bf71c5";
+    version = "abae8d3076c4a415ddc7cc50164b320189585037";
     src = fetchFromGitHub {
       owner = "yym68686";
       repo = "uni-api";
-      rev = "8335719004727b06b743dcbcf4aa4e6a76bf71c5";
+      rev = "abae8d3076c4a415ddc7cc50164b320189585037";
       fetchSubmodules = true;
-      hash = "sha256-LBpPlnTS6SbjfOmDYveoU/spsOyb/PuzrUJii2X8fag=";
+      hash = "sha256-DW8A/gZIeXe23Uo8erhNV2RigdqUFf9hpVME4DlweqU=";
     };
-    date = "2025-07-29";
+    date = "2025-08-01";
   };
   unigine-heaven = {
     pname = "unigine-heaven";
@@ -2774,10 +2774,10 @@
   };
   v2ray-rules-dat = {
     pname = "v2ray-rules-dat";
-    version = "202507312215";
+    version = "202508012215";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202507312215/rules.zip";
-      hash = "sha256-aCEdnfW7OTcA1cKFb3JQGVXk2UQAEEIsUTArn8MzGjo=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202508012215/rules.zip";
+      hash = "sha256-/gBXWpjQ0RtKob9tdhw3KTmHgslCD+VefM5LIr/3/oM=";
     };
   };
   vbmeta-disable-verification = {
