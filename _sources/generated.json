@@ -133,7 +133,7 @@
     },
     "PiliPalaX": {
         "cargoLocks": null,
-        "date": "2025-08-04",
+        "date": "2025-08-05",
         "extract": null,
         "name": "PiliPalaX",
         "passthru": null,
@@ -145,12 +145,12 @@
             "name": null,
             "owner": "bggRGjQaUbCoE",
             "repo": "PiliPlus",
-            "rev": "cf84a928087b7f07a31581ac611c322225ba9be6",
-            "sha256": "sha256-3xAn8VKtfzM0USF6GhUi8bTBviokktomiMwVT4jVOMM=",
+            "rev": "3caa684b2eaf0a5f85328dd351fbaf25f875e81e",
+            "sha256": "sha256-l3z+sX017wMUvGNGtDLAL1aNrbD/M2a+sW5XI4YfsQE=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "cf84a928087b7f07a31581ac611c322225ba9be6"
+        "version": "3caa684b2eaf0a5f85328dd351fbaf25f875e81e"
     },
     "SteamTools": {
         "cargoLocks": null,
@@ -1790,7 +1790,7 @@
     },
     "funasr": {
         "cargoLocks": null,
-        "date": "2025-07-23",
+        "date": "2025-08-05",
         "extract": null,
         "name": "funasr",
         "passthru": null,
@@ -1802,12 +1802,12 @@
             "name": null,
             "owner": "modelscope",
             "repo": "FunASR",
-            "rev": "8316fc41973b89267a70681a7afe4e947e0ba251",
-            "sha256": "sha256-OjqRs/1ZEG34nFA8F23jx3r5eplphu5R8wLcQ8BYzC0=",
+            "rev": "b3fb4c0acd5f52a313f024b6f69b8f025c6eddfe",
+            "sha256": "sha256-NzqogdsLLFSYcGZwOgpU069bi+TEdCf21hrhpJFjxRo=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "8316fc41973b89267a70681a7afe4e947e0ba251"
+        "version": "b3fb4c0acd5f52a313f024b6f69b8f025c6eddfe"
     },
     "geolite2-asn": {
         "cargoLocks": null,
@@ -2073,7 +2073,7 @@
             "type": "url",
             "url": "https://album.photosir.cn/upgradePackage/infoall/photosir"
         },
-        "version": "2025-08-04 18:05:54"
+        "version": "2025-08-05 18:04:08"
     },
     "himirage-aarch64-darwin": {
         "cargoLocks": null,
@@ -2620,7 +2620,7 @@
     },
     "linguaspark-server": {
         "cargoLocks": null,
-        "date": "2025-04-22",
+        "date": "2025-08-04",
         "extract": null,
         "name": "linguaspark-server",
         "passthru": null,
@@ -2632,12 +2632,12 @@
             "name": null,
             "owner": "LinguaSpark",
             "repo": "server",
-            "rev": "f94b45925e130c08fa976a0ed370079a588578ae",
-            "sha256": "sha256-W6fwr/psngL4luyC3oD/VwopVEweCwaRN92RBLg/TBY=",
+            "rev": "81e1e461855401c753b7486bd4138342612fe117",
+            "sha256": "sha256-VdoiAd1CjRjGKiaDCOYXXxRNICHa4o+dd5ZctZycFdE=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "f94b45925e130c08fa976a0ed370079a588578ae"
+        "version": "81e1e461855401c753b7486bd4138342612fe117"
     },
     "linux-xanmod": {
         "cargoLocks": null,
@@ -2753,12 +2753,12 @@
             "name": null,
             "owner": "ggerganov",
             "repo": "llama.cpp",
-            "rev": "b6082",
-            "sha256": "sha256-L+C2teXzSeoBEJ75fMX6VujxMex14l8eExgw2R+alb4=",
+            "rev": "b6089",
+            "sha256": "sha256-rNJpXydIdOtVdbtN0A8XCgcR2+s8JP5IznEp34gy68s=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "b6082"
+        "version": "b6089"
     },
     "loralib": {
         "cargoLocks": null,
@@ -3884,7 +3884,7 @@
     },
     "pterodactyl-wings": {
         "cargoLocks": null,
-        "date": "2025-08-01",
+        "date": "2025-08-04",
         "extract": null,
         "name": "pterodactyl-wings",
         "passthru": null,
@@ -3896,12 +3896,12 @@
             "name": null,
             "owner": "pterodactyl",
             "repo": "wings",
-            "rev": "0d9b0863f9582a49c2b2094c8529c72c99fc25d8",
-            "sha256": "sha256-KL4z70In0kyQsqwWzxkao5EScX/ZnU+FQn25H9D7j3s=",
+            "rev": "e76dc74ddbfbf14b63016f19c4d8b44ffcd728d6",
+            "sha256": "sha256-slW5Fz1KhoJX7dZ4RRDg+ffw/RfvbZX/4Lv07mVkFoc=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "0d9b0863f9582a49c2b2094c8529c72c99fc25d8"
+        "version": "e76dc74ddbfbf14b63016f19c4d8b44ffcd728d6"
     },
     "pterodactyl-wings-stable": {
         "cargoLocks": null,
@@ -5359,11 +5359,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-vgeEmJivTBdCLWqQ9rURW0IpbCZFOUbY9V1TbR3jbLo=",
+            "sha256": "sha256-KZdMCvcGSvPnu0Deck/vFSwSzLWvXRPytv/r9albl/Y=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202508032215/rules.zip"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202508042216/rules.zip"
         },
-        "version": "202508032215"
+        "version": "202508042216"
     },
     "vbmeta-disable-verification": {
         "cargoLocks": null,
