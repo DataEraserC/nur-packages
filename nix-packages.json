@@ -37,7 +37,7 @@
   "legacyPackages.x86_64-linux.PiliPalaX": {
     "description": "PiliPalaX",
     "pname": "PiliPalaX",
-    "version": "0-unstable-2025-08-07"
+    "version": "0-unstable-2025-08-09"
   },
   "legacyPackages.x86_64-linux.SakuraFrp": {
     "description": "",
@@ -482,7 +482,7 @@
   "legacyPackages.x86_64-linux.bilibili": {
     "description": "Bilibili desktop client",
     "pname": "bilibili",
-    "version": "1.16.5-5"
+    "version": "1.17.0-1"
   },
   "legacyPackages.x86_64-linux.bin-cpuflags-x86": {
     "description": "Small CLI tool to detect CPU flags (instruction sets) of X86 binaries",
@@ -517,7 +517,7 @@
   "legacyPackages.x86_64-linux.browser360": {
     "description": "360 Browser",
     "pname": "browser360",
-    "version": "13.4.1000.63"
+    "version": "13.4.1000.77"
   },
   "legacyPackages.x86_64-linux.bstar": {
     "description": "BStar compatibility library",
@@ -822,7 +822,7 @@
   "legacyPackages.x86_64-linux.flutter_server_box_appimage": {
     "description": "flutter_server_box",
     "pname": "flutter_server_box_appimage",
-    "version": "1.0.1201-ServerBox_1201_amd64.AppImage"
+    "version": "1.0.1206-ServerBox_1206_amd64.AppImage"
   },
   "legacyPackages.x86_64-linux.fr24feed": {
     "description": "Flightradar24 Decoder & Feeder lets you effortlessly share ADS-B data with Flightradar24",
@@ -907,7 +907,7 @@
   "legacyPackages.x86_64-linux.himirage_unwrapped": {
     "description": "",
     "pname": "himirage-x86_64-linux-unwrapped",
-    "version": "2025-08-07-18-03-40"
+    "version": "2025-08-09-18-02-12"
   },
   "legacyPackages.x86_64-linux.hkdm": {
     "description": "Lighter-weight hotkey daemon",
@@ -1037,12 +1037,12 @@
   "legacyPackages.x86_64-linux.kui": {
     "description": "Easy-to-use web framework",
     "pname": "python3.12-kui",
-    "version": "1.9.2"
+    "version": "1.10.0"
   },
   "legacyPackages.x86_64-linux.lantianCustomized.asterisk": {
     "description": "Asterisk with Lan Tian modifications",
     "pname": "asterisk",
-    "version": "20.15.0"
+    "version": "20.15.1"
   },
   "legacyPackages.x86_64-linux.lantianCustomized.attic-telnyx-compatible": {
     "description": "Multi-tenant Nix Binary Cache",
@@ -1067,7 +1067,7 @@
   "legacyPackages.x86_64-linux.lantianCustomized.llama-cpp": {
     "description": "Inference of Meta's LLaMA model (and others) in pure C/C++",
     "pname": "llama-cpp",
-    "version": "6109"
+    "version": "6121"
   },
   "legacyPackages.x86_64-linux.lantianCustomized.ls-iommu": {
     "description": "List IOMMUs on system",
@@ -1607,7 +1607,7 @@
   "legacyPackages.x86_64-linux.netboot-xyz": {
     "description": "Your favorite operating systems in one place. A network-based bootable operating system installer based on iPXE",
     "pname": "netboot-xyz",
-    "version": "2.0.87"
+    "version": "2.0.88"
   },
   "legacyPackages.x86_64-linux.netease-cloud-music": {
     "description": "NetEase Cloud Music Linux Client (package script adapted from NixOS-CN and Freed-Wu)",
@@ -4302,7 +4302,7 @@
   "legacyPackages.x86_64-linux.python3Packages.kui": {
     "description": "Easy-to-use web framework",
     "pname": "python3.12-kui",
-    "version": "1.9.2"
+    "version": "1.10.0"
   },
   "legacyPackages.x86_64-linux.python3Packages.loralib": {
     "description": "Implementation of \"LoRA: Low-Rank Adaptation of Large Language Models\"",
@@ -4487,7 +4487,7 @@
   "legacyPackages.x86_64-linux.rime-ice": {
     "description": "Rime 配置：雾凇拼音 | 长期维护的简体词库",
     "pname": "rime-ice",
-    "version": "0-unstable-2025-08-07"
+    "version": "0-unstable-2025-08-08"
   },
   "legacyPackages.x86_64-linux.rime-moegirl": {
     "description": "RIME dictionary file for entries from zh.moegirl.org.cn",
@@ -4712,7 +4712,7 @@
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.PiliPalaX": {
     "description": "PiliPalaX",
     "pname": "PiliPalaX",
-    "version": "0-unstable-2025-08-07"
+    "version": "0-unstable-2025-08-09"
   },
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.SakuraFrp": {
     "description": "",
@@ -4847,7 +4847,7 @@
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.flutter_server_box_appimage": {
     "description": "flutter_server_box",
     "pname": "flutter_server_box_appimage",
-    "version": "1.0.1201-ServerBox_1201_amd64.AppImage"
+    "version": "1.0.1206-ServerBox_1206_amd64.AppImage"
   },
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.hdrop": {
     "description": "Emulate 'tdrop' in Hyprland (run, show and hide specific programs per keybind)",
@@ -4857,7 +4857,7 @@
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.himirage_unwrapped": {
     "description": "",
     "pname": "himirage-x86_64-linux-unwrapped",
-    "version": "2025-08-07-18-03-40"
+    "version": "2025-08-09-18-02-12"
   },
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.hkdm": {
     "description": "Lighter-weight hotkey daemon",
@@ -4917,7 +4917,7 @@
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.v2ray-rules-dat": {
     "description": "V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria.",
     "pname": "v2ray-rules-dat",
-    "version": "202508062216"
+    "version": "202508082214"
   },
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.vmware-workstation": {
     "description": "Industry standard desktop hypervisor for x86-64 architecture",
@@ -4992,7 +4992,7 @@
   "legacyPackages.x86_64-linux.uncategorized.bilibili": {
     "description": "Bilibili desktop client",
     "pname": "bilibili",
-    "version": "1.16.5-5"
+    "version": "1.17.0-1"
   },
   "legacyPackages.x86_64-linux.uncategorized.bin-cpuflags-x86": {
     "description": "Small CLI tool to detect CPU flags (instruction sets) of X86 binaries",
@@ -5022,7 +5022,7 @@
   "legacyPackages.x86_64-linux.uncategorized.browser360": {
     "description": "360 Browser",
     "pname": "browser360",
-    "version": "13.4.1000.63"
+    "version": "13.4.1000.77"
   },
   "legacyPackages.x86_64-linux.uncategorized.calibre-cops": {
     "description": "Calibre OPDS (and HTML) PHP Server : web-based light alternative to Calibre content server / Calibre2OPDS to serve ebooks (epub, mobi, pdf, ...)",
@@ -5302,7 +5302,7 @@
   "legacyPackages.x86_64-linux.uncategorized.netboot-xyz": {
     "description": "Your favorite operating systems in one place. A network-based bootable operating system installer based on iPXE",
     "pname": "netboot-xyz",
-    "version": "2.0.87"
+    "version": "2.0.88"
   },
   "legacyPackages.x86_64-linux.uncategorized.netease-cloud-music": {
     "description": "NetEase Cloud Music Linux Client (package script adapted from NixOS-CN and Freed-Wu)",
@@ -5497,7 +5497,7 @@
   "legacyPackages.x86_64-linux.uncategorized.rime-ice": {
     "description": "Rime 配置：雾凇拼音 | 长期维护的简体词库",
     "pname": "rime-ice",
-    "version": "0-unstable-2025-08-07"
+    "version": "0-unstable-2025-08-08"
   },
   "legacyPackages.x86_64-linux.uncategorized.rime-moegirl": {
     "description": "RIME dictionary file for entries from zh.moegirl.org.cn",
@@ -5587,7 +5587,7 @@
   "legacyPackages.x86_64-linux.uncategorized.uni-api": {
     "description": "Unifies the management of LLM APIs. Call multiple backend services through a unified API interface",
     "pname": "uni-api",
-    "version": "0-unstable-2025-08-07"
+    "version": "0-unstable-2025-08-08"
   },
   "legacyPackages.x86_64-linux.uncategorized.unigine-heaven": {
     "description": "Extreme performance and stability test for PC hardware: video card, power supply, cooling system",
@@ -5667,7 +5667,7 @@
   "legacyPackages.x86_64-linux.uni-api": {
     "description": "Unifies the management of LLM APIs. Call multiple backend services through a unified API interface",
     "pname": "uni-api",
-    "version": "0-unstable-2025-08-07"
+    "version": "0-unstable-2025-08-08"
   },
   "legacyPackages.x86_64-linux.unigine-heaven": {
     "description": "Extreme performance and stability test for PC hardware: video card, power supply, cooling system",
@@ -5707,7 +5707,7 @@
   "legacyPackages.x86_64-linux.v2ray-rules-dat": {
     "description": "V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria.",
     "pname": "v2ray-rules-dat",
-    "version": "202508062216"
+    "version": "202508082214"
   },
   "legacyPackages.x86_64-linux.vbmeta-disable-verification": {
     "description": "Patch Android vbmeta image and disable verification flags inside",
@@ -5872,7 +5872,7 @@
   "packages.x86_64-linux.PiliPalaX": {
     "description": "PiliPalaX",
     "pname": "PiliPalaX",
-    "version": "0-unstable-2025-08-07"
+    "version": "0-unstable-2025-08-09"
   },
   "packages.x86_64-linux.SakuraFrp": {
     "description": "",
@@ -5967,7 +5967,7 @@
   "packages.x86_64-linux.bilibili": {
     "description": "Bilibili desktop client",
     "pname": "bilibili",
-    "version": "1.16.5-5"
+    "version": "1.17.0-1"
   },
   "packages.x86_64-linux.bin-cpuflags-x86": {
     "description": "Small CLI tool to detect CPU flags (instruction sets) of X86 binaries",
@@ -6002,7 +6002,7 @@
   "packages.x86_64-linux.browser360": {
     "description": "360 Browser",
     "pname": "browser360",
-    "version": "13.4.1000.63"
+    "version": "13.4.1000.77"
   },
   "packages.x86_64-linux.bstar": {
     "description": "BStar compatibility library",
@@ -6267,7 +6267,7 @@
   "packages.x86_64-linux.flutter_server_box_appimage": {
     "description": "flutter_server_box",
     "pname": "flutter_server_box_appimage",
-    "version": "1.0.1201-ServerBox_1201_amd64.AppImage"
+    "version": "1.0.1206-ServerBox_1206_amd64.AppImage"
   },
   "packages.x86_64-linux.fr24feed": {
     "description": "Flightradar24 Decoder & Feeder lets you effortlessly share ADS-B data with Flightradar24",
@@ -6352,7 +6352,7 @@
   "packages.x86_64-linux.himirage_unwrapped": {
     "description": "",
     "pname": "himirage-x86_64-linux-unwrapped",
-    "version": "2025-08-07-18-03-40"
+    "version": "2025-08-09-18-02-12"
   },
   "packages.x86_64-linux.hkdm": {
     "description": "Lighter-weight hotkey daemon",
@@ -6427,7 +6427,7 @@
   "packages.x86_64-linux.kui": {
     "description": "Easy-to-use web framework",
     "pname": "python3.12-kui",
-    "version": "1.9.2"
+    "version": "1.10.0"
   },
   "packages.x86_64-linux.lantianCustomized": {
     "description": "",
@@ -6572,7 +6572,7 @@
   "packages.x86_64-linux.netboot-xyz": {
     "description": "Your favorite operating systems in one place. A network-based bootable operating system installer based on iPXE",
     "pname": "netboot-xyz",
-    "version": "2.0.87"
+    "version": "2.0.88"
   },
   "packages.x86_64-linux.netease-cloud-music": {
     "description": "NetEase Cloud Music Linux Client (package script adapted from NixOS-CN and Freed-Wu)",
@@ -6867,7 +6867,7 @@
   "packages.x86_64-linux.rime-ice": {
     "description": "Rime 配置：雾凇拼音 | 长期维护的简体词库",
     "pname": "rime-ice",
-    "version": "0-unstable-2025-08-07"
+    "version": "0-unstable-2025-08-08"
   },
   "packages.x86_64-linux.rime-moegirl": {
     "description": "RIME dictionary file for entries from zh.moegirl.org.cn",
@@ -7027,7 +7027,7 @@
   "packages.x86_64-linux.uni-api": {
     "description": "Unifies the management of LLM APIs. Call multiple backend services through a unified API interface",
     "pname": "uni-api",
-    "version": "0-unstable-2025-08-07"
+    "version": "0-unstable-2025-08-08"
   },
   "packages.x86_64-linux.unigine-heaven": {
     "description": "Extreme performance and stability test for PC hardware: video card, power supply, cooling system",
@@ -7067,7 +7067,7 @@
   "packages.x86_64-linux.v2ray-rules-dat": {
     "description": "V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria.",
     "pname": "v2ray-rules-dat",
-    "version": "202508062216"
+    "version": "202508082214"
   },
   "packages.x86_64-linux.vbmeta-disable-verification": {
     "description": "Patch Android vbmeta image and disable verification flags inside",

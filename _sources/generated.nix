@@ -75,15 +75,15 @@
   };
   PiliPalaX = {
     pname = "PiliPalaX";
-    version = "edb5ea7a7aeebbb897163813af4743de6b5fa94b";
+    version = "27c9c266c1e5d30277841dc693d015125d6c6023";
     src = fetchFromGitHub {
       owner = "bggRGjQaUbCoE";
       repo = "PiliPlus";
-      rev = "edb5ea7a7aeebbb897163813af4743de6b5fa94b";
+      rev = "27c9c266c1e5d30277841dc693d015125d6c6023";
       fetchSubmodules = true;
-      hash = "sha256-P9nnFTBMWMG3sKh+1JvOimd4or3Jps02icO3RoJw20k=";
+      hash = "sha256-hkMS3EdPDWXpxd2qlMzs+IbwLOL5/3HY2dTmjXjeIpk=";
     };
-    date = "2025-08-07";
+    date = "2025-08-09";
   };
   SteamTools = {
     pname = "SteamTools";
@@ -323,20 +323,20 @@
   };
   bilibili = {
     pname = "bilibili";
-    version = "v1.16.5-5";
+    version = "v1.17.0-1";
     src = fetchurl {
-      url = "https://github.com/msojocs/bilibili-linux/releases/download/v1.16.5-5/bilibili-asar-v1.16.5-5.tar.gz";
-      hash = "sha256-GEuyZg3rBwkE+/FtEnpFelAwRap1aTMSuKtqOPEsgeE=";
+      url = "https://github.com/msojocs/bilibili-linux/releases/download/v1.17.0-1/bilibili-asar-v1.17.0-1.tar.gz";
+      hash = "sha256-hCI/8HoH6WolCg2EVgpEpS9WhD6RCeRKk+hiJ6uX+8A=";
     };
   };
   bilibili-src = {
     pname = "bilibili-src";
-    version = "v1.16.5-5";
+    version = "v1.17.0-1";
     src = fetchFromGitHub {
       owner = "msojocs";
       repo = "bilibili-linux";
-      tag = "v1.16.5-5";
-      hash = "sha256-bbLRg2+jWiD+FDXgpo0c7avhIIHULmcmmkk03Nnj24I=";
+      tag = "v1.17.0-1";
+      hash = "sha256-QudLBmdKujA7oBBprBA46wi0go1gBIIelnv+4ocgquQ=";
     };
   };
   bin-cpuflags-x86 = {
@@ -372,18 +372,18 @@
   };
   browser360-amd64 = {
     pname = "browser360-amd64";
-    version = "13.4.1000.63";
+    version = "13.4.1000.77";
     src = fetchurl {
-      url = "https://gedown.360safe.com/gc/signed_com.360.browser-stable_13.4.1000.63-1_amd64.deb";
-      hash = "sha256-9ob75CURM2cik8/njsVr92/It4pIrGAwf/quHiEdwSM=";
+      url = "https://gedown.360safe.com/gc/signed_com.360.browser-stable_13.4.1000.77-1_amd64.deb";
+      hash = "sha256-BDFEBCN/gNqj8Ilu9W8CluOWVvSve+lOXWcxjM0Wi1w=";
     };
   };
   browser360-arm64 = {
     pname = "browser360-arm64";
-    version = "13.4.1000.63";
+    version = "13.4.1000.77";
     src = fetchurl {
-      url = "https://gedown.360safe.com/gc/signed_com.360.browser-stable_13.4.1000.63-1_arm64.deb";
-      hash = "sha256-CLTVo2GMlVEuxB/dmaaWkxRMlEIqniixW1cbwcTHxfU=";
+      url = "https://gedown.360safe.com/gc/signed_com.360.browser-stable_13.4.1000.77-1_arm64.deb";
+      hash = "sha256-tUCD7iCx16jLCM2BvV03tgfi1COPY40SMUYPJtVKYWQ=";
     };
   };
   buffybox = {
@@ -410,14 +410,14 @@
   };
   cachyos-kernel = {
     pname = "cachyos-kernel";
-    version = "deb9a00348df87aa69b2d18bc391a2c6d075ef25";
+    version = "043728238bfc25f8a69a18639d8f2a2536486803";
     src = fetchFromGitHub {
       owner = "CachyOS";
       repo = "linux-cachyos";
-      rev = "deb9a00348df87aa69b2d18bc391a2c6d075ef25";
-      hash = "sha256-xw2uDlGtZbY4PCAFSq8Ixdqv+hgPWFYGhhwbb35QW/8=";
+      rev = "043728238bfc25f8a69a18639d8f2a2536486803";
+      hash = "sha256-hATDpk8K9may+tFhFnEBAtGLZSELALfdoe+q8eqgV94=";
     };
-    date = "2025-08-03";
+    date = "2025-08-08";
   };
   cachyos-kernel-patches = {
     pname = "cachyos-kernel-patches";
@@ -892,10 +892,10 @@
   };
   flutter_server_box_appimage = {
     pname = "flutter_server_box_appimage";
-    version = "v1.0.1201/ServerBox_1201_amd64.AppImage";
+    version = "v1.0.1206/ServerBox_1206_amd64.AppImage";
     src = fetchurl {
-      url = "https://github.com/lollipopkit/flutter_server_box/releases/download/v1.0.1201/ServerBox_1201_amd64.AppImage";
-      hash = "sha256-IiIunTNXZfYFo14J5PaBiYnehmJZw58IY+p9QTuYPM4=";
+      url = "https://github.com/lollipopkit/flutter_server_box/releases/download/v1.0.1206/ServerBox_1206_amd64.AppImage";
+      hash = "sha256-DhjzUOfPPirXHs5gm/BM9B80Iy4h0Mv5c/wDBYQGqBY=";
     };
   };
   fr24feed-amd64 = {
@@ -1083,7 +1083,7 @@
   };
   himirage-JSON = {
     pname = "himirage-JSON";
-    version = "2025-08-07 18:03:40";
+    version = "2025-08-09 18:02:12";
     src = fetchurl {
       url = "https://album.photosir.cn/upgradePackage/infoall/photosir";
       hash = "sha256-nQjQwrKvih7iN5U5x6/vMmJeMOvkp+DrxmL8Q4HMVIU=";
@@ -1264,12 +1264,12 @@
   };
   kui = {
     pname = "kui";
-    version = "v1.9.2";
+    version = "v1.10.0";
     src = fetchFromGitHub {
       owner = "abersheeran";
       repo = "kui";
-      tag = "v1.9.2";
-      hash = "sha256-x4I4nonziW2KjtdjA/VSidAG1dSE/SV9D/lMyL/yH1k=";
+      tag = "v1.10.0";
+      hash = "sha256-UOVaexJn5fTa058wM44MQhkV0AvuELh1FmSWKGBxXfs=";
     };
   };
   ldap-auth-proxy = {
@@ -1432,12 +1432,12 @@
   };
   llama-cpp = {
     pname = "llama-cpp";
-    version = "b6109";
+    version = "b6121";
     src = fetchFromGitHub {
       owner = "ggerganov";
       repo = "llama.cpp";
-      tag = "b6109";
-      hash = "sha256-/as3Yz8nMFx1+EsP6UWnpoXFhsVuNjejNC6qrF/LJ8U=";
+      tag = "b6121";
+      hash = "sha256-tMiBWXbjcyE12T1ABWK+uOoszfEVPrhzEt/EcXtK3vg=";
     };
   };
   loralib = {
@@ -1556,18 +1556,18 @@
   };
   netboot-xyz-efi = {
     pname = "netboot-xyz-efi";
-    version = "2.0.87";
+    version = "2.0.88";
     src = fetchurl {
-      url = "https://github.com/netbootxyz/netboot.xyz/releases/download/2.0.87/netboot.xyz.efi";
-      hash = "sha256-8kd17ChqLuVH5/OdPc2rVDKEDWHl9ZWLh8k+EBrCGH8=";
+      url = "https://github.com/netbootxyz/netboot.xyz/releases/download/2.0.88/netboot.xyz.efi";
+      hash = "sha256-ipbZJ0mPCuwzb/TDtXXUBTuWOcSsKGAJ1GEGIgB2G7E=";
     };
   };
   netboot-xyz-lkrn = {
     pname = "netboot-xyz-lkrn";
-    version = "2.0.87";
+    version = "2.0.88";
     src = fetchurl {
-      url = "https://github.com/netbootxyz/netboot.xyz/releases/download/2.0.87/netboot.xyz.lkrn";
-      hash = "sha256-/qY3NdRC0SghQ4kamrkm9EFumrKlirqDCJ+XY+jHWLA=";
+      url = "https://github.com/netbootxyz/netboot.xyz/releases/download/2.0.88/netboot.xyz.lkrn";
+      hash = "sha256-igy3O30noS25dU7ZnHuKrWqLLkjjd/L46IdCTd038dI=";
     };
   };
   netfrp-aarch32-linux = {
@@ -2282,14 +2282,14 @@
   };
   rime-ice = {
     pname = "rime-ice";
-    version = "28b452ca1b2a9d4e33b9ea2f3f16c19ded1dc327";
+    version = "5725c4cd295797fcd92a80c7892000dcf0e30710";
     src = fetchFromGitHub {
       owner = "iDvel";
       repo = "rime-ice";
-      rev = "28b452ca1b2a9d4e33b9ea2f3f16c19ded1dc327";
-      hash = "sha256-iL5QMWxc93Avy/MuZ+MgT5GCbuGyv8s0rKD7U9eTGX8=";
+      rev = "5725c4cd295797fcd92a80c7892000dcf0e30710";
+      hash = "sha256-nPkwX5ruvCkQZ4yKNVuh72RmbLiEs/lkjb7mPQURVWw=";
     };
-    date = "2025-08-07";
+    date = "2025-08-08";
   };
   rime-moegirl = {
     pname = "rime-moegirl";
@@ -2700,15 +2700,15 @@
   };
   uni-api = {
     pname = "uni-api";
-    version = "bfc008401e46f9e9d9ba0accf4184ed9f8a28d0c";
+    version = "017c63d819eaf237db79d704b4ea878cc226bf91";
     src = fetchFromGitHub {
       owner = "yym68686";
       repo = "uni-api";
-      rev = "bfc008401e46f9e9d9ba0accf4184ed9f8a28d0c";
+      rev = "017c63d819eaf237db79d704b4ea878cc226bf91";
       fetchSubmodules = true;
-      hash = "sha256-R07U8VhkhSQ5UF3njYFsIFFRtsPcEVlV0xgaVl5YkLI=";
+      hash = "sha256-5G6NoGoqhhuq6IhiEHac6TwQLc41Awi+plBJlqykcWw=";
     };
-    date = "2025-08-07";
+    date = "2025-08-08";
   };
   unigine-heaven = {
     pname = "unigine-heaven";
@@ -2774,10 +2774,10 @@
   };
   v2ray-rules-dat = {
     pname = "v2ray-rules-dat";
-    version = "202508062216";
+    version = "202508082214";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202508062216/rules.zip";
-      hash = "sha256-ZjPSDSP5MW603y/NaTFm0VhuQum0i7LSzCcsN26vFLY=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202508082214/rules.zip";
+      hash = "sha256-MP1PT2OCFKhremP1YtYLo0mweCJloCxSns5Qi6Mct4c=";
     };
   };
   vbmeta-disable-verification = {
