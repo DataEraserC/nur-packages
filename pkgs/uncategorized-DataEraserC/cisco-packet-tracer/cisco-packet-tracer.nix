@@ -5,7 +5,7 @@
   lib,
   alsa-lib,
   autoPatchelfHook,
-  buildFHSUserEnvBubblewrap,
+  buildFHSEnvBubblewrap,
   copyDesktopItems,
   dbus,
   dpkg,
@@ -104,7 +104,7 @@ let
     ];
   };
 
-  fhs = buildFHSUserEnvBubblewrap {
+  fhs = buildFHSEnvBubblewrap {
     name = "packettracer8";
     runScript = "${ptFiles}/bin/packettracer";
     targetPkgs = _pkgs: [ libudev0-shim ];
