@@ -15,5 +15,6 @@
     in
     {
       src = new_src;
+      meta.broken = true;
     }
   )
