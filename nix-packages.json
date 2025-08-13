@@ -37,7 +37,7 @@
   "legacyPackages.x86_64-linux.PiliPalaX": {
     "description": "PiliPalaX",
     "pname": "PiliPalaX",
-    "version": "0-unstable-2025-08-10"
+    "version": "0-unstable-2025-08-12"
   },
   "legacyPackages.x86_64-linux.SakuraFrp": {
     "description": "",
@@ -907,7 +907,7 @@
   "legacyPackages.x86_64-linux.himirage_unwrapped": {
     "description": "",
     "pname": "himirage-x86_64-linux-unwrapped",
-    "version": "2025-08-10-18-04-26"
+    "version": "2025-08-12-18-03-06"
   },
   "legacyPackages.x86_64-linux.hkdm": {
     "description": "Lighter-weight hotkey daemon",
@@ -1037,7 +1037,7 @@
   "legacyPackages.x86_64-linux.kui": {
     "description": "Easy-to-use web framework",
     "pname": "python3.12-kui",
-    "version": "1.10.0"
+    "version": "1.12.0"
   },
   "legacyPackages.x86_64-linux.lantianCustomized.asterisk": {
     "description": "Asterisk with Lan Tian modifications",
@@ -1067,7 +1067,7 @@
   "legacyPackages.x86_64-linux.lantianCustomized.llama-cpp": {
     "description": "Inference of Meta's LLaMA model (and others) in pure C/C++",
     "pname": "llama-cpp",
-    "version": "6123"
+    "version": "6137"
   },
   "legacyPackages.x86_64-linux.lantianCustomized.ls-iommu": {
     "description": "List IOMMUs on system",
@@ -1542,7 +1542,7 @@
   "legacyPackages.x86_64-linux.llqqnt": {
     "description": "",
     "pname": "qq-qq=3.2.18+llqqnt_rev=0-unstable",
-    "version": "2025-08-06"
+    "version": "2025-08-12"
   },
   "legacyPackages.x86_64-linux.loralib": {
     "description": "Implementation of \"LoRA: Low-Rank Adaptation of Large Language Models\"",
@@ -4172,7 +4172,7 @@
   "legacyPackages.x86_64-linux.peerbanhelper": {
     "description": "自动封禁不受欢迎、吸血和异常的 BT 客户端，并支持自定义规则。PeerId黑名单/UserAgent黑名单/IP CIDR/假进度检测/超量下载检测/主动探测 支持 qBittorrent/Transmission",
     "pname": "peerbanhelper",
-    "version": "8.0.11"
+    "version": "8.0.12"
   },
   "legacyPackages.x86_64-linux.phpmyadmin": {
     "description": "Web interface for MySQL and MariaDB",
@@ -4222,7 +4222,7 @@
   "legacyPackages.x86_64-linux.pterodactyl-wings": {
     "description": "Server control plane for Pterodactyl Panel",
     "pname": "pterodactyl-wings",
-    "version": "1.11.13-unstable-2025-08-04"
+    "version": "1.11.13-unstable-2025-08-11"
   },
   "legacyPackages.x86_64-linux.py-rcon": {
     "description": "Python implementation of RCON",
@@ -4302,7 +4302,7 @@
   "legacyPackages.x86_64-linux.python3Packages.kui": {
     "description": "Easy-to-use web framework",
     "pname": "python3.12-kui",
-    "version": "1.10.0"
+    "version": "1.12.0"
   },
   "legacyPackages.x86_64-linux.python3Packages.loralib": {
     "description": "Implementation of \"LoRA: Low-Rank Adaptation of Large Language Models\"",
@@ -4417,7 +4417,7 @@
   "legacyPackages.x86_64-linux.qemu-user-static": {
     "description": "Generic and open source machine emulator and virtualizer",
     "pname": "qemu-user-static",
-    "version": "10.1.0-rc2+ds-1"
+    "version": "10.0.3+ds-2"
   },
   "legacyPackages.x86_64-linux.qq": {
     "description": "QQ for Linux",
@@ -4442,7 +4442,7 @@
   "legacyPackages.x86_64-linux.qsp-lib": {
     "description": "QSP is an Interactive Fiction development platform (Game Library)",
     "pname": "qsp-lib",
-    "version": "0-unstable-2025-08-10"
+    "version": "0-unstable-2025-08-12"
   },
   "legacyPackages.x86_64-linux.qtscrcpy_git": {
     "description": "Android real-time display control software",
@@ -4712,7 +4712,7 @@
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.PiliPalaX": {
     "description": "PiliPalaX",
     "pname": "PiliPalaX",
-    "version": "0-unstable-2025-08-10"
+    "version": "0-unstable-2025-08-12"
   },
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.SakuraFrp": {
     "description": "",
@@ -4857,7 +4857,7 @@
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.himirage_unwrapped": {
     "description": "",
     "pname": "himirage-x86_64-linux-unwrapped",
-    "version": "2025-08-10-18-04-26"
+    "version": "2025-08-12-18-03-06"
   },
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.hkdm": {
     "description": "Lighter-weight hotkey daemon",
@@ -4867,7 +4867,7 @@
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.llqqnt": {
     "description": "",
     "pname": "qq-qq=3.2.18+llqqnt_rev=0-unstable",
-    "version": "2025-08-06"
+    "version": "2025-08-12"
   },
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.motrix": {
     "description": "Full-featured download manager",
@@ -4917,7 +4917,7 @@
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.v2ray-rules-dat": {
     "description": "V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria.",
     "pname": "v2ray-rules-dat",
-    "version": "202508092214"
+    "version": "202508112214"
   },
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.vmware-workstation": {
     "description": "Industry standard desktop hypervisor for x86-64 architecture",
@@ -5392,7 +5392,7 @@
   "legacyPackages.x86_64-linux.uncategorized.peerbanhelper": {
     "description": "自动封禁不受欢迎、吸血和异常的 BT 客户端，并支持自定义规则。PeerId黑名单/UserAgent黑名单/IP CIDR/假进度检测/超量下载检测/主动探测 支持 qBittorrent/Transmission",
     "pname": "peerbanhelper",
-    "version": "8.0.11"
+    "version": "8.0.12"
   },
   "legacyPackages.x86_64-linux.uncategorized.phpmyadmin": {
     "description": "Web interface for MySQL and MariaDB",
@@ -5432,7 +5432,7 @@
   "legacyPackages.x86_64-linux.uncategorized.pterodactyl-wings": {
     "description": "Server control plane for Pterodactyl Panel",
     "pname": "pterodactyl-wings",
-    "version": "1.11.13-unstable-2025-08-04"
+    "version": "1.11.13-unstable-2025-08-11"
   },
   "legacyPackages.x86_64-linux.uncategorized.pyhss": {
     "description": "Python HSS / Diameter Server",
@@ -5442,7 +5442,7 @@
   "legacyPackages.x86_64-linux.uncategorized.qemu-user-static": {
     "description": "Generic and open source machine emulator and virtualizer",
     "pname": "qemu-user-static",
-    "version": "10.1.0-rc2+ds-1"
+    "version": "10.0.3+ds-2"
   },
   "legacyPackages.x86_64-linux.uncategorized.qq": {
     "description": "QQ for Linux",
@@ -5467,7 +5467,7 @@
   "legacyPackages.x86_64-linux.uncategorized.qsp-lib": {
     "description": "QSP is an Interactive Fiction development platform (Game Library)",
     "pname": "qsp-lib",
-    "version": "0-unstable-2025-08-10"
+    "version": "0-unstable-2025-08-12"
   },
   "legacyPackages.x86_64-linux.uncategorized.red-star-os-rgjanggi": {
     "description": "Rgjanggi game from DPRK Red Star OS 3.0, heavily sandboxed. Use at your own risk",
@@ -5707,7 +5707,7 @@
   "legacyPackages.x86_64-linux.v2ray-rules-dat": {
     "description": "V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria.",
     "pname": "v2ray-rules-dat",
-    "version": "202508092214"
+    "version": "202508112214"
   },
   "legacyPackages.x86_64-linux.vbmeta-disable-verification": {
     "description": "Patch Android vbmeta image and disable verification flags inside",
@@ -5872,7 +5872,7 @@
   "packages.x86_64-linux.PiliPalaX": {
     "description": "PiliPalaX",
     "pname": "PiliPalaX",
-    "version": "0-unstable-2025-08-10"
+    "version": "0-unstable-2025-08-12"
   },
   "packages.x86_64-linux.SakuraFrp": {
     "description": "",
@@ -6352,7 +6352,7 @@
   "packages.x86_64-linux.himirage_unwrapped": {
     "description": "",
     "pname": "himirage-x86_64-linux-unwrapped",
-    "version": "2025-08-10-18-04-26"
+    "version": "2025-08-12-18-03-06"
   },
   "packages.x86_64-linux.hkdm": {
     "description": "Lighter-weight hotkey daemon",
@@ -6427,7 +6427,7 @@
   "packages.x86_64-linux.kui": {
     "description": "Easy-to-use web framework",
     "pname": "python3.12-kui",
-    "version": "1.10.0"
+    "version": "1.12.0"
   },
   "packages.x86_64-linux.lantianCustomized": {
     "description": "",
@@ -6507,7 +6507,7 @@
   "packages.x86_64-linux.llqqnt": {
     "description": "",
     "pname": "qq-qq=3.2.18+llqqnt_rev=0-unstable",
-    "version": "2025-08-06"
+    "version": "2025-08-12"
   },
   "packages.x86_64-linux.loralib": {
     "description": "Implementation of \"LoRA: Low-Rank Adaptation of Large Language Models\"",
@@ -6712,7 +6712,7 @@
   "packages.x86_64-linux.peerbanhelper": {
     "description": "自动封禁不受欢迎、吸血和异常的 BT 客户端，并支持自定义规则。PeerId黑名单/UserAgent黑名单/IP CIDR/假进度检测/超量下载检测/主动探测 支持 qBittorrent/Transmission",
     "pname": "peerbanhelper",
-    "version": "8.0.11"
+    "version": "8.0.12"
   },
   "packages.x86_64-linux.phpmyadmin": {
     "description": "Web interface for MySQL and MariaDB",
@@ -6762,7 +6762,7 @@
   "packages.x86_64-linux.pterodactyl-wings": {
     "description": "Server control plane for Pterodactyl Panel",
     "pname": "pterodactyl-wings",
-    "version": "1.11.13-unstable-2025-08-04"
+    "version": "1.11.13-unstable-2025-08-11"
   },
   "packages.x86_64-linux.py-rcon": {
     "description": "Python implementation of RCON",
@@ -6797,7 +6797,7 @@
   "packages.x86_64-linux.qemu-user-static": {
     "description": "Generic and open source machine emulator and virtualizer",
     "pname": "qemu-user-static",
-    "version": "10.1.0-rc2+ds-1"
+    "version": "10.0.3+ds-2"
   },
   "packages.x86_64-linux.qq": {
     "description": "QQ for Linux",
@@ -6822,7 +6822,7 @@
   "packages.x86_64-linux.qsp-lib": {
     "description": "QSP is an Interactive Fiction development platform (Game Library)",
     "pname": "qsp-lib",
-    "version": "0-unstable-2025-08-10"
+    "version": "0-unstable-2025-08-12"
   },
   "packages.x86_64-linux.qtscrcpy_git": {
     "description": "Android real-time display control software",
@@ -7067,7 +7067,7 @@
   "packages.x86_64-linux.v2ray-rules-dat": {
     "description": "V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria.",
     "pname": "v2ray-rules-dat",
-    "version": "202508092214"
+    "version": "202508112214"
   },
   "packages.x86_64-linux.vbmeta-disable-verification": {
     "description": "Patch Android vbmeta image and disable verification flags inside",
