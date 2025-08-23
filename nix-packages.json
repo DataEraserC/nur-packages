@@ -37,7 +37,7 @@
   "legacyPackages.x86_64-linux.PiliPalaX": {
     "description": "PiliPalaX",
     "pname": "PiliPalaX",
-    "version": "0-unstable-2025-08-22"
+    "version": "0-unstable-2025-08-23"
   },
   "legacyPackages.x86_64-linux.SakuraFrp": {
     "description": "",
@@ -932,7 +932,7 @@
   "legacyPackages.x86_64-linux.himirage_unwrapped": {
     "description": "",
     "pname": "himirage-x86_64-linux-unwrapped",
-    "version": "2025-08-22-18-03-12"
+    "version": "2025-08-23-18-03-20"
   },
   "legacyPackages.x86_64-linux.hkdm": {
     "description": "Lighter-weight hotkey daemon",
@@ -1097,7 +1097,7 @@
   "legacyPackages.x86_64-linux.lantianCustomized.llama-cpp": {
     "description": "Inference of Meta's LLaMA model (and others) in pure C/C++",
     "pname": "llama-cpp",
-    "version": "6245"
+    "version": "6255"
   },
   "legacyPackages.x86_64-linux.lantianCustomized.ls-iommu": {
     "description": "List IOMMUs on system",
@@ -1572,7 +1572,7 @@
   "legacyPackages.x86_64-linux.llqqnt": {
     "description": "",
     "pname": "qq-qq=3.2.18+llqqnt_rev=0-unstable",
-    "version": "2025-08-14"
+    "version": "2025-08-23"
   },
   "legacyPackages.x86_64-linux.loralib": {
     "description": "Implementation of \"LoRA: Low-Rank Adaptation of Large Language Models\"",
@@ -4237,7 +4237,7 @@
   "legacyPackages.x86_64-linux.piliplus": {
     "description": "Third party Bilibili client built with Flutter",
     "pname": "piliplus",
-    "version": "1.1.3.40-fix"
+    "version": "1.1.4"
   },
   "legacyPackages.x86_64-linux.piper-tts": {
     "description": "Python component for piper-tts",
@@ -4487,7 +4487,7 @@
   "legacyPackages.x86_64-linux.qsp": {
     "description": "QSP is an Interactive Fiction development platform (GUI application)",
     "pname": "qsp",
-    "version": "5.9.3-b1-unstable-2025-07-06"
+    "version": "5.9.3-b1-unstable-2025-08-22"
   },
   "legacyPackages.x86_64-linux.qsp-lib": {
     "description": "QSP is an Interactive Fiction development platform (Game Library)",
@@ -4547,7 +4547,7 @@
   "legacyPackages.x86_64-linux.rime-zhwiki": {
     "description": "RIME dictionary file for entries from zh.wikipedia.org",
     "pname": "rime-zhwiki",
-    "version": "20250731"
+    "version": "20250823"
   },
   "legacyPackages.x86_64-linux.rootutils": {
     "description": "Simple python package to solve all your problems with pythonpath, work dir, file paths, module imports and environment variables",
@@ -4762,7 +4762,7 @@
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.PiliPalaX": {
     "description": "PiliPalaX",
     "pname": "PiliPalaX",
-    "version": "0-unstable-2025-08-22"
+    "version": "0-unstable-2025-08-23"
   },
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.SakuraFrp": {
     "description": "",
@@ -4907,7 +4907,7 @@
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.himirage_unwrapped": {
     "description": "",
     "pname": "himirage-x86_64-linux-unwrapped",
-    "version": "2025-08-22-18-03-12"
+    "version": "2025-08-23-18-03-20"
   },
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.hkdm": {
     "description": "Lighter-weight hotkey daemon",
@@ -4922,7 +4922,7 @@
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.llqqnt": {
     "description": "",
     "pname": "qq-qq=3.2.18+llqqnt_rev=0-unstable",
-    "version": "2025-08-14"
+    "version": "2025-08-23"
   },
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.motrix": {
     "description": "Full-featured download manager",
@@ -4972,7 +4972,7 @@
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.v2ray-rules-dat": {
     "description": "V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria.",
     "pname": "v2ray-rules-dat",
-    "version": "202508212214"
+    "version": "202508222213"
   },
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.vmware-workstation": {
     "description": "Industry standard desktop hypervisor for x86-64 architecture",
@@ -5462,7 +5462,7 @@
   "legacyPackages.x86_64-linux.uncategorized.piliplus": {
     "description": "Third party Bilibili client built with Flutter",
     "pname": "piliplus",
-    "version": "1.1.3.40-fix"
+    "version": "1.1.4"
   },
   "legacyPackages.x86_64-linux.uncategorized.plangothic-fonts": {
     "description": "Plangothic Project",
@@ -5517,7 +5517,7 @@
   "legacyPackages.x86_64-linux.uncategorized.qsp": {
     "description": "QSP is an Interactive Fiction development platform (GUI application)",
     "pname": "qsp",
-    "version": "5.9.3-b1-unstable-2025-07-06"
+    "version": "5.9.3-b1-unstable-2025-08-22"
   },
   "legacyPackages.x86_64-linux.uncategorized.qsp-lib": {
     "description": "QSP is an Interactive Fiction development platform (Game Library)",
@@ -5562,7 +5562,7 @@
   "legacyPackages.x86_64-linux.uncategorized.rime-zhwiki": {
     "description": "RIME dictionary file for entries from zh.wikipedia.org",
     "pname": "rime-zhwiki",
-    "version": "20250731"
+    "version": "20250823"
   },
   "legacyPackages.x86_64-linux.uncategorized.route-chain": {
     "description": "Small app to generate a long path in traceroute",
@@ -5642,7 +5642,7 @@
   "legacyPackages.x86_64-linux.uncategorized.uni-api": {
     "description": "Unifies the management of LLM APIs. Call multiple backend services through a unified API interface",
     "pname": "uni-api",
-    "version": "0-unstable-2025-08-21"
+    "version": "0-unstable-2025-08-23"
   },
   "legacyPackages.x86_64-linux.uncategorized.unigine-heaven": {
     "description": "Extreme performance and stability test for PC hardware: video card, power supply, cooling system",
@@ -5722,7 +5722,7 @@
   "legacyPackages.x86_64-linux.uni-api": {
     "description": "Unifies the management of LLM APIs. Call multiple backend services through a unified API interface",
     "pname": "uni-api",
-    "version": "0-unstable-2025-08-21"
+    "version": "0-unstable-2025-08-23"
   },
   "legacyPackages.x86_64-linux.unigine-heaven": {
     "description": "Extreme performance and stability test for PC hardware: video card, power supply, cooling system",
@@ -5762,7 +5762,7 @@
   "legacyPackages.x86_64-linux.v2ray-rules-dat": {
     "description": "V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria.",
     "pname": "v2ray-rules-dat",
-    "version": "202508212214"
+    "version": "202508222213"
   },
   "legacyPackages.x86_64-linux.vbmeta-disable-verification": {
     "description": "Patch Android vbmeta image and disable verification flags inside",
@@ -5927,7 +5927,7 @@
   "packages.x86_64-linux.PiliPalaX": {
     "description": "PiliPalaX",
     "pname": "PiliPalaX",
-    "version": "0-unstable-2025-08-22"
+    "version": "0-unstable-2025-08-23"
   },
   "packages.x86_64-linux.SakuraFrp": {
     "description": "",
@@ -6407,7 +6407,7 @@
   "packages.x86_64-linux.himirage_unwrapped": {
     "description": "",
     "pname": "himirage-x86_64-linux-unwrapped",
-    "version": "2025-08-22-18-03-12"
+    "version": "2025-08-23-18-03-20"
   },
   "packages.x86_64-linux.hkdm": {
     "description": "Lighter-weight hotkey daemon",
@@ -6567,7 +6567,7 @@
   "packages.x86_64-linux.llqqnt": {
     "description": "",
     "pname": "qq-qq=3.2.18+llqqnt_rev=0-unstable",
-    "version": "2025-08-14"
+    "version": "2025-08-23"
   },
   "packages.x86_64-linux.loralib": {
     "description": "Implementation of \"LoRA: Low-Rank Adaptation of Large Language Models\"",
@@ -6787,7 +6787,7 @@
   "packages.x86_64-linux.piliplus": {
     "description": "Third party Bilibili client built with Flutter",
     "pname": "piliplus",
-    "version": "1.1.3.40-fix"
+    "version": "1.1.4"
   },
   "packages.x86_64-linux.piper-tts": {
     "description": "Python component for piper-tts",
@@ -6877,7 +6877,7 @@
   "packages.x86_64-linux.qsp": {
     "description": "QSP is an Interactive Fiction development platform (GUI application)",
     "pname": "qsp",
-    "version": "5.9.3-b1-unstable-2025-07-06"
+    "version": "5.9.3-b1-unstable-2025-08-22"
   },
   "packages.x86_64-linux.qsp-lib": {
     "description": "QSP is an Interactive Fiction development platform (Game Library)",
@@ -6937,7 +6937,7 @@
   "packages.x86_64-linux.rime-zhwiki": {
     "description": "RIME dictionary file for entries from zh.wikipedia.org",
     "pname": "rime-zhwiki",
-    "version": "20250731"
+    "version": "20250823"
   },
   "packages.x86_64-linux.rootutils": {
     "description": "Simple python package to solve all your problems with pythonpath, work dir, file paths, module imports and environment variables",
@@ -7087,7 +7087,7 @@
   "packages.x86_64-linux.uni-api": {
     "description": "Unifies the management of LLM APIs. Call multiple backend services through a unified API interface",
     "pname": "uni-api",
-    "version": "0-unstable-2025-08-21"
+    "version": "0-unstable-2025-08-23"
   },
   "packages.x86_64-linux.unigine-heaven": {
     "description": "Extreme performance and stability test for PC hardware: video card, power supply, cooling system",
@@ -7127,7 +7127,7 @@
   "packages.x86_64-linux.v2ray-rules-dat": {
     "description": "V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria.",
     "pname": "v2ray-rules-dat",
-    "version": "202508212214"
+    "version": "202508222213"
   },
   "packages.x86_64-linux.vbmeta-disable-verification": {
     "description": "Patch Android vbmeta image and disable verification flags inside",
