@@ -133,7 +133,7 @@
     },
     "PiliPalaX": {
         "cargoLocks": null,
-        "date": "2025-08-23",
+        "date": "2025-08-24",
         "extract": null,
         "name": "PiliPalaX",
         "passthru": null,
@@ -145,12 +145,12 @@
             "name": null,
             "owner": "bggRGjQaUbCoE",
             "repo": "PiliPlus",
-            "rev": "60096684275eb0d83ecc7e9d531a4ab5a53c32af",
-            "sha256": "sha256-RwA1SSY66KGzDBVZS6mMG2QvPbUi5yrWoR6BK12cADw=",
+            "rev": "7d30c9c66a2952cd022fe5aa413e6cb7d25506eb",
+            "sha256": "sha256-NC+iupFMa4VhflUHdvHBr4QfGmQVCqmsHSM3+VNMle4=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "60096684275eb0d83ecc7e9d531a4ab5a53c32af"
+        "version": "7d30c9c66a2952cd022fe5aa413e6cb7d25506eb"
     },
     "SteamTools": {
         "cargoLocks": null,
@@ -767,7 +767,7 @@
     },
     "cachyos-kernel": {
         "cargoLocks": null,
-        "date": "2025-08-22",
+        "date": "2025-08-24",
         "extract": null,
         "name": "cachyos-kernel",
         "passthru": null,
@@ -779,12 +779,12 @@
             "name": null,
             "owner": "CachyOS",
             "repo": "linux-cachyos",
-            "rev": "aa16ca36ace17e51fc2649fcebc5def4dd81de5a",
-            "sha256": "sha256-67yIND0+PZwX8U7uzpouj2tDxMFznCKqMWdTXsprGdI=",
+            "rev": "218fb3cd8e34bdfdba1468acce5b4432807745c5",
+            "sha256": "sha256-aOqUtvLVb2rbexRf+65Tt1ah+4KoNUTy/IIAh3lanGg=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "aa16ca36ace17e51fc2649fcebc5def4dd81de5a"
+        "version": "218fb3cd8e34bdfdba1468acce5b4432807745c5"
     },
     "cachyos-kernel-patches": {
         "cargoLocks": null,
@@ -2073,7 +2073,7 @@
             "type": "url",
             "url": "https://album.photosir.cn/upgradePackage/infoall/photosir"
         },
-        "version": "2025-08-23 18:03:20"
+        "version": "2025-08-24 18:04:16"
     },
     "himirage-aarch64-darwin": {
         "cargoLocks": null,
@@ -2353,7 +2353,7 @@
     },
     "kikoplay-app": {
         "cargoLocks": null,
-        "date": "2024-10-01",
+        "date": "2025-08-24",
         "extract": null,
         "name": "kikoplay-app",
         "passthru": null,
@@ -2365,16 +2365,16 @@
             "name": null,
             "owner": "KikoPlayProject",
             "repo": "KikoPlayApp",
-            "rev": "1e9c0a2e0a0b34ce4f8b97c712afacd85708f848",
-            "sha256": "sha256-ditVnsOHirCw/ve96c0evBYWG+1YQpsQXht7vgto8/o=",
+            "rev": "e14235dff81408d3047148276de646d93947c875",
+            "sha256": "sha256-cfQcpGYimP9o3R1iao2wxd61kUTE3kpNNq6syM0Ep90=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "1e9c0a2e0a0b34ce4f8b97c712afacd85708f848"
+        "version": "e14235dff81408d3047148276de646d93947c875"
     },
     "kikoplay-script": {
         "cargoLocks": null,
-        "date": "2025-02-15",
+        "date": "2025-08-24",
         "extract": null,
         "name": "kikoplay-script",
         "passthru": null,
@@ -2386,12 +2386,12 @@
             "name": null,
             "owner": "KikoPlayProject",
             "repo": "KikoPlayScript",
-            "rev": "5d932e33070cfac2e04b9e393db392d7647ddb29",
-            "sha256": "sha256-kx9+ntLcZmv0gGZn3FArWheb0RDNOa/LE+QU0jFKTvM=",
+            "rev": "1c9a8f1b5fb7259cf9812aa483812f2b541be631",
+            "sha256": "sha256-B0h5lR/1XSsFBy/Z9vZLM/jKIf05ZA/zSkszWUQSMG4=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "5d932e33070cfac2e04b9e393db392d7647ddb29"
+        "version": "1c9a8f1b5fb7259cf9812aa483812f2b541be631"
     },
     "konnect": {
         "cargoLocks": null,
@@ -2753,12 +2753,12 @@
             "name": null,
             "owner": "ggerganov",
             "repo": "llama.cpp",
-            "rev": "b6255",
-            "sha256": "sha256-n+WesTyTxbxWVFD+YFmCmnNKTCHykhMe49qCev6MoB4=",
+            "rev": "b6262",
+            "sha256": "sha256-L6TTnaPrs/k+a3Kl4akTXsFgqc4Zd4+4H8mp5YoBpt4=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "b6255"
+        "version": "b6262"
     },
     "loralib": {
         "cargoLocks": null,
@@ -3755,12 +3755,12 @@
             "name": null,
             "owner": "bggRGjQaUbCoE",
             "repo": "PiliPlus",
-            "rev": "1.1.4",
-            "sha256": "sha256-RwA1SSY66KGzDBVZS6mMG2QvPbUi5yrWoR6BK12cADw=",
+            "rev": "1.1.4.1",
+            "sha256": "sha256-ia+qN3Oa8R7ZPN/IETedESv1+cSXKQOo158is0m/JJM=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "1.1.4"
+        "version": "1.1.4.1"
     },
     "plangothic-fonts": {
         "cargoLocks": null,
@@ -4219,7 +4219,7 @@
     },
     "qsp": {
         "cargoLocks": null,
-        "date": "2025-08-22",
+        "date": "2025-08-24",
         "extract": null,
         "name": "qsp",
         "passthru": null,
@@ -4231,12 +4231,12 @@
             "name": null,
             "owner": "QSPFoundation",
             "repo": "qspgui",
-            "rev": "50686737ac87fd4a2e289385a0886df88239097a",
-            "sha256": "sha256-0qfu9d0VlWdZsHpn9VMzB/byIalysiFofcB49KJiEQA=",
+            "rev": "bc75ab3fea5ce2b5b3ce2cc0503ab539a8120e3f",
+            "sha256": "sha256-ufwUtAnQQ7KYEMmBsgCTY7BV+n32BTM2UnxlEDkA+pc=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "50686737ac87fd4a2e289385a0886df88239097a"
+        "version": "bc75ab3fea5ce2b5b3ce2cc0503ab539a8120e3f"
     },
     "qsp-lib": {
         "cargoLocks": null,
@@ -4294,12 +4294,12 @@
             "name": null,
             "owner": "wxWidgets",
             "repo": "wxWidgets",
-            "rev": "66bd59a958705398ad22536a8d301596b1951cb8",
-            "sha256": "sha256-wn+kgHqg4waFJVYp5XSRtdnOAN8pDeASL9cWRJXF+aU=",
+            "rev": "426f745c6b069e9cd71a47a2272f5d6e07a9c6df",
+            "sha256": "sha256-IMHJyyqn4cRxnI7gPSC01zCG+MbY778uzTtPZa7uRbQ=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "66bd59a958705398ad22536a8d301596b1951cb8"
+        "version": "426f745c6b069e9cd71a47a2272f5d6e07a9c6df"
     },
     "r8125": {
         "cargoLocks": null,
@@ -5359,11 +5359,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-0Qt2V8Mwib+K2jiYuKnENG55duH0pZUEXFPAYEx+PDk=",
+            "sha256": "sha256-tnDcZi5vTK61JEoxadQV1cCNWFC7fB4Cc0m5rJwOLxc=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202508222213/rules.zip"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202508232212/rules.zip"
         },
-        "version": "202508222213"
+        "version": "202508232212"
     },
     "vbmeta-disable-verification": {
         "cargoLocks": null,

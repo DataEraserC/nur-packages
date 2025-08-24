@@ -75,15 +75,15 @@
   };
   PiliPalaX = {
     pname = "PiliPalaX";
-    version = "60096684275eb0d83ecc7e9d531a4ab5a53c32af";
+    version = "7d30c9c66a2952cd022fe5aa413e6cb7d25506eb";
     src = fetchFromGitHub {
       owner = "bggRGjQaUbCoE";
       repo = "PiliPlus";
-      rev = "60096684275eb0d83ecc7e9d531a4ab5a53c32af";
+      rev = "7d30c9c66a2952cd022fe5aa413e6cb7d25506eb";
       fetchSubmodules = true;
-      hash = "sha256-RwA1SSY66KGzDBVZS6mMG2QvPbUi5yrWoR6BK12cADw=";
+      hash = "sha256-NC+iupFMa4VhflUHdvHBr4QfGmQVCqmsHSM3+VNMle4=";
     };
-    date = "2025-08-23";
+    date = "2025-08-24";
   };
   SteamTools = {
     pname = "SteamTools";
@@ -410,14 +410,14 @@
   };
   cachyos-kernel = {
     pname = "cachyos-kernel";
-    version = "aa16ca36ace17e51fc2649fcebc5def4dd81de5a";
+    version = "218fb3cd8e34bdfdba1468acce5b4432807745c5";
     src = fetchFromGitHub {
       owner = "CachyOS";
       repo = "linux-cachyos";
-      rev = "aa16ca36ace17e51fc2649fcebc5def4dd81de5a";
-      hash = "sha256-67yIND0+PZwX8U7uzpouj2tDxMFznCKqMWdTXsprGdI=";
+      rev = "218fb3cd8e34bdfdba1468acce5b4432807745c5";
+      hash = "sha256-aOqUtvLVb2rbexRf+65Tt1ah+4KoNUTy/IIAh3lanGg=";
     };
-    date = "2025-08-22";
+    date = "2025-08-24";
   };
   cachyos-kernel-patches = {
     pname = "cachyos-kernel-patches";
@@ -1083,7 +1083,7 @@
   };
   himirage-JSON = {
     pname = "himirage-JSON";
-    version = "2025-08-23 18:03:20";
+    version = "2025-08-24 18:04:16";
     src = fetchurl {
       url = "https://album.photosir.cn/upgradePackage/infoall/photosir";
       hash = "sha256-nQjQwrKvih7iN5U5x6/vMmJeMOvkp+DrxmL8Q4HMVIU=";
@@ -1232,25 +1232,25 @@
   };
   kikoplay-app = {
     pname = "kikoplay-app";
-    version = "1e9c0a2e0a0b34ce4f8b97c712afacd85708f848";
+    version = "e14235dff81408d3047148276de646d93947c875";
     src = fetchFromGitHub {
       owner = "KikoPlayProject";
       repo = "KikoPlayApp";
-      rev = "1e9c0a2e0a0b34ce4f8b97c712afacd85708f848";
-      hash = "sha256-ditVnsOHirCw/ve96c0evBYWG+1YQpsQXht7vgto8/o=";
+      rev = "e14235dff81408d3047148276de646d93947c875";
+      hash = "sha256-cfQcpGYimP9o3R1iao2wxd61kUTE3kpNNq6syM0Ep90=";
     };
-    date = "2024-10-01";
+    date = "2025-08-24";
   };
   kikoplay-script = {
     pname = "kikoplay-script";
-    version = "5d932e33070cfac2e04b9e393db392d7647ddb29";
+    version = "1c9a8f1b5fb7259cf9812aa483812f2b541be631";
     src = fetchFromGitHub {
       owner = "KikoPlayProject";
       repo = "KikoPlayScript";
-      rev = "5d932e33070cfac2e04b9e393db392d7647ddb29";
-      hash = "sha256-kx9+ntLcZmv0gGZn3FArWheb0RDNOa/LE+QU0jFKTvM=";
+      rev = "1c9a8f1b5fb7259cf9812aa483812f2b541be631";
+      hash = "sha256-B0h5lR/1XSsFBy/Z9vZLM/jKIf05ZA/zSkszWUQSMG4=";
     };
-    date = "2025-02-15";
+    date = "2025-08-24";
   };
   konnect = {
     pname = "konnect";
@@ -1432,12 +1432,12 @@
   };
   llama-cpp = {
     pname = "llama-cpp";
-    version = "b6255";
+    version = "b6262";
     src = fetchFromGitHub {
       owner = "ggerganov";
       repo = "llama.cpp";
-      tag = "b6255";
-      hash = "sha256-n+WesTyTxbxWVFD+YFmCmnNKTCHykhMe49qCev6MoB4=";
+      tag = "b6262";
+      hash = "sha256-L6TTnaPrs/k+a3Kl4akTXsFgqc4Zd4+4H8mp5YoBpt4=";
     };
   };
   loralib = {
@@ -1944,12 +1944,12 @@
   };
   piliplus = {
     pname = "piliplus";
-    version = "1.1.4";
+    version = "1.1.4.1";
     src = fetchFromGitHub {
       owner = "bggRGjQaUbCoE";
       repo = "PiliPlus";
-      tag = "1.1.4";
-      hash = "sha256-RwA1SSY66KGzDBVZS6mMG2QvPbUi5yrWoR6BK12cADw=";
+      tag = "1.1.4.1";
+      hash = "sha256-ia+qN3Oa8R7ZPN/IETedESv1+cSXKQOo158is0m/JJM=";
     };
   };
   plangothic-fonts = {
@@ -2189,14 +2189,14 @@
   };
   qsp = {
     pname = "qsp";
-    version = "50686737ac87fd4a2e289385a0886df88239097a";
+    version = "bc75ab3fea5ce2b5b3ce2cc0503ab539a8120e3f";
     src = fetchFromGitHub {
       owner = "QSPFoundation";
       repo = "qspgui";
-      rev = "50686737ac87fd4a2e289385a0886df88239097a";
-      hash = "sha256-0qfu9d0VlWdZsHpn9VMzB/byIalysiFofcB49KJiEQA=";
+      rev = "bc75ab3fea5ce2b5b3ce2cc0503ab539a8120e3f";
+      hash = "sha256-ufwUtAnQQ7KYEMmBsgCTY7BV+n32BTM2UnxlEDkA+pc=";
     };
-    date = "2025-08-22";
+    date = "2025-08-24";
   };
   qsp-lib = {
     pname = "qsp-lib";
@@ -2221,13 +2221,13 @@
   };
   qsp-wx = {
     pname = "qsp-wx";
-    version = "66bd59a958705398ad22536a8d301596b1951cb8";
+    version = "426f745c6b069e9cd71a47a2272f5d6e07a9c6df";
     src = fetchFromGitHub {
       owner = "wxWidgets";
       repo = "wxWidgets";
-      rev = "66bd59a958705398ad22536a8d301596b1951cb8";
+      rev = "426f745c6b069e9cd71a47a2272f5d6e07a9c6df";
       fetchSubmodules = true;
-      hash = "sha256-wn+kgHqg4waFJVYp5XSRtdnOAN8pDeASL9cWRJXF+aU=";
+      hash = "sha256-IMHJyyqn4cRxnI7gPSC01zCG+MbY778uzTtPZa7uRbQ=";
     };
   };
   r8125 = {
@@ -2774,10 +2774,10 @@
   };
   v2ray-rules-dat = {
     pname = "v2ray-rules-dat";
-    version = "202508222213";
+    version = "202508232212";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202508222213/rules.zip";
-      hash = "sha256-0Qt2V8Mwib+K2jiYuKnENG55duH0pZUEXFPAYEx+PDk=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202508232212/rules.zip";
+      hash = "sha256-tnDcZi5vTK61JEoxadQV1cCNWFC7fB4Cc0m5rJwOLxc=";
     };
   };
   vbmeta-disable-verification = {
