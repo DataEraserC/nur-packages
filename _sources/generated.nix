@@ -75,15 +75,15 @@
   };
   PiliPalaX = {
     pname = "PiliPalaX";
-    version = "7d30c9c66a2952cd022fe5aa413e6cb7d25506eb";
+    version = "a366b8a9e414bc29d499be06db6cafa67a651ac9";
     src = fetchFromGitHub {
       owner = "bggRGjQaUbCoE";
       repo = "PiliPlus";
-      rev = "7d30c9c66a2952cd022fe5aa413e6cb7d25506eb";
+      rev = "a366b8a9e414bc29d499be06db6cafa67a651ac9";
       fetchSubmodules = true;
-      hash = "sha256-NC+iupFMa4VhflUHdvHBr4QfGmQVCqmsHSM3+VNMle4=";
+      hash = "sha256-IXqRqrtpWzKU5ue8vpec/jg5/i7iu01aS1SaYKV5V3A=";
     };
-    date = "2025-08-24";
+    date = "2025-08-25";
   };
   SteamTools = {
     pname = "SteamTools";
@@ -951,26 +951,26 @@
   };
   geolite2-asn = {
     pname = "geolite2-asn";
-    version = "2025.08.22";
+    version = "2025.08.25";
     src = fetchurl {
-      url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.08.22/GeoLite2-ASN.mmdb";
-      hash = "sha256-IMe46l12gDj5huQZ3sL0cQ3mgMyuHGcmDsviZlERf/8=";
+      url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.08.25/GeoLite2-ASN.mmdb";
+      hash = "sha256-3evwx93ptwYEUXTIRUFa6lgE5tD8OZqccg6pWXfxSMA=";
     };
   };
   geolite2-city = {
     pname = "geolite2-city";
-    version = "2025.08.22";
+    version = "2025.08.25";
     src = fetchurl {
-      url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.08.22/GeoLite2-City.mmdb";
-      hash = "sha256-Dy1gHlKqd7K8c1Icz3Td0P+PIwyeqZy5oOKFyDeMuFU=";
+      url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.08.25/GeoLite2-City.mmdb";
+      hash = "sha256-A6qJFPSW7sQ/Z7E8lZImOfiEcpqjchjed2ASBlU0K6k=";
     };
   };
   geolite2-country = {
     pname = "geolite2-country";
-    version = "2025.08.22";
+    version = "2025.08.25";
     src = fetchurl {
-      url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.08.22/GeoLite2-Country.mmdb";
-      hash = "sha256-V5MVvmrmAxk1N+uuwZv/HXs1oikL/G9hwUWls3uXE7s=";
+      url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.08.25/GeoLite2-Country.mmdb";
+      hash = "sha256-O5zR10OvhwMFSplL4Ix9pPrtYrdo4PFpNvCzVuxbdnQ=";
     };
   };
   glauth = {
@@ -1083,7 +1083,7 @@
   };
   himirage-JSON = {
     pname = "himirage-JSON";
-    version = "2025-08-24 18:04:16";
+    version = "2025-08-25 18:04:16";
     src = fetchurl {
       url = "https://album.photosir.cn/upgradePackage/infoall/photosir";
       hash = "sha256-nQjQwrKvih7iN5U5x6/vMmJeMOvkp+DrxmL8Q4HMVIU=";
@@ -1382,12 +1382,12 @@
   };
   linux-xanmod = {
     pname = "linux-xanmod";
-    version = "6.16.2-xanmod1";
+    version = "6.16.3-xanmod1";
     src = fetchgit {
       url = "https://gitlab.com/xanmod/linux.git";
-      tag = "6.16.2-xanmod1";
+      tag = "6.16.3-xanmod1";
       fetchSubmodules = false;
-      hash = "sha256-Wn6uqKuOnGlVG9mSpX38+hVBAct2b/GO/WRHbWH7y2w=";
+      hash = "sha256-DQaMKGRTzRexK15//ZdTKYO+haPKPbLNb6LRUZWKjJg=";
     };
   };
   linux-xanmod-6_0 = {
@@ -1432,12 +1432,12 @@
   };
   llama-cpp = {
     pname = "llama-cpp";
-    version = "b6262";
+    version = "b6267";
     src = fetchFromGitHub {
       owner = "ggerganov";
       repo = "llama.cpp";
-      tag = "b6262";
-      hash = "sha256-L6TTnaPrs/k+a3Kl4akTXsFgqc4Zd4+4H8mp5YoBpt4=";
+      tag = "b6267";
+      hash = "sha256-L3Jk3KN2tpybqZXMikHRInnoAxXcWwgX+vtKV08hiSs=";
     };
   };
   loralib = {
@@ -2774,10 +2774,10 @@
   };
   v2ray-rules-dat = {
     pname = "v2ray-rules-dat";
-    version = "202508232212";
+    version = "202508242213";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202508232212/rules.zip";
-      hash = "sha256-tnDcZi5vTK61JEoxadQV1cCNWFC7fB4Cc0m5rJwOLxc=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202508242213/rules.zip";
+      hash = "sha256-7Mylp66dvzJFUheN582bj7dK/xy4bCwiMAEO8ZrcDN8=";
     };
   };
   vbmeta-disable-verification = {
