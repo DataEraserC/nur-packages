@@ -133,7 +133,7 @@
     },
     "PiliPalaX": {
         "cargoLocks": null,
-        "date": "2025-08-25",
+        "date": "2025-08-26",
         "extract": null,
         "name": "PiliPalaX",
         "passthru": null,
@@ -145,12 +145,12 @@
             "name": null,
             "owner": "bggRGjQaUbCoE",
             "repo": "PiliPlus",
-            "rev": "a366b8a9e414bc29d499be06db6cafa67a651ac9",
-            "sha256": "sha256-IXqRqrtpWzKU5ue8vpec/jg5/i7iu01aS1SaYKV5V3A=",
+            "rev": "fb8a06787bfd0149ca0363ac9db8f23156ce657f",
+            "sha256": "sha256-6FhSjmU0Pe01S54D+BuJqKMhIYemY9hWSMJJZ5fKWEA=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "a366b8a9e414bc29d499be06db6cafa67a651ac9"
+        "version": "fb8a06787bfd0149ca0363ac9db8f23156ce657f"
     },
     "SteamTools": {
         "cargoLocks": null,
@@ -767,7 +767,7 @@
     },
     "cachyos-kernel": {
         "cargoLocks": null,
-        "date": "2025-08-24",
+        "date": "2025-08-25",
         "extract": null,
         "name": "cachyos-kernel",
         "passthru": null,
@@ -779,16 +779,16 @@
             "name": null,
             "owner": "CachyOS",
             "repo": "linux-cachyos",
-            "rev": "218fb3cd8e34bdfdba1468acce5b4432807745c5",
-            "sha256": "sha256-aOqUtvLVb2rbexRf+65Tt1ah+4KoNUTy/IIAh3lanGg=",
+            "rev": "26bf47a2279a337b146f742da8ceff072bb761e2",
+            "sha256": "sha256-UbokjLsF7hfrrmzW5rVKhRVN3juJUK8zehashI1JxZ0=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "218fb3cd8e34bdfdba1468acce5b4432807745c5"
+        "version": "26bf47a2279a337b146f742da8ceff072bb761e2"
     },
     "cachyos-kernel-patches": {
         "cargoLocks": null,
-        "date": "2025-08-22",
+        "date": "2025-08-26",
         "extract": null,
         "name": "cachyos-kernel-patches",
         "passthru": null,
@@ -800,12 +800,12 @@
             "name": null,
             "owner": "CachyOS",
             "repo": "kernel-patches",
-            "rev": "5fa8a55ebcc1f87d22ae2cee888ecf39b377c2b5",
-            "sha256": "sha256-THToR0uQbLfvwlpAH2Yi7VUx/aWRb0r8ADXhAPNaJV0=",
+            "rev": "16555e4ebc1a1873f13907c094c84565806b1336",
+            "sha256": "sha256-NQ4sBgApZFxqEuB7Yrr9vRPcOk/Nh+CgCjdIsMT/lcw=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "5fa8a55ebcc1f87d22ae2cee888ecf39b377c2b5"
+        "version": "16555e4ebc1a1873f13907c094c84565806b1336"
     },
     "calibre-cops": {
         "cargoLocks": null,
@@ -2073,7 +2073,7 @@
             "type": "url",
             "url": "https://album.photosir.cn/upgradePackage/infoall/photosir"
         },
-        "version": "2025-08-25 18:04:16"
+        "version": "2025-08-26 18:03:52"
     },
     "himirage-aarch64-darwin": {
         "cargoLocks": null,
@@ -2515,7 +2515,7 @@
     },
     "liboqs-unstable": {
         "cargoLocks": null,
-        "date": "2025-08-19",
+        "date": "2025-08-25",
         "extract": null,
         "name": "liboqs-unstable",
         "passthru": null,
@@ -2527,12 +2527,12 @@
             "name": null,
             "owner": "open-quantum-safe",
             "repo": "liboqs",
-            "rev": "1698d86177c51aeea3f22eb531a793625edd321f",
-            "sha256": "sha256-zJdC/ZmBMc+xz1RKG21DdJ+B3k5ZUOqkzkHGa3NADX4=",
+            "rev": "d79049f3786dcef0a4d541be3e9fa3ea2fbfb7e2",
+            "sha256": "sha256-soJKJiN1vhxH+j+f8mjHg82/j5doNaBQmiy9j0gRczA=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "1698d86177c51aeea3f22eb531a793625edd321f"
+        "version": "d79049f3786dcef0a4d541be3e9fa3ea2fbfb7e2"
     },
     "libqcef": {
         "cargoLocks": null,
@@ -2753,12 +2753,12 @@
             "name": null,
             "owner": "ggerganov",
             "repo": "llama.cpp",
-            "rev": "b6267",
-            "sha256": "sha256-L3Jk3KN2tpybqZXMikHRInnoAxXcWwgX+vtKV08hiSs=",
+            "rev": "b6282",
+            "sha256": "sha256-HhpJViAkejO/FkFLseJgxYk9YyZLyptgO1fna8OBgAg=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "b6267"
+        "version": "b6282"
     },
     "loralib": {
         "cargoLocks": null,
@@ -4565,11 +4565,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-jPeZELioUufEphaSL3JmTI6nPFEAVVdfjmyEJlZ30RE=",
+            "sha256": "sha256-5wVhjRdkqJHFPstLNGOmIeu5mvC00xZVPmTEXOs2NLM=",
             "type": "url",
-            "url": "https://pypi.org/packages/source/r/rwkv/rwkv-0.8.29.tar.gz"
+            "url": "https://pypi.org/packages/source/r/rwkv/rwkv-0.8.30.tar.gz"
         },
-        "version": "0.8.29"
+        "version": "0.8.30"
     },
     "sam-toki-mouse-cursors": {
         "cargoLocks": null,
@@ -4684,12 +4684,12 @@
             "name": null,
             "owner": "snakers4",
             "repo": "silero-vad",
-            "rev": "v5.1.2",
-            "sha256": "sha256-XdETFa2nZyze3KtnGyPJXbRNHy0aFRBsKDzcWxaUYlo=",
+            "rev": "v6.0",
+            "sha256": "sha256-Nf/bntm9JaMUSdZliO4XSW7UQyMTa+X0nVDtrrWh1cQ=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v5.1.2"
+        "version": "v6.0"
     },
     "smartrent_py": {
         "cargoLocks": null,
@@ -5359,11 +5359,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-7Mylp66dvzJFUheN582bj7dK/xy4bCwiMAEO8ZrcDN8=",
+            "sha256": "sha256-cFjxRc+lEMqitHxWkFt1mTd0+rITd2zyR1pdS82LyhA=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202508242213/rules.zip"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202508252213/rules.zip"
         },
-        "version": "202508242213"
+        "version": "202508252213"
     },
     "vbmeta-disable-verification": {
         "cargoLocks": null,
