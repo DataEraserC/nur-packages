@@ -75,15 +75,15 @@
   };
   PiliPalaX = {
     pname = "PiliPalaX";
-    version = "04830c7789ef3eca3176f569893671cc9cd0cf8a";
+    version = "f0828ea18cf2e8c74d111891830198392bb45ebd";
     src = fetchFromGitHub {
       owner = "bggRGjQaUbCoE";
       repo = "PiliPlus";
-      rev = "04830c7789ef3eca3176f569893671cc9cd0cf8a";
+      rev = "f0828ea18cf2e8c74d111891830198392bb45ebd";
       fetchSubmodules = true;
-      hash = "sha256-SPv1sTxsANatFrw/W/vaQE8xkbWcjiFqwvkHkzH2LE0=";
+      hash = "sha256-M0Fub+D3kYqPF/TEwkvVrxdn78ncaN5wxJLvkMbJXig=";
     };
-    date = "2025-09-03";
+    date = "2025-09-04";
   };
   SteamTools = {
     pname = "SteamTools";
@@ -323,20 +323,20 @@
   };
   bilibili = {
     pname = "bilibili";
-    version = "v1.17.1-3";
+    version = "v1.17.1-4";
     src = fetchurl {
-      url = "https://github.com/msojocs/bilibili-linux/releases/download/v1.17.1-3/bilibili-asar-v1.17.1-3.tar.gz";
-      hash = "sha256-CIN8MK2T511djYQ+n+Q382o/yEC9q4a0BCaA4ZLPfEc=";
+      url = "https://github.com/msojocs/bilibili-linux/releases/download/v1.17.1-4/bilibili-asar-v1.17.1-4.tar.gz";
+      hash = "sha256-GTofyhkWOY3LPdrWxvdfAbZ071RHiGP4Q6w/eJal5+A=";
     };
   };
   bilibili-src = {
     pname = "bilibili-src";
-    version = "v1.17.1-3";
+    version = "v1.17.1-4";
     src = fetchFromGitHub {
       owner = "msojocs";
       repo = "bilibili-linux";
-      tag = "v1.17.1-3";
-      hash = "sha256-kuZ/dfMXUhRnLDH1S/g65QT8sWmsL6WRcQC5Ecc9tIA=";
+      tag = "v1.17.1-4";
+      hash = "sha256-rMdHu1/SWBfw4nl4c+fJfDrWFRsjnTbVUD32K3eEKEw=";
     };
   };
   bin-cpuflags-x86 = {
@@ -951,26 +951,26 @@
   };
   geolite2-asn = {
     pname = "geolite2-asn";
-    version = "2025.09.01";
+    version = "2025.09.04";
     src = fetchurl {
-      url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.09.01/GeoLite2-ASN.mmdb";
-      hash = "sha256-a6h2E5kTEz8mIJbz+WFDP+oLGWsxVOBWBbw7thrB7uY=";
+      url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.09.04/GeoLite2-ASN.mmdb";
+      hash = "sha256-wFB8+wkfQqxSX064oAUaeJf1+scuhSeZ4BCWWDVmAzs=";
     };
   };
   geolite2-city = {
     pname = "geolite2-city";
-    version = "2025.09.01";
+    version = "2025.09.04";
     src = fetchurl {
-      url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.09.01/GeoLite2-City.mmdb";
-      hash = "sha256-3QqZsTpJGkJ+akdcMJ+sAnEDRSUzWzfqNSX2WPgiD/Y=";
+      url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.09.04/GeoLite2-City.mmdb";
+      hash = "sha256-Jkt40L2qsn5/w3Dy+T2hSFKxXESHjTC+U63J04LxCG4=";
     };
   };
   geolite2-country = {
     pname = "geolite2-country";
-    version = "2025.09.01";
+    version = "2025.09.04";
     src = fetchurl {
-      url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.09.01/GeoLite2-Country.mmdb";
-      hash = "sha256-1c4GCKB3KGxhJVTYlfREQy9IuSj3TD3t+qbObVkEAj0=";
+      url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.09.04/GeoLite2-Country.mmdb";
+      hash = "sha256-jQf3qMqdlrng3Y+m0IaD80+8jsrb11mQtGW21NFg060=";
     };
   };
   glauth = {
@@ -1083,7 +1083,7 @@
   };
   himirage-JSON = {
     pname = "himirage-JSON";
-    version = "2025-09-03 18:02:40";
+    version = "2025-09-04 18:02:57";
     src = fetchurl {
       url = "https://album.photosir.cn/upgradePackage/infoall/photosir";
       hash = "sha256-nQjQwrKvih7iN5U5x6/vMmJeMOvkp+DrxmL8Q4HMVIU=";
@@ -1432,12 +1432,12 @@
   };
   llama-cpp = {
     pname = "llama-cpp";
-    version = "b6365";
+    version = "b6377";
     src = fetchFromGitHub {
       owner = "ggerganov";
       repo = "llama.cpp";
-      tag = "b6365";
-      hash = "sha256-7TPRHQQUA7BfdPf/bhMSM5HRCws8wU2cvnrYnKwsniM=";
+      tag = "b6377";
+      hash = "sha256-VMUVQVdJxY7wDjR8gIjenTvgD82vzj6y9tQiACY5N0Q=";
     };
   };
   loralib = {
@@ -2700,15 +2700,15 @@
   };
   uni-api = {
     pname = "uni-api";
-    version = "38132e7cd04e2dd19ea3fc0033579f438a717a8f";
+    version = "814d6db7791071b4a2171534b2c555f05ed11180";
     src = fetchFromGitHub {
       owner = "yym68686";
       repo = "uni-api";
-      rev = "38132e7cd04e2dd19ea3fc0033579f438a717a8f";
+      rev = "814d6db7791071b4a2171534b2c555f05ed11180";
       fetchSubmodules = true;
-      hash = "sha256-ufnM+Nt+2tbEHro6IFu7lvnO00ND2wN621VgSTBdBkQ=";
+      hash = "sha256-aumgTu+eTdIZgPltUiMwmipZa158B+bYd+sVvYDfSJA=";
     };
-    date = "2025-09-01";
+    date = "2025-09-04";
   };
   unigine-heaven = {
     pname = "unigine-heaven";
@@ -2774,10 +2774,10 @@
   };
   v2ray-rules-dat = {
     pname = "v2ray-rules-dat";
-    version = "202509022211";
+    version = "202509032212";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202509022211/rules.zip";
-      hash = "sha256-1HeebFCfcdTAgVMF9P2o56tf2TyaiLZcje55PeN6Kio=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202509032212/rules.zip";
+      hash = "sha256-iF9asN8Zb3m5SjwhZ9T1Wcm0eJYb8XtEaVtGRLkLMQk=";
     };
   };
   vbmeta-disable-verification = {
@@ -2868,18 +2868,18 @@
   };
   wine-wechat-x64 = {
     pname = "wine-wechat-x64";
-    version = "3.9.12.55";
+    version = "3.9.12.57";
     src = fetchurl {
-      url = "https://github.com/tom-snow/wechat-windows-versions/releases/download/v3.9.12.55/WeChatSetup-3.9.12.55.exe";
-      hash = "sha256-2ex3Yo/Cr1Mcsryqo1+Cfx+0warumKHE8LsyLTzOVT8=";
+      url = "https://github.com/tom-snow/wechat-windows-versions/releases/download/v3.9.12.57/WeChatSetup-3.9.12.57.exe";
+      hash = "sha256-wp/AVjDPyV72SD9rW1Kqv+dCZbsmDiEOeK5DfTBdiZA=";
     };
   };
   wine-wechat-x86 = {
     pname = "wine-wechat-x86";
-    version = "3.9.12.54";
+    version = "3.9.12.56";
     src = fetchurl {
-      url = "https://github.com/tom-snow/wechat-windows-versions-x86/releases/download/v3.9.12.54/WeChatSetupX86-3.9.12.54.exe";
-      hash = "sha256-ir5wIc2ktNiOAQ1Hq9b2liyLfOuTbTSdXEVnXaynFag=";
+      url = "https://github.com/tom-snow/wechat-windows-versions-x86/releases/download/v3.9.12.56/WeChatSetupX86-3.9.12.56.exe";
+      hash = "sha256-luFiOhyEkCy/MxOKliV2xOjMxrq/kmWceiY/cDmo76k=";
     };
   };
   xstatic-asciinema-player = {
