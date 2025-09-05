@@ -75,15 +75,15 @@
   };
   PiliPalaX = {
     pname = "PiliPalaX";
-    version = "f0828ea18cf2e8c74d111891830198392bb45ebd";
+    version = "224bd88473a7951873b66e7636006bbc00f7d21d";
     src = fetchFromGitHub {
       owner = "bggRGjQaUbCoE";
       repo = "PiliPlus";
-      rev = "f0828ea18cf2e8c74d111891830198392bb45ebd";
+      rev = "224bd88473a7951873b66e7636006bbc00f7d21d";
       fetchSubmodules = true;
-      hash = "sha256-M0Fub+D3kYqPF/TEwkvVrxdn78ncaN5wxJLvkMbJXig=";
+      hash = "sha256-yqWJ3oFEtzTqfZRAMca6dr9aiaQQozw8RBs3QpmC40E=";
     };
-    date = "2025-09-04";
+    date = "2025-09-05";
   };
   SteamTools = {
     pname = "SteamTools";
@@ -323,20 +323,20 @@
   };
   bilibili = {
     pname = "bilibili";
-    version = "v1.17.1-4";
+    version = "v1.17.1-5";
     src = fetchurl {
-      url = "https://github.com/msojocs/bilibili-linux/releases/download/v1.17.1-4/bilibili-asar-v1.17.1-4.tar.gz";
-      hash = "sha256-GTofyhkWOY3LPdrWxvdfAbZ071RHiGP4Q6w/eJal5+A=";
+      url = "https://github.com/msojocs/bilibili-linux/releases/download/v1.17.1-5/bilibili-asar-v1.17.1-5.tar.gz";
+      hash = "sha256-X3EoVXj/RkE9gjbehq2xA33zp5l7Mj3wn5kvif7rlpY=";
     };
   };
   bilibili-src = {
     pname = "bilibili-src";
-    version = "v1.17.1-4";
+    version = "v1.17.1-5";
     src = fetchFromGitHub {
       owner = "msojocs";
       repo = "bilibili-linux";
-      tag = "v1.17.1-4";
-      hash = "sha256-rMdHu1/SWBfw4nl4c+fJfDrWFRsjnTbVUD32K3eEKEw=";
+      tag = "v1.17.1-5";
+      hash = "sha256-1Tr7HJTiz4BI905lzyMT0Xq15FfQIKVUN3kx8WQqfZQ=";
     };
   };
   bin-cpuflags-x86 = {
@@ -892,10 +892,10 @@
   };
   flutter_server_box_appimage = {
     pname = "flutter_server_box_appimage";
-    version = "v1.0.1241/ServerBox_1241_amd64.AppImage";
+    version = "v1.0.1246/ServerBox_1246_amd64.AppImage";
     src = fetchurl {
-      url = "https://github.com/lollipopkit/flutter_server_box/releases/download/v1.0.1241/ServerBox_1241_amd64.AppImage";
-      hash = "sha256-QodCrpWKbA/4XBv5Wv24Y5ObVPeBxcuVncRxM6bP+lA=";
+      url = "https://github.com/lollipopkit/flutter_server_box/releases/download/v1.0.1246/ServerBox_1246_amd64.AppImage";
+      hash = "sha256-IDgPmtEaInMDsdQb7utKagrspU76SpulLPZCosNPyG8=";
     };
   };
   fr24feed-amd64 = {
@@ -1083,7 +1083,7 @@
   };
   himirage-JSON = {
     pname = "himirage-JSON";
-    version = "2025-09-04 18:02:57";
+    version = "2025-09-05 18:04:57";
     src = fetchurl {
       url = "https://album.photosir.cn/upgradePackage/infoall/photosir";
       hash = "sha256-nQjQwrKvih7iN5U5x6/vMmJeMOvkp+DrxmL8Q4HMVIU=";
@@ -1314,14 +1314,14 @@
   };
   liboqs-unstable = {
     pname = "liboqs-unstable";
-    version = "68b0d172d79059cc1658496f97ad8d66e58a442a";
+    version = "d566dd236ae73ba285e23982699c67b1a2a147c2";
     src = fetchFromGitHub {
       owner = "open-quantum-safe";
       repo = "liboqs";
-      rev = "68b0d172d79059cc1658496f97ad8d66e58a442a";
-      hash = "sha256-cAYEw7w0+S2XUIFx8pZMp092lbiQu06qFS6x2Wo1WdI=";
+      rev = "d566dd236ae73ba285e23982699c67b1a2a147c2";
+      hash = "sha256-r1wEfMybChk3UXOicg8LJ438M01rupv9xrzjh5Zp6/0=";
     };
-    date = "2025-08-27";
+    date = "2025-09-04";
   };
   libqcef = {
     pname = "libqcef";
@@ -1382,12 +1382,12 @@
   };
   linux-xanmod = {
     pname = "linux-xanmod";
-    version = "6.16.4-xanmod2";
+    version = "6.16.5-xanmod1";
     src = fetchgit {
       url = "https://gitlab.com/xanmod/linux.git";
-      tag = "6.16.4-xanmod2";
+      tag = "6.16.5-xanmod1";
       fetchSubmodules = false;
-      hash = "sha256-xyrIUlF+22qjPAEHzH/yrBChHuPr+O/C9nH/FzTl7nU=";
+      hash = "sha256-XQ1blzX1sR7et0qKu+voKDKefjYLYZwHPFo7RbFYekg=";
     };
   };
   linux-xanmod-6_0 = {
@@ -1412,12 +1412,12 @@
   };
   linux-xanmod-6_12 = {
     pname = "linux-xanmod-6_12";
-    version = "6.12.44-xanmod2";
+    version = "6.12.45-xanmod1";
     src = fetchgit {
       url = "https://gitlab.com/xanmod/linux.git";
-      tag = "6.12.44-xanmod2";
+      tag = "6.12.45-xanmod1";
       fetchSubmodules = false;
-      hash = "sha256-YyJZPfFtJWqFo2cANsWP+VX1cYYGaxgtH8lLbGw04oI=";
+      hash = "sha256-JyRmRdSkskD3LHvaCUNZJOKEXNML4WRbUDN3+dVn4Kk=";
     };
   };
   linux-xanmod-6_6 = {
@@ -1432,12 +1432,12 @@
   };
   llama-cpp = {
     pname = "llama-cpp";
-    version = "b6377";
+    version = "b6389";
     src = fetchFromGitHub {
       owner = "ggerganov";
       repo = "llama.cpp";
-      tag = "b6377";
-      hash = "sha256-VMUVQVdJxY7wDjR8gIjenTvgD82vzj6y9tQiACY5N0Q=";
+      tag = "b6389";
+      hash = "sha256-ANceHPRZbs7T3VPmiJN0Z2gMqDGfeztgu7UxK1/4NSA=";
     };
   };
   loralib = {
@@ -2200,14 +2200,14 @@
   };
   qsp-lib = {
     pname = "qsp-lib";
-    version = "ad56cb1b241ef33cdff6549430ed12d3ea2cc916";
+    version = "d4becd63f0b3f1f0e7dc4286c17e6cba218e82cf";
     src = fetchFromGitHub {
       owner = "QSPFoundation";
       repo = "qsp";
-      rev = "ad56cb1b241ef33cdff6549430ed12d3ea2cc916";
-      hash = "sha256-Tmq5lBOjWewsxn+vnPAzgEPL6mGG2pSEAz3nXYxoi9E=";
+      rev = "d4becd63f0b3f1f0e7dc4286c17e6cba218e82cf";
+      hash = "sha256-P86y6+lznzFLiwRVmdGIb+y6uO980stwcrwym0dao4Q=";
     };
-    date = "2025-09-01";
+    date = "2025-09-05";
   };
   qsp-stable = {
     pname = "qsp-stable";
@@ -2700,15 +2700,15 @@
   };
   uni-api = {
     pname = "uni-api";
-    version = "814d6db7791071b4a2171534b2c555f05ed11180";
+    version = "28e6fb4c2edf6e1d516b518f3a28302f96a14157";
     src = fetchFromGitHub {
       owner = "yym68686";
       repo = "uni-api";
-      rev = "814d6db7791071b4a2171534b2c555f05ed11180";
+      rev = "28e6fb4c2edf6e1d516b518f3a28302f96a14157";
       fetchSubmodules = true;
-      hash = "sha256-aumgTu+eTdIZgPltUiMwmipZa158B+bYd+sVvYDfSJA=";
+      hash = "sha256-2JNvB7OR5Q5Jbss2S1Y2K97h+mzbUl50Nt4SPrr53+w=";
     };
-    date = "2025-09-04";
+    date = "2025-09-05";
   };
   unigine-heaven = {
     pname = "unigine-heaven";
@@ -2774,10 +2774,10 @@
   };
   v2ray-rules-dat = {
     pname = "v2ray-rules-dat";
-    version = "202509032212";
+    version = "202509042355";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202509032212/rules.zip";
-      hash = "sha256-iF9asN8Zb3m5SjwhZ9T1Wcm0eJYb8XtEaVtGRLkLMQk=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202509042355/rules.zip";
+      hash = "sha256-ptOply9QlJVqxy7C6/u3yueDVe/dw7LluM97QLQVKno=";
     };
   };
   vbmeta-disable-verification = {
