@@ -767,7 +767,7 @@
     },
     "cachyos-kernel": {
         "cargoLocks": null,
-        "date": "2025-09-05",
+        "date": "2025-09-08",
         "extract": null,
         "name": "cachyos-kernel",
         "passthru": null,
@@ -779,16 +779,16 @@
             "name": null,
             "owner": "CachyOS",
             "repo": "linux-cachyos",
-            "rev": "993d05055acf1b4b308b67b0ea79baa0636456d2",
-            "sha256": "sha256-D6ODDIrx/xM4OtfJwWmGcovLxs1Ustql6WQ3zFZ4hao=",
+            "rev": "a1f8cea3ca5d2121e37373dfc19bd9a51e3b5c08",
+            "sha256": "sha256-JXthP/Gwlesa69jjBkmTaxuIwllj/lG9yOYplP2qGN8=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "993d05055acf1b4b308b67b0ea79baa0636456d2"
+        "version": "a1f8cea3ca5d2121e37373dfc19bd9a51e3b5c08"
     },
     "cachyos-kernel-patches": {
         "cargoLocks": null,
-        "date": "2025-09-05",
+        "date": "2025-09-08",
         "extract": null,
         "name": "cachyos-kernel-patches",
         "passthru": null,
@@ -800,12 +800,12 @@
             "name": null,
             "owner": "CachyOS",
             "repo": "kernel-patches",
-            "rev": "aa347eb03f9d5309ffe25a5ff7d54213607ec436",
-            "sha256": "sha256-D6f50DMQabw1w1uV98jNoXMQcxS3rp9SBp6ihcW90RE=",
+            "rev": "d62cdf178f5b80aac3281bcd93d5632db637446f",
+            "sha256": "sha256-DYhu/aFSDim6Nu5QbJUoJHqoYNowZ1JdAcs3nC/rKyU=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "aa347eb03f9d5309ffe25a5ff7d54213607ec436"
+        "version": "d62cdf178f5b80aac3281bcd93d5632db637446f"
     },
     "calibre-cops": {
         "cargoLocks": null,
@@ -1707,11 +1707,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-IDgPmtEaInMDsdQb7utKagrspU76SpulLPZCosNPyG8=",
+            "sha256": "sha256-VHrNW9RcuzQJ/vlPFEWzFPDDN7Y5497mFYd6pHU8VLk=",
             "type": "url",
-            "url": "https://github.com/lollipopkit/flutter_server_box/releases/download/v1.0.1246/ServerBox_1246_amd64.AppImage"
+            "url": "https://github.com/lollipopkit/flutter_server_box/releases/download/v1.0.1253/ServerBox_1253_amd64.AppImage"
         },
-        "version": "v1.0.1246/ServerBox_1246_amd64.AppImage"
+        "version": "v1.0.1253/ServerBox_1253_amd64.AppImage"
     },
     "fr24feed-amd64": {
         "cargoLocks": null,
@@ -1752,11 +1752,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-zB+nkW0qi96+w0VYNkIJdjXTW/izdYAJuyxO+EiQZ5c=",
+            "sha256": "sha256-us8YBKB1r14y2WNifr5NhLvTojG0YIBZyaJlHjohUcQ=",
             "type": "url",
-            "url": "https://repo-feed.flightradar24.com/pool/raspberrypi-stable/f/fr24feed/fr24feed_1.0.52-0_armhf.deb"
+            "url": "https://repo-feed.flightradar24.com/pool/raspberrypi-stable/f/fr24feed/fr24feed_1.0.53-0_armhf.deb"
         },
-        "version": "1.0.52-0"
+        "version": "1.0.53-0"
     },
     "fr24feed-i386": {
         "cargoLocks": null,
@@ -2073,7 +2073,7 @@
             "type": "url",
             "url": "https://album.photosir.cn/upgradePackage/infoall/photosir"
         },
-        "version": "2025-09-08 18:05:22"
+        "version": "2025-09-09 18:05:05"
     },
     "himirage-aarch64-darwin": {
         "cargoLocks": null,
@@ -2753,12 +2753,12 @@
             "name": null,
             "owner": "ggerganov",
             "repo": "llama.cpp",
-            "rev": "b6412",
-            "sha256": "sha256-OIwb6qx6fjAOen9JTOZV4IBXcsvoNmVKCMNWi0PpApM=",
+            "rev": "b6428",
+            "sha256": "sha256-yVwTq69akOsdDir96xAUzpnaXp5AqleLhSYIZ6zLj3c=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "b6412"
+        "version": "b6428"
     },
     "loralib": {
         "cargoLocks": null,
@@ -4240,7 +4240,7 @@
     },
     "qsp-lib": {
         "cargoLocks": null,
-        "date": "2025-09-07",
+        "date": "2025-09-08",
         "extract": null,
         "name": "qsp-lib",
         "passthru": null,
@@ -4252,12 +4252,12 @@
             "name": null,
             "owner": "QSPFoundation",
             "repo": "qsp",
-            "rev": "e4933916f52b3a68fbfb22c0c0e7bf0b5039e0cb",
-            "sha256": "sha256-j/D5NDQompvO4QRnwQOvbTR4ScvXlfjdDg80rxrGyoI=",
+            "rev": "a1eb8b46ba877a975e065a6094c5c95d9bfc26a4",
+            "sha256": "sha256-08dV7brGNGw2kGI49Gm8vuoqkzoaShr8/AErjo7hvTs=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "e4933916f52b3a68fbfb22c0c0e7bf0b5039e0cb"
+        "version": "a1eb8b46ba877a975e065a6094c5c95d9bfc26a4"
     },
     "qsp-stable": {
         "cargoLocks": null,
@@ -4585,12 +4585,12 @@
             "name": null,
             "owner": "SamToki",
             "repo": "Sam-Toki-Mouse-Cursors",
-            "rev": "v9.03",
-            "sha256": "sha256-aQSyAvc00ACtgmjJTBivP4LyNrMqa0CQE1pRE1Fnzu0=",
+            "rev": "v9.04",
+            "sha256": "sha256-PuGHd4YbLWoVgDTZ1aqSnlnVEzCEw4NM6UXMEC3R7SQ=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v9.03"
+        "version": "v9.04"
     },
     "scrcpy-mask": {
         "cargoLocks": null,
@@ -5359,11 +5359,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-unSASHITSXI3jVk9r3gnJn3QMkYPdrvaoY2AQJuyqU0=",
+            "sha256": "sha256-HgXTXYr/VEalsLrL+aLp2qP2xSp05773PVgku3JelXw=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202509072211/rules.zip"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202509082213/rules.zip"
         },
-        "version": "202509072211"
+        "version": "202509082213"
     },
     "vbmeta-disable-verification": {
         "cargoLocks": null,
