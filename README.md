@@ -115,7 +115,7 @@ Or, use variables from this repository in case I change them:
 |  | `bird-lg-go` | [bird-lg-go](https://github.com/xddxdd/bird-lg-go) | 1.3.10 | BIRD looking glass in Go, for better maintainability, easier deployment & smaller memory footprint |
 |  | `bird-lgproxy-go` | [bird-lgproxy-go](https://github.com/xddxdd/bird-lg-go) | 1.3.10 | BIRD looking glass in Go, for better maintainability, easier deployment & smaller memory footprint |
 |  | `bnxtnvm` | [bnxtnvm](https://resource.fs.com/mall/resource/broadcom-ethernet-network-adapter-user-manual.pdf) | 222.0.144.0 | Broadcom BNXTNVM utility |
-|  | `boringssl-oqs` | [boringssl-oqs](https://openquantumsafe.org) | 0-unstable-2025-05-20 | Fork of BoringSSL that includes prototype quantum-resistant key exchange and authentication in the TLS handshake based on liboqs |
+|  | `boringssl-oqs` | [boringssl-oqs](https://openquantumsafe.org) | 0-unstable-2025-09-10 | Fork of BoringSSL that includes prototype quantum-resistant key exchange and authentication in the TLS handshake based on liboqs |
 |  | `bqqnt` | [bqqnt](https://im.qq.com/linuxqq/index.html) | 0.5.10 | QQ for Linux |
 |  | `browser360` | [browser360](https://browser.360.net/gc/index.html) | 13.4.1000.77 | 360 Browser |
 | `x86_64-linux` | `bstar` | bstar | 0.5.10 | BStar compatibility library |
@@ -246,12 +246,12 @@ Or, use variables from this repository in case I change them:
 |  | `pyosmocom` | [pyosmocom](https://gitea.osmocom.org/osmocom/pyosmocom) | 0-unstable-2025-06-04 | Python implementation of key Osmocom protocols/interfaces |
 |  | `pysctp` | [pysctp](https://github.com/p1sec/pysctp) | 0.7.2 | SCTP stack for Python |
 |  | `pytorch-wpe` | [pytorch-wpe](https://github.com/nttcslab-sp/dnn_wpe) | 0.0.1 | WPE implementation using PyTorch |
-|  | `qemu-user-static` | [qemu-user-static](http://www.qemu.org/) | 10.1.0+ds-2 | Generic and open source machine emulator and virtualizer |
+|  | `qemu-user-static` | [qemu-user-static](http://www.qemu.org/) | 10.1.0+ds-3 | Generic and open source machine emulator and virtualizer |
 |  | `qq` | [qq](https://im.qq.com/linuxqq/index.html) | 3.2.18 | QQ for Linux |
 | `x86_64-linux` | `qqmusic` | [qqmusic](https://y.qq.com/) | 1.1.7 | Tencent QQ Music |
 |  | `qqsp` | [qqsp](https://github.com/Sonnix1/Qqsp) | 1.9 | QT Quest Soft Player is a interactive fiction stories and games player (compatible fork of qsp.su) |
 |  | `qsp` | [qsp](https://github.com/QSPFoundation/qspgui) | 5.9.3-b1-unstable-2025-09-06 | QSP is an Interactive Fiction development platform (GUI application) |
-|  | `qsp-lib` | [qsp-lib](https://github.com/QSPFoundation/qsp) | 0-unstable-2025-09-08 | QSP is an Interactive Fiction development platform (Game Library) |
+|  | `qsp-lib` | [qsp-lib](https://github.com/QSPFoundation/qsp) | 0-unstable-2025-09-11 | QSP is an Interactive Fiction development platform (Game Library) |
 |  | `r8125` | [r8125](https://www.realtek.com/en/component/zoo/category/network-interface-controllers-10-100-1000m-gigabit-ethernet-pci-express-software) | 9.016.01-1 | Linux device driver for Realtek 2.5/5 Gigabit Ethernet controllers with PCI-Express interface |
 |  | `r8168` | [r8168](https://www.realtek.com/en/component/zoo/category/network-interface-controllers-10-100-1000m-gigabit-ethernet-pci-express-software) | 8.055.00 | Linux device driver for Realtek Ethernet controllers |
 | `x86_64-linux` | `red-star-os-rgjanggi` | [red-star-os-rgjanggi](https://archive.org/details/RedStarOS) | 3.0 | Rgjanggi game from DPRK Red Star OS 3.0, heavily sandboxed. Use at your own risk |
@@ -294,7 +294,7 @@ Or, use variables from this repository in case I change them:
 | `x86_64-linux` | `unigine-valley` | [unigine-valley](https://benchmark.unigine.com/valley) | 1.0 | Extreme performance and stability test for PC hardware: video card, power supply, cooling system |
 |  | `usque` | [usque](https://github.com/Diniboy1123/usque) | 1.4.1 | Open-source reimplementation of the Cloudflare WARP client's MASQUE protocol |
 |  | `v2dat` | [v2dat](https://github.com/urlesistiana/v2dat) | 0-unstable-2022-12-15 | Cli tool that can unpack v2ray data packages. (Note: This project is for fun ONLY. You should build your own data dirctly from upstreams instead of unpacking a v2ray data pack.) |
-|  | `v2ray-rules-dat` | [v2ray-rules-dat](https://github.com/Loyalsoldier/v2ray-rules-dat) | 202509092211 | V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria. |
+|  | `v2ray-rules-dat` | [v2ray-rules-dat](https://github.com/Loyalsoldier/v2ray-rules-dat) | 202509102212 | V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria. |
 |  | `vbmeta-disable-verification` | [vbmeta-disable-verification](https://github.com/libxzr/vbmeta-disable-verification) | 1.0 | Patch Android vbmeta image and disable verification flags inside |
 |  | `vector-quantize-pytorch` | [vector-quantize-pytorch](https://github.com/lucidrains/vector-quantize-pytorch) | 1.23.2 | Vector (and Scalar) Quantization, in Pytorch |
 |  | `vgpu-unlock-rs` | [vgpu-unlock-rs](https://github.com/mbilker/vgpu_unlock-rs) | 2.5.0 | Unlock vGPU functionality for consumer grade GPUs |
@@ -317,7 +317,7 @@ Or, use variables from this repository in case I change them:
 |  | `xvcd` | [xvcd](https://github.com/RHSResearchLLC/xvcd) | 0-unstable-2019-11-20 | Xilinx Virtual Cable Daemon |
 | `Broken` | `MC-LauncherX` | [MC-LauncherX-x86_64-linux](https://kb.corona.studio/) | 93ea4a03-486b-4327-87ad-d2c5a8c97633/net9.0-linux.linux-x64 |  |
 | `Broken` `x86_64-linux` | `MIO_KITCHEN_bin` | [MIO-KITCHEN_bin](https://github.com/ColdWindScholar/MIO-KITCHEN-SOURCE) | 3.0.8 | The Android Rom Tool Use python language |
-| `Broken` | `PiliPalaX` | [PiliPalaX](https://github.com/bggRGjQaUbCoE/PiliPalaX) | 0-unstable-2025-09-07 | PiliPalaX |
+| `Broken` | `PiliPalaX` | [PiliPalaX](https://github.com/bggRGjQaUbCoE/PiliPalaX) | 0-unstable-2025-09-10 | PiliPalaX |
 | `Broken` | `ast` | [ast](https://www.aspeedtech.com/support_driver/) | 1.15.1_4 | Aspeed Graphics Driver |
 | `Broken` | `ciscoPacketTracer` | ciscoPacketTracer8 | 8.2.2 |  |
 | `Broken` | `coqui-tts` | [coqui-tts](http://coqui.ai) | 0.22.0 | Deep learning toolkit for Text-to-Speech, battle-tested in research and production |
@@ -326,7 +326,7 @@ Or, use variables from this repository in case I change them:
 | `Broken` `x86_64-linux` | `example-package-appimage` | [dingtalk](https://www.dingtalk.com/) | 2.1.22 | DingTalk desktop messaging application |
 | `Broken` | `fish-speech` | [fish-speech](https://speech.fish.audio/) | 1.5.1 | SOTA Open Source TTS |
 | `Deprecated` | `glauth` | [glauth](https://github.com/glauth/glauth) | 2.3.2 | (DEPRECATED: glauth is available in nixpkgs by a different maintainer) Lightweight LDAP server for development, home use, or CI |
-| `Broken` | `himirage_unwrapped` | [himirage-x86_64-linux-unwrapped](https://photosir.com) | 2025-09-10 18:04:12 |  |
+| `Broken` | `himirage_unwrapped` | [himirage-x86_64-linux-unwrapped](https://photosir.com) | 2025-09-11 18:01:49 |  |
 | `Deprecated` `x86_64-linux` | `inter-knot` | [inter-knot](https://inot.top) | 2.16.9+36 | (DEPRECATED: Service has ceased operation) 绳网是一个游戏、技术交流平台 |
 | `Deprecated` | `kata-image` | [kata-image](https://github.com/kata-containers/kata-containers) | 3.20.0 | (DEPRECATED: kata-image is available in nixpkgs by a different maintainer) Kata Containers is an open source project and community working to build a standard implementation of lightweight Virtual Machines (VMs) that feel and perform like containers, but provide the workload isolation and security advantages of VMs. (Packaging script adapted from https://github.com/TUM-DSE/doctor-cluster-config/blob/0c40be8dd86282122f8f04df738c409ef5e3da1c/pkgs/kata-images/default.nix) |
 | `Deprecated` | `kata-runtime` | [kata-runtime](https://github.com/kata-containers/kata-containers) | 3.20.0 | (DEPRECATED: kata-runtime is available in nixpkgs by a different maintainer) Kata Containers is an open source project and community working to build a standard implementation of lightweight Virtual Machines (VMs) that feel and perform like containers, but provide the workload isolation and security advantages of VMs. (Packaging script adapted from https://github.com/TUM-DSE/doctor-cluster-config/blob/0c40be8dd86282122f8f04df738c409ef5e3da1c/pkgs/kata-runtime/default.nix) |
@@ -475,7 +475,7 @@ Or, use variables from this repository in case I change them:
 |  | `lantianCustomized.coredns` | [coredns](https://github.com/xddxdd/coredns) | 1.11.3 | CoreDNS with Lan Tian's modifications |
 |  | `lantianCustomized.firefox-icon-mikozilla-fireyae` | [firefox-icon-mikozilla-fireyae](https://www.reddit.com/r/Genshin_Impact/comments/x73g4p/mikozilla_fireyae/) |  | Custom icon "Mikozilla Fireyae" for Firefox |
 |  | `lantianCustomized.librime-with-plugins` | [librime](https://rime.im/) | 1.13.1 | Librime with plugins (librime-charcode, librime-lua, librime-octagram, librime-proto) |
-|  | `lantianCustomized.llama-cpp` | [llama-cpp](https://github.com/ggml-org/llama.cpp) | 6435 | Inference of Meta's LLaMA model (and others) in pure C/C++ |
+|  | `lantianCustomized.llama-cpp` | [llama-cpp](https://github.com/ggml-org/llama.cpp) | 6445 | Inference of Meta's LLaMA model (and others) in pure C/C++ |
 |  | `lantianCustomized.ls-iommu` | [ls-iommu](https://gist.github.com/r15ch13/ba2d738985fce8990a4e9f32d07c6ada) | 1.0 | List IOMMUs on system |
 |  | `lantianCustomized.materialgram` | [materialgram](https://kukuruzka165.github.io/materialgram/) | 5.12.5.1 | Telegram Desktop fork with material icons and some improvements (Without anti-features) |
 |  | `lantianCustomized.nbfc-linux` | [nbfc-linux-lantian](https://github.com/xddxdd/nbfc-linux) | 0-unstable-2022-06-13 | NoteBook FanControl ported to Linux (with Lan Tian's modifications) |
@@ -1189,7 +1189,7 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized.bird-lg-go` | [bird-lg-go](https://github.com/xddxdd/bird-lg-go) | 1.3.10 | BIRD looking glass in Go, for better maintainability, easier deployment & smaller memory footprint |
 |  | `uncategorized.bird-lgproxy-go` | [bird-lgproxy-go](https://github.com/xddxdd/bird-lg-go) | 1.3.10 | BIRD looking glass in Go, for better maintainability, easier deployment & smaller memory footprint |
 |  | `uncategorized.bnxtnvm` | [bnxtnvm](https://resource.fs.com/mall/resource/broadcom-ethernet-network-adapter-user-manual.pdf) | 222.0.144.0 | Broadcom BNXTNVM utility |
-|  | `uncategorized.boringssl-oqs` | [boringssl-oqs](https://openquantumsafe.org) | 0-unstable-2025-05-20 | Fork of BoringSSL that includes prototype quantum-resistant key exchange and authentication in the TLS handshake based on liboqs |
+|  | `uncategorized.boringssl-oqs` | [boringssl-oqs](https://openquantumsafe.org) | 0-unstable-2025-09-10 | Fork of BoringSSL that includes prototype quantum-resistant key exchange and authentication in the TLS handshake based on liboqs |
 |  | `uncategorized.browser360` | [browser360](https://browser.360.net/gc/index.html) | 13.4.1000.77 | 360 Browser |
 |  | `uncategorized.calibre-cops` | [calibre-cops](http://blog.slucas.fr/en/oss/calibre-opds-php-server) | 3.6.5 | Calibre OPDS (and HTML) PHP Server : web-based light alternative to Calibre content server / Calibre2OPDS to serve ebooks (epub, mobi, pdf, ...) |
 |  | `uncategorized.chmlib-utils` | [chmlib](http://www.jedrea.com/chmlib) | 0.40a | Library for dealing with Microsoft ITSS/CHM format files |
@@ -1272,12 +1272,12 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized.plasma-yesplaymusic-lyric` | [plasma-yesplaymusic-lyric](https://github.com/zsiothsu/org.kde.plasma.yesplaymusic-lyrics) | 0.2.3-unstable-2025-01-07 | Display YesPlayMusic lyrics on the plasma panel | 在KDE plasma面板中显示YesPlayMusic的歌词 |
 |  | `uncategorized.pterodactyl-wings` | [pterodactyl-wings](https://pterodactyl.io) | 1.11.13-unstable-2025-08-28 | Server control plane for Pterodactyl Panel |
 |  | `uncategorized.pyhss` | [pyhss](https://github.com/nickvsnetworking/pyhss) | 1.0.2-unstable-2025-04-03 | Python HSS / Diameter Server |
-|  | `uncategorized.qemu-user-static` | [qemu-user-static](http://www.qemu.org/) | 10.1.0+ds-2 | Generic and open source machine emulator and virtualizer |
+|  | `uncategorized.qemu-user-static` | [qemu-user-static](http://www.qemu.org/) | 10.1.0+ds-3 | Generic and open source machine emulator and virtualizer |
 |  | `uncategorized.qq` | [qq](https://im.qq.com/linuxqq/index.html) | 3.2.18 | QQ for Linux |
 | `x86_64-linux` | `uncategorized.qqmusic` | [qqmusic](https://y.qq.com/) | 1.1.7 | Tencent QQ Music |
 |  | `uncategorized.qqsp` | [qqsp](https://github.com/Sonnix1/Qqsp) | 1.9 | QT Quest Soft Player is a interactive fiction stories and games player (compatible fork of qsp.su) |
 |  | `uncategorized.qsp` | [qsp](https://github.com/QSPFoundation/qspgui) | 5.9.3-b1-unstable-2025-09-06 | QSP is an Interactive Fiction development platform (GUI application) |
-|  | `uncategorized.qsp-lib` | [qsp-lib](https://github.com/QSPFoundation/qsp) | 0-unstable-2025-09-08 | QSP is an Interactive Fiction development platform (Game Library) |
+|  | `uncategorized.qsp-lib` | [qsp-lib](https://github.com/QSPFoundation/qsp) | 0-unstable-2025-09-11 | QSP is an Interactive Fiction development platform (Game Library) |
 | `x86_64-linux` | `uncategorized.red-star-os-rgjanggi` | [red-star-os-rgjanggi](https://archive.org/details/RedStarOS) | 3.0 | Rgjanggi game from DPRK Red Star OS 3.0, heavily sandboxed. Use at your own risk |
 |  | `uncategorized.red-star-os-wallpapers` | [red-star-os-wallpapers](https://archive.org/details/RedStarOS) | 3.0 | Wallpapers from DPRK Red Star OS 3.0 |
 |  | `uncategorized.rime-aurora-pinyin` | [rime-aurora-pinyin](https://github.com/hosxy/rime-aurora-pinyin) | 0-unstable-2022-08-28 | 【极光拼音】输入方案 |
@@ -1363,7 +1363,7 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized-DataEraserC.snell-server_fhs` | snell |  |  |
 |  | `uncategorized-DataEraserC.ttyescape` | [ttyescape](https://gitlab.com/postmarketOS/ttyescape) | 0-unstable-2023-03-08 | ttyescape |
 |  | `uncategorized-DataEraserC.v2dat` | [v2dat](https://github.com/urlesistiana/v2dat) | 0-unstable-2022-12-15 | Cli tool that can unpack v2ray data packages. (Note: This project is for fun ONLY. You should build your own data dirctly from upstreams instead of unpacking a v2ray data pack.) |
-|  | `uncategorized-DataEraserC.v2ray-rules-dat` | [v2ray-rules-dat](https://github.com/Loyalsoldier/v2ray-rules-dat) | 202509092211 | V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria. |
+|  | `uncategorized-DataEraserC.v2ray-rules-dat` | [v2ray-rules-dat](https://github.com/Loyalsoldier/v2ray-rules-dat) | 202509102212 | V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria. |
 |  | `uncategorized-DataEraserC.watt-toolkit_2` | [watt-toolkit](https://steampp.net) | 2.8.6 | Cross-platform Steam toolbox |
 |  | `uncategorized-DataEraserC.watt-toolkit_bin` | [SteamTools-x86_64-linux](https://steampp.net) | 3.0.0-rc.16 | an open source cross-platform multi-purpose game toolkit |
 |  | `uncategorized-DataEraserC.waybar_bluetooth_battery_parse` | waybar-bluetooth_battery_parse | 0.0.2 |  |
@@ -1372,11 +1372,11 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized-DataEraserC.xcursor-genshin-nahida` | [xcursor-genshin-nahida](https://aur.archlinux.org/packages/xcursor-genshin-nahida) | 1.0-2 | xcursor genshin nahida |
 | `Broken` | `uncategorized-DataEraserC.MC-LauncherX` | [MC-LauncherX-x86_64-linux](https://kb.corona.studio/) | 93ea4a03-486b-4327-87ad-d2c5a8c97633/net9.0-linux.linux-x64 |  |
 | `Broken` `x86_64-linux` | `uncategorized-DataEraserC.MIO_KITCHEN_bin` | [MIO-KITCHEN_bin](https://github.com/ColdWindScholar/MIO-KITCHEN-SOURCE) | 3.0.8 | The Android Rom Tool Use python language |
-| `Broken` | `uncategorized-DataEraserC.PiliPalaX` | [PiliPalaX](https://github.com/bggRGjQaUbCoE/PiliPalaX) | 0-unstable-2025-09-07 | PiliPalaX |
+| `Broken` | `uncategorized-DataEraserC.PiliPalaX` | [PiliPalaX](https://github.com/bggRGjQaUbCoE/PiliPalaX) | 0-unstable-2025-09-10 | PiliPalaX |
 | `Broken` | `uncategorized-DataEraserC.ciscoPacketTracer` | ciscoPacketTracer8 | 8.2.2 |  |
 | `Broken` | `uncategorized-DataEraserC.escrcpy_deb` | [escrcpy_deb](https://github.com/viarotel-org/escrcpy) | 1.18.2 | Graphical Scrcpy to display and control Android, devices powered by Electron.  |
 | `Broken` `x86_64-linux` | `uncategorized-DataEraserC.example-package-appimage` | [dingtalk](https://www.dingtalk.com/) | 2.1.22 | DingTalk desktop messaging application |
-| `Broken` | `uncategorized-DataEraserC.himirage_unwrapped` | [himirage-x86_64-linux-unwrapped](https://photosir.com) | 2025-09-10 18:04:12 |  |
+| `Broken` | `uncategorized-DataEraserC.himirage_unwrapped` | [himirage-x86_64-linux-unwrapped](https://photosir.com) | 2025-09-11 18:01:49 |  |
 | `Broken` | `uncategorized-DataEraserC.llqqnt` | qq | qq=3.2.18+llqqnt_rev=0-unstable-2025-09-07 |  |
 | `Broken` | `uncategorized-DataEraserC.motrix` | [motrix](https://motrix.app) | 0-unstable-2023-06-07 | Full-featured download manager |
 | `Broken` | `uncategorized-DataEraserC.open-interpreter` | [open-interpreter](https://github.com/OpenInterpreter/open-interpreter) | 0-unstable-2025-07-29 | A natural language interface for computers |

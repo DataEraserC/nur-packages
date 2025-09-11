@@ -133,7 +133,7 @@
     },
     "PiliPalaX": {
         "cargoLocks": null,
-        "date": "2025-09-07",
+        "date": "2025-09-10",
         "extract": null,
         "name": "PiliPalaX",
         "passthru": null,
@@ -145,12 +145,12 @@
             "name": null,
             "owner": "bggRGjQaUbCoE",
             "repo": "PiliPlus",
-            "rev": "f0f52246777f2640025048f561e908cf1d3c3ead",
-            "sha256": "sha256-5ISSlYMbP0SaSP0SLIHXC3VRXrVZ78kfl07ekgzFhNA=",
+            "rev": "da17725616dea0c7b2e653af16fd8de90f73ddf3",
+            "sha256": "sha256-xdcBZCab4SDQnKLf3NzEVCSdQsR5Be09hO73i5vXLzI=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "f0f52246777f2640025048f561e908cf1d3c3ead"
+        "version": "da17725616dea0c7b2e653af16fd8de90f73ddf3"
     },
     "SteamTools": {
         "cargoLocks": null,
@@ -675,7 +675,7 @@
     },
     "boringssl-oqs": {
         "cargoLocks": null,
-        "date": "2025-05-20",
+        "date": "2025-09-10",
         "extract": null,
         "name": "boringssl-oqs",
         "passthru": null,
@@ -687,12 +687,12 @@
             "name": null,
             "owner": "open-quantum-safe",
             "repo": "boringssl",
-            "rev": "8ed7d2c54a14a152c7a85a29effc1fe29985fd63",
-            "sha256": "sha256-LaJDjveLJ2vNSzsreyepVDf4nlX7zntfT6grtAC/1Fs=",
+            "rev": "8fdf0d6ee0c88e69d03eb35eec3e4162fef490bc",
+            "sha256": "sha256-z2aSi0XuUEwxrAkQrkXP0AbZ3n0O99/AYyycNBkn6XA=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "8ed7d2c54a14a152c7a85a29effc1fe29985fd63"
+        "version": "8fdf0d6ee0c88e69d03eb35eec3e4162fef490bc"
     },
     "browser360-amd64": {
         "cargoLocks": null,
@@ -767,7 +767,7 @@
     },
     "cachyos-kernel": {
         "cargoLocks": null,
-        "date": "2025-09-09",
+        "date": "2025-09-10",
         "extract": null,
         "name": "cachyos-kernel",
         "passthru": null,
@@ -779,12 +779,12 @@
             "name": null,
             "owner": "CachyOS",
             "repo": "linux-cachyos",
-            "rev": "6d2e1307c21e0a6ffaebe0de8d7dfabe7703dd7e",
-            "sha256": "sha256-5MPUGxhtBRw2Cb/GeDtCc/LThmXmlDDW2HjMDqnt/04=",
+            "rev": "c1e88bf0c3e87216b73772c7413866efc7477098",
+            "sha256": "sha256-6neemSaU+5lmB+Pn5w/imaBfKUt5rSWRyUlkH3P8UCI=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "6d2e1307c21e0a6ffaebe0de8d7dfabe7703dd7e"
+        "version": "c1e88bf0c3e87216b73772c7413866efc7477098"
     },
     "cachyos-kernel-patches": {
         "cargoLocks": null,
@@ -2073,7 +2073,7 @@
             "type": "url",
             "url": "https://album.photosir.cn/upgradePackage/infoall/photosir"
         },
-        "version": "2025-09-10 18:04:12"
+        "version": "2025-09-11 18:01:49"
     },
     "himirage-aarch64-darwin": {
         "cargoLocks": null,
@@ -2753,12 +2753,12 @@
             "name": null,
             "owner": "ggerganov",
             "repo": "llama.cpp",
-            "rev": "b6435",
-            "sha256": "sha256-Blvb01S0ZFqAR/sWeZ0trr396/Y4lrPKnjB7qmgcbyE=",
+            "rev": "b6445",
+            "sha256": "sha256-Xs77d0cBhrsBoC4aXyMBZzbxaYyDD7oC8+nO676sMUo=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "b6435"
+        "version": "b6445"
     },
     "loralib": {
         "cargoLocks": null,
@@ -4058,11 +4058,11 @@
         "pinned": false,
         "src": {
             "name": "qemu.deb",
-            "sha256": "sha256-AM4F/YWgvKCR2N5Vcbwp4IGT4MQl4MMFMWnsg1q2jys=",
+            "sha256": "sha256-MfOxr2bKPmzohwaUQOAtJYn156UqC4Z3u1vP6bBqGW8=",
             "type": "url",
-            "url": "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user_10.1.0+ds-2_amd64.deb"
+            "url": "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user_10.1.0+ds-3_amd64.deb"
         },
-        "version": "10.1.0+ds-2"
+        "version": "10.1.0+ds-3"
     },
     "qemu-user-static-arm64": {
         "cargoLocks": null,
@@ -4073,11 +4073,11 @@
         "pinned": false,
         "src": {
             "name": "qemu.deb",
-            "sha256": "sha256-cNyhxBr1hFJPoj7YCYXkYNTby2WOEdiWNCch9Sld5oo=",
+            "sha256": "sha256-hEis7/SRuZFmCev/Nq0icf7DuoYlJcfuiz0SxlVpKus=",
             "type": "url",
-            "url": "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user_10.1.0+ds-2_arm64.deb"
+            "url": "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user_10.1.0+ds-3_arm64.deb"
         },
-        "version": "10.1.0+ds-2"
+        "version": "10.1.0+ds-3"
     },
     "qemu-user-static-armhf": {
         "cargoLocks": null,
@@ -4088,11 +4088,11 @@
         "pinned": false,
         "src": {
             "name": "qemu.deb",
-            "sha256": "sha256-/A3XFaKCwfr7jw6EueqiKS9DvMWD5xuEuCTsaq/eSuE=",
+            "sha256": "sha256-sHdh9rzyMCsNLz3BGeEzQz1UMDxWNqQsjyEFalefY+0=",
             "type": "url",
-            "url": "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user_10.1.0+ds-2_armhf.deb"
+            "url": "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user_10.1.0+ds-3_armhf.deb"
         },
-        "version": "10.1.0+ds-2"
+        "version": "10.1.0+ds-3"
     },
     "qemu-user-static-i386": {
         "cargoLocks": null,
@@ -4103,11 +4103,11 @@
         "pinned": false,
         "src": {
             "name": "qemu.deb",
-            "sha256": "sha256-ZZg9kj37BXR3zmQL2lncfvL6KpNflY6EgvOfAacEFLs=",
+            "sha256": "sha256-mlrCg8swWdS1WebqrSmz2xOKPKuMBlLuDYKdCWADGEA=",
             "type": "url",
-            "url": "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user_10.1.0+ds-2_i386.deb"
+            "url": "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user_10.1.0+ds-3_i386.deb"
         },
-        "version": "10.1.0+ds-2"
+        "version": "10.1.0+ds-3"
     },
     "qhttpengine": {
         "cargoLocks": null,
@@ -4240,7 +4240,7 @@
     },
     "qsp-lib": {
         "cargoLocks": null,
-        "date": "2025-09-08",
+        "date": "2025-09-11",
         "extract": null,
         "name": "qsp-lib",
         "passthru": null,
@@ -4252,12 +4252,12 @@
             "name": null,
             "owner": "QSPFoundation",
             "repo": "qsp",
-            "rev": "a1eb8b46ba877a975e065a6094c5c95d9bfc26a4",
-            "sha256": "sha256-08dV7brGNGw2kGI49Gm8vuoqkzoaShr8/AErjo7hvTs=",
+            "rev": "e6eb3e3f9138b370f83a7dce2ef401ff33d340b9",
+            "sha256": "sha256-esFlkScrR4t6nTFWHHDQ+KCNpzccC1zFigV9PEwbRcM=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "a1eb8b46ba877a975e065a6094c5c95d9bfc26a4"
+        "version": "e6eb3e3f9138b370f83a7dce2ef401ff33d340b9"
     },
     "qsp-stable": {
         "cargoLocks": null,
@@ -5359,11 +5359,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-CG0GPBhNHYyfMq8v0JJPVQexBF91VUIhR/KPAJ9EPx8=",
+            "sha256": "sha256-egB3U4jcnrdXxxOaL/n0nZjzP92hCYWvkFWu3yFvlRY=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202509092211/rules.zip"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202509102212/rules.zip"
         },
-        "version": "202509092211"
+        "version": "202509102212"
     },
     "vbmeta-disable-verification": {
         "cargoLocks": null,
