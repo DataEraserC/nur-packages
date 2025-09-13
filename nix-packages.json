@@ -37,7 +37,7 @@
   "legacyPackages.x86_64-linux.PiliPalaX": {
     "description": "PiliPalaX",
     "pname": "PiliPalaX",
-    "version": "0-unstable-2025-09-10"
+    "version": "0-unstable-2025-09-13"
   },
   "legacyPackages.x86_64-linux.SakuraFrp": {
     "description": "",
@@ -867,7 +867,7 @@
   "legacyPackages.x86_64-linux.geolite2": {
     "description": "MaxMind's GeoIP2 GeoLite2 Country, City, and ASN databases",
     "pname": "geolite2",
-    "version": "2025.09.10"
+    "version": "2025.09.13"
   },
   "legacyPackages.x86_64-linux.glauth": {
     "description": "(DEPRECATED: glauth is available in nixpkgs by a different maintainer) Lightweight LDAP server for development, home use, or CI",
@@ -932,7 +932,7 @@
   "legacyPackages.x86_64-linux.himirage_unwrapped": {
     "description": "",
     "pname": "himirage-x86_64-linux-unwrapped",
-    "version": "2025-09-12-18-07-07"
+    "version": "2025-09-13-18-05-58"
   },
   "legacyPackages.x86_64-linux.hkdm": {
     "description": "Lighter-weight hotkey daemon",
@@ -1182,22 +1182,22 @@
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.lts-generic": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications",
     "pname": "linux-xanmod-lts-generic",
-    "version": "6.12.46-xanmod1"
+    "version": "6.12.47-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.lts-generic-configfile": {
     "description": "",
     "pname": "linux-config",
-    "version": "6.12.46-xanmod1"
+    "version": "6.12.47-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.lts-generic-lto": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
     "pname": "linux-xanmod-lts-generic-lto",
-    "version": "6.12.46-xanmod1"
+    "version": "6.12.47-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.lts-generic-lto-configfile": {
     "description": "",
     "pname": "linux-config",
-    "version": "6.12.46-xanmod1"
+    "version": "6.12.47-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_0-generic": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications",
@@ -1402,22 +1402,22 @@
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_12-generic": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications",
     "pname": "linux-xanmod-v6_12-generic",
-    "version": "6.12.46-xanmod1"
+    "version": "6.12.47-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_12-generic-configfile": {
     "description": "",
     "pname": "linux-config",
-    "version": "6.12.46-xanmod1"
+    "version": "6.12.47-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_12-generic-lto": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
     "pname": "linux-xanmod-v6_12-generic-lto",
-    "version": "6.12.46-xanmod1"
+    "version": "6.12.47-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_12-generic-lto-configfile": {
     "description": "",
     "pname": "linux-config",
-    "version": "6.12.46-xanmod1"
+    "version": "6.12.47-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_6-generic": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications",
@@ -4512,7 +4512,7 @@
   "legacyPackages.x86_64-linux.qsp-lib": {
     "description": "QSP is an Interactive Fiction development platform (Game Library)",
     "pname": "qsp-lib",
-    "version": "0-unstable-2025-09-11"
+    "version": "0-unstable-2025-09-13"
   },
   "legacyPackages.x86_64-linux.qtscrcpy_git": {
     "description": "Android real-time display control software",
@@ -4592,7 +4592,7 @@
   "legacyPackages.x86_64-linux.runpodctl": {
     "description": "RunPod CLI for pod management",
     "pname": "runpodctl",
-    "version": "1.14.4"
+    "version": "1.14.11"
   },
   "legacyPackages.x86_64-linux.sam-toki-mouse-cursors": {
     "description": "Original mouse cursors (pointers) for Windows, with minimalistic design",
@@ -4782,7 +4782,7 @@
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.PiliPalaX": {
     "description": "PiliPalaX",
     "pname": "PiliPalaX",
-    "version": "0-unstable-2025-09-10"
+    "version": "0-unstable-2025-09-13"
   },
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.SakuraFrp": {
     "description": "",
@@ -4927,7 +4927,7 @@
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.himirage_unwrapped": {
     "description": "",
     "pname": "himirage-x86_64-linux-unwrapped",
-    "version": "2025-09-12-18-07-07"
+    "version": "2025-09-13-18-05-58"
   },
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.hkdm": {
     "description": "Lighter-weight hotkey daemon",
@@ -4992,7 +4992,7 @@
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.v2ray-rules-dat": {
     "description": "V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria.",
     "pname": "v2ray-rules-dat",
-    "version": "202509112212"
+    "version": "202509122211"
   },
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.vmware-workstation": {
     "description": "Industry standard desktop hypervisor for x86-64 architecture",
@@ -5212,7 +5212,7 @@
   "legacyPackages.x86_64-linux.uncategorized.geolite2": {
     "description": "MaxMind's GeoIP2 GeoLite2 Country, City, and ASN databases",
     "pname": "geolite2",
-    "version": "2025.09.10"
+    "version": "2025.09.13"
   },
   "legacyPackages.x86_64-linux.uncategorized.google-earth-pro": {
     "description": "World sphere viewer",
@@ -5542,7 +5542,7 @@
   "legacyPackages.x86_64-linux.uncategorized.qsp-lib": {
     "description": "QSP is an Interactive Fiction development platform (Game Library)",
     "pname": "qsp-lib",
-    "version": "0-unstable-2025-09-11"
+    "version": "0-unstable-2025-09-13"
   },
   "legacyPackages.x86_64-linux.uncategorized.red-star-os-rgjanggi": {
     "description": "Rgjanggi game from DPRK Red Star OS 3.0, heavily sandboxed. Use at your own risk",
@@ -5597,7 +5597,7 @@
   "legacyPackages.x86_64-linux.uncategorized.runpodctl": {
     "description": "RunPod CLI for pod management",
     "pname": "runpodctl",
-    "version": "1.14.4"
+    "version": "1.14.11"
   },
   "legacyPackages.x86_64-linux.uncategorized.sam-toki-mouse-cursors": {
     "description": "Original mouse cursors (pointers) for Windows, with minimalistic design",
@@ -5782,7 +5782,7 @@
   "legacyPackages.x86_64-linux.v2ray-rules-dat": {
     "description": "V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria.",
     "pname": "v2ray-rules-dat",
-    "version": "202509112212"
+    "version": "202509122211"
   },
   "legacyPackages.x86_64-linux.vbmeta-disable-verification": {
     "description": "Patch Android vbmeta image and disable verification flags inside",
@@ -5947,7 +5947,7 @@
   "packages.x86_64-linux.PiliPalaX": {
     "description": "PiliPalaX",
     "pname": "PiliPalaX",
-    "version": "0-unstable-2025-09-10"
+    "version": "0-unstable-2025-09-13"
   },
   "packages.x86_64-linux.SakuraFrp": {
     "description": "",
@@ -6362,7 +6362,7 @@
   "packages.x86_64-linux.geolite2": {
     "description": "MaxMind's GeoIP2 GeoLite2 Country, City, and ASN databases",
     "pname": "geolite2",
-    "version": "2025.09.10"
+    "version": "2025.09.13"
   },
   "packages.x86_64-linux.glauth": {
     "description": "(DEPRECATED: glauth is available in nixpkgs by a different maintainer) Lightweight LDAP server for development, home use, or CI",
@@ -6427,7 +6427,7 @@
   "packages.x86_64-linux.himirage_unwrapped": {
     "description": "",
     "pname": "himirage-x86_64-linux-unwrapped",
-    "version": "2025-09-12-18-07-07"
+    "version": "2025-09-13-18-05-58"
   },
   "packages.x86_64-linux.hkdm": {
     "description": "Lighter-weight hotkey daemon",
@@ -6902,7 +6902,7 @@
   "packages.x86_64-linux.qsp-lib": {
     "description": "QSP is an Interactive Fiction development platform (Game Library)",
     "pname": "qsp-lib",
-    "version": "0-unstable-2025-09-11"
+    "version": "0-unstable-2025-09-13"
   },
   "packages.x86_64-linux.qtscrcpy_git": {
     "description": "Android real-time display control software",
@@ -6982,7 +6982,7 @@
   "packages.x86_64-linux.runpodctl": {
     "description": "RunPod CLI for pod management",
     "pname": "runpodctl",
-    "version": "1.14.4"
+    "version": "1.14.11"
   },
   "packages.x86_64-linux.sam-toki-mouse-cursors": {
     "description": "Original mouse cursors (pointers) for Windows, with minimalistic design",
@@ -7147,7 +7147,7 @@
   "packages.x86_64-linux.v2ray-rules-dat": {
     "description": "V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria.",
     "pname": "v2ray-rules-dat",
-    "version": "202509112212"
+    "version": "202509122211"
   },
   "packages.x86_64-linux.vbmeta-disable-verification": {
     "description": "Patch Android vbmeta image and disable verification flags inside",
