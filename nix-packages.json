@@ -37,7 +37,7 @@
   "legacyPackages.x86_64-linux.PiliPalaX": {
     "description": "PiliPalaX",
     "pname": "PiliPalaX",
-    "version": "0-unstable-2025-09-14"
+    "version": "0-unstable-2025-09-16"
   },
   "legacyPackages.x86_64-linux.SakuraFrp": {
     "description": "",
@@ -867,7 +867,7 @@
   "legacyPackages.x86_64-linux.geolite2": {
     "description": "MaxMind's GeoIP2 GeoLite2 Country, City, and ASN databases",
     "pname": "geolite2",
-    "version": "2025.09.13"
+    "version": "2025.09.16"
   },
   "legacyPackages.x86_64-linux.glauth": {
     "description": "(DEPRECATED: glauth is available in nixpkgs by a different maintainer) Lightweight LDAP server for development, home use, or CI",
@@ -932,7 +932,7 @@
   "legacyPackages.x86_64-linux.himirage_unwrapped": {
     "description": "",
     "pname": "himirage-x86_64-linux-unwrapped",
-    "version": "2025-09-15-18-05-28"
+    "version": "2025-09-16-18-06-48"
   },
   "legacyPackages.x86_64-linux.hkdm": {
     "description": "Lighter-weight hotkey daemon",
@@ -1097,7 +1097,7 @@
   "legacyPackages.x86_64-linux.lantianCustomized.llama-cpp": {
     "description": "Inference of Meta's LLaMA model (and others) in pure C/C++",
     "pname": "llama-cpp",
-    "version": "6476"
+    "version": "6484"
   },
   "legacyPackages.x86_64-linux.lantianCustomized.ls-iommu": {
     "description": "List IOMMUs on system",
@@ -1552,7 +1552,7 @@
   "legacyPackages.x86_64-linux.liboqs-unstable": {
     "description": "C library for prototyping and experimenting with quantum-resistant cryptography",
     "pname": "liboqs",
-    "version": "0-unstable-2025-09-09"
+    "version": "0-unstable-2025-09-15"
   },
   "legacyPackages.x86_64-linux.libqcef": {
     "description": "Qt5 binding of CEF",
@@ -1607,7 +1607,7 @@
   "legacyPackages.x86_64-linux.modelscope": {
     "description": "Bring the notion of Model-as-a-Service to life",
     "pname": "python3.12-modelscope",
-    "version": "1.29.2"
+    "version": "1.30.0"
   },
   "legacyPackages.x86_64-linux.motrix": {
     "description": "Full-featured download manager",
@@ -4382,7 +4382,7 @@
   "legacyPackages.x86_64-linux.python3Packages.modelscope": {
     "description": "Bring the notion of Model-as-a-Service to life",
     "pname": "python3.12-modelscope",
-    "version": "1.29.2"
+    "version": "1.30.0"
   },
   "legacyPackages.x86_64-linux.python3Packages.mtkclient": {
     "description": "MTK reverse engineering and flash tool",
@@ -4557,7 +4557,7 @@
   "legacyPackages.x86_64-linux.rime-ice": {
     "description": "Rime 配置：雾凇拼音 | 长期维护的简体词库",
     "pname": "rime-ice",
-    "version": "0-unstable-2025-09-15"
+    "version": "0-unstable-2025-09-16"
   },
   "legacyPackages.x86_64-linux.rime-moegirl": {
     "description": "RIME dictionary file for entries from zh.moegirl.org.cn",
@@ -4782,7 +4782,7 @@
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.PiliPalaX": {
     "description": "PiliPalaX",
     "pname": "PiliPalaX",
-    "version": "0-unstable-2025-09-14"
+    "version": "0-unstable-2025-09-16"
   },
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.SakuraFrp": {
     "description": "",
@@ -4927,7 +4927,7 @@
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.himirage_unwrapped": {
     "description": "",
     "pname": "himirage-x86_64-linux-unwrapped",
-    "version": "2025-09-15-18-05-28"
+    "version": "2025-09-16-18-06-48"
   },
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.hkdm": {
     "description": "Lighter-weight hotkey daemon",
@@ -4992,7 +4992,7 @@
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.v2ray-rules-dat": {
     "description": "V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria.",
     "pname": "v2ray-rules-dat",
-    "version": "202509142211"
+    "version": "202509152212"
   },
   "legacyPackages.x86_64-linux.uncategorized-DataEraserC.vmware-workstation": {
     "description": "Industry standard desktop hypervisor for x86-64 architecture",
@@ -5212,7 +5212,7 @@
   "legacyPackages.x86_64-linux.uncategorized.geolite2": {
     "description": "MaxMind's GeoIP2 GeoLite2 Country, City, and ASN databases",
     "pname": "geolite2",
-    "version": "2025.09.13"
+    "version": "2025.09.16"
   },
   "legacyPackages.x86_64-linux.uncategorized.google-earth-pro": {
     "description": "World sphere viewer",
@@ -5322,7 +5322,7 @@
   "legacyPackages.x86_64-linux.uncategorized.liboqs-unstable": {
     "description": "C library for prototyping and experimenting with quantum-resistant cryptography",
     "pname": "liboqs",
-    "version": "0-unstable-2025-09-09"
+    "version": "0-unstable-2025-09-15"
   },
   "legacyPackages.x86_64-linux.uncategorized.libqcef": {
     "description": "Qt5 binding of CEF",
@@ -5572,7 +5572,7 @@
   "legacyPackages.x86_64-linux.uncategorized.rime-ice": {
     "description": "Rime 配置：雾凇拼音 | 长期维护的简体词库",
     "pname": "rime-ice",
-    "version": "0-unstable-2025-09-15"
+    "version": "0-unstable-2025-09-16"
   },
   "legacyPackages.x86_64-linux.uncategorized.rime-moegirl": {
     "description": "RIME dictionary file for entries from zh.moegirl.org.cn",
@@ -5782,7 +5782,7 @@
   "legacyPackages.x86_64-linux.v2ray-rules-dat": {
     "description": "V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria.",
     "pname": "v2ray-rules-dat",
-    "version": "202509142211"
+    "version": "202509152212"
   },
   "legacyPackages.x86_64-linux.vbmeta-disable-verification": {
     "description": "Patch Android vbmeta image and disable verification flags inside",
@@ -5947,7 +5947,7 @@
   "packages.x86_64-linux.PiliPalaX": {
     "description": "PiliPalaX",
     "pname": "PiliPalaX",
-    "version": "0-unstable-2025-09-14"
+    "version": "0-unstable-2025-09-16"
   },
   "packages.x86_64-linux.SakuraFrp": {
     "description": "",
@@ -6362,7 +6362,7 @@
   "packages.x86_64-linux.geolite2": {
     "description": "MaxMind's GeoIP2 GeoLite2 Country, City, and ASN databases",
     "pname": "geolite2",
-    "version": "2025.09.13"
+    "version": "2025.09.16"
   },
   "packages.x86_64-linux.glauth": {
     "description": "(DEPRECATED: glauth is available in nixpkgs by a different maintainer) Lightweight LDAP server for development, home use, or CI",
@@ -6427,7 +6427,7 @@
   "packages.x86_64-linux.himirage_unwrapped": {
     "description": "",
     "pname": "himirage-x86_64-linux-unwrapped",
-    "version": "2025-09-15-18-05-28"
+    "version": "2025-09-16-18-06-48"
   },
   "packages.x86_64-linux.hkdm": {
     "description": "Lighter-weight hotkey daemon",
@@ -6567,7 +6567,7 @@
   "packages.x86_64-linux.liboqs-unstable": {
     "description": "C library for prototyping and experimenting with quantum-resistant cryptography",
     "pname": "liboqs",
-    "version": "0-unstable-2025-09-09"
+    "version": "0-unstable-2025-09-15"
   },
   "packages.x86_64-linux.libqcef": {
     "description": "Qt5 binding of CEF",
@@ -6622,7 +6622,7 @@
   "packages.x86_64-linux.modelscope": {
     "description": "Bring the notion of Model-as-a-Service to life",
     "pname": "python3.12-modelscope",
-    "version": "1.29.2"
+    "version": "1.30.0"
   },
   "packages.x86_64-linux.motrix": {
     "description": "Full-featured download manager",
@@ -6947,7 +6947,7 @@
   "packages.x86_64-linux.rime-ice": {
     "description": "Rime 配置：雾凇拼音 | 长期维护的简体词库",
     "pname": "rime-ice",
-    "version": "0-unstable-2025-09-15"
+    "version": "0-unstable-2025-09-16"
   },
   "packages.x86_64-linux.rime-moegirl": {
     "description": "RIME dictionary file for entries from zh.moegirl.org.cn",
@@ -7147,7 +7147,7 @@
   "packages.x86_64-linux.v2ray-rules-dat": {
     "description": "V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria.",
     "pname": "v2ray-rules-dat",
-    "version": "202509142211"
+    "version": "202509152212"
   },
   "packages.x86_64-linux.vbmeta-disable-verification": {
     "description": "Patch Android vbmeta image and disable verification flags inside",
