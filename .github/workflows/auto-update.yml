@@ -81,6 +81,9 @@ jobs:
       - env:
           API_TOKEN_GITHUB: ${{ secrets.AUTOMERGE_TOKEN }}
         run: |
+          # Avoid leaking secrets
+          rm -f secrets.toml
+
           # https://github.com/cpina/github-action-push-to-another-repository/issues/75
           git config --unset-all http.https://github.com/.extraheader
           git config --global user.email "DataEraserC-bot@users.noreply.github.com"
