@@ -33,6 +33,14 @@ let
     url = "https://raw.githubusercontent.com/hakasenyang/openssl-patch/master/nginx_io_uring.patch";
     sha256 = "1cgpnhyd2kfqvh32yap651snvq1qvxc1cxvyrjc0vvxcw38d14p8";
   };
+
+  openssl' = quictls.overrideAttrs (old: {
+    patches = (old.patches or [ ]) ++ [ (sources.ja4-nginx-module.src + "/patches/openssl.patch") ];
+    # Export the new function in shared library
+    postPatch = (old.postPatch or "") + ''
+      echo "SSL_client_hello_getall_extensions_present 50000 3_0_0 EXIST::FUNCTION:" >> util/libssl.num
+    '';
+  });
 in
 stdenv.mkDerivation rec {
   pname = "nginx-lantian";
@@ -54,10 +62,10 @@ stdenv.mkDerivation rec {
     libxcrypt
     libxml2
     libxslt
+    openssl'
     pcre
     perl
     quickjs-ng
-    quictls
     zlib
     zstd
   ];
@@ -73,6 +81,7 @@ stdenv.mkDerivation rec {
         "ngx_brotli"
         "stream-echo-nginx-module"
         "zstd-nginx-module"
+        "ja4-nginx-module"
       ];
 
       patch = p: "echo ${p} && patch -p1 < ${p}";
@@ -90,6 +99,7 @@ stdenv.mkDerivation rec {
       ${patch ./patches/nginx-plain-proxy.patch}
       ${patch ./patches/nix-etag-1.15.4.patch}
       ${patch ./patches/nix-skip-check-logs-path.patch}
+      ${patch ./patches/nginx-ja4-quic.patch}
       ${patch patchUring}
       sed -i 's#"/usr/include/libxml2"#"${libxml2.dev}/include/libxml2"#g' auto/lib/libxslt/conf
       substituteInPlace src/http/ngx_http_core_module.c \
@@ -107,9 +117,17 @@ stdenv.mkDerivation rec {
       ${patch ./patches/stream-echo-nginx-module.patch}
       popd
 
+      pushd bundle/zstd-nginx-module
+      ${patch ./patches/zstd-static-sync-gzip-static.patch}
+      popd
+
       # pushd bundle/nginx-njs
       # sed -i "s#-lquickjs.lto#-lqjs#g" nginx/config
       # popd
+
+      pushd bundle/ja4-nginx-module
+      ${patch ./patches/ja4-module.patch}
+      popd
     '';
 
   configureFlags = [
@@ -142,6 +160,7 @@ stdenv.mkDerivation rec {
     "--add-module=bundle/ngx_brotli"
     "--add-module=bundle/stream-echo-nginx-module"
     "--add-module=bundle/zstd-nginx-module"
+    "--add-module=bundle/ja4-nginx-module/src"
     # "--without-http_encrypted_session_module" # Conflict with quic stuff
 
     # NixOS paths
@@ -171,6 +190,7 @@ stdenv.mkDerivation rec {
 
   passthru = {
     inherit modules;
+    openssl = openssl';
   };
 
   meta = {
