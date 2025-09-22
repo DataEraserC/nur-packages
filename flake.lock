@@ -30,11 +30,11 @@
         "nixpkgs-with-go_1_20": "nixpkgs-with-go_1_20"
       },
       "locked": {
-        "lastModified": 1758439554,
-        "narHash": "sha256-r1VZn3PyZrCWp/DbYWVuJZ0ecSTBSHOazKbUcWWMGjs=",
+        "lastModified": 1758467919,
+        "narHash": "sha256-wi8Ky/JNMx8QFH1oxq31NubginHi9X1Q0Lb0BE+88uQ=",
         "owner": "FloatTech",
         "repo": "ZeroBot-Plugin",
-        "rev": "4dd5189a3c497d23b5324ffa14464727eda26c67",
+        "rev": "49983ab451886d6e05aebdb99113695b607451b0",
         "type": "github"
       },
       "original": {
