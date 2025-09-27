@@ -30,11 +30,11 @@
         "nixpkgs-with-go_1_20": "nixpkgs-with-go_1_20"
       },
       "locked": {
-        "lastModified": 1758821843,
-        "narHash": "sha256-AclHS4TfIi2C/bD4FHQAK+95/MZ74LUk7NL0kjWnKVw=",
+        "lastModified": 1758907411,
+        "narHash": "sha256-Ri7/TdlrQmFeq87wa2Mc97zvhFtjB2vSMtxIWNafOoY=",
         "owner": "FloatTech",
         "repo": "ZeroBot-Plugin",
-        "rev": "d304cda7f041232e1e4eb746d46efa125d71c065",
+        "rev": "57c95178d889c0e404829f5ce0a1255965788fe7",
         "type": "github"
       },
       "original": {
@@ -557,11 +557,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1758589230,
-        "narHash": "sha256-zMTCFGe8aVGTEr2RqUi/QzC1nOIQ0N1HRsbqB4f646k=",
+        "lastModified": 1758791193,
+        "narHash": "sha256-F8WmEwFoHsnix7rt290R0rFXNJiMbClMZyIC/e+HYf0=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "d1d883129b193f0b495d75c148c2c3a7d95789a0",
+        "rev": "25e53aa156d47bad5082ff7618f5feb1f5e02d01",
         "type": "github"
       },
       "original": {
