@@ -53,11 +53,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1747768616,
-        "narHash": "sha256-9t3FNBY30DC1aYCeVjvADABFhe1n8CKJbXiaRHuTcqg=",
+        "lastModified": 1759505196,
+        "narHash": "sha256-IK+7/5jmb9+XwKuoI9E9WJs+WCsD+9B2xZf8uUM8NvI=",
         "owner": "AndroidAppsUsedByMyself",
         "repo": "android-attestation-keybox-generator",
-        "rev": "56f49c0d5da9acf5a9b2bc34bbe7cf6ee888a882",
+        "rev": "62fda6ca440287a493de85032674cfc6ea4d8408",
         "type": "github"
       },
       "original": {
@@ -356,11 +356,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1742209644,
-        "narHash": "sha256-jMy1XqXqD0/tJprEbUmKilTkvbDY/C0ZGSsJJH4TNCE=",
+        "lastModified": 1756047880,
+        "narHash": "sha256-JeuGh9kA1SPL70fnvpLxkIkCWpTjtoPaus3jzvdna0k=",
         "owner": "nix-community",
         "repo": "gomod2nix",
-        "rev": "8f3534eb8f6c5c3fce799376dc3b91bae6b11884",
+        "rev": "47d628dc3b506bd28632e47280c6b89d3496909d",
         "type": "github"
       },
       "original": {

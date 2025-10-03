@@ -207,20 +207,28 @@
               };
             };
 
-            packages = import ./pkgs null {
-              inherit inputs pkgs;
-            } // ptr;
-            packagesWithCuda = import ./pkgs null {
-              inherit inputs;
-              pkgs = pkgsWithCuda;
-            } // ptr;
-            legacyPackages = import ./pkgs "legacy" {
-              inherit inputs pkgs;
-            } // ptr;
-            legacyPackagesWithCuda = import ./pkgs "legacy" {
-              inherit inputs;
-              pkgs = pkgsWithCuda;
-            } // ptr;
+            packages =
+              import ./pkgs null {
+                inherit inputs pkgs;
+              }
+              // ptr;
+            packagesWithCuda =
+              import ./pkgs null {
+                inherit inputs;
+                pkgs = pkgsWithCuda;
+              }
+              // ptr;
+            legacyPackages =
+              import ./pkgs "legacy" {
+                inherit inputs pkgs;
+              }
+              // ptr;
+            legacyPackagesWithCuda =
+              import ./pkgs "legacy" {
+                inherit inputs;
+                pkgs = pkgsWithCuda;
+              }
+              // ptr;
 
             devshells.default = {
               packages = [ pkgs.python3 ];
