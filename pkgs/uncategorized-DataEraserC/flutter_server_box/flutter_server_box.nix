@@ -2,11 +2,11 @@
   lib,
   sources,
   pkg-config,
-  flutter,
+  flutter335,
   makeDesktopItem,
   copyDesktopItems,
 }:
-flutter.buildFlutterApplication rec {
+flutter335.buildFlutterApplication rec {
   inherit (sources.flutter_server_box) pname version src;
 
   sourceRoot = "${src.name}";
@@ -29,7 +29,7 @@ flutter.buildFlutterApplication rec {
   };
   postInstall = ''
     _postinstall() {
-      for n in 16 32 48 64 128 256 1024; do
+      for n in 16 32 48 64 128 256 512 1024; do
         size=$n"x"$n
         install -Dm644 ${src}/assets/app_icon.png $out/share/icons/hicolor/$size/apps/${pname}.png
       done
