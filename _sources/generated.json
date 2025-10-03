@@ -746,7 +746,7 @@
     },
     "c001apk-flutter": {
         "cargoLock": null,
-        "date": "2025-02-13",
+        "date": "2025-09-09",
         "extract": null,
         "name": "c001apk-flutter",
         "passthru": null,
@@ -756,18 +756,18 @@
             "fetchSubmodules": true,
             "leaveDotGit": false,
             "name": null,
-            "owner": "Apps-Used-By-Myself",
+            "owner": "Integral-Tech",
             "repo": "c001apk-flutter",
-            "rev": "facfe13ced547dbe5cccbdb483c2d6b8d9ce7031",
-            "sha256": "sha256-w1WtuZHdfFQg3fRUib3IjIOgudJ81g/ejiaubGG6gqs=",
+            "rev": "2b926e0b49a321d640ce7db93747e196c743ee18",
+            "sha256": "sha256-y49W9Mj1AO0UP/cusKUjA12w+15+heYvthPc52NVwOc=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "facfe13ced547dbe5cccbdb483c2d6b8d9ce7031"
+        "version": "2b926e0b49a321d640ce7db93747e196c743ee18"
     },
     "cachyos-kernel": {
         "cargoLock": null,
-        "date": "2025-09-30",
+        "date": "2025-10-03",
         "extract": null,
         "name": "cachyos-kernel",
         "passthru": null,
@@ -779,12 +779,12 @@
             "name": null,
             "owner": "CachyOS",
             "repo": "linux-cachyos",
-            "rev": "fbdf6af997ae3c956b9622bf5c9b8999dda4ab14",
-            "sha256": "sha256-9dsQZGT6IVlP3VA021ba2dygzqDnFMXaGv/5kijlscw=",
+            "rev": "709f0cf3d9be2d3007d6a0d807d80eb304a203ad",
+            "sha256": "sha256-uf+/VY101+bruYYCE2CzaPPJs+vCk1FIZhPE5pZyBz4=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "fbdf6af997ae3c956b9622bf5c9b8999dda4ab14"
+        "version": "709f0cf3d9be2d3007d6a0d807d80eb304a203ad"
     },
     "cachyos-kernel-patches": {
         "cargoLock": null,
@@ -2090,11 +2090,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-GTHqXlrzDYgClrorNfc1Efanf8xgpPMC2WFqJmilZSg=",
+            "sha256": "sha256-e/t/VrmbPcodURBQaI99BQQ+/LrwoHIc45APtSPlATg=",
             "type": "url",
             "url": "https://album.photosir.cn/upgradePackage/infoall/photosir"
         },
-        "version": "2025-10-03 22:18:13"
+        "version": "2025-10-03 23:23:04"
     },
     "himirage-aarch64-darwin": {
         "cargoLock": null,
@@ -2557,7 +2557,7 @@
     },
     "liboqs-unstable": {
         "cargoLock": null,
-        "date": "2025-10-02",
+        "date": "2025-10-03",
         "extract": null,
         "name": "liboqs-unstable",
         "passthru": null,
@@ -2569,12 +2569,12 @@
             "name": null,
             "owner": "open-quantum-safe",
             "repo": "liboqs",
-            "rev": "21add4acef046f493c99936b9b59f624f73b09ff",
-            "sha256": "sha256-v7jovJFaPtUagt3o5tBvCDxIAwOFGUfjLcvPEnvV8cE=",
+            "rev": "9a61d90c68de022372bae3a9d4fcc1629fa59f24",
+            "sha256": "sha256-mUCW68OjkkPVp4jtvlLJmBPi816cXkLB6ZOQ+xdxP0g=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "21add4acef046f493c99936b9b59f624f73b09ff"
+        "version": "9a61d90c68de022372bae3a9d4fcc1629fa59f24"
     },
     "libqcef": {
         "cargoLock": null,

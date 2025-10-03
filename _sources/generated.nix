@@ -403,26 +403,26 @@
   };
   c001apk-flutter = {
     pname = "c001apk-flutter";
-    version = "facfe13ced547dbe5cccbdb483c2d6b8d9ce7031";
+    version = "2b926e0b49a321d640ce7db93747e196c743ee18";
     src = fetchFromGitHub {
-      owner = "Apps-Used-By-Myself";
+      owner = "Integral-Tech";
       repo = "c001apk-flutter";
-      rev = "facfe13ced547dbe5cccbdb483c2d6b8d9ce7031";
+      rev = "2b926e0b49a321d640ce7db93747e196c743ee18";
       fetchSubmodules = true;
-      hash = "sha256-w1WtuZHdfFQg3fRUib3IjIOgudJ81g/ejiaubGG6gqs=";
+      hash = "sha256-y49W9Mj1AO0UP/cusKUjA12w+15+heYvthPc52NVwOc=";
     };
-    date = "2025-02-13";
+    date = "2025-09-09";
   };
   cachyos-kernel = {
     pname = "cachyos-kernel";
-    version = "fbdf6af997ae3c956b9622bf5c9b8999dda4ab14";
+    version = "709f0cf3d9be2d3007d6a0d807d80eb304a203ad";
     src = fetchFromGitHub {
       owner = "CachyOS";
       repo = "linux-cachyos";
-      rev = "fbdf6af997ae3c956b9622bf5c9b8999dda4ab14";
-      hash = "sha256-9dsQZGT6IVlP3VA021ba2dygzqDnFMXaGv/5kijlscw=";
+      rev = "709f0cf3d9be2d3007d6a0d807d80eb304a203ad";
+      hash = "sha256-uf+/VY101+bruYYCE2CzaPPJs+vCk1FIZhPE5pZyBz4=";
     };
-    date = "2025-09-30";
+    date = "2025-10-03";
   };
   cachyos-kernel-patches = {
     pname = "cachyos-kernel-patches";
@@ -1099,10 +1099,10 @@
   };
   himirage-JSON = {
     pname = "himirage-JSON";
-    version = "2025-10-03 22:18:13";
+    version = "2025-10-03 23:23:04";
     src = fetchurl {
       url = "https://album.photosir.cn/upgradePackage/infoall/photosir";
-      hash = "sha256-GTHqXlrzDYgClrorNfc1Efanf8xgpPMC2WFqJmilZSg=";
+      hash = "sha256-e/t/VrmbPcodURBQaI99BQQ+/LrwoHIc45APtSPlATg=";
     };
   };
   himirage-aarch64-darwin = {
@@ -1341,14 +1341,14 @@
   };
   liboqs-unstable = {
     pname = "liboqs-unstable";
-    version = "21add4acef046f493c99936b9b59f624f73b09ff";
+    version = "9a61d90c68de022372bae3a9d4fcc1629fa59f24";
     src = fetchFromGitHub {
       owner = "open-quantum-safe";
       repo = "liboqs";
-      rev = "21add4acef046f493c99936b9b59f624f73b09ff";
-      hash = "sha256-v7jovJFaPtUagt3o5tBvCDxIAwOFGUfjLcvPEnvV8cE=";
+      rev = "9a61d90c68de022372bae3a9d4fcc1629fa59f24";
+      hash = "sha256-mUCW68OjkkPVp4jtvlLJmBPi816cXkLB6ZOQ+xdxP0g=";
     };
-    date = "2025-10-02";
+    date = "2025-10-03";
   };
   libqcef = {
     pname = "libqcef";
