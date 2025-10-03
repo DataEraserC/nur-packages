@@ -183,9 +183,9 @@ git.fetchSubmodules = true
 src.git = "https://gitlab.com/postmarketOS/buffybox.git"
 
 [c001apk-flutter]
-fetch.github = "Apps-Used-By-Myself/c001apk-flutter"
+fetch.github = "Integral-Tech/c001apk-flutter"
 git.fetchSubmodules = true
-src.git = "https://github.com/Apps-Used-By-Myself/c001apk-flutter.git"
+src.git = "https://github.com/Integral-Tech/c001apk-flutter.git"
 
 [cachyos-kernel]
 fetch.github = "CachyOS/linux-cachyos"
