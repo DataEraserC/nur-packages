@@ -745,8 +745,8 @@
         "version": "c683350b9fb944e38cb484f04f98e4e3f85b41a5"
     },
     "c001apk-flutter": {
-        "cargoLock": null,
-        "date": "2025-02-13",
+        "cargoLocks": null,
+        "date": "2025-09-09",
         "extract": null,
         "name": "c001apk-flutter",
         "passthru": null,
@@ -756,14 +756,14 @@
             "fetchSubmodules": true,
             "leaveDotGit": false,
             "name": null,
-            "owner": "Apps-Used-By-Myself",
+            "owner": "Integral-Tech",
             "repo": "c001apk-flutter",
-            "rev": "facfe13ced547dbe5cccbdb483c2d6b8d9ce7031",
-            "sha256": "sha256-w1WtuZHdfFQg3fRUib3IjIOgudJ81g/ejiaubGG6gqs=",
+            "rev": "2b926e0b49a321d640ce7db93747e196c743ee18",
+            "sha256": "sha256-y49W9Mj1AO0UP/cusKUjA12w+15+heYvthPc52NVwOc=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "facfe13ced547dbe5cccbdb483c2d6b8d9ce7031"
+        "version": "2b926e0b49a321d640ce7db93747e196c743ee18"
     },
     "cachyos-kernel": {
         "cargoLock": null,

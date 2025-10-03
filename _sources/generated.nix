@@ -403,15 +403,15 @@
   };
   c001apk-flutter = {
     pname = "c001apk-flutter";
-    version = "facfe13ced547dbe5cccbdb483c2d6b8d9ce7031";
+    version = "2b926e0b49a321d640ce7db93747e196c743ee18";
     src = fetchFromGitHub {
-      owner = "Apps-Used-By-Myself";
+      owner = "Integral-Tech";
       repo = "c001apk-flutter";
-      rev = "facfe13ced547dbe5cccbdb483c2d6b8d9ce7031";
+      rev = "2b926e0b49a321d640ce7db93747e196c743ee18";
       fetchSubmodules = true;
-      hash = "sha256-w1WtuZHdfFQg3fRUib3IjIOgudJ81g/ejiaubGG6gqs=";
+      hash = "sha256-y49W9Mj1AO0UP/cusKUjA12w+15+heYvthPc52NVwOc=";
     };
-    date = "2025-02-13";
+    date = "2025-09-09";
   };
   cachyos-kernel = {
     pname = "cachyos-kernel";
