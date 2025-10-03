@@ -355,6 +355,10 @@ src.github_tag = "flightaware/dump978"
 fetch.github = "rany2/edge-tts"
 src.github = "rany2/edge-tts"
 
+[ela-widget-tools]
+fetch.github = "Liniyous/ElaWidgetTools"
+src.git = "https://github.com/Liniyous/ElaWidgetTools.git"
+
 [escrcpy_appimage]
 fetch.url = "https://github.com/viarotel-org/escrcpy/releases/download/v$ver/Escrcpy-$ver-linux-x86_64.AppImage"
 src.github_tag = "viarotel-org/escrcpy"
@@ -625,7 +629,7 @@ src.github_tag = "kata-containers/kata-containers"
 src.include_regex = "^[0-9\\.]+$"
 
 [kata-image]
-fetch.url = "https://github.com/kata-containers/kata-containers/releases/download/$ver/kata-static-$ver-amd64.tar.xz"
+fetch.url = "https://github.com/kata-containers/kata-containers/releases/download/$ver/kata-static-$ver-amd64.tar.zst"
 src.github_tag = "kata-containers/kata-containers"
 src.include_regex = "^[0-9\\.]+$"
 
@@ -1033,10 +1037,6 @@ src.webpage = "http://ftp.debian.org/debian/pool/main/q/qemu"
 src.regex = "href=\"qemu-user_([^\"]+)_i386.deb\""
 url.name = "qemu.deb"
 
-[qhttpengine]
-fetch.github = "nitroshare/qhttpengine"
-src.git = "https://github.com/nitroshare/qhttpengine.git"
-
 [qq-amd64]
 fetch.url = "https://dldir1v6.qq.com/qqfile/qq/QQNT/Linux/$ver.deb"
 src.webpage = "https://im.qq.com/rainbow/linuxQQDownload/"
@@ -1048,9 +1048,10 @@ src.webpage = "https://im.qq.com/rainbow/linuxQQDownload/"
 src.regex = "\"https://dldir1v6.qq.com/qqfile/qq/QQNT/Linux/([^\"]+_arm64[^\"]*).deb\""
 
 [qqmusic]
-fetch.url = "https://dldir1.qq.com/music/clntupate/linux/qqmusic_$ver_amd64.deb"
-src.webpage = "https://y.qq.com/download/download.html"
-src.regex = "\"https://dldir.y.qq.com/music/clntupate/linux/qqmusic_([^\"]+)_amd64.deb\""
+fetch.url = "https://c.y.qq.com/cgi-bin/file_redirect.fcg?bid=dldir&file=ecosfile_plink%2Fmusic_clntupate%2Flinux%2Fother%2Fqqmusic_1.1.8_amd64.deb&sign=1-d1ca4d5c5a8369b26af88e881ba3ac544066a899dcaea29778b35c9f648e6fee-68cb7c1c"
+# Need manual update from https://y.qq.com/download/download.html
+src.manual = "1.1.8"
+url.name = "qqmusic.deb"
 
 [qqsp]
 fetch.github = "Sonnix1/Qqsp"
