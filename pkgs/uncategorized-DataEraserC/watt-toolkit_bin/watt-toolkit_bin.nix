@@ -4,7 +4,7 @@
   copyDesktopItems,
   makeDesktopItem,
   autoPatchelfHook,
-  wrapGAppsHook,
+  wrapGAppsHook3,
   fontconfig,
   lttng-ust,
   icu,
@@ -31,7 +31,7 @@ stdenv.mkDerivation rec {
 
   nativeBuildInputs = [
     autoPatchelfHook
-    wrapGAppsHook
+    wrapGAppsHook3
     copyDesktopItems
   ];
 

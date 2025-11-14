@@ -17,7 +17,7 @@ stdenv.mkDerivation rec {
   inherit (sources.wechat-web-devtools-linux_bin) pname src version;
 
   nativeBuildInputs = with pkgs; [
-    wrapGAppsHook
+    wrapGAppsHook3
     autoPatchelfHook
     makeWrapper
     copyDesktopItems

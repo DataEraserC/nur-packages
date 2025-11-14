@@ -7,7 +7,7 @@
   copyDesktopItems,
   makeDesktopItem,
   autoPatchelfHook,
-  wrapGAppsHook,
+  wrapGAppsHook3,
   icu,
   openssl,
   xorg,
@@ -34,7 +34,7 @@ stdenv.mkDerivation rec {
   nativeBuildInputs = [
     autoPatchelfHook
     dpkg
-    wrapGAppsHook
+    wrapGAppsHook3
     imagemagick
     copyDesktopItems
   ];
