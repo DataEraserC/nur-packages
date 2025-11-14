@@ -4,7 +4,7 @@
   sources,
   cmake,
   liboqs,
-  openssl_3_0,
+  openssl_3,
   python3,
 }:
 stdenv.mkDerivation (finalAttrs: {
@@ -26,12 +26,12 @@ stdenv.mkDerivation (finalAttrs: {
 
   buildInputs = [
     liboqs
-    openssl_3_0
+    openssl_3
   ];
 
   cmakeFlags = [ "-DCMAKE_BUILD_TYPE=Release" ];
 
-  preConfigure = ''
+  postPatch = ''
     cp -r ${sources.qsc-key-encoder.src} qsc-key-encoder
     chmod -R 755 qsc-key-encoder
 
@@ -40,6 +40,8 @@ stdenv.mkDerivation (finalAttrs: {
 
     export LIBOQS_SRC_DIR=${sources.liboqs.src}
     sed -i "s/enable: false/enable: true/g" oqs-template/generate.yml
+    sed -i "s/enable_kem: false/enable_kem: true/g" oqs-template/generate.yml
+    sed -i "s/enable_tls: false/enable_tls: true/g" oqs-template/generate.yml
     python3 oqs-template/generate.py
   '';
 

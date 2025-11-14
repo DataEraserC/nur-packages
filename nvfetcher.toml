@@ -304,6 +304,7 @@ src.regex = "https://download.db-ip.com/free/dbip-country-lite-([0-9]{4}-[0-9]{2
 [decluttarr]
 fetch.github = "ManiMatter/decluttarr"
 src.github_tag = "ManiMatter/decluttarr"
+src.include_regex = "^(v1.*)$"
 
 [deeplx]
 fetch.github = "OwO-Network/DeepLX"
@@ -319,7 +320,7 @@ fetch.git = "https://git.lantian.pub/backup/dn42-pingfinder.git"
 src.git = "https://git.lantian.pub/backup/dn42-pingfinder.git"
 
 [dn42-pingfinder-stable]
-fetch.url = "https://example.com"
+fetch.url = "https://www.google.com/generate_204"
 src.webpage = "https://git.lantian.pub/backup/dn42-pingfinder/raw/branch/master/index.php"
 src.regex = "\\$script_version = '([0-9\\.]+)';"
 
@@ -459,9 +460,8 @@ fetch.url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/$ver/GeoLi
 src.github = "P3TERX/GeoLite.mmdb"
 
 [glauth]
-# src.github = "glauth/glauth"
 fetch.github = "glauth/glauth"
-src.manual = "v2.3.2"
+src.github = "glauth/glauth"
 
 [google-earth-pro]
 fetch.url = "https://dl.google.com/linux/earth/deb/pool/main/g/google-earth-pro-stable/google-earth-pro-stable_$ver-r0_amd64.deb"
@@ -490,6 +490,14 @@ src.git = "https://gitlab.com/YuukiPS/GC-Resources.git"
 [gwmp-mux]
 fetch.github = "helium/gwmp-mux"
 src.github = "helium/gwmp-mux"
+
+[hack3ric-flow]
+fetch.github = "hack3ric/flow"
+src.git = "https://github.com/hack3ric/flow.git"
+
+[hack3ric-flow-stable]
+fetch.github = "hack3ric/flow"
+src.github = "hack3ric/flow"
 
 [hdrop]
 fetch.github = "Schweber/hdrop"
@@ -900,12 +908,9 @@ fetch.github = "matatonic/openedai-speech"
 src.github = "matatonic/openedai-speech"
 
 [openresty]
-fetch.github = "openresty/openresty"
-src.git = "https://github.com/openresty/openresty.git"
-
-[openresty-stable]
-fetch.url = "https://google.com/generate_204"
+fetch.url = "https://github.com/openresty/openresty/releases/download/v$ver/openresty-$ver.tar.gz"
 src.github_tag = "openresty/openresty"
+src.prefix = "v"
 
 [openssl-ech]
 fetch.github = "sftcd/openssl"
@@ -951,10 +956,6 @@ src.to_pattern = "\\1.\\2.\\3"
 [phppgadmin]
 fetch.github = "ReimuHakurei/phppgadmin"
 src.github = "ReimuHakurei/phppgadmin"
-
-[piliplus]
-fetch.github = "bggRGjQaUbCoE/PiliPlus"
-src.github = "bggRGjQaUbCoE/PiliPlus"
 
 [plangothic-fonts]
 fetch.github = "Fitzgerald-Porthmouth-Koenigsegg/Plangothic_Project"
@@ -1076,8 +1077,12 @@ src.github = "QSPFoundation/qspgui"
 [qsp-wx]
 fetch.github = "wxWidgets/wxWidgets"
 git.fetchSubmodules = true
-src.webpage = "https://raw.githubusercontent.com/QSPFoundation/qspgui/refs/heads/master/CMakeLists-wxWidgets.txt.in"
+src.webpage = "https://github.com/QSPFoundation/qspgui/raw/refs/heads/master/CMakeLists.txt"
 src.regex = "GIT_TAG\\s+([0-9a-f]{40})"
+
+[qtwebapp]
+fetch.github = "fffaraz/QtWebApp"
+src.github = "fffaraz/QtWebApp"
 
 [r8125]
 fetch.github = "awesometic/realtek-r8125-dkms"
@@ -1203,9 +1208,10 @@ fetch.url = "https://github.com/Suwayomi/Suwayomi-Server/releases/download/$ver/
 src.github = "Suwayomi/Suwayomi-Server"
 
 [svp]
-fetch.url = "https://www.svp-team.com/files/svp4-linux.$ver.tar.bz2"
-src.httpheader = "https://www.svp-team.com/files/svp4-latest.php?linux"
-src.regex = "svp4-linux.([0-9\\.]+).tar.bz2"
+fetch.url = "https://web.archive.org/web/20250904130553if_/https://www.svp-team.com/files/svp4-linux.$ver.tar.bz2"
+# Pin at last free version
+src.manual = "4.6.263"
+url.name = "svp4-linux.tar.bz2"
 
 [sx1302-hal]
 fetch.github = "NebraLtd/sx1302_hal"
@@ -1296,10 +1302,6 @@ src.manual = "v0.3.0"
 fetch.github = "CachyOS/uksmd"
 src.github_tag = "CachyOS/uksmd"
 
-[uksmd-procps]
-fetch.url = "https://sourceforge.net/projects/procps-ng/files/Production/procps-ng-$ver.tar.xz"
-src.archpkg = "procps-ng"
-
 [uni-api]
 fetch.github = "yym68686/uni-api"
 git.fetchSubmodules = true
@@ -1361,6 +1363,15 @@ src.github_tag = "mbilker/vgpu_unlock-rs"
 fetch.github = "Zamundaaa/VK_hdr_layer"
 git.fetchSubmodules = true
 src.git = "https://github.com/Zamundaaa/VK_hdr_layer.git"
+
+[vlmcsd]
+fetch.github = "Wind4/vlmcsd"
+src.git = "https://github.com/Wind4/vlmcsd.git"
+
+[vlmcsd-stable]
+fetch.url = "https://www.google.com/generate_204"
+src.github = "Wind4/vlmcsd"
+src.prefix = "svn"
 
 [vpp]
 fetch.github = "FDio/vpp"

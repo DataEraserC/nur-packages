@@ -1,17 +1,12 @@
 {
   stdenv,
+  sources,
   lib,
-  fetchzip,
   qt6,
   ...
 }:
-stdenv.mkDerivation {
-  pname = "qtwebapp";
-  version = "1.9.1";
-  src = fetchzip {
-    url = "https://stefanfrings.de/qtwebapp/QtWebApp.zip";
-    hash = "sha256-UzF/+5eXJGERf9V4uWVRl/EN1uY/zWVTTCdkhdVc7YE=";
-  };
+stdenv.mkDerivation (finalAttrs: {
+  inherit (sources.qtwebapp) pname version src;
   sourceRoot = "source/QtWebApp";
 
   postPatch = ''
@@ -41,4 +36,4 @@ stdenv.mkDerivation {
     homepage = "https://stefanfrings.de/qtwebapp/index-en.html";
     license = lib.licenses.lgpl3Plus;
   };
-}
+})

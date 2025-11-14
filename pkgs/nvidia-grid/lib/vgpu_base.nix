@@ -54,18 +54,21 @@ let
     postPatch = ''
       substituteInPlace kernel/nvidia-vgpu-vfio/nvidia-vgpu-vfio.c \
         --replace-quiet "no_llseek," "NULL,"
+      substituteInPlace kernel/nvidia-vgpu-vfio/vgpu-ctldev.c \
+        --replace-quiet "void nv_free_vgpu_type_info()" "void nv_free_vgpu_type_info(void)"
     '';
 
     outputs = [
       "out"
       "bin"
-    ] ++ lib.optional i686bundled "lib32";
+    ]
+    ++ lib.optional i686bundled "lib32";
     outputDev = "bin";
 
     kernel = kernel.dev;
     kernelVersion = kernel.modDirVersion;
 
-    makeFlags = kernel.makeFlags ++ [
+    makeFlags = (kernel.commonMakeFlags or kernel.makeFlags) ++ [
       "IGNORE_PREEMPT_RT_PRESENCE=1"
       "NV_BUILD_SUPPORTS_HMM=1"
       "SYSSRC=${kernel.dev}/lib/modules/${kernel.modDirVersion}/source"
@@ -88,7 +91,8 @@ let
       perl
       nukeReferences
       libarchive
-    ] ++ kernel.moduleBuildDependencies;
+    ]
+    ++ kernel.moduleBuildDependencies;
 
     disallowedReferences = [ kernel.dev ];
 
