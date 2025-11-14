@@ -189,6 +189,7 @@ jobs:
         # Github found at
         # https://github.com/Program-Learning/nur-packages/settings/secrets
         cachixName:
+          # - <YOUR_CACHIX_NAME>
           - dataeraserc
         atticName:
           # - <YOUR_ATTIC_NAME>
