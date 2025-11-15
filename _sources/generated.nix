@@ -75,15 +75,15 @@
   };
   PiliPalaX = {
     pname = "PiliPalaX";
-    version = "861365930d6aac95edeef72ad359524eeaf8839f";
+    version = "e589f2719571920c1b15d73efd7bc675e78c61a8";
     src = fetchFromGitHub {
       owner = "bggRGjQaUbCoE";
       repo = "PiliPlus";
-      rev = "861365930d6aac95edeef72ad359524eeaf8839f";
+      rev = "e589f2719571920c1b15d73efd7bc675e78c61a8";
       fetchSubmodules = true;
-      hash = "sha256-SS4eesBkrWcnN2Sh4ZFiUTOePJ4KxEvbL28iHC611pw=";
+      hash = "sha256-UHZiwKongztetSNLiiGpLhAUw5j8JBEFfkB4RrsfMdY=";
     };
-    date = "2025-11-14";
+    date = "2025-11-15";
   };
   SteamTools = {
     pname = "SteamTools";
@@ -1115,7 +1115,7 @@
   };
   himirage-JSON = {
     pname = "himirage-JSON";
-    version = "2025-11-15 01:52:18";
+    version = "2025-11-15 18:03:59";
     src = fetchurl {
       url = "https://album.photosir.cn/upgradePackage/infoall/photosir";
       hash = "sha256-nQjQwrKvih7iN5U5x6/vMmJeMOvkp+DrxmL8Q4HMVIU=";
@@ -1347,24 +1347,24 @@
   };
   liboqs = {
     pname = "liboqs";
-    version = "0.14.0";
+    version = "0.15.0";
     src = fetchFromGitHub {
       owner = "open-quantum-safe";
       repo = "liboqs";
-      tag = "0.14.0";
-      hash = "sha256-BJgsXbKcQjJFk/A7JvkA0NKztv0BAnkgCAXv/TM2/04=";
+      tag = "0.15.0";
+      hash = "sha256-ATnI1QFFljTmMib6oOCiieDQMTwnEe+xIvcAzrz3bbI=";
     };
   };
   liboqs-unstable = {
     pname = "liboqs-unstable";
-    version = "563e3ec07af77c8426bade6b8de0555dd97899c5";
+    version = "97f6b86b1b6d109cfd43cf276ae39c2e776aed80";
     src = fetchFromGitHub {
       owner = "open-quantum-safe";
       repo = "liboqs";
-      rev = "563e3ec07af77c8426bade6b8de0555dd97899c5";
-      hash = "sha256-4boW3e6aN4xGa7l8l67cSHUscU4mUX6JIG5Rpu2tMQM=";
+      rev = "97f6b86b1b6d109cfd43cf276ae39c2e776aed80";
+      hash = "sha256-ATnI1QFFljTmMib6oOCiieDQMTwnEe+xIvcAzrz3bbI=";
     };
-    date = "2025-11-12";
+    date = "2025-11-14";
   };
   libqcef = {
     pname = "libqcef";
@@ -1475,12 +1475,12 @@
   };
   llama-cpp = {
     pname = "llama-cpp";
-    version = "b7061";
+    version = "b7063";
     src = fetchFromGitHub {
       owner = "ggerganov";
       repo = "llama.cpp";
-      tag = "b7061";
-      hash = "sha256-XxhErXmdp7+DCWbTWf4//AjX9cSegN9c2KNQhKi+84s=";
+      tag = "b7063";
+      hash = "sha256-syviM4JhDSuVDJJZ+fWInvuJWkzQAHSmP91bcVjOYkI=";
     };
   };
   loralib = {
@@ -2715,15 +2715,15 @@
   };
   uni-api = {
     pname = "uni-api";
-    version = "c66a25dfcae01546f1eae963b122686e5e021659";
+    version = "460bfb2078e0ebaad4d47268c1a021686f56c566";
     src = fetchFromGitHub {
       owner = "yym68686";
       repo = "uni-api";
-      rev = "c66a25dfcae01546f1eae963b122686e5e021659";
+      rev = "460bfb2078e0ebaad4d47268c1a021686f56c566";
       fetchSubmodules = true;
-      hash = "sha256-RipPsG8duhq4CXVSWszK85DKX2NXNrc/vVczkp6edF0=";
+      hash = "sha256-pmmBpwTiSLGZefN0ZLQco5BBqnRlBA04XK/VOzqDZCc=";
     };
-    date = "2025-11-13";
+    date = "2025-11-15";
   };
   unigine-heaven = {
     pname = "unigine-heaven";
@@ -2789,10 +2789,10 @@
   };
   v2ray-rules-dat = {
     pname = "v2ray-rules-dat";
-    version = "202511132214";
+    version = "202511142213";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202511132214/rules.zip";
-      hash = "sha256-WTmFPW5KTD1YfiH1/JJoQ7g7tOJnPyPhLKZVupHaRZE=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202511142213/rules.zip";
+      hash = "sha256-1onlU9r7capGfaf74+93p7KhTyaVsp4jAI/WklWU/nw=";
     };
   };
   vbmeta-disable-verification = {
