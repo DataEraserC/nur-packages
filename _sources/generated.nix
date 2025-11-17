@@ -11,15 +11,15 @@
   };
   AAA_LiteLoaderQQNT = {
     pname = "AAA_LiteLoaderQQNT";
-    version = "e76c18912d6684822a9e1c01e5e63ed8e764b6d1";
+    version = "a447587bec7f50eed84b05404b9cd5fcd62c395f";
     src = fetchFromGitHub {
       owner = "LiteLoaderQQNT";
       repo = "LiteLoaderQQNT";
-      rev = "e76c18912d6684822a9e1c01e5e63ed8e764b6d1";
+      rev = "a447587bec7f50eed84b05404b9cd5fcd62c395f";
       fetchSubmodules = true;
-      hash = "sha256-PAdc68bdnklbBvWBiZ2vlsz+YS3iaRIWeH4BPfGDS5Y=";
+      hash = "sha256-Frtb7JFe7lvBVSPrMT16PpJPNVrM4qFOLn+Vl56KBEY=";
     };
-    date = "2025-11-16";
+    date = "2025-11-17";
   };
   AAA_MC-LauncherX-JSON = {
     pname = "AAA_MC-LauncherX-JSON";
@@ -75,15 +75,15 @@
   };
   AAA_PiliPalaX = {
     pname = "AAA_PiliPalaX";
-    version = "a797467606d179602585c812ddb2fb8fced2f8df";
+    version = "ad931d7ea23b5691e35b34d590ae3cc742cb9474";
     src = fetchFromGitHub {
       owner = "bggRGjQaUbCoE";
       repo = "PiliPlus";
-      rev = "a797467606d179602585c812ddb2fb8fced2f8df";
+      rev = "ad931d7ea23b5691e35b34d590ae3cc742cb9474";
       fetchSubmodules = true;
-      hash = "sha256-/nVNYHTjEl2GSRrGrug+TGetYSRy6vfWduZGv/0uHh0=";
+      hash = "sha256-GC1Sn5+b9Sfmuu2QINt1xq9jfnEF9qA1LFxV0I9ggm4=";
     };
-    date = "2025-11-16";
+    date = "2025-11-17";
   };
   AAA_SteamTools = {
     pname = "AAA_SteamTools";
@@ -292,7 +292,7 @@
   };
   AAA_himirage-JSON = {
     pname = "AAA_himirage-JSON";
-    version = "2025-11-17 14:55:14";
+    version = "2025-11-17 18:01:36";
     src = fetchurl {
       url = "https://album.photosir.cn/upgradePackage/infoall/photosir";
       hash = "sha256-nQjQwrKvih7iN5U5x6/vMmJeMOvkp+DrxmL8Q4HMVIU=";
@@ -752,14 +752,14 @@
   };
   cachyos-kernel = {
     pname = "cachyos-kernel";
-    version = "5e063fad3cb721335995a44829cc3f96f4ee1898";
+    version = "bd376b62e58fce9273d0b849afd6d28f71b13f99";
     src = fetchFromGitHub {
       owner = "CachyOS";
       repo = "linux-cachyos";
-      rev = "5e063fad3cb721335995a44829cc3f96f4ee1898";
-      hash = "sha256-59JTTv2GdPoxveypKV3bB3E1qsOdicPQFrQLipkmKwQ=";
+      rev = "bd376b62e58fce9273d0b849afd6d28f71b13f99";
+      hash = "sha256-7rJ6f1vxC7kJnPYw31jA7TFto3gTUtt0h4I9X+NXe1A=";
     };
-    date = "2025-11-14";
+    date = "2025-11-17";
   };
   cachyos-kernel-patches = {
     pname = "cachyos-kernel-patches";
