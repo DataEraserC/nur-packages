@@ -17,7 +17,7 @@
 #         ├── proxy-list.txt
 #         └── reject-list.txt
 stdenvNoCC.mkDerivation rec {
-  inherit (sources.v2ray-rules-dat) pname version src;
+  inherit (sources.AAA_v2ray-rules-dat) pname version src;
   nativeBuildInputs = [ unzip ];
 
   unpackPhase = ''

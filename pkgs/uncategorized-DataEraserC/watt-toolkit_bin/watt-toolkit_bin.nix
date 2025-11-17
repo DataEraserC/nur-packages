@@ -21,7 +21,7 @@ let
   HostPlatform = stdenv.hostPlatform.system;
   source =
     if lib.elem HostPlatform SupportedPlatforms then
-      sources."SteamTools-${HostPlatform}"
+      sources."AAA_SteamTools-${HostPlatform}"
     else
       throw "Unsupported platform: ${HostPlatform}";
 in

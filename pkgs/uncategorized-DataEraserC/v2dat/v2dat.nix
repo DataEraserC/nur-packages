@@ -9,7 +9,7 @@ let
 in
 buildGoModule {
   inherit vendorHash;
-  inherit (sources.v2dat) src pname version;
+  inherit (sources.AAA_v2dat) src pname version;
 
   meta = {
     description = "Cli tool that can unpack v2ray data packages. (Note: This project is for fun ONLY. You should build your own data dirctly from upstreams instead of unpacking a v2ray data pack.)";

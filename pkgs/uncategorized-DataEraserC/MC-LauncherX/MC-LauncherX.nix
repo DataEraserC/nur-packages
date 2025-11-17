@@ -16,7 +16,7 @@ let
   HostPlatform = stdenv.hostPlatform.system;
   source =
     if lib.elem HostPlatform SupportedPlatforms then
-      sources."MC-LauncherX-${HostPlatform}"
+      sources."AAA_MC-LauncherX-${HostPlatform}"
     else
       throw "Unsupported platform: ${HostPlatform}";
 in

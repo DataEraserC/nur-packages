@@ -5,7 +5,7 @@
   ...
 }:
 appimageTools.wrapType2 rec {
-  inherit (sources.flutter_server_box_appimage) pname version src;
+  inherit (sources.AAA_flutter_server_box_appimage) pname version src;
   extraPkgs = pkgs: with pkgs; [ libepoxy ];
   meta = {
     description = "flutter_server_box";

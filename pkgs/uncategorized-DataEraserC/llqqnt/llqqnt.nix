@@ -8,7 +8,7 @@
   ...
 }:
 let
-  LiteLoaderQQNT_SRC = sources.LiteLoaderQQNT.src;
+  LiteLoaderQQNT_SRC = sources.AAA_LiteLoaderQQNT.src;
   fhs =
     # create a fhs environment by command `fhs`, so we can run non-nixos packages in nixos!
     let
@@ -36,7 +36,6 @@ in
       # buildInputs ? [ ],
       installPhase,
       version,
-      meta,
       ...
     }:
     {

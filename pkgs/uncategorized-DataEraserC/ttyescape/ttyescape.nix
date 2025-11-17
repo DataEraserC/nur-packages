@@ -7,7 +7,7 @@
   ...
 }:
 stdenvNoCC.mkDerivation rec {
-  inherit (sources.ttyescape) pname version src;
+  inherit (sources.AAA_ttyescape) pname version src;
   nativeBuildInputs = [
     autoPatchelfHook
   ];

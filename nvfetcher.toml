@@ -1,75 +1,343 @@
-[CustomPinyinDictionary_Fcitx]
+[AAA_CustomPinyinDictionary_Fcitx]
 fetch.url = "https://github.com/wuhgit/CustomPinyinDictionary/releases/download/assets/CustomPinyinDictionary_Fcitx_$ver.tar.gz"
 src.webpage = "https://api.github.com/repos/wuhgit/CustomPinyinDictionary/releases/latest"
 src.regex = "https://github.com/wuhgit/CustomPinyinDictionary/releases/download/assets/CustomPinyinDictionary_Fcitx_([0-9]{8}).tar.gz"
 
-[LiteLoaderQQNT]
+[AAA_LiteLoaderQQNT]
 fetch.github = "LiteLoaderQQNT/LiteLoaderQQNT"
 git.fetchSubmodules = true
 src.git = "https://github.com/LiteLoaderQQNT/LiteLoaderQQNT"
 
-[MC-LauncherX-JSON]
+[AAA_MC-LauncherX-JSON]
 fetch.url = "https://api.corona.studio/Build/get/latest/all/stable"
 src.webpage = "https://api.corona.studio/Build/get/latest/all/stable"
 src.regex = "\"releaseDate\":\"(\\d+-\\d+-\\d+T\\d+:\\d+:\\d+)\""
 
-[MC-LauncherX-aarch64-darwin]
+[AAA_MC-LauncherX-aarch64-darwin]
 fetch.url = "https://api.corona.studio/Build/get/$ver.zip"
 src.cmd = "curl -s https://api.corona.studio/Build/get/latest/all/stable | jq -r '.[] | select(.framework == \"net9.0-osx\" and .runtime == \"osx-arm64\") | .id + \"/\" + .framework + \".\" + .runtime'"
 
-[MC-LauncherX-aarch64-linux]
+[AAA_MC-LauncherX-aarch64-linux]
 fetch.url = "https://api.corona.studio/Build/get/$ver.zip"
 src.cmd = "curl -s https://api.corona.studio/Build/get/latest/all/stable | jq -r '.[] | select(.framework == \"net9.0-linux\" and .runtime == \"linux-arm64\") | .id + \"/\" + .framework + \".\" + .runtime'"
 
-[MC-LauncherX-x86_64-darwin]
+[AAA_MC-LauncherX-x86_64-darwin]
 fetch.url = "https://api.corona.studio/Build/get/$ver.zip"
 src.cmd = "curl -s https://api.corona.studio/Build/get/latest/all/stable | jq -r '.[] | select(.framework == \"net9.0-osx\" and .runtime == \"osx-x64\") | .id + \"/\" + .framework + \".\" + .runtime'"
 
-[MC-LauncherX-x86_64-linux]
+[AAA_MC-LauncherX-x86_64-linux]
 fetch.url = "https://api.corona.studio/Build/get/$ver.zip"
 src.cmd = "curl -s https://api.corona.studio/Build/get/latest/all/stable | jq -r '.[] | select(.framework == \"net9.0-linux\" and .runtime == \"linux-x64\") | .id + \"/\" + .framework + \".\" + .runtime'"
 
-[OpenFreebuds]
+[AAA_OpenFreebuds]
 fetch.github = "melianmiko/OpenFreebuds"
 git.fetchSubmodules = true
 src.git = "https://github.com/melianmiko/OpenFreebuds"
 
-[PiliPalaX]
+[AAA_PiliPalaX]
 fetch.github = "bggRGjQaUbCoE/PiliPlus"
 git.fetchSubmodules = true
 src.git = "https://github.com/bggRGjQaUbCoE/PiliPlus"
 
-[SteamTools]
+[AAA_SteamTools]
 fetch.github = "BeyondDimension/SteamTools"
 git.fetchSubmodules = true
 src.git = "https://github.com/BeyondDimension/SteamTools"
 
-[SteamTools-aarch64-linux]
+[AAA_SteamTools-aarch64-linux]
 fetch.url = "https://github.com/BeyondDimension/SteamTools/releases/download/$ver/Steam++_v$ver_linux_arm64.tgz"
 src.github = "BeyondDimension/SteamTools"
 
-[SteamTools-x86_64-darwin]
+[AAA_SteamTools-x86_64-darwin]
 fetch.url = "https://github.com/BeyondDimension/SteamTools/releases/download/$ver/Steam++_v$ver_macos.dmg"
 src.github = "BeyondDimension/SteamTools"
 
-[SteamTools-x86_64-linux]
+[AAA_SteamTools-x86_64-linux]
 fetch.url = "https://github.com/BeyondDimension/SteamTools/releases/download/$ver/Steam++_v$ver_linux_x64.tgz"
 src.github = "BeyondDimension/SteamTools"
 
-[UnknownAnimeGamePS]
+[AAA_UnknownAnimeGamePS]
 fetch.github = "XeonSucksLAB/UnknownAnimeGamePS"
 git.fetchSubmodules = true
 src.git = "https://github.com/XeonSucksLAB/UnknownAnimeGamePS"
 
-[UnknownAnimeGamePS-resources]
+[AAA_UnknownAnimeGamePS-resources]
 fetch.git = "https://gitlab.com/YuukiPS/GC-Resources.git"
 src.git = "https://gitlab.com/YuukiPS/GC-Resources.git"
 
-[XiaoMiToolV2]
+[AAA_XiaoMiToolV2]
 fetch.github = "topminipie/XiaoMiToolV2"
 git.fetchSubmodules = true
 src.git = "https://github.com/topminipie/XiaoMiToolV2"
 src.branch = "tested"
+
+[AAA_alipan]
+fetch.url = "https://github.com/DataEraserC/nur-packages/releases/download/aDrive-6.8.6.exe/aDrive-6.8.6.exe"
+# src.webpage = "https://www.alipan.com/"
+# src.regex = "app_windows_download_link: '(.*)'"
+# fetch.url = "$ver"
+src.cmd = "echo 6.8.6"
+
+[AAA_alipan-version]
+fetch.url = "https://www.alipan.com/"
+src.webpage = "https://www.alipan.com/"
+src.regex = "latest_version: '(.*)'"
+
+[AAA_buffybox]
+fetch.git = "https://gitlab.com/postmarketOS/buffybox.git"
+git.fetchSubmodules = true
+src.git = "https://gitlab.com/postmarketOS/buffybox.git"
+
+[AAA_c001apk-flutter]
+fetch.github = "Integral-Tech/c001apk-flutter"
+git.fetchSubmodules = true
+src.git = "https://github.com/Integral-Tech/c001apk-flutter.git"
+
+[AAA_cpolar-aarch32-linux]
+fetch.url = "https://www.cpolar.com/static/downloads/releases/$ver/cpolar-stable-linux-arm.zip"
+src.webpage = "https://www.cpolar.com/download"
+src.regex = "https://www.cpolar.com/static/downloads/releases/(.*)/"
+
+[AAA_cpolar-aarch64-darwin]
+fetch.url = "https://www.cpolar.com/static/downloads/releases/$ver/cpolar-stable-darwin-arm64.zip"
+src.webpage = "https://www.cpolar.com/download"
+src.regex = "https://www.cpolar.com/static/downloads/releases/(.*)/"
+
+[AAA_cpolar-aarch64-linux]
+fetch.url = "https://www.cpolar.com/static/downloads/releases/$ver/cpolar-stable-linux-arm64.zip"
+src.webpage = "https://www.cpolar.com/download"
+src.regex = "https://www.cpolar.com/static/downloads/releases/(.*)/"
+
+[AAA_cpolar-i686-linux]
+fetch.url = "https://www.cpolar.com/static/downloads/releases/$ver/cpolar-stable-linux-386.zip"
+src.webpage = "https://www.cpolar.com/download"
+src.regex = "https://www.cpolar.com/static/downloads/releases/(.*)/"
+
+[AAA_cpolar-mips-linux]
+fetch.url = "https://www.cpolar.com/static/downloads/releases/$ver/cpolar-stable-linux-mips.zip"
+src.webpage = "https://www.cpolar.com/download"
+src.regex = "https://www.cpolar.com/static/downloads/releases/(.*)/"
+
+[AAA_cpolar-x86_64-darwin]
+fetch.url = "https://www.cpolar.com/static/downloads/releases/$ver/cpolar-stable-darwin-amd64.zip"
+src.webpage = "https://www.cpolar.com/download"
+src.regex = "https://www.cpolar.com/static/downloads/releases/(.*)/"
+
+[AAA_cpolar-x86_64-linux]
+fetch.url = "https://www.cpolar.com/static/downloads/releases/$ver/cpolar-stable-linux-amd64.zip"
+src.webpage = "https://www.cpolar.com/download"
+src.regex = "https://www.cpolar.com/static/downloads/releases/(.*)/"
+
+[AAA_escrcpy_appimage]
+fetch.url = "https://github.com/viarotel-org/escrcpy/releases/download/v$ver/Escrcpy-$ver-linux-x86_64.AppImage"
+src.github_tag = "viarotel-org/escrcpy"
+src.from_pattern = "v(.*)"
+src.to_pattern = "\\1"
+
+[AAA_flutter_server_box]
+fetch.github = "Apps-Used-By-Myself/flutter_server_box"
+git.fetchSubmodules = true
+src.git = "https://github.com/Apps-Used-By-Myself/flutter_server_box.git"
+
+[AAA_flutter_server_box_appimage]
+fetch.url = "https://github.com/lollipopkit/flutter_server_box/releases/download/$ver"
+src.webpage = "https://api.github.com/repos/lollipopkit/flutter_server_box/releases/latest"
+src.regex = "https://github.com/lollipopkit/flutter_server_box/releases/download/(v\\d+.\\d+.\\d+/ServerBox_\\d+_amd64.AppImage)"
+
+[AAA_hdrop]
+fetch.github = "Schweber/hdrop"
+git.fetchSubmodules = true
+src.git = "https://github.com/Schweber/hdrop.git"
+
+[AAA_himirage-JSON]
+fetch.url = "https://album.photosir.cn/upgradePackage/infoall/photosir"
+src.webpage = "https://album.photosir.cn/upgradePackage/infoall/photosir"
+src.regex = "\"time\":\"(\\d+-\\d+-\\d+ \\d+:\\d+:\\d+)\""
+
+[AAA_himirage-aarch64-darwin]
+fetch.url = "$ver"
+src.cmd = '''
+curl -s https://album.photosir.cn/upgradePackage/infoall \
+  | jq -r '
+      .data
+      | map(select(.productid=="products_name_1"))[0]
+      | .upgradepackagevolist[]
+      | select(.backedsys=="mac" and .sysversion=="mac_01")
+      | .url
+    '
+'''
+
+[AAA_himirage-aarch64-linux]
+fetch.url = "$ver"
+src.cmd = '''
+curl -s https://album.photosir.cn/upgradePackage/infoall \
+  | jq -r '
+      .data
+      | map(select(.productid=="products_name_1"))[0]
+      | .upgradepackagevolist[]
+      | select(.backedsys=="ql" and .sysversion=="ql_03")
+      | .url
+    '
+'''
+
+[AAA_himirage-loongarch64-linux]
+fetch.url = "$ver"
+src.cmd = '''
+curl -s https://album.photosir.cn/upgradePackage/infoall \
+  | jq -r '
+      .data
+      | map(select(.productid=="products_name_1"))[0]
+      | .upgradepackagevolist[]
+      | select(.backedsys=="ql" and .sysversion=="ql_arch")
+      | .url
+    '
+'''
+
+[AAA_himirage-mips-linux]
+fetch.url = "$ver"
+src.cmd = '''
+curl -s https://album.photosir.cn/upgradePackage/infoall \
+  | jq -r '
+      .data
+      | map(select(.productid=="products_name_1"))[0]
+      | .upgradepackagevolist[]
+      | select(.backedsys=="ql" and .sysversion=="ql_02")
+      | .url
+    '
+'''
+
+[AAA_himirage-x86_64-darwin]
+fetch.url = "$ver"
+src.cmd = '''
+curl -s https://album.photosir.cn/upgradePackage/infoall \
+  | jq -r '
+      .data
+      | map(select(.productid=="products_name_1"))[0]
+      | .upgradepackagevolist[]
+      | select(.backedsys=="mac" and .sysversion=="mac_01")
+      | .url
+    '
+'''
+
+[AAA_himirage-x86_64-linux]
+fetch.url = "$ver"
+src.cmd = '''
+curl -s https://album.photosir.cn/upgradePackage/infoall \
+  | jq -r '
+      .data
+      | map(select(.productid=="products_name_1"))[0]
+      | .upgradepackagevolist[]
+      | select(.backedsys=="ql" and .sysversion=="ql_01")
+      | .url
+    '
+'''
+
+[AAA_motrix]
+fetch.github = "Apps-Used-By-Myself/motrix"
+git.fetchSubmodules = true
+src.git = "https://github.com/Apps-Used-By-Myself/motrix.git"
+
+[AAA_ndrop]
+fetch.github = "Apps-Used-By-Myself/ndrop"
+git.fetchSubmodules = true
+src.git = "https://github.com/Apps-Used-By-Myself/ndrop.git"
+
+[AAA_netfrp-aarch32-linux]
+fetch.url = "https://nya.globalslb.net/natfrp/client/launcher-unix/$ver/natfrp-service_linux_armv7.tar.zst"
+src.webpage = "https://nya.globalslb.net/natfrp/client/launcher-unix/"
+src.regex = "(\\d+(?:\\.\\d+)+)"
+
+[AAA_netfrp-aarch64-linux]
+fetch.url = "https://nya.globalslb.net/natfrp/client/launcher-unix/$ver/natfrp-service_linux_arm64.tar.zst"
+src.webpage = "https://nya.globalslb.net/natfrp/client/launcher-unix/"
+src.regex = "(\\d+(?:\\.\\d+)+)"
+
+[AAA_netfrp-i686-linux]
+fetch.url = "https://nya.globalslb.net/natfrp/client/launcher-unix/$ver/natfrp-service_linux_386.tar.zst"
+src.webpage = "https://nya.globalslb.net/natfrp/client/launcher-unix/"
+src.regex = "(\\d+(?:\\.\\d+)+)"
+
+[AAA_netfrp-loong64-linux]
+fetch.url = "https://nya.globalslb.net/natfrp/client/launcher-unix/$ver/natfrp-service_linux_loong64.tar.zst"
+src.webpage = "https://nya.globalslb.net/natfrp/client/launcher-unix/"
+src.regex = "(\\d+(?:\\.\\d+)+)"
+
+[AAA_netfrp-mips-linux]
+fetch.url = "https://nya.globalslb.net/natfrp/client/launcher-unix/$ver/natfrp-service_linux_mips.tar.zst"
+src.webpage = "https://nya.globalslb.net/natfrp/client/launcher-unix/"
+src.regex = "(\\d+(?:\\.\\d+)+)"
+
+[AAA_netfrp-mips64-linux]
+fetch.url = "https://nya.globalslb.net/natfrp/client/launcher-unix/$ver/natfrp-service_linux_mips64.tar.zst"
+src.webpage = "https://nya.globalslb.net/natfrp/client/launcher-unix/"
+src.regex = "(\\d+(?:\\.\\d+)+)"
+
+[AAA_netfrp-x86_64-linux]
+fetch.url = "https://nya.globalslb.net/natfrp/client/launcher-unix/$ver/natfrp-service_linux_amd64.tar.zst"
+src.webpage = "https://nya.globalslb.net/natfrp/client/launcher-unix/"
+src.regex = "(\\d+(?:\\.\\d+)+)"
+
+[AAA_open-interpreter]
+fetch.github = "OpenInterpreter/open-interpreter"
+git.fetchSubmodules = true
+src.git = "https://github.com/OpenInterpreter/open-interpreter"
+
+[AAA_rwkv]
+fetch.pypi = "rwkv"
+src.pypi = "rwkv"
+
+[AAA_scrcpy-mask]
+fetch.github = "AkiChase/scrcpy-mask"
+git.fetchSubmodules = true
+src.git = "https://github.com/AkiChase/scrcpy-mask"
+
+[AAA_snell-server-aarch32-linux]
+fetch.url = "https://dl.nssurge.com/snell/snell-server-$ver-linux-armv7l.zip"
+src.webpage = "https://kb.nssurge.com/surge-knowledge-base/zh/release-notes/snell"
+src.regex = "https://dl.nssurge.com/snell/snell-server-(.*)-linux-armv7l.zip"
+
+[AAA_snell-server-aarch64-linux]
+fetch.url = "https://dl.nssurge.com/snell/snell-server-$ver-linux-aarch64.zip"
+src.webpage = "https://kb.nssurge.com/surge-knowledge-base/zh/release-notes/snell"
+src.regex = "https://dl.nssurge.com/snell/snell-server-(.*)-linux-aarch64.zip"
+
+[AAA_snell-server-i686-linux]
+fetch.url = "https://dl.nssurge.com/snell/snell-server-$ver-linux-i386.zip"
+src.webpage = "https://kb.nssurge.com/surge-knowledge-base/zh/release-notes/snell"
+src.regex = "https://dl.nssurge.com/snell/snell-server-(.*)-linux-i386.zip"
+
+[AAA_snell-server-x86_64-linux]
+fetch.url = "https://dl.nssurge.com/snell/snell-server-$ver-linux-amd64.zip"
+src.webpage = "https://kb.nssurge.com/surge-knowledge-base/zh/release-notes/snell"
+src.regex = "https://dl.nssurge.com/snell/snell-server-(.*)-linux-amd64.zip"
+
+[AAA_ttyescape]
+fetch.git = "https://gitlab.com/postmarketOS/ttyescape.git"
+git.fetchSubmodules = true
+src.git = "https://gitlab.com/postmarketOS/ttyescape.git"
+
+[AAA_v2dat]
+fetch.github = "urlesistiana/v2dat"
+git.fetchSubmodules = true
+src.git = "https://github.com/urlesistiana/v2dat"
+
+[AAA_v2ray-rules-dat]
+fetch.url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/$ver/rules.zip"
+src.github_tag = "Loyalsoldier/v2ray-rules-dat"
+src.from_pattern = "v(.*)"
+src.to_pattern = "\\1"
+
+[AAA_wechat-web-devtools-linux_appimage]
+fetch.url = "https://github.com/msojocs/wechat-web-devtools-linux/releases/download/v$ver/WeChat_Dev_Tools_v$ver_x86_64_linux.AppImage"
+src.github_tag = "msojocs/wechat-web-devtools-linux"
+src.from_pattern = "v(.*)"
+src.to_pattern = "\\1"
+
+[AAA_wechat-web-devtools-linux_bin]
+fetch.url = "https://github.com/msojocs/wechat-web-devtools-linux/releases/download/v$ver/WeChat_Dev_Tools_v$ver_x86_64_linux.tar.gz"
+src.github_tag = "msojocs/wechat-web-devtools-linux"
+src.from_pattern = "v(.*)"
+src.to_pattern = "\\1"
 
 [acpi-ec]
 fetch.github = "musikid/acpi_ec"
@@ -79,18 +347,6 @@ src.github = "musikid/acpi_ec"
 fetch.url = "https://version.adspower.net/software/linux-x64-global/AdsPower-Global-$ver-x64.deb"
 src.webpage = "https://www.adspower.com/download"
 src.regex = "\"https://version.adspower.net/software/linux-x64-global/AdsPower-Global-([^\"]+)-x64.deb\""
-
-[alipan]
-fetch.url = "https://github.com/DataEraserC/nur-packages/releases/download/aDrive-6.8.6.exe/aDrive-6.8.6.exe"
-# src.webpage = "https://www.alipan.com/"
-# src.regex = "app_windows_download_link: '(.*)'"
-# fetch.url = "$ver"
-src.cmd = "echo 6.8.6"
-
-[alipan-version]
-fetch.url = "https://www.alipan.com/"
-src.webpage = "https://www.alipan.com/"
-src.regex = "latest_version: '(.*)'"
 
 [amule-dlp]
 fetch.github = "persmule/amule-dlp"
@@ -177,16 +433,6 @@ src.aur = "browser360-bin"
 fetch.url = "https://gedown.360safe.com/gc/signed_com.360.browser-stable_$ver-1_arm64.deb"
 src.aur = "browser360-bin"
 
-[buffybox]
-fetch.git = "https://gitlab.com/postmarketOS/buffybox.git"
-git.fetchSubmodules = true
-src.git = "https://gitlab.com/postmarketOS/buffybox.git"
-
-[c001apk-flutter]
-fetch.github = "Integral-Tech/c001apk-flutter"
-git.fetchSubmodules = true
-src.git = "https://github.com/Integral-Tech/c001apk-flutter.git"
-
 [cachyos-kernel]
 fetch.github = "CachyOS/linux-cachyos"
 src.git = "https://github.com/CachyOS/linux-cachyos.git"
@@ -227,41 +473,6 @@ src.github = "coqui-ai/TTS"
 [coredns-lantian]
 fetch.github = "xddxdd/coredns"
 src.git = "https://github.com/xddxdd/coredns.git"
-
-[cpolar-aarch32-linux]
-fetch.url = "https://www.cpolar.com/static/downloads/releases/$ver/cpolar-stable-linux-arm.zip"
-src.webpage = "https://www.cpolar.com/download"
-src.regex = "https://www.cpolar.com/static/downloads/releases/(.*)/"
-
-[cpolar-aarch64-darwin]
-fetch.url = "https://www.cpolar.com/static/downloads/releases/$ver/cpolar-stable-darwin-arm64.zip"
-src.webpage = "https://www.cpolar.com/download"
-src.regex = "https://www.cpolar.com/static/downloads/releases/(.*)/"
-
-[cpolar-aarch64-linux]
-fetch.url = "https://www.cpolar.com/static/downloads/releases/$ver/cpolar-stable-linux-arm64.zip"
-src.webpage = "https://www.cpolar.com/download"
-src.regex = "https://www.cpolar.com/static/downloads/releases/(.*)/"
-
-[cpolar-i686-linux]
-fetch.url = "https://www.cpolar.com/static/downloads/releases/$ver/cpolar-stable-linux-386.zip"
-src.webpage = "https://www.cpolar.com/download"
-src.regex = "https://www.cpolar.com/static/downloads/releases/(.*)/"
-
-[cpolar-mips-linux]
-fetch.url = "https://www.cpolar.com/static/downloads/releases/$ver/cpolar-stable-linux-mips.zip"
-src.webpage = "https://www.cpolar.com/download"
-src.regex = "https://www.cpolar.com/static/downloads/releases/(.*)/"
-
-[cpolar-x86_64-darwin]
-fetch.url = "https://www.cpolar.com/static/downloads/releases/$ver/cpolar-stable-darwin-amd64.zip"
-src.webpage = "https://www.cpolar.com/download"
-src.regex = "https://www.cpolar.com/static/downloads/releases/(.*)/"
-
-[cpolar-x86_64-linux]
-fetch.url = "https://www.cpolar.com/static/downloads/releases/$ver/cpolar-stable-linux-amd64.zip"
-src.webpage = "https://www.cpolar.com/download"
-src.regex = "https://www.cpolar.com/static/downloads/releases/(.*)/"
 
 [cryptodev-linux]
 fetch.github = "cryptodev-linux/cryptodev-linux"
@@ -360,12 +571,6 @@ src.github = "rany2/edge-tts"
 fetch.github = "Liniyous/ElaWidgetTools"
 src.git = "https://github.com/Liniyous/ElaWidgetTools.git"
 
-[escrcpy_appimage]
-fetch.url = "https://github.com/viarotel-org/escrcpy/releases/download/v$ver/Escrcpy-$ver-linux-x86_64.AppImage"
-src.github_tag = "viarotel-org/escrcpy"
-src.from_pattern = "v(.*)"
-src.to_pattern = "\\1"
-
 [etherguard]
 fetch.github = "KusakabeShi/EtherGuard-VPN"
 src.github = "KusakabeShi/EtherGuard-VPN"
@@ -407,16 +612,6 @@ src.branch = "drission-page-experimental"
 [flasgger]
 fetch.github = "flasgger/flasgger"
 src.github = "flasgger/flasgger"
-
-[flutter_server_box]
-fetch.github = "Apps-Used-By-Myself/flutter_server_box"
-git.fetchSubmodules = true
-src.git = "https://github.com/Apps-Used-By-Myself/flutter_server_box.git"
-
-[flutter_server_box_appimage]
-fetch.url = "https://github.com/lollipopkit/flutter_server_box/releases/download/$ver"
-src.webpage = "https://api.github.com/repos/lollipopkit/flutter_server_box/releases/latest"
-src.regex = "https://github.com/lollipopkit/flutter_server_box/releases/download/(v\\d+.\\d+.\\d+/ServerBox_\\d+_amd64.AppImage)"
 
 [fr24feed-amd64]
 fetch.url = "https://repo-feed.flightradar24.com/pool/linux-stable/f/fr24feed/fr24feed_$ver_amd64.deb"
@@ -499,11 +694,6 @@ src.git = "https://github.com/hack3ric/flow.git"
 fetch.github = "hack3ric/flow"
 src.github = "hack3ric/flow"
 
-[hdrop]
-fetch.github = "Schweber/hdrop"
-git.fetchSubmodules = true
-src.git = "https://github.com/Schweber/hdrop.git"
-
 [helium-gateway-rs]
 fetch.github = "helium/gateway-rs"
 src.git = "https://github.com/helium/gateway-rs.git"
@@ -515,89 +705,6 @@ src.github = "helium/gateway-rs"
 [hi3-ii-martian-font]
 fetch.github = "Wenti-D/HI3IIMartianFont"
 src.git = "https://github.com/Wenti-D/HI3IIMartianFont.git"
-
-[himirage-JSON]
-fetch.url = "https://album.photosir.cn/upgradePackage/infoall/photosir"
-src.webpage = "https://album.photosir.cn/upgradePackage/infoall/photosir"
-src.regex = "\"time\":\"(\\d+-\\d+-\\d+ \\d+:\\d+:\\d+)\""
-
-[himirage-aarch64-darwin]
-fetch.url = "$ver"
-src.cmd = '''
-curl -s https://album.photosir.cn/upgradePackage/infoall \
-  | jq -r '
-      .data
-      | map(select(.productid=="products_name_1"))[0]
-      | .upgradepackagevolist[]
-      | select(.backedsys=="mac" and .sysversion=="mac_01")
-      | .url
-    '
-'''
-
-[himirage-aarch64-linux]
-fetch.url = "$ver"
-src.cmd = '''
-curl -s https://album.photosir.cn/upgradePackage/infoall \
-  | jq -r '
-      .data
-      | map(select(.productid=="products_name_1"))[0]
-      | .upgradepackagevolist[]
-      | select(.backedsys=="ql" and .sysversion=="ql_03")
-      | .url
-    '
-'''
-
-[himirage-loongarch64-linux]
-fetch.url = "$ver"
-src.cmd = '''
-curl -s https://album.photosir.cn/upgradePackage/infoall \
-  | jq -r '
-      .data
-      | map(select(.productid=="products_name_1"))[0]
-      | .upgradepackagevolist[]
-      | select(.backedsys=="ql" and .sysversion=="ql_arch")
-      | .url
-    '
-'''
-
-[himirage-mips-linux]
-fetch.url = "$ver"
-src.cmd = '''
-curl -s https://album.photosir.cn/upgradePackage/infoall \
-  | jq -r '
-      .data
-      | map(select(.productid=="products_name_1"))[0]
-      | .upgradepackagevolist[]
-      | select(.backedsys=="ql" and .sysversion=="ql_02")
-      | .url
-    '
-'''
-
-[himirage-x86_64-darwin]
-fetch.url = "$ver"
-src.cmd = '''
-curl -s https://album.photosir.cn/upgradePackage/infoall \
-  | jq -r '
-      .data
-      | map(select(.productid=="products_name_1"))[0]
-      | .upgradepackagevolist[]
-      | select(.backedsys=="mac" and .sysversion=="mac_01")
-      | .url
-    '
-'''
-
-[himirage-x86_64-linux]
-fetch.url = "$ver"
-src.cmd = '''
-curl -s https://album.photosir.cn/upgradePackage/infoall \
-  | jq -r '
-      .data
-      | map(select(.productid=="products_name_1"))[0]
-      | .upgradepackagevolist[]
-      | select(.backedsys=="ql" and .sysversion=="ql_01")
-      | .url
-    '
-'''
 
 [hoyo-glyphs]
 fetch.url = "https://github.com/SpeedyOrc-C/HoYo-Glyphs/releases/download/$ver/HoYo-Glyphs-$ver.zip"
@@ -761,11 +868,6 @@ src.github = "intel/metee"
 fetch.github = "modelscope/modelscope"
 src.github = "modelscope/modelscope"
 
-[motrix]
-fetch.github = "Apps-Used-By-Myself/motrix"
-git.fetchSubmodules = true
-src.git = "https://github.com/Apps-Used-By-Myself/motrix.git"
-
 [mtkclient]
 fetch.github = "bkerler/mtkclient"
 src.github = "bkerler/mtkclient"
@@ -778,11 +880,6 @@ src.git = "https://github.com/xddxdd/nbfc-linux.git"
 fetch.github = "iqiziqi/ncmdump.rs"
 src.github = "iqiziqi/ncmdump.rs"
 
-[ndrop]
-fetch.github = "Apps-Used-By-Myself/ndrop"
-git.fetchSubmodules = true
-src.git = "https://github.com/Apps-Used-By-Myself/ndrop.git"
-
 [netboot-xyz-efi]
 fetch.url = "https://github.com/netbootxyz/netboot.xyz/releases/download/$ver/netboot.xyz.efi"
 src.github = "netbootxyz/netboot.xyz"
@@ -790,41 +887,6 @@ src.github = "netbootxyz/netboot.xyz"
 [netboot-xyz-lkrn]
 fetch.url = "https://github.com/netbootxyz/netboot.xyz/releases/download/$ver/netboot.xyz.lkrn"
 src.github = "netbootxyz/netboot.xyz"
-
-[netfrp-aarch32-linux]
-fetch.url = "https://nya.globalslb.net/natfrp/client/launcher-unix/$ver/natfrp-service_linux_armv7.tar.zst"
-src.webpage = "https://nya.globalslb.net/natfrp/client/launcher-unix/"
-src.regex = "(\\d+(?:\\.\\d+)+)"
-
-[netfrp-aarch64-linux]
-fetch.url = "https://nya.globalslb.net/natfrp/client/launcher-unix/$ver/natfrp-service_linux_arm64.tar.zst"
-src.webpage = "https://nya.globalslb.net/natfrp/client/launcher-unix/"
-src.regex = "(\\d+(?:\\.\\d+)+)"
-
-[netfrp-i686-linux]
-fetch.url = "https://nya.globalslb.net/natfrp/client/launcher-unix/$ver/natfrp-service_linux_386.tar.zst"
-src.webpage = "https://nya.globalslb.net/natfrp/client/launcher-unix/"
-src.regex = "(\\d+(?:\\.\\d+)+)"
-
-[netfrp-loong64-linux]
-fetch.url = "https://nya.globalslb.net/natfrp/client/launcher-unix/$ver/natfrp-service_linux_loong64.tar.zst"
-src.webpage = "https://nya.globalslb.net/natfrp/client/launcher-unix/"
-src.regex = "(\\d+(?:\\.\\d+)+)"
-
-[netfrp-mips-linux]
-fetch.url = "https://nya.globalslb.net/natfrp/client/launcher-unix/$ver/natfrp-service_linux_mips.tar.zst"
-src.webpage = "https://nya.globalslb.net/natfrp/client/launcher-unix/"
-src.regex = "(\\d+(?:\\.\\d+)+)"
-
-[netfrp-mips64-linux]
-fetch.url = "https://nya.globalslb.net/natfrp/client/launcher-unix/$ver/natfrp-service_linux_mips64.tar.zst"
-src.webpage = "https://nya.globalslb.net/natfrp/client/launcher-unix/"
-src.regex = "(\\d+(?:\\.\\d+)+)"
-
-[netfrp-x86_64-linux]
-fetch.url = "https://nya.globalslb.net/natfrp/client/launcher-unix/$ver/natfrp-service_linux_amd64.tar.zst"
-src.webpage = "https://nya.globalslb.net/natfrp/client/launcher-unix/"
-src.regex = "(\\d+(?:\\.\\d+)+)"
 
 [netns-exec]
 fetch.github = "pekman/netns-exec"
@@ -885,11 +947,6 @@ src.github = "songquanpeng/one-api"
 [one-api-arm64]
 fetch.url = "https://github.com/songquanpeng/one-api/releases/download/$ver/one-api-arm64"
 src.github = "songquanpeng/one-api"
-
-[open-interpreter]
-fetch.github = "OpenInterpreter/open-interpreter"
-git.fetchSubmodules = true
-src.git = "https://github.com/OpenInterpreter/open-interpreter"
 
 [open-webui-kb-manager]
 fetch.github = "dubh3124/OpenWebUI-KB-Manager"
@@ -1138,18 +1195,9 @@ src.github = "runpod/runpod-python"
 fetch.github = "runpod/runpodctl"
 src.github = "runpod/runpodctl"
 
-[rwkv]
-fetch.pypi = "rwkv"
-src.pypi = "rwkv"
-
 [sam-toki-mouse-cursors]
 fetch.github = "SamToki/Sam-Toki-Mouse-Cursors"
 src.github = "SamToki/Sam-Toki-Mouse-Cursors"
-
-[scrcpy-mask]
-fetch.github = "AkiChase/scrcpy-mask"
-git.fetchSubmodules = true
-src.git = "https://github.com/AkiChase/scrcpy-mask"
 
 [sgx-software-enable]
 fetch.github = "intel/sgx-software-enable"
@@ -1174,26 +1222,6 @@ src.github = "zacherythomas/smartrent-py"
 [smfc]
 fetch.github = "petersulyok/smfc"
 src.github = "petersulyok/smfc"
-
-[snell-server-aarch32-linux]
-fetch.url = "https://dl.nssurge.com/snell/snell-server-$ver-linux-armv7l.zip"
-src.webpage = "https://kb.nssurge.com/surge-knowledge-base/zh/release-notes/snell"
-src.regex = "https://dl.nssurge.com/snell/snell-server-(.*)-linux-armv7l.zip"
-
-[snell-server-aarch64-linux]
-fetch.url = "https://dl.nssurge.com/snell/snell-server-$ver-linux-aarch64.zip"
-src.webpage = "https://kb.nssurge.com/surge-knowledge-base/zh/release-notes/snell"
-src.regex = "https://dl.nssurge.com/snell/snell-server-(.*)-linux-aarch64.zip"
-
-[snell-server-i686-linux]
-fetch.url = "https://dl.nssurge.com/snell/snell-server-$ver-linux-i386.zip"
-src.webpage = "https://kb.nssurge.com/surge-knowledge-base/zh/release-notes/snell"
-src.regex = "https://dl.nssurge.com/snell/snell-server-(.*)-linux-i386.zip"
-
-[snell-server-x86_64-linux]
-fetch.url = "https://dl.nssurge.com/snell/snell-server-$ver-linux-amd64.zip"
-src.webpage = "https://kb.nssurge.com/surge-knowledge-base/zh/release-notes/snell"
-src.regex = "https://dl.nssurge.com/snell/snell-server-(.*)-linux-amd64.zip"
 
 [soggy]
 fetch.github = "LDAsuku/soggy"
@@ -1285,11 +1313,6 @@ src.git = "https://github.com/tradingstrategy-ai/tqdm-loggable.git"
 fetch.github = "ronggang/transmission-web-control"
 src.git = "https://github.com/ronggang/transmission-web-control.git"
 
-[ttyescape]
-fetch.git = "https://gitlab.com/postmarketOS/ttyescape.git"
-git.fetchSubmodules = true
-src.git = "https://gitlab.com/postmarketOS/ttyescape.git"
-
 [uesave]
 fetch.github = "trumank/uesave-rs"
 src.github = "trumank/uesave-rs"
@@ -1336,17 +1359,6 @@ src.regex = "\"https://assets.unigine.com/d/Unigine_Valley-([0-9\\.]+).run\""
 fetch.github = "Diniboy1123/usque"
 src.github = "Diniboy1123/usque"
 
-[v2dat]
-fetch.github = "urlesistiana/v2dat"
-git.fetchSubmodules = true
-src.git = "https://github.com/urlesistiana/v2dat"
-
-[v2ray-rules-dat]
-fetch.url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/$ver/rules.zip"
-src.github_tag = "Loyalsoldier/v2ray-rules-dat"
-src.from_pattern = "v(.*)"
-src.to_pattern = "\\1"
-
 [vbmeta-disable-verification]
 fetch.github = "libxzr/vbmeta-disable-verification"
 src.github = "libxzr/vbmeta-disable-verification"
@@ -1385,18 +1397,6 @@ src.github = "VueTorrent/vuetorrent-backend"
 [wechat-uos]
 fetch.url = "https://home-store-packages.uniontech.com/appstore/pool/appstore/c/com.tencent.wechat/com.tencent.wechat_$ver_amd64.deb"
 src.manual = "4.0.0.21"
-
-[wechat-web-devtools-linux_appimage]
-fetch.url = "https://github.com/msojocs/wechat-web-devtools-linux/releases/download/v$ver/WeChat_Dev_Tools_v$ver_x86_64_linux.AppImage"
-src.github_tag = "msojocs/wechat-web-devtools-linux"
-src.from_pattern = "v(.*)"
-src.to_pattern = "\\1"
-
-[wechat-web-devtools-linux_bin]
-fetch.url = "https://github.com/msojocs/wechat-web-devtools-linux/releases/download/v$ver/WeChat_Dev_Tools_v$ver_x86_64_linux.tar.gz"
-src.github_tag = "msojocs/wechat-web-devtools-linux"
-src.from_pattern = "v(.*)"
-src.to_pattern = "\\1"
 
 [wine-wechat-x64]
 fetch.url = "https://github.com/tom-snow/wechat-windows-versions/releases/download/v$ver/WeChatSetup-$ver.exe"

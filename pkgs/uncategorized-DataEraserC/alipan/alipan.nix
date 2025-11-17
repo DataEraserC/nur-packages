@@ -10,9 +10,9 @@ let
   wine = wineWow64Packages.waylandFull;
 in
 stdenv.mkDerivation rec {
-  inherit (sources.alipan) pname src;
-  # inherit (sources.alipan-version) version;
-  inherit (sources.alipan) version;
+  inherit (sources.AAA_alipan) pname src;
+  # inherit (sources.AAA_alipan-version) version;
+  inherit (sources.AAA_alipan) version;
   nativeBuildInputs = [
     p7zip
     wine

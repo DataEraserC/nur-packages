@@ -7,7 +7,7 @@
   copyDesktopItems,
 }:
 flutter335.buildFlutterApplication rec {
-  inherit (sources.flutter_server_box) pname version src;
+  inherit (sources.AAA_flutter_server_box) pname version src;
 
   sourceRoot = "${src.name}";
   autoPubspecLock = src + "/pubspec.lock";

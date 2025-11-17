@@ -10,7 +10,7 @@
   alsa-lib,
 }:
 flutter324.buildFlutterApplication rec {
-  inherit (sources.PiliPalaX) pname version src;
+  inherit (sources.AAA_PiliPalaX) pname version src;
 
   sourceRoot = "${src.name}";
 

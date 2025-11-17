@@ -16,7 +16,7 @@
 }:
 
 rustPlatform.buildRustPackage rec {
-  inherit (sources.scrcpy-mask) pname version src;
+  inherit (sources.AAA_scrcpy-mask) pname version src;
 
   cargoDeps = rustPlatform.importCargoLock {
     lockFile = "${src}/src-tauri/Cargo.lock";

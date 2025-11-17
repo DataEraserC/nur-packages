@@ -14,7 +14,7 @@ let
   package_description = "The development tools for wechat projects";
 in
 stdenv.mkDerivation rec {
-  inherit (sources.wechat-web-devtools-linux_bin) pname src version;
+  inherit (sources.AAA_wechat-web-devtools-linux_bin) pname src version;
 
   nativeBuildInputs = with pkgs; [
     wrapGAppsHook3

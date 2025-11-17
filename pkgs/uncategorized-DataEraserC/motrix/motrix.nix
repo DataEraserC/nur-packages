@@ -13,7 +13,7 @@
   ...
 }:
 (stdenv.mkDerivation rec {
-  inherit (sources.motrix) src pname version;
+  inherit (sources.AAA_motrix) src pname version;
   packageJSON = "${src}/package.json";
 
   offlineCache = fetchYarnDeps {

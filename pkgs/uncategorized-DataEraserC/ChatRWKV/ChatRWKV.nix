@@ -8,7 +8,7 @@
   sources,
 }:
 buildPythonPackage rec {
-  inherit (sources.rwkv) pname version src;
+  inherit (sources.AAA_rwkv) pname version src;
   format = "pyproject";
 
   propagatedBuildInputs = [

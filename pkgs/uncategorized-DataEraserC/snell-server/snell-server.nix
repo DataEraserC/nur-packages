@@ -19,7 +19,7 @@ let
   HostPlatform = stdenv.hostPlatform.system;
   source =
     if lib.elem HostPlatform SupportedPlatforms then
-      sources."snell-server-${HostPlatform}"
+      sources."AAA_snell-server-${HostPlatform}"
     else
       throw "Unsupported platform: ${HostPlatform}";
 in

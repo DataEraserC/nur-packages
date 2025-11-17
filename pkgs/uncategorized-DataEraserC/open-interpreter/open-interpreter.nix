@@ -4,7 +4,7 @@
   python3Packages,
 }:
 python3Packages.buildPythonApplication rec {
-  inherit (sources.open-interpreter) pname version src;
+  inherit (sources.AAA_open-interpreter) pname version src;
   pyproject = true;
 
   propagatedBuildInputs = with python3Packages; [

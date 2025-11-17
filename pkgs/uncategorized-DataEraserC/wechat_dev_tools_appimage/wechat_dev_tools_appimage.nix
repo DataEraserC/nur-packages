@@ -5,7 +5,7 @@
   sources,
 }:
 appimageTools.wrapType2 rec {
-  inherit (sources.wechat-web-devtools-linux_appimage) pname src version;
+  inherit (sources.AAA_wechat-web-devtools-linux_appimage) pname src version;
   extraPkgs =
     pkgs: with pkgs; [
       gnome2.GConf

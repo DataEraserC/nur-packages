@@ -20,7 +20,7 @@ let
   HostPlatform = stdenv.hostPlatform.system;
   source =
     if lib.elem HostPlatform SupportedPlatforms then
-      sources."cpolar-${HostPlatform}"
+      sources."AAA_cpolar-${HostPlatform}"
     else
       throw "Unsupported platform: ${HostPlatform}";
 in

@@ -25,7 +25,7 @@
 let
   jdk = jdk21_with_openjfx;
   self = stdenv.mkDerivation rec {
-    inherit (sources.XiaoMiToolV2) pname version src;
+    inherit (sources.AAA_XiaoMiToolV2) pname version src;
 
     nativeBuildInputs = [
       gradle

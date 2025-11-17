@@ -13,7 +13,7 @@
 }:
 
 stdenv.mkDerivation (_finalAttrs: {
-  inherit (sources.buffybox) pname version src;
+  inherit (sources.AAA_buffybox) pname version src;
 
   nativeBuildInputs = [
     meson

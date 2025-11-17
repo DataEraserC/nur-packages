@@ -10,7 +10,7 @@
   ...
 }:
 let
-  resources = sources.UnknownAnimeGamePS-resources.src;
+  resources = sources.AAA_UnknownAnimeGamePS-resources.src;
   keystore = fetchurl {
     url = "https://github.com/XeonSucksLAB/UnknownAnimeGamePS/raw/development/keystore.p12";
     hash = "sha256-apFbGtWacE3GjXU/6h2yseskAsob0Xc/NWEu2uC0v3M=";

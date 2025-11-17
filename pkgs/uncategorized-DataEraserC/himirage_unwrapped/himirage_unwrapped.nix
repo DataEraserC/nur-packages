@@ -62,7 +62,7 @@ let
   HostPlatform = stdenv.hostPlatform.system;
   source =
     if lib.elem HostPlatform SupportedPlatforms then
-      sources."himirage-${HostPlatform}"
+      sources."AAA_himirage-${HostPlatform}"
     else
       throw "Unsupported platform: ${HostPlatform}";
 in

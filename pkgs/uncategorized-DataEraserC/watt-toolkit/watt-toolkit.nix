@@ -6,7 +6,7 @@
   ffmpeg,
 }:
 buildDotnetModule rec {
-  inherit (sources.SteamTools) version pname src;
+  inherit (sources.AAA_SteamTools) version pname src;
   projectFile = "WattToolkit.sln";
   nugetDeps = ./deps.json; # see "Generating and updating NuGet dependencies" section for details
 

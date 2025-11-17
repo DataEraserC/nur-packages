@@ -10,7 +10,7 @@ let
   pname_zh = "酷市场";
 in
 flutter.buildFlutterApplication rec {
-  inherit (sources.c001apk-flutter) pname version src;
+  inherit (sources.AAA_c001apk-flutter) pname version src;
 
   sourceRoot = "${src.name}";
   autoPubspecLock = src + "/pubspec.lock";

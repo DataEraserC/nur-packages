@@ -6,7 +6,7 @@
 
 stdenvNoCC.mkDerivation {
 
-  inherit (sources.CustomPinyinDictionary_Fcitx) pname version src;
+  inherit (sources.AAA_CustomPinyinDictionary_Fcitx) pname version src;
 
   dontUnpack = true;
   installPhase = ''

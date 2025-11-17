@@ -8,7 +8,7 @@
 }:
 let
   self = stdenv.mkDerivation {
-    inherit (sources.UnknownAnimeGamePS) pname version src;
+    inherit (sources.AAA_UnknownAnimeGamePS) pname version src;
 
     nativeBuildInputs = [
       gradle

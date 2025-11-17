@@ -15,7 +15,7 @@
   ...
 }:
 stdenvNoCC.mkDerivation {
-  inherit (sources.hdrop) pname version src;
+  inherit (sources.AAA_hdrop) pname version src;
 
   nativeBuildInputs = [
     makeWrapper
