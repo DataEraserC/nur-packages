@@ -11,15 +11,15 @@
   };
   AAA_LiteLoaderQQNT = {
     pname = "AAA_LiteLoaderQQNT";
-    version = "a447587bec7f50eed84b05404b9cd5fcd62c395f";
+    version = "7a3ea032349f24458a8e657e44cd6febc59a93e1";
     src = fetchFromGitHub {
       owner = "LiteLoaderQQNT";
       repo = "LiteLoaderQQNT";
-      rev = "a447587bec7f50eed84b05404b9cd5fcd62c395f";
+      rev = "7a3ea032349f24458a8e657e44cd6febc59a93e1";
       fetchSubmodules = true;
-      hash = "sha256-Frtb7JFe7lvBVSPrMT16PpJPNVrM4qFOLn+Vl56KBEY=";
+      hash = "sha256-+MTBeAp5/y7Lb4QMURG8Afra4sQYyGG6p/TpF/lGLSM=";
     };
-    date = "2025-11-17";
+    date = "2025-11-18";
   };
   AAA_MC-LauncherX-JSON = {
     pname = "AAA_MC-LauncherX-JSON";
@@ -75,13 +75,13 @@
   };
   AAA_PiliPalaX = {
     pname = "AAA_PiliPalaX";
-    version = "ad931d7ea23b5691e35b34d590ae3cc742cb9474";
+    version = "ec82c862109cf98f1939de35c91d2a4082c667ca";
     src = fetchFromGitHub {
       owner = "bggRGjQaUbCoE";
       repo = "PiliPlus";
-      rev = "ad931d7ea23b5691e35b34d590ae3cc742cb9474";
+      rev = "ec82c862109cf98f1939de35c91d2a4082c667ca";
       fetchSubmodules = true;
-      hash = "sha256-GC1Sn5+b9Sfmuu2QINt1xq9jfnEF9qA1LFxV0I9ggm4=";
+      hash = "sha256-uC1R+sb4pIETDSSiLmRH9gTdzS7yiqpP6HeBT37SkHM=";
     };
     date = "2025-11-17";
   };
@@ -292,7 +292,7 @@
   };
   AAA_himirage-JSON = {
     pname = "AAA_himirage-JSON";
-    version = "2025-11-17 18:01:36";
+    version = "2025-11-18 18:06:01";
     src = fetchurl {
       url = "https://album.photosir.cn/upgradePackage/infoall/photosir";
       hash = "sha256-nQjQwrKvih7iN5U5x6/vMmJeMOvkp+DrxmL8Q4HMVIU=";
@@ -514,10 +514,10 @@
   };
   AAA_v2ray-rules-dat = {
     pname = "AAA_v2ray-rules-dat";
-    version = "202511162212";
+    version = "202511172214";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202511162212/rules.zip";
-      hash = "sha256-AetmxG1+TJ1gsICWo9g5Cmd33w9s4fE1v+Q6G/FVh+o=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202511172214/rules.zip";
+      hash = "sha256-2dJ0mYGMb53UoxKbRbMFFUYMvZThqXAFC3oJuAi/Rwg=";
     };
   };
   AAA_wechat-web-devtools-linux_appimage = {
@@ -1056,14 +1056,14 @@
   };
   ela-widget-tools = {
     pname = "ela-widget-tools";
-    version = "c1eed7c23545e61cc63a34f2cc26737c9d563f78";
+    version = "aecbaa705a198cac973ed29c9bcae035ec3d4ce1";
     src = fetchFromGitHub {
       owner = "Liniyous";
       repo = "ElaWidgetTools";
-      rev = "c1eed7c23545e61cc63a34f2cc26737c9d563f78";
-      hash = "sha256-bmByAQKasqJIaX9W8M+cFQppr7ACF07TZAuXb0xgvfU=";
+      rev = "aecbaa705a198cac973ed29c9bcae035ec3d4ce1";
+      hash = "sha256-kkXI+aqmZhU/GvOLyIetONHcjSrAxddKvfuiqidG+0g=";
     };
-    date = "2025-10-30";
+    date = "2025-11-18";
   };
   etherguard = {
     pname = "etherguard";
@@ -1437,20 +1437,20 @@
   };
   kata-containers = {
     pname = "kata-containers";
-    version = "3.22.0";
+    version = "3.23.0";
     src = fetchFromGitHub {
       owner = "kata-containers";
       repo = "kata-containers";
-      tag = "3.22.0";
-      hash = "sha256-qkataikgdRc7zkdxxR45/aCd4XRy7DxW/fXXJah3Dd4=";
+      tag = "3.23.0";
+      hash = "sha256-bEoCLyuyawYzO3e1qX3ZG8o2hpnv4394RKc/5Xigng4=";
     };
   };
   kata-image = {
     pname = "kata-image";
-    version = "3.22.0";
+    version = "3.23.0";
     src = fetchurl {
-      url = "https://github.com/kata-containers/kata-containers/releases/download/3.22.0/kata-static-3.22.0-amd64.tar.zst";
-      hash = "sha256-nIoeiDKlO7uCG1ex/YvaB3wtma2yK2Vbe2pWdCOzzDo=";
+      url = "https://github.com/kata-containers/kata-containers/releases/download/3.23.0/kata-static-3.23.0-amd64.tar.zst";
+      hash = "sha256-O3Kg5DQkzaRgyVZhkyFla1UgSTRi08FxoY9+Tf3iLtw=";
     };
   };
   kikoplay = {
@@ -1665,12 +1665,12 @@
   };
   llama-cpp = {
     pname = "llama-cpp";
-    version = "b7083";
+    version = "b7091";
     src = fetchFromGitHub {
       owner = "ggerganov";
       repo = "llama.cpp";
-      tag = "b7083";
-      hash = "sha256-jo65SSLB8s7rjkE/Rr0qax/ouxSMqpDFLtP7bBwK40o=";
+      tag = "b7091";
+      hash = "sha256-17Y7JIvHbtgZWO2tfmenPWVU6SfHkO+Elb+JkircF4Y=";
     };
   };
   loralib = {
@@ -1724,12 +1724,12 @@
   };
   modelscope = {
     pname = "modelscope";
-    version = "v1.31.0";
+    version = "v1.32.0";
     src = fetchFromGitHub {
       owner = "modelscope";
       repo = "modelscope";
-      tag = "v1.31.0";
-      hash = "sha256-3o3iI4LGDSsF36jnrUTN3bBaM8XGCw+msIPS3WauMNQ=";
+      tag = "v1.32.0";
+      hash = "sha256-uU96l/HeQL+YeW36/WHEOCTdmA6LcDOXM94Q16q/5hA=";
     };
   };
   mtkclient = {
@@ -2402,14 +2402,14 @@
   };
   rime-ice = {
     pname = "rime-ice";
-    version = "0802d2a55ef7e6b575ab1a87fee11fe3584ab7de";
+    version = "07d0e1cc67f1bbb46672c5c4c751858f34a83780";
     src = fetchFromGitHub {
       owner = "iDvel";
       repo = "rime-ice";
-      rev = "0802d2a55ef7e6b575ab1a87fee11fe3584ab7de";
-      hash = "sha256-ixT9P6cwGxiozElWdbpDbWehgV+pN91crUg7ppjO8FA=";
+      rev = "07d0e1cc67f1bbb46672c5c4c751858f34a83780";
+      hash = "sha256-AoQUH2zWf4/BWxxO9+kir+f33TpA80bo3Ur4+/f+FdI=";
     };
-    date = "2025-11-04";
+    date = "2025-11-17";
   };
   rime-moegirl = {
     pname = "rime-moegirl";
