@@ -16,7 +16,7 @@
     },
     "AAA_LiteLoaderQQNT": {
         "cargoLocks": null,
-        "date": "2025-11-19",
+        "date": "2025-11-20",
         "extract": null,
         "name": "AAA_LiteLoaderQQNT",
         "passthru": null,
@@ -28,12 +28,12 @@
             "name": null,
             "owner": "LiteLoaderQQNT",
             "repo": "LiteLoaderQQNT",
-            "rev": "0d58ce16ec442f2ab718915b31be97a00129a3f5",
-            "sha256": "sha256-ObmwgfX1dRyL0uBYqA+StGX5FZtQxjRYihQOs29584c=",
+            "rev": "ec5b5888ed2b12b45f7eda1c00d884105f414c6b",
+            "sha256": "sha256-cPEO4BbaD4Kq00wAZxcaA8UNXiCXpt26wvbOnloZ42c=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "0d58ce16ec442f2ab718915b31be97a00129a3f5"
+        "version": "ec5b5888ed2b12b45f7eda1c00d884105f414c6b"
     },
     "AAA_MC-LauncherX-JSON": {
         "cargoLocks": null,
@@ -133,7 +133,7 @@
     },
     "AAA_PiliPalaX": {
         "cargoLocks": null,
-        "date": "2025-11-19",
+        "date": "2025-11-21",
         "extract": null,
         "name": "AAA_PiliPalaX",
         "passthru": null,
@@ -145,12 +145,12 @@
             "name": null,
             "owner": "bggRGjQaUbCoE",
             "repo": "PiliPlus",
-            "rev": "8e1d5e0dd58fc345f71b723613375fd9bfdc3a22",
-            "sha256": "sha256-e25wRilzsWkHomp949bE0AEgAakxCk1Lk/RSlj5TZT0=",
+            "rev": "c1d42b498a695574a4d65e3960d263fde7fa4dd2",
+            "sha256": "sha256-Lw9Kq5owNI5eVwUnZb0szQ3u7qL8dd6QH3CAVLpV0pU=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "8e1d5e0dd58fc345f71b723613375fd9bfdc3a22"
+        "version": "c1d42b498a695574a4d65e3960d263fde7fa4dd2"
     },
     "AAA_SteamTools": {
         "cargoLocks": null,
@@ -332,7 +332,7 @@
     },
     "AAA_c001apk-flutter": {
         "cargoLocks": null,
-        "date": "2025-10-05",
+        "date": "2025-11-21",
         "extract": null,
         "name": "AAA_c001apk-flutter",
         "passthru": null,
@@ -344,12 +344,12 @@
             "name": null,
             "owner": "Integral-Tech",
             "repo": "c001apk-flutter",
-            "rev": "5f03540d2fa67c8028470b7180f6f98e4c7fb81d",
-            "sha256": "sha256-IE7/wbWkCXZTIeRoGOJMFce1GWxbvIAKvti+fjMijWo=",
+            "rev": "6e8873b60a1734df2b2214e07b0a437a3a8f4d59",
+            "sha256": "sha256-5tExbbU1g3TYnpwvPziuivChnEIB2KBtrXBl4yrHrP0=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "5f03540d2fa67c8028470b7180f6f98e4c7fb81d"
+        "version": "6e8873b60a1734df2b2214e07b0a437a3a8f4d59"
     },
     "AAA_cpolar-aarch32-linux": {
         "cargoLocks": null,
@@ -465,11 +465,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-5jnPaWLVCof0P0s//moLpyK0rSBlCx5SeQH/GnIzGFs=",
+            "sha256": "sha256-d6tnV5IhSOPXo5a+uG/z6MlxVdsjMb4qi3Bzr8y9pLg=",
             "type": "url",
-            "url": "https://github.com/viarotel-org/escrcpy/releases/download/v1.32.2/Escrcpy-1.32.2-linux-x86_64.AppImage"
+            "url": "https://github.com/viarotel-org/escrcpy/releases/download/v1.33.0/Escrcpy-1.33.0-linux-x86_64.AppImage"
         },
-        "version": "1.32.2"
+        "version": "1.33.0"
     },
     "AAA_flutter_server_box": {
         "cargoLocks": null,
@@ -541,7 +541,7 @@
             "type": "url",
             "url": "https://album.photosir.cn/upgradePackage/infoall/photosir"
         },
-        "version": "2025-11-19 18:05:56"
+        "version": "2025-11-21 18:02:35"
     },
     "AAA_himirage-aarch64-darwin": {
         "cargoLocks": null,
@@ -947,11 +947,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-w3AlQBFzVMrqLVFV6uXPikxeHQRKHRmGF/EVTxu8x/A=",
+            "sha256": "sha256-693d4j7f7Lrcqzl0YfS5qLif3BXoUITZllvlHb0VILc=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202511182214/rules.zip"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202511210040/rules.zip"
         },
-        "version": "202511182214"
+        "version": "202511210040"
     },
     "AAA_wechat-web-devtools-linux_appimage": {
         "cargoLocks": null,
@@ -3187,12 +3187,12 @@
             "name": null,
             "owner": "ggerganov",
             "repo": "llama.cpp",
-            "rev": "b7100",
-            "sha256": "sha256-6vQS5OO9/k/S5xg6Kcar/uokLSOLLzQzB7jw6Di9BNM=",
+            "rev": "b7122",
+            "sha256": "sha256-2Gp78v1QaIfdildYxJGdSWwNHAJB7hEEwNCo6pK/qS8=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "b7100"
+        "version": "b7122"
     },
     "loralib": {
         "cargoLocks": null,
@@ -3286,12 +3286,12 @@
             "name": null,
             "owner": "intel",
             "repo": "metee",
-            "rev": "6.0.2",
-            "sha256": "sha256-eQpw0VdO+JGtgW4FGduoxY0Gji4hFPSONcEzDRcgWGU=",
+            "rev": "6.1.0",
+            "sha256": "sha256-ybTi4pFZAkoO6FAyUOLK+ZbTQb7uwu/sqhYxo06SE9A=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "6.0.2"
+        "version": "6.1.0"
     },
     "modelscope": {
         "cargoLocks": null,
@@ -4042,12 +4042,12 @@
             "name": null,
             "owner": "luisbocanegra",
             "repo": "plasma-smart-video-wallpaper-reborn",
-            "rev": "v2.6.0",
-            "sha256": "sha256-6U7B2uCCoSXzT5V3Q6n90PRv1gHzhfdHlI7/u2VmmYs=",
+            "rev": "v2.7.0",
+            "sha256": "sha256-lTd+ZAem0x/TXXIAMUqTCBimPwdUYowMtR6/4K3CqeY=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v2.6.0"
+        "version": "v2.7.0"
     },
     "plasma-yesplaymusic-lyric": {
         "cargoLocks": null,
@@ -4752,12 +4752,12 @@
             "name": null,
             "owner": "runpod",
             "repo": "runpod-python",
-            "rev": "v1.8.0",
-            "sha256": "sha256-En9p1Rp6LiYb0uxGrYyif3DpZ0sgcQ+WHyRhq9weNHU=",
+            "rev": "v1.8.1",
+            "sha256": "sha256-bc7VQJf7ertyppy34o7OoKB0M+MYweLu5LRGndvn6y8=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v1.8.0"
+        "version": "v1.8.1"
     },
     "runpodctl": {
         "cargoLocks": null,
@@ -4773,12 +4773,12 @@
             "name": null,
             "owner": "runpod",
             "repo": "runpodctl",
-            "rev": "v1.14.11",
-            "sha256": "sha256-RXI1NAdEg5QypRDXg0NCpHLDrxcRCCS22KGnZyotXrI=",
+            "rev": "v1.14.12",
+            "sha256": "sha256-T0JFPoaH6UhgPMzo+491EUBmjgko1WXP1erMGKc3N5w=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v1.14.11"
+        "version": "v1.14.12"
     },
     "sam-toki-mouse-cursors": {
         "cargoLocks": null,
@@ -5307,7 +5307,7 @@
     },
     "uni-api": {
         "cargoLocks": null,
-        "date": "2025-11-15",
+        "date": "2025-11-21",
         "extract": null,
         "name": "uni-api",
         "passthru": null,
@@ -5319,12 +5319,12 @@
             "name": null,
             "owner": "yym68686",
             "repo": "uni-api",
-            "rev": "460bfb2078e0ebaad4d47268c1a021686f56c566",
-            "sha256": "sha256-pmmBpwTiSLGZefN0ZLQco5BBqnRlBA04XK/VOzqDZCc=",
+            "rev": "cc2dd68a5be6ad73ca0e6b3a0d3502b75dfb7925",
+            "sha256": "sha256-HORid5s/AHcIe6O2WA1g3ZjFss8g0Cxyc82vgAHry/o=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "460bfb2078e0ebaad4d47268c1a021686f56c566"
+        "version": "cc2dd68a5be6ad73ca0e6b3a0d3502b75dfb7925"
     },
     "unigine-heaven": {
         "cargoLocks": null,

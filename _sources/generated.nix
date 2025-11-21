@@ -11,15 +11,15 @@
   };
   AAA_LiteLoaderQQNT = {
     pname = "AAA_LiteLoaderQQNT";
-    version = "0d58ce16ec442f2ab718915b31be97a00129a3f5";
+    version = "ec5b5888ed2b12b45f7eda1c00d884105f414c6b";
     src = fetchFromGitHub {
       owner = "LiteLoaderQQNT";
       repo = "LiteLoaderQQNT";
-      rev = "0d58ce16ec442f2ab718915b31be97a00129a3f5";
+      rev = "ec5b5888ed2b12b45f7eda1c00d884105f414c6b";
       fetchSubmodules = true;
-      hash = "sha256-ObmwgfX1dRyL0uBYqA+StGX5FZtQxjRYihQOs29584c=";
+      hash = "sha256-cPEO4BbaD4Kq00wAZxcaA8UNXiCXpt26wvbOnloZ42c=";
     };
-    date = "2025-11-19";
+    date = "2025-11-20";
   };
   AAA_MC-LauncherX-JSON = {
     pname = "AAA_MC-LauncherX-JSON";
@@ -75,15 +75,15 @@
   };
   AAA_PiliPalaX = {
     pname = "AAA_PiliPalaX";
-    version = "8e1d5e0dd58fc345f71b723613375fd9bfdc3a22";
+    version = "c1d42b498a695574a4d65e3960d263fde7fa4dd2";
     src = fetchFromGitHub {
       owner = "bggRGjQaUbCoE";
       repo = "PiliPlus";
-      rev = "8e1d5e0dd58fc345f71b723613375fd9bfdc3a22";
+      rev = "c1d42b498a695574a4d65e3960d263fde7fa4dd2";
       fetchSubmodules = true;
-      hash = "sha256-e25wRilzsWkHomp949bE0AEgAakxCk1Lk/RSlj5TZT0=";
+      hash = "sha256-Lw9Kq5owNI5eVwUnZb0szQ3u7qL8dd6QH3CAVLpV0pU=";
     };
-    date = "2025-11-19";
+    date = "2025-11-21";
   };
   AAA_SteamTools = {
     pname = "AAA_SteamTools";
@@ -184,15 +184,15 @@
   };
   AAA_c001apk-flutter = {
     pname = "AAA_c001apk-flutter";
-    version = "5f03540d2fa67c8028470b7180f6f98e4c7fb81d";
+    version = "6e8873b60a1734df2b2214e07b0a437a3a8f4d59";
     src = fetchFromGitHub {
       owner = "Integral-Tech";
       repo = "c001apk-flutter";
-      rev = "5f03540d2fa67c8028470b7180f6f98e4c7fb81d";
+      rev = "6e8873b60a1734df2b2214e07b0a437a3a8f4d59";
       fetchSubmodules = true;
-      hash = "sha256-IE7/wbWkCXZTIeRoGOJMFce1GWxbvIAKvti+fjMijWo=";
+      hash = "sha256-5tExbbU1g3TYnpwvPziuivChnEIB2KBtrXBl4yrHrP0=";
     };
-    date = "2025-10-05";
+    date = "2025-11-21";
   };
   AAA_cpolar-aarch32-linux = {
     pname = "AAA_cpolar-aarch32-linux";
@@ -252,10 +252,10 @@
   };
   AAA_escrcpy_appimage = {
     pname = "AAA_escrcpy_appimage";
-    version = "1.32.2";
+    version = "1.33.0";
     src = fetchurl {
-      url = "https://github.com/viarotel-org/escrcpy/releases/download/v1.32.2/Escrcpy-1.32.2-linux-x86_64.AppImage";
-      hash = "sha256-5jnPaWLVCof0P0s//moLpyK0rSBlCx5SeQH/GnIzGFs=";
+      url = "https://github.com/viarotel-org/escrcpy/releases/download/v1.33.0/Escrcpy-1.33.0-linux-x86_64.AppImage";
+      hash = "sha256-d6tnV5IhSOPXo5a+uG/z6MlxVdsjMb4qi3Bzr8y9pLg=";
     };
   };
   AAA_flutter_server_box = {
@@ -292,7 +292,7 @@
   };
   AAA_himirage-JSON = {
     pname = "AAA_himirage-JSON";
-    version = "2025-11-19 18:05:56";
+    version = "2025-11-21 18:02:35";
     src = fetchurl {
       url = "https://album.photosir.cn/upgradePackage/infoall/photosir";
       hash = "sha256-nQjQwrKvih7iN5U5x6/vMmJeMOvkp+DrxmL8Q4HMVIU=";
@@ -514,10 +514,10 @@
   };
   AAA_v2ray-rules-dat = {
     pname = "AAA_v2ray-rules-dat";
-    version = "202511182214";
+    version = "202511210040";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202511182214/rules.zip";
-      hash = "sha256-w3AlQBFzVMrqLVFV6uXPikxeHQRKHRmGF/EVTxu8x/A=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202511210040/rules.zip";
+      hash = "sha256-693d4j7f7Lrcqzl0YfS5qLif3BXoUITZllvlHb0VILc=";
     };
   };
   AAA_wechat-web-devtools-linux_appimage = {
@@ -1665,12 +1665,12 @@
   };
   llama-cpp = {
     pname = "llama-cpp";
-    version = "b7100";
+    version = "b7122";
     src = fetchFromGitHub {
       owner = "ggerganov";
       repo = "llama.cpp";
-      tag = "b7100";
-      hash = "sha256-6vQS5OO9/k/S5xg6Kcar/uokLSOLLzQzB7jw6Di9BNM=";
+      tag = "b7122";
+      hash = "sha256-2Gp78v1QaIfdildYxJGdSWwNHAJB7hEEwNCo6pK/qS8=";
     };
   };
   loralib = {
@@ -1714,12 +1714,12 @@
   };
   metee = {
     pname = "metee";
-    version = "6.0.2";
+    version = "6.1.0";
     src = fetchFromGitHub {
       owner = "intel";
       repo = "metee";
-      tag = "6.0.2";
-      hash = "sha256-eQpw0VdO+JGtgW4FGduoxY0Gji4hFPSONcEzDRcgWGU=";
+      tag = "6.1.0";
+      hash = "sha256-ybTi4pFZAkoO6FAyUOLK+ZbTQb7uwu/sqhYxo06SE9A=";
     };
   };
   modelscope = {
@@ -2095,12 +2095,12 @@
   };
   plasma-smart-video-wallpaper-reborn = {
     pname = "plasma-smart-video-wallpaper-reborn";
-    version = "v2.6.0";
+    version = "v2.7.0";
     src = fetchFromGitHub {
       owner = "luisbocanegra";
       repo = "plasma-smart-video-wallpaper-reborn";
-      tag = "v2.6.0";
-      hash = "sha256-6U7B2uCCoSXzT5V3Q6n90PRv1gHzhfdHlI7/u2VmmYs=";
+      tag = "v2.7.0";
+      hash = "sha256-lTd+ZAem0x/TXXIAMUqTCBimPwdUYowMtR6/4K3CqeY=";
     };
   };
   plasma-yesplaymusic-lyric = {
@@ -2460,22 +2460,22 @@
   };
   runpod-python = {
     pname = "runpod-python";
-    version = "v1.8.0";
+    version = "v1.8.1";
     src = fetchFromGitHub {
       owner = "runpod";
       repo = "runpod-python";
-      tag = "v1.8.0";
-      hash = "sha256-En9p1Rp6LiYb0uxGrYyif3DpZ0sgcQ+WHyRhq9weNHU=";
+      tag = "v1.8.1";
+      hash = "sha256-bc7VQJf7ertyppy34o7OoKB0M+MYweLu5LRGndvn6y8=";
     };
   };
   runpodctl = {
     pname = "runpodctl";
-    version = "v1.14.11";
+    version = "v1.14.12";
     src = fetchFromGitHub {
       owner = "runpod";
       repo = "runpodctl";
-      tag = "v1.14.11";
-      hash = "sha256-RXI1NAdEg5QypRDXg0NCpHLDrxcRCCS22KGnZyotXrI=";
+      tag = "v1.14.12";
+      hash = "sha256-T0JFPoaH6UhgPMzo+491EUBmjgko1WXP1erMGKc3N5w=";
     };
   };
   sam-toki-mouse-cursors = {
@@ -2751,15 +2751,15 @@
   };
   uni-api = {
     pname = "uni-api";
-    version = "460bfb2078e0ebaad4d47268c1a021686f56c566";
+    version = "cc2dd68a5be6ad73ca0e6b3a0d3502b75dfb7925";
     src = fetchFromGitHub {
       owner = "yym68686";
       repo = "uni-api";
-      rev = "460bfb2078e0ebaad4d47268c1a021686f56c566";
+      rev = "cc2dd68a5be6ad73ca0e6b3a0d3502b75dfb7925";
       fetchSubmodules = true;
-      hash = "sha256-pmmBpwTiSLGZefN0ZLQco5BBqnRlBA04XK/VOzqDZCc=";
+      hash = "sha256-HORid5s/AHcIe6O2WA1g3ZjFss8g0Cxyc82vgAHry/o=";
     };
-    date = "2025-11-15";
+    date = "2025-11-21";
   };
   unigine-heaven = {
     pname = "unigine-heaven";
