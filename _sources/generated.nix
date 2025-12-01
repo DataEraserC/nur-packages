@@ -11,13 +11,13 @@
   };
   AAA_LiteLoaderQQNT = {
     pname = "AAA_LiteLoaderQQNT";
-    version = "7f9574451ee33f7ec89ec3c044c9de8b32c54321";
+    version = "8ca41721266dc5cc24f8a9c8f9644786c5eaa587";
     src = fetchFromGitHub {
       owner = "LiteLoaderQQNT";
       repo = "LiteLoaderQQNT";
-      rev = "7f9574451ee33f7ec89ec3c044c9de8b32c54321";
+      rev = "8ca41721266dc5cc24f8a9c8f9644786c5eaa587";
       fetchSubmodules = true;
-      hash = "sha256-WZ+LrBbAHHdP996NnvpbgedHh6kiDTil2OSNb1dIuCI=";
+      hash = "sha256-TRSUAZUe44a+6MBX6ctqKExC4le9/uoa8agc0JRKWwk=";
     };
     date = "2025-11-30";
   };
@@ -75,15 +75,15 @@
   };
   AAA_PiliPalaX = {
     pname = "AAA_PiliPalaX";
-    version = "a48f6b1ca52e20fb459c070a9f72d62019136350";
+    version = "fb5116d5254ef7146298fa4ce69a547c330bb579";
     src = fetchFromGitHub {
       owner = "bggRGjQaUbCoE";
       repo = "PiliPlus";
-      rev = "a48f6b1ca52e20fb459c070a9f72d62019136350";
+      rev = "fb5116d5254ef7146298fa4ce69a547c330bb579";
       fetchSubmodules = true;
-      hash = "sha256-KviltS9IC0cYl2+FKDQ535ot+ieZ21KrxRTBPxuDoe0=";
+      hash = "sha256-OhfcmU7mo9ESTbJ97sfjyaXsbLKgUp2QBEBE/dzhSVc=";
     };
-    date = "2025-11-30";
+    date = "2025-12-01";
   };
   AAA_SteamTools = {
     pname = "AAA_SteamTools";
@@ -292,7 +292,7 @@
   };
   AAA_himirage-JSON = {
     pname = "AAA_himirage-JSON";
-    version = "2025-11-30 18:08:23";
+    version = "2025-12-01 18:01:39";
     src = fetchurl {
       url = "https://album.photosir.cn/upgradePackage/infoall/photosir";
       hash = "sha256-nQjQwrKvih7iN5U5x6/vMmJeMOvkp+DrxmL8Q4HMVIU=";
@@ -448,15 +448,15 @@
   };
   AAA_scrcpy-mask = {
     pname = "AAA_scrcpy-mask";
-    version = "80e2eed57ca6fb01070ab5918002494955fbcafe";
+    version = "c55cd94b4fc7001e3579a5bf3d1b67cd1f145d8d";
     src = fetchFromGitHub {
       owner = "AkiChase";
       repo = "scrcpy-mask";
-      rev = "80e2eed57ca6fb01070ab5918002494955fbcafe";
+      rev = "c55cd94b4fc7001e3579a5bf3d1b67cd1f145d8d";
       fetchSubmodules = true;
-      hash = "sha256-dJrckTR5Hs30ugwxCOPlZCO/NPgKClxrYdgl5U8l3TA=";
+      hash = "sha256-TEGJndPcXEo0OBI1KumlG4s9A5lfgd8omWuDFIZV0sk=";
     };
-    date = "2025-10-13";
+    date = "2025-11-30";
   };
   AAA_snell-server-aarch32-linux = {
     pname = "AAA_snell-server-aarch32-linux";
@@ -514,10 +514,10 @@
   };
   AAA_v2ray-rules-dat = {
     pname = "AAA_v2ray-rules-dat";
-    version = "202511292213";
+    version = "202511302213";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202511292213/rules.zip";
-      hash = "sha256-zOCMz5G2tUExOOc7QgSbtI2c3hPb+5+M/tJHjuE1oTA=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202511302213/rules.zip";
+      hash = "sha256-3NNI7tdZOyxn8MJiGqwtH6IbuSCbcY2wVt2KFUSjfeQ=";
     };
   };
   AAA_wechat-web-devtools-linux_appimage = {
@@ -906,26 +906,26 @@
   };
   dbip-asn-lite = {
     pname = "dbip-asn-lite";
-    version = "2025-11";
+    version = "2025-12";
     src = fetchurl {
-      url = "https://download.db-ip.com/free/dbip-asn-lite-2025-11.mmdb.gz";
-      hash = "sha256-1Je/L9NFN83Suzl+qvbJE5gzUitx6Iin5O0VqqjgecI=";
+      url = "https://download.db-ip.com/free/dbip-asn-lite-2025-12.mmdb.gz";
+      hash = "sha256-Xqo0j9nzQAel1NoTSxOGb8wqSnhATyCKGD6CPGomG5Q=";
     };
   };
   dbip-city-lite = {
     pname = "dbip-city-lite";
-    version = "2025-11";
+    version = "2025-12";
     src = fetchurl {
-      url = "https://download.db-ip.com/free/dbip-city-lite-2025-11.mmdb.gz";
-      hash = "sha256-CG29ARDYz1PU5JoIvybLUWuckufMk16/vzPj5H0h7V0=";
+      url = "https://download.db-ip.com/free/dbip-city-lite-2025-12.mmdb.gz";
+      hash = "sha256-95f843vCjZgfuQEv6LDOmrUej/qV5Yr+qGHXddBPhHU=";
     };
   };
   dbip-country-lite = {
     pname = "dbip-country-lite";
-    version = "2025-11";
+    version = "2025-12";
     src = fetchurl {
-      url = "https://download.db-ip.com/free/dbip-country-lite-2025-11.mmdb.gz";
-      hash = "sha256-oOLvy3Le+ybHa3z2AGcmXdjUrfOxhguq8bRkyQh7MnI=";
+      url = "https://download.db-ip.com/free/dbip-country-lite-2025-12.mmdb.gz";
+      hash = "sha256-MQ9kJubtM2Iq+gywSz6r7kkdv++BT9qEVPukFV8BQ5Q=";
     };
   };
   decluttarr = {
@@ -1220,26 +1220,26 @@
   };
   geolite2-asn = {
     pname = "geolite2-asn";
-    version = "2025.11.28";
+    version = "2025.12.01";
     src = fetchurl {
-      url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.11.28/GeoLite2-ASN.mmdb";
-      hash = "sha256-Z0b22H61yHyd9z9cuXud0e9nqJMaPgyUcvESiT+TBiI=";
+      url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.12.01/GeoLite2-ASN.mmdb";
+      hash = "sha256-ko3mn1xLtQjo4S58YrSr2HasKM2CZ4TKqUvy1bb5qg8=";
     };
   };
   geolite2-city = {
     pname = "geolite2-city";
-    version = "2025.11.28";
+    version = "2025.12.01";
     src = fetchurl {
-      url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.11.28/GeoLite2-City.mmdb";
-      hash = "sha256-PIENm/MdATtAF9Y1LFcU1+FD8is91E7LN1xmFQ13vOk=";
+      url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.12.01/GeoLite2-City.mmdb";
+      hash = "sha256-M0jcYwmG0/Catx+Hr9x1+W0DRGbwI/8EaFBTgcY/L3Y=";
     };
   };
   geolite2-country = {
     pname = "geolite2-country";
-    version = "2025.11.28";
+    version = "2025.12.01";
     src = fetchurl {
-      url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.11.28/GeoLite2-Country.mmdb";
-      hash = "sha256-Q6gFA2BxcIJh43HPSF0GQiz9QcCvA3Xv/zR68xGMpTg=";
+      url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.12.01/GeoLite2-Country.mmdb";
+      hash = "sha256-BFn0Ivni6GVCcvaTSpW3n1W+DMcPNWMKlGtX7LO0OOI=";
     };
   };
   glauth = {
@@ -1665,12 +1665,12 @@
   };
   llama-cpp = {
     pname = "llama-cpp";
-    version = "b7205";
+    version = "b7211";
     src = fetchFromGitHub {
       owner = "ggerganov";
       repo = "llama.cpp";
-      tag = "b7205";
-      hash = "sha256-TDTGxcD20odFm2hiEzmPRCCz3O4VZVf9TDeJWsL/0NI=";
+      tag = "b7211";
+      hash = "sha256-B4iQaMIyFNlWdsiTQ1fSXNbOyFAEAy2KraEJXGS0tj4=";
     };
   };
   loralib = {
@@ -1696,10 +1696,10 @@
   };
   magiskboot = {
     pname = "magiskboot";
-    version = "v29.0";
+    version = "v30.5";
     src = fetchurl {
-      url = "https://github.com/topjohnwu/Magisk/releases/download/v29.0/Magisk-v29.0.apk";
-      hash = "sha256-mdQN8aaKBaXnhFKpzU8tdTQ012IrrutE6hSugjjBqco=";
+      url = "https://github.com/topjohnwu/Magisk/releases/download/v30.5/Magisk-v30.5.apk";
+      hash = "sha256-gS8b8FunTaT5kcbKcw7Jz1pM9DP4d0lg/ZphmBJiSS0=";
     };
   };
   mautrix-gmessages = {
@@ -2439,14 +2439,14 @@
   };
   route-chain = {
     pname = "route-chain";
-    version = "8922b56c70f92f29a9bbd72a4e8a13fd8b8c4197";
+    version = "2245d155c2089067cb2fcd9adf3f4d576fd09084";
     src = fetchFromGitHub {
       owner = "xddxdd";
       repo = "route-chain";
-      rev = "8922b56c70f92f29a9bbd72a4e8a13fd8b8c4197";
-      hash = "sha256-nliVHuZ8MmirgQQAaaWl92nbx6zQhX+pXXimM+II0JY=";
+      rev = "2245d155c2089067cb2fcd9adf3f4d576fd09084";
+      hash = "sha256-+zaOtGCrHTcHF32vPmY3IGeVl/FAQ09OWdPYJ54DFyI=";
     };
-    date = "2023-09-09";
+    date = "2025-11-30";
   };
   rtpengine = {
     pname = "rtpengine";
