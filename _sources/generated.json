@@ -16,7 +16,7 @@
     },
     "AAA_LiteLoaderQQNT": {
         "cargoLocks": null,
-        "date": "2025-11-30",
+        "date": "2025-12-02",
         "extract": null,
         "name": "AAA_LiteLoaderQQNT",
         "passthru": null,
@@ -28,12 +28,12 @@
             "name": null,
             "owner": "LiteLoaderQQNT",
             "repo": "LiteLoaderQQNT",
-            "rev": "8ca41721266dc5cc24f8a9c8f9644786c5eaa587",
-            "sha256": "sha256-TRSUAZUe44a+6MBX6ctqKExC4le9/uoa8agc0JRKWwk=",
+            "rev": "2e351aae7ec189322b152cc0bcf2dc4c22450c16",
+            "sha256": "sha256-0e8hKs6ZNmy4fflyLupcFVgdslxu/5TF6H6NWqqEyg4=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "8ca41721266dc5cc24f8a9c8f9644786c5eaa587"
+        "version": "2e351aae7ec189322b152cc0bcf2dc4c22450c16"
     },
     "AAA_MC-LauncherX-JSON": {
         "cargoLocks": null,
@@ -133,7 +133,7 @@
     },
     "AAA_PiliPalaX": {
         "cargoLocks": null,
-        "date": "2025-12-01",
+        "date": "2025-12-02",
         "extract": null,
         "name": "AAA_PiliPalaX",
         "passthru": null,
@@ -145,12 +145,12 @@
             "name": null,
             "owner": "bggRGjQaUbCoE",
             "repo": "PiliPlus",
-            "rev": "fb5116d5254ef7146298fa4ce69a547c330bb579",
-            "sha256": "sha256-OhfcmU7mo9ESTbJ97sfjyaXsbLKgUp2QBEBE/dzhSVc=",
+            "rev": "001b746f65a22173b01d0af6500df7706ab3b9b4",
+            "sha256": "sha256-5S3xS5lljUEV/7wmnw8Ljnp/M5gfe/A5J6r1+7sQtX0=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "fb5116d5254ef7146298fa4ce69a547c330bb579"
+        "version": "001b746f65a22173b01d0af6500df7706ab3b9b4"
     },
     "AAA_SteamTools": {
         "cargoLocks": null,
@@ -541,7 +541,7 @@
             "type": "url",
             "url": "https://album.photosir.cn/upgradePackage/infoall/photosir"
         },
-        "version": "2025-12-01 18:01:39"
+        "version": "2025-12-02 18:04:43"
     },
     "AAA_himirage-aarch64-darwin": {
         "cargoLocks": null,
@@ -947,11 +947,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-3NNI7tdZOyxn8MJiGqwtH6IbuSCbcY2wVt2KFUSjfeQ=",
+            "sha256": "sha256-9Kv4Mc2xzITxl2a28Jpei51EqKFd98ATHXzqpfl2jc0=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202511302213/rules.zip"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512012213/rules.zip"
         },
-        "version": "202511302213"
+        "version": "202512012213"
     },
     "AAA_wechat-web-devtools-linux_appimage": {
         "cargoLocks": null,
@@ -1339,12 +1339,12 @@
             "name": null,
             "owner": "xddxdd",
             "repo": "bird-lg-go",
-            "rev": "v1.3.12.1",
-            "sha256": "sha256-nCu1E2mEHSUBXfITHGba1lfUlZ9NsB6UHUVSI2k26Zo=",
+            "rev": "v1.4.0",
+            "sha256": "sha256-7VF0MFNa3edKOWmMBib0DxlB1c1h3qBieA4YeUAuBzM=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v1.3.12.1"
+        "version": "v1.4.0"
     },
     "boringssl-oqs": {
         "cargoLocks": null,
@@ -1399,7 +1399,7 @@
     },
     "cachyos-kernel": {
         "cargoLocks": null,
-        "date": "2025-11-27",
+        "date": "2025-12-01",
         "extract": null,
         "name": "cachyos-kernel",
         "passthru": null,
@@ -1411,16 +1411,16 @@
             "name": null,
             "owner": "CachyOS",
             "repo": "linux-cachyos",
-            "rev": "e3fe7cb2a1f8e9302e7195f3d811acc9d1153059",
-            "sha256": "sha256-tfx6t3yQ98NxfjDMKz7D/OGOTv0Q7Ql6+VcWWGHn09Q=",
+            "rev": "acf85ecb3d8a03fb9fd3160ce6d9bdb05ef1c124",
+            "sha256": "sha256-FgEoeJWSlq3keIsY8WAjudBX49MWvTKoLZBuyiPpp5k=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "e3fe7cb2a1f8e9302e7195f3d811acc9d1153059"
+        "version": "acf85ecb3d8a03fb9fd3160ce6d9bdb05ef1c124"
     },
     "cachyos-kernel-patches": {
         "cargoLocks": null,
-        "date": "2025-11-28",
+        "date": "2025-12-02",
         "extract": null,
         "name": "cachyos-kernel-patches",
         "passthru": null,
@@ -1432,12 +1432,12 @@
             "name": null,
             "owner": "CachyOS",
             "repo": "kernel-patches",
-            "rev": "e6148bd3cf4e5d58959a6596e2db49fbec5e91e5",
-            "sha256": "sha256-MYaCzfa6zGRvX3KgMKozg0Teijm+DkUDyOkjBhuEP1Q=",
+            "rev": "0ac7e72d6b9f973a1682806d0166042869aa4144",
+            "sha256": "sha256-0hQy5EoDK2p/smbzg1QOoJVV7oapnGr3Tu4KT8tU9xw=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "e6148bd3cf4e5d58959a6596e2db49fbec5e91e5"
+        "version": "0ac7e72d6b9f973a1682806d0166042869aa4144"
     },
     "calibre-cops": {
         "cargoLocks": null,
@@ -3085,13 +3085,13 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "6.17.9-xanmod1",
-            "sha256": "sha256-M0M8jEflWgGMSUqQ2oEePISaYR5UIJbGrSmphCTIKYI=",
+            "rev": "6.17.10-xanmod1",
+            "sha256": "sha256-Y6WsimtxzT6SutR040tUK+fVNnxnACtiyA3DF+iiPVM=",
             "sparseCheckout": [],
             "type": "git",
             "url": "https://gitlab.com/xanmod/linux.git"
         },
-        "version": "6.17.9-xanmod1"
+        "version": "6.17.10-xanmod1"
     },
     "linux-xanmod-6_0": {
         "cargoLocks": null,
@@ -3145,13 +3145,13 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "6.12.59-xanmod1",
-            "sha256": "sha256-IvKN4osLSZmMPeQFUZ05W7YLZYS1HLsxDoAFbi7sxKQ=",
+            "rev": "6.12.60-xanmod1",
+            "sha256": "sha256-nS9vsdH76q+uUaWXEp3duikX7osVqv7hjBMFNzdtA7o=",
             "sparseCheckout": [],
             "type": "git",
             "url": "https://gitlab.com/xanmod/linux.git"
         },
-        "version": "6.12.59-xanmod1"
+        "version": "6.12.60-xanmod1"
     },
     "linux-xanmod-6_6": {
         "cargoLocks": null,
@@ -3187,12 +3187,12 @@
             "name": null,
             "owner": "ggerganov",
             "repo": "llama.cpp",
-            "rev": "b7211",
-            "sha256": "sha256-B4iQaMIyFNlWdsiTQ1fSXNbOyFAEAy2KraEJXGS0tj4=",
+            "rev": "b7225",
+            "sha256": "sha256-ztWETD7gnR2cFqUpkovzwcfamI4sq6DfYPcBM0QpAOE=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "b7211"
+        "version": "b7225"
     },
     "loralib": {
         "cargoLocks": null,
@@ -3245,11 +3245,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-gS8b8FunTaT5kcbKcw7Jz1pM9DP4d0lg/ZphmBJiSS0=",
+            "sha256": "sha256-8f/DyaVhTCUbprraMIFjrMPD2ETPAdM/Vai8FRrcNM4=",
             "type": "url",
-            "url": "https://github.com/topjohnwu/Magisk/releases/download/v30.5/Magisk-v30.5.apk"
+            "url": "https://github.com/topjohnwu/Magisk/releases/download/v30.6/Magisk-v30.6.apk"
         },
-        "version": "v30.5"
+        "version": "v30.6"
     },
     "mautrix-gmessages": {
         "cargoLocks": null,
@@ -5307,7 +5307,7 @@
     },
     "uni-api": {
         "cargoLocks": null,
-        "date": "2025-11-27",
+        "date": "2025-12-02",
         "extract": null,
         "name": "uni-api",
         "passthru": null,
@@ -5319,12 +5319,12 @@
             "name": null,
             "owner": "yym68686",
             "repo": "uni-api",
-            "rev": "5ba886165b4227cac88ce282198fbf083c58fbb2",
-            "sha256": "sha256-WmjzZWTJBh0IujYSb6iNzfaRaR1uS0mNUZ+slP1VqKg=",
+            "rev": "dfdaa7cb07855a6442e2833a6c4b894902259ec5",
+            "sha256": "sha256-5iswmaIotRzcBa3JIZWEKzFU3aistoVtuWEuCQZ3uQs=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "5ba886165b4227cac88ce282198fbf083c58fbb2"
+        "version": "dfdaa7cb07855a6442e2833a6c4b894902259ec5"
     },
     "unigine-heaven": {
         "cargoLocks": null,
