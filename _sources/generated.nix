@@ -292,7 +292,7 @@
   };
   AAA_himirage-JSON = {
     pname = "AAA_himirage-JSON";
-    version = "2025-12-04 18:02:52";
+    version = "2025-12-05 18:02:12";
     src = fetchurl {
       url = "https://album.photosir.cn/upgradePackage/infoall/photosir";
       hash = "sha256-nQjQwrKvih7iN5U5x6/vMmJeMOvkp+DrxmL8Q4HMVIU=";
@@ -514,10 +514,10 @@
   };
   AAA_v2ray-rules-dat = {
     pname = "AAA_v2ray-rules-dat";
-    version = "202512032215";
+    version = "202512042212";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512032215/rules.zip";
-      hash = "sha256-reDbR5hgAfkqxPZHzxtOkvkX+027VevLAGsnTLNk2lc=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512042212/rules.zip";
+      hash = "sha256-4janZULoe7xsmWuZK1HBj8+fGCHlhNh+VuGPSrOvNHM=";
     };
   };
   AAA_wechat-web-devtools-linux_appimage = {
@@ -705,12 +705,12 @@
   };
   bin-cpuflags-x86 = {
     pname = "bin-cpuflags-x86";
-    version = "1.0.5";
+    version = "1.0.6";
     src = fetchFromGitHub {
       owner = "HanabishiRecca";
       repo = "bin-cpuflags-x86";
-      tag = "1.0.5";
-      hash = "sha256-XLeP0fLNY7Jr9xy1xV+KBoqR1LG+YpWXkup17gGI+YQ=";
+      tag = "1.0.6";
+      hash = "sha256-g76Nl5PzzEXyrTMZSQdbcUy0gP3PJvmxuBLfVpa6J6g=";
     };
   };
   bird-lg-go = {
@@ -1615,12 +1615,12 @@
   };
   linux-xanmod = {
     pname = "linux-xanmod";
-    version = "6.17.10-xanmod1";
+    version = "6.18.0-xanmod1";
     src = fetchgit {
       url = "https://gitlab.com/xanmod/linux.git";
-      tag = "6.17.10-xanmod1";
+      tag = "6.18.0-xanmod1";
       fetchSubmodules = false;
-      hash = "sha256-Y6WsimtxzT6SutR040tUK+fVNnxnACtiyA3DF+iiPVM=";
+      hash = "sha256-voGRfxlZuejQvalSj/teB8XMvnzE3VG15kCtsNTCFFo=";
     };
   };
   linux-xanmod-6_0 = {
@@ -1665,12 +1665,12 @@
   };
   llama-cpp = {
     pname = "llama-cpp";
-    version = "b7264";
+    version = "b7278";
     src = fetchFromGitHub {
       owner = "ggerganov";
       repo = "llama.cpp";
-      tag = "b7264";
-      hash = "sha256-ItM/oESpSoLvkA6w/Q9ECmAei6giEPm3HgfmhnWSaiM=";
+      tag = "b7278";
+      hash = "sha256-dWCvVDCen6sL4DNmx/C71k6K/bF+UWcZsoLY1JVP++A=";
     };
   };
   loralib = {
