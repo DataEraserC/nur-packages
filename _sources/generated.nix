@@ -75,15 +75,15 @@
   };
   AAA_PiliPalaX = {
     pname = "AAA_PiliPalaX";
-    version = "7c1644efc48605025c6ff59f0e28ce14dfb9c146";
+    version = "255e39b70917167243875921106b0b1ed9160ba6";
     src = fetchFromGitHub {
       owner = "bggRGjQaUbCoE";
       repo = "PiliPlus";
-      rev = "7c1644efc48605025c6ff59f0e28ce14dfb9c146";
+      rev = "255e39b70917167243875921106b0b1ed9160ba6";
       fetchSubmodules = true;
-      hash = "sha256-blv0WrPLXZQzMpCWBQ21pnrvR77HsV+Y9l/7931cd7M=";
+      hash = "sha256-FJ5LL5MhseriRls+Cgy7WP8Vba2L04U9f5jGNQKE9v0=";
     };
-    date = "2025-12-04";
+    date = "2025-12-06";
   };
   AAA_SteamTools = {
     pname = "AAA_SteamTools";
@@ -272,10 +272,10 @@
   };
   AAA_flutter_server_box_appimage = {
     pname = "AAA_flutter_server_box_appimage";
-    version = "v1.0.1270/ServerBox_1270_amd64.AppImage";
+    version = "v1.0.1276/ServerBox_1276_amd64.AppImage";
     src = fetchurl {
-      url = "https://github.com/lollipopkit/flutter_server_box/releases/download/v1.0.1270/ServerBox_1270_amd64.AppImage";
-      hash = "sha256-W/XbSl8UDHiWRMRhJrkiYMgb3q7UrlyvB7IHNVFzX7U=";
+      url = "https://github.com/lollipopkit/flutter_server_box/releases/download/v1.0.1276/ServerBox_1276_amd64.AppImage";
+      hash = "sha256-+57RG+LriMhuztIL0eNDbILEo+qZJ+BULyqOcaKuPY8=";
     };
   };
   AAA_hdrop = {
@@ -292,7 +292,7 @@
   };
   AAA_himirage-JSON = {
     pname = "AAA_himirage-JSON";
-    version = "2025-12-05 18:02:12";
+    version = "2025-12-06 18:02:17";
     src = fetchurl {
       url = "https://album.photosir.cn/upgradePackage/infoall/photosir";
       hash = "sha256-nQjQwrKvih7iN5U5x6/vMmJeMOvkp+DrxmL8Q4HMVIU=";
@@ -428,15 +428,15 @@
   };
   AAA_open-interpreter = {
     pname = "AAA_open-interpreter";
-    version = "671698d2bcb3b6b136e705b7bda40726e753af0b";
+    version = "0d19f3af83feff996ac862d74e3cc7afa17e64aa";
     src = fetchFromGitHub {
       owner = "OpenInterpreter";
       repo = "open-interpreter";
-      rev = "671698d2bcb3b6b136e705b7bda40726e753af0b";
+      rev = "0d19f3af83feff996ac862d74e3cc7afa17e64aa";
       fetchSubmodules = true;
-      hash = "sha256-zzZhVTi2ncIeQa29zdFXBqG4hY2Sz1zp1oomnScf4i0=";
+      hash = "sha256-jKSjgMml/SKuZFzthUbd5VX9ITwMZGwjx7nAXfxEYJA=";
     };
-    date = "2025-11-27";
+    date = "2025-12-05";
   };
   AAA_rwkv = {
     pname = "AAA_rwkv";
@@ -514,26 +514,26 @@
   };
   AAA_v2ray-rules-dat = {
     pname = "AAA_v2ray-rules-dat";
-    version = "202512042212";
+    version = "202512052214";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512042212/rules.zip";
-      hash = "sha256-4janZULoe7xsmWuZK1HBj8+fGCHlhNh+VuGPSrOvNHM=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512052214/rules.zip";
+      hash = "sha256-jB38pidTPnDGRW0K7L4yV6Z1ENu4ollz1eY51vMBqms=";
     };
   };
   AAA_wechat-web-devtools-linux_appimage = {
     pname = "AAA_wechat-web-devtools-linux_appimage";
-    version = "2.01.2510250-1";
+    version = "2.01.2510250-2";
     src = fetchurl {
-      url = "https://github.com/msojocs/wechat-web-devtools-linux/releases/download/v2.01.2510250-1/WeChat_Dev_Tools_v2.01.2510250-1_x86_64_linux.AppImage";
-      hash = "sha256-dl/lmKapq/IfBZxoZiE9lje9AJJANTL8rCIzUfYdXzs=";
+      url = "https://github.com/msojocs/wechat-web-devtools-linux/releases/download/v2.01.2510250-2/WeChat_Dev_Tools_v2.01.2510250-2_x86_64_linux.AppImage";
+      hash = "sha256-GvQzaAlQbG1/230sB1sEOSpjC0uRr2XFLhoHAIeK7Kk=";
     };
   };
   AAA_wechat-web-devtools-linux_bin = {
     pname = "AAA_wechat-web-devtools-linux_bin";
-    version = "2.01.2510250-1";
+    version = "2.01.2510250-2";
     src = fetchurl {
-      url = "https://github.com/msojocs/wechat-web-devtools-linux/releases/download/v2.01.2510250-1/WeChat_Dev_Tools_v2.01.2510250-1_x86_64_linux.tar.gz";
-      hash = "sha256-AuBJ+wcMGg7PLF72zrAVULL0PDn12Ay6skTgviJXpHY=";
+      url = "https://github.com/msojocs/wechat-web-devtools-linux/releases/download/v2.01.2510250-2/WeChat_Dev_Tools_v2.01.2510250-2_x86_64_linux.tar.gz";
+      hash = "sha256-dWmqc400mrTmsUCtxfmln+9srBVIh9j3A9QR+2swcqw=";
     };
   };
   acpi-ec = {
@@ -752,25 +752,25 @@
   };
   cachyos-kernel = {
     pname = "cachyos-kernel";
-    version = "847270713a8bf2bc6371b42462781a4f11d8633a";
+    version = "b76feee309500d7ba6a955760ed4a8e698902ba3";
     src = fetchFromGitHub {
       owner = "CachyOS";
       repo = "linux-cachyos";
-      rev = "847270713a8bf2bc6371b42462781a4f11d8633a";
-      hash = "sha256-KawKrLsTMP30iD1qUjLR7EbJXP08QEapNhEHqBdi5wY=";
+      rev = "b76feee309500d7ba6a955760ed4a8e698902ba3";
+      hash = "sha256-Dgc/8jbcMYeOr8xgd/yVFTL+8uNmAHAPyTsVu6G4jeA=";
     };
-    date = "2025-12-03";
+    date = "2025-12-05";
   };
   cachyos-kernel-patches = {
     pname = "cachyos-kernel-patches";
-    version = "3abff88a6330df5b0e0fb1e11bd0902258049523";
+    version = "45bc489a4708cfd68a67d2114816ea0d2c6f3738";
     src = fetchFromGitHub {
       owner = "CachyOS";
       repo = "kernel-patches";
-      rev = "3abff88a6330df5b0e0fb1e11bd0902258049523";
-      hash = "sha256-Kol2JWJwhsofJPOhpZjk1I944EMH6dYx81Yr5DItalo=";
+      rev = "45bc489a4708cfd68a67d2114816ea0d2c6f3738";
+      hash = "sha256-72rRkQ72c8E50Md13a+m7JVxS6uFZXHYOROj81cwfRo=";
     };
-    date = "2025-12-03";
+    date = "2025-12-05";
   };
   calibre-cops = {
     pname = "calibre-cops";
@@ -1665,12 +1665,12 @@
   };
   llama-cpp = {
     pname = "llama-cpp";
-    version = "b7278";
+    version = "b7285";
     src = fetchFromGitHub {
       owner = "ggerganov";
       repo = "llama.cpp";
-      tag = "b7278";
-      hash = "sha256-dWCvVDCen6sL4DNmx/C71k6K/bF+UWcZsoLY1JVP++A=";
+      tag = "b7285";
+      hash = "sha256-NkyhqIPYC3JuepaLsRFdm8FVFxmTEr81Q+j31q8MipA=";
     };
   };
   loralib = {
@@ -2470,12 +2470,12 @@
   };
   runpodctl = {
     pname = "runpodctl";
-    version = "v1.14.14";
+    version = "v1.14.15";
     src = fetchFromGitHub {
       owner = "runpod";
       repo = "runpodctl";
-      tag = "v1.14.14";
-      hash = "sha256-BwXHwVdR3C/3SSxGbFfB79I3FKDbbiIzl592KqfESVc=";
+      tag = "v1.14.15";
+      hash = "sha256-D1B5j1HYSXDgr1vW8kHzCohu3HiDljTEhQhzfa5q/Us=";
     };
   };
   sam-toki-mouse-cursors = {
