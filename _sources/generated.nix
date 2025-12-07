@@ -75,15 +75,15 @@
   };
   AAA_PiliPalaX = {
     pname = "AAA_PiliPalaX";
-    version = "255e39b70917167243875921106b0b1ed9160ba6";
+    version = "2cb8331528624cfc5c445cec5e9135cedcb2f749";
     src = fetchFromGitHub {
       owner = "bggRGjQaUbCoE";
       repo = "PiliPlus";
-      rev = "255e39b70917167243875921106b0b1ed9160ba6";
+      rev = "2cb8331528624cfc5c445cec5e9135cedcb2f749";
       fetchSubmodules = true;
-      hash = "sha256-FJ5LL5MhseriRls+Cgy7WP8Vba2L04U9f5jGNQKE9v0=";
+      hash = "sha256-D/s/0c3bl1mLBoSY/b+6wHj8wCkSW2RZ5q6dH21DW7I=";
     };
-    date = "2025-12-06";
+    date = "2025-12-07";
   };
   AAA_SteamTools = {
     pname = "AAA_SteamTools";
@@ -292,7 +292,7 @@
   };
   AAA_himirage-JSON = {
     pname = "AAA_himirage-JSON";
-    version = "2025-12-06 18:02:17";
+    version = "2025-12-07 18:04:02";
     src = fetchurl {
       url = "https://album.photosir.cn/upgradePackage/infoall/photosir";
       hash = "sha256-nQjQwrKvih7iN5U5x6/vMmJeMOvkp+DrxmL8Q4HMVIU=";
@@ -514,10 +514,10 @@
   };
   AAA_v2ray-rules-dat = {
     pname = "AAA_v2ray-rules-dat";
-    version = "202512052214";
+    version = "202512062213";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512052214/rules.zip";
-      hash = "sha256-jB38pidTPnDGRW0K7L4yV6Z1ENu4ollz1eY51vMBqms=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512062213/rules.zip";
+      hash = "sha256-L7gOx5AnKOXrTUPcq5egCLrsrsttSKXinfmtoTPSvJs=";
     };
   };
   AAA_wechat-web-devtools-linux_appimage = {
@@ -763,14 +763,14 @@
   };
   cachyos-kernel-patches = {
     pname = "cachyos-kernel-patches";
-    version = "45bc489a4708cfd68a67d2114816ea0d2c6f3738";
+    version = "4fd8cf300ff1b663e705d525f43cd65cbe8fd7f2";
     src = fetchFromGitHub {
       owner = "CachyOS";
       repo = "kernel-patches";
-      rev = "45bc489a4708cfd68a67d2114816ea0d2c6f3738";
-      hash = "sha256-72rRkQ72c8E50Md13a+m7JVxS6uFZXHYOROj81cwfRo=";
+      rev = "4fd8cf300ff1b663e705d525f43cd65cbe8fd7f2";
+      hash = "sha256-RpMo4Ti1vNk+/szKbLF/bRHdU9LZseSX3y39TCU7pbA=";
     };
-    date = "2025-12-05";
+    date = "2025-12-07";
   };
   calibre-cops = {
     pname = "calibre-cops";
@@ -1127,12 +1127,12 @@
   };
   flapalerted = {
     pname = "flapalerted";
-    version = "v4.1.4";
+    version = "v4.1.5";
     src = fetchFromGitHub {
       owner = "Kioubit";
       repo = "FlapAlerted";
-      tag = "v4.1.4";
-      hash = "sha256-JXYxw1XiZPKrHb4m4SZu3cEeZUPzpkv7oMMKmRyrHs4=";
+      tag = "v4.1.5";
+      hash = "sha256-n//rv780+YYr6fshLm+a+dYaenkQSlnEg1sYHY5YnDU=";
     };
   };
   flaresolverr-21hsmw = {
@@ -1220,26 +1220,26 @@
   };
   geolite2-asn = {
     pname = "geolite2-asn";
-    version = "2025.12.04";
+    version = "2025.12.07";
     src = fetchurl {
-      url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.12.04/GeoLite2-ASN.mmdb";
-      hash = "sha256-GnLFXPiP01ww3pt0UUq3fo+P5bamy8adDSPurgVV/mU=";
+      url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.12.07/GeoLite2-ASN.mmdb";
+      hash = "sha256-hIOVkGFas+jXYYPZ8OZ6vky5pJ+LtyVS2S5ptqsfy54=";
     };
   };
   geolite2-city = {
     pname = "geolite2-city";
-    version = "2025.12.04";
+    version = "2025.12.07";
     src = fetchurl {
-      url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.12.04/GeoLite2-City.mmdb";
-      hash = "sha256-+LVBqcc51PQsDci06F1F6L+80VMRWAdLW0cIHEgkXrw=";
+      url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.12.07/GeoLite2-City.mmdb";
+      hash = "sha256-Q1gOymyXSYhBdkGzKFt4V+WqutYmxcOc6Q3EsjH0xFY=";
     };
   };
   geolite2-country = {
     pname = "geolite2-country";
-    version = "2025.12.04";
+    version = "2025.12.07";
     src = fetchurl {
-      url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.12.04/GeoLite2-Country.mmdb";
-      hash = "sha256-PAXj4G0YFPWgsy8jO6qxmJRtHIotfC5qW2EfmJ90PzU=";
+      url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.12.07/GeoLite2-Country.mmdb";
+      hash = "sha256-PWdYpsYUnaJEHo6sd9qy9dpQsp7vWvp63748UIbVvjw=";
     };
   };
   glauth = {
@@ -1645,12 +1645,12 @@
   };
   linux-xanmod-6_12 = {
     pname = "linux-xanmod-6_12";
-    version = "6.12.60-xanmod1";
+    version = "6.12.61-xanmod1";
     src = fetchgit {
       url = "https://gitlab.com/xanmod/linux.git";
-      tag = "6.12.60-xanmod1";
+      tag = "6.12.61-xanmod1";
       fetchSubmodules = false;
-      hash = "sha256-nS9vsdH76q+uUaWXEp3duikX7osVqv7hjBMFNzdtA7o=";
+      hash = "sha256-7m4Ehmy463rQK265fEvTMjndqZXs+PJ35HE+tZVKgGQ=";
     };
   };
   linux-xanmod-6_6 = {
@@ -1665,12 +1665,12 @@
   };
   llama-cpp = {
     pname = "llama-cpp";
-    version = "b7285";
+    version = "b7312";
     src = fetchFromGitHub {
       owner = "ggerganov";
       repo = "llama.cpp";
-      tag = "b7285";
-      hash = "sha256-NkyhqIPYC3JuepaLsRFdm8FVFxmTEr81Q+j31q8MipA=";
+      tag = "b7312";
+      hash = "sha256-J2L2e4eB/TYCPXledakHTV+wUY94q8+9ocgkGaafG2w=";
     };
   };
   loralib = {
@@ -2578,15 +2578,6 @@
       hash = "sha256-UeMHwlgeThoAKZGrPjp3UDyLB0xCaVmHqYSnOC0Kxa8=";
     };
   };
-  svp = {
-    pname = "svp";
-    version = "4.6.263";
-    src = fetchurl {
-      url = "https://web.archive.org/web/20250904130553if_/https://www.svp-team.com/files/svp4-linux.4.6.263.tar.bz2";
-      name = "svp4-linux.tar.bz2";
-      hash = "sha256-HyRDVFHVmTan/Si3QjGQpC3za30way10d0Hk79oXG98=";
-    };
-  };
   sx1302-hal = {
     pname = "sx1302-hal";
     version = "3760434a18e6ba47b695c22786195e57cc6b4c1c";
@@ -2751,15 +2742,15 @@
   };
   uni-api = {
     pname = "uni-api";
-    version = "dfdaa7cb07855a6442e2833a6c4b894902259ec5";
+    version = "62d9775932914df51515499108700be847d4cbe3";
     src = fetchFromGitHub {
       owner = "yym68686";
       repo = "uni-api";
-      rev = "dfdaa7cb07855a6442e2833a6c4b894902259ec5";
+      rev = "62d9775932914df51515499108700be847d4cbe3";
       fetchSubmodules = true;
-      hash = "sha256-5iswmaIotRzcBa3JIZWEKzFU3aistoVtuWEuCQZ3uQs=";
+      hash = "sha256-dTQPwAcTJBcyBoBEVEIdmBTJNpyVwHkX7jzEWv/I/EQ=";
     };
-    date = "2025-12-02";
+    date = "2025-12-07";
   };
   unigine-heaven = {
     pname = "unigine-heaven";
