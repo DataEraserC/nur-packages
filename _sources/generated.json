@@ -145,12 +145,12 @@
             "name": null,
             "owner": "bggRGjQaUbCoE",
             "repo": "PiliPlus",
-            "rev": "2cb8331528624cfc5c445cec5e9135cedcb2f749",
-            "sha256": "sha256-D/s/0c3bl1mLBoSY/b+6wHj8wCkSW2RZ5q6dH21DW7I=",
+            "rev": "773bdafec323129a1dbb10123d6fbaa63b76479d",
+            "sha256": "sha256-mhZyAAgVO8ylD3v0pIHbUiSJKvXck+ac/7YpA5Rr2Zs=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "2cb8331528624cfc5c445cec5e9135cedcb2f749"
+        "version": "773bdafec323129a1dbb10123d6fbaa63b76479d"
     },
     "AAA_SteamTools": {
         "cargoLocks": null,
@@ -465,11 +465,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-d6tnV5IhSOPXo5a+uG/z6MlxVdsjMb4qi3Bzr8y9pLg=",
+            "sha256": "sha256-iYndPKGqxBCxD4bceVXjZKlGwcIdDHGDn9julY3VGiQ=",
             "type": "url",
-            "url": "https://github.com/viarotel-org/escrcpy/releases/download/v1.33.0/Escrcpy-1.33.0-linux-x86_64.AppImage"
+            "url": "https://github.com/viarotel-org/escrcpy/releases/download/v1.34.2/Escrcpy-1.34.2-linux-x86_64.AppImage"
         },
-        "version": "1.33.0"
+        "version": "1.34.2"
     },
     "AAA_flutter_server_box": {
         "cargoLocks": null,
@@ -541,7 +541,7 @@
             "type": "url",
             "url": "https://album.photosir.cn/upgradePackage/infoall/photosir"
         },
-        "version": "2025-12-07 18:04:02"
+        "version": "2025-12-08 18:05:22"
     },
     "AAA_himirage-aarch64-darwin": {
         "cargoLocks": null,
@@ -947,11 +947,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-L7gOx5AnKOXrTUPcq5egCLrsrsttSKXinfmtoTPSvJs=",
+            "sha256": "sha256-JieJTpAhL6EHroZjEJphMHQRRN4N51wE+RtN1OX4DGQ=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512062213/rules.zip"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512072213/rules.zip"
         },
-        "version": "202512062213"
+        "version": "202512072213"
     },
     "AAA_wechat-web-devtools-linux_appimage": {
         "cargoLocks": null,
@@ -1432,12 +1432,12 @@
             "name": null,
             "owner": "CachyOS",
             "repo": "kernel-patches",
-            "rev": "4fd8cf300ff1b663e705d525f43cd65cbe8fd7f2",
-            "sha256": "sha256-RpMo4Ti1vNk+/szKbLF/bRHdU9LZseSX3y39TCU7pbA=",
+            "rev": "233b7a85eb68a2c5bec6d43d31796602062d5198",
+            "sha256": "sha256-x8LSXiBfWDAqN0xBP9uToPQ+hgGx+DRM3C+Xz+S8K3g=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "4fd8cf300ff1b663e705d525f43cd65cbe8fd7f2"
+        "version": "233b7a85eb68a2c5bec6d43d31796602062d5198"
     },
     "calibre-cops": {
         "cargoLocks": null,
@@ -3187,12 +3187,12 @@
             "name": null,
             "owner": "ggerganov",
             "repo": "llama.cpp",
-            "rev": "b7312",
-            "sha256": "sha256-J2L2e4eB/TYCPXledakHTV+wUY94q8+9ocgkGaafG2w=",
+            "rev": "b7316",
+            "sha256": "sha256-GyNvHgcfXTTdW9HzPUXp0TB3GbHB/zGq9gLKDMFjslI=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "b7312"
+        "version": "b7316"
     },
     "loralib": {
         "cargoLocks": null,
@@ -4626,7 +4626,7 @@
     },
     "rime-ice": {
         "cargoLocks": null,
-        "date": "2025-12-03",
+        "date": "2025-12-08",
         "extract": null,
         "name": "rime-ice",
         "passthru": null,
@@ -4638,12 +4638,12 @@
             "name": null,
             "owner": "iDvel",
             "repo": "rime-ice",
-            "rev": "c7fdbb25d6b2e50f65dfae7923a74b5272e934c2",
-            "sha256": "sha256-ayXzpWrRq6a0g69Ohx+tHbo3YfjERhdEsCK1IMoTypw=",
+            "rev": "5bc4d3057a1953c3d273fb3408ac4e13f2f593b6",
+            "sha256": "sha256-GyiOlTr1Nw2ANTE7/fdyrPQkvRFWOyal3oAcDvsqF5A=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "c7fdbb25d6b2e50f65dfae7923a74b5272e934c2"
+        "version": "5bc4d3057a1953c3d273fb3408ac4e13f2f593b6"
     },
     "rime-moegirl": {
         "cargoLocks": null,
@@ -4977,6 +4977,21 @@
             "url": "https://github.com/Suwayomi/Suwayomi-Server/releases/download/v2.1.1867/Suwayomi-Server-v2.1.1867.jar"
         },
         "version": "v2.1.1867"
+    },
+    "svp": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "svp",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": "svp4-linux.tar.bz2",
+            "sha256": "sha256-HyRDVFHVmTan/Si3QjGQpC3za30way10d0Hk79oXG98=",
+            "type": "url",
+            "url": "https://web.archive.org/web/20250904130553if_/https://www.svp-team.com/files/svp4-linux.4.6.263.tar.bz2"
+        },
+        "version": "4.6.263"
     },
     "sx1302-hal": {
         "cargoLocks": null,

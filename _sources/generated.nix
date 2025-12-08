@@ -75,13 +75,13 @@
   };
   AAA_PiliPalaX = {
     pname = "AAA_PiliPalaX";
-    version = "2cb8331528624cfc5c445cec5e9135cedcb2f749";
+    version = "773bdafec323129a1dbb10123d6fbaa63b76479d";
     src = fetchFromGitHub {
       owner = "bggRGjQaUbCoE";
       repo = "PiliPlus";
-      rev = "2cb8331528624cfc5c445cec5e9135cedcb2f749";
+      rev = "773bdafec323129a1dbb10123d6fbaa63b76479d";
       fetchSubmodules = true;
-      hash = "sha256-D/s/0c3bl1mLBoSY/b+6wHj8wCkSW2RZ5q6dH21DW7I=";
+      hash = "sha256-mhZyAAgVO8ylD3v0pIHbUiSJKvXck+ac/7YpA5Rr2Zs=";
     };
     date = "2025-12-07";
   };
@@ -252,10 +252,10 @@
   };
   AAA_escrcpy_appimage = {
     pname = "AAA_escrcpy_appimage";
-    version = "1.33.0";
+    version = "1.34.2";
     src = fetchurl {
-      url = "https://github.com/viarotel-org/escrcpy/releases/download/v1.33.0/Escrcpy-1.33.0-linux-x86_64.AppImage";
-      hash = "sha256-d6tnV5IhSOPXo5a+uG/z6MlxVdsjMb4qi3Bzr8y9pLg=";
+      url = "https://github.com/viarotel-org/escrcpy/releases/download/v1.34.2/Escrcpy-1.34.2-linux-x86_64.AppImage";
+      hash = "sha256-iYndPKGqxBCxD4bceVXjZKlGwcIdDHGDn9julY3VGiQ=";
     };
   };
   AAA_flutter_server_box = {
@@ -292,7 +292,7 @@
   };
   AAA_himirage-JSON = {
     pname = "AAA_himirage-JSON";
-    version = "2025-12-07 18:04:02";
+    version = "2025-12-08 18:05:22";
     src = fetchurl {
       url = "https://album.photosir.cn/upgradePackage/infoall/photosir";
       hash = "sha256-nQjQwrKvih7iN5U5x6/vMmJeMOvkp+DrxmL8Q4HMVIU=";
@@ -514,10 +514,10 @@
   };
   AAA_v2ray-rules-dat = {
     pname = "AAA_v2ray-rules-dat";
-    version = "202512062213";
+    version = "202512072213";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512062213/rules.zip";
-      hash = "sha256-L7gOx5AnKOXrTUPcq5egCLrsrsttSKXinfmtoTPSvJs=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512072213/rules.zip";
+      hash = "sha256-JieJTpAhL6EHroZjEJphMHQRRN4N51wE+RtN1OX4DGQ=";
     };
   };
   AAA_wechat-web-devtools-linux_appimage = {
@@ -763,12 +763,12 @@
   };
   cachyos-kernel-patches = {
     pname = "cachyos-kernel-patches";
-    version = "4fd8cf300ff1b663e705d525f43cd65cbe8fd7f2";
+    version = "233b7a85eb68a2c5bec6d43d31796602062d5198";
     src = fetchFromGitHub {
       owner = "CachyOS";
       repo = "kernel-patches";
-      rev = "4fd8cf300ff1b663e705d525f43cd65cbe8fd7f2";
-      hash = "sha256-RpMo4Ti1vNk+/szKbLF/bRHdU9LZseSX3y39TCU7pbA=";
+      rev = "233b7a85eb68a2c5bec6d43d31796602062d5198";
+      hash = "sha256-x8LSXiBfWDAqN0xBP9uToPQ+hgGx+DRM3C+Xz+S8K3g=";
     };
     date = "2025-12-07";
   };
@@ -1665,12 +1665,12 @@
   };
   llama-cpp = {
     pname = "llama-cpp";
-    version = "b7312";
+    version = "b7316";
     src = fetchFromGitHub {
       owner = "ggerganov";
       repo = "llama.cpp";
-      tag = "b7312";
-      hash = "sha256-J2L2e4eB/TYCPXledakHTV+wUY94q8+9ocgkGaafG2w=";
+      tag = "b7316";
+      hash = "sha256-GyNvHgcfXTTdW9HzPUXp0TB3GbHB/zGq9gLKDMFjslI=";
     };
   };
   loralib = {
@@ -2402,14 +2402,14 @@
   };
   rime-ice = {
     pname = "rime-ice";
-    version = "c7fdbb25d6b2e50f65dfae7923a74b5272e934c2";
+    version = "5bc4d3057a1953c3d273fb3408ac4e13f2f593b6";
     src = fetchFromGitHub {
       owner = "iDvel";
       repo = "rime-ice";
-      rev = "c7fdbb25d6b2e50f65dfae7923a74b5272e934c2";
-      hash = "sha256-ayXzpWrRq6a0g69Ohx+tHbo3YfjERhdEsCK1IMoTypw=";
+      rev = "5bc4d3057a1953c3d273fb3408ac4e13f2f593b6";
+      hash = "sha256-GyiOlTr1Nw2ANTE7/fdyrPQkvRFWOyal3oAcDvsqF5A=";
     };
-    date = "2025-12-03";
+    date = "2025-12-08";
   };
   rime-moegirl = {
     pname = "rime-moegirl";
@@ -2576,6 +2576,15 @@
     src = fetchurl {
       url = "https://github.com/Suwayomi/Suwayomi-Server/releases/download/v2.1.1867/Suwayomi-Server-v2.1.1867.jar";
       hash = "sha256-UeMHwlgeThoAKZGrPjp3UDyLB0xCaVmHqYSnOC0Kxa8=";
+    };
+  };
+  svp = {
+    pname = "svp";
+    version = "4.6.263";
+    src = fetchurl {
+      url = "https://web.archive.org/web/20250904130553if_/https://www.svp-team.com/files/svp4-linux.4.6.263.tar.bz2";
+      name = "svp4-linux.tar.bz2";
+      hash = "sha256-HyRDVFHVmTan/Si3QjGQpC3za30way10d0Hk79oXG98=";
     };
   };
   sx1302-hal = {
