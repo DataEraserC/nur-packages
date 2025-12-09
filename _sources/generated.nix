@@ -75,15 +75,15 @@
   };
   AAA_PiliPalaX = {
     pname = "AAA_PiliPalaX";
-    version = "773bdafec323129a1dbb10123d6fbaa63b76479d";
+    version = "ff4f97de1af1857abeacd3861bfacaca403336cb";
     src = fetchFromGitHub {
       owner = "bggRGjQaUbCoE";
       repo = "PiliPlus";
-      rev = "773bdafec323129a1dbb10123d6fbaa63b76479d";
+      rev = "ff4f97de1af1857abeacd3861bfacaca403336cb";
       fetchSubmodules = true;
-      hash = "sha256-mhZyAAgVO8ylD3v0pIHbUiSJKvXck+ac/7YpA5Rr2Zs=";
+      hash = "sha256-A/EnkiknMzqILiD31pESexfQIy3UP+L2dcvV1HcnV8E=";
     };
-    date = "2025-12-07";
+    date = "2025-12-08";
   };
   AAA_SteamTools = {
     pname = "AAA_SteamTools";
@@ -292,7 +292,7 @@
   };
   AAA_himirage-JSON = {
     pname = "AAA_himirage-JSON";
-    version = "2025-12-08 18:05:22";
+    version = "2025-12-09 18:04:21";
     src = fetchurl {
       url = "https://album.photosir.cn/upgradePackage/infoall/photosir";
       hash = "sha256-nQjQwrKvih7iN5U5x6/vMmJeMOvkp+DrxmL8Q4HMVIU=";
@@ -440,10 +440,10 @@
   };
   AAA_rwkv = {
     pname = "AAA_rwkv";
-    version = "0.8.30";
+    version = "0.8.31";
     src = fetchurl {
-      url = "https://pypi.org/packages/source/r/rwkv/rwkv-0.8.30.tar.gz";
-      hash = "sha256-5wVhjRdkqJHFPstLNGOmIeu5mvC00xZVPmTEXOs2NLM=";
+      url = "https://pypi.org/packages/source/r/rwkv/rwkv-0.8.31.tar.gz";
+      hash = "sha256-5IX0SQUHGtvGBu1kQ/L5EcoVX8NOFnbNRjVdhQR0UTM=";
     };
   };
   AAA_scrcpy-mask = {
@@ -514,10 +514,10 @@
   };
   AAA_v2ray-rules-dat = {
     pname = "AAA_v2ray-rules-dat";
-    version = "202512072213";
+    version = "202512082214";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512072213/rules.zip";
-      hash = "sha256-JieJTpAhL6EHroZjEJphMHQRRN4N51wE+RtN1OX4DGQ=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512082214/rules.zip";
+      hash = "sha256-jOMQn/ktW9sX9uPQM8zrd8Nfm2vrkKK4WNmNF+qI5gU=";
     };
   };
   AAA_wechat-web-devtools-linux_appimage = {
@@ -752,25 +752,25 @@
   };
   cachyos-kernel = {
     pname = "cachyos-kernel";
-    version = "b76feee309500d7ba6a955760ed4a8e698902ba3";
+    version = "5c8cf82f0ea40b72aec3fcbc58b449ca3b7cd372";
     src = fetchFromGitHub {
       owner = "CachyOS";
       repo = "linux-cachyos";
-      rev = "b76feee309500d7ba6a955760ed4a8e698902ba3";
-      hash = "sha256-Dgc/8jbcMYeOr8xgd/yVFTL+8uNmAHAPyTsVu6G4jeA=";
+      rev = "5c8cf82f0ea40b72aec3fcbc58b449ca3b7cd372";
+      hash = "sha256-dAGAdWms3poNhxPniYU3YmxFeJ9ngfBhakMQwCnCV/w=";
     };
-    date = "2025-12-05";
+    date = "2025-12-09";
   };
   cachyos-kernel-patches = {
     pname = "cachyos-kernel-patches";
-    version = "233b7a85eb68a2c5bec6d43d31796602062d5198";
+    version = "6dfdbc7f8f3ee4d9f5dc8adfb0672ef5d8e1e3d5";
     src = fetchFromGitHub {
       owner = "CachyOS";
       repo = "kernel-patches";
-      rev = "233b7a85eb68a2c5bec6d43d31796602062d5198";
-      hash = "sha256-x8LSXiBfWDAqN0xBP9uToPQ+hgGx+DRM3C+Xz+S8K3g=";
+      rev = "6dfdbc7f8f3ee4d9f5dc8adfb0672ef5d8e1e3d5";
+      hash = "sha256-TJJKd86jDyighG3Jx8MNyiuQTpEIMAsA2GkWpqttwFg=";
     };
-    date = "2025-12-07";
+    date = "2025-12-08";
   };
   calibre-cops = {
     pname = "calibre-cops";
@@ -1209,14 +1209,14 @@
   };
   funasr = {
     pname = "funasr";
-    version = "c4ac64fd5d24bb3fc8ccc441d36a07c83c8b9015";
+    version = "1bf72e7ff8d3271ef21410cf1f762fde74f6807d";
     src = fetchFromGitHub {
       owner = "modelscope";
       repo = "FunASR";
-      rev = "c4ac64fd5d24bb3fc8ccc441d36a07c83c8b9015";
-      hash = "sha256-Iua78ju+PY/iYulAM7xhd6MKO1l7DU5+m3xggRayM8w=";
+      rev = "1bf72e7ff8d3271ef21410cf1f762fde74f6807d";
+      hash = "sha256-dngQh9X+1mtHjwcFZ4m9z7ToLI2fFJW0dNSAJnYlssc=";
     };
-    date = "2025-10-01";
+    date = "2025-12-09";
   };
   geolite2-asn = {
     pname = "geolite2-asn";
@@ -1665,12 +1665,12 @@
   };
   llama-cpp = {
     pname = "llama-cpp";
-    version = "b7316";
+    version = "b7330";
     src = fetchFromGitHub {
       owner = "ggerganov";
       repo = "llama.cpp";
-      tag = "b7316";
-      hash = "sha256-GyNvHgcfXTTdW9HzPUXp0TB3GbHB/zGq9gLKDMFjslI=";
+      tag = "b7330";
+      hash = "sha256-oAABTq0pVOP3anXWKpNoIszwPWUqLFv4W6gZP+jgUKk=";
     };
   };
   loralib = {
