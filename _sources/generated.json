@@ -133,7 +133,7 @@
     },
     "AAA_PiliPalaX": {
         "cargoLocks": null,
-        "date": "2025-12-08",
+        "date": "2025-12-10",
         "extract": null,
         "name": "AAA_PiliPalaX",
         "passthru": null,
@@ -145,12 +145,12 @@
             "name": null,
             "owner": "bggRGjQaUbCoE",
             "repo": "PiliPlus",
-            "rev": "ff4f97de1af1857abeacd3861bfacaca403336cb",
-            "sha256": "sha256-A/EnkiknMzqILiD31pESexfQIy3UP+L2dcvV1HcnV8E=",
+            "rev": "3741fe54ff386f50c91e17b16046cb429648bb6a",
+            "sha256": "sha256-Y+/ukiy4DE6ofcE+PDvRdmSpAOKG4pfg7QOPyyzLvFU=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "ff4f97de1af1857abeacd3861bfacaca403336cb"
+        "version": "3741fe54ff386f50c91e17b16046cb429648bb6a"
     },
     "AAA_SteamTools": {
         "cargoLocks": null,
@@ -541,7 +541,7 @@
             "type": "url",
             "url": "https://album.photosir.cn/upgradePackage/infoall/photosir"
         },
-        "version": "2025-12-09 18:04:21"
+        "version": "2025-12-10 18:02:54"
     },
     "AAA_himirage-aarch64-darwin": {
         "cargoLocks": null,
@@ -947,11 +947,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-jOMQn/ktW9sX9uPQM8zrd8Nfm2vrkKK4WNmNF+qI5gU=",
+            "sha256": "sha256-lLV+NsxXGsduV2aaqs/L3kBhU5X5CzZVU97lGmRWC9E=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512082214/rules.zip"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512092215/rules.zip"
         },
-        "version": "202512082214"
+        "version": "202512092215"
     },
     "AAA_wechat-web-devtools-linux_appimage": {
         "cargoLocks": null,
@@ -1366,36 +1366,6 @@
             "type": "github"
         },
         "version": "c1c4dd59159fefce381c0659ad1039cfec91be58"
-    },
-    "browser360-amd64": {
-        "cargoLocks": null,
-        "date": null,
-        "extract": null,
-        "name": "browser360-amd64",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "name": null,
-            "sha256": "sha256-Vo1cFGdO2aU7Sgf9zZ54FpsPEvLnfaIcM4CLNBHXpGg=",
-            "type": "url",
-            "url": "https://gedown.360safe.com/gc/signed_com.360.browser-stable_13.4.1100.108-1_amd64.deb"
-        },
-        "version": "13.4.1100.108"
-    },
-    "browser360-arm64": {
-        "cargoLocks": null,
-        "date": null,
-        "extract": null,
-        "name": "browser360-arm64",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "name": null,
-            "sha256": "sha256-UTxLfT2qJc9LFkeQHPhZkhqU+rQFwwmq1RBeY6NTYHw=",
-            "type": "url",
-            "url": "https://gedown.360safe.com/gc/signed_com.360.browser-stable_13.4.1100.108-1_arm64.deb"
-        },
-        "version": "13.4.1100.108"
     },
     "cachyos-kernel": {
         "cargoLocks": null,
@@ -2315,11 +2285,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-hIOVkGFas+jXYYPZ8OZ6vky5pJ+LtyVS2S5ptqsfy54=",
+            "sha256": "sha256-7dP8FDrdGh10EOgMLF4m3Vss4AGnJ9JunzRLtRWoEO0=",
             "type": "url",
-            "url": "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.12.07/GeoLite2-ASN.mmdb"
+            "url": "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.12.10/GeoLite2-ASN.mmdb"
         },
-        "version": "2025.12.07"
+        "version": "2025.12.10"
     },
     "geolite2-city": {
         "cargoLocks": null,
@@ -2330,11 +2300,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-Q1gOymyXSYhBdkGzKFt4V+WqutYmxcOc6Q3EsjH0xFY=",
+            "sha256": "sha256-TQtMF7Sr1Zd77jBfe6h5G9ic9poHHw74oK1H4URQ4R0=",
             "type": "url",
-            "url": "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.12.07/GeoLite2-City.mmdb"
+            "url": "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.12.10/GeoLite2-City.mmdb"
         },
-        "version": "2025.12.07"
+        "version": "2025.12.10"
     },
     "geolite2-country": {
         "cargoLocks": null,
@@ -2345,11 +2315,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-PWdYpsYUnaJEHo6sd9qy9dpQsp7vWvp63748UIbVvjw=",
+            "sha256": "sha256-E3uv0RLvXY/PT5UsbFe3dBEhsxWlLums+7eeu3hEUOQ=",
             "type": "url",
-            "url": "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.12.07/GeoLite2-Country.mmdb"
+            "url": "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.12.10/GeoLite2-Country.mmdb"
         },
-        "version": "2025.12.07"
+        "version": "2025.12.10"
     },
     "glauth": {
         "cargoLocks": null,
@@ -3187,12 +3157,12 @@
             "name": null,
             "owner": "ggerganov",
             "repo": "llama.cpp",
-            "rev": "b7330",
-            "sha256": "sha256-oAABTq0pVOP3anXWKpNoIszwPWUqLFv4W6gZP+jgUKk=",
+            "rev": "b7342",
+            "sha256": "sha256-L90E0h8d75kFh+sk1+6OT8yKtxSgj7uhzpNRviS6zSE=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "b7330"
+        "version": "b7342"
     },
     "loralib": {
         "cargoLocks": null,
@@ -3307,12 +3277,12 @@
             "name": null,
             "owner": "modelscope",
             "repo": "modelscope",
-            "rev": "v1.32.0",
-            "sha256": "sha256-uU96l/HeQL+YeW36/WHEOCTdmA6LcDOXM94Q16q/5hA=",
+            "rev": "v1.33.0",
+            "sha256": "sha256-CEaeO6oD1enGKT87anc3qSynDaN8pTC4utNoMBTvL84=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v1.32.0"
+        "version": "v1.33.0"
     },
     "mtkclient": {
         "cargoLocks": null,
@@ -3944,11 +3914,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-fIDihDak/iZVf9mCr4ZEA8viiKm0MBgG7OyN68G5ZNE=",
+            "sha256": "sha256-r50bGrq+PuBo6aBzZor/Px0bEtCtI3xlYrEzoTEkgtA=",
             "type": "url",
-            "url": "https://github.com/Ghost-chu/PeerBanHelper/releases/download/v9.1.5/PeerBanHelper_9.1.5.zip"
+            "url": "https://github.com/Ghost-chu/PeerBanHelper/releases/download/v9.2.0/PeerBanHelper_9.2.0.zip"
         },
-        "version": "9.1.5"
+        "version": "9.2.0"
     },
     "phpmyadmin": {
         "cargoLocks": null,
@@ -4042,12 +4012,12 @@
             "name": null,
             "owner": "luisbocanegra",
             "repo": "plasma-smart-video-wallpaper-reborn",
-            "rev": "v2.7.1",
-            "sha256": "sha256-p1TiSX7Nv6gDudJ5eAIoWHcrawoMyZ92y53DhTLRd6s=",
+            "rev": "v2.8.0",
+            "sha256": "sha256-NnmcanyjPDhR1QvVZiwFkNOarUeGaGTqaEkQZb8G7pQ=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v2.7.1"
+        "version": "v2.8.0"
     },
     "plasma-yesplaymusic-lyric": {
         "cargoLocks": null,
@@ -4654,11 +4624,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-GBevsjo6KRd6Uicy2LpMwgZJkluN5n2ID/DAiaKJV74=",
+            "sha256": "sha256-P4AAwApknEaV4PFn6/5rpawp0iOGdDH+muYi+R/iErk=",
             "type": "url",
-            "url": "https://github.com/outloudvi/mw2fcitx/releases/download/20251109/moegirl.dict.yaml"
+            "url": "https://github.com/outloudvi/mw2fcitx/releases/download/20251210/moegirl.dict.yaml"
         },
-        "version": "20251109"
+        "version": "20251210"
     },
     "rime-zhwiki": {
         "cargoLocks": null,
@@ -5457,12 +5427,12 @@
             "name": null,
             "owner": "lucidrains",
             "repo": "vector-quantize-pytorch",
-            "rev": "1.27.7",
-            "sha256": "sha256-t33RQsr6VAezJnsq+QTsP3IOjfYm5tlCzQHSxuAbUoA=",
+            "rev": "1.27.12",
+            "sha256": "sha256-+Ktq04f6PaftDbccFwV60EsqmEpcIvC3ckF+HJvfLHE=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "1.27.7"
+        "version": "1.27.12"
     },
     "vgpu-unlock-rs": {
         "cargoLocks": null,
