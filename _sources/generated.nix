@@ -292,7 +292,7 @@
   };
   AAA_himirage-JSON = {
     pname = "AAA_himirage-JSON";
-    version = "2025-12-10 18:02:54";
+    version = "2025-12-11 18:03:37";
     src = fetchurl {
       url = "https://album.photosir.cn/upgradePackage/infoall/photosir";
       hash = "sha256-nQjQwrKvih7iN5U5x6/vMmJeMOvkp+DrxmL8Q4HMVIU=";
@@ -514,10 +514,10 @@
   };
   AAA_v2ray-rules-dat = {
     pname = "AAA_v2ray-rules-dat";
-    version = "202512092215";
+    version = "202512102215";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512092215/rules.zip";
-      hash = "sha256-lLV+NsxXGsduV2aaqs/L3kBhU5X5CzZVU97lGmRWC9E=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512102215/rules.zip";
+      hash = "sha256-HXgC3PKPfKtuQ3nXQtCUUmBxDQDDMvs9Y1N3i9FGX3w=";
     };
   };
   AAA_wechat-web-devtools-linux_appimage = {
@@ -747,14 +747,14 @@
   };
   cachyos-kernel-patches = {
     pname = "cachyos-kernel-patches";
-    version = "6dfdbc7f8f3ee4d9f5dc8adfb0672ef5d8e1e3d5";
+    version = "5f5c847f252b91bc7127af8a3430b1153c28533d";
     src = fetchFromGitHub {
       owner = "CachyOS";
       repo = "kernel-patches";
-      rev = "6dfdbc7f8f3ee4d9f5dc8adfb0672ef5d8e1e3d5";
-      hash = "sha256-TJJKd86jDyighG3Jx8MNyiuQTpEIMAsA2GkWpqttwFg=";
+      rev = "5f5c847f252b91bc7127af8a3430b1153c28533d";
+      hash = "sha256-GJ4hvp2Pyea+BXs845PxZFVlrU6KrzKsE6zfrZFae+I=";
     };
-    date = "2025-12-08";
+    date = "2025-12-10";
   };
   calibre-cops = {
     pname = "calibre-cops";
@@ -1353,14 +1353,14 @@
   };
   i915-sriov-dkms = {
     pname = "i915-sriov-dkms";
-    version = "9cb7f53afb44b356355bb6e0578dd2588827949a";
+    version = "2482f8fa4b1aabf10c5c9e5c1d4e37a84f2cdf57";
     src = fetchFromGitHub {
       owner = "strongtz";
       repo = "i915-sriov-dkms";
-      rev = "9cb7f53afb44b356355bb6e0578dd2588827949a";
-      hash = "sha256-YuqfEa4AE+R14Bjw/4huFI3sVXoO1Bf6f0knXuYORS0=";
+      rev = "2482f8fa4b1aabf10c5c9e5c1d4e37a84f2cdf57";
+      hash = "sha256-0ScqO5ADh2f9qsvlNixiOk0rflDehNW1LVzcN96SGBo=";
     };
-    date = "2025-11-17";
+    date = "2025-12-10";
   };
   igsc = {
     pname = "igsc";
@@ -1649,12 +1649,12 @@
   };
   llama-cpp = {
     pname = "llama-cpp";
-    version = "b7342";
+    version = "b7356";
     src = fetchFromGitHub {
       owner = "ggerganov";
       repo = "llama.cpp";
-      tag = "b7342";
-      hash = "sha256-L90E0h8d75kFh+sk1+6OT8yKtxSgj7uhzpNRviS6zSE=";
+      tag = "b7356";
+      hash = "sha256-BMamvbMEl7PQDumpbGFq963F9aTRFznrdUkVn2pgJaw=";
     };
   };
   loralib = {
@@ -2032,10 +2032,10 @@
   };
   peerbanhelper = {
     pname = "peerbanhelper";
-    version = "9.2.0";
+    version = "9.2.2";
     src = fetchurl {
-      url = "https://github.com/Ghost-chu/PeerBanHelper/releases/download/v9.2.0/PeerBanHelper_9.2.0.zip";
-      hash = "sha256-r50bGrq+PuBo6aBzZor/Px0bEtCtI3xlYrEzoTEkgtA=";
+      url = "https://github.com/Ghost-chu/PeerBanHelper/releases/download/v9.2.2/PeerBanHelper_9.2.2.zip";
+      hash = "sha256-bs770tTJayoO3wnij0PWF25k6PZtvwMqQIZ2kouQIYg=";
     };
   };
   phpmyadmin = {
