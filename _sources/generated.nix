@@ -75,15 +75,15 @@
   };
   AAA_PiliPalaX = {
     pname = "AAA_PiliPalaX";
-    version = "3741fe54ff386f50c91e17b16046cb429648bb6a";
+    version = "2b4b1debe6695a4d93233563b6df4a110e831fd8";
     src = fetchFromGitHub {
       owner = "bggRGjQaUbCoE";
       repo = "PiliPlus";
-      rev = "3741fe54ff386f50c91e17b16046cb429648bb6a";
+      rev = "2b4b1debe6695a4d93233563b6df4a110e831fd8";
       fetchSubmodules = true;
-      hash = "sha256-Y+/ukiy4DE6ofcE+PDvRdmSpAOKG4pfg7QOPyyzLvFU=";
+      hash = "sha256-4ntrcNhFQ2WFqtGZZC1F5J4RCdxgja4y5KPPa8bfo+M=";
     };
-    date = "2025-12-10";
+    date = "2025-12-13";
   };
   AAA_SteamTools = {
     pname = "AAA_SteamTools";
@@ -292,7 +292,7 @@
   };
   AAA_himirage-JSON = {
     pname = "AAA_himirage-JSON";
-    version = "2025-12-12 18:02:48";
+    version = "2025-12-13 18:06:12";
     src = fetchurl {
       url = "https://album.photosir.cn/upgradePackage/infoall/photosir";
       hash = "sha256-nQjQwrKvih7iN5U5x6/vMmJeMOvkp+DrxmL8Q4HMVIU=";
@@ -514,10 +514,10 @@
   };
   AAA_v2ray-rules-dat = {
     pname = "AAA_v2ray-rules-dat";
-    version = "202512112215";
+    version = "202512122214";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512112215/rules.zip";
-      hash = "sha256-tOTKY0uv/7mASXWRvIp/O0/okN1zk6HWb5wk75rQCyU=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512122214/rules.zip";
+      hash = "sha256-tnr1Iv9r2OTMG9eJOzqkneXHTFoV8dhkzy02QaO279M=";
     };
   };
   AAA_wechat-web-devtools-linux_appimage = {
@@ -1030,24 +1030,24 @@
   };
   edge-tts = {
     pname = "edge-tts";
-    version = "7.2.6";
+    version = "7.2.7";
     src = fetchFromGitHub {
       owner = "rany2";
       repo = "edge-tts";
-      tag = "7.2.6";
-      hash = "sha256-uDrt0vVeNzh8PYektLfvQoKcxAMpoxdxQit8sBzq/xI=";
+      tag = "7.2.7";
+      hash = "sha256-KlQJ9U5RgifpqVKw5BrPwBFJYZHKibMUlyb3aX+4qf8=";
     };
   };
   ela-widget-tools = {
     pname = "ela-widget-tools";
-    version = "d755a7558ee957ccee3554482d5ded9040354d81";
+    version = "1d93b86c1fab734ca238bb7dbdd3fb52e8bc35d8";
     src = fetchFromGitHub {
       owner = "Liniyous";
       repo = "ElaWidgetTools";
-      rev = "d755a7558ee957ccee3554482d5ded9040354d81";
-      hash = "sha256-IBsXcdQkKSvWP8VjLNz/vnzeUEdtYWCXVHnrrToaYLM=";
+      rev = "1d93b86c1fab734ca238bb7dbdd3fb52e8bc35d8";
+      hash = "sha256-OO/Ww93ZkPjRdmoxFuMgFE+Vu0ey0lcn4l/KI+f8+e0=";
     };
-    date = "2025-11-24";
+    date = "2025-12-12";
   };
   etherguard = {
     pname = "etherguard";
@@ -1204,26 +1204,26 @@
   };
   geolite2-asn = {
     pname = "geolite2-asn";
-    version = "2025.12.10";
+    version = "2025.12.13";
     src = fetchurl {
-      url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.12.10/GeoLite2-ASN.mmdb";
-      hash = "sha256-7dP8FDrdGh10EOgMLF4m3Vss4AGnJ9JunzRLtRWoEO0=";
+      url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.12.13/GeoLite2-ASN.mmdb";
+      hash = "sha256-G7b/OzuSlAxvp8MUkhnoMlttI9gxyYuZ2EmDQolNYN4=";
     };
   };
   geolite2-city = {
     pname = "geolite2-city";
-    version = "2025.12.10";
+    version = "2025.12.13";
     src = fetchurl {
-      url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.12.10/GeoLite2-City.mmdb";
-      hash = "sha256-TQtMF7Sr1Zd77jBfe6h5G9ic9poHHw74oK1H4URQ4R0=";
+      url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.12.13/GeoLite2-City.mmdb";
+      hash = "sha256-cO48JDSyKIbNm/8chVIpLine2E9GVhuSlwnhj8hH9ng=";
     };
   };
   geolite2-country = {
     pname = "geolite2-country";
-    version = "2025.12.10";
+    version = "2025.12.13";
     src = fetchurl {
-      url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.12.10/GeoLite2-Country.mmdb";
-      hash = "sha256-E3uv0RLvXY/PT5UsbFe3dBEhsxWlLums+7eeu3hEUOQ=";
+      url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.12.13/GeoLite2-Country.mmdb";
+      hash = "sha256-cdR3zxjlZNUeJk4YRLf2V2oImWIH9WCres9zFrOYUb0=";
     };
   };
   glauth = {
@@ -1421,20 +1421,20 @@
   };
   kata-containers = {
     pname = "kata-containers";
-    version = "3.23.0";
+    version = "3.24.0";
     src = fetchFromGitHub {
       owner = "kata-containers";
       repo = "kata-containers";
-      tag = "3.23.0";
-      hash = "sha256-bEoCLyuyawYzO3e1qX3ZG8o2hpnv4394RKc/5Xigng4=";
+      tag = "3.24.0";
+      hash = "sha256-CXSJa3aCOEoGW1KkDP2yTmbb0UsxaE2K2u4TcVdscf0=";
     };
   };
   kata-image = {
     pname = "kata-image";
-    version = "3.23.0";
+    version = "3.24.0";
     src = fetchurl {
-      url = "https://github.com/kata-containers/kata-containers/releases/download/3.23.0/kata-static-3.23.0-amd64.tar.zst";
-      hash = "sha256-O3Kg5DQkzaRgyVZhkyFla1UgSTRi08FxoY9+Tf3iLtw=";
+      url = "https://github.com/kata-containers/kata-containers/releases/download/3.24.0/kata-static-3.24.0-amd64.tar.zst";
+      hash = "sha256-8Fu+jkHrGeTnNbqrkMc6nZlo6DNWwoGocbZFKqawYUk=";
     };
   };
   kikoplay = {
@@ -1599,12 +1599,12 @@
   };
   linux-xanmod = {
     pname = "linux-xanmod";
-    version = "6.18.0-xanmod1";
+    version = "6.18.1-xanmod1";
     src = fetchgit {
       url = "https://gitlab.com/xanmod/linux.git";
-      tag = "6.18.0-xanmod1";
+      tag = "6.18.1-xanmod1";
       fetchSubmodules = false;
-      hash = "sha256-voGRfxlZuejQvalSj/teB8XMvnzE3VG15kCtsNTCFFo=";
+      hash = "sha256-q1zUuDT2bxVBx6h/P4tsTB0/LkkrXXbfJkkwNCrScgA=";
     };
   };
   linux-xanmod-6_0 = {
@@ -1629,12 +1629,12 @@
   };
   linux-xanmod-6_12 = {
     pname = "linux-xanmod-6_12";
-    version = "6.12.61-xanmod1";
+    version = "6.12.62-xanmod1";
     src = fetchgit {
       url = "https://gitlab.com/xanmod/linux.git";
-      tag = "6.12.61-xanmod1";
+      tag = "6.12.62-xanmod1";
       fetchSubmodules = false;
-      hash = "sha256-7m4Ehmy463rQK265fEvTMjndqZXs+PJ35HE+tZVKgGQ=";
+      hash = "sha256-NAcE8ml7HDhpLNDKZEKlEFwdylRiFte+Gi+uxnlyVHQ=";
     };
   };
   linux-xanmod-6_6 = {
@@ -1649,12 +1649,12 @@
   };
   llama-cpp = {
     pname = "llama-cpp";
-    version = "b7360";
+    version = "b7376";
     src = fetchFromGitHub {
       owner = "ggerganov";
       repo = "llama.cpp";
-      tag = "b7360";
-      hash = "sha256-UaUKGPXOyHYfP2qY9QQX9qg7LY2d+VQFAIGCO1Xi14k=";
+      tag = "b7376";
+      hash = "sha256-+CzVsFPN7kG3nTyNL1k9W+2/Bs+R11WYfIRooxqOS54=";
     };
   };
   loralib = {
@@ -2386,14 +2386,14 @@
   };
   rime-ice = {
     pname = "rime-ice";
-    version = "5bc4d3057a1953c3d273fb3408ac4e13f2f593b6";
+    version = "fa290a9c234377084b32ce148ba3056ac1bc1198";
     src = fetchFromGitHub {
       owner = "iDvel";
       repo = "rime-ice";
-      rev = "5bc4d3057a1953c3d273fb3408ac4e13f2f593b6";
-      hash = "sha256-GyiOlTr1Nw2ANTE7/fdyrPQkvRFWOyal3oAcDvsqF5A=";
+      rev = "fa290a9c234377084b32ce148ba3056ac1bc1198";
+      hash = "sha256-5QAE5FCi/hdzivm16usCG9FLyfEVQMz5QjmknZO8qiQ=";
     };
-    date = "2025-12-08";
+    date = "2025-12-13";
   };
   rime-moegirl = {
     pname = "rime-moegirl";
@@ -2807,12 +2807,12 @@
   };
   vector-quantize-pytorch = {
     pname = "vector-quantize-pytorch";
-    version = "1.27.12";
+    version = "1.27.14";
     src = fetchFromGitHub {
       owner = "lucidrains";
       repo = "vector-quantize-pytorch";
-      tag = "1.27.12";
-      hash = "sha256-+Ktq04f6PaftDbccFwV60EsqmEpcIvC3ckF+HJvfLHE=";
+      tag = "1.27.14";
+      hash = "sha256-33JZ0XcP/1SIJkzySHDxQgO06S7TO+BrtbQjeo0YqSk=";
     };
   };
   vgpu-unlock-rs = {
