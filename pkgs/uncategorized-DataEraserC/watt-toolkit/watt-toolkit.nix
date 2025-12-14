@@ -10,8 +10,8 @@ buildDotnetModule rec {
   projectFile = "WattToolkit.sln";
   nugetDeps = ./deps.json; # see "Generating and updating NuGet dependencies" section for details
 
-  dotnet-sdk = dotnetCorePackages.sdk_8_0;
-  dotnet-runtime = dotnetCorePackages.runtime_8_0;
+  dotnet-sdk = dotnetCorePackages.sdk_9_0;
+  dotnet-runtime = dotnetCorePackages.runtime_9_0;
 
   executables = [ ]; # This wraps "$out/lib/$pname/foo" to `$out/bin/foo`.
 
