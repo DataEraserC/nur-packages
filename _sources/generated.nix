@@ -75,15 +75,15 @@
   };
   AAA_PiliPalaX = {
     pname = "AAA_PiliPalaX";
-    version = "2b4b1debe6695a4d93233563b6df4a110e831fd8";
+    version = "62506d3eb57ebeea13288e71791a4375d3708913";
     src = fetchFromGitHub {
       owner = "bggRGjQaUbCoE";
       repo = "PiliPlus";
-      rev = "2b4b1debe6695a4d93233563b6df4a110e831fd8";
+      rev = "62506d3eb57ebeea13288e71791a4375d3708913";
       fetchSubmodules = true;
-      hash = "sha256-4ntrcNhFQ2WFqtGZZC1F5J4RCdxgja4y5KPPa8bfo+M=";
+      hash = "sha256-nDTuM6n7sRn5XqI80chJYe7Lv47iIlrTBrc4GSs3yAs=";
     };
-    date = "2025-12-13";
+    date = "2025-12-14";
   };
   AAA_SteamTools = {
     pname = "AAA_SteamTools";
@@ -292,7 +292,7 @@
   };
   AAA_himirage-JSON = {
     pname = "AAA_himirage-JSON";
-    version = "2025-12-13 18:06:12";
+    version = "2025-12-14 18:04:04";
     src = fetchurl {
       url = "https://album.photosir.cn/upgradePackage/infoall/photosir";
       hash = "sha256-nQjQwrKvih7iN5U5x6/vMmJeMOvkp+DrxmL8Q4HMVIU=";
@@ -514,10 +514,10 @@
   };
   AAA_v2ray-rules-dat = {
     pname = "AAA_v2ray-rules-dat";
-    version = "202512122214";
+    version = "202512132213";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512122214/rules.zip";
-      hash = "sha256-tnr1Iv9r2OTMG9eJOzqkneXHTFoV8dhkzy02QaO279M=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512132213/rules.zip";
+      hash = "sha256-3AvJ4C9PydB+Lepg7NJVyP1LQuDyfgJaJ26yT3Og+7c=";
     };
   };
   AAA_wechat-web-devtools-linux_appimage = {
@@ -608,14 +608,14 @@
   };
   asterisk-g72x = {
     pname = "asterisk-g72x";
-    version = "5024cb422cf58dbf0ae6e00f18092680e33391de";
+    version = "55a7b8246c8ad3f32e50a033529e5a52c11a5592";
     src = fetchFromGitHub {
       owner = "arkadijs";
       repo = "asterisk-g72x";
-      rev = "5024cb422cf58dbf0ae6e00f18092680e33391de";
-      hash = "sha256-/0b9GEgBbUdkGIr6gbPuXDA06hw5bFv2eOembRzS2k8=";
+      rev = "55a7b8246c8ad3f32e50a033529e5a52c11a5592";
+      hash = "sha256-P36O/BFkGDYvuvFKKA4t3a4hbLn+jy+s6/Bp134vDhE=";
     };
-    date = "2025-09-01";
+    date = "2025-12-13";
   };
   asterisk-gsm-efr = {
     pname = "asterisk-gsm-efr";
@@ -734,27 +734,43 @@
     };
     date = "2025-12-11";
   };
+  browser360-amd64 = {
+    pname = "browser360-amd64";
+    version = "13.4.1100.108";
+    src = fetchurl {
+      url = "https://gedown.360safe.com/gc/signed_com.360.browser-stable_13.4.1100.108-1_amd64.deb";
+      hash = "sha256-Vo1cFGdO2aU7Sgf9zZ54FpsPEvLnfaIcM4CLNBHXpGg=";
+    };
+  };
+  browser360-arm64 = {
+    pname = "browser360-arm64";
+    version = "13.4.1100.108";
+    src = fetchurl {
+      url = "https://gedown.360safe.com/gc/signed_com.360.browser-stable_13.4.1100.108-1_arm64.deb";
+      hash = "sha256-UTxLfT2qJc9LFkeQHPhZkhqU+rQFwwmq1RBeY6NTYHw=";
+    };
+  };
   cachyos-kernel = {
     pname = "cachyos-kernel";
-    version = "4e182cb7b8fca0077c06987b853312f25566e520";
+    version = "278762fc5eb743b8bf9f819fdf6506306685b101";
     src = fetchFromGitHub {
       owner = "CachyOS";
       repo = "linux-cachyos";
-      rev = "4e182cb7b8fca0077c06987b853312f25566e520";
-      hash = "sha256-WuY9uRDsfHcFzpf6xQ6WoiLEbCZyvpIDw/mf9B0VG6k=";
+      rev = "278762fc5eb743b8bf9f819fdf6506306685b101";
+      hash = "sha256-gUC76q6nNDNF7PM4UWGW58eOGF0BalwgnPMTj8tKXiY=";
     };
-    date = "2025-12-11";
+    date = "2025-12-13";
   };
   cachyos-kernel-patches = {
     pname = "cachyos-kernel-patches";
-    version = "5f5c847f252b91bc7127af8a3430b1153c28533d";
+    version = "8a5e89d346af4221d7426b45da65a677a1ff5582";
     src = fetchFromGitHub {
       owner = "CachyOS";
       repo = "kernel-patches";
-      rev = "5f5c847f252b91bc7127af8a3430b1153c28533d";
-      hash = "sha256-GJ4hvp2Pyea+BXs845PxZFVlrU6KrzKsE6zfrZFae+I=";
+      rev = "8a5e89d346af4221d7426b45da65a677a1ff5582";
+      hash = "sha256-e9yoAfVY6URHUbUa6zehrvv1eIMdA9YAOql/ICAly38=";
     };
-    date = "2025-12-10";
+    date = "2025-12-13";
   };
   calibre-cops = {
     pname = "calibre-cops";
@@ -1649,12 +1665,12 @@
   };
   llama-cpp = {
     pname = "llama-cpp";
-    version = "b7376";
+    version = "b7388";
     src = fetchFromGitHub {
       owner = "ggerganov";
       repo = "llama.cpp";
-      tag = "b7376";
-      hash = "sha256-+CzVsFPN7kG3nTyNL1k9W+2/Bs+R11WYfIRooxqOS54=";
+      tag = "b7388";
+      hash = "sha256-sfsFlJqCe57BRrjhsPT9hxDjx2HAD6IxQ+v/rj7tG4c=";
     };
   };
   loralib = {
@@ -1982,12 +1998,12 @@
   };
   ormsgpack = {
     pname = "ormsgpack";
-    version = "1.12.0";
+    version = "1.12.1";
     src = fetchFromGitHub {
       owner = "aviramha";
       repo = "ormsgpack";
-      tag = "1.12.0";
-      hash = "sha256-kCISXmj2dDDMb7iuY/eY4W/dmyNziQwtIQX6qNvEJa4=";
+      tag = "1.12.1";
+      hash = "sha256-eZ0SRQt/HS1P7naEa9AXLF2GyDUGmiBlDnyxxCRIVPI=";
     };
   };
   osdlyrics = {

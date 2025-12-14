@@ -133,7 +133,7 @@
     },
     "AAA_PiliPalaX": {
         "cargoLocks": null,
-        "date": "2025-12-13",
+        "date": "2025-12-14",
         "extract": null,
         "name": "AAA_PiliPalaX",
         "passthru": null,
@@ -145,12 +145,12 @@
             "name": null,
             "owner": "bggRGjQaUbCoE",
             "repo": "PiliPlus",
-            "rev": "2b4b1debe6695a4d93233563b6df4a110e831fd8",
-            "sha256": "sha256-4ntrcNhFQ2WFqtGZZC1F5J4RCdxgja4y5KPPa8bfo+M=",
+            "rev": "62506d3eb57ebeea13288e71791a4375d3708913",
+            "sha256": "sha256-nDTuM6n7sRn5XqI80chJYe7Lv47iIlrTBrc4GSs3yAs=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "2b4b1debe6695a4d93233563b6df4a110e831fd8"
+        "version": "62506d3eb57ebeea13288e71791a4375d3708913"
     },
     "AAA_SteamTools": {
         "cargoLocks": null,
@@ -541,7 +541,7 @@
             "type": "url",
             "url": "https://album.photosir.cn/upgradePackage/infoall/photosir"
         },
-        "version": "2025-12-13 18:06:12"
+        "version": "2025-12-14 18:04:04"
     },
     "AAA_himirage-aarch64-darwin": {
         "cargoLocks": null,
@@ -947,11 +947,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-tnr1Iv9r2OTMG9eJOzqkneXHTFoV8dhkzy02QaO279M=",
+            "sha256": "sha256-3AvJ4C9PydB+Lepg7NJVyP1LQuDyfgJaJ26yT3Og+7c=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512122214/rules.zip"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512132213/rules.zip"
         },
-        "version": "202512122214"
+        "version": "202512132213"
     },
     "AAA_wechat-web-devtools-linux_appimage": {
         "cargoLocks": null,
@@ -1120,7 +1120,7 @@
     },
     "asterisk-g72x": {
         "cargoLocks": null,
-        "date": "2025-09-01",
+        "date": "2025-12-13",
         "extract": null,
         "name": "asterisk-g72x",
         "passthru": null,
@@ -1132,12 +1132,12 @@
             "name": null,
             "owner": "arkadijs",
             "repo": "asterisk-g72x",
-            "rev": "5024cb422cf58dbf0ae6e00f18092680e33391de",
-            "sha256": "sha256-/0b9GEgBbUdkGIr6gbPuXDA06hw5bFv2eOembRzS2k8=",
+            "rev": "55a7b8246c8ad3f32e50a033529e5a52c11a5592",
+            "sha256": "sha256-P36O/BFkGDYvuvFKKA4t3a4hbLn+jy+s6/Bp134vDhE=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "5024cb422cf58dbf0ae6e00f18092680e33391de"
+        "version": "55a7b8246c8ad3f32e50a033529e5a52c11a5592"
     },
     "asterisk-gsm-efr": {
         "cargoLocks": null,
@@ -1367,9 +1367,39 @@
         },
         "version": "a181123a1de358bd64322ba5e8748a7f0f970240"
     },
+    "browser360-amd64": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "browser360-amd64",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-Vo1cFGdO2aU7Sgf9zZ54FpsPEvLnfaIcM4CLNBHXpGg=",
+            "type": "url",
+            "url": "https://gedown.360safe.com/gc/signed_com.360.browser-stable_13.4.1100.108-1_amd64.deb"
+        },
+        "version": "13.4.1100.108"
+    },
+    "browser360-arm64": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "browser360-arm64",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-UTxLfT2qJc9LFkeQHPhZkhqU+rQFwwmq1RBeY6NTYHw=",
+            "type": "url",
+            "url": "https://gedown.360safe.com/gc/signed_com.360.browser-stable_13.4.1100.108-1_arm64.deb"
+        },
+        "version": "13.4.1100.108"
+    },
     "cachyos-kernel": {
         "cargoLocks": null,
-        "date": "2025-12-11",
+        "date": "2025-12-13",
         "extract": null,
         "name": "cachyos-kernel",
         "passthru": null,
@@ -1381,16 +1411,16 @@
             "name": null,
             "owner": "CachyOS",
             "repo": "linux-cachyos",
-            "rev": "4e182cb7b8fca0077c06987b853312f25566e520",
-            "sha256": "sha256-WuY9uRDsfHcFzpf6xQ6WoiLEbCZyvpIDw/mf9B0VG6k=",
+            "rev": "278762fc5eb743b8bf9f819fdf6506306685b101",
+            "sha256": "sha256-gUC76q6nNDNF7PM4UWGW58eOGF0BalwgnPMTj8tKXiY=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "4e182cb7b8fca0077c06987b853312f25566e520"
+        "version": "278762fc5eb743b8bf9f819fdf6506306685b101"
     },
     "cachyos-kernel-patches": {
         "cargoLocks": null,
-        "date": "2025-12-10",
+        "date": "2025-12-13",
         "extract": null,
         "name": "cachyos-kernel-patches",
         "passthru": null,
@@ -1402,12 +1432,12 @@
             "name": null,
             "owner": "CachyOS",
             "repo": "kernel-patches",
-            "rev": "5f5c847f252b91bc7127af8a3430b1153c28533d",
-            "sha256": "sha256-GJ4hvp2Pyea+BXs845PxZFVlrU6KrzKsE6zfrZFae+I=",
+            "rev": "8a5e89d346af4221d7426b45da65a677a1ff5582",
+            "sha256": "sha256-e9yoAfVY6URHUbUa6zehrvv1eIMdA9YAOql/ICAly38=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "5f5c847f252b91bc7127af8a3430b1153c28533d"
+        "version": "8a5e89d346af4221d7426b45da65a677a1ff5582"
     },
     "calibre-cops": {
         "cargoLocks": null,
@@ -3157,12 +3187,12 @@
             "name": null,
             "owner": "ggerganov",
             "repo": "llama.cpp",
-            "rev": "b7376",
-            "sha256": "sha256-+CzVsFPN7kG3nTyNL1k9W+2/Bs+R11WYfIRooxqOS54=",
+            "rev": "b7388",
+            "sha256": "sha256-sfsFlJqCe57BRrjhsPT9hxDjx2HAD6IxQ+v/rj7tG4c=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "b7376"
+        "version": "b7388"
     },
     "loralib": {
         "cargoLocks": null,
@@ -3814,12 +3844,12 @@
             "name": null,
             "owner": "aviramha",
             "repo": "ormsgpack",
-            "rev": "1.12.0",
-            "sha256": "sha256-kCISXmj2dDDMb7iuY/eY4W/dmyNziQwtIQX6qNvEJa4=",
+            "rev": "1.12.1",
+            "sha256": "sha256-eZ0SRQt/HS1P7naEa9AXLF2GyDUGmiBlDnyxxCRIVPI=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "1.12.0"
+        "version": "1.12.1"
     },
     "osdlyrics": {
         "cargoLocks": null,
