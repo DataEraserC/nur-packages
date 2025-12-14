@@ -78,6 +78,11 @@ jobs:
 
           rm -f secrets.toml
 
+      - name: Run global update scripts
+        run: |
+          chmod +x ./tools/run_package_update_scripts.py
+          ./tools/run_package_update_scripts.py
+
       - env:
           API_TOKEN_GITHUB: ${{ secrets.AUTOMERGE_TOKEN }}
         run: |

@@ -1,0 +1,51 @@
+name: 'Run package update scripts'
+on:
+  workflow_dispatch:
+    inputs:
+      package_name:
+        description: 'Package name to run update script for (leave empty for all packages)'
+        required: false
+        type: string
+
+jobs:
+  run-scripts:
+    runs-on: ubuntu-latest
+    env:
+      GIT_SSL_NO_VERIFY: 'true'
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Install nix
+        uses: cachix/install-nix-action@v31
+        with:
+          nix_path: nixpkgs=channel:nixos-unstable
+          extra_nix_config: |
+            experimental-features = nix-command flakes ca-derivations
+            extra-experimental-features = nix-command flakes ca-derivations
+            access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
+
+      - name: Run package update scripts
+        run: |
+          chmod +x ./tools/run_package_update_scripts.py
+          if [ -n "${{ github.event.inputs.package_name }}" ]; then
+            echo "Running update script for specific package: ${{ github.event.inputs.package_name }}"
+            ./tools/run_package_update_scripts.py --scripts-only ${{ github.event.inputs.package_name }}
+          else
+            echo "Running update scripts for all packages"
+            ./tools/run_package_update_scripts.py --scripts-only
+          fi
+
+      - env:
+          API_TOKEN_GITHUB: ${{ secrets.AUTOMERGE_TOKEN }}
+        run: |
+          git config --unset-all http.https://github.com/.extraheader
+          git config --global user.email "DataEraserC-bot@users.noreply.github.com"
+          git config --global user.name "DataEraserC-bot"
+
+          git add .
+          if git commit -m "manual: run package update scripts" ; then
+            git remote remove origin
+            git remote add origin "https://DataEraserC:$API_TOKEN_GITHUB@github.com/DataEraserC/nur-packages.git"
+            git push -u origin main
+          fi
