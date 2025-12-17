@@ -133,7 +133,7 @@
     },
     "AAA_PiliPalaX": {
         "cargoLocks": null,
-        "date": "2025-12-16",
+        "date": "2025-12-17",
         "extract": null,
         "name": "AAA_PiliPalaX",
         "passthru": null,
@@ -145,12 +145,12 @@
             "name": null,
             "owner": "bggRGjQaUbCoE",
             "repo": "PiliPlus",
-            "rev": "0baf3fcd3614640a2ceedaead4888c4e390354c6",
-            "sha256": "sha256-FpEJmG259hXPamgkBvpPyvHILQLJvulDHdLJx4/ipuY=",
+            "rev": "ce5e85e64b998e2a6fa5c57557640632a237117a",
+            "sha256": "sha256-pyAXkQwEfSffgJ9OrF14hFk+UVfttZXNDAffgQn7abU=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "0baf3fcd3614640a2ceedaead4888c4e390354c6"
+        "version": "ce5e85e64b998e2a6fa5c57557640632a237117a"
     },
     "AAA_SteamTools": {
         "cargoLocks": null,
@@ -541,7 +541,7 @@
             "type": "url",
             "url": "https://album.photosir.cn/upgradePackage/infoall/photosir"
         },
-        "version": "2025-12-16 18:03:00"
+        "version": "2025-12-17 18:04:46"
     },
     "AAA_himirage-aarch64-darwin": {
         "cargoLocks": null,
@@ -947,11 +947,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-ewVzqakQ46CrsI/vK3GboJMpgH63IObBprs+axDwCv0=",
+            "sha256": "sha256-bdC0fhhFELSC+NfQFTrrpISEabsDYHLAG0FR+Po1MDU=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512160513/rules.zip"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512162215/rules.zip"
         },
-        "version": "202512160513"
+        "version": "202512162215"
     },
     "AAA_wechat-web-devtools-linux_appimage": {
         "cargoLocks": null,
@@ -1420,7 +1420,7 @@
     },
     "cachyos-kernel-patches": {
         "cargoLocks": null,
-        "date": "2025-12-15",
+        "date": "2025-12-16",
         "extract": null,
         "name": "cachyos-kernel-patches",
         "passthru": null,
@@ -1432,12 +1432,12 @@
             "name": null,
             "owner": "CachyOS",
             "repo": "kernel-patches",
-            "rev": "96d3efd823827b734074c0828c695d0c60d8a7d7",
-            "sha256": "sha256-vtNHrRo6f4pk+9XUobPeL3t2RXtm6Dj9z+ngNGK6jN4=",
+            "rev": "c89149f55d044df5734d7b1018bc015a56900868",
+            "sha256": "sha256-gocqXiDzubfOpmbiLSmDtpE1CbKJe5N1f6bE9aocmlw=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "96d3efd823827b734074c0828c695d0c60d8a7d7"
+        "version": "c89149f55d044df5734d7b1018bc015a56900868"
     },
     "calibre-cops": {
         "cargoLocks": null,
@@ -2287,7 +2287,7 @@
     },
     "funasr": {
         "cargoLocks": null,
-        "date": "2025-12-16",
+        "date": "2025-12-17",
         "extract": null,
         "name": "funasr",
         "passthru": null,
@@ -2299,12 +2299,12 @@
             "name": null,
             "owner": "modelscope",
             "repo": "FunASR",
-            "rev": "74ada7222e1d61650f3b740a0bac01575591b23b",
-            "sha256": "sha256-B0KKs5IuS8sBQUyfMSkwM1ZYiGCapl+Jy2glngbSE1U=",
+            "rev": "6ebf4f3f91287a83bf050447d1ce470e66b2c89b",
+            "sha256": "sha256-tv/HhHObqSiZqG0mwwJZ3VHIFLk+OSBI7XQKjrfb++E=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "74ada7222e1d61650f3b740a0bac01575591b23b"
+        "version": "6ebf4f3f91287a83bf050447d1ce470e66b2c89b"
     },
     "geolite2-asn": {
         "cargoLocks": null,
@@ -3187,12 +3187,12 @@
             "name": null,
             "owner": "ggerganov",
             "repo": "llama.cpp",
-            "rev": "b7422",
-            "sha256": "sha256-bYkIP1rrdcV5BY6xFQzVh61ARH2OuXgjGpoH0OKX2yQ=",
+            "rev": "b7444",
+            "sha256": "sha256-/BLjdC9I6H7cbElwWJtz9yi9nkesRdPRfuk02k7jZJk=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "b7422"
+        "version": "b7444"
     },
     "loralib": {
         "cargoLocks": null,
@@ -5457,12 +5457,12 @@
             "name": null,
             "owner": "lucidrains",
             "repo": "vector-quantize-pytorch",
-            "rev": "1.27.14",
-            "sha256": "sha256-33JZ0XcP/1SIJkzySHDxQgO06S7TO+BrtbQjeo0YqSk=",
+            "rev": "1.27.15",
+            "sha256": "sha256-mlsw3dhl9Ny7jbwzJL22aaK/3Jh8MTThQJuoKVEpRJo=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "1.27.14"
+        "version": "1.27.15"
     },
     "vgpu-unlock-rs": {
         "cargoLocks": null,
