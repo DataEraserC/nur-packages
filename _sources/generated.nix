@@ -75,15 +75,15 @@
   };
   AAA_PiliPalaX = {
     pname = "AAA_PiliPalaX";
-    version = "ce5e85e64b998e2a6fa5c57557640632a237117a";
+    version = "1e0e2d2d6ef3324dafe0202c58b74f3b4a296fdc";
     src = fetchFromGitHub {
       owner = "bggRGjQaUbCoE";
       repo = "PiliPlus";
-      rev = "ce5e85e64b998e2a6fa5c57557640632a237117a";
+      rev = "1e0e2d2d6ef3324dafe0202c58b74f3b4a296fdc";
       fetchSubmodules = true;
-      hash = "sha256-pyAXkQwEfSffgJ9OrF14hFk+UVfttZXNDAffgQn7abU=";
+      hash = "sha256-D09xDVDyedbHw4QTRRFP6yGhsLs84BYSaBDrpnydy58=";
     };
-    date = "2025-12-17";
+    date = "2025-12-18";
   };
   AAA_SteamTools = {
     pname = "AAA_SteamTools";
@@ -292,7 +292,7 @@
   };
   AAA_himirage-JSON = {
     pname = "AAA_himirage-JSON";
-    version = "2025-12-17 18:04:46";
+    version = "2025-12-18 18:04:30";
     src = fetchurl {
       url = "https://album.photosir.cn/upgradePackage/infoall/photosir";
       hash = "sha256-nQjQwrKvih7iN5U5x6/vMmJeMOvkp+DrxmL8Q4HMVIU=";
@@ -514,10 +514,10 @@
   };
   AAA_v2ray-rules-dat = {
     pname = "AAA_v2ray-rules-dat";
-    version = "202512162215";
+    version = "202512172214";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512162215/rules.zip";
-      hash = "sha256-bdC0fhhFELSC+NfQFTrrpISEabsDYHLAG0FR+Po1MDU=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512172214/rules.zip";
+      hash = "sha256-Wvs6dxtuA8uJ0SQz/LHueW5Uh+uThsfdNwsJvvyZ8HY=";
     };
   };
   AAA_wechat-web-devtools-linux_appimage = {
@@ -725,14 +725,14 @@
   };
   boringssl-oqs = {
     pname = "boringssl-oqs";
-    version = "a181123a1de358bd64322ba5e8748a7f0f970240";
+    version = "0c663fb672d4e4018218ea7064e1fb35c480e408";
     src = fetchFromGitHub {
       owner = "open-quantum-safe";
       repo = "boringssl";
-      rev = "a181123a1de358bd64322ba5e8748a7f0f970240";
-      hash = "sha256-GBwAesQJqCAJ1R+P0Kdfw75Je3dwaWItX936qv6+XRw=";
+      rev = "0c663fb672d4e4018218ea7064e1fb35c480e408";
+      hash = "sha256-UqLBfdL492WKrZQ8GSS03q8DkwkwL3Vj5WpQZQ0S/Hg=";
     };
-    date = "2025-12-11";
+    date = "2025-12-17";
   };
   browser360-amd64 = {
     pname = "browser360-amd64";
@@ -1665,12 +1665,12 @@
   };
   llama-cpp = {
     pname = "llama-cpp";
-    version = "b7444";
+    version = "b7446";
     src = fetchFromGitHub {
       owner = "ggerganov";
       repo = "llama.cpp";
-      tag = "b7444";
-      hash = "sha256-/BLjdC9I6H7cbElwWJtz9yi9nkesRdPRfuk02k7jZJk=";
+      tag = "b7446";
+      hash = "sha256-+zkABxcGzfuY4v16PMl3opoxOK/VbUnklFUslDMERfY=";
     };
   };
   loralib = {

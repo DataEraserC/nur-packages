@@ -133,7 +133,7 @@
     },
     "AAA_PiliPalaX": {
         "cargoLocks": null,
-        "date": "2025-12-17",
+        "date": "2025-12-18",
         "extract": null,
         "name": "AAA_PiliPalaX",
         "passthru": null,
@@ -145,12 +145,12 @@
             "name": null,
             "owner": "bggRGjQaUbCoE",
             "repo": "PiliPlus",
-            "rev": "ce5e85e64b998e2a6fa5c57557640632a237117a",
-            "sha256": "sha256-pyAXkQwEfSffgJ9OrF14hFk+UVfttZXNDAffgQn7abU=",
+            "rev": "1e0e2d2d6ef3324dafe0202c58b74f3b4a296fdc",
+            "sha256": "sha256-D09xDVDyedbHw4QTRRFP6yGhsLs84BYSaBDrpnydy58=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "ce5e85e64b998e2a6fa5c57557640632a237117a"
+        "version": "1e0e2d2d6ef3324dafe0202c58b74f3b4a296fdc"
     },
     "AAA_SteamTools": {
         "cargoLocks": null,
@@ -541,7 +541,7 @@
             "type": "url",
             "url": "https://album.photosir.cn/upgradePackage/infoall/photosir"
         },
-        "version": "2025-12-17 18:04:46"
+        "version": "2025-12-18 18:04:30"
     },
     "AAA_himirage-aarch64-darwin": {
         "cargoLocks": null,
@@ -947,11 +947,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-bdC0fhhFELSC+NfQFTrrpISEabsDYHLAG0FR+Po1MDU=",
+            "sha256": "sha256-Wvs6dxtuA8uJ0SQz/LHueW5Uh+uThsfdNwsJvvyZ8HY=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512162215/rules.zip"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512172214/rules.zip"
         },
-        "version": "202512162215"
+        "version": "202512172214"
     },
     "AAA_wechat-web-devtools-linux_appimage": {
         "cargoLocks": null,
@@ -1348,7 +1348,7 @@
     },
     "boringssl-oqs": {
         "cargoLocks": null,
-        "date": "2025-12-11",
+        "date": "2025-12-17",
         "extract": null,
         "name": "boringssl-oqs",
         "passthru": null,
@@ -1360,12 +1360,12 @@
             "name": null,
             "owner": "open-quantum-safe",
             "repo": "boringssl",
-            "rev": "a181123a1de358bd64322ba5e8748a7f0f970240",
-            "sha256": "sha256-GBwAesQJqCAJ1R+P0Kdfw75Je3dwaWItX936qv6+XRw=",
+            "rev": "0c663fb672d4e4018218ea7064e1fb35c480e408",
+            "sha256": "sha256-UqLBfdL492WKrZQ8GSS03q8DkwkwL3Vj5WpQZQ0S/Hg=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "a181123a1de358bd64322ba5e8748a7f0f970240"
+        "version": "0c663fb672d4e4018218ea7064e1fb35c480e408"
     },
     "browser360-amd64": {
         "cargoLocks": null,
@@ -3187,12 +3187,12 @@
             "name": null,
             "owner": "ggerganov",
             "repo": "llama.cpp",
-            "rev": "b7444",
-            "sha256": "sha256-/BLjdC9I6H7cbElwWJtz9yi9nkesRdPRfuk02k7jZJk=",
+            "rev": "b7446",
+            "sha256": "sha256-+zkABxcGzfuY4v16PMl3opoxOK/VbUnklFUslDMERfY=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "b7444"
+        "version": "b7446"
     },
     "loralib": {
         "cargoLocks": null,
