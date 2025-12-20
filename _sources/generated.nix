@@ -292,7 +292,7 @@
   };
   AAA_himirage-JSON = {
     pname = "AAA_himirage-JSON";
-    version = "2025-12-19 18:02:45";
+    version = "2025-12-20 18:04:07";
     src = fetchurl {
       url = "https://album.photosir.cn/upgradePackage/infoall/photosir";
       hash = "sha256-nQjQwrKvih7iN5U5x6/vMmJeMOvkp+DrxmL8Q4HMVIU=";
@@ -514,10 +514,10 @@
   };
   AAA_v2ray-rules-dat = {
     pname = "AAA_v2ray-rules-dat";
-    version = "202512182214";
+    version = "202512192215";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512182214/rules.zip";
-      hash = "sha256-ux3E/C9zCBd6tnR5AicYYrf0nWKlDhzRv/cLKbKkFms=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512192215/rules.zip";
+      hash = "sha256-kqNS/g/DEuIrX2syJWyMpiHI/ZkaHJU/V4byqUvzNho=";
     };
   };
   AAA_wechat-web-devtools-linux_appimage = {
@@ -1665,12 +1665,12 @@
   };
   llama-cpp = {
     pname = "llama-cpp";
-    version = "b7476";
+    version = "b7487";
     src = fetchFromGitHub {
       owner = "ggerganov";
       repo = "llama.cpp";
-      tag = "b7476";
-      hash = "sha256-K78D4TQqmiv6Ee7Z2/rdFOSg/dZOsTTcd4hVfi9gXcw=";
+      tag = "b7487";
+      hash = "sha256-zqF6seRhOFfjQzY2gY1f1/KIv5ObcrmrP6D6dxhZPZg=";
     };
   };
   loralib = {
@@ -2186,14 +2186,14 @@
   };
   pyosmocom = {
     pname = "pyosmocom";
-    version = "35c5fe29807a45d8cd75e85846d4caccdd96f6d6";
+    version = "1c55c95b73fb2cdfe211c57fd3b5babd9a04e202";
     src = fetchgit {
       url = "https://gitea.osmocom.org/osmocom/pyosmocom.git";
-      rev = "35c5fe29807a45d8cd75e85846d4caccdd96f6d6";
+      rev = "1c55c95b73fb2cdfe211c57fd3b5babd9a04e202";
       fetchSubmodules = false;
-      hash = "sha256-AUeUOck9NVi+xXn7boXdCtjKM6WAapWZMg8s8YGpGJM=";
+      hash = "sha256-9PRDUUjLSNloFLJBWNhH/yDZUNwFUGFb+Ayy6RDl/hI=";
     };
-    date = "2025-11-07";
+    date = "2025-12-19";
   };
   pysctp = {
     pname = "pysctp";
