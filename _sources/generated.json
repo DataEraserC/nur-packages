@@ -541,7 +541,7 @@
             "type": "url",
             "url": "https://album.photosir.cn/upgradePackage/infoall/photosir"
         },
-        "version": "2025-12-20 18:04:07"
+        "version": "2025-12-21 18:05:25"
     },
     "AAA_himirage-aarch64-darwin": {
         "cargoLocks": null,
@@ -947,11 +947,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-kqNS/g/DEuIrX2syJWyMpiHI/ZkaHJU/V4byqUvzNho=",
+            "sha256": "sha256-IbSHhauOn9klqTuu5HJ1NF/w3BSPGWfxw7vB5tr/HLg=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512192215/rules.zip"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512202213/rules.zip"
         },
-        "version": "202512192215"
+        "version": "202512202213"
     },
     "AAA_wechat-web-devtools-linux_appimage": {
         "cargoLocks": null,
@@ -3187,12 +3187,12 @@
             "name": null,
             "owner": "ggerganov",
             "repo": "llama.cpp",
-            "rev": "b7487",
-            "sha256": "sha256-zqF6seRhOFfjQzY2gY1f1/KIv5ObcrmrP6D6dxhZPZg=",
+            "rev": "b7493",
+            "sha256": "sha256-Mzv56gd2cyBZlGZvocM7dqhVMHC9TFs5Fmw6leNmlDk=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "b7487"
+        "version": "b7493"
     },
     "loralib": {
         "cargoLocks": null,
@@ -4108,7 +4108,7 @@
     },
     "pterodactyl-wings": {
         "cargoLocks": null,
-        "date": "2025-11-01",
+        "date": "2025-12-20",
         "extract": null,
         "name": "pterodactyl-wings",
         "passthru": null,
@@ -4120,12 +4120,12 @@
             "name": null,
             "owner": "pterodactyl",
             "repo": "wings",
-            "rev": "ae6c62905bd1dcffd3d73c571efba2d53667317a",
-            "sha256": "sha256-6Wh9lCJ6Oz+GMUck5V1l0CGdj2N59oPDzQVFVKiySak=",
+            "rev": "856097b0c71bb075845e76bc200eac94b74e27e5",
+            "sha256": "sha256-3D2WDoErRrpHFLUGXnqP/M+PHX3YFRn0EK6EoBZ0Wxc=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "ae6c62905bd1dcffd3d73c571efba2d53667317a"
+        "version": "856097b0c71bb075845e76bc200eac94b74e27e5"
     },
     "pterodactyl-wings-stable": {
         "cargoLocks": null,
@@ -5307,7 +5307,7 @@
     },
     "uni-api": {
         "cargoLocks": null,
-        "date": "2025-12-12",
+        "date": "2025-12-21",
         "extract": null,
         "name": "uni-api",
         "passthru": null,
@@ -5319,12 +5319,12 @@
             "name": null,
             "owner": "yym68686",
             "repo": "uni-api",
-            "rev": "d0f1232c06b1ed37169d6868a4926fce2d7bc9aa",
-            "sha256": "sha256-F8IfsVV3QKMiZBjoA1929r5mI7j9LLryfJRwxSjSGgM=",
+            "rev": "20a52957743edd409f969c93f9799e25d1780e2e",
+            "sha256": "sha256-7Tgonnc1S67LS/wHrKB0sETWceqyCJ0zgkudV+owYy4=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "d0f1232c06b1ed37169d6868a4926fce2d7bc9aa"
+        "version": "20a52957743edd409f969c93f9799e25d1780e2e"
     },
     "unigine-heaven": {
         "cargoLocks": null,

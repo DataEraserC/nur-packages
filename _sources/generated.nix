@@ -292,7 +292,7 @@
   };
   AAA_himirage-JSON = {
     pname = "AAA_himirage-JSON";
-    version = "2025-12-20 18:04:07";
+    version = "2025-12-21 18:05:25";
     src = fetchurl {
       url = "https://album.photosir.cn/upgradePackage/infoall/photosir";
       hash = "sha256-nQjQwrKvih7iN5U5x6/vMmJeMOvkp+DrxmL8Q4HMVIU=";
@@ -514,10 +514,10 @@
   };
   AAA_v2ray-rules-dat = {
     pname = "AAA_v2ray-rules-dat";
-    version = "202512192215";
+    version = "202512202213";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512192215/rules.zip";
-      hash = "sha256-kqNS/g/DEuIrX2syJWyMpiHI/ZkaHJU/V4byqUvzNho=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512202213/rules.zip";
+      hash = "sha256-IbSHhauOn9klqTuu5HJ1NF/w3BSPGWfxw7vB5tr/HLg=";
     };
   };
   AAA_wechat-web-devtools-linux_appimage = {
@@ -1665,12 +1665,12 @@
   };
   llama-cpp = {
     pname = "llama-cpp";
-    version = "b7487";
+    version = "b7493";
     src = fetchFromGitHub {
       owner = "ggerganov";
       repo = "llama.cpp";
-      tag = "b7487";
-      hash = "sha256-zqF6seRhOFfjQzY2gY1f1/KIv5ObcrmrP6D6dxhZPZg=";
+      tag = "b7493";
+      hash = "sha256-Mzv56gd2cyBZlGZvocM7dqhVMHC9TFs5Fmw6leNmlDk=";
     };
   };
   loralib = {
@@ -2134,14 +2134,14 @@
   };
   pterodactyl-wings = {
     pname = "pterodactyl-wings";
-    version = "ae6c62905bd1dcffd3d73c571efba2d53667317a";
+    version = "856097b0c71bb075845e76bc200eac94b74e27e5";
     src = fetchFromGitHub {
       owner = "pterodactyl";
       repo = "wings";
-      rev = "ae6c62905bd1dcffd3d73c571efba2d53667317a";
-      hash = "sha256-6Wh9lCJ6Oz+GMUck5V1l0CGdj2N59oPDzQVFVKiySak=";
+      rev = "856097b0c71bb075845e76bc200eac94b74e27e5";
+      hash = "sha256-3D2WDoErRrpHFLUGXnqP/M+PHX3YFRn0EK6EoBZ0Wxc=";
     };
-    date = "2025-11-01";
+    date = "2025-12-20";
   };
   pterodactyl-wings-stable = {
     pname = "pterodactyl-wings-stable";
@@ -2751,15 +2751,15 @@
   };
   uni-api = {
     pname = "uni-api";
-    version = "d0f1232c06b1ed37169d6868a4926fce2d7bc9aa";
+    version = "20a52957743edd409f969c93f9799e25d1780e2e";
     src = fetchFromGitHub {
       owner = "yym68686";
       repo = "uni-api";
-      rev = "d0f1232c06b1ed37169d6868a4926fce2d7bc9aa";
+      rev = "20a52957743edd409f969c93f9799e25d1780e2e";
       fetchSubmodules = true;
-      hash = "sha256-F8IfsVV3QKMiZBjoA1929r5mI7j9LLryfJRwxSjSGgM=";
+      hash = "sha256-7Tgonnc1S67LS/wHrKB0sETWceqyCJ0zgkudV+owYy4=";
     };
-    date = "2025-12-12";
+    date = "2025-12-21";
   };
   unigine-heaven = {
     pname = "unigine-heaven";
