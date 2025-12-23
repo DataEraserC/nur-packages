@@ -75,15 +75,15 @@
   };
   AAA_PiliPalaX = {
     pname = "AAA_PiliPalaX";
-    version = "31e5692dff2924903c5f777f7c5685651fd04dae";
+    version = "7da6f05a50934ab92825c5b01643c24a021714db";
     src = fetchFromGitHub {
       owner = "bggRGjQaUbCoE";
       repo = "PiliPlus";
-      rev = "31e5692dff2924903c5f777f7c5685651fd04dae";
+      rev = "7da6f05a50934ab92825c5b01643c24a021714db";
       fetchSubmodules = true;
-      hash = "sha256-l70xUmdu3KR/FfzLjxC5hxjhu+8p03TThi3+ZAx0qsA=";
+      hash = "sha256-AtWvYE+RlU9hrUFuh3MuJXQMMf5faVAltTPsiU6shUs=";
     };
-    date = "2025-12-22";
+    date = "2025-12-23";
   };
   AAA_SteamTools = {
     pname = "AAA_SteamTools";
@@ -292,7 +292,7 @@
   };
   AAA_himirage-JSON = {
     pname = "AAA_himirage-JSON";
-    version = "2025-12-22 18:05:39";
+    version = "2025-12-23 18:02:29";
     src = fetchurl {
       url = "https://album.photosir.cn/upgradePackage/infoall/photosir";
       hash = "sha256-nQjQwrKvih7iN5U5x6/vMmJeMOvkp+DrxmL8Q4HMVIU=";
@@ -514,10 +514,10 @@
   };
   AAA_v2ray-rules-dat = {
     pname = "AAA_v2ray-rules-dat";
-    version = "202512212214";
+    version = "202512222314";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512212214/rules.zip";
-      hash = "sha256-sZG1Q+VRMWyrVUvyQfHs/8TOmEBsvaqVdAvVd18gMV0=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512222314/rules.zip";
+      hash = "sha256-ilOFOUAxwbms7Cqtbj+Jp693p13cnXSVDDrt5VTCA88=";
     };
   };
   AAA_wechat-web-devtools-linux_appimage = {
@@ -1056,14 +1056,14 @@
   };
   ela-widget-tools = {
     pname = "ela-widget-tools";
-    version = "7ecab03cb4fc4f72b2f63975f2eb5c1a5c8e17a2";
+    version = "9cec88241a041b6aaa1203cb51513878c4f1a20a";
     src = fetchFromGitHub {
       owner = "Liniyous";
       repo = "ElaWidgetTools";
-      rev = "7ecab03cb4fc4f72b2f63975f2eb5c1a5c8e17a2";
-      hash = "sha256-iZ4v4ARr97P3npXafyreKDt3QUwo9sAq7NOMnOhbq88=";
+      rev = "9cec88241a041b6aaa1203cb51513878c4f1a20a";
+      hash = "sha256-7os5qf/9Xu96fE5G87rWreNrEe47WBGBp2ZjT3O/RGg=";
     };
-    date = "2025-12-15";
+    date = "2025-12-22";
   };
   etherguard = {
     pname = "etherguard";
@@ -1380,12 +1380,12 @@
   };
   igsc = {
     pname = "igsc";
-    version = "V1.0.0";
+    version = "V1.0.1";
     src = fetchFromGitHub {
       owner = "intel";
       repo = "igsc";
-      tag = "V1.0.0";
-      hash = "sha256-OpEsJrObkjoDmVy9mxEf/+CzcNZXWIDhDRfQbPyiyPM=";
+      tag = "V1.0.1";
+      hash = "sha256-WYudVRUh0zmq2hO/JoX8khybmIYHP9Fz1wkKeb2oOW4=";
     };
   };
   imewlconverter = {
@@ -1665,12 +1665,12 @@
   };
   llama-cpp = {
     pname = "llama-cpp";
-    version = "b7502";
+    version = "b7519";
     src = fetchFromGitHub {
       owner = "ggerganov";
       repo = "llama.cpp";
-      tag = "b7502";
-      hash = "sha256-3d/kFpkjSyIfzxScyfdF5q2t8CHAFXAk65QADwK3h7Q=";
+      tag = "b7519";
+      hash = "sha256-0GjFSalF2eQjUR9/XLTZReZ+x2vUhYY3CAIm7ubIy/w=";
     };
   };
   loralib = {
@@ -2048,10 +2048,10 @@
   };
   peerbanhelper = {
     pname = "peerbanhelper";
-    version = "9.2.2";
+    version = "9.2.3";
     src = fetchurl {
-      url = "https://github.com/Ghost-chu/PeerBanHelper/releases/download/v9.2.2/PeerBanHelper_9.2.2.zip";
-      hash = "sha256-bs770tTJayoO3wnij0PWF25k6PZtvwMqQIZ2kouQIYg=";
+      url = "https://github.com/Ghost-chu/PeerBanHelper/releases/download/v9.2.3/PeerBanHelper_9.2.3.zip";
+      hash = "sha256-7Yp/S56XThWrvS81OkkYD8ezOorEg7fhl3eN0FB38sI=";
     };
   };
   phpmyadmin = {
@@ -2402,14 +2402,14 @@
   };
   rime-ice = {
     pname = "rime-ice";
-    version = "d93e60b190c4dee21979e040195e34e4bb6fc82b";
+    version = "04bb51f00c5703de9fea62553f95042b530dfdef";
     src = fetchFromGitHub {
       owner = "iDvel";
       repo = "rime-ice";
-      rev = "d93e60b190c4dee21979e040195e34e4bb6fc82b";
-      hash = "sha256-PGH5cgARRtphY4H0OpudXRE6JdxxIguaPOSwXPWii1k=";
+      rev = "04bb51f00c5703de9fea62553f95042b530dfdef";
+      hash = "sha256-hw8OahPKLfCoCgSV+EaknaFWi6J8Pojxrk0RedwKcJU=";
     };
-    date = "2025-12-18";
+    date = "2025-12-23";
   };
   rime-moegirl = {
     pname = "rime-moegirl";
@@ -2751,15 +2751,15 @@
   };
   uni-api = {
     pname = "uni-api";
-    version = "20a52957743edd409f969c93f9799e25d1780e2e";
+    version = "badff232be57124548cbac6220084880d679f2fd";
     src = fetchFromGitHub {
       owner = "yym68686";
       repo = "uni-api";
-      rev = "20a52957743edd409f969c93f9799e25d1780e2e";
+      rev = "badff232be57124548cbac6220084880d679f2fd";
       fetchSubmodules = true;
-      hash = "sha256-7Tgonnc1S67LS/wHrKB0sETWceqyCJ0zgkudV+owYy4=";
+      hash = "sha256-4X5/kbgDLqy/5xvwCeW2M1tMNFj/UwzqyQ1ga+5MfWk=";
     };
-    date = "2025-12-21";
+    date = "2025-12-22";
   };
   unigine-heaven = {
     pname = "unigine-heaven";
