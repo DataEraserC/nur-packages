@@ -75,15 +75,15 @@
   };
   AAA_PiliPalaX = {
     pname = "AAA_PiliPalaX";
-    version = "7da6f05a50934ab92825c5b01643c24a021714db";
+    version = "fcf4e72d8e0739ecb5aed12601dc6bd24c340251";
     src = fetchFromGitHub {
       owner = "bggRGjQaUbCoE";
       repo = "PiliPlus";
-      rev = "7da6f05a50934ab92825c5b01643c24a021714db";
+      rev = "fcf4e72d8e0739ecb5aed12601dc6bd24c340251";
       fetchSubmodules = true;
-      hash = "sha256-AtWvYE+RlU9hrUFuh3MuJXQMMf5faVAltTPsiU6shUs=";
+      hash = "sha256-7pKSqes3TKRcN/gOoRg0mHZVU8dtVgG8Jt+ZY8Y21ok=";
     };
-    date = "2025-12-23";
+    date = "2025-12-24";
   };
   AAA_SteamTools = {
     pname = "AAA_SteamTools";
@@ -292,7 +292,7 @@
   };
   AAA_himirage-JSON = {
     pname = "AAA_himirage-JSON";
-    version = "2025-12-23 18:02:29";
+    version = "2025-12-24 18:04:25";
     src = fetchurl {
       url = "https://album.photosir.cn/upgradePackage/infoall/photosir";
       hash = "sha256-nQjQwrKvih7iN5U5x6/vMmJeMOvkp+DrxmL8Q4HMVIU=";
@@ -514,10 +514,10 @@
   };
   AAA_v2ray-rules-dat = {
     pname = "AAA_v2ray-rules-dat";
-    version = "202512222314";
+    version = "202512232214";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512222314/rules.zip";
-      hash = "sha256-ilOFOUAxwbms7Cqtbj+Jp693p13cnXSVDDrt5VTCA88=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512232214/rules.zip";
+      hash = "sha256-fGvNQLxvQrUkAGhyyn5syQP9jIpu+UMxETJws1Ba4+Y=";
     };
   };
   AAA_wechat-web-devtools-linux_appimage = {
@@ -1310,14 +1310,14 @@
   };
   hack3ric-flow = {
     pname = "hack3ric-flow";
-    version = "fd5a3199f4849548106f288966a4a77b05b9cad0";
+    version = "e12a2fb91cdbc3b46c1e2bce21b6bc6657c7f5c4";
     src = fetchFromGitHub {
       owner = "hack3ric";
       repo = "flow";
-      rev = "fd5a3199f4849548106f288966a4a77b05b9cad0";
-      hash = "sha256-RnyUxDE36YMX/MHrvMv2lDMqKvjSvyvQBraYwyplOjw=";
+      rev = "e12a2fb91cdbc3b46c1e2bce21b6bc6657c7f5c4";
+      hash = "sha256-Z+kO+mQDqeGlCkEYWcL0R/YDOVZxvB3L8v2wyoNQR18=";
     };
-    date = "2025-09-28";
+    date = "2025-12-23";
   };
   hack3ric-flow-stable = {
     pname = "hack3ric-flow-stable";
@@ -1547,14 +1547,14 @@
   };
   liboqs-unstable = {
     pname = "liboqs-unstable";
-    version = "39ea281fd0fd9e68bf24106c3a2b12aff9a0ba63";
+    version = "589731b0c947d73b3d6fc72bcd4e3b6e0ec0bf4e";
     src = fetchFromGitHub {
       owner = "open-quantum-safe";
       repo = "liboqs";
-      rev = "39ea281fd0fd9e68bf24106c3a2b12aff9a0ba63";
-      hash = "sha256-gg+n59fWbtaUc54WfCwa9kcZ/Uf1P29G627xUassB10=";
+      rev = "589731b0c947d73b3d6fc72bcd4e3b6e0ec0bf4e";
+      hash = "sha256-fbOWCsdZGmJ7SkxwUq7/QNjUe6uwwoxa3e+V/1UBFwI=";
     };
-    date = "2025-11-25";
+    date = "2025-12-23";
   };
   libqcef = {
     pname = "libqcef";
@@ -1665,12 +1665,12 @@
   };
   llama-cpp = {
     pname = "llama-cpp";
-    version = "b7519";
+    version = "b7527";
     src = fetchFromGitHub {
       owner = "ggerganov";
       repo = "llama.cpp";
-      tag = "b7519";
-      hash = "sha256-0GjFSalF2eQjUR9/XLTZReZ+x2vUhYY3CAIm7ubIy/w=";
+      tag = "b7527";
+      hash = "sha256-6IIZS4NWFd7LqE/4NRpwny6fN4YIWLX5v1kMDktZJkc=";
     };
   };
   loralib = {
@@ -1985,16 +1985,6 @@
       hash = "sha256-CwytIig/QaRpB/1sCb0i9DXPLDH0ZMY8CKn4DacYc6E=";
     };
     date = "2025-11-18";
-  };
-  openssl-oqs-provider = {
-    pname = "openssl-oqs-provider";
-    version = "0.10.0";
-    src = fetchFromGitHub {
-      owner = "open-quantum-safe";
-      repo = "oqs-provider";
-      tag = "0.10.0";
-      hash = "sha256-/FdVcFNrRWJmEmO1B+LybL+MH4N7LdwvHaOpQi6vCTU=";
-    };
   };
   ormsgpack = {
     pname = "ormsgpack";
@@ -2402,14 +2392,14 @@
   };
   rime-ice = {
     pname = "rime-ice";
-    version = "04bb51f00c5703de9fea62553f95042b530dfdef";
+    version = "cc51682a850e9b89db8856c589b8c13f8b534a7c";
     src = fetchFromGitHub {
       owner = "iDvel";
       repo = "rime-ice";
-      rev = "04bb51f00c5703de9fea62553f95042b530dfdef";
-      hash = "sha256-hw8OahPKLfCoCgSV+EaknaFWi6J8Pojxrk0RedwKcJU=";
+      rev = "cc51682a850e9b89db8856c589b8c13f8b534a7c";
+      hash = "sha256-rEWf96uoYZm/n8IBSSG5qnXBgiWvrzhD1+GutLqMlg8=";
     };
-    date = "2025-12-23";
+    date = "2025-12-24";
   };
   rime-moegirl = {
     pname = "rime-moegirl";
