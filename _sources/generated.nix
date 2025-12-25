@@ -75,15 +75,15 @@
   };
   AAA_PiliPalaX = {
     pname = "AAA_PiliPalaX";
-    version = "fcf4e72d8e0739ecb5aed12601dc6bd24c340251";
+    version = "20a36e8f9a525400e9097855d698cb7092ce89d3";
     src = fetchFromGitHub {
       owner = "bggRGjQaUbCoE";
       repo = "PiliPlus";
-      rev = "fcf4e72d8e0739ecb5aed12601dc6bd24c340251";
+      rev = "20a36e8f9a525400e9097855d698cb7092ce89d3";
       fetchSubmodules = true;
-      hash = "sha256-7pKSqes3TKRcN/gOoRg0mHZVU8dtVgG8Jt+ZY8Y21ok=";
+      hash = "sha256-/Zp7FEfSYV0xpnlv3zd7xqZx+4KSNMBDC3c19BxOCo4=";
     };
-    date = "2025-12-24";
+    date = "2025-12-25";
   };
   AAA_SteamTools = {
     pname = "AAA_SteamTools";
@@ -292,7 +292,7 @@
   };
   AAA_himirage-JSON = {
     pname = "AAA_himirage-JSON";
-    version = "2025-12-24 18:04:25";
+    version = "2025-12-25 18:02:42";
     src = fetchurl {
       url = "https://album.photosir.cn/upgradePackage/infoall/photosir";
       hash = "sha256-nQjQwrKvih7iN5U5x6/vMmJeMOvkp+DrxmL8Q4HMVIU=";
@@ -308,10 +308,10 @@
   };
   AAA_himirage-aarch64-linux = {
     pname = "AAA_himirage-aarch64-linux";
-    version = "https://cdn.photosir.cn/package/Ky/40407/himirage_2.0.3.40408_arm64.deb";
+    version = "https://cdn.photosir.cn/package/Ky/51215/himirage_5.0.3.51215_arm64.deb";
     src = fetchurl {
-      url = "https://cdn.photosir.cn/package/Ky/40407/himirage_2.0.3.40408_arm64.deb";
-      hash = "sha256-JHiDo2WUPtkWcjX7S0ti4N8zJO5KDQitOxV8wby/HQk=";
+      url = "https://cdn.photosir.cn/package/Ky/51215/himirage_5.0.3.51215_arm64.deb";
+      hash = "sha256-Fw3Jo0cWAlrYj/P5M9MLxrUBb4/F6J8054zwjN3Mwb8=";
     };
   };
   AAA_himirage-loongarch64-linux = {
@@ -514,10 +514,10 @@
   };
   AAA_v2ray-rules-dat = {
     pname = "AAA_v2ray-rules-dat";
-    version = "202512232214";
+    version = "202512242215";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512232214/rules.zip";
-      hash = "sha256-fGvNQLxvQrUkAGhyyn5syQP9jIpu+UMxETJws1Ba4+Y=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512242215/rules.zip";
+      hash = "sha256-oS7zo5B5/lg71e5jikTreUK1z2kt/zC0ULk2x/XRhSo=";
     };
   };
   AAA_wechat-web-devtools-linux_appimage = {
@@ -1220,26 +1220,26 @@
   };
   geolite2-asn = {
     pname = "geolite2-asn";
-    version = "2025.12.22";
+    version = "2025.12.25";
     src = fetchurl {
-      url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.12.22/GeoLite2-ASN.mmdb";
-      hash = "sha256-AMkMJzipRXZY4WDINErcimCd/xoQuV3wT5eCIMAyr2s=";
+      url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.12.25/GeoLite2-ASN.mmdb";
+      hash = "sha256-fvDJs+DSD12IVZVBUaFzZsXMO0RdEEpQ1rY/ZmuFMm8=";
     };
   };
   geolite2-city = {
     pname = "geolite2-city";
-    version = "2025.12.22";
+    version = "2025.12.25";
     src = fetchurl {
-      url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.12.22/GeoLite2-City.mmdb";
-      hash = "sha256-fRTDXiCaeyTYTbkO8JYR46Uj6NGCE4WYPIYoEHYpwbM=";
+      url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.12.25/GeoLite2-City.mmdb";
+      hash = "sha256-T/iCn+pFdWZ1LMmm0vzeUo8DbTBXYedw9vgImsAnF5o=";
     };
   };
   geolite2-country = {
     pname = "geolite2-country";
-    version = "2025.12.22";
+    version = "2025.12.25";
     src = fetchurl {
-      url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.12.22/GeoLite2-Country.mmdb";
-      hash = "sha256-toAGQNgrLcxwJ0ZKrDewKLMGvI+VMLHu5hPZt52tamM=";
+      url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.12.25/GeoLite2-Country.mmdb";
+      hash = "sha256-39h8qNxAitcDrO/UmgYfCyYb5wRO0/J6suHhMw4nbC8=";
     };
   };
   glauth = {
@@ -1310,14 +1310,14 @@
   };
   hack3ric-flow = {
     pname = "hack3ric-flow";
-    version = "e12a2fb91cdbc3b46c1e2bce21b6bc6657c7f5c4";
+    version = "34621970a9c0ac4518ae9a2bfa3d25d2cb563fad";
     src = fetchFromGitHub {
       owner = "hack3ric";
       repo = "flow";
-      rev = "e12a2fb91cdbc3b46c1e2bce21b6bc6657c7f5c4";
-      hash = "sha256-Z+kO+mQDqeGlCkEYWcL0R/YDOVZxvB3L8v2wyoNQR18=";
+      rev = "34621970a9c0ac4518ae9a2bfa3d25d2cb563fad";
+      hash = "sha256-ml1t/bZIZ11VumW4Ch8WRHlulT9rTL4dhtLwE0FzijA=";
     };
-    date = "2025-12-23";
+    date = "2025-12-25";
   };
   hack3ric-flow-stable = {
     pname = "hack3ric-flow-stable";
@@ -1665,12 +1665,12 @@
   };
   llama-cpp = {
     pname = "llama-cpp";
-    version = "b7527";
+    version = "b7531";
     src = fetchFromGitHub {
       owner = "ggerganov";
       repo = "llama.cpp";
-      tag = "b7527";
-      hash = "sha256-6IIZS4NWFd7LqE/4NRpwny6fN4YIWLX5v1kMDktZJkc=";
+      tag = "b7531";
+      hash = "sha256-sNUvez5PMlrQiyIgW2vtRYxBBx6EbkhCnevLivjjBIE=";
     };
   };
   loralib = {
@@ -2207,38 +2207,38 @@
   };
   qemu-user-static-amd64 = {
     pname = "qemu-user-static-amd64";
-    version = "10.1.3+ds-1";
+    version = "10.2.0+ds-1";
     src = fetchurl {
-      url = "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user_10.1.3+ds-1_amd64.deb";
+      url = "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user_10.2.0+ds-1_amd64.deb";
       name = "qemu.deb";
-      hash = "sha256-QjQB7+nZzU1QGHwEEmltboTpi9X63meYoY8wcktL8hg=";
+      hash = "sha256-6JD+NEGdCtrm3c1H8JE0db2D268uYbZW5eZdDPnCmSE=";
     };
   };
   qemu-user-static-arm64 = {
     pname = "qemu-user-static-arm64";
-    version = "10.1.3+ds-1";
+    version = "10.2.0+ds-1";
     src = fetchurl {
-      url = "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user_10.1.3+ds-1_arm64.deb";
+      url = "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user_10.2.0+ds-1_arm64.deb";
       name = "qemu.deb";
-      hash = "sha256-vVyR27Yr/VOJJomUnSDoJ2FTTj1SDr+Y7bl5fS6N4jc=";
+      hash = "sha256-+GwOrqauCwQBDkeZ+SUAMWx2ypQlcMt1PVakApEQQvA=";
     };
   };
   qemu-user-static-armhf = {
     pname = "qemu-user-static-armhf";
-    version = "10.1.3+ds-1";
+    version = "10.2.0+ds-1";
     src = fetchurl {
-      url = "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user_10.1.3+ds-1_armhf.deb";
+      url = "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user_10.2.0+ds-1_armhf.deb";
       name = "qemu.deb";
-      hash = "sha256-iWTG18t89j2uErPQzY+di+6EZ171NsRGrsBuGSDEkpU=";
+      hash = "sha256-wnSO2NB+hdiw3CkXiGwIX02hUg+qLQB+O7CA8VpI4Sk=";
     };
   };
   qemu-user-static-i386 = {
     pname = "qemu-user-static-i386";
-    version = "10.1.3+ds-1";
+    version = "10.2.0+ds-1";
     src = fetchurl {
-      url = "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user_10.1.3+ds-1_i386.deb";
+      url = "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user_10.2.0+ds-1_i386.deb";
       name = "qemu.deb";
-      hash = "sha256-dsHLowZ7WKHGmrx7SVN6oVrpYNJHFHl/uVqux0UHMI8=";
+      hash = "sha256-WD2+CgFvWoAxd9z5dxc5iHYT6DYifPgx+mRmUrlY/Fw=";
     };
   };
   qq-amd64 = {

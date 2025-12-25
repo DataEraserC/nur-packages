@@ -133,7 +133,7 @@
     },
     "AAA_PiliPalaX": {
         "cargoLocks": null,
-        "date": "2025-12-24",
+        "date": "2025-12-25",
         "extract": null,
         "name": "AAA_PiliPalaX",
         "passthru": null,
@@ -145,12 +145,12 @@
             "name": null,
             "owner": "bggRGjQaUbCoE",
             "repo": "PiliPlus",
-            "rev": "fcf4e72d8e0739ecb5aed12601dc6bd24c340251",
-            "sha256": "sha256-7pKSqes3TKRcN/gOoRg0mHZVU8dtVgG8Jt+ZY8Y21ok=",
+            "rev": "20a36e8f9a525400e9097855d698cb7092ce89d3",
+            "sha256": "sha256-/Zp7FEfSYV0xpnlv3zd7xqZx+4KSNMBDC3c19BxOCo4=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "fcf4e72d8e0739ecb5aed12601dc6bd24c340251"
+        "version": "20a36e8f9a525400e9097855d698cb7092ce89d3"
     },
     "AAA_SteamTools": {
         "cargoLocks": null,
@@ -541,7 +541,7 @@
             "type": "url",
             "url": "https://album.photosir.cn/upgradePackage/infoall/photosir"
         },
-        "version": "2025-12-24 18:04:25"
+        "version": "2025-12-25 18:02:42"
     },
     "AAA_himirage-aarch64-darwin": {
         "cargoLocks": null,
@@ -567,11 +567,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-JHiDo2WUPtkWcjX7S0ti4N8zJO5KDQitOxV8wby/HQk=",
+            "sha256": "sha256-Fw3Jo0cWAlrYj/P5M9MLxrUBb4/F6J8054zwjN3Mwb8=",
             "type": "url",
-            "url": "https://cdn.photosir.cn/package/Ky/40407/himirage_2.0.3.40408_arm64.deb"
+            "url": "https://cdn.photosir.cn/package/Ky/51215/himirage_5.0.3.51215_arm64.deb"
         },
-        "version": "https://cdn.photosir.cn/package/Ky/40407/himirage_2.0.3.40408_arm64.deb"
+        "version": "https://cdn.photosir.cn/package/Ky/51215/himirage_5.0.3.51215_arm64.deb"
     },
     "AAA_himirage-loongarch64-linux": {
         "cargoLocks": null,
@@ -947,11 +947,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-fGvNQLxvQrUkAGhyyn5syQP9jIpu+UMxETJws1Ba4+Y=",
+            "sha256": "sha256-oS7zo5B5/lg71e5jikTreUK1z2kt/zC0ULk2x/XRhSo=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512232214/rules.zip"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512242215/rules.zip"
         },
-        "version": "202512232214"
+        "version": "202512242215"
     },
     "AAA_wechat-web-devtools-linux_appimage": {
         "cargoLocks": null,
@@ -2315,11 +2315,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-AMkMJzipRXZY4WDINErcimCd/xoQuV3wT5eCIMAyr2s=",
+            "sha256": "sha256-fvDJs+DSD12IVZVBUaFzZsXMO0RdEEpQ1rY/ZmuFMm8=",
             "type": "url",
-            "url": "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.12.22/GeoLite2-ASN.mmdb"
+            "url": "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.12.25/GeoLite2-ASN.mmdb"
         },
-        "version": "2025.12.22"
+        "version": "2025.12.25"
     },
     "geolite2-city": {
         "cargoLocks": null,
@@ -2330,11 +2330,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-fRTDXiCaeyTYTbkO8JYR46Uj6NGCE4WYPIYoEHYpwbM=",
+            "sha256": "sha256-T/iCn+pFdWZ1LMmm0vzeUo8DbTBXYedw9vgImsAnF5o=",
             "type": "url",
-            "url": "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.12.22/GeoLite2-City.mmdb"
+            "url": "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.12.25/GeoLite2-City.mmdb"
         },
-        "version": "2025.12.22"
+        "version": "2025.12.25"
     },
     "geolite2-country": {
         "cargoLocks": null,
@@ -2345,11 +2345,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-toAGQNgrLcxwJ0ZKrDewKLMGvI+VMLHu5hPZt52tamM=",
+            "sha256": "sha256-39h8qNxAitcDrO/UmgYfCyYb5wRO0/J6suHhMw4nbC8=",
             "type": "url",
-            "url": "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.12.22/GeoLite2-Country.mmdb"
+            "url": "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.12.25/GeoLite2-Country.mmdb"
         },
-        "version": "2025.12.22"
+        "version": "2025.12.25"
     },
     "glauth": {
         "cargoLocks": null,
@@ -2481,7 +2481,7 @@
     },
     "hack3ric-flow": {
         "cargoLocks": null,
-        "date": "2025-12-23",
+        "date": "2025-12-25",
         "extract": null,
         "name": "hack3ric-flow",
         "passthru": null,
@@ -2493,12 +2493,12 @@
             "name": null,
             "owner": "hack3ric",
             "repo": "flow",
-            "rev": "e12a2fb91cdbc3b46c1e2bce21b6bc6657c7f5c4",
-            "sha256": "sha256-Z+kO+mQDqeGlCkEYWcL0R/YDOVZxvB3L8v2wyoNQR18=",
+            "rev": "34621970a9c0ac4518ae9a2bfa3d25d2cb563fad",
+            "sha256": "sha256-ml1t/bZIZ11VumW4Ch8WRHlulT9rTL4dhtLwE0FzijA=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "e12a2fb91cdbc3b46c1e2bce21b6bc6657c7f5c4"
+        "version": "34621970a9c0ac4518ae9a2bfa3d25d2cb563fad"
     },
     "hack3ric-flow-stable": {
         "cargoLocks": null,
@@ -3187,12 +3187,12 @@
             "name": null,
             "owner": "ggerganov",
             "repo": "llama.cpp",
-            "rev": "b7527",
-            "sha256": "sha256-6IIZS4NWFd7LqE/4NRpwny6fN4YIWLX5v1kMDktZJkc=",
+            "rev": "b7531",
+            "sha256": "sha256-sNUvez5PMlrQiyIgW2vtRYxBBx6EbkhCnevLivjjBIE=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "b7527"
+        "version": "b7531"
     },
     "loralib": {
         "cargoLocks": null,
@@ -4261,11 +4261,11 @@
         "pinned": false,
         "src": {
             "name": "qemu.deb",
-            "sha256": "sha256-QjQB7+nZzU1QGHwEEmltboTpi9X63meYoY8wcktL8hg=",
+            "sha256": "sha256-6JD+NEGdCtrm3c1H8JE0db2D268uYbZW5eZdDPnCmSE=",
             "type": "url",
-            "url": "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user_10.1.3+ds-1_amd64.deb"
+            "url": "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user_10.2.0+ds-1_amd64.deb"
         },
-        "version": "10.1.3+ds-1"
+        "version": "10.2.0+ds-1"
     },
     "qemu-user-static-arm64": {
         "cargoLocks": null,
@@ -4276,11 +4276,11 @@
         "pinned": false,
         "src": {
             "name": "qemu.deb",
-            "sha256": "sha256-vVyR27Yr/VOJJomUnSDoJ2FTTj1SDr+Y7bl5fS6N4jc=",
+            "sha256": "sha256-+GwOrqauCwQBDkeZ+SUAMWx2ypQlcMt1PVakApEQQvA=",
             "type": "url",
-            "url": "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user_10.1.3+ds-1_arm64.deb"
+            "url": "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user_10.2.0+ds-1_arm64.deb"
         },
-        "version": "10.1.3+ds-1"
+        "version": "10.2.0+ds-1"
     },
     "qemu-user-static-armhf": {
         "cargoLocks": null,
@@ -4291,11 +4291,11 @@
         "pinned": false,
         "src": {
             "name": "qemu.deb",
-            "sha256": "sha256-iWTG18t89j2uErPQzY+di+6EZ171NsRGrsBuGSDEkpU=",
+            "sha256": "sha256-wnSO2NB+hdiw3CkXiGwIX02hUg+qLQB+O7CA8VpI4Sk=",
             "type": "url",
-            "url": "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user_10.1.3+ds-1_armhf.deb"
+            "url": "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user_10.2.0+ds-1_armhf.deb"
         },
-        "version": "10.1.3+ds-1"
+        "version": "10.2.0+ds-1"
     },
     "qemu-user-static-i386": {
         "cargoLocks": null,
@@ -4306,11 +4306,11 @@
         "pinned": false,
         "src": {
             "name": "qemu.deb",
-            "sha256": "sha256-dsHLowZ7WKHGmrx7SVN6oVrpYNJHFHl/uVqux0UHMI8=",
+            "sha256": "sha256-WD2+CgFvWoAxd9z5dxc5iHYT6DYifPgx+mRmUrlY/Fw=",
             "type": "url",
-            "url": "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user_10.1.3+ds-1_i386.deb"
+            "url": "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user_10.2.0+ds-1_i386.deb"
         },
-        "version": "10.1.3+ds-1"
+        "version": "10.2.0+ds-1"
     },
     "qq-amd64": {
         "cargoLocks": null,
