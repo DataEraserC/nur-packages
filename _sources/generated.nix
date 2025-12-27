@@ -75,15 +75,15 @@
   };
   AAA_PiliPalaX = {
     pname = "AAA_PiliPalaX";
-    version = "c9a02f9c74ad4ccd22b52bc312929bcc903023bc";
+    version = "7ec90e9a22222940c8a3eb97902954f51ebf4767";
     src = fetchFromGitHub {
       owner = "bggRGjQaUbCoE";
       repo = "PiliPlus";
-      rev = "c9a02f9c74ad4ccd22b52bc312929bcc903023bc";
+      rev = "7ec90e9a22222940c8a3eb97902954f51ebf4767";
       fetchSubmodules = true;
-      hash = "sha256-Ab3utn+IRaS/9rEw4RWRFXp4Iz7+J/nBXuUkFQhaWeE=";
+      hash = "sha256-Gg8ObCLFP1l4/fuftUHTkaBQnirb17dBJKX2vMiGW7Y=";
     };
-    date = "2025-12-26";
+    date = "2025-12-27";
   };
   AAA_SteamTools = {
     pname = "AAA_SteamTools";
@@ -292,7 +292,7 @@
   };
   AAA_himirage-JSON = {
     pname = "AAA_himirage-JSON";
-    version = "2025-12-26 18:02:37";
+    version = "2025-12-27 18:01:27";
     src = fetchurl {
       url = "https://album.photosir.cn/upgradePackage/infoall/photosir";
       hash = "sha256-nQjQwrKvih7iN5U5x6/vMmJeMOvkp+DrxmL8Q4HMVIU=";
@@ -514,26 +514,26 @@
   };
   AAA_v2ray-rules-dat = {
     pname = "AAA_v2ray-rules-dat";
-    version = "202512252214";
+    version = "202512262215";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512252214/rules.zip";
-      hash = "sha256-C7vSKyQ63glEZU532k3C2Q1nfuEiPmZ8Pc0+Q/QvipY=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512262215/rules.zip";
+      hash = "sha256-y1/w1ev4zjLvfuwvjHhGGMIGPJdd+SXPiA69w2k0IKQ=";
     };
   };
   AAA_wechat-web-devtools-linux_appimage = {
     pname = "AAA_wechat-web-devtools-linux_appimage";
-    version = "2.01.2510250-2";
+    version = "2.01.2510260-1";
     src = fetchurl {
-      url = "https://github.com/msojocs/wechat-web-devtools-linux/releases/download/v2.01.2510250-2/WeChat_Dev_Tools_v2.01.2510250-2_x86_64_linux.AppImage";
-      hash = "sha256-GvQzaAlQbG1/230sB1sEOSpjC0uRr2XFLhoHAIeK7Kk=";
+      url = "https://github.com/msojocs/wechat-web-devtools-linux/releases/download/v2.01.2510260-1/WeChat_Dev_Tools_v2.01.2510260-1_x86_64_linux.AppImage";
+      hash = "sha256-cNAL+G0o3cf+89t0132XSU+ECBTey4lQPE2k9pasL04=";
     };
   };
   AAA_wechat-web-devtools-linux_bin = {
     pname = "AAA_wechat-web-devtools-linux_bin";
-    version = "2.01.2510250-2";
+    version = "2.01.2510260-1";
     src = fetchurl {
-      url = "https://github.com/msojocs/wechat-web-devtools-linux/releases/download/v2.01.2510250-2/WeChat_Dev_Tools_v2.01.2510250-2_x86_64_linux.tar.gz";
-      hash = "sha256-dWmqc400mrTmsUCtxfmln+9srBVIh9j3A9QR+2swcqw=";
+      url = "https://github.com/msojocs/wechat-web-devtools-linux/releases/download/v2.01.2510260-1/WeChat_Dev_Tools_v2.01.2510260-1_x86_64_linux.tar.gz";
+      hash = "sha256-pkYAX3ORs3msPALJmGtwdMSkwyG5JeaXfHLioGrO38c=";
     };
   };
   acpi-ec = {
@@ -1056,14 +1056,14 @@
   };
   ela-widget-tools = {
     pname = "ela-widget-tools";
-    version = "eacde637fddbfde44e21314e79b19d8fd044e743";
+    version = "08b7115bd7ddc974efb2a810e39e69ba4bc80411";
     src = fetchFromGitHub {
       owner = "Liniyous";
       repo = "ElaWidgetTools";
-      rev = "eacde637fddbfde44e21314e79b19d8fd044e743";
-      hash = "sha256-UjLosKzEXTVXivTm0J8YFVumXlj0ObgOYpz/DUuNiY8=";
+      rev = "08b7115bd7ddc974efb2a810e39e69ba4bc80411";
+      hash = "sha256-ffwjmfofI6eFh0jIRM0c1bIVVFL/iRRUdFwMvq9HYms=";
     };
-    date = "2025-12-25";
+    date = "2025-12-26";
   };
   etherguard = {
     pname = "etherguard";
@@ -1127,12 +1127,12 @@
   };
   flapalerted = {
     pname = "flapalerted";
-    version = "v4.2.1";
+    version = "v4.3.0";
     src = fetchFromGitHub {
       owner = "Kioubit";
       repo = "FlapAlerted";
-      tag = "v4.2.1";
-      hash = "sha256-OtP7yliMv8BqOSwaXmjSoGg7QeY5Ite1Vu8tRTeCYKQ=";
+      tag = "v4.3.0";
+      hash = "sha256-xoskkM5xdU3+T5AtgGv0uPZEUOLtMGl7RPv8gKBJBho=";
     };
   };
   flaresolverr-21hsmw = {
@@ -1310,14 +1310,14 @@
   };
   hack3ric-flow = {
     pname = "hack3ric-flow";
-    version = "34621970a9c0ac4518ae9a2bfa3d25d2cb563fad";
+    version = "ee7cd1b73ddd8c968ecdf6e8439e3e7c47f78b90";
     src = fetchFromGitHub {
       owner = "hack3ric";
       repo = "flow";
-      rev = "34621970a9c0ac4518ae9a2bfa3d25d2cb563fad";
-      hash = "sha256-ml1t/bZIZ11VumW4Ch8WRHlulT9rTL4dhtLwE0FzijA=";
+      rev = "ee7cd1b73ddd8c968ecdf6e8439e3e7c47f78b90";
+      hash = "sha256-mecw9KKZCotRQUz3wkUnb96+d3PXMWaZD9wBGGLQkPo=";
     };
-    date = "2025-12-25";
+    date = "2025-12-27";
   };
   hack3ric-flow-stable = {
     pname = "hack3ric-flow-stable";
@@ -1665,12 +1665,12 @@
   };
   llama-cpp = {
     pname = "llama-cpp";
-    version = "b7541";
+    version = "b7551";
     src = fetchFromGitHub {
       owner = "ggerganov";
       repo = "llama.cpp";
-      tag = "b7541";
-      hash = "sha256-dOuc10z7yiqZmWsP4CPnMKhcNXV473wLndRjEfkx6N0=";
+      tag = "b7551";
+      hash = "sha256-BS7zA4RScWCCnrv2D5A09hSI4wpj6AxYsnTpoyGYolU=";
     };
   };
   loralib = {
@@ -2124,14 +2124,14 @@
   };
   pterodactyl-wings = {
     pname = "pterodactyl-wings";
-    version = "856097b0c71bb075845e76bc200eac94b74e27e5";
+    version = "a97e8ae09fd682057ef229d4940d6dcb0cdaf3af";
     src = fetchFromGitHub {
       owner = "pterodactyl";
       repo = "wings";
-      rev = "856097b0c71bb075845e76bc200eac94b74e27e5";
-      hash = "sha256-3D2WDoErRrpHFLUGXnqP/M+PHX3YFRn0EK6EoBZ0Wxc=";
+      rev = "a97e8ae09fd682057ef229d4940d6dcb0cdaf3af";
+      hash = "sha256-tLGuzaALItuxJ1tt3H5iM/NUTShRkPyINzzJE24U3po=";
     };
-    date = "2025-12-20";
+    date = "2025-12-26";
   };
   pterodactyl-wings-stable = {
     pname = "pterodactyl-wings-stable";
