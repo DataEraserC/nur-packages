@@ -133,7 +133,7 @@
     },
     "AAA_PiliPalaX": {
         "cargoLocks": null,
-        "date": "2025-12-27",
+        "date": "2025-12-28",
         "extract": null,
         "name": "AAA_PiliPalaX",
         "passthru": null,
@@ -145,12 +145,12 @@
             "name": null,
             "owner": "bggRGjQaUbCoE",
             "repo": "PiliPlus",
-            "rev": "7ec90e9a22222940c8a3eb97902954f51ebf4767",
-            "sha256": "sha256-Gg8ObCLFP1l4/fuftUHTkaBQnirb17dBJKX2vMiGW7Y=",
+            "rev": "0a40d111338f190d65170c875463360c4be36d53",
+            "sha256": "sha256-WcMDe+CJ0qQnXgs/Sxbx5aerCdkbAsL2cJVa1n51R3s=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "7ec90e9a22222940c8a3eb97902954f51ebf4767"
+        "version": "0a40d111338f190d65170c875463360c4be36d53"
     },
     "AAA_SteamTools": {
         "cargoLocks": null,
@@ -541,7 +541,7 @@
             "type": "url",
             "url": "https://album.photosir.cn/upgradePackage/infoall/photosir"
         },
-        "version": "2025-12-27 18:01:27"
+        "version": "2025-12-28 18:03:09"
     },
     "AAA_himirage-aarch64-darwin": {
         "cargoLocks": null,
@@ -947,11 +947,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-y1/w1ev4zjLvfuwvjHhGGMIGPJdd+SXPiA69w2k0IKQ=",
+            "sha256": "sha256-WmLzqjDAX2mRQn3ykto8CM8Ed2wnH1BX66smbCCyQmA=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512262215/rules.zip"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512272214/rules.zip"
         },
-        "version": "202512262215"
+        "version": "202512272214"
     },
     "AAA_wechat-web-devtools-linux_appimage": {
         "cargoLocks": null,
@@ -1987,7 +1987,7 @@
     },
     "ela-widget-tools": {
         "cargoLocks": null,
-        "date": "2025-12-26",
+        "date": "2025-12-28",
         "extract": null,
         "name": "ela-widget-tools",
         "passthru": null,
@@ -1999,12 +1999,12 @@
             "name": null,
             "owner": "Liniyous",
             "repo": "ElaWidgetTools",
-            "rev": "08b7115bd7ddc974efb2a810e39e69ba4bc80411",
-            "sha256": "sha256-ffwjmfofI6eFh0jIRM0c1bIVVFL/iRRUdFwMvq9HYms=",
+            "rev": "583d3ac21d83273bebf73f1086d6d65fda2e9c89",
+            "sha256": "sha256-tutOc+hvZV8zHEhDzks4jN5dZVJugaKarpKtoLmzWJU=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "08b7115bd7ddc974efb2a810e39e69ba4bc80411"
+        "version": "583d3ac21d83273bebf73f1086d6d65fda2e9c89"
     },
     "etherguard": {
         "cargoLocks": null,
@@ -2315,11 +2315,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-fvDJs+DSD12IVZVBUaFzZsXMO0RdEEpQ1rY/ZmuFMm8=",
+            "sha256": "sha256-vYyPNt5TNKT/wWschhzdND7Vv3mveENSoHHFhakYkgY=",
             "type": "url",
-            "url": "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.12.25/GeoLite2-ASN.mmdb"
+            "url": "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.12.28/GeoLite2-ASN.mmdb"
         },
-        "version": "2025.12.25"
+        "version": "2025.12.28"
     },
     "geolite2-city": {
         "cargoLocks": null,
@@ -2330,11 +2330,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-T/iCn+pFdWZ1LMmm0vzeUo8DbTBXYedw9vgImsAnF5o=",
+            "sha256": "sha256-N7zjx8bZzatSKgGkQV3YsrZ6BWn+sM5Z75q1b6W/Ggw=",
             "type": "url",
-            "url": "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.12.25/GeoLite2-City.mmdb"
+            "url": "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.12.28/GeoLite2-City.mmdb"
         },
-        "version": "2025.12.25"
+        "version": "2025.12.28"
     },
     "geolite2-country": {
         "cargoLocks": null,
@@ -2345,11 +2345,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-39h8qNxAitcDrO/UmgYfCyYb5wRO0/J6suHhMw4nbC8=",
+            "sha256": "sha256-RLn5BT2xhXkIZmngtyxFjQAyToRdVe0QruPltKoQzlc=",
             "type": "url",
-            "url": "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.12.25/GeoLite2-Country.mmdb"
+            "url": "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.12.28/GeoLite2-Country.mmdb"
         },
-        "version": "2025.12.25"
+        "version": "2025.12.28"
     },
     "glauth": {
         "cargoLocks": null,
@@ -3187,12 +3187,12 @@
             "name": null,
             "owner": "ggerganov",
             "repo": "llama.cpp",
-            "rev": "b7551",
-            "sha256": "sha256-BS7zA4RScWCCnrv2D5A09hSI4wpj6AxYsnTpoyGYolU=",
+            "rev": "b7558",
+            "sha256": "sha256-l9uXZJPzrIwW71TwwN7FyjmNj+9NynvH7RK6IrrU080=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "b7551"
+        "version": "b7558"
     },
     "loralib": {
         "cargoLocks": null,
@@ -3514,7 +3514,7 @@
     },
     "nginx-module-vts": {
         "cargoLocks": null,
-        "date": "2025-11-10",
+        "date": "2025-12-28",
         "extract": null,
         "name": "nginx-module-vts",
         "passthru": null,
@@ -3526,12 +3526,12 @@
             "name": null,
             "owner": "vozlt",
             "repo": "nginx-module-vts",
-            "rev": "d65ce1717d3c689e24c5d1bb95d52d5ca836b3f1",
-            "sha256": "sha256-WjRRfZJUGZhFBBgBW4bdMVp4Owdv3vZl7W6paKoFc70=",
+            "rev": "a621c36e870a410a7f44750e0a39b467e536e023",
+            "sha256": "sha256-mEd/DdHEYhqjOdLYLI70Y5eiNFWsYSreh99Xh544nmY=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "d65ce1717d3c689e24c5d1bb95d52d5ca836b3f1"
+        "version": "a621c36e870a410a7f44750e0a39b467e536e023"
     },
     "nginx-njs": {
         "cargoLocks": null,
