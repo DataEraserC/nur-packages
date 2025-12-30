@@ -75,15 +75,15 @@
   };
   AAA_PiliPalaX = {
     pname = "AAA_PiliPalaX";
-    version = "0a40d111338f190d65170c875463360c4be36d53";
+    version = "2e11247af4375aff54d276e406c0bb3db626caa6";
     src = fetchFromGitHub {
       owner = "bggRGjQaUbCoE";
       repo = "PiliPlus";
-      rev = "0a40d111338f190d65170c875463360c4be36d53";
+      rev = "2e11247af4375aff54d276e406c0bb3db626caa6";
       fetchSubmodules = true;
-      hash = "sha256-WcMDe+CJ0qQnXgs/Sxbx5aerCdkbAsL2cJVa1n51R3s=";
+      hash = "sha256-uBXNcPPpq8zQCUk4F/3CVm8fbiyLGnybOFsxcRtligA=";
     };
-    date = "2025-12-28";
+    date = "2025-12-30";
   };
   AAA_SteamTools = {
     pname = "AAA_SteamTools";
@@ -292,7 +292,7 @@
   };
   AAA_himirage-JSON = {
     pname = "AAA_himirage-JSON";
-    version = "2025-12-29 18:04:53";
+    version = "2025-12-30 18:04:12";
     src = fetchurl {
       url = "https://album.photosir.cn/upgradePackage/infoall/photosir";
       hash = "sha256-nQjQwrKvih7iN5U5x6/vMmJeMOvkp+DrxmL8Q4HMVIU=";
@@ -300,10 +300,10 @@
   };
   AAA_himirage-aarch64-darwin = {
     pname = "AAA_himirage-aarch64-darwin";
-    version = "https://cdn.photosir.cn/package/Mac/himirage_51106.dmg";
+    version = "https://cdn.photosir.cn/package/Mac/1230/himirage_51230.dmg";
     src = fetchurl {
-      url = "https://cdn.photosir.cn/package/Mac/himirage_51106.dmg";
-      hash = "sha256-YHLofzCmrl9maQWKRoRQQXUJWEgHOHS782CVpd6QbbY=";
+      url = "https://cdn.photosir.cn/package/Mac/1230/himirage_51230.dmg";
+      hash = "sha256-w/dSPsCqZ8HSCsZpvhd/rOv4S95mkC4Ou3gaxLMQMi4=";
     };
   };
   AAA_himirage-aarch64-linux = {
@@ -332,10 +332,10 @@
   };
   AAA_himirage-x86_64-darwin = {
     pname = "AAA_himirage-x86_64-darwin";
-    version = "https://cdn.photosir.cn/package/Mac/himirage_51106.dmg";
+    version = "https://cdn.photosir.cn/package/Mac/1230/himirage_51230.dmg";
     src = fetchurl {
-      url = "https://cdn.photosir.cn/package/Mac/himirage_51106.dmg";
-      hash = "sha256-YHLofzCmrl9maQWKRoRQQXUJWEgHOHS782CVpd6QbbY=";
+      url = "https://cdn.photosir.cn/package/Mac/1230/himirage_51230.dmg";
+      hash = "sha256-w/dSPsCqZ8HSCsZpvhd/rOv4S95mkC4Ou3gaxLMQMi4=";
     };
   };
   AAA_himirage-x86_64-linux = {
@@ -514,26 +514,26 @@
   };
   AAA_v2ray-rules-dat = {
     pname = "AAA_v2ray-rules-dat";
-    version = "202512282214";
+    version = "202512292214";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512282214/rules.zip";
-      hash = "sha256-CctJ5GW3yhSnBRIWvznALycgUWxyHgfiuYCWg2YJFRg=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512292214/rules.zip";
+      hash = "sha256-OH3r/26YTgcDUP5OW4jFSKb4j6itoBkkWlrBY/RlSSc=";
     };
   };
   AAA_wechat-web-devtools-linux_appimage = {
     pname = "AAA_wechat-web-devtools-linux_appimage";
-    version = "2.01.2510260-1";
+    version = "2.01.2510260-2";
     src = fetchurl {
-      url = "https://github.com/msojocs/wechat-web-devtools-linux/releases/download/v2.01.2510260-1/WeChat_Dev_Tools_v2.01.2510260-1_x86_64_linux.AppImage";
-      hash = "sha256-cNAL+G0o3cf+89t0132XSU+ECBTey4lQPE2k9pasL04=";
+      url = "https://github.com/msojocs/wechat-web-devtools-linux/releases/download/v2.01.2510260-2/WeChat_Dev_Tools_v2.01.2510260-2_x86_64_linux.AppImage";
+      hash = "sha256-GyPpA19ddrCH3jeGs0NSeKQSjKz1xemeLJyDHPNwNKg=";
     };
   };
   AAA_wechat-web-devtools-linux_bin = {
     pname = "AAA_wechat-web-devtools-linux_bin";
-    version = "2.01.2510260-1";
+    version = "2.01.2510260-2";
     src = fetchurl {
-      url = "https://github.com/msojocs/wechat-web-devtools-linux/releases/download/v2.01.2510260-1/WeChat_Dev_Tools_v2.01.2510260-1_x86_64_linux.tar.gz";
-      hash = "sha256-pkYAX3ORs3msPALJmGtwdMSkwyG5JeaXfHLioGrO38c=";
+      url = "https://github.com/msojocs/wechat-web-devtools-linux/releases/download/v2.01.2510260-2/WeChat_Dev_Tools_v2.01.2510260-2_x86_64_linux.tar.gz";
+      hash = "sha256-yP7sPiyLmuy3++wXWFfWB9+hAkmqrxIgY/cMGxgXybU=";
     };
   };
   acpi-ec = {
@@ -752,25 +752,25 @@
   };
   cachyos-kernel = {
     pname = "cachyos-kernel";
-    version = "b68aded713a580df028543faea77c4ca5ec1226b";
+    version = "f29baa3a13d3756dbd8836ed646622af803f79a3";
     src = fetchFromGitHub {
       owner = "CachyOS";
       repo = "linux-cachyos";
-      rev = "b68aded713a580df028543faea77c4ca5ec1226b";
-      hash = "sha256-W/8JwebN9BF9vpMV9yZpaSFGGazQWyhGEpmNI1XEugM=";
+      rev = "f29baa3a13d3756dbd8836ed646622af803f79a3";
+      hash = "sha256-3WiDgNSE+77mVEAhlYFW3sRvS5fRTcIQAw9g76uUXIg=";
     };
-    date = "2025-12-22";
+    date = "2025-12-29";
   };
   cachyos-kernel-patches = {
     pname = "cachyos-kernel-patches";
-    version = "34c9301f5e6fa2817163e4134b0e71c7a7372634";
+    version = "dd86f5f1e1c87b8bc3d8cabf2c655fe2b2c5e144";
     src = fetchFromGitHub {
       owner = "CachyOS";
       repo = "kernel-patches";
-      rev = "34c9301f5e6fa2817163e4134b0e71c7a7372634";
-      hash = "sha256-G3eG5SmTiHz5VkMssfFTfLCGfvijTPDDkLiU9VI97TM=";
+      rev = "dd86f5f1e1c87b8bc3d8cabf2c655fe2b2c5e144";
+      hash = "sha256-l3FEhseehO2On1FPlDbtFUc94LEc1ZvmUxQpLID119g=";
     };
-    date = "2025-12-25";
+    date = "2025-12-29";
   };
   calibre-cops = {
     pname = "calibre-cops";
@@ -1056,14 +1056,14 @@
   };
   ela-widget-tools = {
     pname = "ela-widget-tools";
-    version = "583d3ac21d83273bebf73f1086d6d65fda2e9c89";
+    version = "056ece88119267d3c1623a819e619fe929d019eb";
     src = fetchFromGitHub {
       owner = "Liniyous";
       repo = "ElaWidgetTools";
-      rev = "583d3ac21d83273bebf73f1086d6d65fda2e9c89";
-      hash = "sha256-tutOc+hvZV8zHEhDzks4jN5dZVJugaKarpKtoLmzWJU=";
+      rev = "056ece88119267d3c1623a819e619fe929d019eb";
+      hash = "sha256-B9JoelqggnQbJOiD5iOljiv0p4ZwK66fPOq0bYU37rA=";
     };
-    date = "2025-12-28";
+    date = "2025-12-29";
   };
   etherguard = {
     pname = "etherguard";
@@ -1665,12 +1665,12 @@
   };
   llama-cpp = {
     pname = "llama-cpp";
-    version = "b7566";
+    version = "b7574";
     src = fetchFromGitHub {
       owner = "ggerganov";
       repo = "llama.cpp";
-      tag = "b7566";
-      hash = "sha256-hca//1z8hGj7xgjHbj3QwxRvR0p0OcjvLjIkrY7leO8=";
+      tag = "b7574";
+      hash = "sha256-YsbmgvAHvEyYf6TNm3ksjGuHrI/EJaQ5vYv+nFP+kuY=";
     };
   };
   loralib = {
