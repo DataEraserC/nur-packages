@@ -75,15 +75,15 @@
   };
   AAA_PiliPalaX = {
     pname = "AAA_PiliPalaX";
-    version = "2e11247af4375aff54d276e406c0bb3db626caa6";
+    version = "87c769932468b169b6a2034f9605309b882aaa61";
     src = fetchFromGitHub {
       owner = "bggRGjQaUbCoE";
       repo = "PiliPlus";
-      rev = "2e11247af4375aff54d276e406c0bb3db626caa6";
+      rev = "87c769932468b169b6a2034f9605309b882aaa61";
       fetchSubmodules = true;
-      hash = "sha256-uBXNcPPpq8zQCUk4F/3CVm8fbiyLGnybOFsxcRtligA=";
+      hash = "sha256-Wx3POv2OcXXKHcUwvXOwvIeKGDiOWUBFhIiN87zwURQ=";
     };
-    date = "2025-12-30";
+    date = "2025-12-31";
   };
   AAA_SteamTools = {
     pname = "AAA_SteamTools";
@@ -292,7 +292,7 @@
   };
   AAA_himirage-JSON = {
     pname = "AAA_himirage-JSON";
-    version = "2025-12-30 18:04:12";
+    version = "2025-12-31 18:02:57";
     src = fetchurl {
       url = "https://album.photosir.cn/upgradePackage/infoall/photosir";
       hash = "sha256-nQjQwrKvih7iN5U5x6/vMmJeMOvkp+DrxmL8Q4HMVIU=";
@@ -514,10 +514,10 @@
   };
   AAA_v2ray-rules-dat = {
     pname = "AAA_v2ray-rules-dat";
-    version = "202512292214";
+    version = "202512302215";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512292214/rules.zip";
-      hash = "sha256-OH3r/26YTgcDUP5OW4jFSKb4j6itoBkkWlrBY/RlSSc=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512302215/rules.zip";
+      hash = "sha256-/9QeorLZ1FtA++g7VqeysrOsEDG6zVmH96vhkEcSWLE=";
     };
   };
   AAA_wechat-web-devtools-linux_appimage = {
@@ -736,18 +736,18 @@
   };
   browser360-amd64 = {
     pname = "browser360-amd64";
-    version = "13.4.1100.108";
+    version = "13.4.1120.32";
     src = fetchurl {
-      url = "https://gedown.360safe.com/gc/signed_com.360.browser-stable_13.4.1100.108-1_amd64.deb";
-      hash = "sha256-Vo1cFGdO2aU7Sgf9zZ54FpsPEvLnfaIcM4CLNBHXpGg=";
+      url = "https://gedown.360safe.com/gc/signed_com.360.browser-stable_13.4.1120.32-1_amd64.deb";
+      hash = "sha256-ri4HhJ+g4jzJ/kCUaNUmWFmyuxK+UWCX9VqUl7au5WM=";
     };
   };
   browser360-arm64 = {
     pname = "browser360-arm64";
-    version = "13.4.1100.108";
+    version = "13.4.1120.32";
     src = fetchurl {
-      url = "https://gedown.360safe.com/gc/signed_com.360.browser-stable_13.4.1100.108-1_arm64.deb";
-      hash = "sha256-UTxLfT2qJc9LFkeQHPhZkhqU+rQFwwmq1RBeY6NTYHw=";
+      url = "https://gedown.360safe.com/gc/signed_com.360.browser-stable_13.4.1120.32-1_arm64.deb";
+      hash = "sha256-e27X7K9HeKrV8gKl+g8ldgBsHv2O0TZ9JTk2euVfdRI=";
     };
   };
   cachyos-kernel = {
@@ -1220,26 +1220,26 @@
   };
   geolite2-asn = {
     pname = "geolite2-asn";
-    version = "2025.12.28";
+    version = "2025.12.31";
     src = fetchurl {
-      url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.12.28/GeoLite2-ASN.mmdb";
-      hash = "sha256-vYyPNt5TNKT/wWschhzdND7Vv3mveENSoHHFhakYkgY=";
+      url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.12.31/GeoLite2-ASN.mmdb";
+      hash = "sha256-Az2y2pEVRTKS9wtoNKlOk472+lOoipn3AoKiKAo1qb4=";
     };
   };
   geolite2-city = {
     pname = "geolite2-city";
-    version = "2025.12.28";
+    version = "2025.12.31";
     src = fetchurl {
-      url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.12.28/GeoLite2-City.mmdb";
-      hash = "sha256-N7zjx8bZzatSKgGkQV3YsrZ6BWn+sM5Z75q1b6W/Ggw=";
+      url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.12.31/GeoLite2-City.mmdb";
+      hash = "sha256-neGATsZsftJRiv18KsRP9RaFzsNkSRmu2M3JnC7tSsM=";
     };
   };
   geolite2-country = {
     pname = "geolite2-country";
-    version = "2025.12.28";
+    version = "2025.12.31";
     src = fetchurl {
-      url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.12.28/GeoLite2-Country.mmdb";
-      hash = "sha256-RLn5BT2xhXkIZmngtyxFjQAyToRdVe0QruPltKoQzlc=";
+      url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.12.31/GeoLite2-Country.mmdb";
+      hash = "sha256-OLb5/simM1SHjQD8cDwO7WIC5G1oo6r0d+NWf9ilSt0=";
     };
   };
   glauth = {
@@ -1665,12 +1665,12 @@
   };
   llama-cpp = {
     pname = "llama-cpp";
-    version = "b7574";
+    version = "b7589";
     src = fetchFromGitHub {
       owner = "ggerganov";
       repo = "llama.cpp";
-      tag = "b7574";
-      hash = "sha256-YsbmgvAHvEyYf6TNm3ksjGuHrI/EJaQ5vYv+nFP+kuY=";
+      tag = "b7589";
+      hash = "sha256-sSxbqrKxwuFFf8nduxfFV+6fCwnruGsJrk25a20QJZc=";
     };
   };
   loralib = {
@@ -2124,14 +2124,14 @@
   };
   pterodactyl-wings = {
     pname = "pterodactyl-wings";
-    version = "a97e8ae09fd682057ef229d4940d6dcb0cdaf3af";
+    version = "e1e88d5a8450ca21345b48934c84a417adb1e899";
     src = fetchFromGitHub {
       owner = "pterodactyl";
       repo = "wings";
-      rev = "a97e8ae09fd682057ef229d4940d6dcb0cdaf3af";
-      hash = "sha256-tLGuzaALItuxJ1tt3H5iM/NUTShRkPyINzzJE24U3po=";
+      rev = "e1e88d5a8450ca21345b48934c84a417adb1e899";
+      hash = "sha256-B9JBp8nCCFgRE0cE5fMY2D5Y+VuDxzXb+U+5BL3EHm0=";
     };
-    date = "2025-12-26";
+    date = "2025-12-30";
   };
   pterodactyl-wings-stable = {
     pname = "pterodactyl-wings-stable";
@@ -2392,14 +2392,14 @@
   };
   rime-ice = {
     pname = "rime-ice";
-    version = "cc51682a850e9b89db8856c589b8c13f8b534a7c";
+    version = "3a9a76e2c58181d3980a1cdeb6dda55a67605f2d";
     src = fetchFromGitHub {
       owner = "iDvel";
       repo = "rime-ice";
-      rev = "cc51682a850e9b89db8856c589b8c13f8b534a7c";
-      hash = "sha256-rEWf96uoYZm/n8IBSSG5qnXBgiWvrzhD1+GutLqMlg8=";
+      rev = "3a9a76e2c58181d3980a1cdeb6dda55a67605f2d";
+      hash = "sha256-FWPh3RJMNhbhUysE8B2C0b+Wz2Bo/oSA49h1HzRBCAI=";
     };
-    date = "2025-12-24";
+    date = "2025-12-31";
   };
   rime-moegirl = {
     pname = "rime-moegirl";
@@ -2741,15 +2741,15 @@
   };
   uni-api = {
     pname = "uni-api";
-    version = "87ab048ded91e58c67bc90d9f848adc0847862d9";
+    version = "637550016e7d4c81042aa3b852924a0b8458e461";
     src = fetchFromGitHub {
       owner = "yym68686";
       repo = "uni-api";
-      rev = "87ab048ded91e58c67bc90d9f848adc0847862d9";
+      rev = "637550016e7d4c81042aa3b852924a0b8458e461";
       fetchSubmodules = true;
-      hash = "sha256-8Gr51SVJdai2ZNTB2zfjx2NxG/sQfbTsjP4Zs/h1Vgs=";
+      hash = "sha256-vRfo0OiLWBaiWgnF0+QONpM1JRb0kI52XEJFvHtego4=";
     };
-    date = "2025-12-26";
+    date = "2025-12-31";
   };
   unigine-heaven = {
     pname = "unigine-heaven";
