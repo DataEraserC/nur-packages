@@ -30,11 +30,11 @@
         "nixpkgs-with-go_1_20": "nixpkgs-with-go_1_20"
       },
       "locked": {
-        "lastModified": 1767454928,
-        "narHash": "sha256-C8lDnGBsSJBWGfr3O+1ZMk9KScrC//quSOFvTUhscR8=",
+        "lastModified": 1767545509,
+        "narHash": "sha256-KVw5j2K5NRcascKdBfXqYvPV/zdhC0rGjbjnioCeh/A=",
         "owner": "FloatTech",
         "repo": "ZeroBot-Plugin",
-        "rev": "3e837bf64c705e7aa4c7f98562a92cf360f3d565",
+        "rev": "f77d9b3509a5fc149a4468caa20e3f6863b136a5",
         "type": "github"
       },
       "original": {
@@ -107,11 +107,11 @@
         "nixpkgs-lib": "nixpkgs-lib"
       },
       "locked": {
-        "lastModified": 1765835352,
-        "narHash": "sha256-XswHlK/Qtjasvhd1nOa1e8MgZ8GS//jBoTqWtrS1Giw=",
+        "lastModified": 1767602221,
+        "narHash": "sha256-wl3P4WioICNY9SEvClT4JLAWFtItk3CbFNm/FmeeWlI=",
         "owner": "hercules-ci",
         "repo": "flake-parts",
-        "rev": "a34fae9c08a15ad73f295041fec82323541400a9",
+        "rev": "1e34f377e37de05071735d373b481da2508dd625",
         "type": "github"
       },
       "original": {
@@ -523,11 +523,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1767502730,
-        "narHash": "sha256-nQLQ5E0D4TyUhe5WOjCjokdCZoi8PllC+REEdA0lQHM=",
+        "lastModified": 1767593864,
+        "narHash": "sha256-AtzRYWSxsyvySDzfOek0lKQXoQrHtpFHbBPZ6rdQIEA=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "d410f1407c0722a50c8dfeba1be251e50655dd49",
+        "rev": "1b717f421d250290b16de9a6033ea28258c46ae1",
         "type": "github"
       },
       "original": {
