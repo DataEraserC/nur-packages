@@ -69,7 +69,7 @@ in
 stdenv.mkDerivation {
   inherit (source) src;
   pname = source.pname + "-unwrapped";
-  inherit (sources.himirage-JSON) version;
+  inherit (sources.AAA_himirage-JSON) version;
 
   nativeBuildInputs = [
     autoPatchelfHook
