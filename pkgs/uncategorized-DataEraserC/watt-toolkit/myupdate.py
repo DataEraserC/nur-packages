@@ -6,6 +6,7 @@ import subprocess
 import sys
 from pathlib import Path
 
+
 def run_update(output_file="deps.json"):
     """
     标准化的更新函数：构建并运行 fetch-deps 来更新依赖文件。
@@ -13,7 +14,7 @@ def run_update(output_file="deps.json"):
     # 获取脚本所在目录作为项目根目录
     script_dir = Path(__file__).parent.absolute()
     project_root = Path(__file__).parent.parent.parent.parent.absolute()
-    
+
     # 确保输出文件在正确的路径
     if output_file == "deps.json":
         output_path = script_dir / output_file
@@ -30,7 +31,9 @@ def run_update(output_file="deps.json"):
         # Step 1: 构建 fetch-deps
         print("构建 .#watt-toolkit.fetch-deps...")
         build_cmd = ["nix", "build", ".#watt-toolkit.fetch-deps", "--impure"]
-        result = subprocess.run(build_cmd, env=env, cwd=project_root, capture_output=True, text=True)
+        result = subprocess.run(
+            build_cmd, env=env, cwd=project_root, capture_output=True, text=True
+        )
 
         if result.returncode != 0:
             print(f"构建失败: {result.stderr}")
@@ -60,9 +63,10 @@ def run_update(output_file="deps.json"):
         print(f"发生异常: {e}")
         return False
 
+
 def main():
     if len(sys.argv) > 1 and sys.argv[1] in ["--help", "-h"]:
-        print("用法: update.py [输出文件]")
+        print("用法: myupdate.py [输出文件]")
         print("更新 watt-toolkit 的依赖文件 (deps.json)")
         sys.exit(0)
 
@@ -71,6 +75,7 @@ def main():
 
     success = run_update(output_file)
     sys.exit(0 if success else 1)
+
 
 if __name__ == "__main__":
     main()
