@@ -30,11 +30,11 @@
         "nixpkgs-with-go_1_20": "nixpkgs-with-go_1_20"
       },
       "locked": {
-        "lastModified": 1767939274,
-        "narHash": "sha256-1+a5i+RhFmGRQPGEPK21izaWeOP+rH3N0/n82ifZStk=",
+        "lastModified": 1767964602,
+        "narHash": "sha256-fZEpXSX3AMp4LHqt5ofg5GHpxtduFE3xt0MjO5IT+fY=",
         "owner": "FloatTech",
         "repo": "ZeroBot-Plugin",
-        "rev": "b432731c9bda26946091dda81530f635995e81a6",
+        "rev": "c8d30b9f066988f366a5ff6a4fb55ba917e2fc71",
         "type": "github"
       },
       "original": {
@@ -523,11 +523,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1767913708,
-        "narHash": "sha256-SquSeIxwNYxGBSuAx73xVAFAiFZL3t/tnVoSh0pFScU=",
+        "lastModified": 1768000619,
+        "narHash": "sha256-SLd6dnbMjK8/RrL64lNDHEV5iCoVMyJ0d1Rc0o5FMoI=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "8f5edb8716a93d80abf889fdb0c2cf3394a8381d",
+        "rev": "cbd98d9921b8182fcf13169d3eeb155078d27ddb",
         "type": "github"
       },
       "original": {
@@ -887,11 +887,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1767801790,
-        "narHash": "sha256-QfX6g3Wj2vQe7oBJEbTf0npvC6sJoDbF9hb2+gM5tf8=",
+        "lastModified": 1768031762,
+        "narHash": "sha256-b2gJDJfi+TbA7Hu2sKip+1mWqya0GJaWrrXQjpbOVTU=",
         "owner": "numtide",
         "repo": "treefmt-nix",
-        "rev": "778a1d691f1ef45dd68c661715c5bf8cbf131c80",
+        "rev": "0c445aa21b01fd1d4bb58927f7b268568af87b20",
         "type": "github"
       },
       "original": {
