@@ -3,12 +3,13 @@
   callPackage,
   pkgs,
   lib,
+  inputs,
   _meta,
   _packages,
 }:
 let
   inherit (callPackage ../../../helpers/flatten-pkgs.nix { })
-    isIndependentDerivation
+    isDerivation
     isHiddenName
     isTargetPlatform'
     flattenPkgs'
@@ -22,8 +23,7 @@ let
     let
       inherit
         (import ../../../helpers/group.nix {
-          inherit pkgs lib;
-          inputs = null;
+          inherit pkgs lib inputs;
           mode = null;
         })
         createCallGroupDeps
@@ -90,7 +90,7 @@ let
     '';
 
   uncategorizedOutput = packageSetOutput "(Uncategorized)" "" (
-    lib.filterAttrs (n: v: (builtins.tryEval v).success && isIndependentDerivation v) _packages
+    lib.filterAttrs (n: v: (builtins.tryEval v).success && isDerivation v) _packages
   );
 
   packageSetsOutput = builtins.concatStringsSep "\n" (

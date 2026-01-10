@@ -13,11 +13,11 @@
   libxml2,
   libxslt,
   openssl-oqs-provider,
+  openssl,
   pcre,
   perl,
   python3,
   quickjs-ng,
-  quictls,
   which,
   zlib,
   zstd,
@@ -25,7 +25,7 @@
   modules ? [ ],
 }:
 let
-  oqs-lookup = import ./oqs-lookup.nix { inherit openssl-oqs-provider python3; };
+  oqs-lookup = import ./oqs-lookup.nix { inherit lib openssl-oqs-provider python3; };
 
   patchUseOpensslMd5Sha1 = fetchurl {
     url = "https://github.com/kn007/patch/raw/master/use_openssl_md5_sha1.patch";
@@ -36,14 +36,6 @@ let
     url = "https://raw.githubusercontent.com/hakasenyang/openssl-patch/master/nginx_io_uring.patch";
     sha256 = "1cgpnhyd2kfqvh32yap651snvq1qvxc1cxvyrjc0vvxcw38d14p8";
   };
-
-  openssl' = quictls.overrideAttrs (old: {
-    patches = (old.patches or [ ]) ++ [ (sources.ja4-nginx-module.src + "/patches/openssl.patch") ];
-    # Export the new function in shared library
-    postPatch = (old.postPatch or "") + ''
-      echo "SSL_client_hello_getall_extensions_present 50000 3_0_0 EXIST::FUNCTION:" >> util/libssl.num
-    '';
-  });
 in
 stdenv.mkDerivation rec {
   pname = "nginx-lantian";
@@ -64,7 +56,7 @@ stdenv.mkDerivation rec {
     libxcrypt
     libxml2
     libxslt
-    openssl'
+    openssl
     pcre
     perl
     quickjs-ng
@@ -99,8 +91,8 @@ stdenv.mkDerivation rec {
       ${patch ./patches/nginx-plain-proxy.patch}
       ${patch ./patches/nix-etag-1.15.4.patch}
       ${patch ./patches/nix-skip-check-logs-path.patch}
-      ${patch ./patches/nginx-ja4-quic.patch}
       ${patch ./patches/nginx-oqs-curves.patch}
+      ${patch (sources.ja4-nginx-module.src + "/patches/nginx.patch")}
       ${patch patchUring}
 
       install -Dm644 ${oqs-lookup}/oqs_lookup.c src/event/ngx_event_openssl_oqs_lookup.c
@@ -130,10 +122,6 @@ stdenv.mkDerivation rec {
       # pushd bundle/nginx-njs
       # sed -i "s#-lquickjs.lto#-lqjs#g" nginx/config
       # popd
-
-      pushd bundle/ja4-nginx-module
-      ${patch ./patches/ja4-module.patch}
-      popd
     '';
 
   configureFlags = [
@@ -196,7 +184,6 @@ stdenv.mkDerivation rec {
 
   passthru = {
     inherit modules oqs-lookup;
-    openssl = openssl';
   };
 
   meta = {

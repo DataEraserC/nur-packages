@@ -10,6 +10,11 @@
       url = "github:numtide/devshell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-cachyos-kernel = {
+      url = "github:xddxdd/nix-cachyos-kernel/release";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
+    };
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -172,6 +177,8 @@
             hkdm = import ./modules/hkdm.nix;
             cpolar = import ./modules/cpolar.nix;
           };
+
+          hydraJobs.packages.x86_64-linux = self.ciPackages.x86_64-linux;
         };
 
         perSystem =
@@ -190,7 +197,7 @@
               # inherit (inputs.meme-generator.packages.${pkgs.system}) meme-generator;
             };
           in
-          {
+          rec {
             nixpkgs-options = {
               pkgs = {
                 sourceInput = inputs.nixpkgs;
@@ -203,31 +210,24 @@
               };
             };
 
-            packages =
-              import ./pkgs null {
-                inherit inputs pkgs;
-              }
-              // ptr;
-            packagesWithCuda =
-              import ./pkgs null {
-                inherit inputs;
-                pkgs = pkgsWithCuda;
-              }
-              // ptr;
-            legacyPackages =
-              import ./pkgs "legacy" {
-                inherit inputs pkgs;
-              }
-              // ptr;
-            legacyPackagesWithCuda =
-              import ./pkgs "legacy" {
-                inherit inputs;
-                pkgs = pkgsWithCuda;
-              }
-              // ptr;
+            legacyPackages = import ./pkgs "legacy" {
+              inherit inputs pkgs;
+            }
+            // ptr;
+            legacyPackagesWithCuda = import ./pkgs "legacy" {
+              inherit inputs;
+              pkgs = pkgsWithCuda;
+            }
+            // ptr;
+
+            packages = lib.filterAttrs (_: lib.isDerivation) legacyPackages;
+            packagesWithCuda = lib.filterAttrs (_: lib.isDerivation) legacyPackagesWithCuda;
 
             devshells.default = {
-              packages = [ pkgs.python3 ];
+              packages = [
+                pkgs.python3
+                pkgs.nix-update
+              ];
               env = [
                 {
                   name = "PYTHONPATH";

@@ -24,15 +24,10 @@
     "pname": "amule-dlp",
     "version": "2.3.2-unstable-2023-03-02"
   },
-  "legacyPackages.x86_64-linux.ast": {
-    "description": "Aspeed Graphics Driver",
-    "pname": "ast",
-    "version": "1.15.1_4"
-  },
   "legacyPackages.x86_64-linux.asterisk-g72x": {
     "description": "G.729 and G.723.1 codecs for Asterisk (Only G.729 is enabled)",
     "pname": "asterisk-g72x",
-    "version": "0-unstable-2025-09-01"
+    "version": "0-unstable-2025-12-13"
   },
   "legacyPackages.x86_64-linux.asteriskDigiumCodecs.10.g729a": {
     "description": "Asterisk g729a Codec by Digium",
@@ -432,22 +427,22 @@
   "legacyPackages.x86_64-linux.bilibili": {
     "description": "Desktop client for Bilibili",
     "pname": "bilibili",
-    "version": "1.17.3-1"
+    "version": "1.17.4-1"
   },
   "legacyPackages.x86_64-linux.bin-cpuflags-x86": {
     "description": "Small CLI tool to detect CPU flags (instruction sets) of X86 binaries",
     "pname": "bin-cpuflags-x86",
-    "version": "1.0.4"
+    "version": "1.0.7"
   },
   "legacyPackages.x86_64-linux.bird-lg-go": {
     "description": "BIRD looking glass in Go, for better maintainability, easier deployment & smaller memory footprint",
     "pname": "bird-lg-go",
-    "version": "1.3.12.1"
+    "version": "1.4.0"
   },
   "legacyPackages.x86_64-linux.bird-lgproxy-go": {
     "description": "BIRD looking glass in Go, for better maintainability, easier deployment & smaller memory footprint",
     "pname": "bird-lgproxy-go",
-    "version": "1.3.12.1"
+    "version": "1.4.0"
   },
   "legacyPackages.x86_64-linux.bnxtnvm": {
     "description": "Broadcom BNXTNVM utility",
@@ -456,23 +451,28 @@
   },
   "legacyPackages.x86_64-linux.boringssl-oqs": {
     "description": "Fork of BoringSSL that includes prototype quantum-resistant key exchange and authentication in the TLS handshake based on liboqs",
-    "pname": "boringssl-oqs",
-    "version": "0-unstable-2025-08-31"
+    "pname": "boringssl-oqs-OQS-BoringSSL-snapshot",
+    "version": "2025-01"
   },
   "legacyPackages.x86_64-linux.browser360": {
     "description": "Browser from 360",
     "pname": "browser360",
-    "version": "13.4.1000.77"
+    "version": "13.4.1120.32"
   },
   "legacyPackages.x86_64-linux.calibre-cops": {
     "description": "Web-based light alternative to Calibre content server / Calibre2OPDS to serve ebooks",
     "pname": "calibre-cops",
-    "version": "3.7.8"
+    "version": "3.8.2"
   },
   "legacyPackages.x86_64-linux.click-loglevel": {
     "description": "Log level parameter type for Click",
     "pname": "python3.13-click-loglevel",
     "version": "0.7.0"
+  },
+  "legacyPackages.x86_64-linux.cliproxyapi": {
+    "description": "Wrap Gemini CLI, Antigravity, ChatGPT Codex, Claude Code, Qwen Code, iFlow as an OpenAI/Gemini/Claude/Codex compatible API service",
+    "pname": "cliproxyapi",
+    "version": "6.6.79"
   },
   "legacyPackages.x86_64-linux.cockpy": {
     "description": "Public and open source version of the cbt2 ps im working on",
@@ -507,7 +507,7 @@
   "legacyPackages.x86_64-linux.dbip-lite": {
     "description": "DBIP's Lite GeoIP Country, City, and ASN databases",
     "pname": "dbip-lite",
-    "version": "2025-11"
+    "version": "2026-01"
   },
   "legacyPackages.x86_64-linux.decluttarr": {
     "description": "Watches radarr, sonarr, lidarr and readarr download queues and removes downloads if they become stalled or no longer needed",
@@ -527,12 +527,17 @@
   "legacyPackages.x86_64-linux.deprecated.kata-image": {
     "description": "(DEPRECATED: kata-image is available in nixpkgs by a different maintainer) Open source project and community working to build a standard implementation of lightweight Virtual Machines (VMs) that feel and perform like containers, but provide the workload isolation and security advantages of VMs (Packaging script adapted from https://github.com/TUM-DSE/doctor-cluster-config/blob/0c40be8dd86282122f8f04df738c409ef5e3da1c/pkgs/kata-images/default.nix)",
     "pname": "kata-image",
-    "version": "3.22.0"
+    "version": "3.24.0"
   },
   "legacyPackages.x86_64-linux.deprecated.kata-runtime": {
     "description": "(DEPRECATED: kata-runtime is available in nixpkgs by a different maintainer) Open source project and community working to build a standard implementation of lightweight Virtual Machines (VMs) that feel and perform like containers, but provide the workload isolation and security advantages of VMs (Packaging script adapted from https://github.com/TUM-DSE/doctor-cluster-config/blob/0c40be8dd86282122f8f04df738c409ef5e3da1c/pkgs/kata-runtime/default.nix)",
     "pname": "kata-runtime",
-    "version": "3.22.0"
+    "version": "3.24.0"
+  },
+  "legacyPackages.x86_64-linux.deprecated.openvswitch-dpdk": {
+    "description": "(DEPRECATED: openvswitch-dpdk is available in nixpkgs) Multilayer virtual switch",
+    "pname": "openvswitch-dpdk",
+    "version": "3.6.1"
   },
   "legacyPackages.x86_64-linux.deprecated.payload-dumper-go": {
     "description": "(DEPRECATED: payload-dumper-go is available in nixpkgs by a different maintainer) Android OTA payload dumper written in Go",
@@ -604,25 +609,40 @@
     "pname": "drone-vault",
     "version": "1.3.0"
   },
+  "legacyPackages.x86_64-linux.dtbloader": {
+    "description": "EFI driver that finds and installs DeviceTree into the UEFI configuration table",
+    "pname": "dtbloader",
+    "version": "1.5.2"
+  },
   "legacyPackages.x86_64-linux.dump978": {
     "description": "FlightAware's 978MHz UAT demodulator",
     "pname": "dump978",
     "version": "10.2"
   },
+  "legacyPackages.x86_64-linux.easycli": {
+    "description": "Desktop GUI from CLIProxyAPI",
+    "pname": "easycli",
+    "version": "0.1.32"
+  },
   "legacyPackages.x86_64-linux.edge-tts": {
     "description": "Use Microsoft Edge's online text-to-speech service from Python WITHOUT needing Microsoft Edge or Windows or an API key",
     "pname": "python3.13-edge-tts",
-    "version": "7.2.3"
+    "version": "7.2.7"
   },
   "legacyPackages.x86_64-linux.ela-widget-tools": {
     "description": "Fluent-UI For QT-Widget",
     "pname": "ela-widget-tools",
-    "version": "0-unstable-2025-10-30"
+    "version": "0-unstable-2025-12-29"
   },
   "legacyPackages.x86_64-linux.electron_11": {
     "description": "Cross platform desktop application shell",
     "pname": "electron",
     "version": "11.5.0"
+  },
+  "legacyPackages.x86_64-linux.env-dedup": {
+    "description": "Deduplicate the environment variables values",
+    "pname": "env-dedup",
+    "version": "0-unstable-2025-09-06"
   },
   "legacyPackages.x86_64-linux.etherguard": {
     "description": "Layer 2 version of WireGuard with Floyd Warshall implementation in Go",
@@ -652,7 +672,7 @@
   "legacyPackages.x86_64-linux.flapalerted": {
     "description": "BGP Update based flap detection",
     "pname": "flapalerted",
-    "version": "3.15.1"
+    "version": "4.3.0"
   },
   "legacyPackages.x86_64-linux.flaresolverr-21hsmw": {
     "description": "Proxy server to bypass Cloudflare protection, with 21hsmw modifications to support nodriver",
@@ -677,12 +697,12 @@
   "legacyPackages.x86_64-linux.funasr": {
     "description": "Fundamental End-to-End Speech Recognition Toolkit and Open Source SOTA Pretrained Models",
     "pname": "python3.13-funasr",
-    "version": "0-unstable-2025-10-01"
+    "version": "0-unstable-2026-01-01"
   },
   "legacyPackages.x86_64-linux.geolite2": {
     "description": "MaxMind's GeoIP2 GeoLite2 Country, City, and ASN databases",
     "pname": "geolite2",
-    "version": "2025.11.16"
+    "version": "2026.01.01"
   },
   "legacyPackages.x86_64-linux.glauth": {
     "description": "Lightweight LDAP server for development, home use, or CI",
@@ -722,7 +742,7 @@
   "legacyPackages.x86_64-linux.hack3ric-flow": {
     "description": "BGP flowspec executor",
     "pname": "hack3ric-flow",
-    "version": "0.2.0-unstable-2025-09-28"
+    "version": "0.2.0-unstable-2025-12-27"
   },
   "legacyPackages.x86_64-linux.hath": {
     "description": "Hentai@Home",
@@ -752,12 +772,12 @@
   "legacyPackages.x86_64-linux.i915-sriov": {
     "description": "DKMS module of Linux i915 driver with SR-IOV support",
     "pname": "i915-sriov",
-    "version": "0-unstable-2025-11-13"
+    "version": "0-unstable-2025-12-28"
   },
   "legacyPackages.x86_64-linux.igsc": {
     "description": "Intel graphics system controller firmware update library",
     "pname": "igsc",
-    "version": "1.0.0"
+    "version": "1.0.1"
   },
   "legacyPackages.x86_64-linux.imewlconverter": {
     "description": "FOSS program for converting IME dictionaries",
@@ -787,22 +807,17 @@
   "legacyPackages.x86_64-linux.kata-image": {
     "description": "(DEPRECATED: kata-image is available in nixpkgs by a different maintainer) Open source project and community working to build a standard implementation of lightweight Virtual Machines (VMs) that feel and perform like containers, but provide the workload isolation and security advantages of VMs (Packaging script adapted from https://github.com/TUM-DSE/doctor-cluster-config/blob/0c40be8dd86282122f8f04df738c409ef5e3da1c/pkgs/kata-images/default.nix)",
     "pname": "kata-image",
-    "version": "3.22.0"
+    "version": "3.24.0"
   },
   "legacyPackages.x86_64-linux.kata-runtime": {
     "description": "(DEPRECATED: kata-runtime is available in nixpkgs by a different maintainer) Open source project and community working to build a standard implementation of lightweight Virtual Machines (VMs) that feel and perform like containers, but provide the workload isolation and security advantages of VMs (Packaging script adapted from https://github.com/TUM-DSE/doctor-cluster-config/blob/0c40be8dd86282122f8f04df738c409ef5e3da1c/pkgs/kata-runtime/default.nix)",
     "pname": "kata-runtime",
-    "version": "3.22.0"
+    "version": "3.24.0"
   },
   "legacyPackages.x86_64-linux.kernel-modules.acpi-ec": {
     "description": "Kernel module to access directly to the ACPI EC",
     "pname": "acpi-ec",
     "version": "1.0.4"
-  },
-  "legacyPackages.x86_64-linux.kernel-modules.ast": {
-    "description": "Aspeed Graphics Driver",
-    "pname": "ast",
-    "version": "1.15.1_4"
   },
   "legacyPackages.x86_64-linux.kernel-modules.cryptodev-unstable": {
     "description": "Device that allows access to Linux kernel cryptographic drivers",
@@ -822,7 +837,7 @@
   "legacyPackages.x86_64-linux.kernel-modules.i915-sriov": {
     "description": "DKMS module of Linux i915 driver with SR-IOV support",
     "pname": "i915-sriov",
-    "version": "0-unstable-2025-11-13"
+    "version": "0-unstable-2025-12-28"
   },
   "legacyPackages.x86_64-linux.kernel-modules.nft-fullcone": {
     "description": "Nftables fullcone expression kernel module",
@@ -867,7 +882,7 @@
   "legacyPackages.x86_64-linux.lantianCustomized.asterisk": {
     "description": "Asterisk with Lan Tian modifications",
     "pname": "asterisk",
-    "version": "20.16.0"
+    "version": "20.17.0"
   },
   "legacyPackages.x86_64-linux.lantianCustomized.attic-telnyx-compatible": {
     "description": "Multi-tenant Nix Binary Cache",
@@ -877,7 +892,7 @@
   "legacyPackages.x86_64-linux.lantianCustomized.coredns": {
     "description": "CoreDNS with Lan Tian's modifications",
     "pname": "coredns",
-    "version": "1.13.1"
+    "version": "1.13.2"
   },
   "legacyPackages.x86_64-linux.lantianCustomized.ffmpeg": {
     "description": "FFmpeg with Lan Tian modifications",
@@ -892,12 +907,12 @@
   "legacyPackages.x86_64-linux.lantianCustomized.librime-with-plugins": {
     "description": "Librime with plugins (librime-charcode, librime-lua, librime-octagram, librime-proto)",
     "pname": "librime",
-    "version": "1.14.0"
+    "version": "1.15.0"
   },
   "legacyPackages.x86_64-linux.lantianCustomized.llama-cpp": {
     "description": "Inference of Meta's LLaMA model (and others) in pure C/C++",
     "pname": "llama-cpp",
-    "version": "7079"
+    "version": "7615"
   },
   "legacyPackages.x86_64-linux.lantianCustomized.ls-iommu": {
     "description": "List IOMMUs on system",
@@ -924,11 +939,6 @@
     "pname": "nixos-cleanup",
     "version": ""
   },
-  "legacyPackages.x86_64-linux.lantianCustomized.telegram-desktop": {
-    "description": "Telegram Desktop messaging app (Without anti-features)",
-    "pname": "telegram-desktop",
-    "version": "6.2.3"
-  },
   "legacyPackages.x86_64-linux.lantianCustomized.transmission-with-webui": {
     "description": "Fast, easy and free BitTorrent client",
     "pname": "transmission",
@@ -940,384 +950,14 @@
     "version": ""
   },
   "legacyPackages.x86_64-linux.lantianLinuxCachyOS.lts": {
-    "description": "Linux CachyOS Kernel with Lan Tian Modifications",
+    "description": "Linux CachyOS Kernel",
     "pname": "linux-cachyos-lts",
-    "version": "6.12.58"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxCachyOS.lts-configfile": {
-    "description": "",
-    "pname": "linux-config",
-    "version": "6.12.58"
+    "version": "6.12.63"
   },
   "legacyPackages.x86_64-linux.lantianLinuxCachyOS.lts-lto": {
-    "description": "Linux CachyOS Kernel with Lan Tian Modifications and Clang+ThinLTO",
+    "description": "Linux CachyOS Kernel with Clang+ThinLTO",
     "pname": "linux-cachyos-lts-lto",
-    "version": "6.12.58"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxCachyOS.lts-lto-configfile": {
-    "description": "",
-    "pname": "linux-config",
-    "version": "6.12.58"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxCachyOS.v6_12": {
-    "description": "Linux CachyOS Kernel with Lan Tian Modifications",
-    "pname": "linux-cachyos-v6_12",
-    "version": "6.12.58"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxCachyOS.v6_12-configfile": {
-    "description": "",
-    "pname": "linux-config",
-    "version": "6.12.58"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxCachyOS.v6_12-lto": {
-    "description": "Linux CachyOS Kernel with Lan Tian Modifications and Clang+ThinLTO",
-    "pname": "linux-cachyos-v6_12-lto",
-    "version": "6.12.58"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxCachyOS.v6_12-lto-configfile": {
-    "description": "",
-    "pname": "linux-config",
-    "version": "6.12.58"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.lts-generic": {
-    "description": "Linux Xanmod Kernel with Lan Tian Modifications",
-    "pname": "linux-xanmod-lts-generic",
-    "version": "6.12.58-xanmod1"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.lts-generic-configfile": {
-    "description": "",
-    "pname": "linux-config",
-    "version": "6.12.58-xanmod1"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.lts-generic-lto": {
-    "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
-    "pname": "linux-xanmod-lts-generic-lto",
-    "version": "6.12.58-xanmod1"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.lts-generic-lto-configfile": {
-    "description": "",
-    "pname": "linux-config",
-    "version": "6.12.58-xanmod1"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_0-generic": {
-    "description": "Linux Xanmod Kernel with Lan Tian Modifications",
-    "pname": "linux-xanmod-v6_0-generic",
-    "version": "6.0.12-xanmod1"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_0-generic-configfile": {
-    "description": "",
-    "pname": "linux-config",
-    "version": "6.0.12-xanmod1"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_0-generic-lto": {
-    "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
-    "pname": "linux-xanmod-v6_0-generic-lto",
-    "version": "6.0.12-xanmod1"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_0-generic-lto-configfile": {
-    "description": "",
-    "pname": "linux-config",
-    "version": "6.0.12-xanmod1"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_0-x86_64-v1": {
-    "description": "Linux Xanmod Kernel with Lan Tian Modifications",
-    "pname": "linux-xanmod-v6_0-x86_64-v1",
-    "version": "6.0.12-xanmod1"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_0-x86_64-v1-configfile": {
-    "description": "",
-    "pname": "linux-config",
-    "version": "6.0.12-xanmod1"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_0-x86_64-v1-lto": {
-    "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
-    "pname": "linux-xanmod-v6_0-x86_64-v1-lto",
-    "version": "6.0.12-xanmod1"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_0-x86_64-v1-lto-configfile": {
-    "description": "",
-    "pname": "linux-config",
-    "version": "6.0.12-xanmod1"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_0-x86_64-v2": {
-    "description": "Linux Xanmod Kernel with Lan Tian Modifications",
-    "pname": "linux-xanmod-v6_0-x86_64-v2",
-    "version": "6.0.12-xanmod1"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_0-x86_64-v2-configfile": {
-    "description": "",
-    "pname": "linux-config",
-    "version": "6.0.12-xanmod1"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_0-x86_64-v2-lto": {
-    "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
-    "pname": "linux-xanmod-v6_0-x86_64-v2-lto",
-    "version": "6.0.12-xanmod1"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_0-x86_64-v2-lto-configfile": {
-    "description": "",
-    "pname": "linux-config",
-    "version": "6.0.12-xanmod1"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_0-x86_64-v3": {
-    "description": "Linux Xanmod Kernel with Lan Tian Modifications",
-    "pname": "linux-xanmod-v6_0-x86_64-v3",
-    "version": "6.0.12-xanmod1"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_0-x86_64-v3-configfile": {
-    "description": "",
-    "pname": "linux-config",
-    "version": "6.0.12-xanmod1"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_0-x86_64-v3-lto": {
-    "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
-    "pname": "linux-xanmod-v6_0-x86_64-v3-lto",
-    "version": "6.0.12-xanmod1"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_0-x86_64-v3-lto-configfile": {
-    "description": "",
-    "pname": "linux-config",
-    "version": "6.0.12-xanmod1"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_0-x86_64-v4": {
-    "description": "Linux Xanmod Kernel with Lan Tian Modifications",
-    "pname": "linux-xanmod-v6_0-x86_64-v4",
-    "version": "6.0.12-xanmod1"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_0-x86_64-v4-configfile": {
-    "description": "",
-    "pname": "linux-config",
-    "version": "6.0.12-xanmod1"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_0-x86_64-v4-lto": {
-    "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
-    "pname": "linux-xanmod-v6_0-x86_64-v4-lto",
-    "version": "6.0.12-xanmod1"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_0-x86_64-v4-lto-configfile": {
-    "description": "",
-    "pname": "linux-config",
-    "version": "6.0.12-xanmod1"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_1-generic": {
-    "description": "Linux Xanmod Kernel with Lan Tian Modifications",
-    "pname": "linux-xanmod-v6_1-generic",
-    "version": "6.1.77-xanmod1"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_1-generic-configfile": {
-    "description": "",
-    "pname": "linux-config",
-    "version": "6.1.77-xanmod1"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_1-generic-lto": {
-    "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
-    "pname": "linux-xanmod-v6_1-generic-lto",
-    "version": "6.1.77-xanmod1"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_1-generic-lto-configfile": {
-    "description": "",
-    "pname": "linux-config",
-    "version": "6.1.77-xanmod1"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_1-x86_64-v1": {
-    "description": "Linux Xanmod Kernel with Lan Tian Modifications",
-    "pname": "linux-xanmod-v6_1-x86_64-v1",
-    "version": "6.1.77-xanmod1"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_1-x86_64-v1-configfile": {
-    "description": "",
-    "pname": "linux-config",
-    "version": "6.1.77-xanmod1"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_1-x86_64-v1-lto": {
-    "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
-    "pname": "linux-xanmod-v6_1-x86_64-v1-lto",
-    "version": "6.1.77-xanmod1"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_1-x86_64-v1-lto-configfile": {
-    "description": "",
-    "pname": "linux-config",
-    "version": "6.1.77-xanmod1"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_1-x86_64-v2": {
-    "description": "Linux Xanmod Kernel with Lan Tian Modifications",
-    "pname": "linux-xanmod-v6_1-x86_64-v2",
-    "version": "6.1.77-xanmod1"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_1-x86_64-v2-configfile": {
-    "description": "",
-    "pname": "linux-config",
-    "version": "6.1.77-xanmod1"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_1-x86_64-v2-lto": {
-    "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
-    "pname": "linux-xanmod-v6_1-x86_64-v2-lto",
-    "version": "6.1.77-xanmod1"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_1-x86_64-v2-lto-configfile": {
-    "description": "",
-    "pname": "linux-config",
-    "version": "6.1.77-xanmod1"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_1-x86_64-v3": {
-    "description": "Linux Xanmod Kernel with Lan Tian Modifications",
-    "pname": "linux-xanmod-v6_1-x86_64-v3",
-    "version": "6.1.77-xanmod1"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_1-x86_64-v3-configfile": {
-    "description": "",
-    "pname": "linux-config",
-    "version": "6.1.77-xanmod1"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_1-x86_64-v3-lto": {
-    "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
-    "pname": "linux-xanmod-v6_1-x86_64-v3-lto",
-    "version": "6.1.77-xanmod1"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_1-x86_64-v3-lto-configfile": {
-    "description": "",
-    "pname": "linux-config",
-    "version": "6.1.77-xanmod1"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_1-x86_64-v4": {
-    "description": "Linux Xanmod Kernel with Lan Tian Modifications",
-    "pname": "linux-xanmod-v6_1-x86_64-v4",
-    "version": "6.1.77-xanmod1"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_1-x86_64-v4-configfile": {
-    "description": "",
-    "pname": "linux-config",
-    "version": "6.1.77-xanmod1"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_1-x86_64-v4-lto": {
-    "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
-    "pname": "linux-xanmod-v6_1-x86_64-v4-lto",
-    "version": "6.1.77-xanmod1"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_1-x86_64-v4-lto-configfile": {
-    "description": "",
-    "pname": "linux-config",
-    "version": "6.1.77-xanmod1"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_12-generic": {
-    "description": "Linux Xanmod Kernel with Lan Tian Modifications",
-    "pname": "linux-xanmod-v6_12-generic",
-    "version": "6.12.58-xanmod1"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_12-generic-configfile": {
-    "description": "",
-    "pname": "linux-config",
-    "version": "6.12.58-xanmod1"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_12-generic-lto": {
-    "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
-    "pname": "linux-xanmod-v6_12-generic-lto",
-    "version": "6.12.58-xanmod1"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_12-generic-lto-configfile": {
-    "description": "",
-    "pname": "linux-config",
-    "version": "6.12.58-xanmod1"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_6-generic": {
-    "description": "Linux Xanmod Kernel with Lan Tian Modifications",
-    "pname": "linux-xanmod-v6_6-generic",
-    "version": "6.6.72-xanmod1"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_6-generic-configfile": {
-    "description": "",
-    "pname": "linux-config",
-    "version": "6.6.72-xanmod1"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_6-generic-lto": {
-    "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
-    "pname": "linux-xanmod-v6_6-generic-lto",
-    "version": "6.6.72-xanmod1"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_6-generic-lto-configfile": {
-    "description": "",
-    "pname": "linux-config",
-    "version": "6.6.72-xanmod1"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_6-x86_64-v1": {
-    "description": "Linux Xanmod Kernel with Lan Tian Modifications",
-    "pname": "linux-xanmod-v6_6-x86_64-v1",
-    "version": "6.6.72-xanmod1"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_6-x86_64-v1-configfile": {
-    "description": "",
-    "pname": "linux-config",
-    "version": "6.6.72-xanmod1"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_6-x86_64-v1-lto": {
-    "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
-    "pname": "linux-xanmod-v6_6-x86_64-v1-lto",
-    "version": "6.6.72-xanmod1"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_6-x86_64-v1-lto-configfile": {
-    "description": "",
-    "pname": "linux-config",
-    "version": "6.6.72-xanmod1"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_6-x86_64-v2": {
-    "description": "Linux Xanmod Kernel with Lan Tian Modifications",
-    "pname": "linux-xanmod-v6_6-x86_64-v2",
-    "version": "6.6.72-xanmod1"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_6-x86_64-v2-configfile": {
-    "description": "",
-    "pname": "linux-config",
-    "version": "6.6.72-xanmod1"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_6-x86_64-v2-lto": {
-    "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
-    "pname": "linux-xanmod-v6_6-x86_64-v2-lto",
-    "version": "6.6.72-xanmod1"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_6-x86_64-v2-lto-configfile": {
-    "description": "",
-    "pname": "linux-config",
-    "version": "6.6.72-xanmod1"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_6-x86_64-v3": {
-    "description": "Linux Xanmod Kernel with Lan Tian Modifications",
-    "pname": "linux-xanmod-v6_6-x86_64-v3",
-    "version": "6.6.72-xanmod1"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_6-x86_64-v3-configfile": {
-    "description": "",
-    "pname": "linux-config",
-    "version": "6.6.72-xanmod1"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_6-x86_64-v3-lto": {
-    "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
-    "pname": "linux-xanmod-v6_6-x86_64-v3-lto",
-    "version": "6.6.72-xanmod1"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_6-x86_64-v3-lto-configfile": {
-    "description": "",
-    "pname": "linux-config",
-    "version": "6.6.72-xanmod1"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_6-x86_64-v4": {
-    "description": "Linux Xanmod Kernel with Lan Tian Modifications",
-    "pname": "linux-xanmod-v6_6-x86_64-v4",
-    "version": "6.6.72-xanmod1"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_6-x86_64-v4-configfile": {
-    "description": "",
-    "pname": "linux-config",
-    "version": "6.6.72-xanmod1"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_6-x86_64-v4-lto": {
-    "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
-    "pname": "linux-xanmod-v6_6-x86_64-v4-lto",
-    "version": "6.6.72-xanmod1"
-  },
-  "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_6-x86_64-v4-lto-configfile": {
-    "description": "",
-    "pname": "linux-config",
-    "version": "6.6.72-xanmod1"
+    "version": "6.12.63"
   },
   "legacyPackages.x86_64-linux.ldap-auth-proxy": {
     "description": "Simple drop-in HTTP proxy for transparent LDAP authentication which is also a HTTP auth backend",
@@ -1332,7 +972,7 @@
   "legacyPackages.x86_64-linux.libnftnl-fullcone": {
     "description": "Userspace library providing a low-level netlink API to the in-kernel nf_tables subsystem",
     "pname": "libnftnl",
-    "version": "1.3.0"
+    "version": "1.3.1"
   },
   "legacyPackages.x86_64-linux.liboqs": {
     "description": "C library for prototyping and experimenting with quantum-resistant cryptography",
@@ -1342,7 +982,7 @@
   "legacyPackages.x86_64-linux.liboqs-unstable": {
     "description": "C library for prototyping and experimenting with quantum-resistant cryptography",
     "pname": "liboqs",
-    "version": "0-unstable-2025-11-14"
+    "version": "0-unstable-2025-12-23"
   },
   "legacyPackages.x86_64-linux.libqcef": {
     "description": "Qt5 binding of CEF",
@@ -1377,22 +1017,22 @@
   "legacyPackages.x86_64-linux.magiskboot": {
     "description": "Tool to unpack / repack boot images, parse / patch / extract cpio, patch dtb, hex patch binaries, and compress / decompress files with multiple algorithms",
     "pname": "magiskboot",
-    "version": "29.0"
+    "version": "30.6"
   },
   "legacyPackages.x86_64-linux.mautrix-gmessages": {
     "description": "Matrix-Google Messages puppeting bridge",
     "pname": "mautrix-gmessages",
-    "version": "0.2510.0"
+    "version": "0.2511.0"
   },
   "legacyPackages.x86_64-linux.metee": {
     "description": "C library to access CSE/CSME/GSC firmware via a MEI interface",
     "pname": "metee",
-    "version": "6.0.2"
+    "version": "6.1.0"
   },
   "legacyPackages.x86_64-linux.modelscope": {
     "description": "Bring the notion of Model-as-a-Service to life",
     "pname": "python3.13-modelscope",
-    "version": "1.31.0"
+    "version": "1.33.0"
   },
   "legacyPackages.x86_64-linux.mtkclient": {
     "description": "MTK reverse engineering and flash tool",
@@ -1432,7 +1072,7 @@
   "legacyPackages.x86_64-linux.nftables-fullcone": {
     "description": "Project that aims to replace the existing {ip,ip6,arp,eb}tables framework",
     "pname": "nftables",
-    "version": "1.1.5"
+    "version": "1.1.6"
   },
   "legacyPackages.x86_64-linux.noise-suppression-for-voice": {
     "description": "Noise suppression plugin based on Xiph's RNNoise",
@@ -1452,982 +1092,1002 @@
   "legacyPackages.x86_64-linux.nvidia-grid.grid.11_8": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "450.191.01-6.12.58"
+    "version": "450.191.01-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.grid.12_4": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "460.106.00-6.12.58"
+    "version": "460.106.00-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.grid.13_0": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "470.63.01-6.12.58"
+    "version": "470.63.01-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.grid.13_12": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "470.256.02-6.12.58"
+    "version": "470.256.02-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.grid.13_3": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "470.129.06-6.12.58"
+    "version": "470.129.06-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.grid.13_4": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "470.141.03-6.12.58"
+    "version": "470.141.03-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.grid.13_5": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "470.161.03-6.12.58"
+    "version": "470.161.03-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.grid.13_6": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "470.161.03-6.12.58"
+    "version": "470.161.03-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.grid.13_7": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "470.182.03-6.12.58"
+    "version": "470.182.03-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.grid.13_9": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "470.223.02-6.12.58"
+    "version": "470.223.02-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.grid.14_0": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "510.47.03-6.12.58"
+    "version": "510.47.03-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.grid.14_1": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "510.73.08-6.12.58"
+    "version": "510.73.08-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.grid.14_2": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "510.85.02-6.12.58"
+    "version": "510.85.02-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.grid.14_3": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "510.108.03-6.12.58"
+    "version": "510.108.03-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.grid.14_4": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "510.108.03-6.12.58"
+    "version": "510.108.03-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.grid.15_0": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "525.60.13-6.12.58"
+    "version": "525.60.13-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.grid.15_1": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "525.85.05-6.12.58"
+    "version": "525.85.05-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.grid.15_2": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "525.105.17-6.12.58"
+    "version": "525.105.17-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.grid.15_3": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "525.125.06-6.12.58"
+    "version": "525.125.06-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.grid.16_0": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "535.54.03-6.12.58"
+    "version": "535.54.03-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.grid.16_1": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "535.104.05-6.12.58"
+    "version": "535.104.05-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.grid.16_10": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "535.247.01-6.12.58"
+    "version": "535.247.01-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.grid.16_11": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "535.261.03-6.12.58"
+    "version": "535.261.03-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.grid.16_12": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "535.274.02-6.12.58"
+    "version": "535.274.02-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.grid.16_2": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "535.129.03-6.12.58"
+    "version": "535.129.03-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.grid.16_3": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "535.154.05-6.12.58"
+    "version": "535.154.05-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.grid.16_4": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "535.161.07-6.12.58"
+    "version": "535.161.07-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.grid.16_5": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "535.161.08-6.12.58"
+    "version": "535.161.08-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.grid.16_6": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "535.183.01-6.12.58"
+    "version": "535.183.01-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.grid.16_7": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "535.183.06-6.12.58"
+    "version": "535.183.06-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.grid.16_8": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "535.216.01-6.12.58"
+    "version": "535.216.01-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.grid.16_9": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "535.230.02-6.12.58"
+    "version": "535.230.02-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.grid.17_0": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "550.54.14-6.12.58"
+    "version": "550.54.14-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.grid.17_1": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "550.54.15-6.12.58"
+    "version": "550.54.15-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.grid.17_2": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "550.90.07-6.12.58"
+    "version": "550.90.07-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.grid.17_3": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "550.90.07-6.12.58"
+    "version": "550.90.07-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.grid.17_4": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "550.127.05-6.12.58"
+    "version": "550.127.05-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.grid.17_5": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "550.144.03-6.12.58"
+    "version": "550.144.03-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.grid.17_6": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "550.163.01-6.12.58"
+    "version": "550.163.01-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.grid.18_0": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "570.124.06-6.12.58"
+    "version": "570.124.06-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.grid.18_1": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "570.133.20-6.12.58"
+    "version": "570.133.20-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.grid.18_2": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "570.148.08-6.12.58"
+    "version": "570.148.08-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.grid.18_3": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "570.158.01-6.12.58"
+    "version": "570.158.01-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.grid.18_4": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "570.172.08-6.12.58"
+    "version": "570.172.08-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.grid.18_5": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "570.195.03-6.12.58"
+    "version": "570.195.03-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.grid.19_0": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "580.65.06-6.12.58"
+    "version": "580.65.06-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.grid.19_1": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "580.82.07-6.12.58"
+    "version": "580.82.07-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.grid.19_2": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "580.95.05-6.12.58"
+    "version": "580.95.05-6.12.63"
+  },
+  "legacyPackages.x86_64-linux.nvidia-grid.grid.19_3": {
+    "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
+    "pname": "nvidia-x11",
+    "version": "580.105.08-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.grid.9_2": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "430.63-6.12.58"
+    "version": "430.63-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.guest.11_8": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "450.191.01-6.12.58"
+    "version": "450.191.01-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.guest.12_4": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "460.106.00-6.12.58"
+    "version": "460.106.00-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.guest.13_0": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "470.63.01-6.12.58"
+    "version": "470.63.01-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.guest.13_12": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "470.256.02-6.12.58"
+    "version": "470.256.02-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.guest.13_3": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "470.129.06-6.12.58"
+    "version": "470.129.06-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.guest.13_4": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "470.141.03-6.12.58"
+    "version": "470.141.03-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.guest.13_5": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "470.161.03-6.12.58"
+    "version": "470.161.03-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.guest.13_6": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "470.161.03-6.12.58"
+    "version": "470.161.03-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.guest.13_7": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "470.182.03-6.12.58"
+    "version": "470.182.03-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.guest.13_9": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "470.223.02-6.12.58"
+    "version": "470.223.02-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.guest.14_0": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "510.47.03-6.12.58"
+    "version": "510.47.03-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.guest.14_1": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "510.73.08-6.12.58"
+    "version": "510.73.08-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.guest.14_2": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "510.85.02-6.12.58"
+    "version": "510.85.02-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.guest.14_3": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "510.108.03-6.12.58"
+    "version": "510.108.03-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.guest.14_4": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "510.108.03-6.12.58"
+    "version": "510.108.03-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.guest.15_0": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "525.60.13-6.12.58"
+    "version": "525.60.13-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.guest.15_1": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "525.85.05-6.12.58"
+    "version": "525.85.05-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.guest.15_2": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "525.105.17-6.12.58"
+    "version": "525.105.17-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.guest.15_3": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "525.125.06-6.12.58"
+    "version": "525.125.06-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.guest.16_0": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "535.54.03-6.12.58"
+    "version": "535.54.03-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.guest.16_1": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "535.104.05-6.12.58"
+    "version": "535.104.05-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.guest.16_10": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "535.247.01-6.12.58"
+    "version": "535.247.01-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.guest.16_11": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "535.261.03-6.12.58"
+    "version": "535.261.03-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.guest.16_12": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "535.274.02-6.12.58"
+    "version": "535.274.02-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.guest.16_2": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "535.129.03-6.12.58"
+    "version": "535.129.03-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.guest.16_3": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "535.154.05-6.12.58"
+    "version": "535.154.05-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.guest.16_4": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "535.161.07-6.12.58"
+    "version": "535.161.07-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.guest.16_5": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "535.161.08-6.12.58"
+    "version": "535.161.08-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.guest.16_6": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "535.183.01-6.12.58"
+    "version": "535.183.01-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.guest.16_7": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "535.183.06-6.12.58"
+    "version": "535.183.06-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.guest.16_8": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "535.216.01-6.12.58"
+    "version": "535.216.01-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.guest.16_9": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "535.230.02-6.12.58"
+    "version": "535.230.02-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.guest.17_0": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "550.54.14-6.12.58"
+    "version": "550.54.14-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.guest.17_1": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "550.54.15-6.12.58"
+    "version": "550.54.15-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.guest.17_2": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "550.90.07-6.12.58"
+    "version": "550.90.07-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.guest.17_3": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "550.90.07-6.12.58"
+    "version": "550.90.07-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.guest.17_4": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "550.127.05-6.12.58"
+    "version": "550.127.05-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.guest.17_5": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "550.144.03-6.12.58"
+    "version": "550.144.03-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.guest.17_6": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "550.163.01-6.12.58"
+    "version": "550.163.01-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.guest.18_0": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "570.124.06-6.12.58"
+    "version": "570.124.06-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.guest.18_1": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "570.133.20-6.12.58"
+    "version": "570.133.20-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.guest.18_2": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "570.148.08-6.12.58"
+    "version": "570.148.08-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.guest.18_3": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "570.158.01-6.12.58"
+    "version": "570.158.01-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.guest.18_4": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "570.172.08-6.12.58"
+    "version": "570.172.08-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.guest.18_5": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "570.195.03-6.12.58"
+    "version": "570.195.03-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.guest.19_0": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "580.65.06-6.12.58"
+    "version": "580.65.06-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.guest.19_1": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "580.82.07-6.12.58"
+    "version": "580.82.07-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.guest.19_2": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "580.95.05-6.12.58"
+    "version": "580.95.05-6.12.63"
+  },
+  "legacyPackages.x86_64-linux.nvidia-grid.guest.19_3": {
+    "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
+    "pname": "nvidia-x11",
+    "version": "580.105.08-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.guest.9_2": {
     "description": "NVIDIA vGPU guest driver (GRID driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "430.63-6.12.58"
+    "version": "430.63-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.host.11_8": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "450.191-6.12.58"
+    "version": "450.191-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.host.12_4": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "460.107-6.12.58"
+    "version": "460.107-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.host.13_0": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "470.63-6.12.58"
+    "version": "470.63-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.host.13_12": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "470.256.02-6.12.58"
+    "version": "470.256.02-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.host.13_3": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "470.129.04-6.12.58"
+    "version": "470.129.04-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.host.13_4": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "470.141.05-6.12.58"
+    "version": "470.141.05-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.host.13_5": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "470.161.02-6.12.58"
+    "version": "470.161.02-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.host.13_6": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "470.161.02-6.12.58"
+    "version": "470.161.02-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.host.13_7": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "470.182.02-6.12.58"
+    "version": "470.182.02-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.host.13_9": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "470.223.02-6.12.58"
+    "version": "470.223.02-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.host.14_0": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "510.47.03-6.12.58"
+    "version": "510.47.03-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.host.14_1": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "510.73.06-6.12.58"
+    "version": "510.73.06-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.host.14_2": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "510.85.03-6.12.58"
+    "version": "510.85.03-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.host.14_3": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "510.108.03-6.12.58"
+    "version": "510.108.03-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.host.14_4": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "510.108.03-6.12.58"
+    "version": "510.108.03-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.host.15_0": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "525.60.12-6.12.58"
+    "version": "525.60.12-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.host.15_1": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "525.85.07-6.12.58"
+    "version": "525.85.07-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.host.15_2": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "525.105.14-6.12.58"
+    "version": "525.105.14-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.host.15_3": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "525.125.03-6.12.58"
+    "version": "525.125.03-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.host.16_0": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "535.54.06-6.12.58"
+    "version": "535.54.06-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.host.16_1": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "535.104.06-6.12.58"
+    "version": "535.104.06-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.host.16_10": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "535.247.02-6.12.58"
+    "version": "535.247.02-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.host.16_11": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "535.261.04-6.12.58"
+    "version": "535.261.04-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.host.16_12": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "535.274.03-6.12.58"
+    "version": "535.274.03-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.host.16_2": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "535.129.03-6.12.58"
+    "version": "535.129.03-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.host.16_3": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "535.154.02-6.12.58"
+    "version": "535.154.02-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.host.16_4": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "535.161.05-6.12.58"
+    "version": "535.161.05-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.host.16_5": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "535.161.05-6.12.58"
+    "version": "535.161.05-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.host.16_6": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "535.183.04-6.12.58"
+    "version": "535.183.04-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.host.16_7": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "535.183.04-6.12.58"
+    "version": "535.183.04-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.host.16_8": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "535.216.01-6.12.58"
+    "version": "535.216.01-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.host.16_9": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "535.230.02-6.12.58"
+    "version": "535.230.02-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.host.17_0": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "550.54.10-6.12.58"
+    "version": "550.54.10-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.host.17_1": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "550.54.16-6.12.58"
+    "version": "550.54.16-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.host.17_2": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "550.90.05-6.12.58"
+    "version": "550.90.05-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.host.17_3": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "550.90.05-6.12.58"
+    "version": "550.90.05-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.host.17_4": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "550.127.06-6.12.58"
+    "version": "550.127.06-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.host.17_5": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "550.144.02-6.12.58"
+    "version": "550.144.02-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.host.17_6": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "550.163.02-6.12.58"
+    "version": "550.163.02-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.host.18_0": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "570.124.03-6.12.58"
+    "version": "570.124.03-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.host.18_1": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "570.133.10-6.12.58"
+    "version": "570.133.10-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.host.18_2": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "570.148.06-6.12.58"
+    "version": "570.148.06-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.host.18_3": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "570.158.02-6.12.58"
+    "version": "570.158.02-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.host.18_4": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "570.172.07-6.12.58"
+    "version": "570.172.07-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.host.18_5": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "570.195.02-6.12.58"
+    "version": "570.195.02-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.host.19_0": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "580.65.05-6.12.58"
+    "version": "580.65.05-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.host.19_1": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "580.82.02-6.12.58"
+    "version": "580.82.02-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.host.19_2": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "580.95.02-6.12.58"
+    "version": "580.95.02-6.12.63"
+  },
+  "legacyPackages.x86_64-linux.nvidia-grid.host.19_3": {
+    "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
+    "pname": "nvidia-x11",
+    "version": "580.105.06-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.host.9_2": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "430.67-6.12.58"
+    "version": "430.67-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.vgpu.11_8": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "450.191-6.12.58"
+    "version": "450.191-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.vgpu.12_4": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "460.107-6.12.58"
+    "version": "460.107-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.vgpu.13_0": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "470.63-6.12.58"
+    "version": "470.63-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.vgpu.13_12": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "470.256.02-6.12.58"
+    "version": "470.256.02-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.vgpu.13_3": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "470.129.04-6.12.58"
+    "version": "470.129.04-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.vgpu.13_4": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "470.141.05-6.12.58"
+    "version": "470.141.05-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.vgpu.13_5": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "470.161.02-6.12.58"
+    "version": "470.161.02-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.vgpu.13_6": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "470.161.02-6.12.58"
+    "version": "470.161.02-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.vgpu.13_7": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "470.182.02-6.12.58"
+    "version": "470.182.02-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.vgpu.13_9": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "470.223.02-6.12.58"
+    "version": "470.223.02-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.vgpu.14_0": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "510.47.03-6.12.58"
+    "version": "510.47.03-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.vgpu.14_1": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "510.73.06-6.12.58"
+    "version": "510.73.06-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.vgpu.14_2": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "510.85.03-6.12.58"
+    "version": "510.85.03-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.vgpu.14_3": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "510.108.03-6.12.58"
+    "version": "510.108.03-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.vgpu.14_4": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "510.108.03-6.12.58"
+    "version": "510.108.03-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.vgpu.15_0": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "525.60.12-6.12.58"
+    "version": "525.60.12-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.vgpu.15_1": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "525.85.07-6.12.58"
+    "version": "525.85.07-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.vgpu.15_2": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "525.105.14-6.12.58"
+    "version": "525.105.14-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.vgpu.15_3": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "525.125.03-6.12.58"
+    "version": "525.125.03-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.vgpu.16_0": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "535.54.06-6.12.58"
+    "version": "535.54.06-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.vgpu.16_1": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "535.104.06-6.12.58"
+    "version": "535.104.06-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.vgpu.16_10": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "535.247.02-6.12.58"
+    "version": "535.247.02-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.vgpu.16_11": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "535.261.04-6.12.58"
+    "version": "535.261.04-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.vgpu.16_12": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "535.274.03-6.12.58"
+    "version": "535.274.03-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.vgpu.16_2": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "535.129.03-6.12.58"
+    "version": "535.129.03-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.vgpu.16_3": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "535.154.02-6.12.58"
+    "version": "535.154.02-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.vgpu.16_4": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "535.161.05-6.12.58"
+    "version": "535.161.05-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.vgpu.16_5": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "535.161.05-6.12.58"
+    "version": "535.161.05-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.vgpu.16_6": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "535.183.04-6.12.58"
+    "version": "535.183.04-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.vgpu.16_7": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "535.183.04-6.12.58"
+    "version": "535.183.04-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.vgpu.16_8": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "535.216.01-6.12.58"
+    "version": "535.216.01-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.vgpu.16_9": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "535.230.02-6.12.58"
+    "version": "535.230.02-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.vgpu.17_0": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "550.54.10-6.12.58"
+    "version": "550.54.10-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.vgpu.17_1": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "550.54.16-6.12.58"
+    "version": "550.54.16-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.vgpu.17_2": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "550.90.05-6.12.58"
+    "version": "550.90.05-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.vgpu.17_3": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "550.90.05-6.12.58"
+    "version": "550.90.05-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.vgpu.17_4": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "550.127.06-6.12.58"
+    "version": "550.127.06-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.vgpu.17_5": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "550.144.02-6.12.58"
+    "version": "550.144.02-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.vgpu.17_6": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "550.163.02-6.12.58"
+    "version": "550.163.02-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.vgpu.18_0": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "570.124.03-6.12.58"
+    "version": "570.124.03-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.vgpu.18_1": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "570.133.10-6.12.58"
+    "version": "570.133.10-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.vgpu.18_2": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "570.148.06-6.12.58"
+    "version": "570.148.06-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.vgpu.18_3": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "570.158.02-6.12.58"
+    "version": "570.158.02-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.vgpu.18_4": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "570.172.07-6.12.58"
+    "version": "570.172.07-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.vgpu.18_5": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "570.195.02-6.12.58"
+    "version": "570.195.02-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.vgpu.19_0": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "580.65.05-6.12.58"
+    "version": "580.65.05-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.vgpu.19_1": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "580.82.02-6.12.58"
+    "version": "580.82.02-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.vgpu.19_2": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "580.95.02-6.12.58"
+    "version": "580.95.02-6.12.63"
+  },
+  "legacyPackages.x86_64-linux.nvidia-grid.vgpu.19_3": {
+    "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
+    "pname": "nvidia-x11",
+    "version": "580.105.06-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvidia-grid.vgpu.9_2": {
     "description": "NVIDIA vGPU host driver (vGPU-KVM driver, experimental package)",
     "pname": "nvidia-x11",
-    "version": "430.67-6.12.58"
+    "version": "430.67-6.12.63"
   },
   "legacyPackages.x86_64-linux.nvlax": {
     "description": "Future-proof NvENC & NvFBC patcher",
@@ -4117,17 +3777,17 @@
   "legacyPackages.x86_64-linux.openssl-ech": {
     "description": "OpenSSL with Encrypted Client Hello support",
     "pname": "openssl-ech",
-    "version": "0-unstable-2025-05-30"
+    "version": "0-unstable-2025-11-18"
   },
   "legacyPackages.x86_64-linux.openssl-oqs-provider": {
     "description": "OpenSSL 3 provider containing post-quantum algorithms",
     "pname": "openssl-oqs-provider",
-    "version": "0.10.0"
+    "version": "0.11.0"
   },
   "legacyPackages.x86_64-linux.openvswitch-dpdk": {
-    "description": "Multilayer virtual switch",
+    "description": "(DEPRECATED: openvswitch-dpdk is available in nixpkgs) Multilayer virtual switch",
     "pname": "openvswitch-dpdk",
-    "version": "3.6.0"
+    "version": "3.6.1"
   },
   "legacyPackages.x86_64-linux.osdlyrics": {
     "description": "Standalone lyrics fetcher/displayer (windowed and OSD mode)",
@@ -4152,7 +3812,7 @@
   "legacyPackages.x86_64-linux.peerbanhelper": {
     "description": "Automatically bans unwanted, leeching, and anomalous BT clients, with support for custom rules for qBittorrent and Transmission",
     "pname": "peerbanhelper",
-    "version": "9.0.10"
+    "version": "9.2.3"
   },
   "legacyPackages.x86_64-linux.phpmyadmin": {
     "description": "Web interface for MySQL and MariaDB",
@@ -4167,7 +3827,7 @@
   "legacyPackages.x86_64-linux.plangothic-fonts": {
     "description": "Plangothic Project",
     "pname": "plangothic-fonts",
-    "version": "2.9.5787"
+    "version": "2.9.5792"
   },
   "legacyPackages.x86_64-linux.plasma-panel-transparency-toggle": {
     "description": "Rewrite of Panel Transparency Button for Plasma 6",
@@ -4177,7 +3837,7 @@
   "legacyPackages.x86_64-linux.plasma-smart-video-wallpaper-reborn": {
     "description": "Plasma 6 wallpaper plugin to play videos on your Desktop/Lock Screen",
     "pname": "plasma-smart-video-wallpaper-reborn",
-    "version": "2.6.0"
+    "version": "2.8.1"
   },
   "legacyPackages.x86_64-linux.plasma-yesplaymusic-lyric": {
     "description": "Display YesPlayMusic lyrics on the plasma panel | 在KDE plasma面板中显示YesPlayMusic的歌词",
@@ -4192,7 +3852,7 @@
   "legacyPackages.x86_64-linux.pterodactyl-wings": {
     "description": "Server control plane for Pterodactyl Panel",
     "pname": "pterodactyl-wings",
-    "version": "1.11.13-unstable-2025-11-01"
+    "version": "1.11.13-unstable-2025-12-30"
   },
   "legacyPackages.x86_64-linux.py-rcon": {
     "description": "Python implementation of RCON",
@@ -4207,7 +3867,7 @@
   "legacyPackages.x86_64-linux.pyosmocom": {
     "description": "Python implementation of key Osmocom protocols/interfaces",
     "pname": "python3.13-pyosmocom",
-    "version": "0-unstable-2025-11-07"
+    "version": "0-unstable-2025-12-19"
   },
   "legacyPackages.x86_64-linux.pysctp": {
     "description": "SCTP stack for Python",
@@ -4252,7 +3912,7 @@
   "legacyPackages.x86_64-linux.python3Packages.edge-tts": {
     "description": "Use Microsoft Edge's online text-to-speech service from Python WITHOUT needing Microsoft Edge or Windows or an API key",
     "pname": "python3.13-edge-tts",
-    "version": "7.2.3"
+    "version": "7.2.7"
   },
   "legacyPackages.x86_64-linux.python3Packages.fish-speech": {
     "description": "SOTA Open Source TTS",
@@ -4262,7 +3922,7 @@
   "legacyPackages.x86_64-linux.python3Packages.funasr": {
     "description": "Fundamental End-to-End Speech Recognition Toolkit and Open Source SOTA Pretrained Models",
     "pname": "python3.13-funasr",
-    "version": "0-unstable-2025-10-01"
+    "version": "0-unstable-2026-01-01"
   },
   "legacyPackages.x86_64-linux.python3Packages.kaldiio": {
     "description": "Pure python module for reading and writing kaldi ark files",
@@ -4282,7 +3942,7 @@
   "legacyPackages.x86_64-linux.python3Packages.modelscope": {
     "description": "Bring the notion of Model-as-a-Service to life",
     "pname": "python3.13-modelscope",
-    "version": "1.31.0"
+    "version": "1.33.0"
   },
   "legacyPackages.x86_64-linux.python3Packages.mtkclient": {
     "description": "MTK reverse engineering and flash tool",
@@ -4307,7 +3967,7 @@
   "legacyPackages.x86_64-linux.python3Packages.pyosmocom": {
     "description": "Python implementation of key Osmocom protocols/interfaces",
     "pname": "python3.13-pyosmocom",
-    "version": "0-unstable-2025-11-07"
+    "version": "0-unstable-2025-12-19"
   },
   "legacyPackages.x86_64-linux.python3Packages.pysctp": {
     "description": "SCTP stack for Python",
@@ -4327,7 +3987,7 @@
   "legacyPackages.x86_64-linux.python3Packages.runpod-python": {
     "description": "Python library for RunPod API and serverless worker SDK",
     "pname": "python3.13-runpod-python",
-    "version": "1.7.13"
+    "version": "1.8.1"
   },
   "legacyPackages.x86_64-linux.python3Packages.silero-vad": {
     "description": "Pre-trained enterprise-grade Voice Activity Detector",
@@ -4357,7 +4017,7 @@
   "legacyPackages.x86_64-linux.python3Packages.vector-quantize-pytorch": {
     "description": "Vector (and Scalar) Quantization, in Pytorch",
     "pname": "python3.13-vector-quantize-pytorch",
-    "version": "1.25.2"
+    "version": "1.27.15"
   },
   "legacyPackages.x86_64-linux.python3Packages.xstatic-asciinema-player": {
     "description": "Asciinema-player packaged for setuptools (easy_install) / pip",
@@ -4382,7 +4042,7 @@
   "legacyPackages.x86_64-linux.qemu-user-static": {
     "description": "Generic and open source machine emulator and virtualizer",
     "pname": "qemu-user-static",
-    "version": "10.1.2+ds-3"
+    "version": "10.2.0+ds-1"
   },
   "legacyPackages.x86_64-linux.qq": {
     "description": "Desktop client for QQ on Linux",
@@ -4402,12 +4062,12 @@
   "legacyPackages.x86_64-linux.qsp": {
     "description": "Interactive Fiction development platform (GUI application)",
     "pname": "qsp",
-    "version": "5.9.4-b1-unstable-2025-11-09"
+    "version": "5.9.5-b1-unstable-2025-11-17"
   },
   "legacyPackages.x86_64-linux.qsp-lib": {
     "description": "Interactive fiction development platform (Game Library)",
     "pname": "qsp-lib",
-    "version": "0-unstable-2025-11-06"
+    "version": "0-unstable-2025-11-17"
   },
   "legacyPackages.x86_64-linux.qtwebapp": {
     "description": "HTTP server library in C++, inspired by Java Servlets",
@@ -4442,7 +4102,7 @@
   "legacyPackages.x86_64-linux.rime-custom-pinyin-dictionary": {
     "description": "自建拼音输入法词库，百万常用词汇量，适配 Fcitx5 (Linux / Android) 及 Gboard (Android + Magisk or KernelSU) 。",
     "pname": "rime-custom-pinyin-dictionary",
-    "version": "20250101"
+    "version": "20260101"
   },
   "legacyPackages.x86_64-linux.rime-dict": {
     "description": "RIME 词库增强",
@@ -4452,12 +4112,12 @@
   "legacyPackages.x86_64-linux.rime-ice": {
     "description": "Rime 配置：雾凇拼音 | 长期维护的简体词库",
     "pname": "rime-ice",
-    "version": "0-unstable-2025-11-04"
+    "version": "0-unstable-2025-12-31"
   },
   "legacyPackages.x86_64-linux.rime-moegirl": {
     "description": "RIME dictionary file for entries from zh.moegirl.org.cn",
     "pname": "rime-moegirl",
-    "version": "20251109"
+    "version": "20251210"
   },
   "legacyPackages.x86_64-linux.rime-zhwiki": {
     "description": "RIME dictionary file for entries from zh.wikipedia.org",
@@ -4472,7 +4132,7 @@
   "legacyPackages.x86_64-linux.route-chain": {
     "description": "Small app to generate a long path in traceroute",
     "pname": "route-chain",
-    "version": "0-unstable-2023-09-09"
+    "version": "1.1.0-unstable-2026-01-08"
   },
   "legacyPackages.x86_64-linux.rtpengine": {
     "description": "Sipwise media proxy for Kamailio",
@@ -4482,12 +4142,12 @@
   "legacyPackages.x86_64-linux.runpod-python": {
     "description": "Python library for RunPod API and serverless worker SDK",
     "pname": "python3.13-runpod-python",
-    "version": "1.7.13"
+    "version": "1.8.1"
   },
   "legacyPackages.x86_64-linux.runpodctl": {
     "description": "RunPod CLI for pod management",
     "pname": "runpodctl",
-    "version": "1.14.11"
+    "version": "1.14.15"
   },
   "legacyPackages.x86_64-linux.sam-toki-mouse-cursors": {
     "description": "Original mouse cursors (pointers) for Windows, with minimalistic design",
@@ -4537,12 +4197,17 @@
   "legacyPackages.x86_64-linux.svp": {
     "description": "SmoothVideo Project 4 (SVP4) converts any video to 60 fps (and even higher) and performs this in real time right in your favorite video player",
     "pname": "svp",
-    "version": "4.6.263"
+    "version": "4.7.305-1"
   },
   "legacyPackages.x86_64-linux.svp-mpv": {
     "description": "General-purpose media player, fork of MPlayer and mplayer2",
     "pname": "mpv-with-scripts",
-    "version": "0.40.0"
+    "version": "0.41.0"
+  },
+  "legacyPackages.x86_64-linux.svp_4_6": {
+    "description": "SmoothVideo Project 4 (SVP4) converts any video to 60 fps (and even higher) and performs this in real time right in your favorite video player",
+    "pname": "svp",
+    "version": "4.6.263"
   },
   "legacyPackages.x86_64-linux.sx1302-hal": {
     "description": "SX1302/SX1303 Hardware Abstraction Layer and tools",
@@ -4632,7 +4297,7 @@
   "legacyPackages.x86_64-linux.uncategorized.asterisk-g72x": {
     "description": "G.729 and G.723.1 codecs for Asterisk (Only G.729 is enabled)",
     "pname": "asterisk-g72x",
-    "version": "0-unstable-2025-09-01"
+    "version": "0-unstable-2025-12-13"
   },
   "legacyPackages.x86_64-linux.uncategorized.axiom-syslog-proxy": {
     "description": "Syslog push interface to Axiom",
@@ -4652,22 +4317,22 @@
   "legacyPackages.x86_64-linux.uncategorized.bilibili": {
     "description": "Desktop client for Bilibili",
     "pname": "bilibili",
-    "version": "1.17.3-1"
+    "version": "1.17.4-1"
   },
   "legacyPackages.x86_64-linux.uncategorized.bin-cpuflags-x86": {
     "description": "Small CLI tool to detect CPU flags (instruction sets) of X86 binaries",
     "pname": "bin-cpuflags-x86",
-    "version": "1.0.4"
+    "version": "1.0.7"
   },
   "legacyPackages.x86_64-linux.uncategorized.bird-lg-go": {
     "description": "BIRD looking glass in Go, for better maintainability, easier deployment & smaller memory footprint",
     "pname": "bird-lg-go",
-    "version": "1.3.12.1"
+    "version": "1.4.0"
   },
   "legacyPackages.x86_64-linux.uncategorized.bird-lgproxy-go": {
     "description": "BIRD looking glass in Go, for better maintainability, easier deployment & smaller memory footprint",
     "pname": "bird-lgproxy-go",
-    "version": "1.3.12.1"
+    "version": "1.4.0"
   },
   "legacyPackages.x86_64-linux.uncategorized.bnxtnvm": {
     "description": "Broadcom BNXTNVM utility",
@@ -4676,18 +4341,23 @@
   },
   "legacyPackages.x86_64-linux.uncategorized.boringssl-oqs": {
     "description": "Fork of BoringSSL that includes prototype quantum-resistant key exchange and authentication in the TLS handshake based on liboqs",
-    "pname": "boringssl-oqs",
-    "version": "0-unstable-2025-08-31"
+    "pname": "boringssl-oqs-OQS-BoringSSL-snapshot",
+    "version": "2025-01"
   },
   "legacyPackages.x86_64-linux.uncategorized.browser360": {
     "description": "Browser from 360",
     "pname": "browser360",
-    "version": "13.4.1000.77"
+    "version": "13.4.1120.32"
   },
   "legacyPackages.x86_64-linux.uncategorized.calibre-cops": {
     "description": "Web-based light alternative to Calibre content server / Calibre2OPDS to serve ebooks",
     "pname": "calibre-cops",
-    "version": "3.7.8"
+    "version": "3.8.2"
+  },
+  "legacyPackages.x86_64-linux.uncategorized.cliproxyapi": {
+    "description": "Wrap Gemini CLI, Antigravity, ChatGPT Codex, Claude Code, Qwen Code, iFlow as an OpenAI/Gemini/Claude/Codex compatible API service",
+    "pname": "cliproxyapi",
+    "version": "6.6.79"
   },
   "legacyPackages.x86_64-linux.uncategorized.cockpy": {
     "description": "Public and open source version of the cbt2 ps im working on",
@@ -4697,7 +4367,7 @@
   "legacyPackages.x86_64-linux.uncategorized.dbip-lite": {
     "description": "DBIP's Lite GeoIP Country, City, and ASN databases",
     "pname": "dbip-lite",
-    "version": "2025-11"
+    "version": "2026-01"
   },
   "legacyPackages.x86_64-linux.uncategorized.decluttarr": {
     "description": "Watches radarr, sonarr, lidarr and readarr download queues and removes downloads if they become stalled or no longer needed",
@@ -4734,20 +4404,35 @@
     "pname": "drone-vault",
     "version": "1.3.0"
   },
+  "legacyPackages.x86_64-linux.uncategorized.dtbloader": {
+    "description": "EFI driver that finds and installs DeviceTree into the UEFI configuration table",
+    "pname": "dtbloader",
+    "version": "1.5.2"
+  },
   "legacyPackages.x86_64-linux.uncategorized.dump978": {
     "description": "FlightAware's 978MHz UAT demodulator",
     "pname": "dump978",
     "version": "10.2"
   },
+  "legacyPackages.x86_64-linux.uncategorized.easycli": {
+    "description": "Desktop GUI from CLIProxyAPI",
+    "pname": "easycli",
+    "version": "0.1.32"
+  },
   "legacyPackages.x86_64-linux.uncategorized.ela-widget-tools": {
     "description": "Fluent-UI For QT-Widget",
     "pname": "ela-widget-tools",
-    "version": "0-unstable-2025-10-30"
+    "version": "0-unstable-2025-12-29"
   },
   "legacyPackages.x86_64-linux.uncategorized.electron_11": {
     "description": "Cross platform desktop application shell",
     "pname": "electron",
     "version": "11.5.0"
+  },
+  "legacyPackages.x86_64-linux.uncategorized.env-dedup": {
+    "description": "Deduplicate the environment variables values",
+    "pname": "env-dedup",
+    "version": "0-unstable-2025-09-06"
   },
   "legacyPackages.x86_64-linux.uncategorized.etherguard": {
     "description": "Layer 2 version of WireGuard with Floyd Warshall implementation in Go",
@@ -4772,7 +4457,7 @@
   "legacyPackages.x86_64-linux.uncategorized.flapalerted": {
     "description": "BGP Update based flap detection",
     "pname": "flapalerted",
-    "version": "3.15.1"
+    "version": "4.3.0"
   },
   "legacyPackages.x86_64-linux.uncategorized.flaresolverr-21hsmw": {
     "description": "Proxy server to bypass Cloudflare protection, with 21hsmw modifications to support nodriver",
@@ -4797,7 +4482,7 @@
   "legacyPackages.x86_64-linux.uncategorized.geolite2": {
     "description": "MaxMind's GeoIP2 GeoLite2 Country, City, and ASN databases",
     "pname": "geolite2",
-    "version": "2025.11.16"
+    "version": "2026.01.01"
   },
   "legacyPackages.x86_64-linux.uncategorized.glauth": {
     "description": "Lightweight LDAP server for development, home use, or CI",
@@ -4837,7 +4522,7 @@
   "legacyPackages.x86_64-linux.uncategorized.hack3ric-flow": {
     "description": "BGP flowspec executor",
     "pname": "hack3ric-flow",
-    "version": "0.2.0-unstable-2025-09-28"
+    "version": "0.2.0-unstable-2025-12-27"
   },
   "legacyPackages.x86_64-linux.uncategorized.hath": {
     "description": "Hentai@Home",
@@ -4867,7 +4552,7 @@
   "legacyPackages.x86_64-linux.uncategorized.igsc": {
     "description": "Intel graphics system controller firmware update library",
     "pname": "igsc",
-    "version": "1.0.0"
+    "version": "1.0.1"
   },
   "legacyPackages.x86_64-linux.uncategorized.imewlconverter": {
     "description": "FOSS program for converting IME dictionaries",
@@ -4907,7 +4592,7 @@
   "legacyPackages.x86_64-linux.uncategorized.libnftnl-fullcone": {
     "description": "Userspace library providing a low-level netlink API to the in-kernel nf_tables subsystem",
     "pname": "libnftnl",
-    "version": "1.3.0"
+    "version": "1.3.1"
   },
   "legacyPackages.x86_64-linux.uncategorized.liboqs": {
     "description": "C library for prototyping and experimenting with quantum-resistant cryptography",
@@ -4917,7 +4602,7 @@
   "legacyPackages.x86_64-linux.uncategorized.liboqs-unstable": {
     "description": "C library for prototyping and experimenting with quantum-resistant cryptography",
     "pname": "liboqs",
-    "version": "0-unstable-2025-11-14"
+    "version": "0-unstable-2025-12-23"
   },
   "legacyPackages.x86_64-linux.uncategorized.libqcef": {
     "description": "Qt5 binding of CEF",
@@ -4947,17 +4632,17 @@
   "legacyPackages.x86_64-linux.uncategorized.magiskboot": {
     "description": "Tool to unpack / repack boot images, parse / patch / extract cpio, patch dtb, hex patch binaries, and compress / decompress files with multiple algorithms",
     "pname": "magiskboot",
-    "version": "29.0"
+    "version": "30.6"
   },
   "legacyPackages.x86_64-linux.uncategorized.mautrix-gmessages": {
     "description": "Matrix-Google Messages puppeting bridge",
     "pname": "mautrix-gmessages",
-    "version": "0.2510.0"
+    "version": "0.2511.0"
   },
   "legacyPackages.x86_64-linux.uncategorized.metee": {
     "description": "C library to access CSE/CSME/GSC firmware via a MEI interface",
     "pname": "metee",
-    "version": "6.0.2"
+    "version": "6.1.0"
   },
   "legacyPackages.x86_64-linux.uncategorized.mtranservercore-rs": {
     "description": "Lightweight multilingual translation service based on Rust and Bergamot translation engine, compatible with multiple translation frontend APIs",
@@ -4987,7 +4672,7 @@
   "legacyPackages.x86_64-linux.uncategorized.nftables-fullcone": {
     "description": "Project that aims to replace the existing {ip,ip6,arp,eb}tables framework",
     "pname": "nftables",
-    "version": "1.1.5"
+    "version": "1.1.6"
   },
   "legacyPackages.x86_64-linux.uncategorized.noise-suppression-for-voice": {
     "description": "Noise suppression plugin based on Xiph's RNNoise",
@@ -5032,17 +4717,12 @@
   "legacyPackages.x86_64-linux.uncategorized.openssl-ech": {
     "description": "OpenSSL with Encrypted Client Hello support",
     "pname": "openssl-ech",
-    "version": "0-unstable-2025-05-30"
+    "version": "0-unstable-2025-11-18"
   },
   "legacyPackages.x86_64-linux.uncategorized.openssl-oqs-provider": {
     "description": "OpenSSL 3 provider containing post-quantum algorithms",
     "pname": "openssl-oqs-provider",
-    "version": "0.10.0"
-  },
-  "legacyPackages.x86_64-linux.uncategorized.openvswitch-dpdk": {
-    "description": "Multilayer virtual switch",
-    "pname": "openvswitch-dpdk",
-    "version": "3.6.0"
+    "version": "0.11.0"
   },
   "legacyPackages.x86_64-linux.uncategorized.osdlyrics": {
     "description": "Standalone lyrics fetcher/displayer (windowed and OSD mode)",
@@ -5062,7 +4742,7 @@
   "legacyPackages.x86_64-linux.uncategorized.peerbanhelper": {
     "description": "Automatically bans unwanted, leeching, and anomalous BT clients, with support for custom rules for qBittorrent and Transmission",
     "pname": "peerbanhelper",
-    "version": "9.0.10"
+    "version": "9.2.3"
   },
   "legacyPackages.x86_64-linux.uncategorized.phpmyadmin": {
     "description": "Web interface for MySQL and MariaDB",
@@ -5077,7 +4757,7 @@
   "legacyPackages.x86_64-linux.uncategorized.plangothic-fonts": {
     "description": "Plangothic Project",
     "pname": "plangothic-fonts",
-    "version": "2.9.5787"
+    "version": "2.9.5792"
   },
   "legacyPackages.x86_64-linux.uncategorized.plasma-panel-transparency-toggle": {
     "description": "Rewrite of Panel Transparency Button for Plasma 6",
@@ -5087,7 +4767,7 @@
   "legacyPackages.x86_64-linux.uncategorized.plasma-smart-video-wallpaper-reborn": {
     "description": "Plasma 6 wallpaper plugin to play videos on your Desktop/Lock Screen",
     "pname": "plasma-smart-video-wallpaper-reborn",
-    "version": "2.6.0"
+    "version": "2.8.1"
   },
   "legacyPackages.x86_64-linux.uncategorized.plasma-yesplaymusic-lyric": {
     "description": "Display YesPlayMusic lyrics on the plasma panel | 在KDE plasma面板中显示YesPlayMusic的歌词",
@@ -5097,7 +4777,7 @@
   "legacyPackages.x86_64-linux.uncategorized.pterodactyl-wings": {
     "description": "Server control plane for Pterodactyl Panel",
     "pname": "pterodactyl-wings",
-    "version": "1.11.13-unstable-2025-11-01"
+    "version": "1.11.13-unstable-2025-12-30"
   },
   "legacyPackages.x86_64-linux.uncategorized.pyhss": {
     "description": "Python HSS / Diameter Server",
@@ -5107,7 +4787,7 @@
   "legacyPackages.x86_64-linux.uncategorized.qemu-user-static": {
     "description": "Generic and open source machine emulator and virtualizer",
     "pname": "qemu-user-static",
-    "version": "10.1.2+ds-3"
+    "version": "10.2.0+ds-1"
   },
   "legacyPackages.x86_64-linux.uncategorized.qq": {
     "description": "Desktop client for QQ on Linux",
@@ -5127,12 +4807,12 @@
   "legacyPackages.x86_64-linux.uncategorized.qsp": {
     "description": "Interactive Fiction development platform (GUI application)",
     "pname": "qsp",
-    "version": "5.9.4-b1-unstable-2025-11-09"
+    "version": "5.9.5-b1-unstable-2025-11-17"
   },
   "legacyPackages.x86_64-linux.uncategorized.qsp-lib": {
     "description": "Interactive fiction development platform (Game Library)",
     "pname": "qsp-lib",
-    "version": "0-unstable-2025-11-06"
+    "version": "0-unstable-2025-11-17"
   },
   "legacyPackages.x86_64-linux.uncategorized.qtwebapp": {
     "description": "HTTP server library in C++, inspired by Java Servlets",
@@ -5157,7 +4837,7 @@
   "legacyPackages.x86_64-linux.uncategorized.rime-custom-pinyin-dictionary": {
     "description": "自建拼音输入法词库，百万常用词汇量，适配 Fcitx5 (Linux / Android) 及 Gboard (Android + Magisk or KernelSU) 。",
     "pname": "rime-custom-pinyin-dictionary",
-    "version": "20250101"
+    "version": "20260101"
   },
   "legacyPackages.x86_64-linux.uncategorized.rime-dict": {
     "description": "RIME 词库增强",
@@ -5167,12 +4847,12 @@
   "legacyPackages.x86_64-linux.uncategorized.rime-ice": {
     "description": "Rime 配置：雾凇拼音 | 长期维护的简体词库",
     "pname": "rime-ice",
-    "version": "0-unstable-2025-11-04"
+    "version": "0-unstable-2025-12-31"
   },
   "legacyPackages.x86_64-linux.uncategorized.rime-moegirl": {
     "description": "RIME dictionary file for entries from zh.moegirl.org.cn",
     "pname": "rime-moegirl",
-    "version": "20251109"
+    "version": "20251210"
   },
   "legacyPackages.x86_64-linux.uncategorized.rime-zhwiki": {
     "description": "RIME dictionary file for entries from zh.wikipedia.org",
@@ -5182,7 +4862,7 @@
   "legacyPackages.x86_64-linux.uncategorized.route-chain": {
     "description": "Small app to generate a long path in traceroute",
     "pname": "route-chain",
-    "version": "0-unstable-2023-09-09"
+    "version": "1.1.0-unstable-2026-01-08"
   },
   "legacyPackages.x86_64-linux.uncategorized.rtpengine": {
     "description": "Sipwise media proxy for Kamailio",
@@ -5192,7 +4872,7 @@
   "legacyPackages.x86_64-linux.uncategorized.runpodctl": {
     "description": "RunPod CLI for pod management",
     "pname": "runpodctl",
-    "version": "1.14.11"
+    "version": "1.14.15"
   },
   "legacyPackages.x86_64-linux.uncategorized.sam-toki-mouse-cursors": {
     "description": "Original mouse cursors (pointers) for Windows, with minimalistic design",
@@ -5227,12 +4907,17 @@
   "legacyPackages.x86_64-linux.uncategorized.svp": {
     "description": "SmoothVideo Project 4 (SVP4) converts any video to 60 fps (and even higher) and performs this in real time right in your favorite video player",
     "pname": "svp",
-    "version": "4.6.263"
+    "version": "4.7.305-1"
   },
   "legacyPackages.x86_64-linux.uncategorized.svp-mpv": {
     "description": "General-purpose media player, fork of MPlayer and mplayer2",
     "pname": "mpv-with-scripts",
-    "version": "0.40.0"
+    "version": "0.41.0"
+  },
+  "legacyPackages.x86_64-linux.uncategorized.svp_4_6": {
+    "description": "SmoothVideo Project 4 (SVP4) converts any video to 60 fps (and even higher) and performs this in real time right in your favorite video player",
+    "pname": "svp",
+    "version": "4.6.263"
   },
   "legacyPackages.x86_64-linux.uncategorized.sx1302-hal": {
     "description": "SX1302/SX1303 Hardware Abstraction Layer and tools",
@@ -5257,7 +4942,7 @@
   "legacyPackages.x86_64-linux.uncategorized.uni-api": {
     "description": "Unifies the management of LLM APIs across multiple backend services",
     "pname": "uni-api",
-    "version": "0-unstable-2025-11-15"
+    "version": "0-unstable-2025-12-31"
   },
   "legacyPackages.x86_64-linux.uncategorized.unigine-heaven": {
     "description": "Extreme performance and stability test for PC hardware: video card, power supply, cooling system",
@@ -5337,7 +5022,7 @@
   "legacyPackages.x86_64-linux.uni-api": {
     "description": "Unifies the management of LLM APIs across multiple backend services",
     "pname": "uni-api",
-    "version": "0-unstable-2025-11-15"
+    "version": "0-unstable-2025-12-31"
   },
   "legacyPackages.x86_64-linux.unigine-heaven": {
     "description": "Extreme performance and stability test for PC hardware: video card, power supply, cooling system",
@@ -5377,7 +5062,7 @@
   "legacyPackages.x86_64-linux.vector-quantize-pytorch": {
     "description": "Vector (and Scalar) Quantization, in Pytorch",
     "pname": "python3.13-vector-quantize-pytorch",
-    "version": "1.25.2"
+    "version": "1.27.15"
   },
   "legacyPackages.x86_64-linux.vgpu-unlock-rs": {
     "description": "Unlock vGPU functionality for consumer grade GPUs",
@@ -5459,11 +5144,6 @@
     "pname": "xvcd",
     "version": "0-unstable-2019-11-20"
   },
-  "packages.x86_64-linux._meta": {
-    "description": "",
-    "pname": "merged-packages",
-    "version": ""
-  },
   "packages.x86_64-linux.acpi-ec": {
     "description": "Kernel module to access directly to the ACPI EC",
     "pname": "acpi-ec",
@@ -5479,20 +5159,10 @@
     "pname": "amule-dlp",
     "version": "2.3.2-unstable-2023-03-02"
   },
-  "packages.x86_64-linux.ast": {
-    "description": "Aspeed Graphics Driver",
-    "pname": "ast",
-    "version": "1.15.1_4"
-  },
   "packages.x86_64-linux.asterisk-g72x": {
     "description": "G.729 and G.723.1 codecs for Asterisk (Only G.729 is enabled)",
     "pname": "asterisk-g72x",
-    "version": "0-unstable-2025-09-01"
-  },
-  "packages.x86_64-linux.asteriskDigiumCodecs": {
-    "description": "",
-    "pname": "merged-packages",
-    "version": ""
+    "version": "0-unstable-2025-12-13"
   },
   "packages.x86_64-linux.axiom-syslog-proxy": {
     "description": "Syslog push interface to Axiom",
@@ -5517,22 +5187,22 @@
   "packages.x86_64-linux.bilibili": {
     "description": "Desktop client for Bilibili",
     "pname": "bilibili",
-    "version": "1.17.3-1"
+    "version": "1.17.4-1"
   },
   "packages.x86_64-linux.bin-cpuflags-x86": {
     "description": "Small CLI tool to detect CPU flags (instruction sets) of X86 binaries",
     "pname": "bin-cpuflags-x86",
-    "version": "1.0.4"
+    "version": "1.0.7"
   },
   "packages.x86_64-linux.bird-lg-go": {
     "description": "BIRD looking glass in Go, for better maintainability, easier deployment & smaller memory footprint",
     "pname": "bird-lg-go",
-    "version": "1.3.12.1"
+    "version": "1.4.0"
   },
   "packages.x86_64-linux.bird-lgproxy-go": {
     "description": "BIRD looking glass in Go, for better maintainability, easier deployment & smaller memory footprint",
     "pname": "bird-lgproxy-go",
-    "version": "1.3.12.1"
+    "version": "1.4.0"
   },
   "packages.x86_64-linux.bnxtnvm": {
     "description": "Broadcom BNXTNVM utility",
@@ -5541,23 +5211,28 @@
   },
   "packages.x86_64-linux.boringssl-oqs": {
     "description": "Fork of BoringSSL that includes prototype quantum-resistant key exchange and authentication in the TLS handshake based on liboqs",
-    "pname": "boringssl-oqs",
-    "version": "0-unstable-2025-08-31"
+    "pname": "boringssl-oqs-OQS-BoringSSL-snapshot",
+    "version": "2025-01"
   },
   "packages.x86_64-linux.browser360": {
     "description": "Browser from 360",
     "pname": "browser360",
-    "version": "13.4.1000.77"
+    "version": "13.4.1120.32"
   },
   "packages.x86_64-linux.calibre-cops": {
     "description": "Web-based light alternative to Calibre content server / Calibre2OPDS to serve ebooks",
     "pname": "calibre-cops",
-    "version": "3.7.8"
+    "version": "3.8.2"
   },
   "packages.x86_64-linux.click-loglevel": {
     "description": "Log level parameter type for Click",
     "pname": "python3.13-click-loglevel",
     "version": "0.7.0"
+  },
+  "packages.x86_64-linux.cliproxyapi": {
+    "description": "Wrap Gemini CLI, Antigravity, ChatGPT Codex, Claude Code, Qwen Code, iFlow as an OpenAI/Gemini/Claude/Codex compatible API service",
+    "pname": "cliproxyapi",
+    "version": "6.6.79"
   },
   "packages.x86_64-linux.cockpy": {
     "description": "Public and open source version of the cbt2 ps im working on",
@@ -5592,7 +5267,7 @@
   "packages.x86_64-linux.dbip-lite": {
     "description": "DBIP's Lite GeoIP Country, City, and ASN databases",
     "pname": "dbip-lite",
-    "version": "2025-11"
+    "version": "2026-01"
   },
   "packages.x86_64-linux.decluttarr": {
     "description": "Watches radarr, sonarr, lidarr and readarr download queues and removes downloads if they become stalled or no longer needed",
@@ -5603,11 +5278,6 @@
     "description": "Powerful Free DeepL API, No Token Required",
     "pname": "deeplx",
     "version": "1.1.0"
-  },
-  "packages.x86_64-linux.deprecated": {
-    "description": "",
-    "pname": "merged-packages",
-    "version": ""
   },
   "packages.x86_64-linux.dingtalk": {
     "description": "Enterprise communication and collaboration platform developed by Alibaba Group",
@@ -5649,25 +5319,40 @@
     "pname": "drone-vault",
     "version": "1.3.0"
   },
+  "packages.x86_64-linux.dtbloader": {
+    "description": "EFI driver that finds and installs DeviceTree into the UEFI configuration table",
+    "pname": "dtbloader",
+    "version": "1.5.2"
+  },
   "packages.x86_64-linux.dump978": {
     "description": "FlightAware's 978MHz UAT demodulator",
     "pname": "dump978",
     "version": "10.2"
   },
+  "packages.x86_64-linux.easycli": {
+    "description": "Desktop GUI from CLIProxyAPI",
+    "pname": "easycli",
+    "version": "0.1.32"
+  },
   "packages.x86_64-linux.edge-tts": {
     "description": "Use Microsoft Edge's online text-to-speech service from Python WITHOUT needing Microsoft Edge or Windows or an API key",
     "pname": "python3.13-edge-tts",
-    "version": "7.2.3"
+    "version": "7.2.7"
   },
   "packages.x86_64-linux.ela-widget-tools": {
     "description": "Fluent-UI For QT-Widget",
     "pname": "ela-widget-tools",
-    "version": "0-unstable-2025-10-30"
+    "version": "0-unstable-2025-12-29"
   },
   "packages.x86_64-linux.electron_11": {
     "description": "Cross platform desktop application shell",
     "pname": "electron",
     "version": "11.5.0"
+  },
+  "packages.x86_64-linux.env-dedup": {
+    "description": "Deduplicate the environment variables values",
+    "pname": "env-dedup",
+    "version": "0-unstable-2025-09-06"
   },
   "packages.x86_64-linux.etherguard": {
     "description": "Layer 2 version of WireGuard with Floyd Warshall implementation in Go",
@@ -5697,7 +5382,7 @@
   "packages.x86_64-linux.flapalerted": {
     "description": "BGP Update based flap detection",
     "pname": "flapalerted",
-    "version": "3.15.1"
+    "version": "4.3.0"
   },
   "packages.x86_64-linux.flaresolverr-21hsmw": {
     "description": "Proxy server to bypass Cloudflare protection, with 21hsmw modifications to support nodriver",
@@ -5722,12 +5407,12 @@
   "packages.x86_64-linux.funasr": {
     "description": "Fundamental End-to-End Speech Recognition Toolkit and Open Source SOTA Pretrained Models",
     "pname": "python3.13-funasr",
-    "version": "0-unstable-2025-10-01"
+    "version": "0-unstable-2026-01-01"
   },
   "packages.x86_64-linux.geolite2": {
     "description": "MaxMind's GeoIP2 GeoLite2 Country, City, and ASN databases",
     "pname": "geolite2",
-    "version": "2025.11.16"
+    "version": "2026.01.01"
   },
   "packages.x86_64-linux.glauth": {
     "description": "Lightweight LDAP server for development, home use, or CI",
@@ -5767,7 +5452,7 @@
   "packages.x86_64-linux.hack3ric-flow": {
     "description": "BGP flowspec executor",
     "pname": "hack3ric-flow",
-    "version": "0.2.0-unstable-2025-09-28"
+    "version": "0.2.0-unstable-2025-12-27"
   },
   "packages.x86_64-linux.hath": {
     "description": "Hentai@Home",
@@ -5797,12 +5482,12 @@
   "packages.x86_64-linux.i915-sriov": {
     "description": "DKMS module of Linux i915 driver with SR-IOV support",
     "pname": "i915-sriov",
-    "version": "0-unstable-2025-11-13"
+    "version": "0-unstable-2025-12-28"
   },
   "packages.x86_64-linux.igsc": {
     "description": "Intel graphics system controller firmware update library",
     "pname": "igsc",
-    "version": "1.0.0"
+    "version": "1.0.1"
   },
   "packages.x86_64-linux.imewlconverter": {
     "description": "FOSS program for converting IME dictionaries",
@@ -5832,17 +5517,12 @@
   "packages.x86_64-linux.kata-image": {
     "description": "(DEPRECATED: kata-image is available in nixpkgs by a different maintainer) Open source project and community working to build a standard implementation of lightweight Virtual Machines (VMs) that feel and perform like containers, but provide the workload isolation and security advantages of VMs (Packaging script adapted from https://github.com/TUM-DSE/doctor-cluster-config/blob/0c40be8dd86282122f8f04df738c409ef5e3da1c/pkgs/kata-images/default.nix)",
     "pname": "kata-image",
-    "version": "3.22.0"
+    "version": "3.24.0"
   },
   "packages.x86_64-linux.kata-runtime": {
     "description": "(DEPRECATED: kata-runtime is available in nixpkgs by a different maintainer) Open source project and community working to build a standard implementation of lightweight Virtual Machines (VMs) that feel and perform like containers, but provide the workload isolation and security advantages of VMs (Packaging script adapted from https://github.com/TUM-DSE/doctor-cluster-config/blob/0c40be8dd86282122f8f04df738c409ef5e3da1c/pkgs/kata-runtime/default.nix)",
     "pname": "kata-runtime",
-    "version": "3.22.0"
-  },
-  "packages.x86_64-linux.kernel-modules": {
-    "description": "",
-    "pname": "merged-packages",
-    "version": ""
+    "version": "3.24.0"
   },
   "packages.x86_64-linux.kikoplay": {
     "description": "More than a Full-Featured Danmu Player",
@@ -5859,31 +5539,6 @@
     "pname": "python3.13-kui",
     "version": "1.14.0"
   },
-  "packages.x86_64-linux.lantianCustomized": {
-    "description": "",
-    "pname": "merged-packages",
-    "version": ""
-  },
-  "packages.x86_64-linux.lantianLinuxCachyOS": {
-    "description": "",
-    "pname": "merged-packages",
-    "version": ""
-  },
-  "packages.x86_64-linux.lantianLinuxCachyOSPackages": {
-    "description": "",
-    "pname": "merged-packages",
-    "version": ""
-  },
-  "packages.x86_64-linux.lantianLinuxXanmod": {
-    "description": "",
-    "pname": "merged-packages",
-    "version": ""
-  },
-  "packages.x86_64-linux.lantianLinuxXanmodPackages": {
-    "description": "",
-    "pname": "merged-packages",
-    "version": ""
-  },
   "packages.x86_64-linux.ldap-auth-proxy": {
     "description": "Simple drop-in HTTP proxy for transparent LDAP authentication which is also a HTTP auth backend",
     "pname": "ldap-auth-proxy",
@@ -5897,7 +5552,7 @@
   "packages.x86_64-linux.libnftnl-fullcone": {
     "description": "Userspace library providing a low-level netlink API to the in-kernel nf_tables subsystem",
     "pname": "libnftnl",
-    "version": "1.3.0"
+    "version": "1.3.1"
   },
   "packages.x86_64-linux.liboqs": {
     "description": "C library for prototyping and experimenting with quantum-resistant cryptography",
@@ -5907,7 +5562,7 @@
   "packages.x86_64-linux.liboqs-unstable": {
     "description": "C library for prototyping and experimenting with quantum-resistant cryptography",
     "pname": "liboqs",
-    "version": "0-unstable-2025-11-14"
+    "version": "0-unstable-2025-12-23"
   },
   "packages.x86_64-linux.libqcef": {
     "description": "Qt5 binding of CEF",
@@ -5942,22 +5597,22 @@
   "packages.x86_64-linux.magiskboot": {
     "description": "Tool to unpack / repack boot images, parse / patch / extract cpio, patch dtb, hex patch binaries, and compress / decompress files with multiple algorithms",
     "pname": "magiskboot",
-    "version": "29.0"
+    "version": "30.6"
   },
   "packages.x86_64-linux.mautrix-gmessages": {
     "description": "Matrix-Google Messages puppeting bridge",
     "pname": "mautrix-gmessages",
-    "version": "0.2510.0"
+    "version": "0.2511.0"
   },
   "packages.x86_64-linux.metee": {
     "description": "C library to access CSE/CSME/GSC firmware via a MEI interface",
     "pname": "metee",
-    "version": "6.0.2"
+    "version": "6.1.0"
   },
   "packages.x86_64-linux.modelscope": {
     "description": "Bring the notion of Model-as-a-Service to life",
     "pname": "python3.13-modelscope",
-    "version": "1.31.0"
+    "version": "1.33.0"
   },
   "packages.x86_64-linux.mtkclient": {
     "description": "MTK reverse engineering and flash tool",
@@ -5997,7 +5652,7 @@
   "packages.x86_64-linux.nftables-fullcone": {
     "description": "Project that aims to replace the existing {ip,ip6,arp,eb}tables framework",
     "pname": "nftables",
-    "version": "1.1.5"
+    "version": "1.1.6"
   },
   "packages.x86_64-linux.noise-suppression-for-voice": {
     "description": "Noise suppression plugin based on Xiph's RNNoise",
@@ -6013,11 +5668,6 @@
     "description": "Virtual black hole file system that behaves like /dev/null",
     "pname": "nullfsvfs",
     "version": "0.21"
-  },
-  "packages.x86_64-linux.nvidia-grid": {
-    "description": "",
-    "pname": "merged-packages",
-    "version": ""
   },
   "packages.x86_64-linux.nvlax": {
     "description": "Future-proof NvENC & NvFBC patcher",
@@ -6059,30 +5709,20 @@
     "pname": "openedai-speech",
     "version": "0.18.2"
   },
-  "packages.x86_64-linux.openj9-ibm-semeru": {
-    "description": "",
-    "pname": "merged-packages",
-    "version": ""
-  },
-  "packages.x86_64-linux.openjdk-adoptium": {
-    "description": "",
-    "pname": "merged-packages",
-    "version": ""
-  },
   "packages.x86_64-linux.openssl-ech": {
     "description": "OpenSSL with Encrypted Client Hello support",
     "pname": "openssl-ech",
-    "version": "0-unstable-2025-05-30"
+    "version": "0-unstable-2025-11-18"
   },
   "packages.x86_64-linux.openssl-oqs-provider": {
     "description": "OpenSSL 3 provider containing post-quantum algorithms",
     "pname": "openssl-oqs-provider",
-    "version": "0.10.0"
+    "version": "0.11.0"
   },
   "packages.x86_64-linux.openvswitch-dpdk": {
-    "description": "Multilayer virtual switch",
+    "description": "(DEPRECATED: openvswitch-dpdk is available in nixpkgs) Multilayer virtual switch",
     "pname": "openvswitch-dpdk",
-    "version": "3.6.0"
+    "version": "3.6.1"
   },
   "packages.x86_64-linux.osdlyrics": {
     "description": "Standalone lyrics fetcher/displayer (windowed and OSD mode)",
@@ -6107,7 +5747,7 @@
   "packages.x86_64-linux.peerbanhelper": {
     "description": "Automatically bans unwanted, leeching, and anomalous BT clients, with support for custom rules for qBittorrent and Transmission",
     "pname": "peerbanhelper",
-    "version": "9.0.10"
+    "version": "9.2.3"
   },
   "packages.x86_64-linux.phpmyadmin": {
     "description": "Web interface for MySQL and MariaDB",
@@ -6122,7 +5762,7 @@
   "packages.x86_64-linux.plangothic-fonts": {
     "description": "Plangothic Project",
     "pname": "plangothic-fonts",
-    "version": "2.9.5787"
+    "version": "2.9.5792"
   },
   "packages.x86_64-linux.plasma-panel-transparency-toggle": {
     "description": "Rewrite of Panel Transparency Button for Plasma 6",
@@ -6132,7 +5772,7 @@
   "packages.x86_64-linux.plasma-smart-video-wallpaper-reborn": {
     "description": "Plasma 6 wallpaper plugin to play videos on your Desktop/Lock Screen",
     "pname": "plasma-smart-video-wallpaper-reborn",
-    "version": "2.6.0"
+    "version": "2.8.1"
   },
   "packages.x86_64-linux.plasma-yesplaymusic-lyric": {
     "description": "Display YesPlayMusic lyrics on the plasma panel | 在KDE plasma面板中显示YesPlayMusic的歌词",
@@ -6147,7 +5787,7 @@
   "packages.x86_64-linux.pterodactyl-wings": {
     "description": "Server control plane for Pterodactyl Panel",
     "pname": "pterodactyl-wings",
-    "version": "1.11.13-unstable-2025-11-01"
+    "version": "1.11.13-unstable-2025-12-30"
   },
   "packages.x86_64-linux.py-rcon": {
     "description": "Python implementation of RCON",
@@ -6162,17 +5802,12 @@
   "packages.x86_64-linux.pyosmocom": {
     "description": "Python implementation of key Osmocom protocols/interfaces",
     "pname": "python3.13-pyosmocom",
-    "version": "0-unstable-2025-11-07"
+    "version": "0-unstable-2025-12-19"
   },
   "packages.x86_64-linux.pysctp": {
     "description": "SCTP stack for Python",
     "pname": "python3.13-pysctp",
     "version": "0.7.2"
-  },
-  "packages.x86_64-linux.python3Packages": {
-    "description": "",
-    "pname": "merged-packages",
-    "version": ""
   },
   "packages.x86_64-linux.pytorch-wpe": {
     "description": "WPE implementation using PyTorch",
@@ -6182,7 +5817,7 @@
   "packages.x86_64-linux.qemu-user-static": {
     "description": "Generic and open source machine emulator and virtualizer",
     "pname": "qemu-user-static",
-    "version": "10.1.2+ds-3"
+    "version": "10.2.0+ds-1"
   },
   "packages.x86_64-linux.qq": {
     "description": "Desktop client for QQ on Linux",
@@ -6202,12 +5837,12 @@
   "packages.x86_64-linux.qsp": {
     "description": "Interactive Fiction development platform (GUI application)",
     "pname": "qsp",
-    "version": "5.9.4-b1-unstable-2025-11-09"
+    "version": "5.9.5-b1-unstable-2025-11-17"
   },
   "packages.x86_64-linux.qsp-lib": {
     "description": "Interactive fiction development platform (Game Library)",
     "pname": "qsp-lib",
-    "version": "0-unstable-2025-11-06"
+    "version": "0-unstable-2025-11-17"
   },
   "packages.x86_64-linux.qtwebapp": {
     "description": "HTTP server library in C++, inspired by Java Servlets",
@@ -6242,7 +5877,7 @@
   "packages.x86_64-linux.rime-custom-pinyin-dictionary": {
     "description": "自建拼音输入法词库，百万常用词汇量，适配 Fcitx5 (Linux / Android) 及 Gboard (Android + Magisk or KernelSU) 。",
     "pname": "rime-custom-pinyin-dictionary",
-    "version": "20250101"
+    "version": "20260101"
   },
   "packages.x86_64-linux.rime-dict": {
     "description": "RIME 词库增强",
@@ -6252,12 +5887,12 @@
   "packages.x86_64-linux.rime-ice": {
     "description": "Rime 配置：雾凇拼音 | 长期维护的简体词库",
     "pname": "rime-ice",
-    "version": "0-unstable-2025-11-04"
+    "version": "0-unstable-2025-12-31"
   },
   "packages.x86_64-linux.rime-moegirl": {
     "description": "RIME dictionary file for entries from zh.moegirl.org.cn",
     "pname": "rime-moegirl",
-    "version": "20251109"
+    "version": "20251210"
   },
   "packages.x86_64-linux.rime-zhwiki": {
     "description": "RIME dictionary file for entries from zh.wikipedia.org",
@@ -6272,7 +5907,7 @@
   "packages.x86_64-linux.route-chain": {
     "description": "Small app to generate a long path in traceroute",
     "pname": "route-chain",
-    "version": "0-unstable-2023-09-09"
+    "version": "1.1.0-unstable-2026-01-08"
   },
   "packages.x86_64-linux.rtpengine": {
     "description": "Sipwise media proxy for Kamailio",
@@ -6282,12 +5917,12 @@
   "packages.x86_64-linux.runpod-python": {
     "description": "Python library for RunPod API and serverless worker SDK",
     "pname": "python3.13-runpod-python",
-    "version": "1.7.13"
+    "version": "1.8.1"
   },
   "packages.x86_64-linux.runpodctl": {
     "description": "RunPod CLI for pod management",
     "pname": "runpodctl",
-    "version": "1.14.11"
+    "version": "1.14.15"
   },
   "packages.x86_64-linux.sam-toki-mouse-cursors": {
     "description": "Original mouse cursors (pointers) for Windows, with minimalistic design",
@@ -6337,22 +5972,22 @@
   "packages.x86_64-linux.svp": {
     "description": "SmoothVideo Project 4 (SVP4) converts any video to 60 fps (and even higher) and performs this in real time right in your favorite video player",
     "pname": "svp",
-    "version": "4.6.263"
+    "version": "4.7.305-1"
   },
   "packages.x86_64-linux.svp-mpv": {
     "description": "General-purpose media player, fork of MPlayer and mplayer2",
     "pname": "mpv-with-scripts",
-    "version": "0.40.0"
+    "version": "0.41.0"
+  },
+  "packages.x86_64-linux.svp_4_6": {
+    "description": "SmoothVideo Project 4 (SVP4) converts any video to 60 fps (and even higher) and performs this in real time right in your favorite video player",
+    "pname": "svp",
+    "version": "4.6.263"
   },
   "packages.x86_64-linux.sx1302-hal": {
     "description": "SX1302/SX1303 Hardware Abstraction Layer and tools",
     "pname": "sx1302-hal",
     "version": "2.1.0-unstable-2023-02-06"
-  },
-  "packages.x86_64-linux.th-fonts": {
-    "description": "",
-    "pname": "merged-packages",
-    "version": ""
   },
   "packages.x86_64-linux.torch-complex": {
     "description": "Temporal python class for PyTorch-ComplexTensor",
@@ -6379,15 +6014,10 @@
     "pname": "uksmd",
     "version": "1.3.0"
   },
-  "packages.x86_64-linux.uncategorized": {
-    "description": "",
-    "pname": "merged-packages",
-    "version": ""
-  },
   "packages.x86_64-linux.uni-api": {
     "description": "Unifies the management of LLM APIs across multiple backend services",
     "pname": "uni-api",
-    "version": "0-unstable-2025-11-15"
+    "version": "0-unstable-2025-12-31"
   },
   "packages.x86_64-linux.unigine-heaven": {
     "description": "Extreme performance and stability test for PC hardware: video card, power supply, cooling system",
@@ -6427,7 +6057,7 @@
   "packages.x86_64-linux.vector-quantize-pytorch": {
     "description": "Vector (and Scalar) Quantization, in Pytorch",
     "pname": "python3.13-vector-quantize-pytorch",
-    "version": "1.25.2"
+    "version": "1.27.15"
   },
   "packages.x86_64-linux.vgpu-unlock-rs": {
     "description": "Unlock vGPU functionality for consumer grade GPUs",

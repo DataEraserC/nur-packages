@@ -5,15 +5,6 @@
   inputs,
 }:
 rec {
-  # Wrapper will greatly increase NUR evaluation time. Disable on NUR to stay within 15s time limit.
-  mergePkgs = pkgs.callPackage ./merge-pkgs.nix {
-    enableWrapper =
-      !(builtins.elem mode [
-        "nur"
-        "legacy"
-      ]);
-  };
-
   ifNotCI = p: if mode == "ci" then null else p;
   ifNotNUR = p: if mode == "nur" then null else p;
 
@@ -30,6 +21,7 @@ rec {
         inherit
           _packages
           sources
+          inputs
           ;
         kernel = pkgs.linux;
         # Integrate to nixpkgs python3Packages
@@ -46,24 +38,26 @@ rec {
     in
     {
       inherit
+        # keep-sorted start
         _packages
         callPackage
         createCallPackage
         createLoadPackages
         ifNotCI
         ifNotNUR
+        inputs
         lib
         loadPackages
-        mergePkgs
         mode
         pkgs
         sources
+        # keep-sorted end
         ;
     };
 
   createCallGroup =
     _packages: callPackage: path:
-    pkgs.callPackage path (createCallGroupDeps _packages callPackage);
+    lib.recurseIntoAttrs (pkgs.callPackage path (createCallGroupDeps _packages callPackage));
 
   createLoadPackages =
     callPackage: path: mapping:
@@ -96,6 +90,4 @@ rec {
       callGroup = createCallGroup _packages callPackage;
     in
     _doGroupPackages callGroup groups;
-
-  doMergePkgs = lib.mapAttrs (n: v: if lib.isDerivation v then v else mergePkgs v);
 }

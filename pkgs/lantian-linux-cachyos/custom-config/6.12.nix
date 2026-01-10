@@ -18,14 +18,18 @@ with lib.kernel;
   DEFAULT_SECURITY_APPARMOR = yes;
   GCC_PLUGINS = no;
   HIBERNATION = no;
-  KEXEC = no;
-  KEXEC_FILE = lib.mkForce no;
+  KEXEC = yes;
+  KEXEC_FILE = yes;
   PROVIDE_OHCI1394_DMA_INIT = no;
   SECURITY_SELINUX = no;
 
   # Fonts
   FONTS = yes;
   FONT_8x16 = yes;
+
+  # Fix build error
+  CRASH_DUMP = lib.mkForce (option yes);
+  PROC_VMCORE = lib.mkForce (option yes);
 
   # Ftrace (for ECC RAM monitoring)
   FTRACE = yes;
@@ -35,7 +39,6 @@ with lib.kernel;
   X86_PLATFORM_DRIVERS_HP = yes;
 
   # i915 PXP (for i915-sriov-dkms)
-  DRM_I915_PXP = yes;
   PMIC_OPREGION = yes;
 
   # Intel SGX
@@ -73,12 +76,13 @@ with lib.kernel;
   # Reduce log buffer size
   LOG_BUF_SHIFT = freeform "12";
   LOG_CPU_MAX_BUF_SHIFT = freeform "12";
-  PRINTK_SAFE_LOG_BUF_SHIFT = freeform "10";
+
+  # Sched-ext
+  SCHED_CLASS_EXT = yes;
 
   # Various tunings
   ACPI_APEI = yes;
   ACPI_APEI_GHES = yes;
-  ACPI_DPTF = yes;
   ACPI_FPDT = yes;
   ACPI_PCI_SLOT = yes;
   BPF_JIT_ALWAYS_ON = lib.mkForce yes;
@@ -91,8 +95,7 @@ with lib.kernel;
   NTFS_FS = no;
   PARAVIRT_TIME_ACCOUNTING = yes;
   PM_AUTOSLEEP = yes;
-  PSTORE_ZSTD_COMPRESS = yes;
-  PSTORE_ZSTD_COMPRESS_DEFAULT = yes;
+  PSTORE_COMPRESS = yes;
   SHUFFLE_PAGE_ALLOCATOR = yes;
   SLAB_FREELIST_HARDENED = yes;
   SLAB_FREELIST_RANDOM = yes;
@@ -111,33 +114,7 @@ with lib.kernel;
   ZSWAP_ZPOOL_DEFAULT_ZSMALLOC = yes;
   ZSWAP_DEFAULT_ON = yes;
   ZBUD = lib.mkForce no;
-  Z3FOLD = no;
+  Z3FOLD_DEPRECATED = no;
   ZSMALLOC = lib.mkForce yes;
 
-  ################################################################
-  # Below are tunes from nixpkgs (xanmod kernel)
-  ################################################################
-
-  # AMD P-state driver
-  # Seems causing issues on an AMD VM?
-  X86_AMD_PSTATE = lib.mkForce no;
-
-  # Paragon's NTFS3 driver
-  NTFS3_FS = module;
-  NTFS3_LZX_XPRESS = yes;
-  NTFS3_FS_POSIX_ACL = yes;
-
-  # Preemptive Full Tickless Kernel at 1000Hz
-  SCHED_CORE = lib.mkForce (lib.mkForce (option no));
-  PREEMPT_VOLUNTARY = lib.mkForce no;
-  PREEMPT = lib.mkForce yes;
-  NO_HZ_FULL = yes;
-  HZ_1000 = yes;
-
-  # Futex WAIT_MULTIPLE implementation for Wine / Proton Fsync.
-  FUTEX = yes;
-  FUTEX_PI = yes;
-
-  # WineSync driver for fast kernel-backed Wine
-  WINESYNC = module;
 }

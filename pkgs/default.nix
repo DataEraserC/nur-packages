@@ -13,23 +13,14 @@
 mode:
 {
   pkgs ? import <nixpkgs> { },
-  inputs,
+  inputs ? null,
   ...
 }:
 let
   inherit (pkgs) lib;
-  inherit
-    (import ../helpers/group.nix {
-      inherit
-        pkgs
-        lib
-        mode
-        inputs
-        ;
-    })
+  inherit (import ../helpers/group.nix { inherit pkgs lib mode inputs; })
     doFlatGroupPackages
     doGroupPackages
-    doMergePkgs
     ifNotCI
     ifNotNUR
     ;
@@ -51,8 +42,6 @@ let
     lantianCustomized = ./lantian-customized;
     lantianLinuxCachyOS = ifNotNUR (ifNotCI ./lantian-linux-cachyos);
     lantianLinuxCachyOSPackages = ifNotNUR (ifNotCI ./lantian-linux-cachyos/packages.nix);
-    lantianLinuxXanmod = ifNotCI ./lantian-linux-xanmod;
-    lantianLinuxXanmodPackages = ifNotCI ./lantian-linux-xanmod/packages.nix;
     nvidia-grid = ifNotCI ./nvidia-grid;
     openj9-ibm-semeru = ifNotCI ./openj9-ibm-semeru;
     openjdk-adoptium = ifNotCI ./openjdk-adoptium;
@@ -63,4 +52,4 @@ let
     (doGroupPackages self groups) // (doGroupPackages self flatGroups)
   ) (builtins.attrValues (doFlatGroupPackages self flatGroups));
 in
-doMergePkgs self
+self

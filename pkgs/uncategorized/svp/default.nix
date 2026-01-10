@@ -1,36 +1,26 @@
 {
   stdenv,
+  lib,
   buildFHSEnv,
   writeShellScriptBin,
   sources,
   callPackage,
   makeDesktopItem,
   copyDesktopItems,
-  # Dependencies
-  ffmpeg,
-  glibc,
-  jq,
-  lib,
-  libmediainfo,
-  libsForQt5,
-  libusb1,
-  ocl-icd,
-  p7zip,
-  patchelf,
   socat,
+  jq,
+  kdePackages,
+  ffmpeg,
+  libmediainfo,
+  libusb1,
   vapoursynth,
-  xdg-utils,
   xorg,
-  zenity,
-  # MPV dependencies
-  mpv-unwrapped,
+  systemdLibs,
+  openssl,
+  p7zip,
 }:
-################################################################################
-# Based on svp package from AUR:
-# https://aur.archlinux.org/packages/svp
-################################################################################
 let
-  mpvForSVP = callPackage ./mpv.nix { inherit mpv-unwrapped; };
+  mpvForSVP = callPackage ./mpv.nix { };
 
   # Script provided by GitHub user @xrun1
   # https://github.com/xddxdd/nur-packages/issues/31#issuecomment-1812591688
@@ -46,24 +36,26 @@ let
     done
   '';
 
+  # SVP expects findmnt to return path to storage device for software protection.
+  # Workaround for tmp-as-root and encrypted root use cases, by returning first storage device on system.
+  fakeFindmnt = writeShellScriptBin "findmnt" ''
+    find /dev/ -name 'nvme*n*p*' -or -name 'sd*' -or -name 'vd*' 2>/dev/null | sort | head -n1
+  '';
+
   libraries = [
-    fakeLsof
-    ffmpeg.bin
-    glibc
-    zenity
-    libmediainfo
-    libsForQt5.qtbase
-    libsForQt5.qtwayland
-    libsForQt5.qtdeclarative
-    libsForQt5.qtscript
-    libsForQt5.qtsvg
-    libusb1
     mpvForSVP
-    ocl-icd
-    stdenv.cc.cc.lib
+    fakeLsof
+    fakeFindmnt
+    (lib.getLib stdenv.cc.cc)
+    kdePackages.qtbase
+    kdePackages.qtdeclarative
+    ffmpeg.bin
+    libmediainfo
+    libusb1
     vapoursynth
-    xdg-utils
     xorg.libX11
+    systemdLibs
+    openssl
   ];
 
   svp-dist = stdenv.mkDerivation (finalAttrs: {
@@ -72,19 +64,18 @@ let
 
     nativeBuildInputs = [
       p7zip
-      patchelf
     ];
     dontFixup = true;
 
     unpackPhase = ''
-      tar xf $src
+      tar xf ${finalAttrs.src}
     '';
 
     buildPhase = ''
       mkdir installer
-      LANG=C grep --only-matching --byte-offset --binary --text  $'7z\xBC\xAF\x27\x1C' "svp4-linux-64.run" |
+      LANG=C grep --only-matching --byte-offset --binary --text  $'7z\xBC\xAF\x27\x1C' "svp4-linux.run" |
         cut -f1 -d: |
-        while read ofs; do dd if="svp4-linux-64.run" bs=1M iflag=skip_bytes status=none skip=$ofs of="installer/bin-$ofs.7z"; done
+        while read ofs; do dd if="svp4-linux.run" bs=1M iflag=skip_bytes status=none skip=$ofs of="installer/bin-$ofs.7z"; done
     '';
 
     installPhase = ''
@@ -94,15 +85,17 @@ let
       done
 
       for SIZE in 32 48 64 128; do
-        install -Dm644 "$out/opt/svp-manager4-''${SIZE}.png" "$out/share/icons/hicolor/''${SIZE}x''${SIZE}/apps/svp-manager4.png"
+        mkdir -p "$out/share/icons/hicolor/''${SIZE}x''${SIZE}/apps"
+        mv "$out/opt/svp-manager4-''${SIZE}.png" "$out/share/icons/hicolor/''${SIZE}x''${SIZE}/apps/svp-manager4.png"
       done
       rm -f $out/opt/{add,remove}-menuitem.sh
     '';
   });
 
   fhs = buildFHSEnv {
-    name = "SVPManager";
-    targetPkgs = _pkgs: libraries;
+    pname = "SVPManager";
+    inherit (svp-dist) version;
+    targetPkgs = pkgs: libraries;
     runScript = "${svp-dist}/opt/SVPManager";
     unshareUser = false;
     unshareIpc = false;
@@ -112,17 +105,17 @@ let
     unshareCgroup = false;
   };
 in
-stdenv.mkDerivation (finalAttrs: {
-  inherit (sources.svp) pname version;
+stdenv.mkDerivation {
+  pname = "svp";
+  inherit (svp-dist) version;
 
   dontUnpack = true;
 
   nativeBuildInputs = [ copyDesktopItems ];
 
   postInstall = ''
-    install -Dm755 ${fhs}/bin/SVPManager $out/bin/SVPManager
-
-    mkdir -p $out/share
+    mkdir -p $out/bin $out/share
+    ln -s ${fhs}/bin/SVPManager $out/bin/SVPManager
     ln -s ${svp-dist}/share/icons $out/share/icons
   '';
 
@@ -154,11 +147,11 @@ stdenv.mkDerivation (finalAttrs: {
 
   meta = {
     mainProgram = "SVPManager";
-    maintainers = with lib.maintainers; [ xddxdd ];
     description = "SmoothVideo Project 4 (SVP4) converts any video to 60 fps (and even higher) and performs this in real time right in your favorite video player";
     homepage = "https://www.svp-team.com/wiki/SVP:Linux";
     platforms = [ "x86_64-linux" ];
     license = lib.licenses.unfree;
     sourceProvenance = with lib.sourceTypes; [ binaryNativeCode ];
+    maintainers = with lib.maintainers; [ xddxdd ];
   };
-})
+}

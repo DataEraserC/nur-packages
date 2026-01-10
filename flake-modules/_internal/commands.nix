@@ -1,7 +1,7 @@
-{ inputs, ... }:
-{
+_: {
   perSystem =
     {
+      lib,
       pkgs,
       ...
     }:
@@ -15,21 +15,13 @@
         ci = mkCICommand "ciPackages";
         ci-cuda = mkCICommand "ciPackagesWithCuda";
 
-        nix-update = ''
-          nix-shell \
-            ${inputs.nixpkgs.outPath}/maintainers/scripts/update.nix \
-            --arg include-overlays "[(final: prev: import $(pwd)/pkgs null { pkgs = prev; })]" \
-            --argstr skip-prompt true \
-            --argstr path "$@"
-        '';
-
         nvfetcher = ''
           set -euo pipefail
           KEY_FLAG=""
           [ -f "$HOME/Secrets/nvfetcher.toml" ] && KEY_FLAG="$KEY_FLAG -k $HOME/Secrets/nvfetcher.toml"
           [ -f "secrets.toml" ] && KEY_FLAG="$KEY_FLAG -k secrets.toml"
           export PYTHONPATH=${pkgs.python3Packages.packaging}/lib/python${pkgs.python3.pythonVersion}/site-packages:''${PYTHONPATH:-}
-          ${pkgs.nvfetcher}/bin/nvfetcher --keep-going $KEY_FLAG -c nvfetcher.toml -o _sources "$@"
+          ${lib.getExe pkgs.nvfetcher} --keep-going $KEY_FLAG -c nvfetcher.toml -o _sources "$@"
 
           python3 tools/postprocess_nvfetcher.py
 
@@ -65,7 +57,7 @@
           set -euo pipefail
           nix build .#_meta.readme
           cat result > README.md
-          nix search . ^ --json | ${pkgs.jq}/bin/jq > nix-packages.json
+          nix search . ^ --json | ${lib.getExe pkgs.jq} > nix-packages.json
         '';
 
         trace = ''
@@ -84,6 +76,20 @@
             "$S"
           done
           ${readme}
+        '';
+
+        update-hashes = ''
+          # Only check hashes that are not src hashes
+          ATTRS=$(grep --files-with-matches "Hash = \"sha256-" \
+            pkgs/kernel-modules/**/*.nix \
+            pkgs/python-packages/**/*.nix \
+            pkgs/uncategorized/**/*.nix \
+            | xargs dirname | sort | uniq | xargs -n1 basename)
+
+          for ATTR in $ATTRS; do
+            echo "Updating $ATTR"
+            ${lib.getExe pkgs.nix-update} --flake "$ATTR" --version skip
+          done
         '';
       };
     };

@@ -1,58 +1,32 @@
 {
-  mode ? null,
-  callPackage,
+  inputs,
   lib,
-  sources,
-  linux_6_12,
+  pkgs,
   ...
-}:
+}@importArgs:
 let
-  mkCachyKernel = callPackage ./mkCachyKernel.nix { inherit mode sources; };
+  prefix = "linux-cachyos-";
 
-  batch =
-    {
-      prefix,
-      version,
-      src,
-      configVariant,
-      ...
-    }:
-    [
-      (mkCachyKernel {
-        pname = "${prefix}";
-        inherit version src configVariant;
-        lto = false;
-      })
-      (mkCachyKernel {
-        pname = "${prefix}-lto";
-        inherit version src configVariant;
-        lto = true;
-      })
-    ];
-
-  batches = [
-    # (batch {
-    #   prefix = "latest";
-    #   inherit (linux_latest) version src;
-    #   configVariant = "linux-cachyos";
-    # })
-    (batch {
-      prefix = "lts";
-      inherit (linux_6_12) version src;
-      configVariant = "linux-cachyos-lts";
-    })
-    (batch {
-      prefix = "v6_12";
-      inherit (linux_6_12) version src;
-      configVariant = "linux-cachyos-lts";
-    })
-  ];
-
-  batchesAttrs = builtins.listToAttrs (lib.flatten batches);
+  kernels = (inputs.nix-cachyos-kernel.overlays.default null pkgs).cachyosKernels;
 in
-if mode == "ci" then
-  lib.filterAttrs (n: nv: lib.hasSuffix "configfile" n) batchesAttrs
-else if mode == "nur" then
-  lib.filterAttrs (n: nv: !lib.hasSuffix "configfile" n) batchesAttrs
-else
-  batchesAttrs
+lib.mapAttrs' (
+  n: v:
+  let
+    splitted = lib.splitString "-" v.version;
+    ver0 = builtins.elemAt splitted 0;
+    major = lib.versions.pad 2 ver0;
+
+    patches = pkgs.callPackage ./patches { };
+  in
+  lib.nameValuePair (lib.removePrefix prefix n) (
+    v.override {
+      autoModules = true;
+      ignoreConfigErrors = true;
+      modDirVersion = "${ver0}-lantian-cachy";
+      patches = patches.getPatches major;
+      structuredExtraConfig = (import (./custom-config + "/${major}.nix") importArgs) // {
+        LOCALVERSION = lib.kernel.freeform "-lantian-cachy";
+      };
+    }
+  )
+) (lib.filterAttrs (n: v: lib.hasPrefix "${prefix}lts" n) kernels)

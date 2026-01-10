@@ -423,7 +423,7 @@ src.github = "xddxdd/bird-lg-go"
 
 [boringssl-oqs]
 fetch.github = "open-quantum-safe/boringssl"
-src.git = "https://github.com/open-quantum-safe/boringssl.git"
+src.github = "open-quantum-safe/boringssl"
 
 [browser360-amd64]
 fetch.url = "https://gedown.360safe.com/gc/signed_com.360.browser-stable_$ver-1_amd64.deb"
@@ -432,14 +432,6 @@ src.aur = "browser360-bin"
 [browser360-arm64]
 fetch.url = "https://gedown.360safe.com/gc/signed_com.360.browser-stable_$ver-1_arm64.deb"
 src.aur = "browser360-bin"
-
-[cachyos-kernel]
-fetch.github = "CachyOS/linux-cachyos"
-src.git = "https://github.com/CachyOS/linux-cachyos.git"
-
-[cachyos-kernel-patches]
-fetch.github = "CachyOS/kernel-patches"
-src.git = "https://github.com/CachyOS/kernel-patches"
 
 [calibre-cops]
 fetch.url = "https://github.com/mikespub-org/seblucas-cops/releases/download/$ver/cops-$ver-php82.zip"
@@ -452,6 +444,10 @@ src.git = "https://github.com/martyr-deepin/cef-binary.git"
 [click-loglevel]
 fetch.github = "jwodder/click-loglevel"
 src.github = "jwodder/click-loglevel"
+
+[cliproxyapi]
+fetch.github = "router-for-me/CLIProxyAPI"
+src.github = "router-for-me/CLIProxyAPI"
 
 [cockpy]
 fetch.github = "Hiro420/CockPY"
@@ -470,9 +466,25 @@ src.github = "Takuto88/comp128-python"
 fetch.github = "coqui-ai/TTS"
 src.github = "coqui-ai/TTS"
 
-[coredns-lantian]
-fetch.github = "xddxdd/coredns"
-src.git = "https://github.com/xddxdd/coredns.git"
+[coredns-alias]
+fetch.github = "serverwentdown/alias"
+src.github_tag = "serverwentdown/alias"
+
+[coredns-mdns]
+fetch.github = "openshift/coredns-mdns"
+src.git = "https://github.com/openshift/coredns-mdns.git"
+
+[coredns-meship]
+fetch.github = "zhoreeq/coredns-meship"
+src.git = "https://github.com/zhoreeq/coredns-meship.git"
+
+[coredns-meshname]
+fetch.github = "zhoreeq/coredns-meshname"
+src.git = "https://github.com/zhoreeq/coredns-meshname.git"
+
+[coredns-unbound]
+fetch.github = "coredns/unbound"
+src.github_tag = "coredns/unbound"
 
 [cryptodev-linux]
 fetch.github = "cryptodev-linux/cryptodev-linux"
@@ -526,6 +538,11 @@ fetch.url = "https://dtapp-pub.dingtalk.com/dingtalk-desktop/xc_dingtalk_update/
 src.webpage = "https://dtapp-pub.dingtalk.com/dingtalk-desktop/xc_dingtalk_update/linux_deb/Update/other/amd64/linux_dingtalk_update_package_release.json"
 src.regex = "https://dtapp-pub.dingtalk.com/dingtalk-desktop/xc_dingtalk_update/linux_deb/Release/(.*)_amd64.deb"
 
+[dingtalk-wayland-screenshare]
+fetch.github = "lzl200110/dingtalk-wayland-screenshare"
+git.fetchSubmodules = true
+src.git = "https://github.com/lzl200110/dingtalk-wayland-screenshare.git"
+
 [dn42-pingfinder]
 fetch.git = "https://git.lantian.pub/backup/dn42-pingfinder.git"
 src.git = "https://git.lantian.pub/backup/dn42-pingfinder.git"
@@ -559,9 +576,18 @@ src.git = "https://github.com/xddxdd/drone-file-secret.git"
 fetch.github = "drone/drone-vault"
 src.github_tag = "drone/drone-vault"
 
+[dtbloader]
+fetch.github = "TravMurav/dtbloader"
+git.fetchSubmodules = true
+src.github = "TravMurav/dtbloader"
+
 [dump978]
 fetch.github = "flightaware/dump978"
 src.github_tag = "flightaware/dump978"
+
+[easycli]
+fetch.github = "router-for-me/EasyCLI"
+src.github = "router-for-me/EasyCLI"
 
 [edge-tts]
 fetch.github = "rany2/edge-tts"
@@ -570,6 +596,10 @@ src.github = "rany2/edge-tts"
 [ela-widget-tools]
 fetch.github = "Liniyous/ElaWidgetTools"
 src.git = "https://github.com/Liniyous/ElaWidgetTools.git"
+
+[env-dedup]
+fetch.github = "alexjp/env-dedup"
+src.git = "https://github.com/alexjp/env-dedup.git"
 
 [etherguard]
 fetch.github = "KusakabeShi/EtherGuard-VPN"
@@ -810,36 +840,6 @@ fetch.github = "LinguaSpark/server"
 git.fetchSubmodules = true
 src.git = "https://github.com/LinguaSpark/server.git"
 
-[linux-xanmod]
-fetch.git = "https://gitlab.com/xanmod/linux.git"
-src.webpage = "https://gitlab.com/api/v4/projects/51590166/repository/tags"
-src.regex = "\"name\":\"([^\"]+)\","
-src.include_regex = "^[0-9\\.]+-xanmod.*$"
-
-[linux-xanmod-6_0]
-fetch.git = "https://gitlab.com/xanmod/linux.git"
-src.webpage = "https://gitlab.com/api/v4/projects/51590166/repository/tags?search=^6.0."
-src.regex = "\"name\":\"([^\"]+)\","
-src.include_regex = "^6\\.0\\.[0-9]+-xanmod.*$"
-
-[linux-xanmod-6_1]
-fetch.git = "https://gitlab.com/xanmod/linux.git"
-src.webpage = "https://gitlab.com/api/v4/projects/51590166/repository/tags?search=^6.1."
-src.regex = "\"name\":\"([^\"]+)\","
-src.include_regex = "^6\\.1\\.[0-9]+-xanmod.*$"
-
-[linux-xanmod-6_12]
-fetch.git = "https://gitlab.com/xanmod/linux.git"
-src.webpage = "https://gitlab.com/api/v4/projects/51590166/repository/tags?search=^6.12."
-src.regex = "\"name\":\"([^\"]+)\","
-src.include_regex = "^6\\.12\\.[0-9]+-xanmod.*$"
-
-[linux-xanmod-6_6]
-fetch.git = "https://gitlab.com/xanmod/linux.git"
-src.webpage = "https://gitlab.com/api/v4/projects/51590166/repository/tags?search=^6.6."
-src.regex = "\"name\":\"([^\"]+)\","
-src.include_regex = "^6\\.6\\.[0-9]+-xanmod.*$"
-
 [llama-cpp]
 fetch.github = "ggerganov/llama.cpp"
 src.github = "ggerganov/llama.cpp"
@@ -975,7 +975,8 @@ src.git = "https://github.com/sftcd/openssl.git"
 src.branch = "ECH-draft-13c"
 
 [openssl-oqs-provider]
-fetch.github = "open-quantum-safe/oqs-provider"
+# fetch.github = "open-quantum-safe/oqs-provider"
+fetch.url = "https://github.com/open-quantum-safe/oqs-provider/archive/refs/tags/$ver.tar.gz"
 src.github = "open-quantum-safe/oqs-provider"
 
 [ormsgpack]
@@ -1154,9 +1155,9 @@ fetch.github = "hosxy/rime-aurora-pinyin"
 src.git = "https://github.com/hosxy/rime-aurora-pinyin.git"
 
 [rime-custom-pinyin-dictionary]
-fetch.url = "https://github.com/wuhgit/CustomPinyinDictionary/releases/download/assets/CustomPinyinDictionary_Fcitx_$ver.tar.gz"
+fetch.url = "https://github.com/wuhgit/CustomPinyinDictionary/releases/download/assets/CustomPinyinDictionary_Fcitx_Magisk_$ver.zip"
 src.webpage = "https://github.com/wuhgit/CustomPinyinDictionary/releases/expanded_assets/assets"
-src.regex = "CustomPinyinDictionary_Fcitx_([0-9]+)\\.tar\\.gz"
+src.regex = "CustomPinyinDictionary_Fcitx_Magisk_([0-9]+)\\.zip"
 
 [rime-dict]
 fetch.github = "Iorest/rime-dict"
@@ -1182,6 +1183,10 @@ src.github = "ashleve/rootutils"
 [route-chain]
 fetch.github = "xddxdd/route-chain"
 src.git = "https://github.com/xddxdd/route-chain.git"
+
+[route-chain-stable]
+fetch.github = "xddxdd/route-chain"
+src.github = "xddxdd/route-chain"
 
 [rtpengine]
 fetch.github = "sipwise/rtpengine"
@@ -1237,9 +1242,8 @@ src.github = "Suwayomi/Suwayomi-Server"
 
 [svp]
 fetch.url = "https://web.archive.org/web/20250904130553if_/https://www.svp-team.com/files/svp4-linux.$ver.tar.bz2"
-# Pin at last free version
-src.manual = "4.6.263"
-url.name = "svp4-linux.tar.bz2"
+src.httpheader = "https://www.svp-team.com/files/svp4-latest.php?linux"
+src.regex = "svp4-linux.([0-9\\.-]+).tar.bz2"
 
 [sx1302-hal]
 fetch.github = "NebraLtd/sx1302_hal"
