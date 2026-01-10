@@ -4,12 +4,12 @@
   pkg-config,
   mpv,
   autoPatchelfHook,
-  flutter326,
+  flutter,
   makeDesktopItem,
   copyDesktopItems,
   alsa-lib,
 }:
-flutter326.buildFlutterApplication rec {
+flutter.buildFlutterApplication rec {
   inherit (sources.AAA_PiliPalaX) pname version src;
 
   sourceRoot = "${src.name}";
