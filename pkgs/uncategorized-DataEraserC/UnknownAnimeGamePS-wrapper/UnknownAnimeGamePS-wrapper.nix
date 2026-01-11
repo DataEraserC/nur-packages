@@ -17,9 +17,9 @@ let
   };
 in
 stdenvNoCC.mkDerivation rec {
-  inherit (sources.UnknownAnimeGamePS) version;
+  inherit (sources.AAA_UnknownAnimeGamePS) version;
 
-  pname = sources.UnknownAnimeGamePS.pname + "-wrapper";
+  pname = sources.AAA_UnknownAnimeGamePS.pname + "-wrapper";
 
   dontUnpack = true;
 
