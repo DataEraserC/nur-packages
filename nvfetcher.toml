@@ -1,7 +1,7 @@
 [AAA_CustomPinyinDictionary_Fcitx]
-fetch.url = "https://github.com/wuhgit/CustomPinyinDictionary/releases/download/assets/CustomPinyinDictionary_Fcitx_$ver.tar.gz"
+fetch.url = "https://github.com/wuhgit/CustomPinyinDictionary/releases/download/assets/CustomPinyinDictionary_Fcitx.dict"
 src.webpage = "https://api.github.com/repos/wuhgit/CustomPinyinDictionary/releases/latest"
-src.regex = "https://github.com/wuhgit/CustomPinyinDictionary/releases/download/assets/CustomPinyinDictionary_Fcitx_([0-9]{8}).tar.gz"
+src.regex = "CustomPinyinDictionary_Fcitx_Magisk_([0-9]{8}).zip"
 
 [AAA_LiteLoaderQQNT]
 fetch.github = "LiteLoaderQQNT/LiteLoaderQQNT"
