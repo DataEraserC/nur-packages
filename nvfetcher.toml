@@ -396,6 +396,11 @@ src.git = "https://github.com/qjfoidnh/BaiduPCS-Go.git"
 fetch.url = "https://google.com/generate_204"
 src.github_tag = "qjfoidnh/BaiduPCS-Go"
 
+[bambu-studio-bin]
+fetch.url = "https://github.com/bambulab/BambuStudio/releases/latest/download/$ver"
+src.webpage = "https://api.github.com/repos/bambulab/BambuStudio/releases/latest"
+src.regex = "Bambu_Studio_ubuntu-24\\.04_PR-[0-9]+\\.AppImage"
+
 [bepasty]
 fetch.pypi = "bepasty"
 src.pypi = "bepasty"
@@ -434,7 +439,7 @@ fetch.url = "https://gedown.360safe.com/gc/signed_com.360.browser-stable_$ver-1_
 src.aur = "browser360-bin"
 
 [calibre-cops]
-fetch.url = "https://github.com/mikespub-org/seblucas-cops/releases/download/$ver/cops-$ver-php82.zip"
+fetch.url = "https://github.com/mikespub-org/seblucas-cops/releases/download/$ver/cops-$ver-php84.zip"
 src.github = "mikespub-org/seblucas-cops"
 
 [cef-binary]
@@ -596,6 +601,10 @@ src.github = "rany2/edge-tts"
 [ela-widget-tools]
 fetch.github = "Liniyous/ElaWidgetTools"
 src.git = "https://github.com/Liniyous/ElaWidgetTools.git"
+
+[email-oauth2-proxy]
+fetch.github = "simonrob/email-oauth2-proxy"
+src.github = "simonrob/email-oauth2-proxy"
 
 [env-dedup]
 fetch.github = "alexjp/env-dedup"
@@ -870,7 +879,7 @@ src.github = "modelscope/modelscope"
 
 [mtkclient]
 fetch.github = "bkerler/mtkclient"
-src.github = "bkerler/mtkclient"
+src.git = "https://github.com/bkerler/mtkclient.git"
 
 [nbfc-linux-lantian]
 fetch.github = "xddxdd/nbfc-linux"
@@ -966,7 +975,7 @@ src.github = "matatonic/openedai-speech"
 
 [openresty]
 fetch.url = "https://github.com/openresty/openresty/releases/download/v$ver/openresty-$ver.tar.gz"
-src.github_tag = "openresty/openresty"
+src.github = "openresty/openresty"
 src.prefix = "v"
 
 [openssl-ech]

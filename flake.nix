@@ -190,7 +190,7 @@
           let
             ptr = {
               inherit (inputs.LaphaeL-aicmd.packages.${pkgs.system}) laphael_aicmd;
-              inherit (inputs.ZeroBot-Plugin.packages.${pkgs.system}) ZeroBot-Plugin;
+              ZeroBot-Plugin = inputs.ZeroBot-Plugin.packages.${pkgs.system}.default;
               inherit (inputs.android-attestation-keybox-generator.packages.${pkgs.system})
                 android-attestation-keybox-generator
                 ;
