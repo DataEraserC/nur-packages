@@ -31,12 +31,12 @@ def run_package_script(script_path):
     """Run a specific package update script"""
     try:
         print(f"Running package update script: {script_path}")
-        result = subprocess.run(
-            [sys.executable, script_path], capture_output=True, text=True
-        )
+        result = subprocess.run([sys.executable, script_path], text=True)
 
         if result.returncode != 0:
-            print(f"Error running script {script_path}: {result.stderr}")
+            print(
+                f"Error running script {script_path} (exit code: {result.returncode})"
+            )
             return False
 
         print(f"Successfully ran script {script_path}")
