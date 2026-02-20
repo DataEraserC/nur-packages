@@ -8,7 +8,7 @@
 buildNpmPackage (finalAttrs: {
   inherit (sources.vuetorrent-backend) pname version src;
 
-  npmDepsHash = "sha256-VkAtms81RsqRbKqq6fS9dPRvWJm72GQOOv5tbfL8+rU=";
+  npmDepsHash = "sha256-wYcI1D2a8wsjA7ZIbeNOq3mLnA6y8p6wWetPuhwHwaQ=";
 
   dontNpmBuild = true;
 

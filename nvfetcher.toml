@@ -631,10 +631,6 @@ fetch.url = "https://gitlab.com/scratch-er/fcitx5-breeze/-/archive/v$ver/fcitx5-
 src.webpage = "https://gitlab.com/api/v4/projects/53966606/releases/"
 src.regex = "\"https://gitlab.com/scratch-er/fcitx5-breeze/-/archive/v([0-9\\.]+)/fcitx5-breeze-"
 
-[fish-speech]
-fetch.github = "fishaudio/fish-speech"
-src.github_tag = "fishaudio/fish-speech"
-
 [flapalerted]
 fetch.github = "Kioubit/FlapAlerted"
 src.github = "Kioubit/FlapAlerted"
@@ -1199,6 +1195,10 @@ src.github = "xddxdd/route-chain"
 
 [rtpengine]
 fetch.github = "sipwise/rtpengine"
+src.git = "https://github.com/sipwise/rtpengine.git"
+
+[rtpengine-stable]
+fetch.github = "sipwise/rtpengine"
 src.github = "sipwise/rtpengine"
 
 [runpod-python]
@@ -1269,51 +1269,6 @@ src.to_pattern = "\\1"
 fetch.github = "huakim/telegram-desktop-patches"
 src.git = "https://github.com/huakim/telegram-desktop-patches.git"
 
-[th-hak]
-fetch.url = "http://cheonhyeong.com/File/TH-Hak-$ver.7z"
-src.webpage = "http://cheonhyeong.com/Simplified/download.html"
-src.regex = "File/TH-Hak-([0-9.]+).7z"
-
-[th-joeng]
-fetch.url = "http://cheonhyeong.com/File/TH-Joeng-$ver.7z"
-src.webpage = "http://cheonhyeong.com/Simplified/download.html"
-src.regex = "File/TH-Joeng-([0-9.]+).7z"
-
-[th-khaai-p]
-fetch.url = "http://cheonhyeong.com/File/TH-Khaai-P$ver.7z"
-src.webpage = "http://cheonhyeong.com/Simplified/download.html"
-src.regex = "File/TH-Khaai-P([0-9.]+).7z"
-
-[th-khaai-t]
-fetch.url = "http://cheonhyeong.com/File/TH-Khaai-T$ver.7z"
-src.webpage = "http://cheonhyeong.com/Simplified/download.html"
-src.regex = "File/TH-Khaai-T([0-9.]+).7z"
-
-[th-ming]
-fetch.url = "http://cheonhyeong.com/File/TH-Ming-$ver.7z"
-src.webpage = "http://cheonhyeong.com/Simplified/download.html"
-src.regex = "File/TH-Ming-([0-9.]+).7z"
-
-[th-sung-p]
-fetch.url = "http://cheonhyeong.com/File/TH-Sung-P$ver.7z"
-src.webpage = "http://cheonhyeong.com/Simplified/download.html"
-src.regex = "File/TH-Sung-P([0-9.]+).7z"
-
-[th-sung-t]
-fetch.url = "http://cheonhyeong.com/File/TH-Sung-T$ver.7z"
-src.webpage = "http://cheonhyeong.com/Simplified/download.html"
-src.regex = "File/TH-Sung-T([0-9.]+).7z"
-
-[th-sy]
-fetch.url = "http://cheonhyeong.com/File/TH-Sy-$ver.7z"
-src.webpage = "http://cheonhyeong.com/Simplified/download.html"
-src.regex = "File/TH-Sy-([0-9.]+).7z"
-
-[th-tshyn]
-fetch.url = "http://cheonhyeong.com/File/TH-Tshyn-$ver.7z"
-src.webpage = "http://cheonhyeong.com/Simplified/download.html"
-src.regex = "File/TH-Tshyn-([0-9.]+).7z"
-
 [torch-complex]
 fetch.pypi = "torch_complex"
 src.pypi = "torch_complex"
@@ -1375,10 +1330,6 @@ src.github = "Diniboy1123/usque"
 [vbmeta-disable-verification]
 fetch.github = "libxzr/vbmeta-disable-verification"
 src.github = "libxzr/vbmeta-disable-verification"
-
-[vector-quantize-pytorch]
-fetch.github = "lucidrains/vector-quantize-pytorch"
-src.github = "lucidrains/vector-quantize-pytorch"
 
 [vgpu-unlock-rs]
 fetch.github = "mbilker/vgpu_unlock-rs"

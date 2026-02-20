@@ -6,7 +6,7 @@
 rustPlatform.buildRustPackage (finalAttrs: {
   inherit (sources.sidestore-vpn) pname version src;
 
-  cargoHash = "sha256-8gUbwQNTI0RxcF03pZ+2nIWnQe4vTRLFpnJtIATlJs8=";
+  cargoHash = "sha256-DU5UT8N7n+qkPX7Gf4ue8E7bZZbfBp8dIKTWHMmAqMk=";
 
   meta = {
     changelog = "https://github.com/xddxdd/sidestore-vpn/releases/tag/v${finalAttrs.version}";
