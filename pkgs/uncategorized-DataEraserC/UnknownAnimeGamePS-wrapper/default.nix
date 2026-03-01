@@ -1,1 +1,1 @@
-import ./UnknownAnimeGamePS-wrapper.nix
+_: { }

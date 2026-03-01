@@ -56,15 +56,6 @@ src.github = "BeyondDimension/SteamTools"
 fetch.url = "https://github.com/BeyondDimension/SteamTools/releases/download/$ver/Steam++_v$ver_linux_x64.tgz"
 src.github = "BeyondDimension/SteamTools"
 
-[AAA_UnknownAnimeGamePS]
-fetch.github = "XeonSucksLAB/UnknownAnimeGamePS"
-git.fetchSubmodules = true
-src.git = "https://github.com/XeonSucksLAB/UnknownAnimeGamePS"
-
-[AAA_UnknownAnimeGamePS-resources]
-fetch.git = "https://gitlab.com/YuukiPS/GC-Resources.git"
-src.git = "https://gitlab.com/YuukiPS/GC-Resources.git"
-
 [AAA_XiaoMiToolV2]
 fetch.github = "topminipie/XiaoMiToolV2"
 git.fetchSubmodules = true

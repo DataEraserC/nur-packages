@@ -1,1 +1,1 @@
-import ./UnknownAnimeGamePS.nix
+_: { }

@@ -8,10 +8,10 @@
 {
   AAA_CustomPinyinDictionary_Fcitx = {
     pname = "AAA_CustomPinyinDictionary_Fcitx";
-    version = "20250101";
+    version = "20260101";
     src = fetchurl {
-      url = "https://github.com/wuhgit/CustomPinyinDictionary/releases/download/assets/CustomPinyinDictionary_Fcitx_20250101.tar.gz";
-      hash = "sha256-3LQmbfRfmS5sfmhKBovtis9aXJGf4L9ahHKhepqRreU=";
+      url = "https://github.com/wuhgit/CustomPinyinDictionary/releases/download/assets/CustomPinyinDictionary_Fcitx.dict";
+      hash = "sha256-Y2d7DhvNknbo7u9BVTq1Mr9gYSeFWNnvo2KbDr6INuU=";
     };
   };
   AAA_LiteLoaderQQNT = {
@@ -28,10 +28,10 @@
   };
   AAA_MC-LauncherX-JSON = {
     pname = "AAA_MC-LauncherX-JSON";
-    version = "2025-11-12T14:04:05";
+    version = "2026-02-19T15:48:56";
     src = fetchurl {
       url = "https://api.corona.studio/Build/get/latest/all/stable";
-      hash = "sha256-hmMBFphnvrs5v+c/9S6/4xXXM3GTcwzZJpIdqBhpEys=";
+      hash = "sha256-BOueyH+lwdnR+P1iAtOmGJTtQt1X/qL7pVIA7Owcrms=";
     };
   };
   AAA_MC-LauncherX-aarch64-darwin = {
@@ -68,39 +68,39 @@
   };
   AAA_OpenFreebuds = {
     pname = "AAA_OpenFreebuds";
-    version = "e6be1483dde5e95dfa0fd32c605fa688f2b25384";
+    version = "c93869d20d7ee17605e0df931c8f641e5ee3a233";
     src = fetchFromGitHub {
       owner = "melianmiko";
       repo = "OpenFreebuds";
-      rev = "e6be1483dde5e95dfa0fd32c605fa688f2b25384";
+      rev = "c93869d20d7ee17605e0df931c8f641e5ee3a233";
       fetchSubmodules = true;
-      hash = "sha256-fAFIz6V90w7ZtvL23xdT0JdCbCpHjO81RBIV0sUOx4w=";
+      hash = "sha256-3DTSoVnHYB8GjKw0G8O3hlkOdQmDxe6B2O7h6LT1+jg=";
     };
-    date = "2025-09-15";
+    date = "2026-02-19";
   };
   AAA_PiliPalaX = {
     pname = "AAA_PiliPalaX";
-    version = "87c769932468b169b6a2034f9605309b882aaa61";
+    version = "348bc8b9202d44baf48d3541015427692bb9dedf";
     src = fetchFromGitHub {
       owner = "bggRGjQaUbCoE";
       repo = "PiliPlus";
-      rev = "87c769932468b169b6a2034f9605309b882aaa61";
+      rev = "348bc8b9202d44baf48d3541015427692bb9dedf";
       fetchSubmodules = true;
-      hash = "sha256-Wx3POv2OcXXKHcUwvXOwvIeKGDiOWUBFhIiN87zwURQ=";
+      hash = "sha256-SWcWnRwG9dXLhivOhAkX7sSh6BC49m1xgffWnL0S2go=";
     };
-    date = "2025-12-31";
+    date = "2026-03-01";
   };
   AAA_SteamTools = {
     pname = "AAA_SteamTools";
-    version = "ece1768b2a9388aeef3474421fe16a7ebcf6880b";
+    version = "5c4564931c5c1a8fe344d58cd23b254ae0917b31";
     src = fetchFromGitHub {
       owner = "BeyondDimension";
       repo = "SteamTools";
-      rev = "ece1768b2a9388aeef3474421fe16a7ebcf6880b";
+      rev = "5c4564931c5c1a8fe344d58cd23b254ae0917b31";
       fetchSubmodules = true;
-      hash = "sha256-IWAHIItRoHNIMp0WWmM6Xjh+K7c9ydb/ZWHxegDOqi8=";
+      hash = "sha256-J4Ph2GyLVTSPjy1D1C/Gjj32UMUK37xQKki/lqVJ/qE=";
     };
-    date = "2025-05-06";
+    date = "2026-02-13";
   };
   AAA_SteamTools-aarch64-linux = {
     pname = "AAA_SteamTools-aarch64-linux";
@@ -125,29 +125,6 @@
       url = "https://github.com/BeyondDimension/SteamTools/releases/download/3.0.0-rc.16/Steam++_v3.0.0-rc.16_linux_x64.tgz";
       hash = "sha256-mUk/gh8GPYwhs5OZzKorkNIMMKl+amFrwbTtH0AnHTI=";
     };
-  };
-  AAA_UnknownAnimeGamePS = {
-    pname = "AAA_UnknownAnimeGamePS";
-    version = "02e3bb2424d9c294da48989f120e89557e88dd27";
-    src = fetchFromGitHub {
-      owner = "XeonSucksLAB";
-      repo = "UnknownAnimeGamePS";
-      rev = "02e3bb2424d9c294da48989f120e89557e88dd27";
-      fetchSubmodules = true;
-      hash = "sha256-ZWQtrj1j2U/mQx0smsGuGfZ9EwigUNGP2rutUwFmHG4=";
-    };
-    date = "2024-11-20";
-  };
-  AAA_UnknownAnimeGamePS-resources = {
-    pname = "AAA_UnknownAnimeGamePS-resources";
-    version = "6e83bd13ba95d07e017ebaf4037dbd76ac76fda7";
-    src = fetchgit {
-      url = "https://gitlab.com/YuukiPS/GC-Resources.git";
-      rev = "6e83bd13ba95d07e017ebaf4037dbd76ac76fda7";
-      fetchSubmodules = false;
-      hash = "sha256-T2SApSv+UTezRoY9hwFVDr/Zaz5WVGK2QWSpRNeFI0w=";
-    };
-    date = "2024-12-22";
   };
   AAA_XiaoMiToolV2 = {
     pname = "AAA_XiaoMiToolV2";
@@ -174,7 +151,7 @@
     version = "V2.2.8";
     src = fetchurl {
       url = "https://www.alipan.com/";
-      hash = "sha256-QK8seJrrDPLl42W2VklANL6eIShWaKHqyVjXOCqhtMc=";
+      hash = "sha256-ANfJoyTsUrOD9R5SYRwgJCaDUCbMNiLgqtNctjtbWVs=";
     };
   };
   AAA_buffybox = {
@@ -183,21 +160,22 @@
     src = fetchgit {
       url = "https://gitlab.com/postmarketOS/buffybox.git";
       rev = "c683350b9fb944e38cb484f04f98e4e3f85b41a5";
+      fetchSubmodules = true;
       hash = "sha256-z7siroBDauvs8TxfO/h+5HUU5G5aOWwNUxDaZm80I5A=";
     };
     date = "2024-10-05";
   };
   AAA_c001apk-flutter = {
     pname = "AAA_c001apk-flutter";
-    version = "cc6be396ae1960ed7dd6ff94d91f5047caba8a97";
+    version = "70c97218e291926a73ecd7d9eece5bcb507904b2";
     src = fetchFromGitHub {
       owner = "Integral-Tech";
       repo = "c001apk-flutter";
-      rev = "cc6be396ae1960ed7dd6ff94d91f5047caba8a97";
+      rev = "70c97218e291926a73ecd7d9eece5bcb507904b2";
       fetchSubmodules = true;
-      hash = "sha256-Sex6mm5hOFARBdWzMmIZDrfgYvapb4y713cR8EABDrI=";
+      hash = "sha256-Vr0vG5hzneY5s9Hb/TU0XdA7a3M5uIHETPb1rFs5fSw=";
     };
-    date = "2025-11-21";
+    date = "2026-02-18";
   };
   AAA_cpolar-aarch32-linux = {
     pname = "AAA_cpolar-aarch32-linux";
@@ -257,10 +235,10 @@
   };
   AAA_escrcpy_appimage = {
     pname = "AAA_escrcpy_appimage";
-    version = "1.34.2";
+    version = "2.5.1";
     src = fetchurl {
-      url = "https://github.com/viarotel-org/escrcpy/releases/download/v1.34.2/Escrcpy-1.34.2-linux-x86_64.AppImage";
-      hash = "sha256-iYndPKGqxBCxD4bceVXjZKlGwcIdDHGDn9julY3VGiQ=";
+      url = "https://github.com/viarotel-org/escrcpy/releases/download/v2.5.1/Escrcpy-2.5.1-linux-x86_64.AppImage";
+      hash = "sha256-88ZtNzQGovIoHVze/i24SD4ghGwg5PdK+KN28NJg/fM=";
     };
   };
   AAA_flutter_server_box = {
@@ -277,30 +255,30 @@
   };
   AAA_flutter_server_box_appimage = {
     pname = "AAA_flutter_server_box_appimage";
-    version = "v1.0.1276/ServerBox_1276_amd64.AppImage";
+    version = "v1.0.1316/ServerBox_1316_amd64.AppImage";
     src = fetchurl {
-      url = "https://github.com/lollipopkit/flutter_server_box/releases/download/v1.0.1276/ServerBox_1276_amd64.AppImage";
-      hash = "sha256-+57RG+LriMhuztIL0eNDbILEo+qZJ+BULyqOcaKuPY8=";
+      url = "https://github.com/lollipopkit/flutter_server_box/releases/download/v1.0.1316/ServerBox_1316_amd64.AppImage";
+      hash = "sha256-vskv+iZhJMja3jAhzLqFNtnoAppnEjKGaV3EV2Tu4Dg=";
     };
   };
   AAA_hdrop = {
     pname = "AAA_hdrop";
-    version = "38fde78a70b28fe57585e8b5de1bb375efa38a7c";
+    version = "ae05f71230ee57ec520cb8c9317d7240149488bb";
     src = fetchFromGitHub {
       owner = "Schweber";
       repo = "hdrop";
-      rev = "38fde78a70b28fe57585e8b5de1bb375efa38a7c";
+      rev = "ae05f71230ee57ec520cb8c9317d7240149488bb";
       fetchSubmodules = true;
-      hash = "sha256-TvGcK1D9V/hCUR9B7HavjuvcNSSy+tY8Y+inaj2Vtvk=";
+      hash = "sha256-YwDYMABJOeo32wCvSjWdIY1l3C4oLMPdHy5UDHNkwx8=";
     };
-    date = "2025-07-01";
+    date = "2026-02-17";
   };
   AAA_himirage-JSON = {
     pname = "AAA_himirage-JSON";
-    version = "2025-12-31 18:02:57";
+    version = "2026-03-01 23:08:11";
     src = fetchurl {
       url = "https://album.photosir.cn/upgradePackage/infoall/photosir";
-      hash = "sha256-nQjQwrKvih7iN5U5x6/vMmJeMOvkp+DrxmL8Q4HMVIU=";
+      hash = "sha256-arY4N2RwFryAKu0cPlp0E7nL1syo4qq6yrnL7J7Ka7I=";
     };
   };
   AAA_himirage-aarch64-darwin = {
@@ -380,7 +358,7 @@
     version = "3.1.7";
     src = fetchurl {
       url = "https://nya.globalslb.net/natfrp/client/launcher-unix/3.1.7/natfrp-service_linux_armv7.tar.zst";
-      hash = "sha256-F7UN1OoZE3IElpiHT9ZmFx+uJSUfimZW9LZs6mR0xNU=";
+      hash = "sha256-1inPCO0B9IWK8dl1OtbR3IAC9rfnsKnzr7/m9m9qBkI=";
     };
   };
   AAA_netfrp-aarch64-linux = {
@@ -388,7 +366,7 @@
     version = "3.1.7";
     src = fetchurl {
       url = "https://nya.globalslb.net/natfrp/client/launcher-unix/3.1.7/natfrp-service_linux_arm64.tar.zst";
-      hash = "sha256-2RCKZylf4wqH2L8UTe/qEQrK1g/dmwskAPn1BVxHFXw=";
+      hash = "sha256-SUd5pE0nnwwNwLcG1mGElnEeK+5j2u7Fq4Qu0m6Ae3g=";
     };
   };
   AAA_netfrp-i686-linux = {
@@ -396,7 +374,7 @@
     version = "3.1.7";
     src = fetchurl {
       url = "https://nya.globalslb.net/natfrp/client/launcher-unix/3.1.7/natfrp-service_linux_386.tar.zst";
-      hash = "sha256-F/CGennlWsFdCpCfb6/tQLYNHGatIhDhyqY1whSn0WM=";
+      hash = "sha256-94vbtnE1L4bLBrZEFyg/uXxlJX9MnPqnOruCIsIfC20=";
     };
   };
   AAA_netfrp-loong64-linux = {
@@ -404,7 +382,7 @@
     version = "3.1.7";
     src = fetchurl {
       url = "https://nya.globalslb.net/natfrp/client/launcher-unix/3.1.7/natfrp-service_linux_loong64.tar.zst";
-      hash = "sha256-IC5EfdNqdq4vaPhBoQSPpvQaYdvXCmmB/F0jAeKW0p4=";
+      hash = "sha256-uZuojq4Ejiq6AH5d43PSOt2KM2CZKgjI6SxeYmQ+YdQ=";
     };
   };
   AAA_netfrp-mips-linux = {
@@ -412,7 +390,7 @@
     version = "3.1.7";
     src = fetchurl {
       url = "https://nya.globalslb.net/natfrp/client/launcher-unix/3.1.7/natfrp-service_linux_mips.tar.zst";
-      hash = "sha256-79MIU7RyW+7gO+rZkJqYdy8DOuoBR0Nkhxmu6bcq5d0=";
+      hash = "sha256-rAe2Ox39NvY/n24W9Xa9CCPcNlNNSGyvMZgeV0ER5Wk=";
     };
   };
   AAA_netfrp-mips64-linux = {
@@ -420,7 +398,7 @@
     version = "3.1.7";
     src = fetchurl {
       url = "https://nya.globalslb.net/natfrp/client/launcher-unix/3.1.7/natfrp-service_linux_mips64.tar.zst";
-      hash = "sha256-v8zrP1UrF8Cb0sw7PgS8x0/aOeaJ2+5AwWfziTf+Uqg=";
+      hash = "sha256-MDoWMW9heR6eOgRSg+gSmegIJQIcxqYJxyIX6uV1TuM=";
     };
   };
   AAA_netfrp-x86_64-linux = {
@@ -428,27 +406,27 @@
     version = "3.1.7";
     src = fetchurl {
       url = "https://nya.globalslb.net/natfrp/client/launcher-unix/3.1.7/natfrp-service_linux_amd64.tar.zst";
-      hash = "sha256-ixsLPDbF8TJpsyc8QtLjzJR364DqCWqZJFzyLvb3rho=";
+      hash = "sha256-mAqxhc5OqLi/LktnobSudCh3xN0in4JgyApc8q4gopE=";
     };
   };
   AAA_open-interpreter = {
     pname = "AAA_open-interpreter";
-    version = "0d19f3af83feff996ac862d74e3cc7afa17e64aa";
+    version = "681f5ce5b84bc96a2a4cc5e90daa6328f3f796e0";
     src = fetchFromGitHub {
       owner = "OpenInterpreter";
       repo = "open-interpreter";
-      rev = "0d19f3af83feff996ac862d74e3cc7afa17e64aa";
+      rev = "681f5ce5b84bc96a2a4cc5e90daa6328f3f796e0";
       fetchSubmodules = true;
-      hash = "sha256-jKSjgMml/SKuZFzthUbd5VX9ITwMZGwjx7nAXfxEYJA=";
+      hash = "sha256-V49wEnudeaCgAq2aZwrwLASkPO5qOVoEjqPGHvjkITE=";
     };
-    date = "2025-12-05";
+    date = "2026-02-09";
   };
   AAA_rwkv = {
     pname = "AAA_rwkv";
-    version = "0.8.31";
+    version = "0.8.32";
     src = fetchurl {
-      url = "https://pypi.org/packages/source/r/rwkv/rwkv-0.8.31.tar.gz";
-      hash = "sha256-5IX0SQUHGtvGBu1kQ/L5EcoVX8NOFnbNRjVdhQR0UTM=";
+      url = "https://pypi.org/packages/source/r/rwkv/rwkv-0.8.32.tar.gz";
+      hash = "sha256-p5QfONQKVc+004zucsVyumXrL2MUmI1cJWhBGqztgDE=";
     };
   };
   AAA_scrcpy-mask = {
@@ -501,6 +479,7 @@
     src = fetchgit {
       url = "https://gitlab.com/postmarketOS/ttyescape.git";
       rev = "810a195f19f68e817d95da5169b1fc4f22242630";
+      fetchSubmodules = true;
       hash = "sha256-HUAxjUelCvMgS7zHMXI4vPbyUe+wBMpL23xjPRzIaWY=";
     };
     date = "2023-03-08";
@@ -519,26 +498,26 @@
   };
   AAA_v2ray-rules-dat = {
     pname = "AAA_v2ray-rules-dat";
-    version = "202512302215";
+    version = "202602282217";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202512302215/rules.zip";
-      hash = "sha256-/9QeorLZ1FtA++g7VqeysrOsEDG6zVmH96vhkEcSWLE=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202602282217/rules.zip";
+      hash = "sha256-4VuiC8KRcyBGa4vwmHPCAgwNC03KsBjOguLaKBEXNcI=";
     };
   };
   AAA_wechat-web-devtools-linux_appimage = {
     pname = "AAA_wechat-web-devtools-linux_appimage";
-    version = "2.01.2510260-2";
+    version = "2.01.2510280-2";
     src = fetchurl {
-      url = "https://github.com/msojocs/wechat-web-devtools-linux/releases/download/v2.01.2510260-2/WeChat_Dev_Tools_v2.01.2510260-2_x86_64_linux.AppImage";
-      hash = "sha256-GyPpA19ddrCH3jeGs0NSeKQSjKz1xemeLJyDHPNwNKg=";
+      url = "https://github.com/msojocs/wechat-web-devtools-linux/releases/download/v2.01.2510280-2/WeChat_Dev_Tools_v2.01.2510280-2_x86_64_linux.AppImage";
+      hash = "sha256-WMwaynspjwIr0frZt812c0GECofylgCthvtYmbR2AnU=";
     };
   };
   AAA_wechat-web-devtools-linux_bin = {
     pname = "AAA_wechat-web-devtools-linux_bin";
-    version = "2.01.2510260-2";
+    version = "2.01.2510280-2";
     src = fetchurl {
-      url = "https://github.com/msojocs/wechat-web-devtools-linux/releases/download/v2.01.2510260-2/WeChat_Dev_Tools_v2.01.2510260-2_x86_64_linux.tar.gz";
-      hash = "sha256-yP7sPiyLmuy3++wXWFfWB9+hAkmqrxIgY/cMGxgXybU=";
+      url = "https://github.com/msojocs/wechat-web-devtools-linux/releases/download/v2.01.2510280-2/WeChat_Dev_Tools_v2.01.2510280-2_x86_64_linux.tar.gz";
+      hash = "sha256-afzbxUeVh5NBo0mW8r0HgOzzul65xuQfEznw3K//sAs=";
     };
   };
   acpi-ec = {
