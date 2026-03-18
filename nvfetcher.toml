@@ -46,7 +46,7 @@ src.git = "https://github.com/BeyondDimension/SteamTools"
 
 [AAA_SteamTools-aarch64-linux]
 fetch.url = "https://github.com/BeyondDimension/SteamTools/releases/download/$ver/Steam++_v$ver_linux_arm64.tgz"
-src.github = "BeyondDimension/SteamTools"
+src.cmd = "echo \"3.0.0-rc.16\""
 
 [AAA_SteamTools-x86_64-darwin]
 fetch.url = "https://github.com/BeyondDimension/SteamTools/releases/download/$ver/Steam++_v$ver_macos.dmg"
@@ -229,9 +229,9 @@ git.fetchSubmodules = true
 src.git = "https://github.com/Apps-Used-By-Myself/motrix.git"
 
 [AAA_ndrop]
-fetch.github = "Apps-Used-By-Myself/ndrop"
+fetch.github = "Schweber/ndrop"
 git.fetchSubmodules = true
-src.git = "https://github.com/Apps-Used-By-Myself/ndrop.git"
+src.git = "https://github.com/Schweber/ndrop.git"
 
 [AAA_netfrp-aarch32-linux]
 fetch.url = "https://nya.globalslb.net/natfrp/client/launcher-unix/$ver/natfrp-service_linux_armv7.tar.zst"
