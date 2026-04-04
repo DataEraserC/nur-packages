@@ -6,7 +6,7 @@
 buildGoModule (finalAttrs: {
   inherit (sources.cliproxyapi) pname version src;
 
-  vendorHash = "sha256-jNcIsMBGFKYn1fwUlLSjfLEHskQnvtBd40e+mD3a10c=";
+  vendorHash = "sha256-3rm+qJgjXxNq8EWlUQ7tJrQuJbbrWHgazy5Vr1/g5F0=";
 
   proxyVendor = true;
 
