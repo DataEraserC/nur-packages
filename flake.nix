@@ -159,6 +159,7 @@
 
           nixosModules = {
             # keep-sorted start
+            aw88399-legion-audio = import ./modules/aw88399-legion-audio.nix;
             kata-containers = import ./modules/kata-containers.nix;
             lyrica = import ./modules/lyrica.nix;
             nix-cache-attic = import ./modules/nix-cache-attic.nix;
@@ -209,15 +210,17 @@
               };
             };
 
-            legacyPackages = import ./pkgs "legacy" {
-              inherit inputs pkgs;
-            }
-            // ptr;
-            legacyPackagesWithCuda = import ./pkgs "legacy" {
-              inherit inputs;
-              pkgs = pkgsWithCuda;
-            }
-            // ptr;
+            legacyPackages =
+              import ./pkgs "legacy" {
+                inherit inputs pkgs;
+              }
+              // ptr;
+            legacyPackagesWithCuda =
+              import ./pkgs "legacy" {
+                inherit inputs;
+                pkgs = pkgsWithCuda;
+              }
+              // ptr;
 
             packages = lib.filterAttrs (_: lib.isDerivation) legacyPackages;
             packagesWithCuda = lib.filterAttrs (_: lib.isDerivation) legacyPackagesWithCuda;
