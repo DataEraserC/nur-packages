@@ -19,7 +19,6 @@ stdenv.mkDerivation {
   '';
 
   meta = {
-    maintainers = with lib.maintainers; [ xddxdd ];
     description = "Audio patches for aw88399 on Lenovo Legion laptops";
     homepage = "https://github.com/nickedwards109/Base16-Builder";
     license = lib.licenses.gpl3Only;

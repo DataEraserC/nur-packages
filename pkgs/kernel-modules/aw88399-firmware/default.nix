@@ -19,7 +19,6 @@ stdenv.mkDerivation {
   '';
 
   meta = {
-    maintainers = with lib.maintainers; [ xddxdd ];
     description = "Firmware for aw88399 audio codec on Lenovo Legion laptops";
     homepage = "https://github.com/nickedwards109/Base16-Builder";
     license = lib.licenses.unfree;
