@@ -25,10 +25,15 @@ in
       default = pkgs.aw88399-legion-audio-patch;
       description = "Package containing the audio patches";
     };
+    firmwarePackage = lib.mkOption {
+      type = lib.types.package;
+      default = pkgs.aw88399-legion-firmware;
+      description = "Package containing the aw88399 firmware";
+    };
   };
 
   config = lib.mkIf cfg.enable {
-    hardware.firmware = [ pkgs.aw88399-legion-firmware ];
+    hardware.firmware = [ cfg.firmwarePackage ];
 
     boot.kernelPatches = [
       {
