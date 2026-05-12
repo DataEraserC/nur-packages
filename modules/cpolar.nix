@@ -4,6 +4,9 @@
   pkgs,
   ...
 }:
+let
+  cfg = config.services.cpolar;
+in
 {
   options.services.cpolar = {
     enable = lib.mkOption {
@@ -33,14 +36,14 @@
     };
   };
 
-  config = lib.mkIf config.services.cpolar.enable {
+  config = lib.mkIf cfg.enable {
     assertions = [
       {
-        assertion = config.services.cpolar.configFile != null;
+        assertion = cfg.configFile != null;
         message = "The option `services.cpolar.configFile` must be set when `services.cpolar.enable` is true.";
       }
       {
-        assertion = config.services.cpolar.package != null;
+        assertion = cfg.package != null;
         message = "The option `services.cpolar.package` must be set when `services.cpolar.enable` is true.";
       }
     ];
@@ -61,7 +64,7 @@
       serviceConfig = {
         Type = "simple";
         ExecStart = ''
-          ${lib.getExe config.services.cpolar.package} start-all -daemon=on -dashboard=on -log=${config.services.cpolar.logDir}/cpolar_service.log -config=${config.services.cpolar.configFile}
+          ${lib.getExe cfg.package} start-all -daemon=on -dashboard=on -log=${cfg.logDir}/cpolar_service.log -config=${cfg.configFile}
         '';
         Restart = "on-failure";
         RestartSec = "5s";
@@ -70,15 +73,15 @@
       };
     };
 
-    environment.systemPackages = [ config.services.cpolar.package ];
+    environment.systemPackages = [ cfg.package ];
 
     system.activationScripts.cpolarLogDir = ''
-      mkdir -p ${config.services.cpolar.logDir}
-      chown cpolar:cpolar ${config.services.cpolar.logDir}
+      mkdir -p ${cfg.logDir}
+      chown cpolar:cpolar ${cfg.logDir}
     '';
 
     system.activationScripts.cpolarConfigFile = ''
-      chown cpolar:cpolar ${config.services.cpolar.configFile}
+      chown cpolar:cpolar ${cfg.configFile}
     '';
   };
 }

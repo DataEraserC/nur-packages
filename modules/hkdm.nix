@@ -4,6 +4,9 @@
   pkgs,
   ...
 }:
+let
+  cfg = config.services.hkdm;
+in
 {
   options.services.hkdm = {
     enable = lib.mkOption {
@@ -27,14 +30,14 @@
     };
   };
 
-  config = lib.mkIf config.services.hkdm.enable {
+  config = lib.mkIf cfg.enable {
     assertions = [
       {
-        assertion = config.services.hkdm.configFile != null;
+        assertion = cfg.configFile != null;
         message = "The option `services.hkdm.configFile` must be set when `services.hkdm.enable` is true.";
       }
       {
-        assertion = config.services.hkdm.package != null;
+        assertion = cfg.package != null;
         message = "The option `services.hkdm.package` must be set when `services.hkdm.enable` is true.";
       }
     ];
@@ -45,7 +48,7 @@
       wantedBy = [ "multi-user.target" ];
       serviceConfig = {
         Restart = "on-failure";
-        ExecStart = "${lib.getExe config.services.hkdm.package} -i -c ${config.services.hkdm.configFile}";
+        ExecStart = "${lib.getExe cfg.package} -i -c ${cfg.configFile}";
       };
     };
   };
