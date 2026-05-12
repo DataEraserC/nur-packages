@@ -20,6 +20,11 @@ in
       default = "7.0";
       description = "Kernel patch version to use";
     };
+    patchPackage = lib.mkOption {
+      type = lib.types.package;
+      default = pkgs.aw88399-legion-audio-patch;
+      description = "Package containing the audio patches";
+    };
   };
 
   config = lib.mkIf cfg.enable {
@@ -28,7 +33,7 @@ in
     boot.kernelPatches = [
       {
         name = "aw88399-legion-audio";
-        patch = pkgs.aw88399-legion-audio-patch + "/16iax10h-audio-linux-${cfg.patchVersion}.patch";
+        patch = cfg.patchPackage + "/16iax10h-audio-linux-${cfg.patchVersion}.patch";
 
         structuredExtraConfig = with lib.kernel; {
           SND_HDA_SCODEC_AW88399 = module;
