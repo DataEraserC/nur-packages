@@ -8,8 +8,11 @@
 }:
 let
   pyenet = python3Packages.buildPythonPackage {
-    inherit (sources.cockpy-pyenet) pname version src;
+    inherit (sources.cockpy-pyenet) pname version;
     pyproject = true;
+
+    inherit (sources.cockpy-pyenet) src;
+
     build-system = [ python3Packages.setuptools ];
 
     propagatedBuildInputs = with python3Packages; [ cython ];
@@ -59,7 +62,7 @@ stdenv.mkDerivation {
 
   meta = {
     maintainers = with lib.maintainers; [ xddxdd ];
-    description = "Public and open source version of the cbt2 ps im working on";
+    description = "Public and open source version of the cbt2 ps I'm working on";
     homepage = "https://github.com/Hiro420/CockPY";
     license = with lib.licenses; [ unfreeRedistributable ];
     mainProgram = "cockpy";

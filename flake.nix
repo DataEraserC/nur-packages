@@ -6,6 +6,7 @@
     nixpkgs-24_11.url = "github:NixOS/nixpkgs/nixos-24.11";
     flake-parts.url = "github:hercules-ci/flake-parts";
 
+    # keep-sorted start block=yes
     devshell = {
       url = "github:numtide/devshell";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -18,14 +19,20 @@
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    treefmt-nix = {
-      url = "github:numtide/treefmt-nix";
+    nixfmt-rs = {
+      url = "github:Mic92/nixfmt-rs";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.treefmt-nix.follows = "treefmt-nix";
     };
     pre-commit-hooks-nix = {
       url = "github:cachix/pre-commit-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    # keep-sorted end
 
     # ptrs
 
@@ -78,7 +85,9 @@
           lantian-pre-commit-hooks = importApply ./flake-modules/lantian-pre-commit-hooks.nix {
             inherit (inputs) pre-commit-hooks-nix;
           };
-          lantian-treefmt = importApply ./flake-modules/lantian-treefmt.nix { inherit (inputs) treefmt-nix; };
+          lantian-treefmt = importApply ./flake-modules/lantian-treefmt.nix {
+            inherit (inputs) treefmt-nix nixfmt-rs;
+          };
           nixpkgs-options = ./flake-modules/nixpkgs-options.nix;
         };
       in
