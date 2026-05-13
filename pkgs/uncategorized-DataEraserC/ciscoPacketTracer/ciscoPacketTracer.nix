@@ -1,9 +1,9 @@
 {
-  ciscoPacketTracer8,
+  ciscoPacketTracer9,
   fetchurl,
   ...
 }:
-(ciscoPacketTracer8.override {
+(ciscoPacketTracer9.override {
 }).overrideAttrs
   (
     _oldAttrs:
