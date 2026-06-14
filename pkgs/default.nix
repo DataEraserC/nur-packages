@@ -7,7 +7,7 @@
 #     nix-build -A mypackage
 # mode:
 # - null: Default mode
-# - "ci": from Garnix CI
+# - "ci": from Hydra CI
 # - "nur": from NUR bot
 # - "legacy": from legacyPackages
 mode:
@@ -48,7 +48,7 @@ let
     # Package groups
     asteriskDigiumCodecs = ./asterisk-digium-codecs;
     lantianCustomized = ./lantian-customized;
-    lantianLinuxCachyOS = ifNotNUR (ifNotCI ./lantian-linux-cachyos);
+    lantianLinuxCachyOS = ifNotNUR ./lantian-linux-cachyos;
     lantianLinuxCachyOSPackages = ifNotNUR (ifNotCI ./lantian-linux-cachyos/packages.nix);
     nvidia-grid = ifNotCI ./nvidia-grid;
     openj9-ibm-semeru = ifNotCI ./openj9-ibm-semeru;

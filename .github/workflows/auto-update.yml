@@ -30,7 +30,7 @@ jobs:
 
       - name: Set up QEMU
         id: qemu
-        uses: docker/setup-qemu-action@v3
+        uses: docker/setup-qemu-action@v4
         with:
           image: tonistiigi/binfmt:latest
           platforms: all
@@ -70,6 +70,10 @@ jobs:
           [keys]
           github = "${{ secrets.GITHUB_TOKEN }}"
           EOF
+
+          sudo mkdir -p /nix/tmpdir2
+          sudo chown "$(whoami)" /nix/tmpdir2
+          export TMPDIR=/nix/tmpdir2
 
           nix run .#update
           nix run .#update-hashes

@@ -7,6 +7,8 @@
   brotli,
   gd,
   git,
+  hiredis,
+  jansson,
   libmaxminddb,
   liburing,
   libxcrypt,
@@ -51,6 +53,8 @@ stdenv.mkDerivation rec {
   buildInputs = [
     brotli
     gd
+    hiredis
+    jansson
     libmaxminddb
     liburing
     libxcrypt
@@ -76,6 +80,8 @@ stdenv.mkDerivation rec {
         "stream-echo-nginx-module"
         "zstd-nginx-module"
         "ja4-nginx-module"
+        "nginx-auth-jwt"
+        "nginx-oidc"
       ];
 
       patch = p: "echo ${p} && patch -p1 < ${p}";
@@ -105,6 +111,15 @@ stdenv.mkDerivation rec {
       substituteInPlace src/http/ngx_http_core_module.c \
         --replace-fail '@nixStoreDir@' "$NIX_STORE" \
         --replace-fail '@nixStoreDirLen@' "''${#NIX_STORE}"
+      popd
+
+      # Fix duplicate nxe-json and nxe-jwx between nginx-auth-jwt and nginx-oidc
+      pushd bundle/nginx-oidc
+      substituteInPlace config \
+        --replace-fail '$nxe_json_module_srcs' "" \
+        --replace-fail '$nxe_jwx_module_srcs' "" \
+        --replace-fail '$nxe_json_module_libs' "" \
+        --replace-fail '$nxe_jwx_module_libs' ""
       popd
 
       pushd bundle/ngx_brotli
@@ -154,6 +169,8 @@ stdenv.mkDerivation rec {
     "--add-module=bundle/stream-echo-nginx-module"
     "--add-module=bundle/zstd-nginx-module"
     "--add-module=bundle/ja4-nginx-module/src"
+    "--add-module=bundle/nginx-auth-jwt"
+    "--add-module=bundle/nginx-oidc"
     # "--without-http_encrypted_session_module" # Conflict with quic stuff
 
     # NixOS paths

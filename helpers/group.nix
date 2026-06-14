@@ -5,7 +5,7 @@
   inputs,
 }:
 rec {
-  ifNotCI = p: if mode == "ci" then null else p;
+  ifNotCI = p: if mode == "ci" || mode == "hydra" then null else p;
   ifNotNUR = p: if mode == "nur" then null else p;
 
   nvfetcherLoader = pkgs.callPackage ./nvfetcher-loader.nix { };
