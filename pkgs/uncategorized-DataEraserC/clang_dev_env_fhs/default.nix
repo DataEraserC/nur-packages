@@ -2,7 +2,7 @@
   pkgs ? import <nixpkgs> { },
 }:
 let
-  fhs = pkgs.buildFHSEnvChroot {
+  fhs = pkgs.buildFHSEnv {
     name = "clang_dev_env_fhs";
     targetPkgs =
       pkgs: with pkgs; [

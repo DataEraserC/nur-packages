@@ -3,7 +3,7 @@
   pkgs ? import <nixpkgs> { },
 }:
 let
-  fhs = pkgs.buildFHSEnvChroot {
+  fhs = pkgs.buildFHSEnv {
     name = "cudatoolkit_dev_env_fhs";
     targetPkgs = pkgs: with pkgs; [ cudatoolkit ];
     profile = ''
