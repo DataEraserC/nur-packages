@@ -16,6 +16,8 @@ in
       type = lib.types.enum [
         "6.19.11"
         "7.0"
+        "7.1.3"
+        "7.2-rc3"
       ];
       default = "7.0";
       description = "Kernel patch version to use";
