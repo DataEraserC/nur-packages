@@ -19,6 +19,7 @@
   pydub,
   pytorch-wpe,
   pyyaml,
+  rapidfuzz,
   requests,
   scipy,
   sentencepiece,
@@ -29,6 +30,7 @@
   torchaudio,
   tqdm,
   umap-learn,
+  websockets,
 }:
 buildPythonPackage rec {
   inherit (sources.funasr) pname version;
@@ -53,6 +55,7 @@ buildPythonPackage rec {
     pydub
     pytorch-wpe
     pyyaml
+    rapidfuzz
     requests
     scipy
     sentencepiece
@@ -63,6 +66,7 @@ buildPythonPackage rec {
     torchaudio
     tqdm
     umap-learn
+    websockets
   ];
 
   postPatch = ''

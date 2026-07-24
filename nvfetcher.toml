@@ -377,6 +377,10 @@ src.github = "ArcaneNibble/awawausb"
 fetch.github = "axiomhq/axiom-syslog-proxy"
 src.github = "axiomhq/axiom-syslog-proxy"
 
+[axonhub]
+fetch.github = "looplj/axonhub"
+src.github = "looplj/axonhub"
+
 [baidunetdisk]
 fetch.url = "http://wppkg.baidupcs.com/issue/netdisk/Linuxguanjia/$ver/baidunetdisk_$ver_amd64.deb"
 src.aur = "baidunetdisk-electron"
@@ -394,15 +398,6 @@ src.github_tag = "qjfoidnh/BaiduPCS-Go"
 [bambu-studio-bin]
 fetch.url = "https://github.com/bambulab/BambuStudio/releases/download/v02.05.02.51/BambuStudio_ubuntu-24.04_v02.05.02.51-20260327222803.AppImage"
 src.manual = "02.05.02.51"
-
-[bepasty]
-fetch.pypi = "bepasty"
-src.pypi = "bepasty"
-
-[bergamot-translator]
-fetch.github = "browsermt/bergamot-translator"
-git.fetchSubmodules = true
-src.git = "https://github.com/browsermt/bergamot-translator.git"
 
 [bifrost]
 fetch.url = "https://github.com/maximhq/bifrost/archive/refs/tags/transports/v$ver.tar.gz"
@@ -445,8 +440,8 @@ src.aur = "browser360-bin"
 
 [browseros]
 fetch.url = "https://github.com/browseros-ai/BrowserOS/releases/download/v$ver/BrowserOS_v$ver_x64.AppImage"
-src.github = "browseros-ai/BrowserOS"
-src.include_regex = "^v[0-9]"
+src.github_tag = "browseros-ai/BrowserOS"
+src.include_regex = "^v[0-9].*"
 src.prefix = "v"
 
 [buname]
@@ -641,6 +636,10 @@ src.github = "simonrob/email-oauth2-proxy"
 fetch.github = "alexjp/env-dedup"
 src.git = "https://github.com/alexjp/env-dedup.git"
 
+[epub-to-xtc-converter]
+fetch.github = "bigbag/epub-to-xtc-converter"
+src.github_tag = "bigbag/epub-to-xtc-converter"
+
 [etherguard]
 fetch.github = "KusakabeShi/EtherGuard-VPN"
 src.github = "KusakabeShi/EtherGuard-VPN"
@@ -752,6 +751,10 @@ src.to_pattern = "\\1"
 fetch.git = "https://gitlab.com/YuukiPS/GC-Resources.git"
 src.git = "https://gitlab.com/YuukiPS/GC-Resources.git"
 
+[grok-search-rs]
+fetch.github = "Episkey-G/GrokSearch-rs"
+src.github = "Episkey-G/GrokSearch-rs"
+
 [gwmp-mux]
 fetch.github = "helium/gwmp-mux"
 src.github = "helium/gwmp-mux"
@@ -797,9 +800,32 @@ fetch.url = "https://github.com/share121/inter-knot/releases/download/$ver/inter
 src.github = "share121/inter-knot"
 
 [invisible-firefox]
-fetch.github = "feder-cr/invisible-firefox"
-src.git = "https://github.com/feder-cr/invisible-firefox.git"
-src.branch = "stealth/150"
+fetch.github = "feder-cr/firefox_antidetect_patch"
+src.github = "feder-cr/firefox_antidetect_patch"
+
+[invisible-firefox-bin-linux-arm64]
+fetch.url = "https://github.com/feder-cr/invisible_playwright/releases/download/firefox-$ver/firefox-150.0.1-stealth-linux-arm64.tar.gz"
+src.github = "feder-cr/invisible_playwright"
+src.from_pattern = "^firefox-(.*)$"
+src.to_pattern = "\\1"
+
+[invisible-firefox-bin-linux-x86_64]
+fetch.url = "https://github.com/feder-cr/invisible_playwright/releases/download/firefox-$ver/firefox-150.0.1-stealth-linux-x86_64.tar.gz"
+src.github = "feder-cr/invisible_playwright"
+src.from_pattern = "^firefox-(.*)$"
+src.to_pattern = "\\1"
+
+[invisible-firefox-bin-macos-arm64]
+fetch.url = "https://github.com/feder-cr/invisible_playwright/releases/download/firefox-$ver/firefox-150.0.1-stealth-macos-arm64.tar.gz"
+src.github = "feder-cr/invisible_playwright"
+src.from_pattern = "^firefox-(.*)$"
+src.to_pattern = "\\1"
+
+[invisible-firefox-bin-macos-x86_64]
+fetch.url = "https://github.com/feder-cr/invisible_playwright/releases/download/firefox-$ver/firefox-150.0.1-stealth-macos-x86_64.tar.gz"
+src.github = "feder-cr/invisible_playwright"
+src.from_pattern = "^firefox-(.*)$"
+src.to_pattern = "\\1"
 
 [ja4-nginx-module]
 fetch.github = "FoxIO-LLC/ja4-nginx-module"
@@ -889,19 +915,10 @@ fetch.url = "https://github.com/lightpanda-io/browser/releases/download/$ver/lig
 src.github_tag = "lightpanda-io/browser"
 src.exclude_regex = "nightly"
 
-[linguaspark-core]
-fetch.github = "LinguaSpark/core"
-git.fetchSubmodules = true
-src.git = "https://github.com/LinguaSpark/core.git"
-
 [linguaspark-server]
 fetch.github = "LinguaSpark/server"
 git.fetchSubmodules = true
 src.git = "https://github.com/LinguaSpark/server.git"
-
-[llama-cpp]
-fetch.github = "ggerganov/llama.cpp"
-src.github = "ggerganov/llama.cpp"
 
 [loralib]
 fetch.github = "microsoft/LoRA"
@@ -911,6 +928,10 @@ src.git = "https://github.com/microsoft/LoRA.git"
 fetch.github = "chiyuki0325/lyrica"
 src.github = "chiyuki0325/lyrica"
 
+[lyrics-on-panel-backend]
+fetch.github = "KangweiZhu/lyrics-on-panel"
+src.github_tag = "KangweiZhu/lyrics-on-panel"
+
 [magiskboot]
 fetch.url = "https://github.com/topjohnwu/Magisk/releases/download/$ver/Magisk-$ver.apk"
 src.github = "topjohnwu/Magisk"
@@ -918,6 +939,14 @@ src.github = "topjohnwu/Magisk"
 [mautrix-gmessages]
 fetch.github = "mautrix/gmessages"
 src.github = "mautrix/gmessages"
+
+[mcp-proxy-server]
+fetch.github = "adamwattis/mcp-proxy-server"
+src.git = "https://github.com/adamwattis/mcp-proxy-server.git"
+
+[metapi]
+fetch.github = "cita-777/metapi"
+src.github = "cita-777/metapi"
 
 [metee]
 fetch.github = "intel/metee"
@@ -930,6 +959,10 @@ src.github_tag = "adsb-related-code/mlat-client"
 [modelscope]
 fetch.github = "modelscope/modelscope"
 src.github = "modelscope/modelscope"
+
+[modelscope-hub]
+fetch.github = "modelscope/modelscope_hub"
+src.github = "modelscope/modelscope_hub"
 
 [mtkclient]
 fetch.github = "bkerler/mtkclient"
@@ -947,6 +980,10 @@ src.git = "https://github.com/xddxdd/nbfc-linux.git"
 fetch.github = "iqiziqi/ncmdump.rs"
 src.github = "iqiziqi/ncmdump.rs"
 
+[ncmm]
+fetch.github = "3899/ncmm"
+src.github = "3899/ncmm"
+
 [netboot-xyz-efi]
 fetch.url = "https://github.com/netbootxyz/netboot.xyz/releases/download/$ver/netboot.xyz.efi"
 src.github = "netbootxyz/netboot.xyz"
@@ -959,6 +996,10 @@ src.github = "netbootxyz/netboot.xyz"
 fetch.github = "pekman/netns-exec"
 git.fetchSubmodules = true
 src.git = "https://github.com/pekman/netns-exec.git"
+
+[new-api]
+fetch.github = "QuantumNous/new-api"
+src.github = "QuantumNous/new-api"
 
 [nft-fullcone]
 fetch.github = "fullcone-nat-nftables/nft-fullcone"
@@ -1044,7 +1085,10 @@ src.git = "https://github.com/sftcd/openssl.git"
 src.branch = "ECH-draft-13c"
 
 [openssl-oqs-provider]
-# fetch.github = "open-quantum-safe/oqs-provider"
+fetch.github = "open-quantum-safe/oqs-provider"
+src.git = "https://github.com/open-quantum-safe/oqs-provider.git"
+
+[openssl-oqs-provider-stable]
 fetch.url = "https://github.com/open-quantum-safe/oqs-provider/archive/refs/tags/$ver.tar.gz"
 src.github = "open-quantum-safe/oqs-provider"
 
@@ -1333,6 +1377,10 @@ src.to_pattern = "\\1"
 fetch.github = "go4retro/tcpser"
 src.github = "go4retro/tcpser"
 
+[tel42verifier]
+fetch.github = "strexp/tel42verifier"
+src.github_tag = "strexp/tel42verifier"
+
 [telegram-desktop-patches]
 fetch.github = "huakim/telegram-desktop-patches"
 src.git = "https://github.com/huakim/telegram-desktop-patches.git"
@@ -1425,6 +1473,11 @@ src.include_regex = "^v[0-9.]+$"
 [vuetorrent-backend]
 fetch.github = "VueTorrent/vuetorrent-backend"
 src.github = "VueTorrent/vuetorrent-backend"
+
+[waline]
+fetch.url = "https://registry.npmjs.org/@waline/vercel/-/vercel-$ver.tgz"
+src.webpage = "https://registry.npmjs.org/@waline/vercel/latest"
+src.regex = "\"version\":\"([^\"]+)\""
 
 [wechat-uos]
 fetch.url = "https://home-store-packages.uniontech.com/appstore/pool/appstore/c/com.tencent.wechat/com.tencent.wechat_$ver_amd64.deb"

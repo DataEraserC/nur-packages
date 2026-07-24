@@ -1,9 +1,9 @@
 {
   description = "My personal NUR repository";
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs?rev=d233902339c02a9c334e7e593de68855ad26c4cb";
     nixpkgs-24_05.url = "github:NixOS/nixpkgs/nixos-24.05";
     nixpkgs-24_11.url = "github:NixOS/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-parts.url = "github:hercules-ci/flake-parts";
 
     # keep-sorted start block=yes
@@ -143,10 +143,10 @@
               };
             };
             inSubTree-pinnedNixpkgs = final: prev: {
-              nur-xddxdd = self.legacyPackages.${final.system};
+              nur-xddxdd = self.legacyPackages.${final.stdenv.hostPlatform.system};
             };
             inSubTree-pinnedNixpkgsWithCuda = final: prev: {
-              nur-xddxdd = self.legacyPackagesWithCuda.${final.system};
+              nur-xddxdd = self.legacyPackagesWithCuda.${final.stdenv.hostPlatform.system};
             };
           }
           // (builtins.listToAttrs (

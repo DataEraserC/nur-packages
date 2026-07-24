@@ -18,9 +18,16 @@
   - 在 `nativeInstallCheckInputs` 中添加 `versionCheckHook`
   - 设置 `doInstallCheck = true`
   - 如果程序需要特定参数来显示版本，设置 `versionCheckProgramArg`（如 `--version`）
+- **不要禁用测试**：`doCheck` 默认启用，不需要设置 `doCheck = false`。仅当上游测试在 Nix 构建环境中确实无法通过时（如需要网络访问、需要特定硬件等），才应禁用测试
 - **禁用测试时启用安装检查**：如果设置 `doCheck = false` 禁用测试，必须同时设置 `doInstallCheck = true` 以确保 `versionCheckHook` 正常工作
+- **上游版本不一致处理**：当上游 Cargo.toml / package.json 等文件中的版本号与发布标签不一致时，可在 `postPatch` 中使用 `sed` 正则动态修正版本号，以使 `versionCheckHook` 正常工作
 - **处理 execstack 标记**：打包上游二进制时如遇到 `cannot enable executable stack`，用 `execstack -c`（`pax-utils`）或 `patchelf --clear-execstack` 清理需要可执行栈的 ELF（常见于某些 `.so`）
 - **使用顶层 Xorg 包**：Xorg 相关的库和工具现在可以直接作为顶层包引用，不要使用 `xorg.` 前缀。例如使用 `libX11` 而不是 `xorg.libX11`，使用 `xcbutilimage` 而不是 `xorg.xcbutilimage`
+- **不要使用已弃用的 `system` 属性**：在 NixOS 26.05+ 中，`pkgs.system` 已被弃用，访问时会触发 `evaluation warning: 'system' has been renamed to/replaced by 'stdenv.hostPlatform.system'`。获取当前系统平台时应使用 `stdenv.hostPlatform.system`（或 `final.stdenv.hostPlatform.system`、`prev.stdenv.hostPlatform.system`）。特别注意 `callPackage` 会从 pkgs 作用域自动注入参数，因此辅助函数若声明了 `{ system, ... }` 参数，实际会访问到已弃用的 `pkgs.system`，应改为声明 `{ stdenv, ... }` 并在函数内部用 `let system = stdenv.hostPlatform.system; in` 派生
+- **扁平打包的二进制压缩包**：当上游 tarball 不包含单一顶层目录（直接在 `./` 下展开文件）时，stdenv 默认 `unpackPhase` 会报 `unpacker produced multiple directories`。此时需设置 `sourceRoot = "."`，让构建在解压根目录进行。
+- **structuredAttrs 下修改 patches 列表**：当 `structuredAttrs is enabled` 时，不能在 `prePatch` 中通过修改 `patches` 变量来过滤补丁（`concatTo` 无法正确解析被修改后的字符串变量）。应改为完全覆盖 `patchPhase`，在其中用 `concatTo patchesArray patches` 读取补丁列表后自行过滤和应用。
+- **setuptools 82+ 移除了 `pkg_resources`**：老版本的 XStatic 等包在 `xstatic/__init__.py` 和 `xstatic/pkg/__init__.py` 中使用 `__import__('pkg_resources').declare_namespace(__name__)`，在 setuptools 82+ 中会报 `ModuleNotFoundError: No module named 'pkg_resources'`。修复方法：在 `postPatch` 中用 `substituteInPlace` 删除该调用，同时用 `sed` 从 `setup.py` 中删除 `namespace_packages` 行。
+- **Node.js 服务端应用写入运行时文件到源码目录**：基于 thinkjs 等框架的 Node.js 服务端应用常将运行时缓存/日志写入源码旁的目录（如 thinkjs 的 `RUNTIME_PATH` 默认为 `ROOT_PATH/runtime`，而 `ROOT_PATH` 通常硬编码为 `__dirname`）。在 Nix 中源码位于只读 store，会导致写入失败崩溃。修复方法：用补丁修改入口文件，将运行时路径改为从环境变量读取，默认指向可写位置（如 `process.env.XXX_RUNTIME_PATH || path.join(require('node:os').tmpdir(), 'xxx')`），保持 `ROOT_PATH`/`APP_PATH` 指向 store 以加载源码。优先使用独立补丁文件（`patches = [ ./xxx.patch ]`）而非 `substituteInPlace` 内联替换，便于审阅与维护。
 
 ## 包元数据规范
 
@@ -31,7 +38,7 @@
 - **无冠词开头**：不得以冠词（a、an、the）开头
 - **首字母大写**：描述必须以大写字母开头
 - **无句号结尾**：描述末尾不得包含句号
-- **单句描述**：描述应简短，只包含一个句子（不得包含 `. ` 分隔的多个句子）
+- **单句描述**：描述应简短，只包含一个句子（不得包含 `.` 分隔的多个句子）
 - **不以包名开头**：描述不应以包名本身开头
 
 ### meta.license（许可证）
@@ -118,7 +125,17 @@ appimageTools.wrapType2 {
 ### 更新源码
 
 - 修改 `nvfetcher.toml` 后运行 nvfetcher 时，必须指定包名：`nvfetcher -f package-name`
+- `-f` 参数接受的是正则表达式，不是多个独立参数。要匹配多个包，使用正则如 `nvfetcher -f 'package-one|package-two'`
 - 禁止运行不带包名的 `nvfetcher` 命令
+
+### stable/unstable 双源模式
+
+当一个包同时需要稳定版和跟踪上游 main 分支的 unstable 版时，使用以下命名约定：
+
+- `package-name`：**unstable 源**（`src.git`），跟踪 git 主分支
+- `package-name-stable`：**稳定源**（`src.github`），跟踪 GitHub Release
+
+`helpers/nvfetcher-loader.nix` 会自动处理版本号：当 unstable 源的版本是 40 位哈希时，会查找对应的 `package-name-stable` 源获取最近稳定版号，生成 `最近稳定版-unstable-日期` 格式的版本号（如 `0.11.0-unstable-2026-07-10`）。
 
 ### GitHub 源码获取规则
 
@@ -131,6 +148,7 @@ appimageTools.wrapType2 {
 ### GitHub 获取格式
 
 - 从 GitHub 获取时，始终使用 `fetch.github = "user/package"` 格式
+- 当 `fetch.github` 因 GitHub tag/release 歧义（HTTP 300 Multiple Choices）失败时，改用 `fetch.url = "https://github.com/user/package/archive/refs/tags/$ver.tar.gz"`
 
 ## 构建包
 
@@ -139,3 +157,52 @@ appimageTools.wrapType2 {
 - 使用 `nix build .#package-name` 构建包
 - 只需指定包名本身，无需中间路径
 - 示例：`pkgs/uncategorized/package-name` 应构建为 `nix build .#package-name`
+
+## pnpm 前端构建
+
+### fetchPnpmDeps 配置
+
+- **必须设置 `fetcherVersion`**：`fetchPnpmDeps` 要求显式设置 `fetcherVersion`，推荐使用 `fetcherVersion = 3`
+- **使用 `sourceRoot = "source/<子目录>"`**：当 `src` 来自 `fetchFromGitHub` 而项目在子目录中时，`sourceRoot` 需加 `source/` 前缀（如 `source/frontend`）
+- **锁定 pnpm 版本**：当上游 lockfile 与最新 pnpm 版本不兼容时，通过 `pnpm = pnpm_10` 指定兼容的 pnpm 版本
+- **`pnpmConfigHook` 自动安装依赖**：该钩子在 `postConfigure` 阶段自动运行 `pnpm install --offline --frozen-lockfile`，无需手动安装
+
+### 多组件 pname 命名
+
+- **每个派生使用不同的 pname**：对于包含多个派生（如前端依赖、前端构建产物、主程序）的包，每个派生的 `pname` 应添加不同的后缀加以区分
+- **不要全局 inherit**：不要在 `let` 顶层写 `inherit (sources.xxx) version src;`，各派生应分别在自身作用域内通过 `inherit (sources.xxx) version src;` 获取所需字段
+
+### Go + 前端项目
+
+- **分开构建前端和 Go**：将前端构建为独立派生，在 `buildGoModule` 的 `preBuild` 中将构建产物复制到 Go embed 目录
+- **复制到 embed 路径**：如果 Go 使用 `//go:embed` 嵌入前端产物，构建产物必须先放置到对应目录再执行 Go 编译
+
+## Lockfile 与 update.sh
+
+### 生成式 Lockfile
+
+- **何时需要**：当上游使用 nixpkgs 不直接支持的 lockfile（如 `bun.lock`）但构建需要 `package-lock.json` / `pnpm-lock.yaml` 等 lockfile 时，应在包目录下提交一个生成式 lockfile（如 `package-lock.json`），并在派生的 `postPatch` 中复制到源码中
+- **必须配套 update.sh**：每次提交生成式 lockfile 时，必须在其旁边创建 `update.sh` 脚本，用于在上游版本更新后重新生成 lockfile 及相关哈希（如 `npmDepsHash`），以便后续自动更新
+- **update.sh 职责**：脚本应从 nvfetcher 跟踪的源码（如 `nix eval --raw .#package.src`）获取源码，运行对应包管理器生成 lockfile，再计算并写回派生中的哈希
+
+### update.sh 脚本规范
+
+- **使用 `#!nix-shell` shebang**：`update.sh` 必须使用 `#!/usr/bin/env nix-shell` 加 `#!nix-shell -i bash -p <工具>` 的方式声明依赖工具（如 `nodejs`、`prefetch-npm-deps`），而非先 `nix build nixpkgs#<工具> --print-out-paths` 再引用输出路径
+- **示例**：
+
+  ```bash
+  #!/usr/bin/env nix-shell
+  #!nix-shell -i bash -p bash -p nodejs -p prefetch-npm-deps
+  # shellcheck shell=bash
+  SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)
+  TMPDIR=$(mktemp -d)
+  trap 'rm -rf "$TMPDIR"' EXIT
+  SRC=$(nix eval --raw .#easycli.src)
+  cp -r "$SRC" "$TMPDIR/source"
+  chmod -R +w "$TMPDIR/source"
+  cd "$TMPDIR/source" || exit 1
+  npm install --package-lock-only --ignore-scripts
+  cp package-lock.json "$SCRIPT_DIR/package-lock.json"
+  NEW_HASH=$(prefetch-npm-deps "$SCRIPT_DIR/package-lock.json")
+  sed -i "s|npmDepsHash = \"sha256-[^"]*\";|npmDepsHash = \"$NEW_HASH\";|" "$SCRIPT_DIR/default.nix"
+  ```
