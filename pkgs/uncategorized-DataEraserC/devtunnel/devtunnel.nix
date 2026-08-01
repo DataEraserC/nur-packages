@@ -6,6 +6,7 @@
   sources,
   versionCheckHook,
   icu,
+  openssl,
   darwin,
   ...
 }:
@@ -40,6 +41,7 @@ stdenv.mkDerivation {
   buildInputs = lib.optionals stdenv.hostPlatform.isLinux [
     stdenv.cc.cc.lib
     icu
+    openssl
   ];
 
   installPhase = ''
@@ -47,7 +49,12 @@ stdenv.mkDerivation {
     ${lib.optionalString stdenv.hostPlatform.isLinux ''
       install -Dm755 $src $out/libexec/devtunnel
       makeWrapper $out/libexec/devtunnel $out/bin/devtunnel \
-        --prefix LD_LIBRARY_PATH : ${lib.makeLibraryPath [ icu ]}
+        --prefix LD_LIBRARY_PATH : ${
+          lib.makeLibraryPath [
+            icu
+            openssl
+          ]
+        }
     ''}
     ${lib.optionalString stdenv.hostPlatform.isDarwin ''
       install -Dm755 $src $out/bin/devtunnel
