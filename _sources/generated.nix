@@ -225,6 +225,38 @@
       hash = "sha256-89Z28kjg7EYyjeFKKu9EJlsLF5gvn8vwmI4v/DfHikU=";
     };
   };
+  AAA_devtunnel-aarch64-darwin = {
+    pname = "AAA_devtunnel-aarch64-darwin";
+    version = "1.0.2014+3c9645ccd8";
+    src = fetchurl {
+      url = "https://tunnelsassetsprod.blob.core.windows.net/cli/1.0.2014+3c9645ccd8/osx-arm64-devtunnel";
+      hash = "sha256-bGsFAkpCLkF5OHIDsybEjGipNo9exwgyyz3/YWuec00=";
+    };
+  };
+  AAA_devtunnel-aarch64-linux = {
+    pname = "AAA_devtunnel-aarch64-linux";
+    version = "1.0.2014+3c9645ccd8";
+    src = fetchurl {
+      url = "https://tunnelsassetsprod.blob.core.windows.net/cli/1.0.2014+3c9645ccd8/linux-arm64-devtunnel";
+      hash = "sha256-+Trqc8JxN7nnskRYfRFbXaYmP93QE1ro2OOkMH0g2ls=";
+    };
+  };
+  AAA_devtunnel-x86_64-darwin = {
+    pname = "AAA_devtunnel-x86_64-darwin";
+    version = "1.0.2014+3c9645ccd8";
+    src = fetchurl {
+      url = "https://tunnelsassetsprod.blob.core.windows.net/cli/1.0.2014+3c9645ccd8/osx-x64-devtunnel";
+      hash = "sha256-cYchv8MTKcbrxPw9w0cV2ZS2WAUbX4TBj2KWEzFdLrc=";
+    };
+  };
+  AAA_devtunnel-x86_64-linux = {
+    pname = "AAA_devtunnel-x86_64-linux";
+    version = "1.0.2014+3c9645ccd8";
+    src = fetchurl {
+      url = "https://tunnelsassetsprod.blob.core.windows.net/cli/1.0.2014+3c9645ccd8/linux-x64-devtunnel";
+      hash = "sha256-XWA0tL+B3q1iY1VR2NlrNjQD5cpTB6amU6sx0cc9AMw=";
+    };
+  };
   AAA_escrcpy_appimage = {
     pname = "AAA_escrcpy_appimage";
     version = "2.11.1";
@@ -267,7 +299,7 @@
   };
   AAA_himirage-JSON = {
     pname = "AAA_himirage-JSON";
-    version = "2026-08-01 17:10:05";
+    version = "2026-08-01 17:48:06";
     src = fetchurl {
       url = "https://album.photosir.cn/upgradePackage/infoall/photosir";
       hash = "sha256-uv3LJJqd0dlO0jHmaTxii8oxnJZM9FkjVW14SIaDvc4=";

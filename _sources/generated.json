@@ -400,6 +400,66 @@
         },
         "version": "3.3.12"
     },
+    "AAA_devtunnel-aarch64-darwin": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "AAA_devtunnel-aarch64-darwin",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-bGsFAkpCLkF5OHIDsybEjGipNo9exwgyyz3/YWuec00=",
+            "type": "url",
+            "url": "https://tunnelsassetsprod.blob.core.windows.net/cli/1.0.2014+3c9645ccd8/osx-arm64-devtunnel"
+        },
+        "version": "1.0.2014+3c9645ccd8"
+    },
+    "AAA_devtunnel-aarch64-linux": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "AAA_devtunnel-aarch64-linux",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-+Trqc8JxN7nnskRYfRFbXaYmP93QE1ro2OOkMH0g2ls=",
+            "type": "url",
+            "url": "https://tunnelsassetsprod.blob.core.windows.net/cli/1.0.2014+3c9645ccd8/linux-arm64-devtunnel"
+        },
+        "version": "1.0.2014+3c9645ccd8"
+    },
+    "AAA_devtunnel-x86_64-darwin": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "AAA_devtunnel-x86_64-darwin",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-cYchv8MTKcbrxPw9w0cV2ZS2WAUbX4TBj2KWEzFdLrc=",
+            "type": "url",
+            "url": "https://tunnelsassetsprod.blob.core.windows.net/cli/1.0.2014+3c9645ccd8/osx-x64-devtunnel"
+        },
+        "version": "1.0.2014+3c9645ccd8"
+    },
+    "AAA_devtunnel-x86_64-linux": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "AAA_devtunnel-x86_64-linux",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-XWA0tL+B3q1iY1VR2NlrNjQD5cpTB6amU6sx0cc9AMw=",
+            "type": "url",
+            "url": "https://tunnelsassetsprod.blob.core.windows.net/cli/1.0.2014+3c9645ccd8/linux-x64-devtunnel"
+        },
+        "version": "1.0.2014+3c9645ccd8"
+    },
     "AAA_escrcpy_appimage": {
         "cargoLock": null,
         "date": null,
@@ -485,7 +545,7 @@
             "type": "url",
             "url": "https://album.photosir.cn/upgradePackage/infoall/photosir"
         },
-        "version": "2026-08-01 17:10:05"
+        "version": "2026-08-01 17:48:06"
     },
     "AAA_himirage-aarch64-darwin": {
         "cargoLock": null,

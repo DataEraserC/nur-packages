@@ -111,6 +111,42 @@ fetch.url = "https://www.cpolar.com/static/downloads/releases/$ver/cpolar-stable
 src.webpage = "https://www.cpolar.com/download"
 src.regex = "https://www.cpolar.com/static/downloads/releases/(.*)/"
 
+[AAA_devtunnel-aarch64-darwin]
+fetch.url = "https://tunnelsassetsprod.blob.core.windows.net/cli/$ver/osx-arm64-devtunnel"
+src.cmd = '''
+curl -s https://github.com/microsoft/winget-pkgs/tree/master/manifests/m/Microsoft/devtunnel \
+  | grep -oP '1\.0\.[0-9]+\+[a-f0-9]+' \
+  | sort -V \
+  | tail -n 1
+'''
+
+[AAA_devtunnel-aarch64-linux]
+fetch.url = "https://tunnelsassetsprod.blob.core.windows.net/cli/$ver/linux-arm64-devtunnel"
+src.cmd = '''
+curl -s https://github.com/microsoft/winget-pkgs/tree/master/manifests/m/Microsoft/devtunnel \
+  | grep -oP '1\.0\.[0-9]+\+[a-f0-9]+' \
+  | sort -V \
+  | tail -n 1
+'''
+
+[AAA_devtunnel-x86_64-darwin]
+fetch.url = "https://tunnelsassetsprod.blob.core.windows.net/cli/$ver/osx-x64-devtunnel"
+src.cmd = '''
+curl -s https://github.com/microsoft/winget-pkgs/tree/master/manifests/m/Microsoft/devtunnel \
+  | grep -oP '1\.0\.[0-9]+\+[a-f0-9]+' \
+  | sort -V \
+  | tail -n 1
+'''
+
+[AAA_devtunnel-x86_64-linux]
+fetch.url = "https://tunnelsassetsprod.blob.core.windows.net/cli/$ver/linux-x64-devtunnel"
+src.cmd = '''
+curl -s https://github.com/microsoft/winget-pkgs/tree/master/manifests/m/Microsoft/devtunnel \
+  | grep -oP '1\.0\.[0-9]+\+[a-f0-9]+' \
+  | sort -V \
+  | tail -n 1
+'''
+
 [AAA_escrcpy_appimage]
 fetch.url = "https://github.com/viarotel-org/escrcpy/releases/download/v$ver/Escrcpy-$ver-linux-x86_64.AppImage"
 src.github_tag = "viarotel-org/escrcpy"
