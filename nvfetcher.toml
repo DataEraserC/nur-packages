@@ -71,8 +71,7 @@ src.cmd = "echo 6.8.6"
 
 [AAA_alipan-version]
 fetch.url = "https://www.alipan.com/"
-src.webpage = "https://www.alipan.com/"
-src.regex = "latest_version: '(.*)'"
+src.cmd = "curl -s --compressed 'https://www.alipan.com/' | grep -o \"latest_version: '[^']*'\" | sed -E \"s/.*'([^']*)'.*/\\1/\""
 
 [AAA_buffybox]
 fetch.git = "https://gitlab.com/postmarketOS/buffybox.git"
