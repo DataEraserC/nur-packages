@@ -63,15 +63,8 @@ src.git = "https://github.com/topminipie/XiaoMiToolV2"
 src.branch = "tested"
 
 [AAA_alipan]
-fetch.url = "https://github.com/DataEraserC/nur-packages/releases/download/aDrive-6.8.6.exe/aDrive-6.8.6.exe"
-# src.webpage = "https://www.alipan.com/"
-# src.regex = "app_windows_download_link: '(.*)'"
-# fetch.url = "$ver"
-src.cmd = "echo 6.8.6"
-
-[AAA_alipan-version]
-fetch.url = "https://www.alipan.com/"
-src.cmd = "curl -s --compressed 'https://www.alipan.com/' | grep -o \"latest_version: '[^']*'\" | sed -E \"s/.*'([^']*)'.*/\\1/\""
+fetch.url = "https://github.com/DataEraserC/nur-packages/releases/download/aDrive/aDrive-$ver.exe"
+src.manual = "6.9.3"
 
 [AAA_buffybox]
 fetch.git = "https://gitlab.com/postmarketOS/buffybox.git"
