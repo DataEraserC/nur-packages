@@ -71,10 +71,11 @@ stdenv.mkDerivation {
   versionCheckProgramArg = "--version";
 
   meta = with lib; {
+    # pls persist ~/.net/devtunnel folder
     description = "Microsoft Dev Tunnels CLI for securely exposing local services to the internet";
     homepage = "https://learn.microsoft.com/en-us/azure/developer/dev-tunnels/";
     license = licenses.unfree;
-    maintainers = with maintainers; [ xddxdd ];
+    maintainers = [ ];
     mainProgram = "devtunnel";
     platforms = SupportedPlatforms;
   };
