@@ -6,6 +6,8 @@
   dpkg,
   buildFHSEnv,
   writeShellScript,
+  dataDir ? null,
+  configFile ? null,
   ...
 }:
 let
@@ -74,6 +76,9 @@ buildFHSEnv {
   name = "pgy";
   targetPkgs = _: [ unwrapped ];
   runScript = dispatch;
+  extraBwrapArgs =
+    (lib.optional (dataDir != null) "--bind ${dataDir} /etc/oray/pgyvpn")
+    ++ (lib.optional (configFile != null) "--bind ${configFile} /etc/oray/pgyvpn/config.ini");
   meta = {
     homepage = "https://pgy.oray.com/download/";
     description = "Client for the Oray PgyVisitor software-defined networking platform";
