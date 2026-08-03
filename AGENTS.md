@@ -28,6 +28,9 @@
 - **structuredAttrs 下修改 patches 列表**：当 `structuredAttrs is enabled` 时，不能在 `prePatch` 中通过修改 `patches` 变量来过滤补丁（`concatTo` 无法正确解析被修改后的字符串变量）。应改为完全覆盖 `patchPhase`，在其中用 `concatTo patchesArray patches` 读取补丁列表后自行过滤和应用。
 - **setuptools 82+ 移除了 `pkg_resources`**：老版本的 XStatic 等包在 `xstatic/__init__.py` 和 `xstatic/pkg/__init__.py` 中使用 `__import__('pkg_resources').declare_namespace(__name__)`，在 setuptools 82+ 中会报 `ModuleNotFoundError: No module named 'pkg_resources'`。修复方法：在 `postPatch` 中用 `substituteInPlace` 删除该调用，同时用 `sed` 从 `setup.py` 中删除 `namespace_packages` 行。
 - **Node.js 服务端应用写入运行时文件到源码目录**：基于 thinkjs 等框架的 Node.js 服务端应用常将运行时缓存/日志写入源码旁的目录（如 thinkjs 的 `RUNTIME_PATH` 默认为 `ROOT_PATH/runtime`，而 `ROOT_PATH` 通常硬编码为 `__dirname`）。在 Nix 中源码位于只读 store，会导致写入失败崩溃。修复方法：用补丁修改入口文件，将运行时路径改为从环境变量读取，默认指向可写位置（如 `process.env.XXX_RUNTIME_PATH || path.join(require('node:os').tmpdir(), 'xxx')`），保持 `ROOT_PATH`/`APP_PATH` 指向 store 以加载源码。优先使用独立补丁文件（`patches = [ ./xxx.patch ]`）而非 `substituteInPlace` 内联替换，便于审阅与维护。
+- **硬编码 `/usr/share`、`/etc` 等绝对路径的专有二进制**：如贝锐蒲公英（PgyVisitor）等上游 deb 二进制将资源路径硬编码为 `/usr/share/pgyvpn`、配置硬编码为 `/etc/oray/pgyvpn/config.ini`，且 store 路径过长无法用 `sed` 原位替换。应先用 `stdenvNoCC` + `dpkg-deb -x` 解包并安装到 `$out/bin`、`$out/share/<name>`、`$out/etc/...`，再包一层 `buildFHSEnv`（参考 `snell-server_fhs`）。`buildFHSEnv` 的 rootfs-builder 会把 targetPkgs 的 `bin/`→`/usr/bin`、`sbin/`→`/usr/sbin`、`share/`→`/usr/share`、`etc/`→`/etc`、`opt/`→`/opt`，正好满足此类硬编码路径；运行库如 `libstdc++` 由 FHS env 自带的 `gcc.cc.lib`/`glibc` 提供，无需 `autoPatchelfHook`。多二进制可通过 `runScript` 内的 `case "$1"` 分派子命令。
+- **多架构 deb 源命名**：当各架构的 deb 文件名后缀（`amd64`/`i386`/`arm64`/`arm32`）与 Nix 系统名不一致时，nvfetcher 源可按后缀命名（如 `AAA_pgylinux-amd64`），在包内用 `SourceMap = { x86_64-linux = "...amd64"; ... }` 做 `HostPlatform` 到源名的映射。
+- **打包二进制（加壳）的等长补丁 + cd 包装**：对加壳/自解密且无 section headers 的专有二进制（如 PgyVisitor 的 `pgyvisitor`），若 store 路径过长无法替换硬编码的 `/usr/share/pgyvpn`（17 字节），可用**等长字节补丁**把字符串原位替换为相对路径并用 `///` 补齐到相同长度（如 `/usr/share/pgyvpn` → `./share/pgyvpn///`）。补丁必须保持字节数完全一致（用逐字节 `substr` 覆写而非 sed/perl -0pi 整体替换），否则变长替换会改变后续字节偏移、导致加壳解包逻辑崩溃（SIGSEGV，地址形如 `0x408f...`）。注意不能用 `\0` 补齐——NUL 会截断后面拼接的 `/res/custom.json` 等子串，导致 `Is a directory` 错误；应用 `///` 这类空路径段补齐（POSIX 路径中连续 `/` 会折叠）。随后把真实二进制移到 `$out/libexec`，用 `makeWrapper ... --chdir $out` 包装到 `$out/bin`，使相对路径 `./share/pgyvpn` 解析到 store 内资源。
 
 ## 包元数据规范
 
@@ -127,6 +130,7 @@ appimageTools.wrapType2 {
 - 修改 `nvfetcher.toml` 后运行 nvfetcher 时，必须指定包名：`nvfetcher -f package-name`
 - `-f` 参数接受的是正则表达式，不是多个独立参数。要匹配多个包，使用正则如 `nvfetcher -f 'package-one|package-two'`
 - 禁止运行不带包名的 `nvfetcher` 命令
+- **在临时目录运行 nvfetcher**：nvfetcher 的默认输出目录 `_sources` 相对于当前工作目录。在仓库根目录运行 `nvfetcher -c <临时配置文件>` 会直接覆盖并破坏仓库的 `_sources/generated.nix` 和 `generated.json`。应在临时目录（如 `/tmp/opencode/xxx`）中放置独立 `nvfetcher.toml` 并以其为 workdir 运行，再将生成的 4 段（`generated.nix` 条目、`generated.json` 条目）合并进仓库的对应文件
 
 ### stable/unstable 双源模式
 
