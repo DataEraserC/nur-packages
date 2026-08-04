@@ -10,6 +10,28 @@ let
     dataDir = cfg.stateDir;
     configFile = cfg.configFile;
   };
+  defaultConfig = ''
+    ;local configuration
+    [base]
+
+    ;Set whether to enforce certificate validation
+    ;certcheck=true
+
+    ;Set whether to use smart bypass
+    ;smartbypass=true
+
+    ;Specify the port used by P2P
+    ;p2pport=0
+
+    p2pport=0
+
+    [account]
+
+    ;Automatic Login
+    ;autologin=true
+
+    autologin=true
+  '';
 in
 {
   options.services.pgy = {
@@ -35,32 +57,13 @@ in
     };
 
     configFile = lib.mkOption {
-      type = lib.types.nullOr (lib.types.oneOf [
-        lib.types.pathInStore
-        lib.types.externalPath
-      ]);
-      default = pkgs.writeText "pgyvpn-config.ini" ''
-        ;local configuration
-        [base]
-
-        ;Set whether to enforce certificate validation
-        ;certcheck=true
-
-        ;Set whether to use smart bypass
-        ;smartbypass=true
-
-        ;Specify the port used by P2P
-        ;p2pport=0
-
-        p2pport=0
-
-        [account]
-
-        ;Automatic Login
-        ;autologin=true
-
-        autologin=true
-      '';
+      type = lib.types.nullOr (
+        lib.types.oneOf [
+          lib.types.pathInStore
+          lib.types.externalPath
+        ]
+      );
+      default = "${cfg.stateDir}/config.ini";
       description = ''
         Config file mounted into the sandbox as `/etc/oray/pgyvpn/config.ini`.
 
@@ -68,9 +71,12 @@ in
           stays read-only because the store is immutable.
         - An absolute path outside the store (e.g. `/etc/pgy/config.ini` or an
           out-of-store symlink target) is bound read-write and changes made by the
-          daemon are synced back to that file.
+          daemon (e.g. login state) are synced back to that file.
 
-        Defaults to the packaged default config (a read-only store file).
+        Defaults to `${cfg.stateDir}/config.ini`, a writable external path. If the
+        file does not exist yet, the activation script creates it with the default
+        configuration so the daemon can persist login state into it. Set to `null`
+        to keep the packaged read-only config instead.
 
         Requires nixos-unstable / 26.05+ because `lib.types.externalPath` was added
         in nixpkgs 26.05; building this module against older branches (e.g. 24.11)
@@ -82,6 +88,25 @@ in
       type = lib.types.str;
       default = "/var/log/oray";
       description = "Directory to store pgyvpn_svr logs.";
+    };
+
+    user = lib.mkOption {
+      type = lib.types.str;
+      default = "root";
+      description = ''
+        User that the pgyvpn_svr daemon runs as. Defaults to root because the
+        daemon typically needs root privileges to set up its virtual network
+        interface. If a dedicated user is used, it must be able to write to
+        `stateDir`, `logDir` and `configFile` (the activation script chowns them
+        accordingly), and unprivileged user namespaces must be enabled for the
+        FHS sandbox (bwrap) to work.
+      '';
+    };
+
+    group = lib.mkOption {
+      type = lib.types.str;
+      default = "root";
+      description = "Group that the pgyvpn_svr daemon runs as.";
     };
 
     apiAddress = lib.mkOption {
@@ -113,8 +138,13 @@ in
 
       serviceConfig = {
         Type = "simple";
+        User = cfg.user;
+        Group = cfg.group;
         ExecStart = lib.escapeShellArgs (
-          [ "${pkg}/bin/pgy" "pgyvpn_svr" ]
+          [
+            "${pkg}/bin/pgy"
+            "pgyvpn_svr"
+          ]
           ++ [
             "-R"
             "-A"
@@ -144,6 +174,17 @@ in
     system.activationScripts.pgy = lib.stringAfter [ "specialfs" ] ''
       mkdir -p ${cfg.logDir}/pgyvpn
       mkdir -p ${cfg.stateDir}
+      ${lib.optionalString (cfg.configFile != null) ''
+        if [ ! -e ${lib.escapeShellArg cfg.configFile} ]; then
+          mkdir -p "$(dirname ${lib.escapeShellArg cfg.configFile})"
+          cat > ${lib.escapeShellArg cfg.configFile} <<'EOF'
+${defaultConfig}
+EOF
+        fi
+        chown ${lib.escapeShellArg cfg.user}:${lib.escapeShellArg cfg.group} ${lib.escapeShellArg cfg.configFile} || true
+      ''}
+      chown -R ${lib.escapeShellArg cfg.user}:${lib.escapeShellArg cfg.group} ${lib.escapeShellArg cfg.stateDir} || true
+      chown -R ${lib.escapeShellArg cfg.user}:${lib.escapeShellArg cfg.group} ${lib.escapeShellArg cfg.logDir}/pgyvpn || true
     '';
   };
 }
