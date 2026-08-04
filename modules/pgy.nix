@@ -113,7 +113,7 @@ in
 
       serviceConfig = {
         Type = "simple";
-        ExecStart =
+        ExecStart = lib.escapeShellArgs (
           [ "${pkg}/bin/pgy" "pgyvpn_svr" ]
           ++ [
             "-R"
@@ -132,7 +132,8 @@ in
             "0xFFFFFFF7"
             "--norpceventnotify"
           ]
-          ++ cfg.extraArgs;
+          ++ cfg.extraArgs
+        );
         Restart = "on-failure";
         RestartSec = "30s";
       };
