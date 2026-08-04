@@ -142,7 +142,7 @@ in
     environment.systemPackages = [ pkg ];
 
     system.activationScripts.pgy = lib.stringAfter [ "specialfs" ] ''
-      mkdir -p ${cfg.logDir}
+      mkdir -p ${cfg.logDir}/pgyvpn
       mkdir -p ${cfg.stateDir}
     '';
   };
