@@ -78,6 +78,39 @@
     };
     date = "2026-06-02";
   };
+  AAA_pgylinux-amd64 = {
+    pname = "AAA_pgylinux-amd64";
+    version = "6.9.0";
+    src = fetchurl {
+      url = "https://dl.oray.com/pgy/linux/PgyVisitor-6.9.0-amd64.deb";
+      sha256 = "sha256-OlPhs2Jm9QMcm001wC3xhYNDf+2zhKWOiX3efCrItg0=";
+    };
+  };
+  AAA_pgylinux-arm32 = {
+    pname = "AAA_pgylinux-arm32";
+    version = "6.9.0";
+    src = fetchurl {
+      url = "https://dl.oray.com/pgy/linux/PgyVisitor-6.9.0-arm32.deb";
+      sha256 = "sha256-vaCCqtRckp9QGem7BgUkb12e7/qd8LuTr6EtZ05HgvA=";
+    };
+  };
+  AAA_pgylinux-arm64 = {
+    pname = "AAA_pgylinux-arm64";
+    version = "6.9.0";
+    src = fetchurl {
+      url = "https://dl.oray.com/pgy/linux/PgyVisitor-6.9.0-arm64.deb";
+      sha256 = "sha256-/ymgLcnSwZ4ZeCiM1DkEzh1gZt1c4jcZbeuAAGagxlk=";
+    };
+  };
+  AAA_pgylinux-i386 = {
+    pname = "AAA_pgylinux-i386";
+    version = "6.9.0";
+    src = fetchurl {
+      url = "https://dl.oray.com/pgy/linux/PgyVisitor-6.9.0-i386.deb";
+      sha256 = "sha256-6jbLatpVyNwBQ4y8Sj3zNGW87s108cb3/yGAnPGig00=";
+    };
+  };
+
   AAA_PiliPalaX = {
     pname = "AAA_PiliPalaX";
     version = "f9a9e221b08159f08a8a007fb82bd82c6170e5ea";

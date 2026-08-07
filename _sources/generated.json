@@ -131,6 +131,66 @@
         },
         "version": "79a4bb7b56764807ee97fff50faa6f5b0be66122"
     },
+"AAA_pgylinux-amd64": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "AAA_pgylinux-amd64",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-OlPhs2Jm9QMcm001wC3xhYNDf+2zhKWOiX3efCrItg0=",
+            "type": "url",
+            "url": "https://dl.oray.com/pgy/linux/PgyVisitor-6.9.0-amd64.deb"
+        },
+        "version": "6.9.0"
+    },
+    "AAA_pgylinux-arm32": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "AAA_pgylinux-arm32",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-vaCCqtRckp9QGem7BgUkb12e7/qd8LuTr6EtZ05HgvA=",
+            "type": "url",
+            "url": "https://dl.oray.com/pgy/linux/PgyVisitor-6.9.0-arm32.deb"
+        },
+        "version": "6.9.0"
+    },
+    "AAA_pgylinux-arm64": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "AAA_pgylinux-arm64",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-/ymgLcnSwZ4ZeCiM1DkEzh1gZt1c4jcZbeuAAGagxlk=",
+            "type": "url",
+            "url": "https://dl.oray.com/pgy/linux/PgyVisitor-6.9.0-arm64.deb"
+        },
+        "version": "6.9.0"
+    },
+    "AAA_pgylinux-i386": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "AAA_pgylinux-i386",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-6jbLatpVyNwBQ4y8Sj3zNGW87s108cb3/yGAnPGig00=",
+            "type": "url",
+            "url": "https://dl.oray.com/pgy/linux/PgyVisitor-6.9.0-i386.deb"
+        },
+        "version": "6.9.0"
+    },
     "AAA_PiliPalaX": {
         "cargoLock": null,
         "date": "2026-08-01",

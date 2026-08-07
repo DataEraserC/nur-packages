@@ -301,6 +301,26 @@ fetch.github = "OpenInterpreter/open-interpreter"
 git.fetchSubmodules = true
 src.git = "https://github.com/OpenInterpreter/open-interpreter"
 
+[AAA_pgylinux-amd64]
+fetch.url = "https://dl.oray.com/pgy/linux/PgyVisitor-$ver-amd64.deb"
+src.webpage = "https://clientapi.sdwan.oray.com/softwares/PGY_VISITORENT_LINUX?x64=0&versiontype=stable&channel=0"
+src.regex = "\"versionno\":\"([0-9.]+)\""
+
+[AAA_pgylinux-arm32]
+fetch.url = "https://dl.oray.com/pgy/linux/PgyVisitor-$ver-arm32.deb"
+src.webpage = "https://clientapi.sdwan.oray.com/softwares/PGY_VISITORENT_LINUX?x64=0&versiontype=stable&channel=0"
+src.regex = "\"versionno\":\"([0-9.]+)\""
+
+[AAA_pgylinux-arm64]
+fetch.url = "https://dl.oray.com/pgy/linux/PgyVisitor-$ver-arm64.deb"
+src.webpage = "https://clientapi.sdwan.oray.com/softwares/PGY_VISITORENT_LINUX?x64=0&versiontype=stable&channel=0"
+src.regex = "\"versionno\":\"([0-9.]+)\""
+
+[AAA_pgylinux-i386]
+fetch.url = "https://dl.oray.com/pgy/linux/PgyVisitor-$ver-i386.deb"
+src.webpage = "https://clientapi.sdwan.oray.com/softwares/PGY_VISITORENT_LINUX?x64=0&versiontype=stable&channel=0"
+src.regex = "\"versionno\":\"([0-9.]+)\""
+
 [AAA_rwkv]
 fetch.pypi = "rwkv"
 src.pypi = "rwkv"
