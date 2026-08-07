@@ -10,7 +10,7 @@ buildNpmPackage (finalAttrs: {
 
   sourceRoot = "package";
 
-  npmDepsHash = "sha256-/2dIek22LgAuWVYxfHh1SS0ru1phqfZhqul8+UmaVKQ=";
+  npmDepsHash = "sha256-khplQW8nSvtGAVpXGewNOvBQykSx5ugF7jUp1HAb09E=";
 
   patches = [ ./runtime-path.patch ];
 
