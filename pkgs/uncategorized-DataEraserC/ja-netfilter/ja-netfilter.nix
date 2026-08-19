@@ -1,13 +1,14 @@
 {
   stdenvNoCC,
   fetchzip,
-}: stdenvNoCC.mkDerivation (finalAttrs: {
+}:
+stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "ja-netfilter";
   version = "240701";
 
   src = fetchzip {
-    url = "https://ipfs.io/ipfs/bafybeih65no5dklpqfe346wyeiak6wzemv5d7z2ya7nssdgwdz4xrmdu6i/files/jetbra-8f6785eac5e6e7e8b20e6174dd28bb19d8da7550.zip";
-    hash = "sha256-FvjwrmRE9xXkDIIkOyxVEFdycYa/t2Z0EgBueV+26BQ=";
+    url = "https://3.jetbra.in/files/jetbra-5a50fc03d68a014f893b7fc3aa465380d59f9095.zip";
+    sha256 = "sha256-iCtLAmJ1uBU2VtU/EbgASI5Ws9pUJUpWxOB6xsZjgVs=";
   };
 
   dontBuild = true;
@@ -25,9 +26,8 @@
     runHook postInstall
   '';
 
-
   meta = {
-    description = "Jetbrains IDEs crack";
+    description = "ja-netfilter";
     homepage = "https://3.jetbra.in";
   };
 })
