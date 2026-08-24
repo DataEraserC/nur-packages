@@ -8,6 +8,7 @@
 }:
 let
   pname_zh = "酷市场";
+  appname = "c001apk-flutter";
 in
 flutter.buildFlutterApplication rec {
   inherit (sources.AAA_c001apk-flutter) pname version src;
@@ -41,7 +42,7 @@ flutter.buildFlutterApplication rec {
   desktopItems = lib.toList (makeDesktopItem {
     name = pname;
     genericName = pname;
-    exec = pname;
+    exec = appname;
     icon = pname;
     comment = pname;
     desktopName = pname;
@@ -60,5 +61,6 @@ flutter.buildFlutterApplication rec {
     homepage = "https://github.com/bggRGjQaUbCoE/c001apk-flutter";
     license = lib.licenses.agpl3Only;
     platforms = lib.platforms.linux;
+    mainProgram = appname;
   };
 }

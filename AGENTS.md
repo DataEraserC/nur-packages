@@ -92,6 +92,7 @@
 
 - **有 bin 目录时必须设置**：如果包安装了 `bin` 目录，必须设置 `meta.mainProgram`
 - **主程序必须存在**：设置的主程序名必须在 `bin` 目录中实际存在
+- **pname 带前缀时不能默认继承**：当 nvfetcher 配置段名带排序前缀（如 `AAA_`）导致 `pname` 与构建产物二进制名不一致时，`nix run` 会按 `meta.mainProgram`（默认取 `pname`，即 `bin/AAA_xxx`）找可执行文件而报 `No such file or directory`。此时必须显式设置 `meta.mainProgram` 为真实二进制名；Flutter 应用（`buildFlutterApplication`）的二进制名来自上游项目名（pubspec.yaml 的 `name` 字段），与派生 `pname` 无关。桌面文件的 `exec =` 同样必须指向真实二进制名而非 `pname`
 
 ## AppImage 包
 
