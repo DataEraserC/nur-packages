@@ -34,7 +34,7 @@ stdenv.mkDerivation rec {
     runHook preInstall
     _install() {
       mkdir -p $out/Appimage
-      ln -s Adobe_Photoshop_CS6.AppImage $out/Appimage/Adobe_Photoshop_CS6.AppImage
+      install -Dm755 Adobe_Photoshop_CS6.AppImage $out/Appimage/Adobe_Photoshop_CS6.AppImage
       install -Dm644 $icon $out/share/icons/hicolor/48x48/apps/Adobe_Photoshop_CS6.png
       makeWrapper ${appimage-run}/bin/appimage-run $out/bin/adobe_photoshop_cs6 \
       --argv0 "adobe_photoshop_cs6" \

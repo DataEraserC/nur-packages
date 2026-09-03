@@ -24,8 +24,8 @@
   autoPatchelfHook,
   pkgs,
   glib,
-  qtbase ? libsForQt5.qt5.qtbase,
-  wrapQtAppsHook ? libsForQt5.qt5.wrapQtAppsHook,
+  qtbase ? libsForQt5.qtbase,
+  wrapQtAppsHook ? libsForQt5.wrapQtAppsHook,
   librsvg,
   cairo,
   curlFull,
@@ -61,16 +61,16 @@ stdenv.mkDerivation rec {
     librsvg
     cairo
     curlFull
-    libsForQt5.qt5.qtwayland
+    libsForQt5.qtwayland
   ];
 
   libraries = with pkgs; [
     glib
-    libsForQt5.qt5.qtbase
+    libsForQt5.qtbase
     librsvg
     cairo
     curlFull
-    libsForQt5.qt5.qtwayland
+    libsForQt5.qtwayland
   ];
 
   runtimeLibs = pkgs.lib.makeLibraryPath libraries;

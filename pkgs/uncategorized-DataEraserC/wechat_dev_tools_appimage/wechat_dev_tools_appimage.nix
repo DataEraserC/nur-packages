@@ -16,7 +16,6 @@ appimageTools.wrapType2 rec {
   inherit version src;
   extraPkgs =
     pkgs: with pkgs; [
-      gnome2.GConf
       xorg.libxkbfile
       xorg.libxshmfence
     ];

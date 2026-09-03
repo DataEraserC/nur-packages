@@ -47,6 +47,11 @@ stdenv.mkDerivation rec {
   #     Experimental = true;
   #   };
   # };
-  broken = true;
   # stdenv.mkDerivation automatically does the rest for you
+
+  meta = {
+    description = "Parse bluetooth battery level for waybar";
+    homepage = "https://github.com/Program-Learning/waybar-bluetooth_battery_parse";
+    broken = true;
+  };
 }

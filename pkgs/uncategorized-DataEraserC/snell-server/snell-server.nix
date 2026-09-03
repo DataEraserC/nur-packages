@@ -64,7 +64,7 @@ stdenv.mkDerivation {
   ];
   unpackPhase = ''
     unzip $src
-    upx -d snell-server
+    upx -d snell-server || true
   '';
   installPhase = ''
     install -Dm755 snell-server $out/bin/snell-server

@@ -34,7 +34,7 @@ stdenv.mkDerivation rec {
     runHook preInstall
     _install() {
       mkdir -p $out/Appimage
-      ln -s Adobe_Illustrator_CS6.AppImage $out/Appimage/Adobe_Illustrator_CS6.AppImage
+      install -Dm755 Adobe_Illustrator_CS6.AppImage $out/Appimage/Adobe_Illustrator_CS6.AppImage
       install -Dm644 $icon $out/share/icons/hicolor/48x48/apps/Adobe_Illustrator_CS6.png
       makeWrapper ${appimage-run}/bin/appimage-run $out/bin/adobe_illustrator_cs6 \
       --argv0 "adobe_illustrator_cs6" \

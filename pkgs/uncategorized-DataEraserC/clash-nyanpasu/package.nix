@@ -7,7 +7,7 @@
   autoPatchelfHook,
   clash-meta,
   openssl,
-  webkitgtk,
+  webkitgtk_4_1,
   udev,
   libayatana-appindicator,
 }:
@@ -28,7 +28,7 @@ stdenv.mkDerivation rec {
 
   buildInputs = [
     openssl
-    webkitgtk
+    webkitgtk_4_1
     stdenv.cc.cc
   ];
 
