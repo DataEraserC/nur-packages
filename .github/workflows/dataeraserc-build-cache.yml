@@ -1,6 +1,11 @@
 name: 'Build and cache own packages'
 on:
   workflow_dispatch:
+    inputs:
+      batch_size:
+        description: 'How many packages to build before uploading and cleaning up (default 2)'
+        required: false
+        type: number
   push:
     branches:
       - main
@@ -15,6 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GIT_SSL_NO_VERIFY: 'true'
+      BATCH_SIZE: ${{ inputs.batch_size || 2 }}
     steps:
       - name: Maximize build space
         uses: easimon/maximize-build-space@master
@@ -64,11 +70,8 @@ jobs:
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
 
       - name: Build and push own packages
-        env:
-          BATCH_SIZE: '1'
         run: |
           python3 tools/build_own_cachix.py
-
   test-nur-eval:
     runs-on: ubuntu-latest
     env:
