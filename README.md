@@ -78,8 +78,8 @@ Or, use variables from this repository in case I change them:
 |  | `alipan` | [AAA_alipan](https://www.alipan.com/) | 6.9.3 | Aliyun aDrive |
 |  | `amule-dlp` | [amule-dlp](https://github.com/persmule/amule-dlp) | 2.3.2-unstable-2023-03-02 | Peer-to-peer client for the eD2K and Kademlia networks (with Dynamic Leech Protection) |
 |  | `asterisk-g72x` | [asterisk-g72x](https://github.com/arkadijs/asterisk-g72x) | 0-unstable-2025-12-13 | G.729 and G.723.1 codecs for Asterisk (Only G.729 is enabled) |
-| `x86_64-linux` | `aw88399-legion-audio-patch` | [aw88399-legion-audio-patch](https://github.com/nadimkobeissi/16iax10h-linux-sound-saga) | 1.0.0 | Audio patches for aw88399 on Lenovo Legion laptops |
-| `x86_64-linux` | `aw88399-legion-firmware` | [aw88399-legion-firmware](https://github.com/nadimkobeissi/16iax10h-linux-sound-saga) | 1.0.0 | Firmware for aw88399 audio codec on Lenovo Legion laptops |
+| `x86_64-linux` | `aw88399-legion-audio-patch` | [aw88399-legion-audio-patch](https://github.com/nadimkobeissi/16iax10h-linux-sound-saga) | 0-unstable-2026-09-03 | Audio patches for aw88399 on Lenovo Legion laptops |
+| `x86_64-linux` | `aw88399-legion-firmware` | [aw88399-legion-firmware](https://github.com/nadimkobeissi/16iax10h-linux-sound-saga) | 0-unstable-2026-09-03 | Firmware for aw88399 audio codec on Lenovo Legion laptops |
 |  | `awawausb-native-stub` | [awawausb-native-stub](https://github.com/ArcaneNibble/awawausb) | 0.2 | Native messaging stub for the awawausb WebUSB Firefox extension |
 |  | `axiom-syslog-proxy` | [axiom-syslog-proxy](https://github.com/axiomhq/axiom-syslog-proxy) | 0.8.0 | Syslog push interface to Axiom |
 |  | `axonhub` | [axonhub](https://github.com/looplj/axonhub) | 1.0.0-beta6 | Open-source AI gateway with built-in failover, load balancing, cost control and end-to-end tracing |
@@ -123,7 +123,7 @@ Or, use variables from this repository in case I change them:
 |  | `dbip-lite` | [dbip-lite](https://db-ip.com/db/lite.php) | 2026-08 | DBIP's Lite GeoIP Country, City, and ASN databases |
 |  | `decluttarr` | [decluttarr](https://github.com/ManiMatter/decluttarr) | 1.50.2 | Watches radarr, sonarr, lidarr and readarr download queues and removes downloads if they become stalled or no longer needed |
 |  | `deeplx` | [deeplx](https://deeplx.owo.network) | 1.2.4 | Powerful Free DeepL API, No Token Required |
-|  | `devtunnel` | [AAA_devtunnel-x86_64-linux](https://learn.microsoft.com/en-us/azure/developer/dev-tunnels/) | 1.0.2014+3c9645ccd8 | Microsoft Dev Tunnels CLI for securely exposing local services to the internet |
+|  | `devtunnel` | [AAA_devtunnel-x86_64-linux](https://learn.microsoft.com/en-us/azure/developer/dev-tunnels/) | 1.0.2030+fc9273aa0f | Microsoft Dev Tunnels CLI for securely exposing local services to the internet |
 | `x86_64-linux` | `dingtalk` | [dingtalk](https://www.dingtalk.com/) | 8.1.0.6021101 | Enterprise communication and collaboration platform developed by Alibaba Group |
 |  | `dn42-pingfinder` | [dn42-pingfinder](https://git.dn42.dev/dn42/pingfinder/src/branch/master/clients) | 1.2.1-unstable-2022-11-06 | DN42 Pingfinder |
 |  | `download-kit` | [downloadkit](https://github.com/g1879/DownloadKit) | 2.0.7 | Simple to use multi-threaded download toolkit |
@@ -157,7 +157,7 @@ Or, use variables from this repository in case I change them:
 |  | `flaresolverr-21hsmw` | [flaresolverr-21hsmw](https://github.com/21hsmw/FlareSolverr) | 0-unstable-2025-03-04 | Proxy server to bypass Cloudflare protection, with 21hsmw modifications to support nodriver |
 |  | `flaresolverr-alexfozor` | [flaresolverr-alexfozor](https://github.com/AlexFozor/FlareSolverr) | 0-unstable-2024-08-04 | Proxy server to bypass Cloudflare protection, with AlexFozor modifications to support Drission Page |
 |  | `flutter_server_box` | [AAA_flutter_server_box](https://github.com/lollipopkit/flutter_server_box) | 0-unstable-2025-04-25 | flutter_server_box |
-| `x86_64-linux` | `flutter_server_box_appimage` | [AAA_flutter_server_box_appimage](https://github.com/lollipopkit/flutter_server_box/) | 1.0.1466 | flutter_server_box |
+| `x86_64-linux` | `flutter_server_box_appimage` | [AAA_flutter_server_box_appimage](https://github.com/lollipopkit/flutter_server_box/) | 1.0.1553 | flutter_server_box |
 |  | `fr24feed` | [fr24feed](https://www.flightradar24.com/share-your-data) | 1.0.57-1 | Flightradar24 Decoder & Feeder lets you effortlessly share ADS-B data with Flightradar24 |
 |  | `ftp-proxy` | [ftp-proxy](http://www.ftpproxy.org/) | 1.2.3 | FTP Proxy Server |
 |  | `funasr` | [funasr](https://www.funasr.com/) | 0-unstable-2026-08-05 | Fundamental End-to-End Speech Recognition Toolkit and Open Source SOTA Pretrained Models |
@@ -182,7 +182,7 @@ Or, use variables from this repository in case I change them:
 |  | `igsc` | [igsc](https://github.com/intel/igsc) | 1.3.1 | Intel graphics system controller firmware update library |
 |  | `imewlconverter` | [imewlconverter](https://github.com/studyzy/imewlconverter) | 3.4.3 | FOSS program for converting IME dictionaries |
 |  | `it-tools` | [it-tools](https://github.com/sharevb/it-tools) | 2026.7.11 | Collection of handy online tools for developers, with great UX |
-|  | `ja-netfilter` | [ja-netfilter](https://3.jetbra.in) | 240701 | Jetbrains IDEs crack |
+|  | `ja-netfilter` | [ja-netfilter](https://3.jetbra.in) | 240701 | ja-netfilter |
 |  | `jproxy` | [jproxy](https://github.com/LuckyPuppy514/jproxy) | 3.4.1 | Proxy between Sonarr / Radarr and Jackett / Prowlarr, mainly used to optimize search and improve recognition rate |
 |  | `kaixinsong-fonts` | [kaixinsong-fonts](http://www.guoxuedashi.net/zidian/bujian/KaiXinSong.php) | 3.0 | KaiXinSong |
 |  | `kaldiio` | [kaldiio](https://github.com/nttcslab-sp/kaldiio) | 2.18.1 | Pure python module for reading and writing kaldi ark files |
@@ -278,7 +278,7 @@ Or, use variables from this repository in case I change them:
 |  | `silero-vad` | [silero-vad](https://github.com/snakers4/silero-vad) | 6.2.1 | Pre-trained enterprise-grade Voice Activity Detector |
 |  | `smartrent_py` | [smartrent_py](https://github.com/ZacheryThomas/smartrent.py) | 0.5.2 | Api for SmartRent locks, thermostats, moisture sensors and switches |
 |  | `smfc` | [smfc](https://github.com/petersulyok/smfc) | 6.1.0 | Super Micro Fan Control |
-|  | `snell-server` | [AAA_snell-server-x86_64-linux](https://nssurge.com) | 5.0.1 |  |
+|  | `snell-server` | [AAA_snell-server-x86_64-linux](https://nssurge.com) | 6.0.0rc2 |  |
 |  | `snell-server_fhs` | snell |  |  |
 |  | `space-cadet-pinball-full-tilt` | [SpaceCadetPinball](https://github.com/k4zmu2a/SpaceCadetPinball) | 2.1.0 | Reverse engineering of 3D Pinball for Windows – Space Cadet, a game bundled with Windows (With Full Tilt Pinball data) |
 |  | `suwayomi-server` | [suwayomi-server](https://github.com/Suwayomi/Suwayomi-Server) | 2.3.2243 | Rewrite of Tachiyomi for the Desktop |
@@ -301,7 +301,7 @@ Or, use variables from this repository in case I change them:
 | `x86_64-linux` | `unigine-valley` | [unigine-valley](https://benchmark.unigine.com/valley) | 1.0 | Extreme performance and stability test for PC hardware: video card, power supply, cooling system |
 |  | `usque` | [usque](https://github.com/Diniboy1123/usque) | 4.2.1 | Open-source reimplementation of the Cloudflare WARP client's MASQUE protocol |
 |  | `v2dat` | [AAA_v2dat](https://github.com/urlesistiana/v2dat) | 0-unstable-2022-12-15 | Cli tool that can unpack v2ray data packages. (Note: This project is for fun ONLY. You should build your own data dirctly from upstreams instead of unpacking a v2ray data pack.) |
-|  | `v2ray-rules-dat` | [AAA_v2ray-rules-dat](https://github.com/Loyalsoldier/v2ray-rules-dat) | 202607312254 | V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria. |
+|  | `v2ray-rules-dat` | [AAA_v2ray-rules-dat](https://github.com/Loyalsoldier/v2ray-rules-dat) | 202609022346 | V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria. |
 |  | `vbmeta-disable-verification` | [vbmeta-disable-verification](https://github.com/libxzr/vbmeta-disable-verification) | 1.0 | Patch Android vbmeta image and disable verification flags inside |
 |  | `vgpu-unlock-rs` | [vgpu-unlock-rs](https://github.com/mbilker/vgpu_unlock-rs) | 2.5.0 | Unlock vGPU functionality for consumer grade GPUs |
 |  | `vk-hdr-layer` | [vk-hdr-layer](https://github.com/Zamundaaa/VK_hdr_layer) | 0-unstable-2026-08-05 | Vulkan layer utilizing a small color management / HDR protocol for experimentation |
@@ -324,24 +324,24 @@ Or, use variables from this repository in case I change them:
 |  | `xvcd` | [xvcd](https://github.com/RHSResearchLLC/xvcd) | 0-unstable-2019-11-20 | Xilinx Virtual Cable Daemon |
 | `Broken` | `MC-LauncherX` | [AAA_MC-LauncherX-x86_64-linux](https://kb.corona.studio/) | 18b0ac05-425f-44f9-baec-bb9d07b5371c/net9.0-linux.linux-x64 |  |
 | `Broken` `x86_64-linux` | `MIO_KITCHEN_bin` | [MIO-KITCHEN_bin](https://github.com/ColdWindScholar/MIO-KITCHEN-SOURCE) | 3.0.8 | The Android Rom Tool Use python language |
-| `Broken` | `PiliPalaX` | [AAA_PiliPalaX](https://github.com/bggRGjQaUbCoE/PiliPalaX) | 0-unstable-2026-08-01 | AAA_PiliPalaX |
+| `Broken` | `PiliPalaX` | [AAA_PiliPalaX](https://github.com/bggRGjQaUbCoE/PiliPalaX) | 0-unstable-2026-09-03 | AAA_PiliPalaX |
 | `Broken` | `boringssl-oqs` | [boringssl-oqs](https://openquantumsafe.org) | 0c663fb672d4e4018218ea7064e1fb35c480e408 | Fork of BoringSSL that includes prototype quantum-resistant key exchange and authentication in the TLS handshake based on liboqs |
 | `Broken` | `ciscoPacketTracer` | cisco-packet-tracer | 9.0.0 |  |
 | `Broken` | `coqui-tts` | [coqui-tts](http://coqui.ai) | 0.22.0 | Deep learning toolkit for Text-to-Speech, battle-tested in research and production |
 | `Broken` | `douban-openapi-server` | [douban-openapi-server](https://github.com/caryyu/douban-openapi-server) | 0-unstable-2022-12-17 | Douban API server that provides unofficial APIs for media information gathering |
 | `Broken` | `escrcpy_deb` | [escrcpy_deb](https://github.com/viarotel-org/escrcpy) | 1.18.2 | Graphical Scrcpy to display and control Android, devices powered by Electron.  |
 | `Broken` `x86_64-linux` | `example-package-appimage` | [dingtalk](https://www.dingtalk.com/) | 2.1.22 | DingTalk desktop messaging application |
-| `Broken` | `himirage_unwrapped` | [AAA_himirage-x86_64-linux-unwrapped](https://photosir.com) | 2026-08-01 17:48:06 |  |
+| `Broken` | `himirage_unwrapped` | [AAA_himirage-x86_64-linux-unwrapped](https://photosir.com) | 2026-09-03 11:21:10 |  |
 | `Broken` | `kui` | [kui](https://kui.aber.sh/) | 1.14.1 | Easy-to-use web framework |
 | `Broken` | `llqqnt` | qq | qq=3.2.18+llqqnt_rev=0-unstable-2026-05-09 |  |
 | `Broken` | `motrix` | [AAA_motrix](https://motrix.app) | 0-unstable-2023-06-07 | Full-featured download manager |
-| `Broken` | `open-interpreter` | [AAA_open-interpreter](https://github.com/OpenInterpreter/open-interpreter) | 0-unstable-2026-07-27 | A natural language interface for computers |
+| `Broken` | `open-interpreter` | [AAA_open-interpreter](https://github.com/OpenInterpreter/open-interpreter) | 0-unstable-2026-08-19 | A natural language interface for computers |
 | `Broken` | `qtscrcpy_git` | [qtscrcpy](https://github.com/barry-ran/QtScrcpy) | 2.2.1 | Android real-time display control software |
-| `Broken` | `scrcpy-mask-git` | [AAA_scrcpy-mask](https://github.com/AkiChase/scrcpy-mask) | 0-unstable-2026-06-28 | scrcpy-mask |
+| `Broken` | `scrcpy-mask-git` | [AAA_scrcpy-mask](https://github.com/AkiChase/scrcpy-mask) | 0-unstable-2026-08-16 | scrcpy-mask |
 | `Broken` | `soggy` | [soggy](https://github.com/LDAsuku/soggy) | 0-unstable-2022-12-14 | Experimental server emulator for a game I forgot its name |
 | `Broken` | `uksmd` | [uksmd](https://github.com/CachyOS/uksmd) | 1.3.0 | Userspace KSM helper daemon |
 | `Broken` `x86_64-linux` | `vmware-workstation` | [vmware-workstation](https://www.vmware.com/products/workstation-pro.html) | 17.5.1 | Industry standard desktop hypervisor for x86-64 architecture |
-| `Broken` | `watt-toolkit` | [AAA_SteamTools](https://steampp.net) | 0-unstable-2026-07-17 | an open source cross-platform multi-purpose game toolkit |
+| `Broken` | `watt-toolkit` | [AAA_SteamTools](https://steampp.net) | 0-unstable-2026-08-31 | an open source cross-platform multi-purpose game toolkit |
 </details>
 
 
@@ -449,8 +449,8 @@ Or, use variables from this repository in case I change them:
 | State | Path | Name | Version | Description |
 | ----- | ---- | ---- | ------- | ----------- |
 |  | `kernel-modules.acpi-ec` | [acpi-ec](https://github.com/musikid/acpi_ec) | 1.0.4 | Kernel module to access directly to the ACPI EC |
-| `x86_64-linux` | `kernel-modules.aw88399-legion-audio-patch` | [aw88399-legion-audio-patch](https://github.com/nadimkobeissi/16iax10h-linux-sound-saga) | 1.0.0 | Audio patches for aw88399 on Lenovo Legion laptops |
-| `x86_64-linux` | `kernel-modules.aw88399-legion-firmware` | [aw88399-legion-firmware](https://github.com/nadimkobeissi/16iax10h-linux-sound-saga) | 1.0.0 | Firmware for aw88399 audio codec on Lenovo Legion laptops |
+| `x86_64-linux` | `kernel-modules.aw88399-legion-audio-patch` | [aw88399-legion-audio-patch](https://github.com/nadimkobeissi/16iax10h-linux-sound-saga) | 0-unstable-2026-09-03 | Audio patches for aw88399 on Lenovo Legion laptops |
+| `x86_64-linux` | `kernel-modules.aw88399-legion-firmware` | [aw88399-legion-firmware](https://github.com/nadimkobeissi/16iax10h-linux-sound-saga) | 0-unstable-2026-09-03 | Firmware for aw88399 audio codec on Lenovo Legion laptops |
 |  | `kernel-modules.cryptodev-unstable` | [cryptodev-linux](http://cryptodev-linux.org/) | 1.14-unstable-2025-11-03 | Device that allows access to Linux kernel cryptographic drivers |
 | `x86_64-linux` | `kernel-modules.crystalhd` | [crystalhd](https://github.com/dbason/crystalhd) | 0-unstable-2021-01-26 | Broadcom Crystal HD Hardware Decoder (BCM70012/70015) driver |
 |  | `kernel-modules.dpdk-kmod` | [dpdk-kmod](https://git.dpdk.org/dpdk-kmods/) | 0-unstable-2024-11-20 | DPDK kernel modules or add-ons |
@@ -1579,24 +1579,24 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized-DataEraserC.cpolar` | AAA_cpolar-x86_64-linux | 3.3.12 | cpolar (Polar Cloud): Expose local web services to the public internet with ease. |
 |  | `uncategorized-DataEraserC.cudatoolkit_dev_env` | cudatoolkit_dev_env |  |  |
 |  | `uncategorized-DataEraserC.cudatoolkit_dev_env_fhs` | cudatoolkit_dev_env_fhs-shell |  |  |
-|  | `uncategorized-DataEraserC.devtunnel` | [AAA_devtunnel-x86_64-linux](https://learn.microsoft.com/en-us/azure/developer/dev-tunnels/) | 1.0.2014+3c9645ccd8 | Microsoft Dev Tunnels CLI for securely exposing local services to the internet |
+|  | `uncategorized-DataEraserC.devtunnel` | [AAA_devtunnel-x86_64-linux](https://learn.microsoft.com/en-us/azure/developer/dev-tunnels/) | 1.0.2030+fc9273aa0f | Microsoft Dev Tunnels CLI for securely exposing local services to the internet |
 | `x86_64-linux` | `uncategorized-DataEraserC.escrcpy_appimage` | [escrcpy](https://github.com/keiko233/clash-nyanpasu) | 1.16.3 | Clash GUI based on tauri |
 |  | `uncategorized-DataEraserC.example-package` | example-package-1.0 | 1.0 |  |
 |  | `uncategorized-DataEraserC.fcitx5-pinyin-CustomPinyinDictionary` | [AAA_CustomPinyinDictionary_Fcitx](https://github.com/wuhgit/CustomPinyinDictionary) | 20260101 | 自建拼音输入法词库，百万常用词汇量，适配 Fcitx5 (Linux / Android) 及 Gboard (Android + Magisk or KernelSU) |
 |  | `uncategorized-DataEraserC.fhs` | fhs |  |  |
 |  | `uncategorized-DataEraserC.flutter_server_box` | [AAA_flutter_server_box](https://github.com/lollipopkit/flutter_server_box) | 0-unstable-2025-04-25 | flutter_server_box |
-| `x86_64-linux` | `uncategorized-DataEraserC.flutter_server_box_appimage` | [AAA_flutter_server_box_appimage](https://github.com/lollipopkit/flutter_server_box/) | 1.0.1466 | flutter_server_box |
+| `x86_64-linux` | `uncategorized-DataEraserC.flutter_server_box_appimage` | [AAA_flutter_server_box_appimage](https://github.com/lollipopkit/flutter_server_box/) | 1.0.1553 | flutter_server_box |
 |  | `uncategorized-DataEraserC.hdrop` | [AAA_hdrop](https://github.com/Schweber/hdrop) | 0-unstable-2026-02-17 | Emulate 'tdrop' in Hyprland (run, show and hide specific programs per keybind) |
 |  | `uncategorized-DataEraserC.hkdm` | [hkdm](https://gitlab.com/postmarketOS/hkdm) | 0.2.1 | Lighter-weight hotkey daemon |
-|  | `uncategorized-DataEraserC.ja-netfilter` | [ja-netfilter](https://3.jetbra.in) | 240701 | Jetbrains IDEs crack |
+|  | `uncategorized-DataEraserC.ja-netfilter` | [ja-netfilter](https://3.jetbra.in) | 240701 | ja-netfilter |
 |  | `uncategorized-DataEraserC.ndrop` | [AAA_ndrop](https://github.com/Schweber/ndrop) | 0-unstable-2026-01-25 | Emulate 'tdrop' in niri (run, show and hide programs via keybind - similar to a dropdown terminal) |
 |  | `uncategorized-DataEraserC.pgy` | [pgy](https://pgy.oray.com/download/) | 6.9.0 | Client for the Oray PgyVisitor software-defined networking platform |
 |  | `uncategorized-DataEraserC.pgy_fhs` | [pgy](https://pgy.oray.com/download/) |  | Client for the Oray PgyVisitor software-defined networking platform |
-|  | `uncategorized-DataEraserC.snell-server` | [AAA_snell-server-x86_64-linux](https://nssurge.com) | 5.0.1 |  |
+|  | `uncategorized-DataEraserC.snell-server` | [AAA_snell-server-x86_64-linux](https://nssurge.com) | 6.0.0rc2 |  |
 |  | `uncategorized-DataEraserC.snell-server_fhs` | snell |  |  |
 |  | `uncategorized-DataEraserC.ttyescape` | [AAA_ttyescape](https://gitlab.com/postmarketOS/ttyescape) | 0-unstable-2023-03-08 | ttyescape |
 |  | `uncategorized-DataEraserC.v2dat` | [AAA_v2dat](https://github.com/urlesistiana/v2dat) | 0-unstable-2022-12-15 | Cli tool that can unpack v2ray data packages. (Note: This project is for fun ONLY. You should build your own data dirctly from upstreams instead of unpacking a v2ray data pack.) |
-|  | `uncategorized-DataEraserC.v2ray-rules-dat` | [AAA_v2ray-rules-dat](https://github.com/Loyalsoldier/v2ray-rules-dat) | 202607312254 | V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria. |
+|  | `uncategorized-DataEraserC.v2ray-rules-dat` | [AAA_v2ray-rules-dat](https://github.com/Loyalsoldier/v2ray-rules-dat) | 202609022346 | V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria. |
 |  | `uncategorized-DataEraserC.watt-toolkit_2` | [watt-toolkit](https://steampp.net) | 2.8.6 | Cross-platform Steam toolbox |
 |  | `uncategorized-DataEraserC.watt-toolkit_bin` | [AAA_SteamTools-x86_64-linux](https://steampp.net) | 3.1.0 | an open source cross-platform multi-purpose game toolkit |
 |  | `uncategorized-DataEraserC.waybar_bluetooth_battery_parse` | waybar-bluetooth_battery_parse | 0.0.2 |  |
@@ -1605,17 +1605,17 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized-DataEraserC.xcursor-genshin-nahida` | [xcursor-genshin-nahida](https://aur.archlinux.org/packages/xcursor-genshin-nahida) | 1.0-2 | xcursor genshin nahida |
 | `Broken` | `uncategorized-DataEraserC.MC-LauncherX` | [AAA_MC-LauncherX-x86_64-linux](https://kb.corona.studio/) | 18b0ac05-425f-44f9-baec-bb9d07b5371c/net9.0-linux.linux-x64 |  |
 | `Broken` `x86_64-linux` | `uncategorized-DataEraserC.MIO_KITCHEN_bin` | [MIO-KITCHEN_bin](https://github.com/ColdWindScholar/MIO-KITCHEN-SOURCE) | 3.0.8 | The Android Rom Tool Use python language |
-| `Broken` | `uncategorized-DataEraserC.PiliPalaX` | [AAA_PiliPalaX](https://github.com/bggRGjQaUbCoE/PiliPalaX) | 0-unstable-2026-08-01 | AAA_PiliPalaX |
+| `Broken` | `uncategorized-DataEraserC.PiliPalaX` | [AAA_PiliPalaX](https://github.com/bggRGjQaUbCoE/PiliPalaX) | 0-unstable-2026-09-03 | AAA_PiliPalaX |
 | `Broken` | `uncategorized-DataEraserC.ciscoPacketTracer` | cisco-packet-tracer | 9.0.0 |  |
 | `Broken` | `uncategorized-DataEraserC.escrcpy_deb` | [escrcpy_deb](https://github.com/viarotel-org/escrcpy) | 1.18.2 | Graphical Scrcpy to display and control Android, devices powered by Electron.  |
 | `Broken` `x86_64-linux` | `uncategorized-DataEraserC.example-package-appimage` | [dingtalk](https://www.dingtalk.com/) | 2.1.22 | DingTalk desktop messaging application |
-| `Broken` | `uncategorized-DataEraserC.himirage_unwrapped` | [AAA_himirage-x86_64-linux-unwrapped](https://photosir.com) | 2026-08-01 17:48:06 |  |
+| `Broken` | `uncategorized-DataEraserC.himirage_unwrapped` | [AAA_himirage-x86_64-linux-unwrapped](https://photosir.com) | 2026-09-03 11:21:10 |  |
 | `Broken` | `uncategorized-DataEraserC.llqqnt` | qq | qq=3.2.18+llqqnt_rev=0-unstable-2026-05-09 |  |
 | `Broken` | `uncategorized-DataEraserC.motrix` | [AAA_motrix](https://motrix.app) | 0-unstable-2023-06-07 | Full-featured download manager |
-| `Broken` | `uncategorized-DataEraserC.open-interpreter` | [AAA_open-interpreter](https://github.com/OpenInterpreter/open-interpreter) | 0-unstable-2026-07-27 | A natural language interface for computers |
+| `Broken` | `uncategorized-DataEraserC.open-interpreter` | [AAA_open-interpreter](https://github.com/OpenInterpreter/open-interpreter) | 0-unstable-2026-08-19 | A natural language interface for computers |
 | `Broken` | `uncategorized-DataEraserC.qtscrcpy_git` | [qtscrcpy](https://github.com/barry-ran/QtScrcpy) | 2.2.1 | Android real-time display control software |
-| `Broken` | `uncategorized-DataEraserC.scrcpy-mask-git` | [AAA_scrcpy-mask](https://github.com/AkiChase/scrcpy-mask) | 0-unstable-2026-06-28 | scrcpy-mask |
+| `Broken` | `uncategorized-DataEraserC.scrcpy-mask-git` | [AAA_scrcpy-mask](https://github.com/AkiChase/scrcpy-mask) | 0-unstable-2026-08-16 | scrcpy-mask |
 | `Broken` `x86_64-linux` | `uncategorized-DataEraserC.vmware-workstation` | [vmware-workstation](https://www.vmware.com/products/workstation-pro.html) | 17.5.1 | Industry standard desktop hypervisor for x86-64 architecture |
-| `Broken` | `uncategorized-DataEraserC.watt-toolkit` | [AAA_SteamTools](https://steampp.net) | 0-unstable-2026-07-17 | an open source cross-platform multi-purpose game toolkit |
+| `Broken` | `uncategorized-DataEraserC.watt-toolkit` | [AAA_SteamTools](https://steampp.net) | 0-unstable-2026-08-31 | an open source cross-platform multi-purpose game toolkit |
 </details>
 

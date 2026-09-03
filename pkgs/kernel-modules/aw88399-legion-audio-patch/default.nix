@@ -1,12 +1,12 @@
 {
+  sources,
   stdenv,
   lib,
 }:
 stdenv.mkDerivation {
   pname = "aw88399-legion-audio-patch";
-  version = "1.0.0";
 
-  src = lib.cleanSource ./source;
+  inherit (sources.AAA_16iax10h-linux-sound-saga) version src;
 
   dontBuild = true;
   dontConfigure = true;
@@ -14,7 +14,7 @@ stdenv.mkDerivation {
   installPhase = ''
     runHook preInstall
     mkdir -p $out
-    cp -f *.patch $out/
+    cp -f patch-archive/*.patch $out/
     runHook postInstall
   '';
 

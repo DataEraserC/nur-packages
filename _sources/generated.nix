@@ -6,6 +6,16 @@
   dockerTools,
 }:
 {
+  AAA_16iax10h-linux-sound-saga = {
+    pname = "AAA_16iax10h-linux-sound-saga";
+    version = "c87dae9e8307c205dc1f8a75fa369f0c35928831";
+    src = fetchgit {
+      url = "https://github.com/Apps-Used-By-Myself/16iax10h-linux-sound-saga";
+      rev = "c87dae9e8307c205dc1f8a75fa369f0c35928831";
+      hash = "sha256-mAj11frNVyoHzgYfY3OqkTjhYu7sEeLjjCNtoNwN4xs=";
+    };
+    date = "2026-09-03";
+  };
   AAA_CustomPinyinDictionary_Fcitx = {
     pname = "AAA_CustomPinyinDictionary_Fcitx";
     version = "20260101";
@@ -28,10 +38,10 @@
   };
   AAA_MC-LauncherX-JSON = {
     pname = "AAA_MC-LauncherX-JSON";
-    version = "2026-04-09T15:06:03";
+    version = "2026-08-02T03:05:11";
     src = fetchurl {
       url = "https://api.corona.studio/Build/get/latest/all/stable";
-      hash = "sha256-Zs3xR3n/EpsGJB6s+5oaYyQUFqSuFGa51Kfoi0b7PrY=";
+      hash = "sha256-H0M1IaOsqnJ3XFnnB4mm9uMXcjbW28QvPkkagm+rH4c=";
     };
   };
   AAA_MC-LauncherX-aarch64-darwin = {
@@ -68,72 +78,39 @@
   };
   AAA_OpenFreebuds = {
     pname = "AAA_OpenFreebuds";
-    version = "79a4bb7b56764807ee97fff50faa6f5b0be66122";
+    version = "f7d9e1d72353d76403642d1d6d6cac147a4a0810";
     src = fetchFromGitHub {
       owner = "melianmiko";
       repo = "OpenFreebuds";
-      rev = "79a4bb7b56764807ee97fff50faa6f5b0be66122";
+      rev = "f7d9e1d72353d76403642d1d6d6cac147a4a0810";
       fetchSubmodules = true;
-      hash = "sha256-dp8NwuaQIZmoSOzVROGghJxhx+sARP/BdTmv9jsu4MM=";
+      hash = "sha256-un11+l6sSNajreYHgg45jFdZIhPoWIfsYD0/xu5BKS8=";
     };
-    date = "2026-06-02";
+    date = "2026-08-29";
   };
-  AAA_pgylinux-amd64 = {
-    pname = "AAA_pgylinux-amd64";
-    version = "6.9.0";
-    src = fetchurl {
-      url = "https://dl.oray.com/pgy/linux/PgyVisitor-6.9.0-amd64.deb";
-      sha256 = "sha256-OlPhs2Jm9QMcm001wC3xhYNDf+2zhKWOiX3efCrItg0=";
-    };
-  };
-  AAA_pgylinux-arm32 = {
-    pname = "AAA_pgylinux-arm32";
-    version = "6.9.0";
-    src = fetchurl {
-      url = "https://dl.oray.com/pgy/linux/PgyVisitor-6.9.0-arm32.deb";
-      sha256 = "sha256-vaCCqtRckp9QGem7BgUkb12e7/qd8LuTr6EtZ05HgvA=";
-    };
-  };
-  AAA_pgylinux-arm64 = {
-    pname = "AAA_pgylinux-arm64";
-    version = "6.9.0";
-    src = fetchurl {
-      url = "https://dl.oray.com/pgy/linux/PgyVisitor-6.9.0-arm64.deb";
-      sha256 = "sha256-/ymgLcnSwZ4ZeCiM1DkEzh1gZt1c4jcZbeuAAGagxlk=";
-    };
-  };
-  AAA_pgylinux-i386 = {
-    pname = "AAA_pgylinux-i386";
-    version = "6.9.0";
-    src = fetchurl {
-      url = "https://dl.oray.com/pgy/linux/PgyVisitor-6.9.0-i386.deb";
-      sha256 = "sha256-6jbLatpVyNwBQ4y8Sj3zNGW87s108cb3/yGAnPGig00=";
-    };
-  };
-
   AAA_PiliPalaX = {
     pname = "AAA_PiliPalaX";
-    version = "f9a9e221b08159f08a8a007fb82bd82c6170e5ea";
+    version = "5a6f3feaea37db997eae0671ef86490022b0d7df";
     src = fetchFromGitHub {
       owner = "bggRGjQaUbCoE";
       repo = "PiliPlus";
-      rev = "f9a9e221b08159f08a8a007fb82bd82c6170e5ea";
+      rev = "5a6f3feaea37db997eae0671ef86490022b0d7df";
       fetchSubmodules = true;
-      hash = "sha256-P6eEgtyTb9/TgGApWbfvyy30FtjP/XlyNY05gC9SYe0=";
+      hash = "sha256-hQi3q4GhE3is3BfUeHZzZLBsXWEPgfUk13SFLeSHy+4=";
     };
-    date = "2026-08-01";
+    date = "2026-09-03";
   };
   AAA_SteamTools = {
     pname = "AAA_SteamTools";
-    version = "c16ffa08e03b192d23ada290c4969e77f9201f3d";
+    version = "d04213147e77a8d73277fa8b86eeecfa444df071";
     src = fetchFromGitHub {
       owner = "BeyondDimension";
       repo = "SteamTools";
-      rev = "c16ffa08e03b192d23ada290c4969e77f9201f3d";
+      rev = "d04213147e77a8d73277fa8b86eeecfa444df071";
       fetchSubmodules = true;
-      hash = "sha256-PKFLZzCRU9f7BC8Sl5z5pkks7fzqaBQDtZQBR2NwjVY=";
+      hash = "sha256-qP1SYATEmyEsJ3W9VNtQT5+jYntoorZjEbO21VpiKF4=";
     };
-    date = "2026-07-17";
+    date = "2026-08-31";
   };
   AAA_SteamTools-aarch64-linux = {
     pname = "AAA_SteamTools-aarch64-linux";
@@ -148,7 +125,7 @@
     version = "3.1.0";
     src = fetchurl {
       url = "https://github.com/BeyondDimension/SteamTools/releases/download/3.1.0/Steam++_v3.1.0_macos.dmg";
-      hash = "sha256-QBbta7pfTu8U7n2lUN/y0pqNhUg68vytd+vaAuvAvn0=";
+      hash = "sha256-ft6K3rim8xHHAZOh48ZPN4UlVayrrfS8QXMZa+CrNas=";
     };
   };
   AAA_SteamTools-x86_64-linux = {
@@ -260,42 +237,42 @@
   };
   AAA_devtunnel-aarch64-darwin = {
     pname = "AAA_devtunnel-aarch64-darwin";
-    version = "1.0.2014+3c9645ccd8";
+    version = "1.0.2030+fc9273aa0f";
     src = fetchurl {
-      url = "https://tunnelsassetsprod.blob.core.windows.net/cli/1.0.2014+3c9645ccd8/osx-arm64-devtunnel";
-      hash = "sha256-bGsFAkpCLkF5OHIDsybEjGipNo9exwgyyz3/YWuec00=";
+      url = "https://tunnelsassetsprod.blob.core.windows.net/cli/1.0.2030+fc9273aa0f/osx-arm64-devtunnel";
+      hash = "sha256-AE88yOvM5hIjusrIDTGTfrLpLq7poFYAocti+193Wv4=";
     };
   };
   AAA_devtunnel-aarch64-linux = {
     pname = "AAA_devtunnel-aarch64-linux";
-    version = "1.0.2014+3c9645ccd8";
+    version = "1.0.2030+fc9273aa0f";
     src = fetchurl {
-      url = "https://tunnelsassetsprod.blob.core.windows.net/cli/1.0.2014+3c9645ccd8/linux-arm64-devtunnel";
-      hash = "sha256-+Trqc8JxN7nnskRYfRFbXaYmP93QE1ro2OOkMH0g2ls=";
+      url = "https://tunnelsassetsprod.blob.core.windows.net/cli/1.0.2030+fc9273aa0f/linux-arm64-devtunnel";
+      hash = "sha256-96duARej6NW/v5QW40gM2sNsK0uxDSaD8HgNyShLZC8=";
     };
   };
   AAA_devtunnel-x86_64-darwin = {
     pname = "AAA_devtunnel-x86_64-darwin";
-    version = "1.0.2014+3c9645ccd8";
+    version = "1.0.2030+fc9273aa0f";
     src = fetchurl {
-      url = "https://tunnelsassetsprod.blob.core.windows.net/cli/1.0.2014+3c9645ccd8/osx-x64-devtunnel";
-      hash = "sha256-cYchv8MTKcbrxPw9w0cV2ZS2WAUbX4TBj2KWEzFdLrc=";
+      url = "https://tunnelsassetsprod.blob.core.windows.net/cli/1.0.2030+fc9273aa0f/osx-x64-devtunnel";
+      hash = "sha256-o0+Qa/u5lETsRaCEv6yAKEufORnIF0GoOLPqt146zfM=";
     };
   };
   AAA_devtunnel-x86_64-linux = {
     pname = "AAA_devtunnel-x86_64-linux";
-    version = "1.0.2014+3c9645ccd8";
+    version = "1.0.2030+fc9273aa0f";
     src = fetchurl {
-      url = "https://tunnelsassetsprod.blob.core.windows.net/cli/1.0.2014+3c9645ccd8/linux-x64-devtunnel";
-      hash = "sha256-XWA0tL+B3q1iY1VR2NlrNjQD5cpTB6amU6sx0cc9AMw=";
+      url = "https://tunnelsassetsprod.blob.core.windows.net/cli/1.0.2030+fc9273aa0f/linux-x64-devtunnel";
+      hash = "sha256-/2kRVIkHtauupO1bqjayQgvnxd68tjek9Q96QAKxC2A=";
     };
   };
   AAA_escrcpy_appimage = {
     pname = "AAA_escrcpy_appimage";
-    version = "2.11.1";
+    version = "3.2.0";
     src = fetchurl {
-      url = "https://github.com/viarotel-org/escrcpy/releases/download/v2.11.1/Escrcpy-2.11.1-linux-x86_64.AppImage";
-      hash = "sha256-JN+Int2G0ZnGY7XTl56pqTTdx9AX9369Ijbc+t504Pc=";
+      url = "https://github.com/viarotel-org/escrcpy/releases/download/v3.2.0/Escrcpy-3.2.0-linux-x86_64.AppImage";
+      hash = "sha256-VUn/N6BZnCunUTv/2uSh4JJETLAhjIsgKgdgAdJTCmY=";
     };
   };
   AAA_flutter_server_box = {
@@ -312,10 +289,10 @@
   };
   AAA_flutter_server_box_appimage = {
     pname = "AAA_flutter_server_box_appimage";
-    version = "v1.0.1466";
+    version = "v1.0.1553";
     src = fetchurl {
-      url = "https://github.com/lollipopkit/flutter_server_box/releases/download/v1.0.1466/ServerBox_v1.0.1466_amd64.AppImage";
-      hash = "sha256-R9/Pt2oKCncYk4wzTrCuhHQUSnaS3Q2Z3aBXRQofmKY=";
+      url = "https://github.com/lollipopkit/flutter_server_box/releases/download/v1.0.1553/ServerBox_v1.0.1553_amd64.AppImage";
+      hash = "sha256-naFZX4jmwFjgBoEOD+nxtafnBbPh7sfIJjQd/nWcxgo=";
     };
   };
   AAA_hdrop = {
@@ -332,10 +309,10 @@
   };
   AAA_himirage-JSON = {
     pname = "AAA_himirage-JSON";
-    version = "2026-08-01 17:48:06";
+    version = "2026-09-03 11:21:10";
     src = fetchurl {
       url = "https://album.photosir.cn/upgradePackage/infoall/photosir";
-      hash = "sha256-uv3LJJqd0dlO0jHmaTxii8oxnJZM9FkjVW14SIaDvc4=";
+      hash = "sha256-zvri7iUvF4cXT9P/VmxhoBKBGz+bSzKxI/HBMDrQEJs=";
     };
   };
   AAA_himirage-aarch64-darwin = {
@@ -468,15 +445,47 @@
   };
   AAA_open-interpreter = {
     pname = "AAA_open-interpreter";
-    version = "f7112ffc791e01c4dfb06ad4a4e03a191bee6c4a";
+    version = "5b07159c477920c159d8892d112b480e7307f257";
     src = fetchFromGitHub {
       owner = "OpenInterpreter";
       repo = "open-interpreter";
-      rev = "f7112ffc791e01c4dfb06ad4a4e03a191bee6c4a";
+      rev = "5b07159c477920c159d8892d112b480e7307f257";
       fetchSubmodules = true;
-      hash = "sha256-B8pazFWKeU0cvLowTsSZLCjUsXjzPtqBNTqRifobQ40=";
+      hash = "sha256-sdYloCCBNPut67p6HYjUHLCdt0JGnHBMD/UDpplevus=";
     };
-    date = "2026-07-27";
+    date = "2026-08-19";
+  };
+  AAA_pgylinux-amd64 = {
+    pname = "AAA_pgylinux-amd64";
+    version = "6.9.0";
+    src = fetchurl {
+      url = "https://dl.oray.com/pgy/linux/PgyVisitor-6.9.0-amd64.deb";
+      hash = "sha256-OlPhs2Jm9QMcm001wC3xhYNDf+2zhKWOiX3efCrItg0=";
+    };
+  };
+  AAA_pgylinux-arm32 = {
+    pname = "AAA_pgylinux-arm32";
+    version = "6.9.0";
+    src = fetchurl {
+      url = "https://dl.oray.com/pgy/linux/PgyVisitor-6.9.0-arm32.deb";
+      hash = "sha256-vaCCqtRckp9QGem7BgUkb12e7/qd8LuTr6EtZ05HgvA=";
+    };
+  };
+  AAA_pgylinux-arm64 = {
+    pname = "AAA_pgylinux-arm64";
+    version = "6.9.0";
+    src = fetchurl {
+      url = "https://dl.oray.com/pgy/linux/PgyVisitor-6.9.0-arm64.deb";
+      hash = "sha256-/ymgLcnSwZ4ZeCiM1DkEzh1gZt1c4jcZbeuAAGagxlk=";
+    };
+  };
+  AAA_pgylinux-i386 = {
+    pname = "AAA_pgylinux-i386";
+    version = "6.9.0";
+    src = fetchurl {
+      url = "https://dl.oray.com/pgy/linux/PgyVisitor-6.9.0-i386.deb";
+      hash = "sha256-6jbLatpVyNwBQ4y8Sj3zNGW87s108cb3/yGAnPGig00=";
+    };
   };
   AAA_rwkv = {
     pname = "AAA_rwkv";
@@ -488,15 +497,15 @@
   };
   AAA_scrcpy-mask = {
     pname = "AAA_scrcpy-mask";
-    version = "7fdfd0d36f46f82ad6a96e0d78641d1c3c50d5da";
+    version = "02edc6bea7547500eaa95786e7a3ae68c26d05aa";
     src = fetchFromGitHub {
       owner = "AkiChase";
       repo = "scrcpy-mask";
-      rev = "7fdfd0d36f46f82ad6a96e0d78641d1c3c50d5da";
+      rev = "02edc6bea7547500eaa95786e7a3ae68c26d05aa";
       fetchSubmodules = true;
-      hash = "sha256-a6Od5yX14uzCYmB2ore7CvfGiVrvesuoxY77SYTdMT8=";
+      hash = "sha256-UAV1wM0x6YYfzzmFMTUs8PLy1Wiar1zvnkE2WyggUaU=";
     };
-    date = "2026-06-28";
+    date = "2026-08-16";
   };
   AAA_snell-server-aarch32-linux = {
     pname = "AAA_snell-server-aarch32-linux";
@@ -508,26 +517,26 @@
   };
   AAA_snell-server-aarch64-linux = {
     pname = "AAA_snell-server-aarch64-linux";
-    version = "v5.0.1";
+    version = "v6.0.0rc2";
     src = fetchurl {
-      url = "https://dl.nssurge.com/snell/snell-server-v5.0.1-linux-aarch64.zip";
-      hash = "sha256-LxeL9axGjOGhMEVO+kCgYD+75OR+zEiAqYn0q8f4JM8=";
+      url = "https://dl.nssurge.com/snell/snell-server-v6.0.0rc2-linux-aarch64.zip";
+      hash = "sha256-oLKRXLx33Duvj6Bp50HCCAjYoQw6ipPnCaClgGRcO9c=";
     };
   };
   AAA_snell-server-i686-linux = {
     pname = "AAA_snell-server-i686-linux";
-    version = "v5.0.1";
+    version = "v6.0.0rc2";
     src = fetchurl {
-      url = "https://dl.nssurge.com/snell/snell-server-v5.0.1-linux-i386.zip";
-      hash = "sha256-aj4wkoMVQn1vdH8mQI0PdOuI9GA0TQ4fyz98MscIoJ0=";
+      url = "https://dl.nssurge.com/snell/snell-server-v6.0.0rc2-linux-i386.zip";
+      hash = "sha256-ZwYO95rE7wu2TFIDAjlmILOgb49tXOtFC+KD5Pp0kzU=";
     };
   };
   AAA_snell-server-x86_64-linux = {
     pname = "AAA_snell-server-x86_64-linux";
-    version = "v5.0.1";
+    version = "v6.0.0rc2";
     src = fetchurl {
-      url = "https://dl.nssurge.com/snell/snell-server-v5.0.1-linux-amd64.zip";
-      hash = "sha256-m+ocK541tzsxY0hWwE0Yw5MHK55dzeajJ4HYuPkIxTk=";
+      url = "https://dl.nssurge.com/snell/snell-server-v6.0.0rc2-linux-amd64.zip";
+      hash = "sha256-ipxEY8qHz6Xqo3xq8NN6uT6idaoSORmFuyo3XKOr1/I=";
     };
   };
   AAA_ttyescape = {
@@ -555,10 +564,10 @@
   };
   AAA_v2ray-rules-dat = {
     pname = "AAA_v2ray-rules-dat";
-    version = "202607312254";
+    version = "202609022346";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202607312254/rules.zip";
-      hash = "sha256-lpKJt8+dA1GooqoyAoAOU28YJ+48NHjw3KJOPtAQ8Gw=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202609022346/rules.zip";
+      hash = "sha256-hP29E+XU7UXbu163QUWme3i2r+KjdQS+QU42L/jDRlo=";
     };
   };
   AAA_wechat-web-devtools-linux_appimage = {

@@ -1,3 +1,7 @@
+[AAA_16iax10h-linux-sound-saga]
+fetch.git = "https://github.com/Apps-Used-By-Myself/16iax10h-linux-sound-saga"
+src.git = "https://github.com/Apps-Used-By-Myself/16iax10h-linux-sound-saga"
+
 [AAA_CustomPinyinDictionary_Fcitx]
 fetch.url = "https://github.com/wuhgit/CustomPinyinDictionary/releases/download/assets/CustomPinyinDictionary_Fcitx.dict"
 src.webpage = "https://api.github.com/repos/wuhgit/CustomPinyinDictionary/releases/latest"

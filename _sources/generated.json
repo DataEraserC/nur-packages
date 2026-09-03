@@ -1,4 +1,24 @@
 {
+    "AAA_16iax10h-linux-sound-saga": {
+        "cargoLock": null,
+        "date": "2026-09-03",
+        "extract": null,
+        "name": "AAA_16iax10h-linux-sound-saga",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "rev": "c87dae9e8307c205dc1f8a75fa369f0c35928831",
+            "sha256": "sha256-mAj11frNVyoHzgYfY3OqkTjhYu7sEeLjjCNtoNwN4xs=",
+            "sparseCheckout": [],
+            "type": "git",
+            "url": "https://github.com/Apps-Used-By-Myself/16iax10h-linux-sound-saga"
+        },
+        "version": "c87dae9e8307c205dc1f8a75fa369f0c35928831"
+    },
     "AAA_CustomPinyinDictionary_Fcitx": {
         "cargoLock": null,
         "date": null,
@@ -44,11 +64,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-Zs3xR3n/EpsGJB6s+5oaYyQUFqSuFGa51Kfoi0b7PrY=",
+            "sha256": "sha256-H0M1IaOsqnJ3XFnnB4mm9uMXcjbW28QvPkkagm+rH4c=",
             "type": "url",
             "url": "https://api.corona.studio/Build/get/latest/all/stable"
         },
-        "version": "2026-04-09T15:06:03"
+        "version": "2026-08-02T03:05:11"
     },
     "AAA_MC-LauncherX-aarch64-darwin": {
         "cargoLock": null,
@@ -112,7 +132,7 @@
     },
     "AAA_OpenFreebuds": {
         "cargoLock": null,
-        "date": "2026-06-02",
+        "date": "2026-08-29",
         "extract": null,
         "name": "AAA_OpenFreebuds",
         "passthru": null,
@@ -124,76 +144,16 @@
             "name": null,
             "owner": "melianmiko",
             "repo": "OpenFreebuds",
-            "rev": "79a4bb7b56764807ee97fff50faa6f5b0be66122",
-            "sha256": "sha256-dp8NwuaQIZmoSOzVROGghJxhx+sARP/BdTmv9jsu4MM=",
+            "rev": "f7d9e1d72353d76403642d1d6d6cac147a4a0810",
+            "sha256": "sha256-un11+l6sSNajreYHgg45jFdZIhPoWIfsYD0/xu5BKS8=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "79a4bb7b56764807ee97fff50faa6f5b0be66122"
-    },
-"AAA_pgylinux-amd64": {
-        "cargoLock": null,
-        "date": null,
-        "extract": null,
-        "name": "AAA_pgylinux-amd64",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "name": null,
-            "sha256": "sha256-OlPhs2Jm9QMcm001wC3xhYNDf+2zhKWOiX3efCrItg0=",
-            "type": "url",
-            "url": "https://dl.oray.com/pgy/linux/PgyVisitor-6.9.0-amd64.deb"
-        },
-        "version": "6.9.0"
-    },
-    "AAA_pgylinux-arm32": {
-        "cargoLock": null,
-        "date": null,
-        "extract": null,
-        "name": "AAA_pgylinux-arm32",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "name": null,
-            "sha256": "sha256-vaCCqtRckp9QGem7BgUkb12e7/qd8LuTr6EtZ05HgvA=",
-            "type": "url",
-            "url": "https://dl.oray.com/pgy/linux/PgyVisitor-6.9.0-arm32.deb"
-        },
-        "version": "6.9.0"
-    },
-    "AAA_pgylinux-arm64": {
-        "cargoLock": null,
-        "date": null,
-        "extract": null,
-        "name": "AAA_pgylinux-arm64",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "name": null,
-            "sha256": "sha256-/ymgLcnSwZ4ZeCiM1DkEzh1gZt1c4jcZbeuAAGagxlk=",
-            "type": "url",
-            "url": "https://dl.oray.com/pgy/linux/PgyVisitor-6.9.0-arm64.deb"
-        },
-        "version": "6.9.0"
-    },
-    "AAA_pgylinux-i386": {
-        "cargoLock": null,
-        "date": null,
-        "extract": null,
-        "name": "AAA_pgylinux-i386",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "name": null,
-            "sha256": "sha256-6jbLatpVyNwBQ4y8Sj3zNGW87s108cb3/yGAnPGig00=",
-            "type": "url",
-            "url": "https://dl.oray.com/pgy/linux/PgyVisitor-6.9.0-i386.deb"
-        },
-        "version": "6.9.0"
+        "version": "f7d9e1d72353d76403642d1d6d6cac147a4a0810"
     },
     "AAA_PiliPalaX": {
         "cargoLock": null,
-        "date": "2026-08-01",
+        "date": "2026-09-03",
         "extract": null,
         "name": "AAA_PiliPalaX",
         "passthru": null,
@@ -205,16 +165,16 @@
             "name": null,
             "owner": "bggRGjQaUbCoE",
             "repo": "PiliPlus",
-            "rev": "f9a9e221b08159f08a8a007fb82bd82c6170e5ea",
-            "sha256": "sha256-P6eEgtyTb9/TgGApWbfvyy30FtjP/XlyNY05gC9SYe0=",
+            "rev": "5a6f3feaea37db997eae0671ef86490022b0d7df",
+            "sha256": "sha256-hQi3q4GhE3is3BfUeHZzZLBsXWEPgfUk13SFLeSHy+4=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "f9a9e221b08159f08a8a007fb82bd82c6170e5ea"
+        "version": "5a6f3feaea37db997eae0671ef86490022b0d7df"
     },
     "AAA_SteamTools": {
         "cargoLock": null,
-        "date": "2026-07-17",
+        "date": "2026-08-31",
         "extract": null,
         "name": "AAA_SteamTools",
         "passthru": null,
@@ -226,12 +186,12 @@
             "name": null,
             "owner": "BeyondDimension",
             "repo": "SteamTools",
-            "rev": "c16ffa08e03b192d23ada290c4969e77f9201f3d",
-            "sha256": "sha256-PKFLZzCRU9f7BC8Sl5z5pkks7fzqaBQDtZQBR2NwjVY=",
+            "rev": "d04213147e77a8d73277fa8b86eeecfa444df071",
+            "sha256": "sha256-qP1SYATEmyEsJ3W9VNtQT5+jYntoorZjEbO21VpiKF4=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "c16ffa08e03b192d23ada290c4969e77f9201f3d"
+        "version": "d04213147e77a8d73277fa8b86eeecfa444df071"
     },
     "AAA_SteamTools-aarch64-linux": {
         "cargoLock": null,
@@ -257,7 +217,7 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-QBbta7pfTu8U7n2lUN/y0pqNhUg68vytd+vaAuvAvn0=",
+            "sha256": "sha256-ft6K3rim8xHHAZOh48ZPN4UlVayrrfS8QXMZa+CrNas=",
             "type": "url",
             "url": "https://github.com/BeyondDimension/SteamTools/releases/download/3.1.0/Steam++_v3.1.0_macos.dmg"
         },
@@ -469,11 +429,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-bGsFAkpCLkF5OHIDsybEjGipNo9exwgyyz3/YWuec00=",
+            "sha256": "sha256-AE88yOvM5hIjusrIDTGTfrLpLq7poFYAocti+193Wv4=",
             "type": "url",
-            "url": "https://tunnelsassetsprod.blob.core.windows.net/cli/1.0.2014+3c9645ccd8/osx-arm64-devtunnel"
+            "url": "https://tunnelsassetsprod.blob.core.windows.net/cli/1.0.2030+fc9273aa0f/osx-arm64-devtunnel"
         },
-        "version": "1.0.2014+3c9645ccd8"
+        "version": "1.0.2030+fc9273aa0f"
     },
     "AAA_devtunnel-aarch64-linux": {
         "cargoLock": null,
@@ -484,11 +444,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-+Trqc8JxN7nnskRYfRFbXaYmP93QE1ro2OOkMH0g2ls=",
+            "sha256": "sha256-96duARej6NW/v5QW40gM2sNsK0uxDSaD8HgNyShLZC8=",
             "type": "url",
-            "url": "https://tunnelsassetsprod.blob.core.windows.net/cli/1.0.2014+3c9645ccd8/linux-arm64-devtunnel"
+            "url": "https://tunnelsassetsprod.blob.core.windows.net/cli/1.0.2030+fc9273aa0f/linux-arm64-devtunnel"
         },
-        "version": "1.0.2014+3c9645ccd8"
+        "version": "1.0.2030+fc9273aa0f"
     },
     "AAA_devtunnel-x86_64-darwin": {
         "cargoLock": null,
@@ -499,11 +459,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-cYchv8MTKcbrxPw9w0cV2ZS2WAUbX4TBj2KWEzFdLrc=",
+            "sha256": "sha256-o0+Qa/u5lETsRaCEv6yAKEufORnIF0GoOLPqt146zfM=",
             "type": "url",
-            "url": "https://tunnelsassetsprod.blob.core.windows.net/cli/1.0.2014+3c9645ccd8/osx-x64-devtunnel"
+            "url": "https://tunnelsassetsprod.blob.core.windows.net/cli/1.0.2030+fc9273aa0f/osx-x64-devtunnel"
         },
-        "version": "1.0.2014+3c9645ccd8"
+        "version": "1.0.2030+fc9273aa0f"
     },
     "AAA_devtunnel-x86_64-linux": {
         "cargoLock": null,
@@ -514,11 +474,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-XWA0tL+B3q1iY1VR2NlrNjQD5cpTB6amU6sx0cc9AMw=",
+            "sha256": "sha256-/2kRVIkHtauupO1bqjayQgvnxd68tjek9Q96QAKxC2A=",
             "type": "url",
-            "url": "https://tunnelsassetsprod.blob.core.windows.net/cli/1.0.2014+3c9645ccd8/linux-x64-devtunnel"
+            "url": "https://tunnelsassetsprod.blob.core.windows.net/cli/1.0.2030+fc9273aa0f/linux-x64-devtunnel"
         },
-        "version": "1.0.2014+3c9645ccd8"
+        "version": "1.0.2030+fc9273aa0f"
     },
     "AAA_escrcpy_appimage": {
         "cargoLock": null,
@@ -529,11 +489,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-JN+Int2G0ZnGY7XTl56pqTTdx9AX9369Ijbc+t504Pc=",
+            "sha256": "sha256-VUn/N6BZnCunUTv/2uSh4JJETLAhjIsgKgdgAdJTCmY=",
             "type": "url",
-            "url": "https://github.com/viarotel-org/escrcpy/releases/download/v2.11.1/Escrcpy-2.11.1-linux-x86_64.AppImage"
+            "url": "https://github.com/viarotel-org/escrcpy/releases/download/v3.2.0/Escrcpy-3.2.0-linux-x86_64.AppImage"
         },
-        "version": "2.11.1"
+        "version": "3.2.0"
     },
     "AAA_flutter_server_box": {
         "cargoLock": null,
@@ -565,11 +525,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-R9/Pt2oKCncYk4wzTrCuhHQUSnaS3Q2Z3aBXRQofmKY=",
+            "sha256": "sha256-naFZX4jmwFjgBoEOD+nxtafnBbPh7sfIJjQd/nWcxgo=",
             "type": "url",
-            "url": "https://github.com/lollipopkit/flutter_server_box/releases/download/v1.0.1466/ServerBox_v1.0.1466_amd64.AppImage"
+            "url": "https://github.com/lollipopkit/flutter_server_box/releases/download/v1.0.1553/ServerBox_v1.0.1553_amd64.AppImage"
         },
-        "version": "v1.0.1466"
+        "version": "v1.0.1553"
     },
     "AAA_hdrop": {
         "cargoLock": null,
@@ -601,11 +561,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-uv3LJJqd0dlO0jHmaTxii8oxnJZM9FkjVW14SIaDvc4=",
+            "sha256": "sha256-zvri7iUvF4cXT9P/VmxhoBKBGz+bSzKxI/HBMDrQEJs=",
             "type": "url",
             "url": "https://album.photosir.cn/upgradePackage/infoall/photosir"
         },
-        "version": "2026-08-01 17:48:06"
+        "version": "2026-09-03 11:21:10"
     },
     "AAA_himirage-aarch64-darwin": {
         "cargoLock": null,
@@ -846,7 +806,7 @@
     },
     "AAA_open-interpreter": {
         "cargoLock": null,
-        "date": "2026-07-27",
+        "date": "2026-08-19",
         "extract": null,
         "name": "AAA_open-interpreter",
         "passthru": null,
@@ -858,12 +818,72 @@
             "name": null,
             "owner": "OpenInterpreter",
             "repo": "open-interpreter",
-            "rev": "f7112ffc791e01c4dfb06ad4a4e03a191bee6c4a",
-            "sha256": "sha256-B8pazFWKeU0cvLowTsSZLCjUsXjzPtqBNTqRifobQ40=",
+            "rev": "5b07159c477920c159d8892d112b480e7307f257",
+            "sha256": "sha256-sdYloCCBNPut67p6HYjUHLCdt0JGnHBMD/UDpplevus=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "f7112ffc791e01c4dfb06ad4a4e03a191bee6c4a"
+        "version": "5b07159c477920c159d8892d112b480e7307f257"
+    },
+    "AAA_pgylinux-amd64": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "AAA_pgylinux-amd64",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-OlPhs2Jm9QMcm001wC3xhYNDf+2zhKWOiX3efCrItg0=",
+            "type": "url",
+            "url": "https://dl.oray.com/pgy/linux/PgyVisitor-6.9.0-amd64.deb"
+        },
+        "version": "6.9.0"
+    },
+    "AAA_pgylinux-arm32": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "AAA_pgylinux-arm32",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-vaCCqtRckp9QGem7BgUkb12e7/qd8LuTr6EtZ05HgvA=",
+            "type": "url",
+            "url": "https://dl.oray.com/pgy/linux/PgyVisitor-6.9.0-arm32.deb"
+        },
+        "version": "6.9.0"
+    },
+    "AAA_pgylinux-arm64": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "AAA_pgylinux-arm64",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-/ymgLcnSwZ4ZeCiM1DkEzh1gZt1c4jcZbeuAAGagxlk=",
+            "type": "url",
+            "url": "https://dl.oray.com/pgy/linux/PgyVisitor-6.9.0-arm64.deb"
+        },
+        "version": "6.9.0"
+    },
+    "AAA_pgylinux-i386": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "AAA_pgylinux-i386",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-6jbLatpVyNwBQ4y8Sj3zNGW87s108cb3/yGAnPGig00=",
+            "type": "url",
+            "url": "https://dl.oray.com/pgy/linux/PgyVisitor-6.9.0-i386.deb"
+        },
+        "version": "6.9.0"
     },
     "AAA_rwkv": {
         "cargoLock": null,
@@ -882,7 +902,7 @@
     },
     "AAA_scrcpy-mask": {
         "cargoLock": null,
-        "date": "2026-06-28",
+        "date": "2026-08-16",
         "extract": null,
         "name": "AAA_scrcpy-mask",
         "passthru": null,
@@ -894,12 +914,12 @@
             "name": null,
             "owner": "AkiChase",
             "repo": "scrcpy-mask",
-            "rev": "7fdfd0d36f46f82ad6a96e0d78641d1c3c50d5da",
-            "sha256": "sha256-a6Od5yX14uzCYmB2ore7CvfGiVrvesuoxY77SYTdMT8=",
+            "rev": "02edc6bea7547500eaa95786e7a3ae68c26d05aa",
+            "sha256": "sha256-UAV1wM0x6YYfzzmFMTUs8PLy1Wiar1zvnkE2WyggUaU=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "7fdfd0d36f46f82ad6a96e0d78641d1c3c50d5da"
+        "version": "02edc6bea7547500eaa95786e7a3ae68c26d05aa"
     },
     "AAA_snell-server-aarch32-linux": {
         "cargoLock": null,
@@ -925,11 +945,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-LxeL9axGjOGhMEVO+kCgYD+75OR+zEiAqYn0q8f4JM8=",
+            "sha256": "sha256-oLKRXLx33Duvj6Bp50HCCAjYoQw6ipPnCaClgGRcO9c=",
             "type": "url",
-            "url": "https://dl.nssurge.com/snell/snell-server-v5.0.1-linux-aarch64.zip"
+            "url": "https://dl.nssurge.com/snell/snell-server-v6.0.0rc2-linux-aarch64.zip"
         },
-        "version": "v5.0.1"
+        "version": "v6.0.0rc2"
     },
     "AAA_snell-server-i686-linux": {
         "cargoLock": null,
@@ -940,11 +960,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-aj4wkoMVQn1vdH8mQI0PdOuI9GA0TQ4fyz98MscIoJ0=",
+            "sha256": "sha256-ZwYO95rE7wu2TFIDAjlmILOgb49tXOtFC+KD5Pp0kzU=",
             "type": "url",
-            "url": "https://dl.nssurge.com/snell/snell-server-v5.0.1-linux-i386.zip"
+            "url": "https://dl.nssurge.com/snell/snell-server-v6.0.0rc2-linux-i386.zip"
         },
-        "version": "v5.0.1"
+        "version": "v6.0.0rc2"
     },
     "AAA_snell-server-x86_64-linux": {
         "cargoLock": null,
@@ -955,11 +975,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-m+ocK541tzsxY0hWwE0Yw5MHK55dzeajJ4HYuPkIxTk=",
+            "sha256": "sha256-ipxEY8qHz6Xqo3xq8NN6uT6idaoSORmFuyo3XKOr1/I=",
             "type": "url",
-            "url": "https://dl.nssurge.com/snell/snell-server-v5.0.1-linux-amd64.zip"
+            "url": "https://dl.nssurge.com/snell/snell-server-v6.0.0rc2-linux-amd64.zip"
         },
-        "version": "v5.0.1"
+        "version": "v6.0.0rc2"
     },
     "AAA_ttyescape": {
         "cargoLock": null,
@@ -1011,11 +1031,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-lpKJt8+dA1GooqoyAoAOU28YJ+48NHjw3KJOPtAQ8Gw=",
+            "sha256": "sha256-hP29E+XU7UXbu163QUWme3i2r+KjdQS+QU42L/jDRlo=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202607312254/rules.zip"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202609022346/rules.zip"
         },
-        "version": "202607312254"
+        "version": "202609022346"
     },
     "AAA_wechat-web-devtools-linux_appimage": {
         "cargoLock": null,

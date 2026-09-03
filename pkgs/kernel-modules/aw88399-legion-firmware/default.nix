@@ -1,12 +1,12 @@
 {
+  sources,
   stdenv,
   lib,
 }:
 stdenv.mkDerivation {
   pname = "aw88399-legion-firmware";
-  version = "1.0.0";
 
-  src = lib.cleanSource ./source;
+  inherit (sources.AAA_16iax10h-linux-sound-saga) version src;
 
   dontBuild = true;
   dontConfigure = true;
@@ -14,7 +14,7 @@ stdenv.mkDerivation {
   installPhase = ''
     runHook preInstall
     mkdir -p $out/lib/firmware
-    cp -f aw88399_acf.bin $out/lib/firmware/
+    cp -f fix/firmware/aw88399_acf.bin $out/lib/firmware/
     runHook postInstall
   '';
 
