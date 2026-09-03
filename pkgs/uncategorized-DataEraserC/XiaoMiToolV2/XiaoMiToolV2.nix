@@ -1,0 +1,108 @@
+{
+  fetchFromGitHub,
+  lib,
+  stdenv,
+  makeBinaryWrapper,
+  gradle_8,
+  gradle ? gradle_8,
+  jdk21,
+  openjfx21,
+  jdk21_with_openjfx ? jdk21.override (
+    lib.optionalAttrs stdenv.hostPlatform.isLinux {
+      enableJavaFX = true;
+      openjfx21 = openjfx21.override { withWebKit = true; };
+    }
+  ),
+  unstableGitUpdater,
+  libGL,
+  xorg,
+  libX11 ? xorg.libX11,
+  libXrender ? xorg.libXrender,
+  libXxf86vm ? xorg.libXxf86vm,
+  libXtst ? xorg.libXtst,
+  android-tools,
+  ...
+}:
+let
+  jdk = jdk21_with_openjfx;
+  self = stdenv.mkDerivation rec {
+    pname = "XiaoMiToolV2";
+    version = "unstable-2024-12-18";
+
+    src = fetchFromGitHub {
+      owner = "topminipie";
+      repo = "XiaoMiToolV2";
+      rev = "c150b381f68ff9199dc4301928dd4f0f6941caa8";
+      hash = "sha256-7cHg8fOcPW1lKnRuJQCjkUfmC6fqx3m17FzzEtpp398=";
+      fetchSubmodules = true;
+    };
+
+    passthru.updateScript = unstableGitUpdater {
+      url = "https://github.com/topminipie/XiaoMiToolV2";
+    };
+
+    nativeBuildInputs = [
+      gradle
+      jdk
+      makeBinaryWrapper
+    ]
+    ++ libraries;
+
+    postPatch = ''
+      sed -i "s/languageVersion = JavaLanguageVersion.of(17)//g" build.gradle
+    '';
+
+    # if the package has dependencies, mitmCache must be set
+    mitmCache = gradle.fetchDeps {
+      pkg = self;
+      data = ./deps.json;
+    };
+
+    # this is required for using mitm-cache on Darwin
+    __darwinAllowLocalNetworking = true;
+
+    gradleFlags = [ "-Dfile.encoding=utf-8" ];
+
+    gradleBuildTask = "build";
+
+    doCheck = false;
+
+    libraries = [
+      libGL
+      libX11
+      libXrender
+      libXxf86vm
+      libXtst
+    ];
+
+    runtimeLibs = lib.makeLibraryPath libraries;
+
+    installPhase = ''
+      mkdir -p $out/{bin,share/XiaoMiToolV2/bin}
+      mkdir -p $out/share/XiaoMiToolV2/lib/res/tools/lin
+      ln -s ${android-tools}/bin/adb $out/share/XiaoMiToolV2/lib/res/tools/lin/adb
+      ln -s ${android-tools}/bin/fastboot $out/share/XiaoMiToolV2/lib/res/tools/lin/fastboot
+      ln -s ${android-tools}/bin/adb $out/share/XiaoMiToolV2/lib/res/tools/adb
+      ln -s ${android-tools}/bin/fastboot $out/share/XiaoMiToolV2/lib/res/tools/fastboot
+
+      tar xf build/distributions/XiaomiToolV2-shadow-*.tar --directory=$out/share/XiaoMiToolV2
+
+      extracted_dir=$(find $out/share/XiaoMiToolV2 -maxdepth 1 -type d -name "XiaomiToolV2-shadow-*")
+
+      mv $extracted_dir/bin/* $out/share/XiaoMiToolV2/bin
+      mv $extracted_dir/lib/* $out/share/XiaoMiToolV2/lib
+      ln -s $out/share/XiaoMiToolV2/lib/XiaomiToolV2-*-all.jar $out/share/XiaoMiToolV2/lib/XiaoMiTool.jar
+      rm -rf $extracted_dir
+
+      makeWrapper "$out/share/XiaoMiToolV2/bin/XiaoMiTool V2" $out/bin/XiaoMiToolV2 \
+        --set JAVA_HOME "${jdk}" \
+        --prefix LD_LIBRARY_PATH : "${runtimeLibs}"
+    '';
+
+    meta.sourceProvenance = with lib.sourceTypes; [
+      fromSource
+      binaryBytecode # mitm cache
+    ];
+  };
+in
+self

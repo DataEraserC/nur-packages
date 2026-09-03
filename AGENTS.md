@@ -4,6 +4,8 @@
 
 - **持续更新文档**：每次根据用户建议修改包后，应将可推广的经验教训更新到本文档（AGENTS.md）中
 - **提炼通用规则**：关注用户指出的模式、最佳实践和常见错误，将其转化为可应用于其他包的通用规则
+- **本仓库是 xddxdd/nur-packages 的 DataEraserC fork**：每轮“迁移到上游最新”都从 `upstream/master` 全新重建分支，只保留 `pkgs/uncategorized-DataEraserC/` 目录、自有 NixOS 模块（`pgy`/`cpolar`/`hkdm`/`aw88399-legion-audio`）与自有工具/工作流，并把上游工作流原样放回 `.github/workflows/upstream/`（不启用）。二进制缓存是 `dataeraserc.cachix.org`（见 `helpers/meta.nix`），CI 只负责构建并上传我们自己目录里的包（见 `tools/build_own_cachix.py`），不依赖上游 attic 或远程构建机
+- **自定义包用单独 update.sh 更新时，脚本只读环境变量 `UPDATE_NIX_ATTR_PATH`/`UPDATE_NIX_OLD_VERSION` 并调用 `nix-update "$UPDATE_NIX_ATTR_PATH" --version ...`（多 URL/哈希的多平台包则自己 sed/改写后逐个 `nix store prefetch-file` 回填哈希）**
 
 ## Nix 包定义规范
 
@@ -61,7 +63,7 @@
 
 - **必须设置**：所有新包都必须设置 `meta.maintainers` 字段
 - **必须为非空列表**：维护者必须是一个非空列表
-- **包含 xddxdd**：维护者列表中必须包含 xddxdd（`github = "xddxdd"`）
+- **包含 xddxdd 或 DataEraserC**：维护者列表中必须包含 xddxdd（`github = "xddxdd"`）或 DataEraserC（`github = "DataEraserC"`），fork 内维护者至少为仓库负责人之一
 
 ### meta.homepage（主页）
 

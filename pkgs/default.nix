@@ -37,6 +37,7 @@ let
     kernel-modules = ./kernel-modules;
     python3Packages = ./python-packages;
     uncategorized = ./uncategorized;
+    uncategorized-DataEraserC = ./uncategorized-DataEraserC;
   };
 
   groups = {

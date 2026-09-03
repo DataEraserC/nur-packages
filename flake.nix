@@ -31,6 +31,20 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # keep-sorted end
+
+    # ptrs for outside nix packages
+
+    ZeroBot-Plugin = {
+      url = "github:FloatTech/ZeroBot-Plugin/master";
+    };
+    LaphaeL-aicmd = {
+      url = "github:DataEraserC/LaphaeL-aicmd";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    android-attestation-keybox-generator = {
+      url = "github:AndroidAppsUsedByMyself/android-attestation-keybox-generator";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs =
     { self, flake-parts, ... }@inputs:
@@ -149,6 +163,12 @@
             setupOverlay = _: { nixpkgs.overlays = [ self.overlays.default ]; };
             wireguard-remove-lingering-links = import ./modules/wireguard-remove-lingering-links.nix;
             # keep-sorted end
+
+            # My additions
+            aw88399-legion-audio = import ./modules/aw88399-legion-audio.nix;
+            hkdm = import ./modules/hkdm.nix;
+            cpolar = import ./modules/cpolar.nix;
+            pgy = import ./modules/pgy.nix;
           };
 
           hydraJobs.packages.x86_64-linux = self.hydraPackages.x86_64-linux;
@@ -158,8 +178,18 @@
           {
             pkgs,
             pkgsWithCuda,
+            system,
             ...
           }:
+          let
+            ptr = {
+              inherit (inputs.LaphaeL-aicmd.packages.${system}) laphael_aicmd;
+              ZeroBot-Plugin = inputs.ZeroBot-Plugin.packages.${system}.default;
+              inherit (inputs.android-attestation-keybox-generator.packages.${system})
+                android-attestation-keybox-generator
+                ;
+            };
+          in
           rec {
             nixpkgs-options = {
               pkgs = {
@@ -173,13 +203,17 @@
               };
             };
 
-            legacyPackages = import ./pkgs "legacy" {
-              inherit inputs pkgs;
-            };
-            legacyPackagesWithCuda = import ./pkgs "legacy" {
-              inherit inputs;
-              pkgs = pkgsWithCuda;
-            };
+            legacyPackages =
+              import ./pkgs "legacy" {
+                inherit inputs pkgs;
+              }
+              // ptr;
+            legacyPackagesWithCuda =
+              import ./pkgs "legacy" {
+                inherit inputs;
+                pkgs = pkgsWithCuda;
+              }
+              // ptr;
 
             packages = lib.filterAttrs (_: lib.isDerivation) legacyPackages;
             packagesWithCuda = lib.filterAttrs (_: lib.isDerivation) legacyPackagesWithCuda;

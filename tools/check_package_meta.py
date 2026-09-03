@@ -92,8 +92,13 @@ class MaintainersCheck(Check):
             self.fail("meta.maintainers must be set for new packages")
         if not isinstance(maintainers, list) or not maintainers:
             self.fail("meta.maintainers must be a non-empty list")
-        if not any([m.get("github") == "xddxdd" for m in (maintainers or [])]):
-            self.fail("xddxdd not in maintainers")
+        if not any(
+            [
+                m.get("github") == "xddxdd" or m.get("github") == "DataEraserC"
+                for m in (maintainers or [])
+            ]
+        ):
+            self.fail("Both of xddxdd and DataEraserC not in maintainers")
         return self.valid
 
 
