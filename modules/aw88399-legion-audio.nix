@@ -5,7 +5,7 @@
   ...
 }:
 let
-  cfg = config.dataEraserC.aw88399-legion-audio;
+  cfg = config.hardware.audio.aw88399-legion-audio;
 
   autoPatchVersions = [
     "6.17.8"
@@ -25,31 +25,6 @@ let
     "7.2"
   ];
 
-  defaultKernelVersion = lib.getVersion pkgs.linux;
-
-  isUsable = patchVersion: !(lib.versionOlder defaultKernelVersion patchVersion);
-
-  usableVersions = lib.filter isUsable autoPatchVersions;
-
-  autoVersion =
-    if usableVersions == [ ] then
-      null
-    else
-      lib.head (lib.sort (a: b: lib.versionOlder b a) usableVersions);
-
-  selectedVersion =
-    if cfg.patchVersion != null then
-      cfg.patchVersion
-    else if autoVersion == null then
-      throw ''
-        dataEraserC.aw88399-legion-audio: no archived patch is usable with the
-        default kernel ${defaultKernelVersion}. Available auto-selectable
-        versions: ${lib.concatStringsSep ", " autoPatchVersions}. Set the
-        option `patchVersion' explicitly if you know the right one.
-      ''
-    else
-      autoVersion;
-
   majorMinor =
     version:
     let
@@ -57,22 +32,47 @@ let
     in
     if match == null then null else "${builtins.elemAt match 0}.${builtins.elemAt match 1}";
 
-  actualKernelVersion = config.boot.kernelPackages.kernel.version;
+  actualKernelVersion = lib.getVersion config.boot.kernelPackages.kernel;
+
+  matchesRunningKernel = patchVersion: majorMinor patchVersion == majorMinor actualKernelVersion;
+
+  isNotNewerThanRunningKernel = patchVersion: !(lib.versionOlder actualKernelVersion patchVersion);
+
+  candidates = lib.filter (
+    patchVersion: isNotNewerThanRunningKernel patchVersion && matchesRunningKernel patchVersion
+  ) autoPatchVersions;
+
+  autoVersion =
+    if candidates == [ ] then null else lib.head (lib.sort (a: b: lib.versionOlder b a) candidates);
+
+  selectedVersion =
+    if cfg.patchVersion != null then
+      cfg.patchVersion
+    else if autoVersion == null then
+      throw ''
+        hardware.audio.aw88399-legion-audio: no archived patch matches the
+        running kernel ${actualKernelVersion}. Auto-selectable archived
+        versions: ${lib.concatStringsSep ", " autoPatchVersions}. If the kernel
+        is at least 7.3 the driver is already part of mainline, so the module
+        can simply be disabled. Otherwise set the option `patchVersion'
+        explicitly if you know the right version to use.
+      ''
+    else
+      autoVersion;
 in
 {
-  key = "DataEraserC-nur-packages-aw88399-legion-audio";
+  key = "hardware-aw88399-legion-audio";
 
-  options.dataEraserC.aw88399-legion-audio = {
+  options.hardware.audio.aw88399-legion-audio = {
     enable = lib.mkEnableOption (lib.mdDoc "Enable aw88399 audio support for Lenovo Legion laptops");
     patchVersion = lib.mkOption {
       type = lib.types.nullOr lib.types.str;
       default = null;
       description = lib.mdDoc ''
         Kernel patch version to use. When null (default), the greatest
-        archived version that is not newer than the kernel shipped by nixpkgs
-        is picked automatically. Set it explicitly (e.g. `"7.1.8"`) to pin a
-        version, which is required when the running kernel is not the one
-        nixpkgs ships by default.
+        archived version whose major/minor series matches the running kernel
+        (`boot.kernelPackages`) and that is not newer than it is picked
+        automatically. Set it explicitly (e.g. `"7.1.8"`) to pin a version.
       '';
     };
     patchPackage = lib.mkOption {
@@ -104,22 +104,6 @@ in
           SND_SOC_SOF_INTEL_MTL = module;
           SND_SOC_SOF_INTEL_LNL = module;
         };
-      }
-    ];
-
-    assertions = [
-      {
-        assertion =
-          cfg.patchVersion != null
-          || majorMinor actualKernelVersion == null
-          || majorMinor selectedVersion == majorMinor actualKernelVersion;
-        message = ''
-          dataEraserC.aw88399-legion-audio: auto-selected patch version
-          ${selectedVersion} (for the nixpkgs default kernel
-          ${defaultKernelVersion}) does not match the actually used kernel
-          ${actualKernelVersion}. Set the option `patchVersion' explicitly to
-          the version matching your kernel.
-        '';
       }
     ];
   };
