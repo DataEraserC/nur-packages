@@ -14,17 +14,18 @@ in
 appimageTools.wrapType2 rec {
   pname = "wechat_dev_tools_appimage";
   inherit version src;
-  extraPkgs =
-    pkgs: with pkgs; [
-      xorg.libxkbfile
-      xorg.libxshmfence
-    ];
+  extraPkgs = pkgs: [
+    pkgs.libxkbfile
+    pkgs.libxshmfence
+  ];
   extraInstallCommands =
     let
-      appimageContents = appimageTools.extractType2 { inherit pname version src; };
+      appimageContents = appimageTools.extract { inherit pname version src; };
     in
     ''
       install -Dm444 ${appimageContents}/io.github.msojocs.wechat_devtools.desktop -t $out/share/applications
+      substituteInPlace $out/share/applications/io.github.msojocs.wechat_devtools.desktop \
+        --replace-fail 'Exec=wechat-devtools' 'Exec=wechat_dev_tools_appimage'
       cp -r ${appimageContents}/usr/share/icons $out/share
     '';
 
@@ -34,7 +35,7 @@ appimageTools.wrapType2 rec {
     description = "The development tools for wechat projects";
     homepage = "https://github.com/msojocs/wechat-web-devtools-linux";
     license = lib.licenses.unfree;
-    mainProgram = "wechat-web-devtools-linux_appimage";
+    mainProgram = "wechat_dev_tools_appimage";
     maintainers = with lib.maintainers; [ Guanran928 ];
     platforms = [ "x86_64-linux" ];
     sourceProvenance = with lib.sourceTypes; [ binaryNativeCode ];
