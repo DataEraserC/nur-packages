@@ -36,6 +36,8 @@ let
       fetchSubmodules = true;
     };
 
+    passthru.updateScript = [ (toString ./update.sh) ];
+
     nativeBuildInputs = [
       gradle
       jdk

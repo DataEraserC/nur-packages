@@ -2,15 +2,20 @@
   lib,
   stdenvNoCC,
   fetchgit,
+  unstableGitUpdater,
 }:
 stdenvNoCC.mkDerivation rec {
   pname = "xcursor-genshin-nahida";
-  version = "1.0-2";
+  version = "0-unstable-2023-02-12";
 
   src = fetchgit {
     url = "https://aur.archlinux.org/xcursor-genshin-nahida.git";
     rev = "3a6d21a337925f47466c74d16c413e7be6ee58e4";
     hash = "sha256-I8UVUlfoqVXRstehGyFumq8oE5cLxRs6DKvcHol1AQk=";
+  };
+
+  passthru.updateScript = unstableGitUpdater {
+    url = "https://aur.archlinux.org/xcursor-genshin-nahida.git";
   };
 
   dontBuild = true;

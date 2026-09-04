@@ -29,6 +29,7 @@
     yarnLock = ./yarn.lock;
     hash = "sha256-Otu7o3bRyChYbxGeTXr/aEE7HZEFPifktSHaVtjs6vU=";
   };
+  passthru.updateScript = [ (toString ./update.sh) ];
   nativeBuildInputs = [
     yarnConfigHook
     yarnBuildHook

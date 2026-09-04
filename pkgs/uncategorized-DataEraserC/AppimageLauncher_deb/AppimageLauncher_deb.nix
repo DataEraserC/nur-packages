@@ -30,12 +30,13 @@
   cairo,
   curlFull,
   libsForQt5,
+  nix-update-script,
 }:
 let
   version = "2.2.0";
 
   src = fetchurl {
-    url = "https://github.com/TheAssassin/AppImageLauncher/releases/download/v2.2.0/appimagelauncher_2.2.0-travis995.0f91801.bionic_amd64.deb";
+    url = "https://github.com/TheAssassin/AppImageLauncher/releases/download/v${version}/appimagelauncher_${version}-travis995.0f91801.bionic_amd64.deb";
     sha256 = "sha256:0zqaqxalb3zwmcqd5z5k1im9yslq29v1a52b0y8x0zdslrbdpfgl";
   };
 in
@@ -45,6 +46,8 @@ stdenv.mkDerivation rec {
   system = "x86_64-linux";
 
   inherit src;
+
+  passthru.updateScript = nix-update-script { };
 
   dontConfigure = true;
   dontBuild = true;

@@ -2,6 +2,7 @@
   lib,
   stdenv,
   fetchFromGitLab,
+  unstableGitUpdater,
   meson,
   ninja,
   pkg-config,
@@ -12,7 +13,7 @@
 
 stdenv.mkDerivation {
   pname = "buffyboard";
-  version = "unstable-2023-11-20";
+  version = "0-unstable-2023-11-20";
 
   src = fetchFromGitLab {
     owner = "postmarketOS";
@@ -20,6 +21,11 @@ stdenv.mkDerivation {
     rev = "14b30c60183d98e8d0b4dadf66198e08badf631e";
     hash = "sha256-9wLuTAqYoFl+IAR1ixp0nHwh6jBWl+1jDPhhxqE+LHQ=";
     fetchSubmodules = true;
+  };
+
+  passthru.updateScript = unstableGitUpdater {
+    url = "https://gitlab.com/postmarketOS/buffybox.git";
+    tagPrefix = "v";
   };
 
   # https://gitlab.com/postmarketOS/buffybox/-/issues/1
