@@ -1,5 +1,5 @@
 #!/usr/bin/env nix-shell
-#!nix-shell -i bash -p git -p curl -p nix -p python3 -p python3Packages.pyyaml -p common-updater-scripts
+#!nix-shell -i bash -p git -p curl -p nix -p nix-prefetch-git -p python3 -p python3Packages.pyyaml -p common-updater-scripts
 # shellcheck shell=bash
 set -euo pipefail
 
@@ -47,3 +47,41 @@ update-source-version "$UPDATE_NIX_ATTR_PATH" "$NEW_VERSION" --rev="$NEW_REV"
 # JSON keys for these lockfiles, so convert with python/pyyaml instead).
 curl -fsSL "https://raw.githubusercontent.com/$REPO/$NEW_REV/pubspec.lock" -o "$TMP/pubspec.lock"
 python3 -c "import json,yaml,sys; json.dump(yaml.safe_load(open(sys.argv[1])), open('$DIR/pubspec.lock.json','w'), indent=2); print('', file=open('$DIR/pubspec.lock.json','a'))" "$TMP/pubspec.lock"
+
+# Regenerate git-hashes.json for any git dependencies in the refreshed lock.
+python3 - "$DIR/pubspec.lock.json" "$DIR/git-hashes.json" <<'PYEOF'
+import json
+import subprocess
+import sys
+
+lock = json.load(open(sys.argv[1]))
+out = {}
+for name, det in lock.get("packages", {}).items():
+    if det.get("source") != "git":
+        continue
+    d = det.get("description", {})
+    url = d.get("url")
+    rev = d.get("resolved-ref") or d.get("ref")
+    if not url or not rev:
+        print(f"git dep {name}: no url/rev", file=sys.stderr)
+        sys.exit(1)
+    p = subprocess.run(
+        ["nix-prefetch-git", "--url", url, "--rev", rev, "--quiet", "--json"],
+        capture_output=True,
+        text=True,
+    )
+    if p.returncode != 0:
+        print(f"failed to hash git dep {name} ({url}@{rev}): {p.stderr}", file=sys.stderr)
+        sys.exit(1)
+    sha = json.loads(p.stdout)["sha256"]
+    sri = subprocess.run(
+        ["nix", "hash", "to-sri", "--type", "sha256", sha],
+        capture_output=True,
+        text=True,
+        check=True,
+    ).stdout.strip()
+    out[name] = sri
+json.dump(out, open(sys.argv[2], "w"), indent=2, sort_keys=True)
+open(sys.argv[2], "a").write("\n")
+print(f"git-hashes.json regenerated for {len(out)} git deps")
+PYEOF
