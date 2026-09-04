@@ -51,9 +51,8 @@ jobs:
             extra-platforms = i686-linux aarch64-linux arm-linux
             build-dir = /nix/tmpdir
             log-lines = 25
-
-      - name: Speed Up nix
-        uses: DeterminateSystems/magic-nix-cache-action@main
+            substituters = https://cache.nixos.org/
+            trusted-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=
 
       - name: Update packages
         continue-on-error: true
@@ -70,7 +69,7 @@ jobs:
           API_TOKEN_GITHUB: ${{ secrets.AUTOMERGE_TOKEN }}
         run: |
           # https://github.com/cpina/github-action-push-to-another-repository/issues/75
-          git config --unset-all http.https://github.com/.extraheader
+          git config --unset-all http.https://github.com/.extraheader || true
           git config --global user.email "DataEraserC-bot@users.noreply.github.com"
           git config --global user.name "DataEraserC-bot"
 
