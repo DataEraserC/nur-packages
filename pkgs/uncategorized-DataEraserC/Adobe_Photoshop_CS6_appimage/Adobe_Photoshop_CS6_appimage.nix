@@ -1,16 +1,15 @@
 {
+  appimageTools,
   fetchurl,
   lib,
-  stdenv,
-  pkgs,
-  appimage-run,
-  makeDesktopItem,
+  p7zip,
+  runCommand,
+  pkgsi686Linux,
 }:
-stdenv.mkDerivation rec {
-  pname = "Adobe_Photoshop_CS6";
+let
   version = "CS6";
 
-  src = fetchurl {
+  src7z = fetchurl {
     url = "https://github.com/Program-Learning/nur-packages/releases/download/Adobe_Photoshop_CS6.AppImage/Adobe_Photoshop_CS6.AppImage.7z";
     sha256 = "sha256-U19wx0asTuu6o/AvUrp2AM1bywwJAfH5R7H4zdVPj+A=";
   };
@@ -20,46 +19,35 @@ stdenv.mkDerivation rec {
     sha256 = "sha256-IZ6Lb3eNg0M0HTHj0Vw5N1EJa07FYlzXuueoBHfyVMU=";
   };
 
-  buildInputs = with pkgs; [ p7zip ];
-  nativeBuildInputs = with pkgs; [
-    makeWrapper
-    copyDesktopItems
+  appImage =
+    runCommand "Adobe_Photoshop_CS6.AppImage"
+      {
+        nativeBuildInputs = [ p7zip ];
+      }
+      ''
+        7z x ${src7z} -o"$out" >/dev/null
+      '';
+in
+appimageTools.wrapType2 rec {
+  pname = "Adobe_Photoshop_CS6";
+  inherit version;
+
+  src = "${appImage}/Adobe_Photoshop_CS6.AppImage";
+
+  extraPkgs = _: [
+    pkgsi686Linux.glibc
+    pkgsi686Linux.stdenv.cc.cc.lib
   ];
 
-  unpackPhase = ''
-    7z x $src
+  extraInstallCommands = ''
+    install -Dm644 ${icon} $out/share/icons/hicolor/48x48/apps/Adobe_Photoshop_CS6.png
   '';
 
-  installPhase = ''
-    runHook preInstall
-    _install() {
-      mkdir -p $out/Appimage
-      install -Dm755 Adobe_Photoshop_CS6.AppImage $out/Appimage/Adobe_Photoshop_CS6.AppImage
-      install -Dm644 $icon $out/share/icons/hicolor/48x48/apps/Adobe_Photoshop_CS6.png
-      makeWrapper ${appimage-run}/bin/appimage-run $out/bin/adobe_photoshop_cs6 \
-      --argv0 "adobe_photoshop_cs6" \
-      --add-flags "$out/Appimage/Adobe_Photoshop_CS6.AppImage"
-    }
-    _install
-    runHook postInstall
-  '';
-
-  desktopItems = lib.toList (makeDesktopItem {
-    name = "Adobe_Photoshop_CS6";
-    genericName = "Adobe_Photoshop_CS6";
-    exec = "adobe_photoshop_cs6";
-    icon = "Adobe_Photoshop_CS6";
-    comment = "Adobe_Photoshop_CS6";
-    desktopName = "Adobe_Photoshop_CS6";
-    categories = [
-      "Graphics"
-      "2DGraphics"
-    ];
-  });
   meta = {
     description = "Adobe_Photoshop_CS6";
     homepage = "https://t.me/Linux_Appimages/1042";
     license = lib.licenses.unfree;
+    mainProgram = pname;
     platforms = [ "x86_64-linux" ];
   };
 }
