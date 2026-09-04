@@ -10,7 +10,6 @@
   makeDesktopItem,
   copyDesktopItems,
   electron,
-  unstableGitUpdater,
   ...
 }:
 (stdenv.mkDerivation rec {
@@ -27,12 +26,8 @@
   packageJSON = "${src}/package.json";
 
   offlineCache = fetchYarnDeps {
-    yarnLock = "${src}/yarn.lock";
+    yarnLock = ./yarn.lock;
     hash = "sha256-Otu7o3bRyChYbxGeTXr/aEE7HZEFPifktSHaVtjs6vU=";
-  };
-  passthru.updateScript = unstableGitUpdater {
-    url = "https://github.com/Apps-Used-By-Myself/motrix.git";
-    tagPrefix = "v";
   };
   nativeBuildInputs = [
     yarnConfigHook
