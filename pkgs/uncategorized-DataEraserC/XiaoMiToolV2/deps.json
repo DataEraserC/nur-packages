@@ -36,6 +36,25 @@
   }
  },
  "https://plugins.gradle.org/m2": {
+  "com/github/javaparser#javaparser-core/3.13.5": {
+   "jar": "sha256-OtgIfFnmoTtpmkkXiXCGrjD5g0tdVxjYjRsyHIh7Rho=",
+   "pom": "sha256-Q3EkT0QWnwXYMe70o5dejwJ2ImDuN0qlsZXdML15qYs="
+  },
+  "com/github/javaparser#javaparser-parent/3.13.5": {
+   "pom": "sha256-CD5oJHN70rZ1iCYkFR8Nzy+3VAcp1eSfkMQdBUBncHM="
+  },
+  "com/github/javaparser#javaparser-symbol-solver-core/3.13.5": {
+   "jar": "sha256-Ca2zzaXv7OfmKZa/i+Q+64MbHmSd0T7xYeMn07pmzqM=",
+   "pom": "sha256-GKhzraidH75fs77vzeo76ISLO1NfL/BCxAPuq4sIj9E="
+  },
+  "com/github/javaparser#javaparser-symbol-solver-logic/3.13.5": {
+   "jar": "sha256-WTqWWbcMDvBndDHXrYaA75yGqnHeq5+zXbKwKNXeeXM=",
+   "pom": "sha256-G/nVDyjG8kxa7abGQuRaSM3iLZS15SzUz6PTcO4/adY="
+  },
+  "com/github/javaparser#javaparser-symbol-solver-model/3.13.5": {
+   "jar": "sha256-DXHA0k2fhhgbGYRG7o3fGKWXEwh3kDwidtMBX/5FOD8=",
+   "pom": "sha256-Oc9N1FSx7Uia/HyJ0FABY/KC4hTDTcmc4/r3W9JJDI4="
+  },
   "com/github/johnrengelman/shadow#com.github.johnrengelman.shadow.gradle.plugin/7.1.0": {
    "pom": "sha256-mh4hygODDXleq/uKbALOM4QuvCPGd+xqqZ50W1FPKt4="
   },
@@ -43,9 +62,38 @@
    "jar": "sha256-dmrSoHg/JoeWLIrXTO7MOKKLn3Ki0IXuQ4t4E+ko0Mc=",
    "pom": "sha256-GYidvfGyVLJgGl7mRbgUepdGRIgil2hMeYr+XWPXjf4="
   },
-  "com/google/gradle#osdetector-gradle-plugin/1.7.0": {
-   "jar": "sha256-29oheMFO1rk6GEsay/ONchBwAiUmaMERz0EeyjfkHKY=",
-   "pom": "sha256-6BYywu6apI5+zwVHUSwcOGVgwNRqlY7lBVD3693xNRc="
+  "com/google/errorprone#error_prone_annotations/2.2.0": {
+   "jar": "sha256-br0iyhudjsBtQd6NZOBZaYHZYHtCA1+e03T53icaSBo=",
+   "pom": "sha256-XgJY6huk5RoTN0JoC8IkSPerIUvkBz6GGfZF7xvkLdU="
+  },
+  "com/google/errorprone#error_prone_parent/2.2.0": {
+   "pom": "sha256-xGCQLd9ezmiDLGsnHOUqCSiwXPOmrIGo9UjHPL1UETg="
+  },
+  "com/google/gradle#osdetector-gradle-plugin/1.6.1": {
+   "jar": "sha256-N/Sm2S8lh2Ls9i/XcYZSK77LXaGyDevHj4NhuFbfDac=",
+   "pom": "sha256-i4MRE6lOCXvEnh7KTTJ/0iNAVwRU1Ey7ccJSuZ5sTD8="
+  },
+  "com/google/guava#failureaccess/1.0": {
+   "jar": "sha256-0IS++c0HqFN6F1PkhQppt+i6sdHiLp86HkgmMJp6IzY=",
+   "pom": "sha256-zRZ5rfxetWp9ylft+oZJmHUwDnY7oi3J/0g/xcw8mpo="
+  },
+  "com/google/guava#guava-parent/26.0-android": {
+   "pom": "sha256-+GmKtGypls6InBr8jKTyXrisawNNyJjUWDdCNgAWzAQ="
+  },
+  "com/google/guava#guava-parent/27.0-jre": {
+   "pom": "sha256-3qbY6/nvTrp5y9KrpxhSVN5cP2Vumt9Lvu8lR1qtdQ4="
+  },
+  "com/google/guava#guava/27.0-jre": {
+   "jar": "sha256-Y7CdtoYQEef7JIG+d5DH/UsD8LuISz3i7LqII60Zvz8=",
+   "pom": "sha256-h6fK4mWnYqmBl5RgHpNScC88Ma+rLuuHuS01kHeOYGU="
+  },
+  "com/google/guava#listenablefuture/9999.0-empty-to-avoid-conflict-with-guava": {
+   "jar": "sha256-s3KgN9QjCqV/vv/e8w/WEj+cDC24XQrO0AyRuXTzP5k=",
+   "pom": "sha256-GNSx2yYVPU5VB5zh92ux/gXNuGLvmVSojLzE/zi4Z5s="
+  },
+  "com/google/j2objc#j2objc-annotations/1.1": {
+   "jar": "sha256-KZSn63jycQvT07+2ObLJTiGc7awNTQhNUW54wW3d7PY=",
+   "pom": "sha256-8MmMVx6Tp8tN0Y3w+jCPCWPnoGIKwtQkTmHnCdA61r4="
   },
   "commons-io#commons-io/2.11.0": {
    "jar": "sha256-lhsvbYfbrMXVSr9Fq3puJJX4m3VZiWLYxyPOqbwhCQg=",
@@ -55,9 +103,9 @@
    "jar": "sha256-Bar4oiGwbGeS7hmZYZPolH7zv3Il6nWOUYsywoNxCJA=",
    "pom": "sha256-q7tz6sHPSyR/wBbmyohafaFjNk/vyYDICvjTy+jRSQI="
   },
-  "kr/motd/maven#os-maven-plugin/1.7.0": {
-   "jar": "sha256-lDBTUBpCnlPRxNYhUu7BJfo2Yg4NxmtzkKiVCXz96s4=",
-   "pom": "sha256-xPVqjuqlJp76BdsB4xMJBf9b24frKuPnZhVOmuoYO6Y="
+  "kr/motd/maven#os-maven-plugin/1.6.0": {
+   "jar": "sha256-HNnWwIn5ZnEbx9lWSXaz/+ZRAmFqUkdoHMIwlc+90aw=",
+   "pom": "sha256-zRUfUQeKRnd7UPgoO4gqis4MCLu+F0RrP56mPIEi/Kg="
   },
   "org/apache#apache/23": {
    "pom": "sha256-vBBiTgYj82V3+sVjnKKTbTJA7RUvttjVM6tNJwVDSRw="
@@ -97,6 +145,20 @@
   "org/beryx/runtime#org.beryx.runtime.gradle.plugin/1.12.6": {
    "pom": "sha256-0GnTMn9bASesjA/RfKnGdn1TZsrhw1/umqejRQCuQEI="
   },
+  "org/checkerframework#checker-qual/2.5.2": {
+   "jar": "sha256-ZLAmkci51OdwD47i50Lc5+osboHmYrdSLJ7jv1aMBAo=",
+   "pom": "sha256-3EzUOKNkYtATwjOMjiBtECoyKgDzNynolV7iGYWcnt4="
+  },
+  "org/codehaus/mojo#animal-sniffer-annotations/1.17": {
+   "jar": "sha256-kmVPST7P7FIILnY1Tw6/h2SNw9XOwuPDzblHwBZ0elM=",
+   "pom": "sha256-6VarXS60j6uuEjANDNLTKU1KKkGrwgaMI8tNYK12y+U="
+  },
+  "org/codehaus/mojo#animal-sniffer-parent/1.17": {
+   "pom": "sha256-GKA98W4qGExYLbexJWM8Fft3FAJ6hMG1MtcpM9wIuB8="
+  },
+  "org/codehaus/mojo#mojo-parent/40": {
+   "pom": "sha256-/GSNzcQE+L9m4Fg5FOz5gBdmGCASJ76hFProUEPLdV4="
+  },
   "org/codehaus/plexus#plexus-utils/3.4.1": {
    "jar": "sha256-UtheBLORhyKvEdEoVbSoJX35ag52yPTjhS5vqoUfNXs=",
    "pom": "sha256-sUTP+bHGJZ/sT+5b38DzYNacI6vU6m5URTOpSbaeNYI="
@@ -104,9 +166,13 @@
   "org/codehaus/plexus#plexus/8": {
    "pom": "sha256-/6NJ2wTnq/ZYhb3FogYvQZfA/50/H04qpXILdyM/dCw="
   },
-  "org/javamodularity#moduleplugin/1.8.10": {
-   "jar": "sha256-UlP+fnZAuM2dxiRlilPRh+P7VYLljg9J+bh66vUx7bA=",
-   "pom": "sha256-bfL9+FueWi+/y6CgD/rARPNIVkDYT5fpgAj7MKPpxZ0="
+  "org/javamodularity#moduleplugin/1.8.2": {
+   "jar": "sha256-8HkSizB0XbU5LFVc8Yape3+s5ARx3fzhoJMNGgQA1pY=",
+   "pom": "sha256-cV98N/2X6efDlqPzXyBl2I5t3FBK31RI9SMyB3/E6V8="
+  },
+  "org/javassist#javassist/3.24.0-GA": {
+   "jar": "sha256-q6ge+meLYhID+4mu/4HW8Sb3qd1wlAHlYJxCl2aEriM=",
+   "pom": "sha256-ydN5DwMCdlQdEYoRvmf9Jxv4HjAblieA5ULC5fY2wbE="
   },
   "org/jdom#jdom2/2.0.6": {
    "jar": "sha256-E0XxG6YG0VYD1nQFUajCGUfAIVZAdw7GcnH+eL6pfPU=",
@@ -120,12 +186,12 @@
    "module": "sha256-87zrHFndT2mT9DBN/6WAFyuN9lp2zTb6T9ksBXjSitg=",
    "pom": "sha256-zRSqqGmZH4ICHFhdVw0x/zQry6WLtEIztwGTdxuWSHs="
   },
-  "org/openjfx#javafx-plugin/0.0.13": {
-   "jar": "sha256-i+ACqLxyPh/NuHsedA2BBGl37xA7aY7MljRg2RR0SyI=",
-   "pom": "sha256-/34ZLyWSNeE0XV+mVuGgOBE7+DesCcsTNm1EN8kIr38="
+  "org/openjfx#javafx-plugin/0.0.10": {
+   "jar": "sha256-0D6W2eJ6dGG85sBbU302wi3ITsuU1cBdXulnV3ogPtU=",
+   "pom": "sha256-s9KFIv6UIyAtedHPh8SvoY691E6i6anbz1+vKJ1lMYs="
   },
-  "org/openjfx/javafxplugin#org.openjfx.javafxplugin.gradle.plugin/0.0.13": {
-   "pom": "sha256-SE5sYEua4/6FKhCh/as6FD6DS8L9GCo73uQzFGIYkIk="
+  "org/openjfx/javafxplugin#org.openjfx.javafxplugin.gradle.plugin/0.0.10": {
+   "pom": "sha256-vZ9SFW+rpNbDSwchhi+ipTvkmfdTZlxPgpNRYf3OTyY="
   },
   "org/ow2#ow2/1.5": {
    "pom": "sha256-D4obEW52C4/mOJxRuE5LB6cPwRCC1Pk25FO1g91QtDs="
