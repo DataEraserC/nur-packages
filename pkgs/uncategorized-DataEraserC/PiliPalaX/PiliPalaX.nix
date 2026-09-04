@@ -12,13 +12,13 @@
 }:
 flutter.buildFlutterApplication rec {
   pname = "PiliPalaX";
-  version = "2.1.2.3-unstable-2026-09-03";
+  version = "2.1.2.3-unstable-2026-09-04";
 
   src = fetchFromGitHub {
     owner = "bggRGjQaUbCoE";
     repo = "PiliPlus";
-    rev = "5a6f3feaea37db997eae0671ef86490022b0d7df";
-    hash = "sha256-hQi3q4GhE3is3BfUeHZzZLBsXWEPgfUk13SFLeSHy+4=";
+    rev = "837ef862fe7e21eabad126466fcb5edac23aea5f";
+    hash = "sha256-aShPT/d3J3lMgB+7szEc3CipG7FoVVm+oBdz43yngX8=";
     fetchSubmodules = true;
   };
 
