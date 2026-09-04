@@ -8,11 +8,11 @@
 }:
 let
   wine = wineWow64Packages.waylandFull;
-  version = "6.8.6";
+  version = "6.9.3";
 
   src = fetchurl {
     url = "https://github.com/DataEraserC/nur-packages/releases/download/aDrive/aDrive-${version}.exe";
-    hash = "sha256-g6RlkSDQDQQ9cj0R5EOPmgLLENpSgekWCHpP/lgh65A=";
+    hash = "sha256-PMvfqSBSi9ApXBGXqEvNVSzBz+K/KtcirOfV3ZO9soE=";
   };
 in
 stdenv.mkDerivation {
