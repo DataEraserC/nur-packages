@@ -60,6 +60,7 @@ stdenv.mkDerivation rec {
     description = "Adobe_Photoshop_CS6";
     homepage = "https://t.me/Linux_Appimages/1042";
     license = lib.licenses.unfree;
+    mainProgram = "adobe_photoshop_cs6";
     platforms = [ "x86_64-linux" ];
   };
 }

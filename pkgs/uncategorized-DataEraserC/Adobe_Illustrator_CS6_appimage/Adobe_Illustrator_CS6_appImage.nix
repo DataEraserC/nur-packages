@@ -60,6 +60,7 @@ stdenv.mkDerivation rec {
     description = "Adobe_Illustrator_CS6";
     homepage = "https://t.me/Linux_Appimages/1052";
     license = lib.licenses.unfree;
+    mainProgram = "adobe_illustrator_cs6";
     platforms = [ "x86_64-linux" ];
   };
 }
