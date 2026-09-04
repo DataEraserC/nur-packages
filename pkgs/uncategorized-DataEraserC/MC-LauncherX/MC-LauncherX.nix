@@ -7,6 +7,22 @@
   makeWrapper,
   icu,
   openssl,
+  fontconfig,
+  libx11,
+  libxext,
+  libxrender,
+  libxi,
+  libxcb,
+  libxrandr,
+  libxcursor,
+  libxfixes,
+  libxtst,
+  libice,
+  libsm,
+  libxinerama,
+  libxscrnsaver,
+  libxcomposite,
+  libxdamage,
   ...
 }:
 let
@@ -47,6 +63,11 @@ let
       };
     }
     .${HostPlatform};
+
+  skiaNupkg = fetchurl {
+    url = "https://www.nuget.org/api/v2/package/SkiaSharp.NativeAssets.Linux/2.88.9";
+    hash = "sha256-mQ/oBaqRR71WfS66mJCvcc3uKW7CNEHoPN2JilDbw/A=";
+  };
 in
 stdenv.mkDerivation {
   pname = "MC-LauncherX";
@@ -68,6 +89,7 @@ stdenv.mkDerivation {
   installPhase = ''
     mkdir -p $out/bin
     install -Dm755 * $out/bin/
+    unzip -jo ${skiaNupkg} 'runtimes/linux-x64/native/libSkiaSharp.so' -d $out/bin
   '';
   postFixup = lib.optionalString stdenv.hostPlatform.isLinux ''
     for f in $out/bin/*; do
@@ -80,7 +102,23 @@ stdenv.mkDerivation {
         lib.makeLibraryPath [
           icu
           openssl
+          fontconfig
           stdenv.cc.cc.lib
+          libx11
+          libxext
+          libxrender
+          libxi
+          libxcb
+          libxrandr
+          libxcursor
+          libxfixes
+          libxtst
+          libice
+          libsm
+          libxinerama
+          libxscrnsaver
+          libxcomposite
+          libxdamage
         ]
       }"
     done
@@ -89,6 +127,5 @@ stdenv.mkDerivation {
     homepage = "https://kb.corona.studio/";
     mainProgram = "LauncherX.Avalonia";
     platforms = SupportedPlatforms;
-    broken = true;
   };
 }
