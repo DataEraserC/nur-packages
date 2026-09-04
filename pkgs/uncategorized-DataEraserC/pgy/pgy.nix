@@ -107,6 +107,7 @@ stdenv.mkDerivation {
     license = licenses.unfree;
     maintainers = with lib.maintainers; [ xddxdd ];
     mainProgram = "pgyvisitor";
+    broken = true;
     platforms = SupportedPlatforms;
   };
 }
