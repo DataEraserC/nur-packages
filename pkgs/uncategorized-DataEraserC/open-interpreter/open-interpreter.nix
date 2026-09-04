@@ -5,7 +5,7 @@
 }:
 python3Packages.buildPythonApplication rec {
   pname = "open-interpreter";
-  version = "0-unstable-2026-08-19";
+  version = "rust-v0.0.40";
 
   src = fetchFromGitHub {
     owner = "OpenInterpreter";
