@@ -51,8 +51,9 @@ jobs:
             extra-platforms = i686-linux aarch64-linux arm-linux
             build-dir = /nix/tmpdir
             log-lines = 25
-            substituters = https://cache.nixos.org/
-            trusted-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=
+
+      - name: Speed Up nix
+        uses: DeterminateSystems/magic-nix-cache-action@main
 
       - name: Update packages
         continue-on-error: true
