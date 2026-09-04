@@ -1,15 +1,16 @@
 {
-  appimageTools,
   fetchurl,
   lib,
-  p7zip,
-  runCommand,
-  pkgsi686Linux,
+  stdenv,
+  pkgs,
+  appimage-run,
+  makeDesktopItem,
 }:
-let
+stdenv.mkDerivation rec {
+  pname = "Adobe_Illustrator_CS6";
   version = "CS6";
 
-  src7z = fetchurl {
+  src = fetchurl {
     url = "https://github.com/Program-Learning/nur-packages/releases/download/Adobe_Illustrator_CS6.AppImage/Adobe_Illustrator_CS6.AppImage.7z";
     sha256 = "sha256-rbG4qa013jO0cGl3nIE5YarmWDfRVX7GmScMKuwAF9M=";
   };
@@ -19,52 +20,46 @@ let
     sha256 = "sha256-zKBp0EyYClUeAuJ79+VJrrBtPuKIoyNTIOpcbwZVLV0=";
   };
 
-  appImage =
-    runCommand "Adobe_Illustrator_CS6.AppImage"
-      {
-        nativeBuildInputs = [ p7zip ];
-      }
-      ''
-        7z x ${src7z} -o"$out" >/dev/null
-      '';
-in
-appimageTools.wrapType2 rec {
-  pname = "Adobe_Illustrator_CS6";
-  inherit version;
+  buildInputs = with pkgs; [ p7zip ];
+  nativeBuildInputs = with pkgs; [
+    makeWrapper
+    copyDesktopItems
+  ];
 
-  src = "${appImage}/Adobe_Illustrator_CS6.AppImage";
-
-  extraPkgs =
-    _: with pkgsi686Linux; [
-      glibc
-      stdenv.cc.cc.lib
-      freetype
-      fontconfig
-      zlib
-      xorg.libX11
-      xorg.libXext
-      xorg.libXrender
-      xorg.libXrandr
-      xorg.libXcursor
-      xorg.libXfixes
-      xorg.libXi
-      xorg.libXxf86vm
-      xorg.libXinerama
-      xorg.libXcomposite
-      xorg.libxcb
-      xorg.libXau
-      xorg.libXdmcp
-    ];
-
-  extraInstallCommands = ''
-    install -Dm644 ${icon} $out/share/icons/hicolor/48x48/apps/Adobe_Illustrator_CS6.png
+  unpackPhase = ''
+    7z x $src
   '';
 
+  installPhase = ''
+    runHook preInstall
+    _install() {
+      mkdir -p $out/Appimage
+      install -Dm755 Adobe_Illustrator_CS6.AppImage $out/Appimage/Adobe_Illustrator_CS6.AppImage
+      install -Dm644 $icon $out/share/icons/hicolor/48x48/apps/Adobe_Illustrator_CS6.png
+      makeWrapper ${appimage-run}/bin/appimage-run $out/bin/adobe_illustrator_cs6 \
+      --argv0 "adobe_illustrator_cs6" \
+      --add-flags "$out/Appimage/Adobe_Illustrator_CS6.AppImage"
+    }
+    _install
+    runHook postInstall
+  '';
+
+  desktopItems = lib.toList (makeDesktopItem {
+    name = "Adobe_Illustrator_CS6";
+    genericName = "Adobe_Illustrator_CS6";
+    exec = "adobe_illustrator_cs6";
+    icon = "Adobe_Illustrator_CS6";
+    comment = "GameLinux";
+    desktopName = "Adobe_Illustrator_CS6";
+    categories = [
+      "Graphics"
+      "2DGraphics"
+    ];
+  });
   meta = {
     description = "Adobe_Illustrator_CS6";
     homepage = "https://t.me/Linux_Appimages/1052";
     license = lib.licenses.unfree;
-    mainProgram = pname;
     platforms = [ "x86_64-linux" ];
   };
 }
