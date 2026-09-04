@@ -8,7 +8,7 @@
 }:
 buildDotnetModule rec {
   pname = "watt-toolkit";
-  version = "unstable-2026-08-31";
+  version = "3.1.0-unstable-2026-08-31";
 
   src = fetchFromGitHub {
     owner = "BeyondDimension";

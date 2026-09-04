@@ -12,7 +12,7 @@
 }:
 flutter.buildFlutterApplication rec {
   pname = "PiliPalaX";
-  version = "unstable-2026-09-03";
+  version = "2.1.2.3-unstable-2026-09-03";
 
   src = fetchFromGitHub {
     owner = "bggRGjQaUbCoE";

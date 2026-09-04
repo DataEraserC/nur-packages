@@ -6,7 +6,7 @@
 }:
 python3Packages.buildPythonApplication rec {
   pname = "open-interpreter";
-  version = "unstable-2026-08-19";
+  version = "0-unstable-2026-08-19";
 
   src = fetchFromGitHub {
     owner = "OpenInterpreter";

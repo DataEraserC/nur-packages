@@ -18,7 +18,7 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "scrcpy-mask-git";
-  version = "unstable-2026-08-16";
+  version = "0-unstable-2026-08-16";
 
   src = fetchFromGitHub {
     owner = "AkiChase";

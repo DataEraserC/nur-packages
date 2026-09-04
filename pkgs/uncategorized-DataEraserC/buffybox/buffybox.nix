@@ -15,7 +15,7 @@
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "buffybox";
-  version = "unstable-2024-10-05";
+  version = "0-unstable-2024-10-05";
 
   src = fetchgit {
     url = "https://gitlab.com/postmarketOS/buffybox.git";

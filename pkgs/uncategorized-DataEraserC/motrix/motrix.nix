@@ -15,7 +15,7 @@
 }:
 (stdenv.mkDerivation rec {
   pname = "motrix";
-  version = "unstable-2023-06-07";
+  version = "0-unstable-2023-06-07";
 
   src = fetchFromGitHub {
     owner = "Apps-Used-By-Myself";

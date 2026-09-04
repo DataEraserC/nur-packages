@@ -17,7 +17,7 @@
 }:
 stdenvNoCC.mkDerivation rec {
   pname = "hdrop";
-  version = "unstable-2026-02-17";
+  version = "0-unstable-2026-02-17";
 
   src = fetchFromGitHub {
     owner = "Schweber";

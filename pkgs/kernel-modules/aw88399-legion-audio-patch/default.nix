@@ -6,7 +6,7 @@
 }:
 stdenv.mkDerivation {
   pname = "aw88399-legion-audio-patch";
-  version = "unstable-2026-09-03";
+  version = "0-unstable-2026-09-03";
 
   src = fetchgit {
     url = "https://github.com/Apps-Used-By-Myself/16iax10h-linux-sound-saga";

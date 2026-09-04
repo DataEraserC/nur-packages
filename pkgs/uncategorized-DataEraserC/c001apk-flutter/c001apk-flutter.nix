@@ -13,7 +13,7 @@ let
 in
 flutter.buildFlutterApplication rec {
   pname = "c001apk-flutter";
-  version = "unstable-2026-03-08";
+  version = "0-unstable-2026-03-08";
 
   src = fetchFromGitHub {
     owner = "Integral-Tech";

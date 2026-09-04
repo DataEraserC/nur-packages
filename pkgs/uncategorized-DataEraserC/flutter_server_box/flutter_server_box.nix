@@ -9,7 +9,7 @@
 }:
 flutter335.buildFlutterApplication rec {
   pname = "flutter_server_box";
-  version = "unstable-2025-04-25";
+  version = "0-unstable-2025-04-25";
 
   src = fetchFromGitHub {
     owner = "Apps-Used-By-Myself";

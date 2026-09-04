@@ -27,7 +27,7 @@ let
   jdk = jdk21_with_openjfx;
   self = stdenv.mkDerivation rec {
     pname = "XiaoMiToolV2";
-    version = "unstable-2024-12-18";
+    version = "0-unstable-2024-12-18";
 
     src = fetchFromGitHub {
       owner = "topminipie";

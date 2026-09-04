@@ -74,7 +74,6 @@ rustPlatform.buildRustPackage rec {
       mit
     ];
     maintainers = with lib.maintainers; [
-      dit7ya
       getchoo
       happysalada
     ];

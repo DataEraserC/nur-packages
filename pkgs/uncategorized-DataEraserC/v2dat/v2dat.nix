@@ -10,7 +10,7 @@ let
 in
 buildGoModule {
   pname = "v2dat";
-  version = "unstable-2022-12-15";
+  version = "0-unstable-2022-12-15";
   inherit vendorHash;
 
   src = fetchFromGitHub {

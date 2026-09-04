@@ -9,7 +9,7 @@
 }:
 stdenvNoCC.mkDerivation rec {
   pname = "ttyescape";
-  version = "unstable-2023-03-08";
+  version = "0-unstable-2023-03-08";
 
   src = fetchgit {
     url = "https://gitlab.com/postmarketOS/ttyescape.git";

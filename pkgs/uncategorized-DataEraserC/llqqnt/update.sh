@@ -4,7 +4,7 @@
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)
 REPO="LiteLoaderQQNT/LiteLoaderQQNT"
 OLD_REV=$(sed -n 's/^  LiteLoaderQQNTVersion = "\(.*\)";/\1/p' "$SCRIPT_DIR/llqqnt.nix")
-NEW_REV=$(git ls-remote "https://github.com/$REPO.git" refs/heads/master | cut -f1)
+NEW_REV=$(git ls-remote "https://github.com/$REPO.git" HEAD | cut -f1)
 
 if [ -z "$NEW_REV" ]; then
   echo "Failed to query latest revision of $REPO" >&2
