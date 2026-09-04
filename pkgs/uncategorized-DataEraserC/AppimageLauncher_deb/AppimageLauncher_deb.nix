@@ -90,6 +90,7 @@ stdenv.mkDerivation rec {
     mv $out/usr/{lib,share} $out
     mkdir $out/bin
     ln -s $out/usr/bin/{ail-cli,appimagelauncherd,AppImageLauncherSettings,AppImageLauncher} $out/bin
+    ln -s $out/usr/bin/AppImageLauncher $out/bin/appimagelauncher
 
     # fix perm
     chmod 555 $out/lib/x86_64-linux-gnu/appimagelauncher/{libappimage.so.1.0.3,libappimageupdate-qt.so,libappimageupdate.so,libbinfmt-bypass-preload.so}
@@ -126,6 +127,7 @@ stdenv.mkDerivation rec {
     homepage = "https://github.com/TheAssassin/AppImageLauncher";
     license = lib.licenses.mit;
     maintainers = [ ];
+    mainProgram = "AppImageLauncher";
     platforms = [ "x86_64-linux" ];
   };
 }
