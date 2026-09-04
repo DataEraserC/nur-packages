@@ -41,8 +41,8 @@ buildPythonPackage (finalAttrs: {
   src = fetchFromGitHub {
     owner = "modelscope";
     repo = "FunASR";
-    rev = "6ee14b1a3283aa5a24e684bcd6ba68058e64adb0";
-    hash = "sha256-AzO7IpcxlytKbIPjfIgH65n+h36rgXMPKF+vNgTw1Bg=";
+    rev = "a23946a8b3e9146f9bf80e18f768298f0cd000b7";
+    hash = "sha256-2gJhIt8Mhmcd1C5ykoAzNm8ohPh3CutTrtnwkZGxoiI=";
   };
   build-system = [ setuptools ];
 
