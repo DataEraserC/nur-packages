@@ -23,9 +23,17 @@ appimageTools.wrapType2 rec {
       appimageContents = appimageTools.extract { inherit pname version src; };
     in
     ''
-      install -Dm444 ${appimageContents}/io.github.msojocs.wechat_devtools.desktop -t $out/share/applications
-      substituteInPlace $out/share/applications/io.github.msojocs.wechat_devtools.desktop \
-        --replace-fail 'Exec=wechat-devtools' 'Exec=wechat_dev_tools_appimage'
+      mkdir -p $out/share/applications
+      cat > $out/share/applications/io.github.msojocs.wechat_devtools.desktop <<'EOF'
+      [Desktop Entry]
+      Type=Application
+      Name=WeChat DevTools
+      Comment=WeChat web development tools
+      Exec=wechat_dev_tools_appimage %F
+      Icon=wechat_dev_tools
+      Categories=Development;WebDevelopment;IDE;
+      Terminal=false
+      EOF
       cp -r ${appimageContents}/usr/share/icons $out/share
     '';
 
