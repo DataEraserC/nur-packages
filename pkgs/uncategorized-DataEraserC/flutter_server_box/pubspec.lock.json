@@ -504,9 +504,11 @@
       "description": {
         "name": "extended_image",
         "sha256": "fcefcf3cba32696c639e9e305a790039709d05a7139320b91bb9d300993452e2",
+        "sha256": "fcefcf3cba32696c639e9e305a790039709d05a7139320b91bb9d300993452e2",
         "url": "https://pub.dev"
       },
       "source": "hosted",
+      "version": "10.0.0",
       "version": "10.0.0"
     },
     "extended_image_library": {
@@ -514,9 +516,11 @@
       "description": {
         "name": "extended_image_library",
         "sha256": "ae468c31c375064964de11cbb31310a58c4462df6e3bae1a0bc0066f586795d5",
+        "sha256": "ae468c31c375064964de11cbb31310a58c4462df6e3bae1a0bc0066f586795d5",
         "url": "https://pub.dev"
       },
       "source": "hosted",
+      "version": "5.0.0",
       "version": "5.0.0"
     },
     "fake_async": {
@@ -554,9 +558,11 @@
       "description": {
         "name": "file_picker",
         "sha256": "8d938fd5c11dc81bf1acd4f7f0486c683fe9e79a0b13419e27730f9ce4d8a25b",
+        "sha256": "8d938fd5c11dc81bf1acd4f7f0486c683fe9e79a0b13419e27730f9ce4d8a25b",
         "url": "https://pub.dev"
       },
       "source": "hosted",
+      "version": "9.2.1",
       "version": "9.2.1"
     },
     "fixnum": {
@@ -2157,6 +2163,7 @@
   },
   "sdks": {
     "dart": ">=3.7.0 <4.0.0",
+    "flutter": ">=3.29.0",
     "flutter": ">=3.29.0"
   }
 }
