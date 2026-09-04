@@ -1,7 +1,6 @@
 {
   fetchFromGitHub,
   lib,
-  unstableGitUpdater,
   pkg-config,
   flutter,
   makeDesktopItem,
@@ -23,25 +22,15 @@ flutter.buildFlutterApplication rec {
     fetchSubmodules = true;
   };
 
-  passthru.updateScript = unstableGitUpdater {
-    url = "https://github.com/Integral-Tech/c001apk-flutter.git";
-  };
+  passthru.updateScript = [ (toString ./update.sh) ];
 
   sourceRoot = "${src.name}";
-  autoPubspecLock = src + "/pubspec.lock";
+  pubspecLock = lib.importJSON ./pubspec.lock.json;
 
   nativeBuildInputs = [
     pkg-config
     copyDesktopItems
   ];
-
-  postUnpack = ''
-    pushd "$sourceRoot"
-    substituteInPlace pubspec.lock \
-      --replace-warn 'https://pub.flutter-io.cn' 'https://pub.dev'
-    # --replace-warn 'https://pub.flutter-io.cn' 'https://mirrors.tuna.tsinghua.edu.cn/dart-pub'
-    popd
-  '';
 
   postInstall = ''
     _postinstall() {

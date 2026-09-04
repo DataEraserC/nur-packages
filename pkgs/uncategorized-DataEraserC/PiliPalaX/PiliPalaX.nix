@@ -1,7 +1,6 @@
 {
   fetchFromGitHub,
   lib,
-  unstableGitUpdater,
   pkg-config,
   mpv,
   autoPatchelfHook,
@@ -22,14 +21,11 @@ flutter.buildFlutterApplication rec {
     fetchSubmodules = true;
   };
 
-  passthru.updateScript = unstableGitUpdater {
-    url = "https://github.com/bggRGjQaUbCoE/PiliPlus";
-  };
+  passthru.updateScript = [ (toString ./update.sh) ];
 
   sourceRoot = "${src.name}";
 
-  # need more step for pubspec.lock
-  autoPubspecLock = src + "/pubspec.lock";
+  pubspecLock = lib.importJSON ./pubspec.lock.json;
 
   nativeBuildInputs = [
     autoPatchelfHook

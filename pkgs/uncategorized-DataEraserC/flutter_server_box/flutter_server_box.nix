@@ -1,7 +1,6 @@
 {
   fetchFromGitHub,
   lib,
-  unstableGitUpdater,
   pkg-config,
   flutter335,
   makeDesktopItem,
@@ -19,13 +18,10 @@ flutter335.buildFlutterApplication rec {
     fetchSubmodules = true;
   };
 
-  passthru.updateScript = unstableGitUpdater {
-    url = "https://github.com/Apps-Used-By-Myself/flutter_server_box.git";
-    tagPrefix = "v";
-  };
+  passthru.updateScript = [ (toString ./update.sh) ];
 
   sourceRoot = "${src.name}";
-  autoPubspecLock = src + "/pubspec.lock";
+  pubspecLock = lib.importJSON ./pubspec.lock.json;
 
   nativeBuildInputs = [
     pkg-config
