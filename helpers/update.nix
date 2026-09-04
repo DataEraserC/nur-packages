@@ -25,6 +25,8 @@
   excludes ? [
     "lantianCustomized.materialgram"
     "lantianCustomized.firefox-unwrapped"
+    "lantianCustomized.firefox-esr-unwrapped"
+    "lantianCustomized.firefox-esr-153-unwrapped"
     "lantianCustomized.attic-telnyx-compatible"
     "uncategorized.wechat-uos-sandboxed"
     "uncategorized.nftables-fullcone"

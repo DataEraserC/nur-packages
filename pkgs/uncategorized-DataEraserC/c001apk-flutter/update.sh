@@ -1,5 +1,5 @@
 #!/usr/bin/env nix-shell
-#!nix-shell -i bash -p git -p curl -p nix -p yq-go -p common-updater-scripts
+#!nix-shell -i bash -p git -p curl -p nix -p python3 -p python3Packages.pyyaml -p common-updater-scripts
 # shellcheck shell=bash
 set -euo pipefail
 
@@ -8,7 +8,7 @@ FILE="$DIR/c001apk-flutter.nix"
 REPO="Integral-Tech/c001apk-flutter"
 PREFIX=""
 
-OLD_REV=$(sed -n 's/^      rev = "\([0-9a-f]*\)";/\1/p' "$FILE")
+OLD_REV=$(sed -n 's/^[[:space:]]*rev = "\([0-9a-f]*\)";/\1/p' "$FILE")
 NEW_REV=$(git ls-remote "https://github.com/$REPO" HEAD | cut -f1)
 [ -n "$NEW_REV" ] || {
   echo "Failed to query HEAD of $REPO" >&2
@@ -39,7 +39,11 @@ fi
 cd - >/dev/null
 
 echo "c001apk-flutter: $OLD_REV -> $NEW_REV ($NEW_VERSION)"
-curl -fsSL "https://raw.githubusercontent.com/$REPO/$NEW_REV/pubspec.lock" -o "$TMP/pubspec.lock"
-yq -p yaml -o json "$TMP/pubspec.lock" >"$DIR/pubspec.lock.json"
 
+# First update version/rev/hash so the source and the lock never diverge.
 update-source-version "$UPDATE_NIX_ATTR_PATH" "$NEW_VERSION" --rev="$NEW_REV"
+
+# Refresh the vendored lockfile from the same revision (yq emits duplicate
+# JSON keys for these lockfiles, so convert with python/pyyaml instead).
+curl -fsSL "https://raw.githubusercontent.com/$REPO/$NEW_REV/pubspec.lock" -o "$TMP/pubspec.lock"
+python3 -c "import json,yaml,sys; json.dump(yaml.safe_load(open(sys.argv[1])), open('$DIR/pubspec.lock.json','w'), indent=2); print('', file=open('$DIR/pubspec.lock.json','a'))" "$TMP/pubspec.lock"

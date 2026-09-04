@@ -1,7 +1,6 @@
 {
   fetchFromGitHub,
   lib,
-  unstableGitUpdater,
   python3Packages,
 }:
 python3Packages.buildPythonApplication rec {
@@ -14,11 +13,6 @@ python3Packages.buildPythonApplication rec {
     rev = "5b07159c477920c159d8892d112b480e7307f257";
     hash = "sha256-sdYloCCBNPut67p6HYjUHLCdt0JGnHBMD/UDpplevus=";
     fetchSubmodules = true;
-  };
-
-  passthru.updateScript = unstableGitUpdater {
-    url = "https://github.com/OpenInterpreter/open-interpreter";
-    tagPrefix = "v";
   };
 
   pyproject = true;
