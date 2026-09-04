@@ -24,12 +24,13 @@
   makeWrapper,
   nspr,
   nss,
+  wayland,
   fetchurl,
   xorg,
 }:
 
 let
-  version = "8.0.1";
+  version = "8.2.2";
 
   ptFiles = stdenv.mkDerivation {
     name = "PacketTracer8Drv";
@@ -37,8 +38,8 @@ let
 
     dontUnpack = true;
     src = fetchurl {
-      url = "https://gitlab.cri.epita.fr/forge/infra/nixpie/-/package_files/5572/download";
-      sha256 = "7dc810747d330ec33191d198dd399a8ff99bf991a10d27f335475692f2c2bcf8";
+      url = "https://github.com/DataEraserC/nur-packages/releases/download/CiscoPacketTracer822_amd64_signed.deb/CiscoPacketTracer822_amd64_signed.deb";
+      sha256 = "sha256-bNK4iR35LSyti2/cR0gPwIneCFxPP+leuA1UUKKn9y0=";
     };
 
     nativeBuildInputs = [
@@ -59,6 +60,7 @@ let
       makeWrapper
       nspr
       nss
+      wayland
     ]
     ++ (with xorg; [
       libICE
@@ -81,11 +83,23 @@ let
       xcbutilwm
     ]);
 
+    buildInputs = [
+      libxml2
+    ];
+
+    runtimeDependencies = [
+      libxml2
+    ];
+
+    autoPatchelfIgnoreMissingDeps = [
+      "libxml2.so.2"
+    ];
+
     installPhase = ''
       dpkg-deb -x $src $out
       chmod 755 "$out"
       makeWrapper "$out/opt/pt/bin/PacketTracer" "$out/bin/packettracer" \
-        --prefix LD_LIBRARY_PATH : "$out/opt/pt/bin"
+        --prefix LD_LIBRARY_PATH : "${libxml2}/lib:$out/opt/pt/bin"
       # Keep source archive cached, to avoid re-downloading
       ln -s $src $out/usr/share/
     '';

@@ -1,1 +1,1 @@
-import ./ciscoPacketTracer.nix
+import ../cisco-packet-tracer/cisco-packet-tracer.nix
