@@ -25,6 +25,7 @@
   nspr,
   nss,
   wayland,
+  patchelf,
   fetchurl,
   xorg,
 }:
@@ -45,6 +46,7 @@ let
     nativeBuildInputs = [
       alsa-lib
       autoPatchelfHook
+      patchelf
       dbus
       dpkg
       expat
@@ -84,11 +86,11 @@ let
     ]);
 
     buildInputs = [
-      libxml2
+      libxml2.out
     ];
 
     runtimeDependencies = [
-      libxml2
+      libxml2.out
     ];
 
     autoPatchelfIgnoreMissingDeps = [
@@ -99,7 +101,7 @@ let
       dpkg-deb -x $src $out
       chmod 755 "$out"
       makeWrapper "$out/opt/pt/bin/PacketTracer" "$out/bin/packettracer" \
-        --prefix LD_LIBRARY_PATH : "${libxml2}/lib:$out/opt/pt/bin"
+        --prefix LD_LIBRARY_PATH : "${libxml2.out}/lib:$out/opt/pt/bin"
       # Keep source archive cached, to avoid re-downloading
       ln -s $src $out/usr/share/
     '';
@@ -120,7 +122,10 @@ let
   fhs = buildFHSEnvBubblewrap {
     name = "packettracer8";
     runScript = "${ptFiles}/bin/packettracer";
-    targetPkgs = _pkgs: [ libudev0-shim ];
+    targetPkgs = _pkgs: [
+      libudev0-shim
+      libxml2.out
+    ];
 
     extraInstallCommands = ''
       mkdir -p "$out/share/applications"
@@ -149,5 +154,9 @@ stdenv.mkDerivation {
     mainProgram = "packettracer8";
     maintainers = with maintainers; [ lucasew ];
     platforms = [ "x86_64-linux" ];
+    # The bundled QtWebEngine links against the legacy libxml2.so.2 ABI
+    # (versioned symbols like LIBXML2_2.4.30), which modern nixpkgs no
+    # longer provides; it builds but cannot start.
+    broken = true;
   };
 }
