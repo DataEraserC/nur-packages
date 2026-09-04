@@ -107,6 +107,8 @@ stdenv.mkDerivation {
     license = licenses.unfree;
     maintainers = with lib.maintainers; [ xddxdd ];
     mainProgram = "pgyvisitor";
+    # Direct unpacking cannot replace the hard-coded /usr/share paths of the
+    # bundled binaries; use the FHS-wrapped pgy_fhs package instead.
     broken = true;
     platforms = SupportedPlatforms;
   };
