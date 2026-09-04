@@ -80,5 +80,6 @@ stdenv.mkDerivation {
     maintainers = [ ];
     inherit (wine.meta) platforms;
     mainProgram = "aDrive";
+    broken = true;
   };
 }
