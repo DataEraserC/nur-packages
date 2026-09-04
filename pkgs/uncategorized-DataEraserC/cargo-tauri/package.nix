@@ -7,7 +7,6 @@
   cargo-tauri,
   darwin,
   gtk4,
-  nix-update-script,
   openssl,
   pkg-config,
   testers,
@@ -61,8 +60,6 @@ rustPlatform.buildRustPackage rec {
       hook = callPackage ./test-app.nix { };
       version = testers.testVersion { package = cargo-tauri; };
     };
-
-    updateScript = nix-update-script { };
   };
 
   meta = {

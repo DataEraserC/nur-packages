@@ -18,7 +18,7 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "scrcpy-mask-git";
-  version = "0-unstable-2026-08-16";
+  version = "0.9.0-unstable-2026-08-16";
 
   src = fetchFromGitHub {
     owner = "AkiChase";
@@ -30,6 +30,7 @@ rustPlatform.buildRustPackage rec {
 
   passthru.updateScript = unstableGitUpdater {
     url = "https://github.com/AkiChase/scrcpy-mask";
+    tagPrefix = "v";
   };
 
   cargoDeps = rustPlatform.importCargoLock {

@@ -13,7 +13,6 @@
       openjfx21 = openjfx21.override { withWebKit = true; };
     }
   ),
-  unstableGitUpdater,
   libGL,
   xorg,
   libX11 ? xorg.libX11,
@@ -27,18 +26,14 @@ let
   jdk = jdk21_with_openjfx;
   self = stdenv.mkDerivation rec {
     pname = "XiaoMiToolV2";
-    version = "0-unstable-2025-06-24";
+    version = "0-unstable-2024-12-18";
 
     src = fetchFromGitHub {
       owner = "topminipie";
       repo = "XiaoMiToolV2";
-      rev = "8423896ba61b86fbb0fb80e4b075db0568772ff5";
-      hash = "sha256-/PiJEMgPhSTpGseJLl/eq+y+9vfz3l1qw4sb+Zsek7A=";
+      rev = "c150b381f68ff9199dc4301928dd4f0f6941caa8";
+      hash = "sha256-7cHg8fOcPW1lKnRuJQCjkUfmC6fqx3m17FzzEtpp398=";
       fetchSubmodules = true;
-    };
-
-    passthru.updateScript = unstableGitUpdater {
-      url = "https://github.com/topminipie/XiaoMiToolV2";
     };
 
     nativeBuildInputs = [

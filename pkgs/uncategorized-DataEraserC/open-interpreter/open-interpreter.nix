@@ -18,6 +18,7 @@ python3Packages.buildPythonApplication rec {
 
   passthru.updateScript = unstableGitUpdater {
     url = "https://github.com/OpenInterpreter/open-interpreter";
+    tagPrefix = "v";
   };
 
   pyproject = true;

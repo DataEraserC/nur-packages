@@ -15,7 +15,7 @@
 }:
 (stdenv.mkDerivation rec {
   pname = "motrix";
-  version = "0-unstable-2023-06-07";
+  version = "1.8.19-unstable-2023-06-07";
 
   src = fetchFromGitHub {
     owner = "Apps-Used-By-Myself";
@@ -32,6 +32,7 @@
   };
   passthru.updateScript = unstableGitUpdater {
     url = "https://github.com/Apps-Used-By-Myself/motrix.git";
+    tagPrefix = "v";
   };
   nativeBuildInputs = [
     yarnConfigHook

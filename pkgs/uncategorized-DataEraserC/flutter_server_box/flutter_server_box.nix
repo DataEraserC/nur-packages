@@ -9,7 +9,7 @@
 }:
 flutter335.buildFlutterApplication rec {
   pname = "flutter_server_box";
-  version = "0-unstable-2025-04-25";
+  version = "1.0.1130-unstable-2025-04-25";
 
   src = fetchFromGitHub {
     owner = "Apps-Used-By-Myself";
@@ -21,6 +21,7 @@ flutter335.buildFlutterApplication rec {
 
   passthru.updateScript = unstableGitUpdater {
     url = "https://github.com/Apps-Used-By-Myself/flutter_server_box.git";
+    tagPrefix = "v";
   };
 
   sourceRoot = "${src.name}";

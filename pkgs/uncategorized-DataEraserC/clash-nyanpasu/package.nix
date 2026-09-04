@@ -13,11 +13,11 @@
 }:
 stdenv.mkDerivation rec {
   pname = "clash-nyanpasu";
-  version = "1.4.5";
+  version = "1.6.1";
 
   src = fetchurl {
     url = "https://github.com/keiko233/clash-nyanpasu/releases/download/v${version}/clash-nyanpasu_${version}_amd64.deb";
-    hash = "sha256-cxaq7Rndf0ytEaqc7CGQix5SOAdsTOoTj1Jlhjr5wEA=";
+    hash = "sha256-191Mhq7eYQYNqYO+a4G1sQR/6hG8WcFwLn5AEdNx0j4=";
   };
 
   nativeBuildInputs = [
@@ -58,6 +58,7 @@ stdenv.mkDerivation rec {
     license = lib.licenses.gpl3Plus;
     sourceProvenance = with lib.sourceTypes; [ binaryNativeCode ];
     maintainers = [ lib.maintainers.Guanran928 ];
+    broken = true;
     mainProgram = "clash-nyanpasu";
   };
 }
