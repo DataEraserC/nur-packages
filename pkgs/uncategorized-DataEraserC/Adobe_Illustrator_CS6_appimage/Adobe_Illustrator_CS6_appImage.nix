@@ -34,10 +34,27 @@ appimageTools.wrapType2 rec {
 
   src = "${appImage}/Adobe_Illustrator_CS6.AppImage";
 
-  extraPkgs = _: [
-    pkgsi686Linux.glibc
-    pkgsi686Linux.stdenv.cc.cc.lib
-  ];
+  extraPkgs =
+    _: with pkgsi686Linux; [
+      glibc
+      stdenv.cc.cc.lib
+      freetype
+      fontconfig
+      zlib
+      xorg.libX11
+      xorg.libXext
+      xorg.libXrender
+      xorg.libXrandr
+      xorg.libXcursor
+      xorg.libXfixes
+      xorg.libXi
+      xorg.libXxf86vm
+      xorg.libXinerama
+      xorg.libXcomposite
+      xorg.libxcb
+      xorg.libXau
+      xorg.libXdmcp
+    ];
 
   extraInstallCommands = ''
     install -Dm644 ${icon} $out/share/icons/hicolor/48x48/apps/Adobe_Illustrator_CS6.png
