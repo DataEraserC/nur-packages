@@ -1,9 +1,12 @@
 {
   lib,
   stdenv,
-  autoPatchelfHook,
   fetchurl,
   unzip,
+  patchelf,
+  makeWrapper,
+  icu,
+  openssl,
   ...
 }:
 let
@@ -52,9 +55,12 @@ stdenv.mkDerivation {
 
   passthru.updateScript = [ (toString ./update.sh) ];
 
+  dontStrip = true;
+
   nativeBuildInputs = [
-    autoPatchelfHook
     unzip
+    patchelf
+    makeWrapper
   ];
   buildInputs = [
     stdenv.cc.cc.lib
@@ -62,6 +68,22 @@ stdenv.mkDerivation {
   installPhase = ''
     mkdir -p $out/bin
     install -Dm755 * $out/bin/
+  '';
+  postFixup = lib.optionalString stdenv.hostPlatform.isLinux ''
+    for f in $out/bin/*; do
+      [ -x "$f" ] || continue
+      patchelf --set-interpreter "$(cat ${stdenv.cc}/nix-support/dynamic-linker)" "$f" || true
+    done
+    for f in $out/bin/*; do
+      [ -x "$f" ] || continue
+      wrapProgram "$f" --prefix LD_LIBRARY_PATH : "${
+        lib.makeLibraryPath [
+          icu
+          openssl
+          stdenv.cc.cc.lib
+        ]
+      }"
+    done
   '';
   meta = with lib; {
     homepage = "https://kb.corona.studio/";
