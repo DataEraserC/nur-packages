@@ -198,9 +198,11 @@ pkgs.stdenvNoCC.mkDerivation {
     ''}
 
     FAILED=""
+    SUCCEEDED=""
     LOGDIR=$(mktemp -d)
     trap 'rm -rf "$LOGDIR"' EXIT
     cd "${toString ./.}/.."
+    RESULTS_FILE="''${UPDATE_RESULTS_FILE:-$(pwd)/update-results.json}"
 
     MAX_JOBS="''${UPDATE_PACKAGE_JOBS:-$(nproc)}"
     declare -A JOB_ATTR=() JOB_LOG=()
@@ -244,6 +246,8 @@ pkgs.stdenvNoCC.mkDerivation {
       rm -f "$LOG"
       if [ "$STATUS" -ne 0 ]; then
         FAILED="$FAILED $ATTR_PATH"
+      else
+        SUCCEEDED="$SUCCEEDED $ATTR_PATH"
       fi
       unset "JOB_ATTR[$PID]" "JOB_LOG[$PID]"
       RUNNING=$((RUNNING - 1))
@@ -261,7 +265,55 @@ pkgs.stdenvNoCC.mkDerivation {
     done
 
     echo ""
+
+    # Build results JSON
+    RESULTS="["
+    FIRST=true
+    for ATTR_PATH in $SUCCEEDED; do
+      $FIRST || RESULTS="$RESULTS,"
+      FIRST=false
+      RESULTS="$RESULTS$(jq -n --arg a "$ATTR_PATH" '{attrPath: $a, status: "success"}')"
+    done
+    for ATTR_PATH in $FAILED; do
+      $FIRST || RESULTS="$RESULTS,"
+      FIRST=false
+      RESULTS="$RESULTS$(jq -n --arg a "$ATTR_PATH" '{attrPath: $a, status: "failed"}')"
+    done
+    RESULTS="$RESULTS]"
+    echo "$RESULTS" | jq '.' > "$RESULTS_FILE"
+
+    # Print summary table
+    SUCCEEDED_COUNT=$(echo "$SUCCEEDED" | wc -w)
+    FAILED_COUNT=$(echo "$FAILED" | wc -w)
+    TOTAL_COUNT=$((SUCCEEDED_COUNT + FAILED_COUNT))
+
+    echo "========================================="
+    echo "  Update Summary"
+    echo "========================================="
+    echo "Total:   $TOTAL_COUNT"
+    echo "Success: $SUCCEEDED_COUNT"
+    echo "Failed:  $FAILED_COUNT"
+    echo "-----------------------------------------"
+
+    if [ -n "$SUCCEEDED" ]; then
+      echo "Succeeded:"
+      for ATTR_PATH in $SUCCEEDED; do
+        echo "  ✓ $ATTR_PATH"
+      done
+    fi
+
     if [ -n "$FAILED" ]; then
+      echo "Failed:"
+      for ATTR_PATH in $FAILED; do
+        echo "  ✗ $ATTR_PATH"
+      done
+    fi
+
+    echo "========================================="
+    echo "Results written to: $RESULTS_FILE"
+
+    if [ -n "$FAILED" ]; then
+      echo ""
       echo "Finished with failures:$FAILED" >&2
       exit 1
     fi

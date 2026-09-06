@@ -64,6 +64,30 @@ jobs:
 
           nix run .#update
 
+      - name: Write job summary
+        if: always()
+        run: |
+          if [ -f update-results.json ]; then
+            echo "## Update Results" >> "$GITHUB_STEP_SUMMARY"
+            echo "" >> "$GITHUB_STEP_SUMMARY"
+            echo "| Package | Status |" >> "$GITHUB_STEP_SUMMARY"
+            echo "|---------|--------|" >> "$GITHUB_STEP_SUMMARY"
+            jq -r '.[] | "| \(.attrPath) | \(.status) |"' update-results.json >> "$GITHUB_STEP_SUMMARY"
+            echo "" >> "$GITHUB_STEP_SUMMARY"
+            SUCCESS=$(jq '[.[] | select(.status == "success")] | length' update-results.json)
+            FAILED=$(jq '[.[] | select(.status == "failed")] | length' update-results.json)
+            TOTAL=$((SUCCESS + FAILED))
+            echo "**Total:** $TOTAL | **Success:** $SUCCESS | **Failed:** $FAILED" >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Upload update results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: update-results
+          path: update-results.json
+          if-no-files-found: ignore
+
       - name: Commit back to repository
         if: always()
         env:
@@ -74,6 +98,7 @@ jobs:
           git config --global user.email "DataEraserC-bot@users.noreply.github.com"
           git config --global user.name "DataEraserC-bot"
 
+          rm -f update-results.json
           git add .
           if git diff --cached --quiet; then
             echo "Nothing to commit"
