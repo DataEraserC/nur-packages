@@ -64,8 +64,12 @@ _: {
             chmod +x "$S"
             "$S"
           done
+          set +e
           ./tools/update-package --all
+          UPDATE_EXIT=$?
+          set -e
           ${readme}
+          exit $UPDATE_EXIT
         '';
       };
     };
