@@ -4,11 +4,11 @@
   fetchurl,
 }:
 let
-  version = "1.0.1553";
+  version = "1.0.1574";
 
   src = fetchurl {
     url = "https://github.com/lollipopkit/flutter_server_box/releases/download/v${version}/ServerBox_v${version}_amd64.AppImage";
-    hash = "sha256-naFZX4jmwFjgBoEOD+nxtafnBbPh7sfIJjQd/nWcxgo=";
+    hash = "sha256-87a0XqO+1GrbXJB/OdYP2aMRDLHi+ioMLNXAzionqgw=";
   };
 in
 appimageTools.wrapType2 rec {
