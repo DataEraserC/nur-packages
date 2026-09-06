@@ -13,13 +13,13 @@
 
 stdenv.mkDerivation {
   pname = "buffyboard";
-  version = "0-unstable-2023-11-20";
+  version = "3.2.0-unstable-2024-10-05";
 
   src = fetchFromGitLab {
     owner = "postmarketOS";
     repo = "buffybox";
-    rev = "14b30c60183d98e8d0b4dadf66198e08badf631e";
-    hash = "sha256-9wLuTAqYoFl+IAR1ixp0nHwh6jBWl+1jDPhhxqE+LHQ=";
+    rev = "c683350b9fb944e38cb484f04f98e4e3f85b41a5";
+    hash = "sha256-z7siroBDauvs8TxfO/h+5HUU5G5aOWwNUxDaZm80I5A=";
     fetchSubmodules = true;
   };
 

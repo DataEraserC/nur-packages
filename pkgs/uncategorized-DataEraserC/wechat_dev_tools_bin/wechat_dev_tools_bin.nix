@@ -11,11 +11,11 @@
 let
   github_url = "https://github.com/msojocs/wechat-web-devtools-linux";
   package_description = "The development tools for wechat projects";
-  version = "2.01.2510290-2";
+  version = "2.02.2608060-1";
 
   src = fetchurl {
     url = "https://github.com/msojocs/wechat-web-devtools-linux/releases/download/v${version}/WeChat_Dev_Tools_v${version}_x86_64_linux.tar.gz";
-    hash = "sha256-LyRXmmhfbTIApzoXU9ayOmfRhVJbtQK2n0pJMwQgMuU=";
+    hash = "sha256-vqKPqIuuxnAViaKA26qO6bIB3EYt0OYFtQ2s/QUouhY=";
   };
 in
 stdenv.mkDerivation rec {
