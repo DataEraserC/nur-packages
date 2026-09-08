@@ -3,12 +3,14 @@
   stdenv,
   fetchFromGitLab,
   unstableGitUpdater,
+  inih,
   meson,
   ninja,
   pkg-config,
+  libevdev,
   libinput,
   libxkbcommon,
-  libevdev,
+  udev,
 }:
 
 stdenv.mkDerivation {
@@ -31,9 +33,10 @@ stdenv.mkDerivation {
   # https://gitlab.com/postmarketOS/buffybox/-/issues/1
   hardeningDisable = [ "fortify3" ];
 
-  postPatch = ''
-    cd buffyboard
-  '';
+  mesonFlags = [
+    "-Dman=false"
+    "-Dwith-drm=disabled"
+  ];
 
   nativeBuildInputs = [
     meson
@@ -42,9 +45,11 @@ stdenv.mkDerivation {
   ];
 
   buildInputs = [
+    inih
     libevdev
     libinput
     libxkbcommon
+    udev
   ];
 
   meta = {
