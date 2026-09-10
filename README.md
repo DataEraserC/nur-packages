@@ -105,7 +105,7 @@ Or, use variables from this repository in case I change them:
 |  | `clang_dev_env_fhs` | clang_dev_env_fhs-shell |  |  |
 | `x86_64-linux` | `cleanuparr` | [cleanuparr](https://github.com/Cleanuparr/Cleanuparr) | 2.10.5 | Advanced download manager for the Servarr ecosystem |
 |  | `click-loglevel` | [click-loglevel](https://github.com/jwodder/click-loglevel) | 0.7.0 | Log level parameter type for Click |
-|  | `cliproxyapi` | [cliproxyapi](https://github.com/router-for-me/CLIProxyAPI) | 7.2.155 | Wrap Gemini CLI, Antigravity, ChatGPT Codex, Claude Code, Qwen Code, iFlow as an OpenAI/Gemini/Claude/Codex compatible API service |
+|  | `cliproxyapi` | [cliproxyapi](https://github.com/router-for-me/CLIProxyAPI) | 7.2.157 | Wrap Gemini CLI, Antigravity, ChatGPT Codex, Claude Code, Qwen Code, iFlow as an OpenAI/Gemini/Claude/Codex compatible API service |
 |  | `cockpy` | [cockpy](https://github.com/Hiro420/CockPY) | 0-unstable-2024-09-07 | Public and open source version of the cbt2 ps I'm working on |
 |  | `comp128` | [comp128](https://github.com/Takuto88/comp128-python) | 1.0.0 | Python implementation of the Comp128 v1-3 GSM authentication algorithms |
 |  | `cpolar` | cpolar | 3.3.12 | cpolar (Polar Cloud): Expose local web services to the public internet with ease. |
@@ -154,7 +154,7 @@ Or, use variables from this repository in case I change them:
 |  | `fr24feed` | [fr24feed](https://www.flightradar24.com/share-your-data) | 1.0.57-1 | Flightradar24 Decoder & Feeder lets you effortlessly share ADS-B data with Flightradar24 |
 |  | `ftp-proxy` | [ftp-proxy](http://www.ftpproxy.org/) | 1.2.3 | FTP Proxy Server |
 |  | `funasr` | [funasr](https://www.funasr.com/) | 1.4.15-unstable-2026-09-10 | Fundamental End-to-End Speech Recognition Toolkit and Open Source SOTA Pretrained Models |
-|  | `geolite2` | [geolite2](https://dev.maxmind.com/geoip/geoip2/geolite2/) | 2026.09.07 | MaxMind's GeoIP2 GeoLite2 Country, City, and ASN databases |
+|  | `geolite2` | [geolite2](https://dev.maxmind.com/geoip/geoip2/geolite2/) | 2026.09.10 | MaxMind's GeoIP2 GeoLite2 Country, City, and ASN databases |
 |  | `glauth` | [glauth](https://github.com/glauth/glauth) | 2.5.2 | Lightweight LDAP server for development, home use, or CI |
 | `x86_64-linux` | `google-earth-pro` | [google-earth-pro](https://www.google.com/earth/) | 7.3.7.1327 | Google Earth Pro |
 |  | `gopherus` | [gopherus](http://gopherus.sourceforge.net/) | 1.2.2 | Free, multiplatform, console-mode gopher client that provides a classic text interface to the gopherspace |
@@ -172,7 +172,7 @@ Or, use variables from this repository in case I change them:
 |  | `hkdm` | [hkdm](https://gitlab.com/postmarketOS/hkdm) | 0.2.1-unstable-2023-03-06 | Lighter-weight hotkey daemon |
 |  | `hoyo-glyphs` | [hoyo-glyphs](https://github.com/SpeedyOrc-C/Hoyo-Glyphs) | 20250529 | Constructed scripts by Hoyoverse 米哈游的架空文字 |
 | `x86_64-linux` | `i915-sriov` | [i915-sriov](https://github.com/strongtz/i915-sriov-dkms) | 2026.08.12.1-unstable-2026-08-12 | DKMS module of Linux i915 driver with SR-IOV support |
-|  | `igsc` | [igsc](https://github.com/intel/igsc) | 1.3.1 | Intel graphics system controller firmware update library |
+|  | `igsc` | [igsc](https://github.com/intel/igsc) | 1.3.2 | Intel graphics system controller firmware update library |
 |  | `imewlconverter` | [imewlconverter](https://github.com/studyzy/imewlconverter) | 3.4.3 | FOSS program for converting IME dictionaries |
 |  | `invisible-firefox-unwrapped` | [invisible-firefox-unwrapped](https://github.com/feder-cr/invisible-firefox) | 151.0 | Firefox with anti fingerprinting modifications |
 |  | `it-tools` | [it-tools](https://github.com/sharevb/it-tools) | 2026.7.11 | Collection of handy online tools for developers, with great UX |
@@ -202,7 +202,7 @@ Or, use variables from this repository in case I change them:
 |  | `metee` | [metee](https://github.com/intel/metee) | 6.2.5 | C library to access CSE/CSME/GSC firmware via a MEI interface |
 |  | `mlat-client` | [mlat-client](https://github.com/adsb-related-code/mlat-client) | 0.4.2 | Client that selectively forwards Mode S messages to a server that resolves the transmitter position by multilateration |
 |  | `modelscope` | [modelscope](https://www.modelscope.cn/) | 1.40.0 | Bring the notion of Model-as-a-Service to life |
-|  | `modelscope-hub` | [modelscope-hub](https://github.com/modelscope/modelscope_hub) | 0.4.1 | Official Python client to connect with ModelScope Hub |
+|  | `modelscope-hub` | [modelscope-hub](https://github.com/modelscope/modelscope_hub) | 0.4.2 | Official Python client to connect with ModelScope Hub |
 |  | `mtkclient` | [mtkclient](https://github.com/bkerler/mtkclient) | 2.1.4.1-unstable-2026-09-01 | MTK reverse engineering and flash tool |
 | `x86_64-linux` | `mtranservercore-rs` | [linguaspark-server](https://github.com/LinguaSpark/server) | 0-unstable-2026-07-19 | Lightweight multilingual translation service powered by the pure Rust LinguaSpark inference engine, compatible with multiple translation frontend APIs |
 |  | `n8n-openai-bridge` | [n8n-openai-bridge](https://github.com/sveneisenschmidt/n8n-openai-bridge) | 0.0.17 | OpenAI-compatible API middleware for n8n workflows |
@@ -218,9 +218,9 @@ Or, use variables from this repository in case I change them:
 |  | `nullfsvfs` | [nullfsvfs](https://github.com/abbbi/nullfsvfs) | 0.27 | Virtual black hole file system that behaves like /dev/null |
 |  | `nvlax` | [nvlax](https://github.com/illnyang/nvlax) | unstable-2021-10-29 | Future-proof NvENC & NvFBC patcher |
 |  | `nvlax-530` | [nvlax](https://github.com/illnyang/nvlax) | unstable-2021-10-29 | Future-proof NvENC & NvFBC patcher (for NVIDIA driver >= 530) |
-|  | `ocfs2-tools` | [ocfs2-tools](https://github.com/markfasheh/ocfs2-tools) | 1.8.9 | Oracle Cluster File System 2 (OCFS2) userspace tools (mkfs.ocfs2, mount.ocfs2, o2cb_ctl, fsck.ocfs2, etc.) |
+|  | `ocfs2-tools` | [ocfs2-tools](https://github.com/markfasheh/ocfs2-tools) | ocfs2-tools-1.8.9 | Oracle Cluster File System 2 (OCFS2) userspace tools (mkfs.ocfs2, mount.ocfs2, o2cb_ctl, fsck.ocfs2, etc.) |
 |  | `oci-arm-host-capacity` | [oci-arm-host-capacity](https://github.com/hitrov/oci-arm-host-capacity) | 0-unstable-2024-08-13 | This script allows to bypass Oracle Cloud Infrastructure 'Out of host capacity' error immediately when additional OCI capacity will appear in your Home Region / Availability domain |
-|  | `oidc-tester-app` | [oidc-tester-app](https://github.com/authelia/oidc-tester-app) | 0-unstable-2026-09-02 | OpenID Connect relying party web application for testing OIDC providers such as Authelia |
+|  | `oidc-tester-app` | [oidc-tester-app](https://github.com/authelia/oidc-tester-app) | 0-unstable-2026-09-10 | OpenID Connect relying party web application for testing OIDC providers such as Authelia |
 |  | `open-webui-kb-manager` | [kb-manager](https://github.com/dubh3124/OpenWebUI-KB-Manager) | 0.2.0 | Command-line interface (CLI) tool for managing files and knowledge bases in OpenWebUI |
 |  | `openai-edge-tts` | [openai-edge-tts](https://tts.travisvn.com/) | 2.0.0-unstable-2025-07-01 | Text-to-speech API endpoint compatible with OpenAI's TTS API endpoint, using Microsoft Edge TTS to generate speech for free locally |
 |  | `opencc-python-reimplemented` | [opencc-python-reimplemented](https://github.com/yichen0831/opencc-python) | 0-unstable-2023-02-11 | OpenCC made with Python |
@@ -260,15 +260,15 @@ Or, use variables from this repository in case I change them:
 |  | `rime-aurora-pinyin` | [rime-aurora-pinyin](https://github.com/hosxy/rime-aurora-pinyin) | 0-unstable-2022-08-28 | 【极光拼音】输入方案 |
 |  | `rime-custom-pinyin-dictionary` | [rime-custom-pinyin-dictionary](https://github.com/wuhgit/CustomPinyinDictionary) | 20260101 | 自建拼音输入法词库，百万常用词汇量，适配 Fcitx5 (Linux / Android) 及 Gboard (Android + Magisk or KernelSU) 。 |
 |  | `rime-dict` | [rime-dict](https://github.com/Iorest/rime-dict) | 0-unstable-2026-03-14 | RIME 词库增强 |
-|  | `rime-ice` | [rime-ice](https://dvel.me/posts/rime-ice/) | 0-unstable-2026-08-31 | Rime 配置：雾凇拼音 | 长期维护的简体词库 |
+|  | `rime-ice` | [rime-ice](https://dvel.me/posts/rime-ice/) | 0-unstable-2026-09-10 | Rime 配置：雾凇拼音 | 长期维护的简体词库 |
 |  | `rime-moegirl` | [rime-moegirl](https://github.com/outloudvi/mw2fcitx/releases) | 20260812 | RIME dictionary file for entries from zh.moegirl.org.cn |
 |  | `rime-zhwiki` | [rime-zhwiki](https://github.com/felixonmars/fcitx5-pinyin-zhwiki) | 20240509 | RIME dictionary file for entries from zh.wikipedia.org |
 |  | `rootutils` | [rootutils](https://pypi.org/project/rootutils/) | 1.0.7 | Simple python package to solve all your problems with pythonpath, work dir, file paths, module imports and environment variables |
 |  | `route-chain` | [route-chain](https://github.com/xddxdd/route-chain) | 1.1.0-unstable-2026-01-08 | Small app to generate a long path in traceroute |
-|  | `rtpengine` | [rtpengine](https://github.com/sipwise/rtpengine) | 0-unstable-2026-09-09 | Sipwise media proxy for Kamailio |
+|  | `rtpengine` | [rtpengine](https://github.com/sipwise/rtpengine) | 0-unstable-2026-09-10 | Sipwise media proxy for Kamailio |
 |  | `runpod` | [runpod](https://github.com/runpod/runpod-python) | 1.12.0 | Python library for RunPod API and serverless worker SDK |
 |  | `runpod-python` | [runpod](https://github.com/runpod/runpod-python) | 1.12.0 | Python library for RunPod API and serverless worker SDK |
-|  | `runpodctl` | [runpodctl](https://www.runpod.io) | 2.12.0 | RunPod CLI for pod management |
+|  | `runpodctl` | [runpodctl](https://www.runpod.io) | 2.14.0 | RunPod CLI for pod management |
 |  | `sam-toki-mouse-cursors` | [sam-toki-mouse-cursors](https://github.com/SamToki/Sam-Toki-Mouse-Cursors) | 10.00 | Original mouse cursors (pointers) for Windows, with minimalistic design |
 | `x86_64-linux` | `sgx-software-enable` | [sgx-software-enable](https://github.com/intel/sgx-software-enable) | 1.0-unstable-2023-01-06 | Application to enable Intel SGX on Linux systems |
 |  | `sidestore-vpn` | [sidestore-vpn](https://github.com/xddxdd/sidestore-vpn) | 0-unstable-2026-05-21 | Allow SideStore to work across all iOS devices on your local network |
@@ -289,7 +289,7 @@ Or, use variables from this repository in case I change them:
 |  | `ttyescape` | [ttyescape](https://gitlab.com/postmarketOS/ttyescape) | 0-unstable-2023-03-08 | ttyescape |
 |  | `uesave` | [uesave](https://github.com/trumank/uesave-rs) | 0.7.1 | Library for reading and writing Unreal Engine save files (commonly referred to as GVAS) |
 |  | `uesave-0_3_0` | [uesave](https://github.com/trumank/uesave-rs) | 0.3.0 | Library for reading and writing Unreal Engine save files (commonly referred to as GVAS), older version that works with Palworld |
-|  | `uni-api` | [uni-api](https://github.com/yym68686/uni-api) | 1.7.268-unstable-2026-09-09 | Unifies the management of LLM APIs across multiple backend services |
+|  | `uni-api` | [uni-api](https://github.com/yym68686/uni-api) | 1.7.271-unstable-2026-09-10 | Unifies the management of LLM APIs across multiple backend services |
 | `x86_64-linux` | `unigine-heaven` | [unigine-heaven](https://benchmark.unigine.com/heaven) | 4.0 | Extreme performance and stability test for PC hardware: video card, power supply, cooling system |
 | `x86_64-linux` | `unigine-sanctuary` | [unigine-sanctuary](https://benchmark.unigine.com/sanctuary) | 2.3 | Extreme performance and stability test for PC hardware: video card, power supply, cooling system |
 | `x86_64-linux` | `unigine-superposition` | [unigine-superposition](https://benchmark.unigine.com/superposition) | 1.1 | Extreme performance and stability test for PC hardware: video card, power supply, cooling system |
@@ -297,7 +297,7 @@ Or, use variables from this repository in case I change them:
 | `x86_64-linux` | `unigine-valley` | [unigine-valley](https://benchmark.unigine.com/valley) | 1.0 | Extreme performance and stability test for PC hardware: video card, power supply, cooling system |
 |  | `usque` | [usque](https://github.com/Diniboy1123/usque) | 4.2.1 | Open-source reimplementation of the Cloudflare WARP client's MASQUE protocol |
 |  | `v2dat` | [v2dat](https://github.com/urlesistiana/v2dat) | 0-unstable-2022-12-15 | Cli tool that can unpack v2ray data packages. (Note: This project is for fun ONLY. You should build your own data dirctly from upstreams instead of unpacking a v2ray data pack.) |
-|  | `v2ray-rules-dat` | [v2ray-rules-dat](https://github.com/Loyalsoldier/v2ray-rules-dat) | 202609082347 | V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria. |
+|  | `v2ray-rules-dat` | [v2ray-rules-dat](https://github.com/Loyalsoldier/v2ray-rules-dat) | 202609092346 | V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria. |
 |  | `vbmeta-disable-verification` | [vbmeta-disable-verification](https://github.com/libxzr/vbmeta-disable-verification) | 1.0 | Patch Android vbmeta image and disable verification flags inside |
 |  | `vgpu-unlock-rs` | [vgpu-unlock-rs](https://github.com/mbilker/vgpu_unlock-rs) | 2.5.0 | Unlock vGPU functionality for consumer grade GPUs |
 |  | `vk-hdr-layer` | [vk-hdr-layer](https://github.com/Zamundaaa/VK_hdr_layer) | 0-unstable-2026-08-05 | Vulkan layer utilizing a small color management / HDR protocol for experimentation |
@@ -314,7 +314,7 @@ Or, use variables from this repository in case I change them:
 |  | `xcursor-genshin-nahida` | [xcursor-genshin-nahida](https://aur.archlinux.org/packages/xcursor-genshin-nahida) | 0-unstable-2023-02-12 | xcursor genshin nahida |
 |  | `xstatic-asciinema-player` | [xstatic-asciinema-player](https://github.com/asciinema/asciinema-player) | 2.6.1.1 | Asciinema-player packaged for setuptools (easy_install) / pip |
 |  | `xstatic-font-awesome` | [xstatic-font-awesome](https://github.com/FortAwesome/Font-Awesome) | 6.2.1.2 | Font Awesome packaged for setuptools (easy_install) / pip |
-|  | `xt_rtpengine` | [xt_rtpengine](https://github.com/sipwise/rtpengine) | 0-unstable-2026-09-09 | Sipwise media proxy for Kamailio (kernel module) |
+|  | `xt_rtpengine` | [xt_rtpengine](https://github.com/sipwise/rtpengine) | 0-unstable-2026-09-10 | Sipwise media proxy for Kamailio (kernel module) |
 |  | `xue` | [xue](https://pypi.org/project/xue/) | 0.0.34 | Minimalist web front-end framework composed of HTMX and Python |
 |  | `xvcd` | [xvcd](https://github.com/RHSResearchLLC/xvcd) | 0-unstable-2019-11-20 | Xilinx Virtual Cable Daemon |
 | `Broken` `x86_64-linux` | `Adobe_Illustrator_CS6_appimage` | [Adobe_Illustrator_CS6](https://t.me/Linux_Appimages/1052) | CS6 | Adobe_Illustrator_CS6 |
@@ -459,7 +459,7 @@ Or, use variables from this repository in case I change them:
 |  | `kernel-modules.nullfsvfs` | [nullfsvfs](https://github.com/abbbi/nullfsvfs) | 0.27 | Virtual black hole file system that behaves like /dev/null |
 |  | `kernel-modules.r8125` | [r8125](https://www.realtek.com/en/component/zoo/category/network-interface-controllers-10-100-1000m-gigabit-ethernet-pci-express-software) | 9.018.00-1 | Linux device driver for Realtek 2.5/5 Gigabit Ethernet controllers with PCI-Express interface |
 |  | `kernel-modules.r8168` | [r8168](https://www.realtek.com/en/component/zoo/category/network-interface-controllers-10-100-1000m-gigabit-ethernet-pci-express-software) | 8.056.02 | Linux device driver for Realtek Ethernet controllers |
-|  | `kernel-modules.xt_rtpengine` | [xt_rtpengine](https://github.com/sipwise/rtpengine) | 0-unstable-2026-09-09 | Sipwise media proxy for Kamailio (kernel module) |
+|  | `kernel-modules.xt_rtpengine` | [xt_rtpengine](https://github.com/sipwise/rtpengine) | 0-unstable-2026-09-10 | Sipwise media proxy for Kamailio (kernel module) |
 </details>
 
 <details>
@@ -1373,7 +1373,7 @@ Or, use variables from this repository in case I change them:
 |  | `python3Packages.kb-manager` | [kb-manager](https://github.com/dubh3124/OpenWebUI-KB-Manager) | 0.2.0 | Command-line interface (CLI) tool for managing files and knowledge bases in OpenWebUI |
 |  | `python3Packages.loralib` | [loralib](https://arxiv.org/abs/2106.09685) | 0-unstable-2024-12-16 | Implementation of "LoRA: Low-Rank Adaptation of Large Language Models" |
 |  | `python3Packages.modelscope` | [modelscope](https://www.modelscope.cn/) | 1.40.0 | Bring the notion of Model-as-a-Service to life |
-|  | `python3Packages.modelscope-hub` | [modelscope-hub](https://github.com/modelscope/modelscope_hub) | 0.4.1 | Official Python client to connect with ModelScope Hub |
+|  | `python3Packages.modelscope-hub` | [modelscope-hub](https://github.com/modelscope/modelscope_hub) | 0.4.2 | Official Python client to connect with ModelScope Hub |
 |  | `python3Packages.mtkclient` | [mtkclient](https://github.com/bkerler/mtkclient) | 2.1.4.1-unstable-2026-09-01 | MTK reverse engineering and flash tool |
 |  | `python3Packages.open-webui-kb-manager` | [kb-manager](https://github.com/dubh3124/OpenWebUI-KB-Manager) | 0.2.0 | Command-line interface (CLI) tool for managing files and knowledge bases in OpenWebUI |
 |  | `python3Packages.opencc-python-reimplemented` | [opencc-python-reimplemented](https://github.com/yichen0831/opencc-python) | 0-unstable-2023-02-11 | OpenCC made with Python |
@@ -1423,7 +1423,7 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized.calibre-cops` | [calibre-cops](http://blog.slucas.fr/en/oss/calibre-opds-php-server) | 4.5.2 | Web-based light alternative to Calibre content server / Calibre2OPDS to serve ebooks |
 |  | `uncategorized.cardpointers-cli` | [cardpointers-cli](https://github.com/cardpointers/cli) | 1.0.7 | Credit card rewards CLI for CardPointers |
 | `x86_64-linux` | `uncategorized.cleanuparr` | [cleanuparr](https://github.com/Cleanuparr/Cleanuparr) | 2.10.5 | Advanced download manager for the Servarr ecosystem |
-|  | `uncategorized.cliproxyapi` | [cliproxyapi](https://github.com/router-for-me/CLIProxyAPI) | 7.2.155 | Wrap Gemini CLI, Antigravity, ChatGPT Codex, Claude Code, Qwen Code, iFlow as an OpenAI/Gemini/Claude/Codex compatible API service |
+|  | `uncategorized.cliproxyapi` | [cliproxyapi](https://github.com/router-for-me/CLIProxyAPI) | 7.2.157 | Wrap Gemini CLI, Antigravity, ChatGPT Codex, Claude Code, Qwen Code, iFlow as an OpenAI/Gemini/Claude/Codex compatible API service |
 |  | `uncategorized.cockpy` | [cockpy](https://github.com/Hiro420/CockPY) | 0-unstable-2024-09-07 | Public and open source version of the cbt2 ps I'm working on |
 |  | `uncategorized.dbip-lite` | [dbip-lite](https://db-ip.com/db/lite.php) | 2026-08 | DBIP's Lite GeoIP Country, City, and ASN databases |
 |  | `uncategorized.decluttarr` | [decluttarr](https://github.com/ManiMatter/decluttarr) | 2.1.0 | Watches radarr, sonarr, lidarr and readarr download queues and removes downloads if they become stalled or no longer needed |
@@ -1447,7 +1447,7 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized.flaresolverr-alexfozor` | [flaresolverr-alexfozor](https://github.com/AlexFozor/FlareSolverr) | 0-unstable-2024-07-20 | Proxy server to bypass Cloudflare protection, with AlexFozor modifications to support Drission Page |
 |  | `uncategorized.fr24feed` | [fr24feed](https://www.flightradar24.com/share-your-data) | 1.0.57-1 | Flightradar24 Decoder & Feeder lets you effortlessly share ADS-B data with Flightradar24 |
 |  | `uncategorized.ftp-proxy` | [ftp-proxy](http://www.ftpproxy.org/) | 1.2.3 | FTP Proxy Server |
-|  | `uncategorized.geolite2` | [geolite2](https://dev.maxmind.com/geoip/geoip2/geolite2/) | 2026.09.07 | MaxMind's GeoIP2 GeoLite2 Country, City, and ASN databases |
+|  | `uncategorized.geolite2` | [geolite2](https://dev.maxmind.com/geoip/geoip2/geolite2/) | 2026.09.10 | MaxMind's GeoIP2 GeoLite2 Country, City, and ASN databases |
 |  | `uncategorized.glauth` | [glauth](https://github.com/glauth/glauth) | 2.5.2 | Lightweight LDAP server for development, home use, or CI |
 | `x86_64-linux` | `uncategorized.google-earth-pro` | [google-earth-pro](https://www.google.com/earth/) | 7.3.7.1327 | Google Earth Pro |
 |  | `uncategorized.gopherus` | [gopherus](http://gopherus.sourceforge.net/) | 1.2.2 | Free, multiplatform, console-mode gopher client that provides a classic text interface to the gopherspace |
@@ -1462,7 +1462,7 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized.hesuvi-hrir` | [hesuvi-hrir](https://sourceforge.net/projects/hesuvi/) | 2.0.0.1 | Headphone Surround Virtualizations for Equalizer APO |
 |  | `uncategorized.hi3-ii-martian-font` | [hi3-ii-martian-font](https://github.com/Wenti-D/HI3IIMartianFont) | 0-unstable-2023-10-12 | Font for Martian in Honkai Impact 3rd |
 |  | `uncategorized.hoyo-glyphs` | [hoyo-glyphs](https://github.com/SpeedyOrc-C/Hoyo-Glyphs) | 20250529 | Constructed scripts by Hoyoverse 米哈游的架空文字 |
-|  | `uncategorized.igsc` | [igsc](https://github.com/intel/igsc) | 1.3.1 | Intel graphics system controller firmware update library |
+|  | `uncategorized.igsc` | [igsc](https://github.com/intel/igsc) | 1.3.2 | Intel graphics system controller firmware update library |
 |  | `uncategorized.imewlconverter` | [imewlconverter](https://github.com/studyzy/imewlconverter) | 3.4.3 | FOSS program for converting IME dictionaries |
 |  | `uncategorized.invisible-firefox-unwrapped` | [invisible-firefox-unwrapped](https://github.com/feder-cr/invisible-firefox) | 151.0 | Firefox with anti fingerprinting modifications |
 |  | `uncategorized.it-tools` | [it-tools](https://github.com/sharevb/it-tools) | 2026.7.11 | Collection of handy online tools for developers, with great UX |
@@ -1498,9 +1498,9 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized.nullfs` | [nullfs](https://github.com/xrgtn/nullfs) | 0-unstable-2016-01-28 | FUSE nullfs drivers |
 |  | `uncategorized.nvlax` | [nvlax](https://github.com/illnyang/nvlax) | unstable-2021-10-29 | Future-proof NvENC & NvFBC patcher |
 |  | `uncategorized.nvlax-530` | [nvlax](https://github.com/illnyang/nvlax) | unstable-2021-10-29 | Future-proof NvENC & NvFBC patcher (for NVIDIA driver >= 530) |
-|  | `uncategorized.ocfs2-tools` | [ocfs2-tools](https://github.com/markfasheh/ocfs2-tools) | 1.8.9 | Oracle Cluster File System 2 (OCFS2) userspace tools (mkfs.ocfs2, mount.ocfs2, o2cb_ctl, fsck.ocfs2, etc.) |
+|  | `uncategorized.ocfs2-tools` | [ocfs2-tools](https://github.com/markfasheh/ocfs2-tools) | ocfs2-tools-1.8.9 | Oracle Cluster File System 2 (OCFS2) userspace tools (mkfs.ocfs2, mount.ocfs2, o2cb_ctl, fsck.ocfs2, etc.) |
 |  | `uncategorized.oci-arm-host-capacity` | [oci-arm-host-capacity](https://github.com/hitrov/oci-arm-host-capacity) | 0-unstable-2024-08-13 | This script allows to bypass Oracle Cloud Infrastructure 'Out of host capacity' error immediately when additional OCI capacity will appear in your Home Region / Availability domain |
-|  | `uncategorized.oidc-tester-app` | [oidc-tester-app](https://github.com/authelia/oidc-tester-app) | 0-unstable-2026-09-02 | OpenID Connect relying party web application for testing OIDC providers such as Authelia |
+|  | `uncategorized.oidc-tester-app` | [oidc-tester-app](https://github.com/authelia/oidc-tester-app) | 0-unstable-2026-09-10 | OpenID Connect relying party web application for testing OIDC providers such as Authelia |
 |  | `uncategorized.openai-edge-tts` | [openai-edge-tts](https://tts.travisvn.com/) | 2.0.0-unstable-2025-07-01 | Text-to-speech API endpoint compatible with OpenAI's TTS API endpoint, using Microsoft Edge TTS to generate speech for free locally |
 |  | `uncategorized.openedai-speech` | [openedai-speech](https://github.com/matatonic/openedai-speech) | 0.18.2 | OpenAI API compatible text to speech server using Coqui AI's xtts_v2 and/or piper tts as the backend |
 |  | `uncategorized.openssl-ech` | [openssl-ech](https://github.com/sftcd/openssl/tree/ECH-draft-13c) | 0-unstable-2026-06-09 | OpenSSL with Encrypted Client Hello support |
@@ -1530,12 +1530,12 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized.rime-aurora-pinyin` | [rime-aurora-pinyin](https://github.com/hosxy/rime-aurora-pinyin) | 0-unstable-2022-08-28 | 【极光拼音】输入方案 |
 |  | `uncategorized.rime-custom-pinyin-dictionary` | [rime-custom-pinyin-dictionary](https://github.com/wuhgit/CustomPinyinDictionary) | 20260101 | 自建拼音输入法词库，百万常用词汇量，适配 Fcitx5 (Linux / Android) 及 Gboard (Android + Magisk or KernelSU) 。 |
 |  | `uncategorized.rime-dict` | [rime-dict](https://github.com/Iorest/rime-dict) | 0-unstable-2026-03-14 | RIME 词库增强 |
-|  | `uncategorized.rime-ice` | [rime-ice](https://dvel.me/posts/rime-ice/) | 0-unstable-2026-08-31 | Rime 配置：雾凇拼音 | 长期维护的简体词库 |
+|  | `uncategorized.rime-ice` | [rime-ice](https://dvel.me/posts/rime-ice/) | 0-unstable-2026-09-10 | Rime 配置：雾凇拼音 | 长期维护的简体词库 |
 |  | `uncategorized.rime-moegirl` | [rime-moegirl](https://github.com/outloudvi/mw2fcitx/releases) | 20260812 | RIME dictionary file for entries from zh.moegirl.org.cn |
 |  | `uncategorized.rime-zhwiki` | [rime-zhwiki](https://github.com/felixonmars/fcitx5-pinyin-zhwiki) | 20240509 | RIME dictionary file for entries from zh.wikipedia.org |
 |  | `uncategorized.route-chain` | [route-chain](https://github.com/xddxdd/route-chain) | 1.1.0-unstable-2026-01-08 | Small app to generate a long path in traceroute |
-|  | `uncategorized.rtpengine` | [rtpengine](https://github.com/sipwise/rtpengine) | 0-unstable-2026-09-09 | Sipwise media proxy for Kamailio |
-|  | `uncategorized.runpodctl` | [runpodctl](https://www.runpod.io) | 2.12.0 | RunPod CLI for pod management |
+|  | `uncategorized.rtpengine` | [rtpengine](https://github.com/sipwise/rtpengine) | 0-unstable-2026-09-10 | Sipwise media proxy for Kamailio |
+|  | `uncategorized.runpodctl` | [runpodctl](https://www.runpod.io) | 2.14.0 | RunPod CLI for pod management |
 |  | `uncategorized.sam-toki-mouse-cursors` | [sam-toki-mouse-cursors](https://github.com/SamToki/Sam-Toki-Mouse-Cursors) | 10.00 | Original mouse cursors (pointers) for Windows, with minimalistic design |
 | `x86_64-linux` | `uncategorized.sgx-software-enable` | [sgx-software-enable](https://github.com/intel/sgx-software-enable) | 1.0-unstable-2023-01-06 | Application to enable Intel SGX on Linux systems |
 |  | `uncategorized.sidestore-vpn` | [sidestore-vpn](https://github.com/xddxdd/sidestore-vpn) | 0-unstable-2026-05-21 | Allow SideStore to work across all iOS devices on your local network |
@@ -1549,7 +1549,7 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized.tel42verifier` | [tel42verifier](https://github.com/strexp/tel42verifier) | 0.0.3 | Multi-domain ENUM-based Caller ID verifier for Asterisk |
 |  | `uncategorized.uesave` | [uesave](https://github.com/trumank/uesave-rs) | 0.7.1 | Library for reading and writing Unreal Engine save files (commonly referred to as GVAS) |
 |  | `uncategorized.uesave-0_3_0` | [uesave](https://github.com/trumank/uesave-rs) | 0.3.0 | Library for reading and writing Unreal Engine save files (commonly referred to as GVAS), older version that works with Palworld |
-|  | `uncategorized.uni-api` | [uni-api](https://github.com/yym68686/uni-api) | 1.7.268-unstable-2026-09-09 | Unifies the management of LLM APIs across multiple backend services |
+|  | `uncategorized.uni-api` | [uni-api](https://github.com/yym68686/uni-api) | 1.7.271-unstable-2026-09-10 | Unifies the management of LLM APIs across multiple backend services |
 | `x86_64-linux` | `uncategorized.unigine-heaven` | [unigine-heaven](https://benchmark.unigine.com/heaven) | 4.0 | Extreme performance and stability test for PC hardware: video card, power supply, cooling system |
 | `x86_64-linux` | `uncategorized.unigine-sanctuary` | [unigine-sanctuary](https://benchmark.unigine.com/sanctuary) | 2.3 | Extreme performance and stability test for PC hardware: video card, power supply, cooling system |
 | `x86_64-linux` | `uncategorized.unigine-superposition` | [unigine-superposition](https://benchmark.unigine.com/superposition) | 1.1 | Extreme performance and stability test for PC hardware: video card, power supply, cooling system |
@@ -1607,7 +1607,7 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized-DataEraserC.snell-server` | [snell-server](https://nssurge.com) | v6.0.0rc2 |  |
 |  | `uncategorized-DataEraserC.ttyescape` | [ttyescape](https://gitlab.com/postmarketOS/ttyescape) | 0-unstable-2023-03-08 | ttyescape |
 |  | `uncategorized-DataEraserC.v2dat` | [v2dat](https://github.com/urlesistiana/v2dat) | 0-unstable-2022-12-15 | Cli tool that can unpack v2ray data packages. (Note: This project is for fun ONLY. You should build your own data dirctly from upstreams instead of unpacking a v2ray data pack.) |
-|  | `uncategorized-DataEraserC.v2ray-rules-dat` | [v2ray-rules-dat](https://github.com/Loyalsoldier/v2ray-rules-dat) | 202609082347 | V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria. |
+|  | `uncategorized-DataEraserC.v2ray-rules-dat` | [v2ray-rules-dat](https://github.com/Loyalsoldier/v2ray-rules-dat) | 202609092346 | V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria. |
 |  | `uncategorized-DataEraserC.watt-toolkit_2` | [watt-toolkit](https://steampp.net) | 2.8.6 | Cross-platform Steam toolbox |
 |  | `uncategorized-DataEraserC.watt-toolkit_bin` | [watt-toolkit_bin](https://steampp.net) | 3.1.0 | an open source cross-platform multi-purpose game toolkit |
 | `x86_64-linux` | `uncategorized-DataEraserC.wechat_dev_tools_appimage` | [wechat_dev_tools_appimage](https://github.com/msojocs/wechat-web-devtools-linux) | 2.02.2608060-1 | The development tools for wechat projects |
