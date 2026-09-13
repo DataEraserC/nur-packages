@@ -308,8 +308,7 @@ in
 
       ${lib.optionalString (cfg.managementKeyFile == null) ''
         if [ ! -e ${lib.escapeShellArg keyFile} ]; then
-          umask 077
-          ${lib.getExe pkgs.openssl} rand -base64 32 > ${lib.escapeShellArg keyFile}
+          (umask 077; ${lib.getExe pkgs.openssl} rand -base64 32 > ${lib.escapeShellArg keyFile})
           chown ${cfg.user}:${cfg.group} ${lib.escapeShellArg keyFile}
         fi
         chmod 0600 ${lib.escapeShellArg keyFile}
