@@ -6,7 +6,7 @@
   ...
 }:
 let
-  cfg = config.services.cliproxyapi;
+  cfg = config.services.cliproxyapiCustom;
   format = pkgs.formats.yaml { };
 
   inherit (cfg) stateDir;
@@ -60,7 +60,7 @@ in
 {
   disabledModules = [ "services/misc/cliproxyapi.nix" ];
 
-  options.services.cliproxyapi = {
+  options.services.cliproxyapiCustom = {
     enable = lib.mkEnableOption "CLIProxyAPI";
 
     package = lib.mkOption {
