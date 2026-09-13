@@ -5,7 +5,7 @@
   ...
 }:
 let
-  cfg = config.hardware.audio.aw88399-legion-audio;
+  cfg = config.hardware.dataEraserc.aw88399-legion-audio;
 
   autoPatchVersions = [
     "6.17.8"
@@ -63,7 +63,7 @@ in
 {
   key = "hardware-aw88399-legion-audio";
 
-  options.hardware.audio.aw88399-legion-audio = {
+  options.hardware.dataEraserc.aw88399-legion-audio = {
     enable = lib.mkEnableOption (lib.mdDoc "Enable aw88399 audio support for Lenovo Legion laptops");
     patchVersion = lib.mkOption {
       type = lib.types.nullOr lib.types.str;

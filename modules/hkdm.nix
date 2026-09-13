@@ -5,10 +5,10 @@
   ...
 }:
 let
-  cfg = config.services.hkdm;
+  cfg = config.services.dataEraserc.hkdm;
 in
 {
-  options.services.hkdm = {
+  options.services.dataEraserc.hkdm = {
     enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
@@ -26,7 +26,7 @@ in
     package = lib.mkOption {
       type = lib.types.package;
       default = null;
-      description = "The package to use for the Hotkey Daemon. Must be specified if `services.hkdm.enable` is true. Example: `nur-repo.packages.${pkgs.system}.hkdm`";
+      description = "The package to use for the Hotkey Daemon. Must be specified if `services.dataEraserc.hkdm.enable` is true. Example: `nur-repo.packages.${pkgs.system}.hkdm`";
     };
   };
 
@@ -34,11 +34,11 @@ in
     assertions = [
       {
         assertion = cfg.configFile != null;
-        message = "The option `services.hkdm.configFile` must be set when `services.hkdm.enable` is true.";
+        message = "The option `services.dataEraserc.hkdm.configFile` must be set when `services.dataEraserc.hkdm.enable` is true.";
       }
       {
         assertion = cfg.package != null;
-        message = "The option `services.hkdm.package` must be set when `services.hkdm.enable` is true.";
+        message = "The option `services.dataEraserc.hkdm.package` must be set when `services.dataEraserc.hkdm.enable` is true.";
       }
     ];
 

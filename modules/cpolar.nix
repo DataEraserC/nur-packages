@@ -5,10 +5,10 @@
   ...
 }:
 let
-  cfg = config.services.cpolar;
+  cfg = config.services.dataEraserc.cpolar;
 in
 {
-  options.services.cpolar = {
+  options.services.dataEraserc.cpolar = {
     enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
@@ -26,7 +26,7 @@ in
     package = lib.mkOption {
       type = lib.types.package;
       default = null;
-      description = "The cpolar package to use. Must be specified if `services.cpolar.enable` is true. Example: `nur-repo.packages.${pkgs.system}.cpolar`";
+      description = "The cpolar package to use. Must be specified if `services.dataEraserc.cpolar.enable` is true. Example: `nur-repo.packages.${pkgs.system}.cpolar`";
     };
 
     logDir = lib.mkOption {
@@ -40,11 +40,11 @@ in
     assertions = [
       {
         assertion = cfg.configFile != null;
-        message = "The option `services.cpolar.configFile` must be set when `services.cpolar.enable` is true.";
+        message = "The option `services.dataEraserc.cpolar.configFile` must be set when `services.dataEraserc.cpolar.enable` is true.";
       }
       {
         assertion = cfg.package != null;
-        message = "The option `services.cpolar.package` must be set when `services.cpolar.enable` is true.";
+        message = "The option `services.dataEraserc.cpolar.package` must be set when `services.dataEraserc.cpolar.enable` is true.";
       }
     ];
 

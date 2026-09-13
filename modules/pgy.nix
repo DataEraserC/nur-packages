@@ -4,7 +4,7 @@
   ...
 }:
 let
-  cfg = config.services.pgy;
+  cfg = config.services.dataEraserc.pgy;
   pkg = cfg.package.override {
     dataDir = cfg.stateDir;
     inherit (cfg) configFile;
@@ -33,7 +33,7 @@ let
   '';
 in
 {
-  options.services.pgy = {
+  options.services.dataEraserc.pgy = {
     enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
@@ -44,7 +44,7 @@ in
       type = lib.types.package;
       default = null;
       description = ''
-        The pgy package (FHS wrapper) to use. Must be set if `services.pgy.enable` is true.
+        The pgy package (FHS wrapper) to use. Must be set if `services.dataEraserc.pgy.enable` is true.
         Example: `nur-repo.packages."$PACKAGE_SYSTEM".pgy_fhs`
       '';
     };
@@ -125,7 +125,7 @@ in
     assertions = [
       {
         assertion = cfg.package != null;
-        message = "The option `services.pgy.package` must be set when `services.pgy.enable` is true.";
+        message = "The option `services.dataEraserc.pgy.package` must be set when `services.dataEraserc.pgy.enable` is true.";
       }
     ];
 
