@@ -28,6 +28,7 @@ buildNpmPackage (finalAttrs: {
 
     mkdir -p $out
     cp -r dist/. $out/
+    ln -s index.html $out/management.html
 
     runHook postInstall
   '';

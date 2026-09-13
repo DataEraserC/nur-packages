@@ -169,6 +169,7 @@
             hkdm = import ./modules/hkdm.nix;
             cpolar = import ./modules/cpolar.nix;
             pgy = import ./modules/pgy.nix;
+            cliproxyapi = import ./modules/cliproxyapi.nix;
           };
 
           hydraJobs.packages.x86_64-linux = self.hydraPackages.x86_64-linux;
