@@ -6,16 +6,16 @@
 }:
 buildNpmPackage (finalAttrs: {
   pname = "cliproxyapi-management-center";
-  version = "1.23.0";
+  version = "1.23.1";
   src = fetchFromGitHub {
     owner = "router-for-me";
     repo = "Cli-Proxy-API-Management-Center";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-sSTQB3Ase18cXigx4IWOCNPE6sonGwoI0GILw9l/VW8=";
+    hash = "sha256-UUvxNAnPlc0NmZfqr2NVN26cDRXt4R4eYJxyH36EbdE=";
   };
 
   nodejs = nodejs_24;
-  npmDepsHash = "sha256-Gp4w4idXv/iACyIAuw5VK8SqS2ZV/gQMPZHXPvn8KZY=";
+  npmDepsHash = "sha256-yFv0ptbyVCpshc0RBkXbeyVqoJ42occV1HJ9cQKUmQY=";
 
   env.VERSION = finalAttrs.version;
 
