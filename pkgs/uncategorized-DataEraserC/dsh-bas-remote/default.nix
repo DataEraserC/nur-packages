@@ -1,18 +1,16 @@
 {
   lib,
-  fetchFromGitHub,
-  inputs,
-  jq,
   pkgs,
-  ...
+  inputs ? null,
+  fetchFromGitHub,
+  nix-update-script,
 }:
-
+let
+  dshPkgs = pkgs.extend inputs.deepseek-harness.overlays.default;
+in
 if inputs == null then
-  throw "dsh-bas-remote: requires deepseek-harness flake input (not available in NUR bot evaluation)"
+  throw "dsh-bas-remote requires the deepseek-harness flake input; evaluate it through the flake (nix build .#dsh-bas-remote)"
 else
-  let
-    dshPkgs = pkgs.extend inputs.deepseek-harness.overlays.default;
-  in
   dshPkgs.buildDshBundle (finalAttrs: {
     pname = "dsh-bas-remote";
     version = "0.1.0";
@@ -32,17 +30,13 @@ else
 
     linkKernelNodeModules = dshPkgs.dsh-kernel;
 
-    nativeBuildInputs = [
-      jq
-    ];
-
-    passthru = {
-      dshBundle = true;
-      dshBundleHelper = "buildDshBundle";
-      runtimeDeps = [ ];
+    passthru.updateScript = nix-update-script {
+      attrPath = "dsh-bas-remote";
+      extraArgs = [ "--flake" ];
     };
 
     meta = {
+      changelog = "https://github.com/DataEraserC/dsh-bas-remote/blob/main/CHANGELOG.md";
       description = "SAP Business Application Studio remote dev spaces for DeepSeek Harness";
       homepage = "https://github.com/DataEraserC/dsh-bas-remote";
       license = lib.licenses.asl20;
