@@ -3,6 +3,7 @@
   stdenvNoCC,
   fetchFromGitHub,
   fetchPnpmDeps,
+  jq,
   pnpm_10,
   pnpmConfigHook,
   nodejs_24,
@@ -28,6 +29,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   };
 
   nativeBuildInputs = [
+    jq
     nodejs_24
     pnpm_10
     pnpmConfigHook
@@ -49,6 +51,23 @@ stdenvNoCC.mkDerivation (finalAttrs: {
     cp -r packages/plugin/lib $out/lib/node_modules/@opencode2dsh/dsh-plugin/
     cp packages/plugin/cordis.patch.yml $out/lib/node_modules/@opencode2dsh/dsh-plugin/
     cp packages/plugin/package.json $out/lib/node_modules/@opencode2dsh/dsh-plugin/
+    jq '.dsh = {"bundle": {"patch": "./cordis.patch.yml"}}' \
+      $out/lib/node_modules/@opencode2dsh/dsh-plugin/package.json > package.json.tmp
+    mv package.json.tmp $out/lib/node_modules/@opencode2dsh/dsh-plugin/package.json
+    mkdir -p $out/nix-support
+    cat > $out/nix-support/dsh-bundles.json << EOF
+    {
+      "schema": 1,
+      "bundles": [
+        {
+          "name": "@opencode2dsh/dsh-plugin",
+          "version": "${finalAttrs.version}",
+          "patch": "./cordis.patch.yml",
+          "packageRoot": "$out/lib/node_modules/@opencode2dsh/dsh-plugin"
+        }
+      ]
+    }
+    EOF
     runHook postInstall
   '';
 
