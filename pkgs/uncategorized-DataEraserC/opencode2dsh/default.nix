@@ -37,6 +37,10 @@ stdenvNoCC.mkDerivation (finalAttrs: {
 
   pnpmRoot = "packages/plugin";
 
+  preConfigure = ''
+    echo 'node-linker=hoisted' > .npmrc
+  '';
+
   buildPhase = ''
     runHook preBuild
     cd packages/plugin
@@ -48,6 +52,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   installPhase = ''
     runHook preInstall
     mkdir -p $out/lib/node_modules/@opencode2dsh/dsh-plugin
+    cp -r packages/plugin/node_modules $out/lib/node_modules/@opencode2dsh/dsh-plugin/
     cp -r packages/plugin/lib $out/lib/node_modules/@opencode2dsh/dsh-plugin/
     cp packages/plugin/cordis.patch.yml $out/lib/node_modules/@opencode2dsh/dsh-plugin/
     cp packages/plugin/package.json $out/lib/node_modules/@opencode2dsh/dsh-plugin/
