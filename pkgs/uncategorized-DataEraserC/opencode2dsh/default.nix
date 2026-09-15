@@ -52,7 +52,12 @@ stdenvNoCC.mkDerivation (finalAttrs: {
     runHook postInstall
   '';
 
-  passthru.updateScript = nix-update-script { };
+  passthru = {
+    updateScript = nix-update-script { };
+    dshBundle = true;
+    dshBundleHelper = "buildDshBundle";
+    runtimeDeps = [ ];
+  };
 
   meta = {
     changelog = "https://github.com/FishBottle7/opencode2dsh/blob/master/CHANGELOG.md";
