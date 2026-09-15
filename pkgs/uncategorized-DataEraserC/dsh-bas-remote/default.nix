@@ -11,7 +11,7 @@ in
 if inputs == null then
   throw "dsh-bas-remote requires the deepseek-harness flake input; evaluate it through the flake (nix build .#dsh-bas-remote)"
 else
-  dshPkgs.buildDshBundle (finalAttrs: {
+  dshPkgs.dsh.buildDshBundle (finalAttrs: {
     pname = "dsh-bas-remote";
     version = "0.1.0";
 
@@ -28,7 +28,7 @@ else
 
     dontNpmBuild = true;
 
-    linkKernelNodeModules = dshPkgs.dsh-kernel;
+    linkKernelNodeModules = dshPkgs.dsh.dsh-kernel;
 
     passthru.updateScript = nix-update-script {
       attrPath = "dsh-bas-remote";
