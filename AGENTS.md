@@ -281,3 +281,78 @@ appimageTools.wrapType2 {
   NEW_HASH=$(prefetch-npm-deps "$SCRIPT_DIR/package-lock.json")
   sed -i "s|npmDepsHash = \"sha256-[^"]*\";|npmDepsHash = \"$NEW_HASH\";|" "$SCRIPT_DIR/default.nix"
   ```
+
+## DSH (DeepSeek Harness) Bundle 打包
+
+### DSH 组合系统要求
+
+DSH 组合系统（`deepseek-harness.nix`）在加载 bundle 时会校验以下属性：
+
+1. `passthru.dshBundle == true`
+2. `passthru.dshBundleHelper == "buildDshBundle"`
+3. `passthru.runtimeDeps` 必须是列表
+4. 输出目录 `$out/lib/node_modules/<pkg>/` 下必须有 `package.json`（含 `dsh.bundle.patch` 字段）和对应的 patch 文件
+5. `$out/nix-support/dsh-bundles.json` 必须存在，格式为 `{ "schema": 1, "bundles": [{ "name", "version", "patch", "packageRoot" }] }`
+
+### `buildDshBundle.fromPnpmWorkspace` 不支持纯 pnpm 项目
+
+`deepseek-harness.nix` 提供的 `buildDshBundle.fromPnpmWorkspace` 扩展自 `buildNpmPackage`，后者使用 `npmConfigHook`，**只支持 npm**（依赖 `package-lock.json` + `npm ci`）。对于使用 pnpm（`pnpm-lock.yaml`）的项目：
+
+- `npmConfigHook` 找不到 `package-lock.json` 会直接报错
+- `fromPnpmWorkspace` 内部的 `pnpm deploy` 要求项目是 pnpm workspace（有 `pnpm-workspace.yaml`），非 workspace 项目不可用
+- 即使项目是 pnpm workspace，`buildNpmPackage` 的 configure 阶段仍会先跑 `npmConfigHook` 失败
+
+**结论**：pnpm 项目必须手动实现 DSH 协议，不能直接使用 `buildDshBundle.fromPnpmWorkspace`。
+
+### pnpm 项目的 DSH bundle 手动实现步骤
+
+对于使用 `fetchPnpmDeps` + `pnpmConfigHook` 的 pnpm 项目，需要手动完成以下步骤：
+
+1. **`passthru` 协议声明**：
+   ```nix
+   passthru = {
+     dshBundle = true;
+     dshBundleHelper = "buildDshBundle";
+     runtimeDeps = [ ];
+   };
+   ```
+
+2. **`package.json` 注入 `dsh.bundle`**（在 `installPhase` 中用 `jq`）：
+   ```nix
+   jq '.dsh = {"bundle": {"patch": "./cordis.patch.yml"}}' \
+     $out/lib/node_modules/<pkg>/package.json > package.json.tmp
+   mv package.json.tmp $out/lib/node_modules/<pkg>/package.json
+   ```
+
+3. **生成 `$out/nix-support/dsh-bundles.json`**：
+   ```nix
+   cat > $out/nix-support/dsh-bundles.json << EOF
+   {
+     "schema": 1,
+     "bundles": [{
+       "name": "<npm-package-name>",
+       "version": "${finalAttrs.version}",
+       "patch": "./cordis.patch.yml",
+       "packageRoot": "$out/lib/node_modules/<pkg>"
+     }]
+   }
+   EOF
+   ```
+
+4. **确保 `node-linker=hoisted`**：在 `preConfigure` 中写入 `.npmrc`，使 pnpm install 生成扁平 `node_modules`（DSH 运行时需要直接解析依赖，不支持 `.pnpm` 虚拟存储布局）：
+   ```nix
+   preConfigure = ''
+     echo 'node-linker=hoisted' > .npmrc
+   '';
+   ```
+
+5. **复制 `node_modules` 到输出**：DSH 运行时会从 bundle 的 `node_modules` 解析依赖，必须包含生产依赖（如 `undici`）：
+   ```nix
+   installPhase = ''
+     runHook preInstall
+     mkdir -p $out/lib/node_modules/<pkg>
+     cp -r node_modules $out/lib/node_modules/<pkg>/
+     # ... copy lib, package.json, cordis.patch.yml ...
+     runHook postInstall
+   '';
+   ```
