@@ -27,6 +27,10 @@ buildGoModule (finalAttrs: {
 
   doCheck = false;
 
+  postInstall = ''
+    install -Dm644 ${finalAttrs.src}/config.example.json $out/share/doc/opencode2api/config.example.json
+  '';
+
   passthru.updateScript = nix-update-script { };
 
   meta = {
