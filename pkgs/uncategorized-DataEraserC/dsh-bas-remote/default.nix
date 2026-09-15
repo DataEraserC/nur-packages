@@ -13,13 +13,13 @@ if inputs == null then
 else
   dshPkgs.dsh.buildDshBundle (finalAttrs: {
     pname = "dsh-bas-remote";
-    version = "0.1.0";
+    version = "0.2.0";
 
     src = fetchFromGitHub {
       owner = "DataEraserC";
       repo = "dsh-bas-remote";
-      rev = "e9131de9b23ff92ec421b955a88b330c01128347";
-      hash = "sha256-xqVWvf5Bv/mZaQnz1n2MPtrX44kVX2lqSrZkg/10H5Q=";
+      rev = "c5703fb49215fe8123024fd6b1339aab1c44327a";
+      hash = "sha256-UX/mRDNo/V8VM/s6WNbWvAaa5KOGTNO5jd9ycMTFsVw=";
     };
 
     npmDepsHash = "sha256-wlmJvOnnHIxuOt8KlSieu2hWeNsi6ykLgm7ni1FQaWk=";
