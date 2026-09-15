@@ -152,7 +152,7 @@ stdenv.mkDerivation {
     homepage = "https://www.netacad.com/courses/packet-tracer";
     license = licenses.unfree;
     mainProgram = "packettracer8";
-    maintainers = with maintainers; [ lucasew ];
+    maintainers = import ../maintainers.nix;
     platforms = [ "x86_64-linux" ];
     # The bundled QtWebEngine links against the legacy libxml2.so.2 ABI
     # (versioned symbols like LIBXML2_2.4.30), which modern nixpkgs no

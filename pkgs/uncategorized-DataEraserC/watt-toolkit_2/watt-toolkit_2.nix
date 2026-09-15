@@ -77,6 +77,7 @@ stdenv.mkDerivation rec {
     '';
 
   meta = {
+    maintainers = import ../maintainers.nix;
     homepage = "https://steampp.net";
     description = "Cross-platform Steam toolbox";
     license = lib.licenses.gpl3Only;

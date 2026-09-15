@@ -33,6 +33,6 @@ buildPythonPackage rec {
     description = "The RWKV Language Model";
     homepage = "https://github.com/BlinkDL/ChatRWKV";
     license = licenses.asl20;
-    maintainers = with maintainers; [ jpetrucciani ];
+    maintainers = import ../maintainers.nix;
   };
 }

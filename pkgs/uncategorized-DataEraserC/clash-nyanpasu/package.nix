@@ -57,7 +57,7 @@ stdenv.mkDerivation rec {
     platforms = [ "x86_64-linux" ];
     license = lib.licenses.gpl3Plus;
     sourceProvenance = with lib.sourceTypes; [ binaryNativeCode ];
-    maintainers = [ lib.maintainers.Guanran928 ];
+    maintainers = import ../maintainers.nix;
     broken = true;
     mainProgram = "clash-nyanpasu";
   };

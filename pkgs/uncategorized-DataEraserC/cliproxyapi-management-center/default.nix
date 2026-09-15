@@ -39,7 +39,7 @@ buildNpmPackage (finalAttrs: {
     description = "Web management interface for CLIProxyAPI";
     homepage = "https://github.com/router-for-me/Cli-Proxy-API-Management-Center";
     license = lib.licenses.mit;
-    maintainers = with lib.maintainers; [ xddxdd ];
+    maintainers = import ../maintainers.nix;
     platforms = lib.platforms.all;
   };
 })

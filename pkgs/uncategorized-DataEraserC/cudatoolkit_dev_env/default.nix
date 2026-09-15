@@ -9,4 +9,5 @@ in
 pkgs.buildEnv {
   name = "cudatoolkit_dev_env";
   paths = devShellPackages;
+  meta.maintainers = import ../maintainers.nix;
 }

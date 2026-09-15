@@ -63,6 +63,7 @@ stdenvNoCC.mkDerivation rec {
   '';
 
   meta = {
+    maintainers = import ../maintainers.nix;
     description = "A server software reimplementation for a certain anime game.";
     homepage = "https://github.com/XeonSucksLAB/UnknownAnimeGamePS";
     mainProgram = "UnknownAnimeGamePS";

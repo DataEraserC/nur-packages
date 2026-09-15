@@ -30,6 +30,7 @@ stdenv.mkDerivation rec {
     '';
 
   meta = with lib; {
+    maintainers = import ../maintainers.nix;
     description = "BStar compatibility library";
     license = licenses.unfree;
     platforms = [ "x86_64-linux" ];

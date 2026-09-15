@@ -124,6 +124,7 @@ stdenv.mkDerivation {
     done
   '';
   meta = with lib; {
+    maintainers = import ../maintainers.nix;
     homepage = "https://kb.corona.studio/";
     mainProgram = "LauncherX.Avalonia";
     platforms = SupportedPlatforms;

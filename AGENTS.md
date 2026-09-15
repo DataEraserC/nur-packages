@@ -81,6 +81,7 @@
 - **必须设置**：所有新包都必须设置 `meta.maintainers` 字段
 - **必须为非空列表**：维护者必须是一个非空列表
 - **包含 xddxdd 或 DataEraserC**：维护者列表中必须包含 xddxdd（`github = "xddxdd"`）或 DataEraserC（`github = "DataEraserC"`），fork 内维护者至少为仓库负责人之一
+- **自有目录统一引用共享维护者列表**：nixpkgs 没有 `DataEraserC` 维护者条目，`with lib.maintainers; [ DataEraserC ]` 会在求值期报 `undefined variable 'DataEraserC'`（`nix-update` 读 `meta.maintainers`、`tools/check_package_meta.py` 都会触发）。`pkgs/uncategorized-DataEraserC/` 内的包一律写 `maintainers = import ../maintainers.nix;`（该文件内容为 `[ { name = "DataEraserC"; github = "DataEraserC"; } ]`，位于迁移保留目录内，改一处即全目录生效）；新建包或改动该目录包的维护者字段时按此写法，不要再内联或引用 `lib.maintainers`。该文件是目录下的普通 `.nix` 文件，会被 `loadPackages` 跳过（只读目录条目），但必须 `git add`——flake 只复制 git 跟踪的文件，否则求值报 `Path 'pkgs/uncategorized-DataEraserC/maintainers.nix' ... is not tracked by Git`
 
 ### meta.homepage（主页）
 
@@ -258,7 +259,7 @@ appimageTools.wrapType2 {
 - **`fromPnpmWorkspace` 的必要参数**：项目在子目录时 `sourceRoot = "source/<子目录>"`；helper 内部自建的 `fetchPnpmDeps` 不转发 `sourceRoot`，所以必须自己传 `pnpmDeps = dshPkgs.dsh.fetchPnpmDeps { inherit (finalAttrs) pname version src; sourceRoot = "source/<子目录>"; fetcherVersion = 4; hash = ...; }`（否则报 `yq: error: argument files: can't open 'pnpm-lock.yaml'`）；`deployPackage = "<workspace 包名>"`；`npmDeps = null; npmConfigHook = dshPkgs.pnpmConfigHook;`（nixpkgs 的 `pnpmConfigHook` 让 `buildNpmPackage` 走 pnpm，无需 npmDeps）；`npmBuildScript = "prepack"`（上游 `prepack` 同时构建服务端与 `lib/client.js`）
 - **产物验收**：`lib/node_modules/<pkg>/lib/client.js` 必须存在、`nix-support/dsh-bundles.json` 的 `packageRoot`/`patch` 正确、`passthru.dshBundle = true` / `dshBundleHelper = "buildDshBundle"` / `runtimeDeps` 齐全；`lib/node_modules/.pnpm` 应只剩几十 KB
 - **`nix-update` 必须走 flake 模式并显式给裸包名**：`buildDshBundle` 把 `pnpmDeps` 暴露成顶层 passthru 属性（nix-update 才能刷新哈希），但本仓库更新运行器去重后传的是分组 attrPath（`<group>.<pkg>`），而 nix-update 的 flake 求值只在 `flake.packages.<system>`（本仓库只放平铺名，分组名只在 `legacyPackages`）里查，会拿到 null 后报 `unsafeGetAttrPos` / `expected a set but found null`；因此写 `nix-update-script { attrPath = "<裸包名>"; extraArgs = [ "--flake" ]; }`（无输入的 legacy 求值会因包依赖 flake 输入而失败，不能省略 `--flake`）
-- **meta 会被强制求值**：nix-update 读 `pkg.meta.maintainers`，而 nixpkgs 里并没有 `DataEraserC` 维护者条目，`with lib.maintainers; [ DataEraserC ]` 在 flake/legacy 两条路径都会报 `undefined variable 'DataEraserC'`（`opencode2api` 有同样隐患）；改用字面量 `{ name = "DataEraserC"; github = "DataEraserC"; }`
+- **meta 会被强制求值**：nix-update 读 `pkg.meta.maintainers`，而 nixpkgs 里并没有 `DataEraserC` 维护者条目，`with lib.maintainers; [ DataEraserC ]` 在 flake/legacy 两条路径都会报 `undefined variable 'DataEraserC'`（`opencode2api` 有同样隐患）；包内统一写 `maintainers = import ../maintainers.nix;`（共享维护者列表，见 `meta.maintainers` 一节）
 - **依赖 flake 输入的包必须在无输入求值下「可跳过」**：`builtins.tryEval` 捕获不了类型错误（`expected a set but found null` 会直接终止整个 `helpers/update.nix` 收集，NI 更新工作流全挂），只有 `throw` 能被捕获，因此包内对 `inputs == null` 用 `throw` 给出提示，并在自有分组文件里对它在 `inputs == null` 时套 `ifNotNUR`（NUR 机器人读仓库时不带 flake 输入）；配套改动：`flake.nix` 加 `deepseek-harness` 输入、`helpers/update.nix` 加 `inputs ? null` 并透传给 `import ../pkgs`（上游文件，迁移后会丢）、`tools/update-package` 先探测该参数是否存在再传 flake inputs（迁移后自动退回无 inputs 模式，避免整个更新工作流因 `called with unexpected argument 'inputs'` 崩掉）
 
 ## Lockfile 与 update.sh

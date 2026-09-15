@@ -73,7 +73,7 @@ stdenv.mkDerivation (finalAttrs: {
     description = "Desktop GUI for CLIProxyAPI that configures popular AI agents";
     homepage = "https://github.com/router-for-me/EasyCLIProxyAPI";
     license = lib.licenses.mit;
-    maintainers = with lib.maintainers; [ xddxdd ];
+    maintainers = import ../maintainers.nix;
     platforms = [ "x86_64-linux" ];
     mainProgram = "EasyCLIProxyAPI";
     sourceProvenance = with lib.sourceTypes; [ binaryNativeCode ];

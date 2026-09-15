@@ -11,4 +11,5 @@ in
 pkgs.buildEnv {
   name = "clang_dev_env";
   paths = devShellPackages;
+  meta.maintainers = import ../maintainers.nix;
 }

@@ -81,6 +81,7 @@ stdenvNoCC.mkDerivation {
   '';
 
   meta = {
+    maintainers = import ../maintainers.nix;
     description = "Android ROM tooling suite";
     homepage = repo;
     platforms = [ "x86_64-linux" ];

@@ -57,6 +57,7 @@ stdenv.mkDerivation rec {
     ];
   });
   meta = {
+    maintainers = import ../maintainers.nix;
     description = "Adobe_Illustrator_CS6";
     homepage = "https://t.me/Linux_Appimages/1052";
     license = lib.licenses.unfree;

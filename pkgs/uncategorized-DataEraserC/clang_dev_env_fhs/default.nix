@@ -24,4 +24,5 @@ pkgs.stdenv.mkDerivation {
     cp -r ${fhs}/bin "$out"
   '';
   shellHook = "exec clang_dev_env_fhs";
+  meta.maintainers = import ../maintainers.nix;
 }

@@ -87,6 +87,7 @@ stdenv.mkDerivation rec {
   runtimeLibs = pkgs.lib.makeLibraryPath libraries;
 
   meta = {
+    maintainers = import ../maintainers.nix;
     description = package_description;
     homepage = github_url;
     license = lib.licenses.unfree;

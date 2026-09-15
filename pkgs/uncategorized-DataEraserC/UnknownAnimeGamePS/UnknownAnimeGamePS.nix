@@ -40,6 +40,7 @@ let
       fromSource
       binaryBytecode # mitm cache
     ];
+    meta.maintainers = import ../maintainers.nix;
   };
 in
 self

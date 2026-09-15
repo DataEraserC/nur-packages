@@ -44,7 +44,7 @@ appimageTools.wrapType2 rec {
     homepage = "https://github.com/msojocs/wechat-web-devtools-linux";
     license = lib.licenses.unfree;
     mainProgram = "wechat_dev_tools_appimage";
-    maintainers = with lib.maintainers; [ Guanran928 ];
+    maintainers = import ../maintainers.nix;
     platforms = [ "x86_64-linux" ];
     sourceProvenance = with lib.sourceTypes; [ binaryNativeCode ];
   };

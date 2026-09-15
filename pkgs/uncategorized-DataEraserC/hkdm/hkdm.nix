@@ -38,6 +38,6 @@ rustPlatform.buildRustPackage rec {
     mainProgram = "hkdm";
     license = lib.licenses.gpl3Only;
     platforms = lib.platforms.linux;
-    maintainers = [ ];
+    maintainers = import ../maintainers.nix;
   };
 }

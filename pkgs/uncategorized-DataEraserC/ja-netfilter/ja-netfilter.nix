@@ -27,6 +27,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   '';
 
   meta = {
+    maintainers = import ../maintainers.nix;
     description = "ja-netfilter";
     homepage = "https://3.jetbra.in";
   };

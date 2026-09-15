@@ -45,6 +45,7 @@ stdenv.mkDerivation {
   '';
   postInstall = "";
   meta = qq-original.meta // {
+    maintainers = import ../maintainers.nix;
     mainProgram = "bqqnt";
   };
 }

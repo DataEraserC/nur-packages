@@ -70,10 +70,7 @@ rustPlatform.buildRustPackage rec {
       asl20 # or
       mit
     ];
-    maintainers = with lib.maintainers; [
-      getchoo
-      happysalada
-    ];
+    maintainers = import ../maintainers.nix;
     mainProgram = "cargo-tauri";
   };
 }

@@ -30,6 +30,7 @@ stdenvNoCC.mkDerivation rec {
   '';
 
   meta = {
+    maintainers = import ../maintainers.nix;
     description = "xcursor genshin nahida";
     homepage = "https://aur.archlinux.org/packages/xcursor-genshin-nahida";
     platforms = lib.platforms.linux;

@@ -88,7 +88,7 @@ rustPlatform.buildRustPackage rec {
     description = "scrcpy-mask";
     homepage = "https://github.com/AkiChase/scrcpy-mask";
     mainProgram = "program";
-    maintainers = with lib.maintainers; [ ];
+    maintainers = import ../maintainers.nix;
     broken = true;
   };
 }

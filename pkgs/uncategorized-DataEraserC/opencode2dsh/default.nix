@@ -46,12 +46,7 @@ else
       description = "DSH plugin for free OpenCode Zen models with native adapter and no API key";
       homepage = "https://github.com/FishBottle7/opencode2dsh";
       license = lib.licenses.mit;
-      maintainers = [
-        {
-          name = "DataEraserC";
-          github = "DataEraserC";
-        }
-      ];
+      maintainers = import ../maintainers.nix;
       platforms = lib.platforms.unix;
     };
   })

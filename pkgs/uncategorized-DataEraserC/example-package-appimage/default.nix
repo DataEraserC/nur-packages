@@ -15,6 +15,7 @@ in
 appimageTools.wrapType2 {
   inherit pname version src;
   meta = {
+    maintainers = import ../maintainers.nix;
     description = "DingTalk desktop messaging application";
     homepage = "https://www.dingtalk.com/";
     license = lib.licenses.mit;

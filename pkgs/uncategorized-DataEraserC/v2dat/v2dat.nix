@@ -26,6 +26,7 @@ buildGoModule {
   };
 
   meta = {
+    maintainers = import ../maintainers.nix;
     description = "Cli tool that can unpack v2ray data packages. (Note: This project is for fun ONLY. You should build your own data dirctly from upstreams instead of unpacking a v2ray data pack.)";
     homepage = "https://github.com/urlesistiana/v2dat";
     license = lib.licenses.gpl3;

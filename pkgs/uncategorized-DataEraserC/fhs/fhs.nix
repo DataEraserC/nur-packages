@@ -12,6 +12,7 @@
       profile = "export FHS=1";
       runScript = "bash";
       extraOutputsToInstall = [ "dev" ];
+      meta.maintainers = import ../maintainers.nix;
     }
   )
 )

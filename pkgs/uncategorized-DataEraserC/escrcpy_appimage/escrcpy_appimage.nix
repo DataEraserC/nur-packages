@@ -31,7 +31,7 @@ appimageTools.wrapType2 rec {
     homepage = "https://github.com/keiko233/clash-nyanpasu";
     license = lib.licenses.gpl3Plus;
     mainProgram = "escrcpy";
-    maintainers = [ lib.maintainers.Guanran928 ];
+    maintainers = import ../maintainers.nix;
     platforms = [ "x86_64-linux" ];
     sourceProvenance = with lib.sourceTypes; [ binaryNativeCode ];
   };

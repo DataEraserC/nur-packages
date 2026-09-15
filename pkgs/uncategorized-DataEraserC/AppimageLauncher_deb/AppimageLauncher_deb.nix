@@ -126,7 +126,7 @@ stdenv.mkDerivation rec {
     description = "appimagelauncher";
     homepage = "https://github.com/TheAssassin/AppImageLauncher";
     license = lib.licenses.mit;
-    maintainers = [ ];
+    maintainers = import ../maintainers.nix;
     mainProgram = "AppImageLauncher";
     platforms = [ "x86_64-linux" ];
   };

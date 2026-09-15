@@ -47,6 +47,7 @@ stdenv.mkDerivation (finalAttrs: {
   };
 
   meta = {
+    maintainers = import ../maintainers.nix;
     description = "Suite of graphical applications for the terminal";
     mainProgram = "buffyboard";
     homepage = "https://gitlab.com/postmarketOS/buffybox";

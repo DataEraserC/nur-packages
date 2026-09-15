@@ -98,7 +98,7 @@ in
     homepage = "https://pgy.oray.com/download/";
     description = "Client for the Oray PgyVisitor software-defined networking platform";
     license = lib.licenses.unfree;
-    maintainers = with lib.maintainers; [ xddxdd ];
+    maintainers = import ../maintainers.nix;
     mainProgram = "pgy";
     platforms = SupportedPlatforms;
   };

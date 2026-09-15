@@ -33,6 +33,7 @@ buildDotnetModule rec {
 
   runtimeDeps = [ ffmpeg ]; # This will wrap ffmpeg's library path into `LD_LIBRARY_PATH`.
   meta = {
+    maintainers = import ../maintainers.nix;
     homepage = "https://steampp.net";
     description = "an open source cross-platform multi-purpose game toolkit";
     license = lib.licenses.gpl3Only;

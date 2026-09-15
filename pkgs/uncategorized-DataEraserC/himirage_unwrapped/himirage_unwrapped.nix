@@ -183,6 +183,7 @@ stdenv.mkDerivation {
   '';
 
   meta = with lib; {
+    maintainers = import ../maintainers.nix;
     homepage = "https://photosir.com";
     mainProgram = "himirage.sh";
     platforms = SupportedPlatforms;

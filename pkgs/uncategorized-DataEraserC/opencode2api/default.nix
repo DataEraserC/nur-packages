@@ -38,7 +38,7 @@ buildGoModule (finalAttrs: {
     description = "OpenCode Zen and Zen Go API gateway with OpenAI and Anthropic compatibility, key pooling, and WebUI";
     homepage = "https://github.com/jasonxu114514/opencode2api";
     license = lib.licenses.mit;
-    maintainers = with lib.maintainers; [ DataEraserC ];
+    maintainers = import ../maintainers.nix;
     mainProgram = "opencode2api";
   };
 })

@@ -105,7 +105,7 @@ stdenv.mkDerivation {
     homepage = "https://pgy.oray.com/download/";
     description = "Client for the Oray PgyVisitor software-defined networking platform";
     license = licenses.unfree;
-    maintainers = with lib.maintainers; [ xddxdd ];
+    maintainers = import ../maintainers.nix;
     mainProgram = "pgyvisitor";
     # Direct unpacking cannot replace the hard-coded /usr/share paths of the
     # bundled binaries; use the FHS-wrapped pgy_fhs package instead.

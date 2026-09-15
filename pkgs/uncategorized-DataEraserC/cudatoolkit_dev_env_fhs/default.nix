@@ -20,6 +20,7 @@ pkgs.stdenv.mkDerivation {
     cp -r ${fhs}/bin "$out"
   '';
   meta.license = lib.licenses.unfree;
+  meta.maintainers = import ../maintainers.nix;
 
   shellHook = "exec cudatoolkit_dev_env_fhs";
 }

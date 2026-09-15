@@ -1,6 +1,5 @@
 {
   fetchgit,
-  lib,
   stdenvNoCC,
   unstableGitUpdater,
   bash,
@@ -43,6 +42,6 @@ stdenvNoCC.mkDerivation rec {
     description = "ttyescape";
     homepage = "https://gitlab.com/postmarketOS/ttyescape";
     mainProgram = "togglevt.sh";
-    maintainers = with lib.maintainers; [ ];
+    maintainers = import ../maintainers.nix;
   };
 }

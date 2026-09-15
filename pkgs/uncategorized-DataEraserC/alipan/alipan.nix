@@ -77,7 +77,7 @@ stdenv.mkDerivation {
     description = "Aliyun aDrive";
     homepage = "https://www.alipan.com/";
     license = licenses.unfree;
-    maintainers = [ ];
+    maintainers = import ../maintainers.nix;
     inherit (wine.meta) platforms;
     mainProgram = "aDrive";
     broken = true;

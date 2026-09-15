@@ -60,7 +60,7 @@ stdenvNoCC.mkDerivation rec {
     changelog = "https://github.com/Schweber/ndrop/releases/tag/v${version}";
     license = licenses.agpl3Only;
     platforms = platforms.linux;
-    maintainers = with maintainers; [ Schweber ];
+    maintainers = import ../maintainers.nix;
     mainProgram = "ndrop";
   };
 }

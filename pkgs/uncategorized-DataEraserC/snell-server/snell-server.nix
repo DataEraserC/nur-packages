@@ -70,6 +70,7 @@ stdenv.mkDerivation {
     install -Dm755 snell-server $out/bin/snell-server
   '';
   meta = with lib; {
+    maintainers = import ../maintainers.nix;
     homepage = "https://nssurge.com";
     mainProgram = "snell-server";
     platforms = SupportedPlatforms;

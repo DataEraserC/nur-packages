@@ -103,6 +103,7 @@ stdenv.mkDerivation rec {
     '';
 
   meta = {
+    maintainers = import ../maintainers.nix;
     homepage = "https://steampp.net";
     description = "an open source cross-platform multi-purpose game toolkit";
     license = lib.licenses.gpl3Only;

@@ -73,6 +73,7 @@ stdenv.mkDerivation {
     install -Dm755 frpc $out/bin/frpc
   '';
   meta = with lib; {
+    maintainers = import ../maintainers.nix;
     homepage = "https://www.natfrp.com/";
     mainProgram = "natfrp-service";
     platforms = SupportedPlatforms;

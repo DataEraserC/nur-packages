@@ -67,5 +67,6 @@ in
         sed -i "s@^Name=.*@Name=LLQQNT@g" $out/share/applications/llqqnt.desktop
       '';
       meta.broken = true;
+      meta.maintainers = import ../maintainers.nix;
     }
   )

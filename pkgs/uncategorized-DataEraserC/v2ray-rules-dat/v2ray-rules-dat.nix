@@ -44,6 +44,7 @@ stdenvNoCC.mkDerivation rec {
   '';
 
   meta = {
+    maintainers = import ../maintainers.nix;
     description = "V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria.";
     homepage = "https://github.com/Loyalsoldier/v2ray-rules-dat";
     license = lib.licenses.gpl3;
