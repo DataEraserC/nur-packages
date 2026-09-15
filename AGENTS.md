@@ -252,6 +252,15 @@ appimageTools.wrapType2 {
 - **分开构建前端和 Go**：将前端构建为独立派生，在 `buildGoModule` 的 `preBuild` 中将构建产物复制到 Go embed 目录
 - **复制到 embed 路径**：如果 Go 使用 `//go:embed` 嵌入前端产物，构建产物必须先放置到对应目录再执行 Go 编译
 
+### DSH 插件包（deepseek-harness 的 buildDshBundle）
+
+- **复用 `deepseek-harness` flake 输入的 `dsh.buildDshBundle.fromPnpmWorkspace`，不要手写 DSH bundle 协议**：手写（自己装 node_modules、自己写 `nix-support/dsh-bundles.json`）极易漏掉客户端半边产物 `lib/node_modules/<pkg>/lib/client.js`（DSH web 端的插件行会直接坏掉），并把 devDependencies 打进产物（opencode2dsh 实测 233 MB → 120 MB）。包内先 `dshPkgs = pkgs.extend inputs.deepseek-harness.overlays.default;`，再取 `dshPkgs.dsh.*`
+- **`fromPnpmWorkspace` 的必要参数**：项目在子目录时 `sourceRoot = "source/<子目录>"`；helper 内部自建的 `fetchPnpmDeps` 不转发 `sourceRoot`，所以必须自己传 `pnpmDeps = dshPkgs.dsh.fetchPnpmDeps { inherit (finalAttrs) pname version src; sourceRoot = "source/<子目录>"; fetcherVersion = 4; hash = ...; }`（否则报 `yq: error: argument files: can't open 'pnpm-lock.yaml'`）；`deployPackage = "<workspace 包名>"`；`npmDeps = null; npmConfigHook = dshPkgs.pnpmConfigHook;`（nixpkgs 的 `pnpmConfigHook` 让 `buildNpmPackage` 走 pnpm，无需 npmDeps）；`npmBuildScript = "prepack"`（上游 `prepack` 同时构建服务端与 `lib/client.js`）
+- **产物验收**：`lib/node_modules/<pkg>/lib/client.js` 必须存在、`nix-support/dsh-bundles.json` 的 `packageRoot`/`patch` 正确、`passthru.dshBundle = true` / `dshBundleHelper = "buildDshBundle"` / `runtimeDeps` 齐全；`lib/node_modules/.pnpm` 应只剩几十 KB
+- **`nix-update` 必须走 flake 模式并显式给裸包名**：`buildDshBundle` 把 `pnpmDeps` 暴露成顶层 passthru 属性（nix-update 才能刷新哈希），但本仓库更新运行器去重后传的是分组 attrPath（`<group>.<pkg>`），而 nix-update 的 flake 求值只在 `flake.packages.<system>`（本仓库只放平铺名，分组名只在 `legacyPackages`）里查，会拿到 null 后报 `unsafeGetAttrPos` / `expected a set but found null`；因此写 `nix-update-script { attrPath = "<裸包名>"; extraArgs = [ "--flake" ]; }`（无输入的 legacy 求值会因包依赖 flake 输入而失败，不能省略 `--flake`）
+- **meta 会被强制求值**：nix-update 读 `pkg.meta.maintainers`，而 nixpkgs 里并没有 `DataEraserC` 维护者条目，`with lib.maintainers; [ DataEraserC ]` 在 flake/legacy 两条路径都会报 `undefined variable 'DataEraserC'`（`opencode2api` 有同样隐患）；改用字面量 `{ name = "DataEraserC"; github = "DataEraserC"; }`
+- **依赖 flake 输入的包必须在无输入求值下「可跳过」**：`builtins.tryEval` 捕获不了类型错误（`expected a set but found null` 会直接终止整个 `helpers/update.nix` 收集，NI 更新工作流全挂），只有 `throw` 能被捕获，因此包内对 `inputs == null` 用 `throw` 给出提示，并在自有分组文件里对它在 `inputs == null` 时套 `ifNotNUR`（NUR 机器人读仓库时不带 flake 输入）；配套改动：`flake.nix` 加 `deepseek-harness` 输入、`helpers/update.nix` 加 `inputs ? null` 并透传给 `import ../pkgs`（上游文件，迁移后会丢）、`tools/update-package` 先探测该参数是否存在再传 flake inputs（迁移后自动退回无 inputs 模式，避免整个更新工作流因 `called with unexpected argument 'inputs'` 崩掉）
+
 ## Lockfile 与 update.sh
 
 ### 生成式 Lockfile

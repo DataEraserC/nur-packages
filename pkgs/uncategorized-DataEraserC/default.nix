@@ -1,9 +1,13 @@
 {
+  ifNotNUR,
+  inputs,
   loadPackages,
   ...
 }:
 let
-  packages = loadPackages ./. { };
+  packages = loadPackages ./. {
+    opencode2dsh = p: if inputs == null then ifNotNUR p else p;
+  };
 in
 packages
 // {

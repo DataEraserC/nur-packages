@@ -10,6 +10,10 @@
 */
 {
   pkgs ? import <nixpkgs> { },
+  # Flake inputs of this repository, for packages that consume sibling flake
+  # inputs (e.g. opencode2dsh). Without them those packages throw while being
+  # evaluated and are skipped, matching what a plain `nix-build` sees.
+  inputs ? null,
   # "nur" mode matches what the NUR bot evaluates: it excludes groups that
   # require flake inputs (e.g. lantian-linux-cachyos), whose evaluation
   # failures cannot be caught by tryEval.
@@ -35,7 +39,7 @@
 }:
 let
   inherit (pkgs) lib;
-  nurPkgs = import ../pkgs mode { inherit pkgs; };
+  nurPkgs = import ../pkgs mode { inherit pkgs inputs; };
 
   updateScriptOf =
     pkg:

@@ -13,16 +13,27 @@ if [ $# -eq 0 ]; then
 	exit 1
 fi
 
+# Packages may consume sibling flake inputs (e.g. opencode2dsh); pass this
+# repository's inputs so that they evaluate exactly like `nix build .#...`.
+# helpers/update.nix is an upstream file: after a migration to a new
+# upstream/master it may no longer accept the argument, so only pass it when
+# the runner actually declares it.
+INPUT_ARGS=()
+if nix-instantiate --eval -E 'builtins.functionArgs (import ./helpers/update.nix)' 2>/dev/null |
+	grep -q 'inputs ='; then
+	INPUT_ARGS=(--arg inputs '(builtins.getFlake (toString ./.)).inputs')
+fi
+
 case "$1" in
 --all)
-	exec nix-shell helpers/update.nix --argstr packages ""
+	exec nix-shell helpers/update.nix "${INPUT_ARGS[@]}" --argstr packages ""
 	;;
 --path)
 	[ $# -ge 2 ] || { echo "Usage: $0 --path <prefix>" >&2; exit 1; }
 	shift
-	exec nix-shell helpers/update.nix --argstr path "$*"
+	exec nix-shell helpers/update.nix "${INPUT_ARGS[@]}" --argstr path "$*"
 	;;
 *)
-	exec nix-shell helpers/update.nix --argstr packages "$*"
+	exec nix-shell helpers/update.nix "${INPUT_ARGS[@]}" --argstr packages "$*"
 	;;
 esac

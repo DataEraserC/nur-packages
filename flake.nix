@@ -41,6 +41,10 @@
       url = "github:DataEraserC/LaphaeL-aicmd";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    deepseek-harness = {
+      url = "github:Moraxyc/deepseek-harness.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     android-attestation-keybox-generator = {
       url = "github:AndroidAppsUsedByMyself/android-attestation-keybox-generator";
       inputs.nixpkgs.follows = "nixpkgs";
