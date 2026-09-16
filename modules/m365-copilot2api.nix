@@ -246,11 +246,13 @@ in
       preStart =
         if cfg.adminPasswordFile != null then
           ''
-            export M365_ADMIN_PASSWORD_FILE="$CREDENTIALS_DIRECTORY/admin-password"
+            cp "$CREDENTIALS_DIRECTORY/admin-password" "${stateDir}/admin-password"
+            chmod 0600 "${stateDir}/admin-password"
           ''
         else if cfg.adminPassword != null then
           ''
-            export M365_ADMIN_PASSWORD_FILE="$CREDENTIALS_DIRECTORY/admin-password-inline"
+            cp "$CREDENTIALS_DIRECTORY/admin-password-inline" "${stateDir}/admin-password"
+            chmod 0600 "${stateDir}/admin-password"
           ''
         else
           "";
