@@ -30,6 +30,7 @@ let
   usePanel = cfg.managementCenterPackage != null && !cfg.disableControlPanel;
 
   panelDir = pkgs.runCommand "cliproxyapi-management-panel" { } ''
+    mkdir -p $out
     if [ -e ${cfg.managementCenterPackage}/management.html ]; then
       ln -s ${cfg.managementCenterPackage}/management.html $out/management.html
     elif [ -e ${cfg.managementCenterPackage}/index.html ]; then
