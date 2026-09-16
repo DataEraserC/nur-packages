@@ -74,11 +74,11 @@
         "systems": "systems_6"
       },
       "locked": {
-        "lastModified": 1789461851,
-        "narHash": "sha256-D1uFqm6nfuxD7xCK9l2uISP3oSSefZJVVNNnyZvIC/A=",
+        "lastModified": 1789507846,
+        "narHash": "sha256-PExT+kfrYiPPkOejXCyPDd1UbCoK6xk7HUMaHsIUmzI=",
         "owner": "Moraxyc",
         "repo": "deepseek-harness.nix",
-        "rev": "d06a2af4de6f03bd91e7cb63e1d6aa209ce40cf6",
+        "rev": "5aae44838bdd15d5f52a0b9ca98121dee07a5f3b",
         "type": "github"
       },
       "original": {
@@ -484,11 +484,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1788267358,
-        "narHash": "sha256-nt+lUqYVpc9Y6JeMd2WmXzCDojasdadKo0mWcluvY2Y=",
+        "lastModified": 1789514889,
+        "narHash": "sha256-PFD1nxptCXJyJoiYO1gf/5Vv43yqGpHtMC6LUhl9/pQ=",
         "owner": "cachix",
         "repo": "pre-commit-hooks.nix",
-        "rev": "27555e2624241fb116b49095df4caaee85a25691",
+        "rev": "59f4ca0d063a1a3ec722c88b51a33004862e5379",
         "type": "github"
       },
       "original": {
