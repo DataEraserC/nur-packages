@@ -8,6 +8,50 @@ let
   cfg = config.services.dataEraserc.m365Copilot2api;
 
   inherit (cfg) stateDir;
+
+  # systemd can only create the state directory when it lives directly below
+  # /var/lib; anything else has to exist already (ProtectSystem=strict makes
+  # ReadWritePaths fail on a missing path).
+  useStateDirectory = builtins.dirOf stateDir == "/var/lib";
+
+  # The server chdir()s to the directory of its own executable, so every
+  # persisted path has to be absolute and outside the read-only store.
+  dataPath = name: "${stateDir}/${name}";
+
+  # Keep the evaluation alive when the package is missing so that the
+  # assertions below can report it instead of lib.getExe crashing.
+  serverExecutable =
+    if cfg.package != null then lib.getExe cfg.package else "${pkgs.coreutils}/bin/false";
+
+  startScript = pkgs.writeShellScript "m365-copilot2api-start" ''
+    set -eu
+    ${lib.optionalString (cfg.adminPasswordFile != null) ''
+      export M365_ADMIN_PASSWORD_BOOTSTRAP_FILE="$CREDENTIALS_DIRECTORY/admin-password"
+    ''}
+    ${lib.optionalString (cfg.masterKeyFile != null) ''
+      export M365_MASTER_KEY="$(cat "$CREDENTIALS_DIRECTORY/master-key")"
+    ''}
+    exec ${serverExecutable}
+  '';
+
+  # The server reads admin-password.json first and only falls back to the
+  # bootstrap credential when no persisted password exists, so a rotated
+  # credential has to invalidate the persisted file explicitly.
+  seedAdminPassword = pkgs.writeShellScript "m365-copilot2api-seed-admin-password" ''
+    set -eu
+    credential="$CREDENTIALS_DIRECTORY/admin-password"
+    marker=${lib.escapeShellArg (dataPath ".admin-password.sha256")}
+    if [ ! -s "$credential" ]; then
+      exit 0
+    fi
+    current="$(sha256sum "$credential" | cut -d' ' -f1)"
+    previous="$(cat "$marker" 2>/dev/null || true)"
+    if [ "$current" != "$previous" ]; then
+      rm -f ${lib.escapeShellArg (dataPath "admin-password")} ${lib.escapeShellArg (dataPath "admin-password.json")}
+      printf '%s\n' "$current" > "$marker"
+      chmod 0600 "$marker"
+    fi
+  '';
 in
 {
   options.services.dataEraserc.m365Copilot2api = {
@@ -25,13 +69,19 @@ in
     user = lib.mkOption {
       type = lib.types.str;
       default = "m365-copilot2api";
-      description = "User account under which the service runs.";
+      description = ''
+        User account under which the service runs. When changed from the
+        default the account has to be defined elsewhere.
+      '';
     };
 
     group = lib.mkOption {
       type = lib.types.str;
       default = "m365-copilot2api";
-      description = "Group under which the service runs.";
+      description = ''
+        Group under which the service runs. When changed from the default the
+        group has to be defined elsewhere.
+      '';
     };
 
     stateDir = lib.mkOption {
@@ -39,18 +89,25 @@ in
       default = "/var/lib/m365-copilot2api";
       description = ''
         Writable state directory for accounts, tokens, sessions, API keys,
-        settings, and other runtime data.
+        settings, and other runtime data. Directories outside
+        <filename>/var/lib</filename> have to exist beforehand.
       '';
     };
 
     listenAddress = lib.mkOption {
       type = lib.types.str;
-      default = "127.0.0.1:4141";
+      default = "127.0.0.1";
+      example = "0.0.0.0";
       description = ''
-        Address the server binds to. Defaults to localhost; set to
-        <literal>0.0.0.0:4141</literal> to expose the API and management
-        console on the network.
+        Address the server binds to. Use the bracketed form for IPv6, for
+        example <literal>[::1]</literal>.
       '';
+    };
+
+    port = lib.mkOption {
+      type = lib.types.port;
+      default = 4141;
+      description = "TCP port the server binds to.";
     };
 
     adminPasswordFile = lib.mkOption {
@@ -58,30 +115,22 @@ in
       default = null;
       example = "/run/secrets/m365-admin-password";
       description = ''
-        File containing the administrator password for the web console.
-        When set, the password is loaded via systemd <literal>LoadCredential</literal>
-        and injected through <literal>M365_ADMIN_PASSWORD_FILE</literal>.
-        When null, an inline password from <option>adminPassword</option> is used.
+        File containing the administrator password for the web console as
+        plain text, loaded as a systemd credential. It seeds the password on
+        first start and again whenever its content changes; a password changed
+        from the web console stays in effect until then.
       '';
     };
 
-    adminPassword = lib.mkOption {
+    masterKeyFile = lib.mkOption {
       type = lib.types.nullOr lib.types.str;
       default = null;
+      example = "/run/secrets/m365-master-key";
       description = ''
-        Inline administrator password. Only used when
-        <option>adminPasswordFile</option> is null. For production use,
-        prefer <option>adminPasswordFile</option> or
-        <option>extraEnvironment</option> with a secrets manager.
-      '';
-    };
-
-    requireStrongPassword = lib.mkOption {
-      type = lib.types.bool;
-      default = true;
-      description = ''
-        Require a strong admin password (12+ chars, mixed character classes).
-        Set to false only for local/testing deployments.
+        File containing the key used to encrypt account refresh tokens in
+        <filename>accounts.json</filename>, loaded as a systemd credential.
+        Without it the server falls back to a built-in public key. Existing
+        tokens have to be authorized again before enabling this option.
       '';
     };
 
@@ -94,25 +143,29 @@ in
     openFirewall = lib.mkOption {
       type = lib.types.bool;
       default = false;
-      description = "Whether to open the firewall for the configured listen port.";
+      description = ''
+        Whether to open the configured port in the firewall. The web console
+        is served over plain HTTP, so expose it to the network only behind a
+        TLS terminating reverse proxy.
+      '';
     };
 
     autoCleanup = lib.mkOption {
       type = lib.types.bool;
       default = true;
-      description = "Enable automatic cleanup of expired conversation data.";
+      description = "Enable the periodic cleanup of expired conversation data.";
     };
 
-    cleanupMaxAgeHours = lib.mkOption {
+    autoCleanupMaxAgeHours = lib.mkOption {
       type = lib.types.ints.positive;
       default = 2;
-      description = "Maximum age in hours for conversation data before cleanup.";
+      description = "Maximum age in hours for conversation data before the periodic cleanup removes it.";
     };
 
-    cleanupKeepN = lib.mkOption {
+    autoCleanupKeepN = lib.mkOption {
       type = lib.types.ints.positive;
       default = 5;
-      description = "Number of recent conversations to keep per session after cleanup.";
+      description = "Number of recent conversations the periodic cleanup keeps.";
     };
 
     extraEnvironment = lib.mkOption {
@@ -131,13 +184,11 @@ in
       type = lib.types.nullOr lib.types.str;
       default = null;
       example = "/run/secrets/m365-copilot2api.env";
-      description = "Environment file as defined in {manpage}`systemd.exec(5)`.";
-    };
-
-    extraArgs = lib.mkOption {
-      type = lib.types.listOf lib.types.str;
-      default = [ ];
-      description = "Extra arguments passed to the server command line (reserved for future use).";
+      description = ''
+        Environment file as defined in {manpage}`systemd.exec(5)`. May be used
+        instead of <option>adminPasswordFile</option> to supply
+        <literal>M365_ADMIN_PASSWORD</literal>.
+      '';
     };
   };
 
@@ -148,8 +199,11 @@ in
         message = "services.dataEraserc.m365Copilot2api.package must be set when the service is enabled.";
       }
       {
-        assertion = cfg.adminPasswordFile != null || cfg.adminPassword != null;
-        message = "Either adminPasswordFile or adminPassword must be set for M365 Copilot2API.";
+        assertion = cfg.adminPasswordFile != null || cfg.environmentFile != null;
+        message = ''
+          services.dataEraserc.m365Copilot2api requires adminPasswordFile, or an
+          environmentFile providing M365_ADMIN_PASSWORD.
+        '';
       }
     ];
 
@@ -174,47 +228,37 @@ in
       wantedBy = [ "multi-user.target" ];
 
       environment = {
-        M365_LISTEN = cfg.listenAddress;
+        M365_LISTEN = "${cfg.listenAddress}:${toString cfg.port}";
         M365_DATA_DIR = stateDir;
+        M365_CONFIG = dataPath "accounts.json";
+        M365_TOKEN_CACHE = dataPath "token-cache.json";
+        M365_SESSION_CACHE = dataPath "sessions.json";
+        M365_USER_SESSION_CACHE = dataPath "user-sessions.json";
+        M365_CONVERSATION_CACHE = dataPath "conversations.json";
+        M365_API_KEYS = dataPath "api-keys.json";
+        M365_USAGE_LOG = dataPath "usage.jsonl";
+        M365_DEBUG_LOG = dataPath "debug-logs.jsonl";
         M365_ACCOUNT_DEFAULT_CONCURRENCY = toString cfg.accountConcurrency;
-        M365_AUTO_CLEANUP = if cfg.autoCleanup then "true" else "false";
-        M365_AUTO_CLEANUP_MAX_AGE_HOURS = toString cfg.cleanupMaxAgeHours;
-        M365_AUTO_CLEANUP_KEEP_N = toString cfg.cleanupKeepN;
-        M365_REQUIRE_STRONG_ADMIN_PASSWORD = if cfg.requireStrongPassword then "1" else "0";
+        M365_AUTO_CLEANUP = lib.boolToString cfg.autoCleanup;
+        M365_AUTO_CLEANUP_MAX_AGE_HOURS = toString cfg.autoCleanupMaxAgeHours;
+        M365_AUTO_CLEANUP_KEEP_N = toString cfg.autoCleanupKeepN;
+        M365_REQUIRE_STRONG_ADMIN_PASSWORD = "1";
       }
       // cfg.extraEnvironment;
 
       serviceConfig = {
-        Type = "simple";
         User = cfg.user;
         Group = cfg.group;
         StateDirectoryMode = "0700";
-        WorkingDirectory = stateDir;
-        ExecStart = lib.getExe cfg.package;
+        ExecStart = startScript;
+        ExecStartPre = lib.optional (cfg.adminPasswordFile != null) "+${seedAdminPassword}";
         Restart = "on-failure";
         RestartSec = 5;
         EnvironmentFile = lib.mkIf (cfg.environmentFile != null) [ cfg.environmentFile ];
 
-        # Copy credential to stateDir as root so the service user can read it.
-        # M365_DATA_DIR takes priority over M365_ADMIN_PASSWORD_FILE in source.
-        ExecStartPre =
-          if cfg.adminPasswordFile != null then
-            [
-              "+${pkgs.bash}/bin/bash -c '${pkgs.coreutils}/bin/install -o ${cfg.user} -g ${cfg.group} -m 0600 \"\$CREDENTIALS_DIRECTORY/admin-password\" \"${stateDir}/admin-password\"'"
-            ]
-          else if cfg.adminPassword != null then
-            [
-              "+${pkgs.bash}/bin/bash -c '${pkgs.coreutils}/bin/install -o ${cfg.user} -g ${cfg.group} -m 0600 \"\$CREDENTIALS_DIRECTORY/admin-password-inline\" \"${stateDir}/admin-password\"'"
-            ]
-          else
-            [ ];
-
-        # Inject admin password via LoadCredential
         LoadCredential =
           lib.optional (cfg.adminPasswordFile != null) "admin-password:${cfg.adminPasswordFile}"
-          ++ lib.optional (
-            cfg.adminPasswordFile == null && cfg.adminPassword != null
-          ) "admin-password-inline:${pkgs.writeText "admin-password" cfg.adminPassword}";
+          ++ lib.optional (cfg.masterKeyFile != null) "master-key:${cfg.masterKeyFile}";
 
         # Hardening
         CapabilityBoundingSet = "";
@@ -233,6 +277,7 @@ in
         ProtectProc = "invisible";
         ProcSubset = "pid";
         RestrictAddressFamilies = [
+          "AF_UNIX"
           "AF_INET"
           "AF_INET6"
         ];
@@ -250,16 +295,16 @@ in
         ];
         UMask = "0077";
       }
-      // lib.optionalAttrs (stateDir == "/var/lib/m365-copilot2api") {
-        StateDirectory = "m365-copilot2api";
+      // lib.optionalAttrs useStateDirectory {
+        StateDirectory = builtins.baseNameOf stateDir;
       }
-      // {
+      // lib.optionalAttrs (!useStateDirectory) {
         ReadWritePaths = [ stateDir ];
       };
     };
 
     networking.firewall = lib.mkIf cfg.openFirewall {
-      allowedTCPPorts = [ (lib.toInt (lib.last (lib.splitString ":" cfg.listenAddress))) ];
+      allowedTCPPorts = [ cfg.port ];
     };
   };
 }
