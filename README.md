@@ -62,7 +62,7 @@ Or, use variables from this repository in case I change them:
 ## Packages
 
 <details>
-<summary>Package set: (Uncategorized) (277 packages)</summary>
+<summary>Package set: (Uncategorized) (278 packages)</summary>
 
 | State | Path | Name | Version | Description |
 | ----- | ---- | ---- | ------- | ----------- |
@@ -105,8 +105,9 @@ Or, use variables from this repository in case I change them:
 |  | `clang_dev_env_fhs` | clang_dev_env_fhs-shell |  |  |
 | `x86_64-linux` | `cleanuparr` | [cleanuparr](https://github.com/Cleanuparr/Cleanuparr) | 2.10.6 | Advanced download manager for the Servarr ecosystem |
 |  | `click-loglevel` | [click-loglevel](https://github.com/jwodder/click-loglevel) | 0.7.0 | Log level parameter type for Click |
-|  | `cliproxyapi` | [cliproxyapi](https://github.com/router-for-me/CLIProxyAPI) | 7.3.4 | Wrap Gemini CLI, Antigravity, ChatGPT Codex, Claude Code, Qwen Code, iFlow as an OpenAI/Gemini/Claude/Codex compatible API service |
+|  | `cliproxyapi` | [cliproxyapi](https://github.com/router-for-me/CLIProxyAPI) | 7.3.5 | Wrap Gemini CLI, Antigravity, ChatGPT Codex, Claude Code, Qwen Code, iFlow as an OpenAI/Gemini/Claude/Codex compatible API service |
 |  | `cliproxyapi-management-center` | [cliproxyapi-management-center](https://github.com/router-for-me/Cli-Proxy-API-Management-Center) | 1.23.1 | Web management interface for CLIProxyAPI |
+|  | `cliproxyapi-management-center-bin` | [cliproxyapi-management-center-bin](https://github.com/router-for-me/Cli-Proxy-API-Management-Center) | 1.23.1 | Prebuilt web management interface for CLIProxyAPI |
 |  | `cockpy` | [cockpy](https://github.com/Hiro420/CockPY) | 0-unstable-2024-09-07 | Public and open source version of the cbt2 ps I'm working on |
 |  | `comp128` | [comp128](https://github.com/Takuto88/comp128-python) | 1.0.0 | Python implementation of the Comp128 v1-3 GSM authentication algorithms |
 |  | `cpolar` | cpolar | 3.3.12 | cpolar (Polar Cloud): Expose local web services to the public internet with ease. |
@@ -222,7 +223,7 @@ Or, use variables from this repository in case I change them:
 |  | `nullfsvfs` | [nullfsvfs](https://github.com/abbbi/nullfsvfs) | 0.27 | Virtual black hole file system that behaves like /dev/null |
 |  | `nvlax` | [nvlax](https://github.com/illnyang/nvlax) | unstable-2021-10-29 | Future-proof NvENC & NvFBC patcher |
 |  | `nvlax-530` | [nvlax](https://github.com/illnyang/nvlax) | unstable-2021-10-29 | Future-proof NvENC & NvFBC patcher (for NVIDIA driver >= 530) |
-|  | `ocfs2-tools` | [ocfs2-tools](https://github.com/markfasheh/ocfs2-tools) | ocfs2-tools-1.8.9 | Oracle Cluster File System 2 (OCFS2) userspace tools (mkfs.ocfs2, mount.ocfs2, o2cb_ctl, fsck.ocfs2, etc.) |
+|  | `ocfs2-tools` | [ocfs2-tools](https://github.com/markfasheh/ocfs2-tools) | 1.8.9 | Oracle Cluster File System 2 (OCFS2) userspace tools (mkfs.ocfs2, mount.ocfs2, o2cb_ctl, fsck.ocfs2, etc.) |
 |  | `oci-arm-host-capacity` | [oci-arm-host-capacity](https://github.com/hitrov/oci-arm-host-capacity) | 0-unstable-2024-08-13 | This script allows to bypass Oracle Cloud Infrastructure 'Out of host capacity' error immediately when additional OCI capacity will appear in your Home Region / Availability domain |
 |  | `oidc-tester-app` | [oidc-tester-app](https://github.com/authelia/oidc-tester-app) | 0-unstable-2026-09-10 | OpenID Connect relying party web application for testing OIDC providers such as Authelia |
 |  | `open-webui-kb-manager` | [kb-manager](https://github.com/dubh3124/OpenWebUI-KB-Manager) | 0.2.0 | Command-line interface (CLI) tool for managing files and knowledge bases in OpenWebUI |
@@ -1429,7 +1430,7 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized.calibre-cops` | [calibre-cops](http://blog.slucas.fr/en/oss/calibre-opds-php-server) | 4.5.3 | Web-based light alternative to Calibre content server / Calibre2OPDS to serve ebooks |
 |  | `uncategorized.cardpointers-cli` | [cardpointers-cli](https://github.com/cardpointers/cli) | 1.0.7 | Credit card rewards CLI for CardPointers |
 | `x86_64-linux` | `uncategorized.cleanuparr` | [cleanuparr](https://github.com/Cleanuparr/Cleanuparr) | 2.10.6 | Advanced download manager for the Servarr ecosystem |
-|  | `uncategorized.cliproxyapi` | [cliproxyapi](https://github.com/router-for-me/CLIProxyAPI) | 7.3.4 | Wrap Gemini CLI, Antigravity, ChatGPT Codex, Claude Code, Qwen Code, iFlow as an OpenAI/Gemini/Claude/Codex compatible API service |
+|  | `uncategorized.cliproxyapi` | [cliproxyapi](https://github.com/router-for-me/CLIProxyAPI) | 7.3.5 | Wrap Gemini CLI, Antigravity, ChatGPT Codex, Claude Code, Qwen Code, iFlow as an OpenAI/Gemini/Claude/Codex compatible API service |
 |  | `uncategorized.cockpy` | [cockpy](https://github.com/Hiro420/CockPY) | 0-unstable-2024-09-07 | Public and open source version of the cbt2 ps I'm working on |
 |  | `uncategorized.dbip-lite` | [dbip-lite](https://db-ip.com/db/lite.php) | 2026-08 | DBIP's Lite GeoIP Country, City, and ASN databases |
 |  | `uncategorized.decluttarr` | [decluttarr](https://github.com/ManiMatter/decluttarr) | 2.1.0 | Watches radarr, sonarr, lidarr and readarr download queues and removes downloads if they become stalled or no longer needed |
@@ -1504,7 +1505,7 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized.nullfs` | [nullfs](https://github.com/xrgtn/nullfs) | 0-unstable-2016-01-28 | FUSE nullfs drivers |
 |  | `uncategorized.nvlax` | [nvlax](https://github.com/illnyang/nvlax) | unstable-2021-10-29 | Future-proof NvENC & NvFBC patcher |
 |  | `uncategorized.nvlax-530` | [nvlax](https://github.com/illnyang/nvlax) | unstable-2021-10-29 | Future-proof NvENC & NvFBC patcher (for NVIDIA driver >= 530) |
-|  | `uncategorized.ocfs2-tools` | [ocfs2-tools](https://github.com/markfasheh/ocfs2-tools) | ocfs2-tools-1.8.9 | Oracle Cluster File System 2 (OCFS2) userspace tools (mkfs.ocfs2, mount.ocfs2, o2cb_ctl, fsck.ocfs2, etc.) |
+|  | `uncategorized.ocfs2-tools` | [ocfs2-tools](https://github.com/markfasheh/ocfs2-tools) | 1.8.9 | Oracle Cluster File System 2 (OCFS2) userspace tools (mkfs.ocfs2, mount.ocfs2, o2cb_ctl, fsck.ocfs2, etc.) |
 |  | `uncategorized.oci-arm-host-capacity` | [oci-arm-host-capacity](https://github.com/hitrov/oci-arm-host-capacity) | 0-unstable-2024-08-13 | This script allows to bypass Oracle Cloud Infrastructure 'Out of host capacity' error immediately when additional OCI capacity will appear in your Home Region / Availability domain |
 |  | `uncategorized.oidc-tester-app` | [oidc-tester-app](https://github.com/authelia/oidc-tester-app) | 0-unstable-2026-09-10 | OpenID Connect relying party web application for testing OIDC providers such as Authelia |
 |  | `uncategorized.openai-edge-tts` | [openai-edge-tts](https://tts.travisvn.com/) | 2.0.0-unstable-2025-07-01 | Text-to-speech API endpoint compatible with OpenAI's TTS API endpoint, using Microsoft Edge TTS to generate speech for free locally |
@@ -1579,7 +1580,7 @@ Or, use variables from this repository in case I change them:
 </details>
 
 <details>
-<summary>Package set: uncategorized-DataEraserC (56 packages)</summary>
+<summary>Package set: uncategorized-DataEraserC (57 packages)</summary>
 
 | State | Path | Name | Version | Description |
 | ----- | ---- | ---- | ------- | ----------- |
@@ -1598,6 +1599,7 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized-DataEraserC.clang_dev_env` | clang_dev_env |  |  |
 |  | `uncategorized-DataEraserC.clang_dev_env_fhs` | clang_dev_env_fhs-shell |  |  |
 |  | `uncategorized-DataEraserC.cliproxyapi-management-center` | [cliproxyapi-management-center](https://github.com/router-for-me/Cli-Proxy-API-Management-Center) | 1.23.1 | Web management interface for CLIProxyAPI |
+|  | `uncategorized-DataEraserC.cliproxyapi-management-center-bin` | [cliproxyapi-management-center-bin](https://github.com/router-for-me/Cli-Proxy-API-Management-Center) | 1.23.1 | Prebuilt web management interface for CLIProxyAPI |
 |  | `uncategorized-DataEraserC.cpolar` | cpolar | 3.3.12 | cpolar (Polar Cloud): Expose local web services to the public internet with ease. |
 |  | `uncategorized-DataEraserC.cudatoolkit_dev_env` | cudatoolkit_dev_env |  |  |
 |  | `uncategorized-DataEraserC.cudatoolkit_dev_env_fhs` | cudatoolkit_dev_env_fhs-shell |  |  |
