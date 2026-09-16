@@ -132,7 +132,7 @@ Or, use variables from this repository in case I change them:
 |  | `drissionrecord` | [drissionrecord](https://gitcode.com/g1879/DrissionRecord) | 2.0.2 | Python data recording toolkit |
 |  | `drone-file-secret` | [drone-file-secret](https://github.com/xddxdd/drone-file-secret) | 0-unstable-2023-06-26 | Secret provider for Drone CI that reads secrets from a given folder |
 |  | `drone-vault` | [drone-vault](https://docs.drone.io/configure/secrets/external/vault/) | 1.3.0 | Drone plugin for integrating with the Vault secrets manager |
-|  | `dsh-bas-remote` | [dsh-bas-remote](https://github.com/DataEraserC/dsh-bas-remote) | 0.5.0+2 | SAP Business Application Studio remote dev spaces for DeepSeek Harness |
+|  | `dsh-bas-remote` | [dsh-bas-remote](https://github.com/DataEraserC/dsh-bas-remote) | 0.5.0+3 | SAP Business Application Studio remote dev spaces for DeepSeek Harness |
 |  | `dump978` | [dump978](https://github.com/flightaware/dump978) | 11.1 | FlightAware's 978MHz UAT demodulator |
 | `x86_64-linux` | `easy-cliproxyapi-bin` | [easy-cliproxyapi-bin](https://github.com/router-for-me/EasyCLIProxyAPI) | 0.2.96 | Desktop GUI for CLIProxyAPI that configures popular AI agents |
 |  | `edge-tts` | [edge-tts](https://github.com/rany2/edge-tts) | 7.2.8 | Use Microsoft Edge's online text-to-speech service from Python WITHOUT needing Microsoft Edge or Windows or an API key |
@@ -1602,7 +1602,7 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized-DataEraserC.cudatoolkit_dev_env` | cudatoolkit_dev_env |  |  |
 |  | `uncategorized-DataEraserC.cudatoolkit_dev_env_fhs` | cudatoolkit_dev_env_fhs-shell |  |  |
 |  | `uncategorized-DataEraserC.devtunnel` | [devtunnel](https://learn.microsoft.com/en-us/azure/developer/dev-tunnels/) | 1.0.2030+fc9273aa0f | Microsoft Dev Tunnels CLI for securely exposing local services to the internet |
-|  | `uncategorized-DataEraserC.dsh-bas-remote` | [dsh-bas-remote](https://github.com/DataEraserC/dsh-bas-remote) | 0.5.0+2 | SAP Business Application Studio remote dev spaces for DeepSeek Harness |
+|  | `uncategorized-DataEraserC.dsh-bas-remote` | [dsh-bas-remote](https://github.com/DataEraserC/dsh-bas-remote) | 0.5.0+3 | SAP Business Application Studio remote dev spaces for DeepSeek Harness |
 | `x86_64-linux` | `uncategorized-DataEraserC.easy-cliproxyapi-bin` | [easy-cliproxyapi-bin](https://github.com/router-for-me/EasyCLIProxyAPI) | 0.2.96 | Desktop GUI for CLIProxyAPI that configures popular AI agents |
 | `x86_64-linux` | `uncategorized-DataEraserC.escrcpy_appimage` | [escrcpy](https://github.com/keiko233/clash-nyanpasu) | 3.2.0 | Clash GUI based on tauri |
 |  | `uncategorized-DataEraserC.example-package` | example-package-1.0 | 1.0 |  |
