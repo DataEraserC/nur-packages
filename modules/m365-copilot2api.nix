@@ -243,19 +243,17 @@ in
         ReadWritePaths = [ stateDir ];
       };
 
-      preStart =
+      ExecStartPre =
         if cfg.adminPasswordFile != null then
-          ''
-            cp "$CREDENTIALS_DIRECTORY/admin-password" "${stateDir}/admin-password"
-            chmod 0600 "${stateDir}/admin-password"
-          ''
+          [
+            "+${pkgs.bash}/bin/bash -c '${pkgs.coreutils}/bin/install -o ${cfg.user} -g ${cfg.group} -m 0600 \"\$CREDENTIALS_DIRECTORY/admin-password\" \"${stateDir}/admin-password\"'"
+          ]
         else if cfg.adminPassword != null then
-          ''
-            cp "$CREDENTIALS_DIRECTORY/admin-password-inline" "${stateDir}/admin-password"
-            chmod 0600 "${stateDir}/admin-password"
-          ''
+          [
+            "+${pkgs.bash}/bin/bash -c '${pkgs.coreutils}/bin/install -o ${cfg.user} -g ${cfg.group} -m 0600 \"\$CREDENTIALS_DIRECTORY/admin-password-inline\" \"${stateDir}/admin-password\"'"
+          ]
         else
-          "";
+          [ ];
     };
 
     system.activationScripts.m365-copilot2api = lib.stringAfter [ "users" ] ''
