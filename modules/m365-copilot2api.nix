@@ -258,11 +258,6 @@ in
       };
     };
 
-    system.activationScripts.m365-copilot2api = lib.stringAfter [ "users" ] ''
-      install -d -m 0700 ${lib.escapeShellArg stateDir}
-      chown ${cfg.user}:${cfg.group} ${lib.escapeShellArg stateDir}
-    '';
-
     networking.firewall = lib.mkIf cfg.openFirewall {
       allowedTCPPorts = [ (lib.head (lib.splitString ":" cfg.listenAddress)) ];
     };
