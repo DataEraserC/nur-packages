@@ -10,29 +10,44 @@ let
   format = pkgs.formats.yaml { };
 
   inherit (cfg) stateDir;
-  configPath = "${stateDir}/config.yaml";
   authDir = if cfg.authDir != null then cfg.authDir else stateDir;
-
+  configPath = "${stateDir}/config.yaml";
   keyFile =
     if cfg.managementKeyFile != null then cfg.managementKeyFile else "${stateDir}/management.key";
 
-  useOfflinePanel = cfg.managementCenterPackage != null && !cfg.disableControlPanel;
+  # systemd creates and owns directories directly below /var/lib. Every other
+  # writable path has to exist up front, because ProtectSystem=strict makes the
+  # unit fail when a ReadWritePaths entry is missing.
+  writableDirs = lib.unique [
+    stateDir
+    authDir
+  ];
+  stateDirectories = map builtins.baseNameOf (
+    lib.filter (dir: builtins.dirOf dir == "/var/lib") writableDirs
+  );
+  readWritePaths = lib.filter (dir: builtins.dirOf dir != "/var/lib") writableDirs;
+
+  usePanel = cfg.managementCenterPackage != null && !cfg.disableControlPanel;
 
   panelDir = pkgs.runCommand "cliproxyapi-management-panel" { } ''
-    mkdir -p $out
     if [ -e ${cfg.managementCenterPackage}/management.html ]; then
       ln -s ${cfg.managementCenterPackage}/management.html $out/management.html
-    else
+    elif [ -e ${cfg.managementCenterPackage}/index.html ]; then
       ln -s ${cfg.managementCenterPackage}/index.html $out/management.html
+    else
+      echo "cliproxyapi: the panel package provides neither management.html nor index.html" >&2
+      exit 1
     fi
   '';
 
-  userKeySet = lib.attrByPath [ "remote-management" "secret-key" ] null cfg.settings != null;
+  configuredSecretKey = lib.attrByPath [ "remote-management" "secret-key" ] null cfg.settings;
+  userKeySet = configuredSecretKey != null;
+  plaintextSecretKey = builtins.isString configuredSecretKey;
 
   remoteManagement = {
     "allow-remote" = cfg.allowRemote;
   }
-  // lib.optionalAttrs useOfflinePanel {
+  // lib.optionalAttrs usePanel {
     "disable-auto-update-panel" = true;
   }
   // lib.optionalAttrs cfg.disableControlPanel {
@@ -50,10 +65,62 @@ let
 
   secretsReplacement = utils.genJqSecretsReplacement { loadCredential = true; } settings configPath;
 
-  effectivePort = settings.port or cfg.port;
+  # The credential references stay literal so that bash expands
+  # $CREDENTIALS_DIRECTORY at runtime. Their tags are sanitized by
+  # genJqSecretsReplacement and are therefore safe to use unquoted.
+  credentialFiles = map (
+    entry: "$CREDENTIALS_DIRECTORY/" + lib.head (lib.splitString ":" entry)
+  ) secretsReplacement.credentials;
+
+  secretsSource =
+    if credentialFiles == [ ] then
+      "printf '%s' none"
+    else
+      "sha256sum ${lib.concatStringsSep " " credentialFiles}";
+
+  settingsFingerprint = builtins.hashString "sha256" (builtins.toJSON settings);
+
+  # config.yaml embeds the resolved secret values and is seeded only once so that
+  # management panel edits survive restarts. A rotated secret therefore has to
+  # invalidate the seeded file explicitly, while a changed `settings` value can
+  # only be reported, because applying it would discard those edits.
+  seedConfig =
+    if cfg.mutableConfig then
+      ''
+        marker=${lib.escapeShellArg "${stateDir}/.config-fingerprint"}
+        secrets_raw="$(${secretsSource} 2>/dev/null || true)"
+        current_secrets="$(printf '%s' "$secrets_raw" | sha256sum | cut -d' ' -f1)"
+        current_settings=${lib.escapeShellArg settingsFingerprint}
+
+        if [ -r "$marker" ]; then
+          old_secrets=""
+          old_settings=""
+          read -r old_secrets old_settings < "$marker" || true
+          if [ "$current_secrets" != "$old_secrets" ]; then
+            rm -f ${lib.escapeShellArg configPath}
+          elif [ "$current_settings" != "$old_settings" ]; then
+            echo "cliproxyapi: ${configPath} was seeded by an earlier configuration and keeps winning; delete it or set mutableConfig = false to apply the current settings" >&2
+          fi
+        fi
+
+        rm -f "$marker"
+        printf '%s %s\n' "$current_secrets" "$current_settings" > "$marker"
+        chmod 0600 "$marker"
+
+        if [ ! -e ${lib.escapeShellArg configPath} ]; then
+          ${secretsReplacement.script}
+        fi
+      ''
+    else
+      secretsReplacement.script;
+
+  # Keep the evaluation alive when the package is missing, so that the assertion
+  # below reports it instead of lib.getExe crashing.
+  serverExecutable =
+    if cfg.package != null then lib.getExe cfg.package else "${pkgs.coreutils}/bin/false";
 
   startCommand =
-    "${lib.getExe cfg.package} -config ${configPath}"
+    "${serverExecutable} -config ${lib.escapeShellArg configPath}"
     + lib.optionalString cfg.localModel " -local-model"
     + lib.optionalString (cfg.extraArgs != [ ]) (" " + lib.escapeShellArgs cfg.extraArgs);
 in
@@ -76,10 +143,13 @@ in
       type = lib.types.nullOr lib.types.package;
       default = pkgs.cliproxyapi-management-center or null;
       description = ''
-        Package providing the offline management WebUI (a single-file
-        `index.html`, optionally `management.html`). When set, the server serves it
+        Package providing the offline management WebUI, either as
+        `management.html` or as `index.html`. When set, the server serves it
         through `MANAGEMENT_STATIC_PATH` and GitHub panel updates are disabled.
         When null, the server downloads the panel itself.
+
+        `pkgs.cliproxyapi-management-center-bin` ships the same panel straight from
+        the upstream release asset and avoids an npm build.
       '';
     };
 
@@ -103,26 +173,37 @@ in
       description = ''
         CLIProxyAPI configuration, merged on top of the module defaults. Keys use
         the upstream kebab-case names. Secret values can be loaded from files with
-        `._secret = "/path/to/secret";`.
+        `._secret = "/path/to/secret";`; plaintext values end up in the Nix store
+        through the config generation script.
       '';
     };
 
     stateDir = lib.mkOption {
       type = lib.types.str;
       default = "/var/lib/cliproxyapi";
-      description = "Writable state directory (generated config, auth files and management key).";
+      description = ''
+        Writable state directory holding the generated config, auth files and the
+        management key. Directories directly below `/var/lib` are created by
+        systemd, any other path has to exist before the service starts.
+      '';
     };
 
     user = lib.mkOption {
       type = lib.types.str;
       default = "cliproxyapi";
-      description = "User account under which CLIProxyAPI runs.";
+      description = ''
+        User account under which CLIProxyAPI runs. The account is created when the
+        default is kept; otherwise it has to be defined elsewhere.
+      '';
     };
 
     group = lib.mkOption {
       type = lib.types.str;
       default = "cliproxyapi";
-      description = "Group under which CLIProxyAPI runs.";
+      description = ''
+        Group under which CLIProxyAPI runs. The group is created when the default
+        is kept; otherwise it has to be defined elsewhere.
+      '';
     };
 
     host = lib.mkOption {
@@ -143,7 +224,10 @@ in
     authDir = lib.mkOption {
       type = lib.types.nullOr lib.types.str;
       default = null;
-      description = "Authentication/credential directory. Defaults to `stateDir`.";
+      description = ''
+        Directory holding the provider credentials. Defaults to `stateDir`; a
+        different path is added to the writable paths of the service.
+      '';
     };
 
     managementKeyFile = lib.mkOption {
@@ -153,13 +237,21 @@ in
         File containing the management key, wired into
         `remote-management.secret-key._secret`. When null, a random key is created
         at `''${stateDir}/management.key` on first activation.
+
+        Rotating the file invalidates a previously seeded `config.yaml`, so the new
+        key takes effect on the next start.
       '';
     };
 
     allowRemote = lib.mkOption {
       type = lib.types.bool;
       default = false;
-      description = "Value of `remote-management.allow-remote` in the generated config.";
+      description = ''
+        Value of `remote-management.allow-remote` in the generated config. Every
+        management API request needs a valid management key, but clients that do
+        not connect from `127.0.0.1`/`::1` are rejected unless this is enabled,
+        which also covers a browser reaching the panel over a forwarded port.
+      '';
     };
 
     mutableConfig = lib.mkOption {
@@ -168,12 +260,14 @@ in
       description = ''
         When true (default), `config.yaml` is only generated when missing, so
         changes made through the management panel/API persist across restarts.
-        When false, the config is regenerated from `settings` on every start.
+        Rotating a secret regenerates the file; changing `settings` only logs a
+        warning. When false, the config is regenerated from `settings` on every
+        start.
       '';
     };
 
     environmentFile = lib.mkOption {
-      type = lib.types.nullOr lib.types.str;
+      type = lib.types.nullOr lib.types.path;
       default = null;
       example = "/run/secrets/cliproxyapi.env";
       description = "Environment file as defined in {manpage}`systemd.exec(5)`.";
@@ -205,10 +299,35 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+    warnings = lib.optional plaintextSecretKey ''
+      services.dataEraserc.cliproxyapi.settings."remote-management"."secret-key" is a plaintext
+      value that ends up in the Nix store. Use `secret-key._secret = "/path/to/key"` instead.
+    '';
+
     assertions = [
       {
         assertion = cfg.package != null;
-        message = "services.cliproxyapi.package must be set when services.cliproxyapi.enable is true.";
+        message = "services.dataEraserc.cliproxyapi.package must be set when the service is enabled.";
+      }
+      {
+        assertion = lib.isInt (settings.port or cfg.port);
+        message = "services.dataEraserc.cliproxyapi.settings.port must be an integer.";
+      }
+      {
+        assertion = cfg.user == "cliproxyapi" || builtins.hasAttr cfg.user config.users.users;
+        message = ''
+          services.dataEraserc.cliproxyapi.user is set to "${cfg.user}", but that user is not
+          defined. Keep the default to have the module create it, or define
+          users.users."${cfg.user}".
+        '';
+      }
+      {
+        assertion = cfg.group == "cliproxyapi" || builtins.hasAttr cfg.group config.users.groups;
+        message = ''
+          services.dataEraserc.cliproxyapi.group is set to "${cfg.group}", but that group is not
+          defined. Keep the default to have the module create it, or define
+          users.groups."${cfg.group}".
+        '';
       }
     ];
 
@@ -232,19 +351,11 @@ in
       wants = [ "network-online.target" ];
       wantedBy = [ "multi-user.target" ];
 
-      preStart =
-        if cfg.mutableConfig then
-          ''
-            if [ ! -e ${configPath} ]; then
-              ${secretsReplacement.script}
-            fi
-          ''
-        else
-          secretsReplacement.script;
+      preStart = seedConfig;
 
       environment =
         lib.optionalAttrs (!cfg.disableControlPanel) {
-          MANAGEMENT_STATIC_PATH = if useOfflinePanel then "${panelDir}" else "${stateDir}/static";
+          MANAGEMENT_STATIC_PATH = if usePanel then "${panelDir}" else "${stateDir}/static";
         }
         // cfg.extraEnvironment;
 
@@ -277,6 +388,7 @@ in
         ProtectProc = "invisible";
         ProcSubset = "pid";
         RestrictAddressFamilies = [
+          "AF_UNIX"
           "AF_INET"
           "AF_INET6"
         ];
@@ -294,11 +406,11 @@ in
         ];
         UMask = "0077";
       }
-      // lib.optionalAttrs (stateDir == "/var/lib/cliproxyapi") {
-        StateDirectory = "cliproxyapi";
+      // lib.optionalAttrs (stateDirectories != [ ]) {
+        StateDirectory = stateDirectories;
       }
-      // {
-        ReadWritePaths = [ stateDir ];
+      // lib.optionalAttrs (readWritePaths != [ ]) {
+        ReadWritePaths = readWritePaths;
       };
     };
 
@@ -316,7 +428,7 @@ in
     '';
 
     networking.firewall = lib.mkIf cfg.openFirewall {
-      allowedTCPPorts = [ effectivePort ];
+      allowedTCPPorts = [ (settings.port or cfg.port) ];
     };
   };
 }
