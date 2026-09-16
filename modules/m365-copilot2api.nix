@@ -195,6 +195,20 @@ in
         RestartSec = 5;
         EnvironmentFile = lib.mkIf (cfg.environmentFile != null) [ cfg.environmentFile ];
 
+        # Copy credential to stateDir as root so the service user can read it.
+        # M365_DATA_DIR takes priority over M365_ADMIN_PASSWORD_FILE in source.
+        ExecStartPre =
+          if cfg.adminPasswordFile != null then
+            [
+              "+${pkgs.bash}/bin/bash -c '${pkgs.coreutils}/bin/install -o ${cfg.user} -g ${cfg.group} -m 0600 \"\$CREDENTIALS_DIRECTORY/admin-password\" \"${stateDir}/admin-password\"'"
+            ]
+          else if cfg.adminPassword != null then
+            [
+              "+${pkgs.bash}/bin/bash -c '${pkgs.coreutils}/bin/install -o ${cfg.user} -g ${cfg.group} -m 0600 \"\$CREDENTIALS_DIRECTORY/admin-password-inline\" \"${stateDir}/admin-password\"'"
+            ]
+          else
+            [ ];
+
         # Inject admin password via LoadCredential
         LoadCredential =
           lib.optional (cfg.adminPasswordFile != null) "admin-password:${cfg.adminPasswordFile}"
@@ -242,18 +256,6 @@ in
       // {
         ReadWritePaths = [ stateDir ];
       };
-
-      ExecStartPre =
-        if cfg.adminPasswordFile != null then
-          [
-            "+${pkgs.bash}/bin/bash -c '${pkgs.coreutils}/bin/install -o ${cfg.user} -g ${cfg.group} -m 0600 \"\$CREDENTIALS_DIRECTORY/admin-password\" \"${stateDir}/admin-password\"'"
-          ]
-        else if cfg.adminPassword != null then
-          [
-            "+${pkgs.bash}/bin/bash -c '${pkgs.coreutils}/bin/install -o ${cfg.user} -g ${cfg.group} -m 0600 \"\$CREDENTIALS_DIRECTORY/admin-password-inline\" \"${stateDir}/admin-password\"'"
-          ]
-        else
-          [ ];
     };
 
     system.activationScripts.m365-copilot2api = lib.stringAfter [ "users" ] ''
