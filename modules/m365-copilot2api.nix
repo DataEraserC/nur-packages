@@ -259,7 +259,7 @@ in
     };
 
     networking.firewall = lib.mkIf cfg.openFirewall {
-      allowedTCPPorts = [ (lib.head (lib.splitString ":" cfg.listenAddress)) ];
+      allowedTCPPorts = [ (lib.toInt (lib.last (lib.splitString ":" cfg.listenAddress))) ];
     };
   };
 }
