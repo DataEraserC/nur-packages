@@ -112,6 +112,34 @@
 - **有 bin 目录时必须设置**：如果包安装了 `bin` 目录，必须设置 `meta.mainProgram`
 - **主程序必须存在**：设置的主程序名必须在 `bin` 目录中实际存在
 
+## AI 参与记录规范
+
+`meta.maintainers` 的语义是"谁负责、能 ping 谁"（`commonMeta` 还会把 `meta.teams[*].members` 并进 maintainers），AI 无法承担该责任，因此**AI 一律不写进 maintainers**，`pkgs/uncategorized-DataEraserC/` 继续只 `import ../maintainers.nix`；AI 的参与改用下面两个渠道记录：
+
+- **包级来源用 `passthru.aiProvenance`**（机器可读、不进 `meta`、不影响构建）：
+
+  ```nix
+  passthru.aiProvenance = [
+    {
+      agent = "dsh";
+      model = "deepseek-v4-flash";
+      involvement = "assisted";
+    }
+  ];
+  ```
+
+  字段语义：`agent`（必填，agent 运行时/工具，如 `dsh`、`opencode`）、`model`（自己确实在用的模型；**历史会话无法确证时省略，不要猜**）、`involvement`（`authored` 从零编写 / `assisted` 参与修改 / `reviewed` 仅审阅）。查询：`nix eval --json .#<pkg>.passthru.aiProvenance`
+- **变更级来源用 commit trailer**：`passthru` 覆盖不到的文件（`modules/`、`update.sh`、AGENTS.md 等）只能靠它，AI 实质参与的提交加一行
+
+  ```
+  Assisted-by: dsh:deepseek-v4-flash
+  ```
+
+  格式 `<agent>:<model>`，沿用 [Linux 内核 AI Coding Assistants](https://docs.kernel.org/process/coding-assistants.html) 的 `Assisted-by` 约定；不要用 `Co-authored-by`（把模型写成团队成员会扰乱 `git blame` 的责任归属）
+- **不要新增自定义 `meta.*` 字段**：`meta` 是受校验的 record，本仓库锁定的 nixpkgs 实测在 `config.checkMeta = true`（nixpkgs CI 的 `ci/eval/outpaths.nix` 正是如此）下会硬失败 `Refusing to evaluate package ... key 'aiProvenance' is unrecognized`，而默认 `checkMeta = false` 让本地毫无感觉——等于埋雷；`passthru` 不在校验范围内
+- **只在实质性参与时标注**：编写/修改构建逻辑、模块、更新脚本才标，纯机械批量改动（如统一 maintainers 字段）不标，历史无法重建就留空——provenance 失真比缺失更糟；`passthru` 只写在迁移时保留的 `pkgs/uncategorized-DataEraserC/` 目录内，`pkgs/uncategorized/` 会在下一轮上游重建时被覆盖，那里的 AI 参与只能靠 commit trailer
+- **若仍要写进 maintainers，先看机械约束**：`nix-update` 每次运行都取 `maintainer['name']`（条目缺 `name` 直接 `KeyError`）、`tools/check_package_meta.py` 对每个条目调 `m.get("github")`（裸字符串条目 `AttributeError` 打红 CI）——这两条只说明"怎么写不崩"，不改变上面"maintainers 不放 AI"的结论
+
 ## AppImage 包
 
 ### 最佳实践

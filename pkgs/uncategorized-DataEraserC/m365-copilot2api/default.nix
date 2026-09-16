@@ -33,6 +33,13 @@ buildGoModule (finalAttrs: {
 
   passthru.updateScript = nix-update-script { };
 
+  passthru.aiProvenance = [
+    {
+      agent = "dsh";
+      involvement = "assisted";
+    }
+  ];
+
   meta = {
     changelog = "https://github.com/HEXUXIU/M365-Copilot2API/releases/tag/v${finalAttrs.version}";
     description = "Microsoft 365 Copilot to OpenAI/Anthropic compatible API gateway";

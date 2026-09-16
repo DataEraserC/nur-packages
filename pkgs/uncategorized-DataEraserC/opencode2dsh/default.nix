@@ -41,6 +41,13 @@ else
       extraArgs = [ "--flake" ];
     };
 
+    passthru.aiProvenance = [
+      {
+        agent = "dsh";
+        involvement = "assisted";
+      }
+    ];
+
     meta = {
       changelog = "https://github.com/FishBottle7/opencode2dsh/blob/master/CHANGELOG.md";
       description = "DSH plugin for free OpenCode Zen models with native adapter and no API key";
