@@ -8,7 +8,7 @@ let
 in
 stdenv.mkDerivation (finalAttrs: {
   pname = "phpmyadmin";
-  version = "5.2.3";
+  version = "";
   src = fetchurl {
     url = "https://files.phpmyadmin.net/phpMyAdmin/${finalAttrs.version}/phpMyAdmin-${finalAttrs.version}-all-languages.tar.xz";
     hash = "sha256-V4gTSCl8RBL4bEEFR892tNiiNldN0sa31qK+6+f8ROM=";
