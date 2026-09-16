@@ -3,7 +3,6 @@
   pkgs,
   inputs ? null,
   fetchFromGitHub,
-  nix-update-script,
 }:
 let
   dshPkgs = pkgs.extend inputs.deepseek-harness.overlays.default;
@@ -13,14 +12,14 @@ if inputs == null then
 else
   dshPkgs.dsh.buildDshBundle (finalAttrs: {
     pname = "dsh-bas-remote";
-    version = "0.4.0";
+    version = "0.4.1";
 
     src = fetchFromGitHub {
       owner = "DataEraserC";
       repo = "dsh-bas-remote";
       # Follow the release tag, so nix-update only has to bump `version`.
       rev = "v${finalAttrs.version}";
-      hash = "sha256-MbN0FvHmBLNvJ4braZ0GgOP5Mxyte6Tdxja8uXD3PNc=";
+      hash = "sha256-phtSViHkFta2I53OXpxWRxHym88xw+HVFmPKj+mULCg=";
     };
 
     npmDepsHash = "sha256-MUQWVvGbKal5nhoILXxGNUuE3raXTYNEvxy8MgDUu7Q=";
@@ -31,10 +30,7 @@ else
 
     linkKernelNodeModules = dshPkgs.dsh.dsh-kernel;
 
-    passthru.updateScript = nix-update-script {
-      attrPath = "dsh-bas-remote";
-      extraArgs = [ "--flake" ];
-    };
+    passthru.updateScript = [ (toString ./update.sh) ];
 
     meta = {
       changelog = "https://github.com/DataEraserC/dsh-bas-remote/blob/main/CHANGELOG.md";
