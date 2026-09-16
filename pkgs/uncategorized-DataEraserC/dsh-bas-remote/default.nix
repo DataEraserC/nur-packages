@@ -13,14 +13,14 @@ if inputs == null then
 else
   dshPkgs.dsh.buildDshBundle (finalAttrs: {
     pname = "dsh-bas-remote";
-    version = "0.4.3";
+    version = "0.4.4";
 
     src = fetchFromGitHub {
       owner = "DataEraserC";
       repo = "dsh-bas-remote";
       # Follow the release tag, so nix-update only has to bump `version`.
       rev = "v${finalAttrs.version}";
-      hash = "sha256-FkhRIIfCkgOGKzIkSUfdEtJOX9P/IteHHteNgpvP+Rc=";
+      hash = "sha256-bErMJGBP8VM8gYdOY9auaY8nFCGgWmJ0wNVXkWZFiKI=";
     };
 
     npmDepsHash = "sha256-MUQWVvGbKal5nhoILXxGNUuE3raXTYNEvxy8MgDUu7Q=";
