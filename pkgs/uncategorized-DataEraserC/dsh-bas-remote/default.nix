@@ -31,6 +31,10 @@ else
 
     linkKernelNodeModules = dshPkgs.dsh.dsh-kernel;
 
+    postInstall = ''
+      test -f $out/lib/node_modules/dsh-bas-remote/lib/client.js
+    '';
+
     passthru.updateScript = nix-update-script {
       attrPath = "dsh-bas-remote";
       extraArgs = [ "--flake" ];
