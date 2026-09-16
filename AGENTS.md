@@ -70,6 +70,7 @@
   - `stateDir`、`authDir` 等可写目录按 `builtins.dirOf dir == "/var/lib"` 分成两组：在 `/var/lib` 下的进 `StateDirectory`（直接传列表，systemd 会逐个创建并 chown 给 `User`），其余进 `ReadWritePaths`，activation 里再 `install -d -m 0700` + `chown` 兜底——只覆盖 `stateDir` 是不够的（旧版 `cliproxyapi` 模块设 `authDir = /var/lib/cpa-auth` 时该路径完全没被覆盖）
   - 断言 message 必须写实际命名空间（`services.dataEraserc.<name>.*`），自定义 `user`/`group` 用 `builtins.hasAttr cfg.user config.users.users` 校存在性；`package = null` 时不能直接写 `lib.getExe cfg.package`（断言生效前就抛类型错误），要写成 `if cfg.package != null then lib.getExe cfg.package else "${pkgs.coreutils}/bin/false"`，让断言给出可读报错
 - **activation script 中的 `umask` 必须用子 shell 隔离**：所有 activation snippets 在同一个 bash 进程里顺序执行，一个 snippet 的 `umask 077` 会泄漏到后续 snippet；`etc` snippet 的 `setup-etc.pl` 若在 077 下 `make_path`，`/etc` 目录会变成 0700，非 root 用户读不到 `/etc/systemd/user.conf` 等文件，所有 systemd user manager（包括 GDM greeter）都会报 `Permission denied` 而无法启动桌面。修复：`(umask 077; openssl rand -base64 32 > keyfile)`；注意 `if` 块不会创建子 shell，`umask` 在 `if` 内外都有效。
+- **`runCommand` 等自建派生必须自己创建 `$out`，模块改动必须用 `nix build` 实证**：`pkgs.runCommand` 只运行脚本、不做安装动作，`ln -s`／`cp ... $out/x` 会报 `No such file or directory`（`install -D`、`cp -r` 才自带建目录语义），脚本开头统一 `mkdir -p $out`；这类错误只在模块被真正构建时暴露（`nix eval` 只证明路径求得出来），所以模块改动的验收标准是 `nix build .#nixosConfigurations.<host>.config.system.build.toplevel` 真的构建成功。
 
 ## 包元数据规范
 
