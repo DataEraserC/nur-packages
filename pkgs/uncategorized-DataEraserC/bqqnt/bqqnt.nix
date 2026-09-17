@@ -1,42 +1,30 @@
 {
-  stdenv,
   callPackage,
   makeWrapper,
-  qq,
-  qq-original ? qq,
+  symlinkJoin,
+  pkgs,
   bstar ? callPackage ./../bstar { },
 }:
-stdenv.mkDerivation (finalAttrs: {
+let
+  inherit (pkgs) qq;
+in
+symlinkJoin {
   pname = "bqqnt";
   inherit (bstar) version;
 
+  paths = [ qq ];
+
   nativeBuildInputs = [ makeWrapper ];
 
-  dontUnpack = true;
-
-  installPhase = ''
-    runHook preInstall
-
-    mkdir -p $out/bin
-
-    cp -r ${qq-original}/share $out
-    chmod 755 -R $out
-
-    makeWrapper ${qq-original}/bin/qq $out/bin/qq \
-      --add-flags "\''${NIXOS_OZONE_WL:+\''${WAYLAND_DISPLAY:+--ozone-platform=wayland --enable-features=WaylandWindowDecorations --enable-wayland-ime=true --wayland-text-input-version=3}}"
-
-    makeWrapper $out/bin/qq $out/bin/bqqnt \
+  postBuild = ''
+    makeWrapper ${qq}/bin/qq $out/bin/bqqnt \
       --set LD_PRELOAD "${bstar}/lib/libbstar.so"
 
-    cp $out/share/applications/qq.desktop $out/share/applications/qq2.desktop
-
-    sed -i -e "s|^Exec=.*$|Exec=$out/bin/qq|" $out/share/applications/qq.desktop
+    cp ${qq}/share/applications/qq.desktop $out/share/applications/qq2.desktop
     sed -i \
-      -e "s|^Exec=.*$|Exec=$out/bin/bqqnt|" \
+      -e "s|^Exec=[^ ]*|Exec=$out/bin/bqqnt|" \
       -e "s|^Name=.*$|Name=bqqnt|" \
       $out/share/applications/qq2.desktop
-
-    runHook postInstall
   '';
 
   passthru.aiProvenance = [
@@ -47,8 +35,10 @@ stdenv.mkDerivation (finalAttrs: {
     }
   ];
 
-  meta = qq-original.meta // {
+  meta = qq.meta // {
+    description = "Desktop client for QQ on Linux with bstar";
+    platforms = [ "x86_64-linux" ];
     maintainers = import ../maintainers.nix;
     mainProgram = "bqqnt";
   };
-})
+}
