@@ -8,6 +8,6 @@
 
 - `bin/bqqnt`（不设 `BQQNT_CC`）= bstar 的通用 V8 注入：写一个 `/tmp/lwv8.js` bootstrap 去动 QQ 的 `launcher.js`（`.so` 里可见 `launcher_js` / `launcher_js_str` / `/proc/self/cmdline` / `--type=` / `lwv8.js`），最后 `require('./launcher.node')`。store 里三个 QQ 构建（自有 3.2.18、nixpkgs 两个 3.2.32）的 `app_launcher/` 下都只有 `launcher.js`、没有 `launcher.node`，所以这条路径在 3.2.32 上稳定报 `Cannot find module './launcher.node'` 并且**完全不出窗口**（桌面实测）。要用它得先有提供 `launcher.node` 的客户端模组。
 - `bin/bqqnt-cc`（`--set-default BQQNT_CC 1`，环境变量可覆盖）= 启用 `.so` 内嵌的 ChronoCat（模块化的 Satori 框架）：`chronocat` / `satori` 的 JS 就在 `.so` 里（`https://github.com/chrononeko/chronocat/releases/latest`、`chronocat.vercel.app/connect`、`e.chronocat.uix.getUid2` 等字符串可证）。上游 ChronoCat 自己的 Nix 打包注入方式也正是 `LD_PRELOAD=.../bstar.so BQQNT_CC=1 exec qq`（`Anillc/chronocat.nix` 的 `modules/bstar.nix`，旧 `ChronoCat_bqqnt` 即抄自它）。桌面实测 3.2.32 下正常。
-- 两个入口都保留（用户选择）：`qq2.desktop`（Name=bqqnt）目前指向**不能用**的 `bin/bqqnt`，要用 ChronoCat 那条路得手动起 `bin/bqqnt-cc`——桌面项是否改指/再加一个入口待定。
+- 两个入口都保留：`qq2.desktop`（Name=bqqnt）指 `bin/bqqnt`，`qq3.desktop`（Name=bqqnt (ChronoCat)）指 `bin/bqqnt-cc`；两个 desktop 由同一份 `qq.desktop` 拷出后 sed 改 Exec/Name，原版 `qq.desktop` 仍是尚未注入的上游入口。
 - 另一类“启动出现错误”弹窗与 bstar 无关：nixpkgs 的 `qq-version-config.sh` 按当前 qq 版本写 `~/.config/QQ/versions/config.json` 并 `chmod u-w`（表现为 `-r--r--r--`），此后启动另一个版本的 QQ 时，QQ 自己的 `app_launcher/launcher.js` 先 `unlink` 再重建该文件，写不进去就抛 EROFS/EACCES、弹窗且不出窗口；不要在同一个 `~/.config/QQ` 下混跑两个 QQ 版本。
 - 调试提示：harness 沙箱里 `~/.config/QQ` 是只读挂载，跑 store 二进制时 launcher 的行为不可信，以桌面实测为准。

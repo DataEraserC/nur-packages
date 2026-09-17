@@ -26,10 +26,15 @@ symlinkJoin {
       --set-default BQQNT_CC 1
 
     cp ${qq}/share/applications/qq.desktop $out/share/applications/qq2.desktop
+    cp ${qq}/share/applications/qq.desktop $out/share/applications/qq3.desktop
     sed -i \
       -e "s|^Exec=[^ ]*|Exec=$out/bin/bqqnt|" \
       -e "s|^Name=.*$|Name=bqqnt|" \
       $out/share/applications/qq2.desktop
+    sed -i \
+      -e "s|^Exec=[^ ]*|Exec=$out/bin/bqqnt-cc|" \
+      -e "s|^Name=.*$|Name=bqqnt (ChronoCat)|" \
+      $out/share/applications/qq3.desktop
   '';
 
   passthru.aiProvenance = [
