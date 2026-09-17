@@ -10,6 +10,6 @@ let
     dsh-bas-remote = p: if inputs == null then ifNotNUR p else p;
   };
 in
-packages
+removeAttrs packages [ "_docs" ]
 // {
 }
