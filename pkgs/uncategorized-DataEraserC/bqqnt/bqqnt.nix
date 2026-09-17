@@ -7,6 +7,7 @@
 }:
 let
   inherit (pkgs) qq;
+  libbstar = "${bstar}/lib/libbstar.so";
 in
 symlinkJoin {
   pname = "bqqnt";
@@ -18,7 +19,11 @@ symlinkJoin {
 
   postBuild = ''
     makeWrapper ${qq}/bin/qq $out/bin/bqqnt \
-      --set LD_PRELOAD "${bstar}/lib/libbstar.so"
+      --set LD_PRELOAD "${libbstar}"
+
+    makeWrapper ${qq}/bin/qq $out/bin/bqqnt-cc \
+      --set LD_PRELOAD "${libbstar}" \
+      --set-default BQQNT_CC 1
 
     cp ${qq}/share/applications/qq.desktop $out/share/applications/qq2.desktop
     sed -i \

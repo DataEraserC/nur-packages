@@ -68,7 +68,6 @@ Or, use variables from this repository in case I change them:
 | ----- | ---- | ---- | ------- | ----------- |
 | `x86_64-linux` | `AppimageLauncher_deb` | [appimagelauncher-2.2.0](https://github.com/TheAssassin/AppImageLauncher) |  | appimagelauncher |
 |  | `ChatRWKV` | [rwkv](https://github.com/BlinkDL/ChatRWKV) | 0.8.32 | The RWKV Language Model |
-|  | `ChronoCat_bqqnt` | [bstar](https://im.qq.com/linuxqq/index.html) |  | Desktop client for QQ on Linux |
 |  | `MC-LauncherX` | [MC-LauncherX](https://kb.corona.studio/) | 18b0ac05-425f-44f9-baec-bb9d07b5371c/net9.0-linux.linux-x64 |  |
 | `x86_64-linux` | `MIO_KITCHEN_bin` | [MIO_KITCHEN_bin](https://github.com/ColdWindScholar/MIO-KITCHEN-SOURCE) | 4.2.1 | Android ROM tooling suite |
 |  | `SakuraFrp` | [SakuraFrp](https://www.natfrp.com/) | 3.1.8 |  |
@@ -91,7 +90,7 @@ Or, use variables from this repository in case I change them:
 |  | `bird-lg-go` | [bird-lg-go](https://github.com/xddxdd/bird-lg-go) | 1.4.8 | BIRD looking glass in Go, for better maintainability, easier deployment & smaller memory footprint |
 |  | `bird-lgproxy-go` | [bird-lgproxy-go](https://github.com/xddxdd/bird-lg-go) | 1.4.8 | BIRD looking glass in Go, for better maintainability, easier deployment & smaller memory footprint |
 |  | `bnxtnvm` | [bnxtnvm](https://resource.fs.com/mall/resource/broadcom-ethernet-network-adapter-user-manual.pdf) | 222.0.144.0 | Broadcom BNXTNVM utility |
-|  | `bqqnt` | [bqqnt](https://im.qq.com/linuxqq/index.html) | 0.5.10 | Desktop client for QQ on Linux |
+| `x86_64-linux` | `bqqnt` | [bqqnt](https://im.qq.com/index/) | 0.5.10 | Desktop client for QQ on Linux with bstar |
 |  | `browser-control-mcp` | [browser-control-mcp](https://github.com/eyalzh/browser-control-mcp) | 1.5.2 | MCP server paired with a browser extension that enables AI agents to control the user's browser |
 | `x86_64-linux` | `browseros` | [browseros](https://www.browseros.com) | 0.50.5 | Open source agentic browser |
 | `x86_64-linux` | `bstar` | bstar | 0.5.10 | BStar compatibility library |
@@ -1586,12 +1585,11 @@ Or, use variables from this repository in case I change them:
 | ----- | ---- | ---- | ------- | ----------- |
 | `x86_64-linux` | `uncategorized-DataEraserC.AppimageLauncher_deb` | [appimagelauncher-2.2.0](https://github.com/TheAssassin/AppImageLauncher) |  | appimagelauncher |
 |  | `uncategorized-DataEraserC.ChatRWKV` | [rwkv](https://github.com/BlinkDL/ChatRWKV) | 0.8.32 | The RWKV Language Model |
-|  | `uncategorized-DataEraserC.ChronoCat_bqqnt` | [bstar](https://im.qq.com/linuxqq/index.html) |  | Desktop client for QQ on Linux |
 |  | `uncategorized-DataEraserC.MC-LauncherX` | [MC-LauncherX](https://kb.corona.studio/) | 18b0ac05-425f-44f9-baec-bb9d07b5371c/net9.0-linux.linux-x64 |  |
 | `x86_64-linux` | `uncategorized-DataEraserC.MIO_KITCHEN_bin` | [MIO_KITCHEN_bin](https://github.com/ColdWindScholar/MIO-KITCHEN-SOURCE) | 4.2.1 | Android ROM tooling suite |
 |  | `uncategorized-DataEraserC.SakuraFrp` | [SakuraFrp](https://www.natfrp.com/) | 3.1.8 |  |
 |  | `uncategorized-DataEraserC.XiaoMiToolV2` | XiaoMiToolV2 | 0-unstable-2025-06-24 |  |
-|  | `uncategorized-DataEraserC.bqqnt` | [bqqnt](https://im.qq.com/linuxqq/index.html) | 0.5.10 | Desktop client for QQ on Linux |
+| `x86_64-linux` | `uncategorized-DataEraserC.bqqnt` | [bqqnt](https://im.qq.com/index/) | 0.5.10 | Desktop client for QQ on Linux with bstar |
 | `x86_64-linux` | `uncategorized-DataEraserC.bstar` | bstar | 0.5.10 | BStar compatibility library |
 |  | `uncategorized-DataEraserC.buffybox` | [buffybox](https://gitlab.com/postmarketOS/buffybox) | 0-unstable-2024-10-05 | Suite of graphical applications for the terminal |
 |  | `uncategorized-DataEraserC.c001apk-flutter` | [c001apk-flutter](https://github.com/bggRGjQaUbCoE/c001apk-flutter) | 0-unstable-2026-03-08 | c001apk |
