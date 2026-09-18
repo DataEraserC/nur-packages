@@ -15,6 +15,8 @@
 
 ### 最佳实践
 
+- **上游源码为 CRLF 行尾时先转 LF 再打补丁**：上游仓库的文本文件可能带 CRLF 行尾（如 FlashBrowser 的 index.js），直接对原文件生成的补丁会整文件重写（diff 把每行都视为修改）。正确做法：补丁一律以 LF 内容生成，并在派生的 `prePatch` 中用 `sed -i 's/\r$//' <文件>` 把上游源码转为 LF——转换必须放在 `prePatch`，因为 patchPhase 在 prePatch 之后、postPatch 之前执行。本仓库内所有文件（补丁、脚本等）一律保持 LF 行尾
+- **预臭氧（pre-ozone）Electron（< 12）在 Wayland 会话下必须强制 GDK_BACKEND=x11**：nixpkgs 的 gtk3 含 Wayland 后端，`WAYLAND_DISPLAY` 存在时 GTK 优先走 Wayland，旧版 Electron（Chromium 无 ozone）初始化显示失败报 `Gtk-WARNING **: cannot open display`。在包装器的 makeWrapper 里加 `--set GDK_BACKEND x11`（用 `--set` 而非 `--set-default`：用户会话可能全局设了 `GDK_BACKEND=wayland`，而旧 Electron 根本无 Wayland 支持，保留用户值只会失败）。配套注意旧 Electron 的 rpath：新版 Electron 把大部分 X 库静态打包进二进制，旧版（如 Electron 9）动态链接 `libXcursor`/`libXi`/`libXrender`/`libXtst`，且新版 nixpkgs 已把 `libgbm` 从 `mesa` 拆出为独立包，`electronLibPath` 需按版本条件补齐，否则报 `error while loading shared libraries`
 - **cmakeFlags 使用 lib.cmakeBool / lib.cmakeFeature**：布尔型选项用 `lib.cmakeBool "OPTION" true|false`（产出 `-DOPTION:BOOL=TRUE/FALSE`），字符串/路径型选项用 `lib.cmakeFeature "OPTION" "value"`（产出 `-DOPTION:STRING=value`），不用 `-DX=ON/OFF` 字面量；生成器开关（如 `-GNinja`）与设为空字符串的特例（如 `-DCMAKE_OSX_ARCHITECTURES=""` 可用 `cmakeFeature` 传空串）除外
 - **优先使用 finalAttrs 而非 rec**：新包一律写成 `stdenv.mkDerivation (finalAttrs: { ... })`（或 `buildPythonPackage (finalAttrs: { ... })` 等 mkDerivation 风格构建器的等价形式），不用 `rec`；包内自引用统一用 `finalAttrs.<attr>`。src 的 URL/tag 中出现版本号字面量时改用 `${finalAttrs.version}` 插值——nix-update 只对 `version = "..."` 行做文本替换，插值 URL 会随 version 属性自动更新。注意：`writeShellApplication`、`appimageTools.wrapType2/extract` 等不接受 functor 参数的构建器不能这样转换；纯 `.overrideAttrs` 包装文件与 sources.json 多源包无版本字面量可引用，保持原样
 - **保持二进制文件名与源码一致**：安装二进制文件时，使用与源码中相同的文件名，不要重命名
@@ -43,6 +45,7 @@
 - **为修改版 Firefox 关闭 PGO**：`buildMozillaMach` 默认在 x86_64-linux 上启用 PGO（`enablePGO` 默认在 Linux 且非交叉编译且 64 位时为 true；旧版 nixpkgs 中该参数名为 `pgoSupport`，现已被重命名为 `enablePGO`，`ltoSupport` 同样改名为 `enableLTO`），其 `profilingPhase` 会用 `./mach python ./build/pgo/profileserver.py` 启动一次 Firefox 采集 profile。但重度补丁版的 Firefox（如 `feder-cr/firefox_antidetect_patch` 的反指纹分支）会破坏内容进程的干净关闭：`Quitter.quit()` 触发的关闭过程中内容进程 hang，被进程监视器 SIGABRT，LLVM profile runtime 来不及 flush，导致 `llvm-profdata merge` 报 `truncated profile data` / `no profile can be merged`，整个 `profilingPhase` 失败（上游只跑 `./mach build`、从不测试 PGO）。修复方法：用 `.override { enablePGO = false; }` 关闭 PGO（LTO 仍由 `enableLTO` 默认开启，保留）。注意 `buildMozillaMach` 的 `enablePGO` 在其内部派生函数的参数里、不在外层 opts 里，因此不能直接写进 `buildMozillaMach { ... }`，而要用派生的 `.override` 传：`((buildMozillaMach { ... }).override { enablePGO = false; }).overrideAttrs (old: { ... })`。nixpkgs 升级若报 `function 'anonymous lambda' called with unexpected argument 'pgoSupport'` 且导致整个 flake 无法求值，就是此参数改名所致。
 - **nginx 模块 `--add-module` 路径跟随上游目录结构**：OpenResty/nginx 自定义包的 `--add-module` 必须指向包含 `config` 文件的目录，上游重构目录后需同步更新，否则 configure 阶段报 `error: no .../config was found`。例如 ja4-nginx-module 把 `config` 从 `src/` 移到仓库根目录后，`--add-module=bundle/ja4-nginx-module/src` 需改为 `--add-module=bundle/ja4-nginx-module`（其 `config` 内部用 `$ngx_addon_dir/src/...` 引用源码，不受影响）。上游模块升级后若 configure 报找不到 `config`，先检查模块仓库中 `config` 文件的实际位置。
 - **`.override` 后接 `.overrideAttrs` 必须加括号**：Nix 中属性选择 `.` 的优先级高于函数应用。`X.override { a = 1; } .overrideAttrs (...)` 会被解析为 `X.override ( ({a=1;}).overrideAttrs (...) )`，即对字面量 attrset `{a=1;}` 取 `.overrideAttrs`，报 `attribute 'overrideAttrs' missing`。必须写成 `(X.override { a = 1; }).overrideAttrs (...)`，用括号让 `.override` 先完整应用、再对其结果取 `.overrideAttrs`。
+- **versionCheckHook 以隔离环境执行二进制，会把运行时文件烤进 $out 或直接失败**：新版 nixpkgs 的 versionCheckHook 通过 `env --ignore-environment --chdir=/ --argv0=...` 执行被检查的二进制——环境变量被完全清空（HOME 不存在）、cwd 是不可写的 `/`。若程序启动时（init/main）会写运行时文件、且用户目录不可用时会回退到"可执行文件所在目录"（便携式设计，如 BaiduPCS-Go 的 `GetConfigDir` 先探测 exe 旁的旧版配置文件），旧版 hook 会把默认配置写进 `$out/bin/` 烤进最终产物，运行期二进制再因"exe 旁存在配置文件"而永远从只读 store 读写配置（报 `config file permission denied`）；新版 hook 则在 versionCheck 阶段直接 EACCES 失败。修复三件套（baidupcs-go 实例）：(1) 补丁移除 exe 目录回退，强制 `$HOME/.config/<pkg>`（HOME 未设时回退 `.`，保证非交互场景仍可运行）；(2) `nativeInstallCheckInputs` 加 `writableTmpDirAsHomeHook`（其 `postHooks` 把 HOME 指到可写的 `$NIX_BUILD_TOP/.home`），并设 `versionCheckKeepEnvironment = "HOME"` 把 HOME 穿透 `env --ignore-environment` 传给被检查程序——只加 hook 不加该变量无效，因为 hook 设置的 HOME 仍会被 env 清掉；(3) `postInstallCheck` 里 `rm -f $out/bin/<运行时文件名>` 兜底。排查方法：构建后 `ls result/bin/` 检查是否混入运行时文件，其内容里的绝对路径字段会暴露写入发生时的环境
 
 ## 包元数据规范
 
@@ -147,8 +150,8 @@ appimageTools.wrapType2 {
 
 1. 在包目录下维护 `sources.json`，每个条目含 `version`/`url`/`hash`（nginx 的 GitHub 模块条目为 `owner`/`repo`/`rev|tag`/`hash`/可选 `fetchSubmodules`）
 2. default.nix 通过 `builtins.fromJSON (builtins.readFile ./sources.json)` 读取并构造 fetcher
-3. 包目录下的 `update.sh` 负责探测新版本、用 `nix store prefetch-file --json [--unpack] <url>` 计算哈希（GitHub tarball 用 `--unpack`，其结果与 fetchFromGitHub 哈希一致），最后整体重写 `sources.json`
-4. 注意：nix-update 只支持单一 `version`/`src` 属性，因此多源包必须走本模式；`sort -V` 是字典序，纯数字版本比较需按 `.` 分段转整数排序
+3. 包目录下的 `update-standalone.*` 负责探测新版本、用 `nix store prefetch-file --json [--unpack] <url>` 计算哈希（GitHub tarball 用 `--unpack`，其结果与 fetchFromGitHub 哈希一致），最后整体重写 `sources.json`
+4. 注意：nix-update 只支持单一 `version`/`src` 属性，且 `helpers/update.nix` 运行器会跳过含 `sources.` 引用的包，因此多源包必须走本模式；`sort -V` 是字典序，纯数字版本比较需按 `.` 分段转整数排序
 
 ### 版本约定
 
@@ -173,12 +176,18 @@ appimageTools.wrapType2 {
   - 最终通过 `update-source-version` 改写文件：它从仓库根用 `nix-instantiate -A <attr>` 求值（根 default.nix 会被自动调用），因此包文件里必须存在字面量 `version = "...";`（全文唯一）、`rev = "<40位哈希>";`、`hash = "...";`，且 `meta.position` 必须指向该文件——**共享 generic.nix 之类的包（如 liboqs-unstable）必须写成独立文件**，否则 position 指向共享文件导致找不到哈希
   - 版本日期取 HEAD commit 的 committer date（`git show -s --pretty=format:%cs`），与 nix-update 用的 atom feed 日期可能相差一天
   - 已知坑：**同 rev 但版本串变化**（如日期漂移、前缀格式切换）时，`update-source-version` 在 rev 替换的 cmp 检查处 die，文件会残留 tempHash `sha256-AzH1rZFqEH8sovZZfJykvsEmCedEZWigQFHWHl6/PdE=` 与 `.nix.cmp` 备份——修复方法：版本行已是正确新值，把 hash 恢复为 git HEAD 里的原值（同 rev 同源同哈希），删掉 .cmp 后重跑（会以 same version 退出）
+  - **tempHash 残留会让 updater 永久卡死并被 auto-update 反复提交**（openssl-oqs-provider 实例，2026-09-08 起连续 4 天构建失败，源码级机制已核实）：update-source-version 的 sha256 tempHash 是固定字面量 `AzH1rZF...`。第一次 die（同 rev 但 tag 前缀变化 0.10.0 → 0.12.0-rc1，`--rev` 替换 no-op → cmp 判等 → die）发生在"已写入 tempHash、未写入最终哈希"之间，文件从此残留 tempHash 并被 auto-commit 提交；此后**每次重跑都在 temp hash 替换一步 die**——因为文件里的旧哈希恰好等于 tempHash 字面量，sed 替换是 no-op，cmp 判等报 `Failed to replace source hash ... to a temporary hash!`。updater 自身永远无法自愈，且每日只推进 version 日期（version 与 rev/hash 脱节），依赖方（lantianCustomized.nginx 依赖 openssl-oqs-provider）跟着连续 Dependency failed。修复：手工改三行（rev = 上游 HEAD、version = `<tag 去前缀>-unstable-<HEAD 日期>`、hash = `nix store prefetch-file --json --unpack <HEAD tarball>`），并以 `nix build .#<pkg>.src` 验证；该包已改用自定义 update.sh（见下条），不再使用 unstableGitUpdater
   - 仅支持 git 可 clone 的 URL；dpdk-kmods 只能 `git://dpdk.org/dpdk-kmods`（https 路径 cgit 不提供 smart HTTP）
   - 跟踪的 fork 分支可能比默认分支新（如 flaresolverr-alexfozor），首次运行版本回退属正常
   - `helpers/update.nix` 运行器原生支持 unstableGitUpdater 返回的列表形式 updateScript；`nvlax`（同文件多哈希）与 `qsp`（自定义多步 update.sh）不适用，保持原状
 - **nix-update 的文件改写行为（源码已验证）**：`replace_version` 先定位 `version = "..."` 声明行；若该行包含旧版本字符串，则**只改写这一行**，其余行一律不动——因此 `url = ".../foo-1.2.3.tar.gz"` 这种内嵌版本字面量的 URL 永远不会被 nix-update 更新（版本号变了但 src 仍拉旧版，哈希不变，静默失败）。若 version 声明行不含旧版本字面量（如 `inherit version;`），则退化为全文件范围内把带引号的独立字符串 `"旧版本"` 整体替换成 `"新版本"`（仍只匹配独立带引号字符串，匹配不到 URL 内嵌片段）。rev/tag 则不同：nix-update 用求值出的旧 rev/tag 值在全文件做子串替换（release 模式与 `--version branch` 模式都携带新 rev/tag）。综上：**fetchurl 的 URL 必须用 `${finalAttrs.version}` 插值**；fetchFromGitHub 的 tag 也建议插值；rev 字面量可由 nix-update 自动维护，无需也无法插值
 - **例外：自维护 URL 的 update.sh**：geolite2、netboot-xyz 的 update.sh 自己 grep + sed 重写 URL 与哈希，字面量 URL 是脚本的工作前提，不要改成插值；改动这两个包时保持 update.sh 与 URL 字面量同步修改
 - **非 GitHub 源**（webpage 抓取、AUR 等）：手写自定义更新脚本。脚本必须作为独立文件放在包目录下（如 `pkgs/uncategorized/baidunetdisk/update.sh`），不要内联在 default.nix 中；在包定义里用 `passthru.updateScript = [ (toString ./update.sh) ];` 引用。运行器以仓库根目录为 cwd 执行脚本，并设置 `UPDATE_NIX_ATTR_PATH`/`UPDATE_NIX_PNAME`/`UPDATE_NIX_NAME`/`UPDATE_NIX_OLD_VERSION` 环境变量；脚本内部获取新版本号后调用 `nix-update "$UPDATE_NIX_ATTR_PATH" --version "$NEW_VERSION"`（参考 `pkgs/uncategorized/baidunetdisk/update.sh`）
+- **禁止使用 api.github.com**（匿名限流 60 req/h，CI 里必挂）：版本探测一律用 atom feed 或 git 协议。tag/release 列表用 `https://github.com/<owner>/<repo>/{tags,releases}.atom`：tag 名从 `releases/tag/<tag>` 的 link href 或 `<id>tag:github.com,2008:Repository/<id>/<tag></id>` 解析。注意 atom feed 只含最近约 10 条，且 tags.atom 只列出附有 release 说明的 tag（无 release 的仓库如 zhoreeq/coredns-meshname，feed 为空）；需要完整 tag 列表时改用 `git ls-remote --tags <url>`（行尾 `^{}` 为 peeled 引用需过滤）。跟踪 HEAD 用 commits.atom 的 `<id>[^<]*/\K[0-9a-f]{40}`。releases feed 是最新在前，取 `tags[0]`；不要用字典序 sort 取“最新”（会把 0.9.0 排在 0.15.0 后）
+- **nix-prefetch-url / nix-prefetch-git 已全部替换为 `nix store prefetch-file --json [--unpack] <url>`**：输出 JSON 的 `.hash` 为 SRI 格式（fetchurl/fetchFromGitHub 的 sha256 参数均接受 SRI，可与既有 base32 条目混存）。GitHub archive tarball 加 `--unpack` 的哈希与 fetchFromGitHub 一致，可替代 nix-prefetch-git；需要完整 git 克隆语义时才用 `nix-prefetch-git`
+- **tarball prefetch 哈希对 `fetchSubmodules = true` 的源永远不匹配**：GitHub tarball 不含 git 子模块，`nix store prefetch-file --unpack` 算出的哈希只覆盖 worktree；而 `fetchFromGitHub { fetchSubmodules = true; }` 的 FOD 哈希包含子模块内容。更新脚本若用 tarball 哈希写这类条目，构建必挂。实例（2026-09-12）：nginx 的 `nginx-auth-jwt 0.15.0`/`nginx-oidc 0.8.0` 在 tag 升级时被写入 tarball 哈希（旧 tag 时代哈希是当初打包时用正确方法算的，脚本对"tag 未变"的条目从不重算哈希，故潜伏到下次 tag 变更才爆炸）；qsp 的 update.sh 更是用 `nix store prefetch-file --json`（连 `--unpack` 都没有，等于 tarball **文件**哈希）计算 qsp-wx（fetchSubmodules=true）哈希，所幸 rev 未变过才未爆雷。**也不能改用 `nix flake prefetch 'git+...?submodules=1'`**：其 narHash 与 fetchFromGitHub 的 FOD 哈希在部分仓库一致（kjdev/nginx-oidc、nginx-auth-jwt 实测一致）但并非普适（wxWidgets@5d63efc9 实测不一致），一致性无保证。唯一可靠方法是**用包自身相同的 fetcher 计算哈希**（nix-update 内部同款）：以 dummy 哈希 `sha256-AAAA...` 构建该 fetchFromGitHub FOD，从报错 `got:` 行取真实哈希，最后 `nix build .#<pkg>.src` 收尾验证。已落地：nginx 的 update-standalone.sh 对 fetchSubmodules 条目**每次运行都重算哈希**（自愈既有错哈希）、qsp 的 update.sh 改用 FOD-echo；openssl-oqs-provider 弃用 unstableGitUpdater，改用自带 update.sh（commits.atom 取 rev/日期 + ls-remote 取 tag + prefetch-file 算哈希 + `nix build .#$ATTR.src` 验证，version 仅在 rev 变化时更新，规避上条的 tempHash 卡死）
+- **更新脚本只在版本变化时写哈希 = 既有哈希永远不被校验**：上游内容漂移（如旧 tag 上新增 `.gitmodules`、re-tag）或脚本自身写错哈希都不会被更新流程发现，只有等 Hydra 构建失败才暴露。写哈希的脚本必须在写入后（或每次运行时对易错条目）做一次真实构建验证，把哈希错误挡在提交之前，而不是依赖 CI 构建兜底
+- **不要用 `bash xxx.py` 运行 python 更新脚本**：shebang 会被绕过，python 源码会被当 shell 逐行执行，`import json` 会命中 ImageMagick 的 `import` 命令在当前目录生成截图文件。验证时直接 `./xxx.py` 执行（shell 脚本同理，见上文 nix-update 条目）
 - **nix-update 可自动识别的 fetchurl 源**：除了 GitHub releases，`registry.npmjs.org` 的 npm tarball URL 也能被 nix-update 自动探测最新版本（含 scoped 包），可直接用 `nix-update-script { }`
 - **版本/src 在内层派生时需提升到顶层**：若 version 和 src 定义在 let 绑定的内层 `mkDerivation`（如 wine-wechat 的 wechatFiles），顶层求值结果没有 `src` 属性，nix-update 无法工作。重构方法：把 `version = "..."` 和 `src = fetchurl { ... }` 直接放在顶层 `stdenv.mkDerivation (finalAttrs: { ... })` 里（外层配 `dontUnpack = true` 即可，不影响构建）；内层派生通过 `inherit (finalAttrs) version src;` 引用同一份定义；原先依赖内层派生的 let 绑定（启动脚本等）移入使用它们的 phase（如 postInstall）内的局部 let。URL 用 `${finalAttrs.version}` 插值（见上条：字面量 URL 不会被 nix-update 改写）
 - **多源同版本的去重**：同一文件里多个派生共享同一 GitHub 源（如 axonhub 的 frontendPnpmDeps/frontendDist/主程序、it-tools 的 pnpmDeps）时，在 let 里定义 `version = "...";` 与 `src = fetchFromGitHub { tag = "v${version}"; ... }`，各派生 `inherit version src;`，保证 nix-update 只需改一处版本字面量（`inherit version;` 行不含字面量时走全文件独立带引号串替换路径，let 绑定会被正确更新）
@@ -200,7 +209,7 @@ appimageTools.wrapType2 {
 ### 脚本文件命名约定
 
 - 包目录下的 `update.*`（如 `update.sh`）：passthru.updateScript 机制的新式更新脚本，由 `helpers/update.nix` 运行器发现并执行，不会被 `update` 命令的 find 循环执行。生成式 lockfile 包（如 pi-web）的更新脚本属于此类：脚本自身负责版本、src 哈希、lockfile 重生成与 `npmDepsHash` 的完整闭环（版本步用 `nix-update --src-only`），不要拆成 passthru + `update-standalone` 双机制（顶层 `update` 先跑 standalone 后跑 passthru，顺序会导致 lockfile 与版本失步）
-- 包目录下的 `update-standalone.*`：旧的独立脚本（与版本更新无关的辅助流程），由顶层 `update` 命令的 find 循环直接执行，与 passthru 机制无关；不要用 `update.*` 命名这类脚本，避免被双重执行
+- 包目录下的 `update-standalone.*`：需要 `passthru.updateScript` 机制无法支持的复杂更新逻辑的包（如多源 sources.json 包：`helpers/update.nix` 运行器的 `usesSources` 检查会跳过 default.nix 中含 `sources.` 引用的包，nix-update 也只支持单一 version/src），由顶层 `update` 命令的 find 循环直接执行。脚本必须自包含：不依赖 `UPDATE_NIX_*` 环境变量（find 循环不注入），自行从上游探测新旧版本（如 GitHub releases atom feed），无更新时静默退出
 
 ### 已知限制
 
@@ -212,7 +221,7 @@ appimageTools.wrapType2 {
 
 - 源码不再由集中式工具（nvfetcher）管理；每个包在自身目录内联 fetcher 并声明 `passthru.updateScript`
 - 多源包使用 `sources.json` + `importJSON`/`fromJSON`（如 fr24feed、qemu-user-static、lantianCustomized.nginx），由包内 `update.sh` 整体重写
-- 顶层 `update` 命令流程：`nix flake update` → 执行 `pkgs/**/update-standalone.*` → `./tools/update-package --all` → 重新生成 README
+- 顶层 `update` 命令流程：`nix flake update` → 执行 `pkgs/**/update-standalone.*` → `./tools/update-package --all` → 重新生成 README。单个包更新失败（update-standalone 脚本或 update-package 内的个别包）不会中断流程，README 仍会在最后重新生成；命令退出码保留失败状态供 CI 报警
 
 ## 构建包
 

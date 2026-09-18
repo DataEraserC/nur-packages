@@ -49,7 +49,12 @@ stdenv.mkDerivation (finalAttrs: {
   enableParallelBuilding = true;
   doCheck = false;
 
-  passthru.updateScript = nix-update-script { };
+  passthru.updateScript = nix-update-script {
+    extraArgs = [
+      "--version-regex"
+      "^ocfs2-tools-(.*)$"
+    ];
+  };
 
   # upstream predates -Werror=format-security hardening; old code calls
   # printf-like functions with non-literal format strings
