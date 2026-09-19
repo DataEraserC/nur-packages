@@ -1,40 +1,60 @@
 {
   lib,
-  buildNpmPackage,
-  fetchFromGitHub,
-  nix-update-script,
+  stdenv,
+  pkgs,
   nodejs,
+  coreutils,
 }:
 
-buildNpmPackage (finalAttrs: {
+let
+  unwrapped = pkgs.callPackage ../qq-bridge-unwrapped { };
+in
+stdenv.mkDerivation {
   pname = "qq-bridge";
-  version = "0.1.5";
+  inherit (unwrapped) version;
 
-  src = fetchFromGitHub {
-    owner = "Derpyu520";
-    repo = "qq-bridge";
-    # Follow the release tag, so nix-update only has to bump `version`.
-    rev = "v${finalAttrs.version}";
-    hash = "sha256-SvepYcZ4hwv5bGHR28vZfKdjRsWGv+eoyTqhxsOx+F0=";
-  };
+  dontUnpack = true;
 
-  npmDepsHash = "sha256-T01BWiii+F2nFVqrZTlUVC4C24ajucUTcPMeTS4l2+c=";
+  installPhase = ''
+    runHook preInstall
 
-  npmFlags = [ "--legacy-peer-deps" ];
-
-  dontNpmBuild = true;
-
-  postInstall = ''
-    test -f $out/lib/node_modules/qq-bridge/src/bridge.js
-    # Create a wrapper script for easy invocation
     mkdir -p $out/bin
-    makeWrapper ${nodejs}/bin/node $out/bin/qq-bridge \
-      --add-flags $out/lib/node_modules/qq-bridge/src/bridge.js
+    cat > $out/bin/qq-bridge << 'WRAPPER'
+    #! ${stdenv.shell}
+    export PATH="${
+      lib.makeBinPath [
+        coreutils
+        nodejs
+      ]
+    }:$PATH"
+
+    # Config/data directory: QQ_BRIDGE_HOME > XDG_DATA_HOME > ~/.local/share
+    QQ_BRIDGE_HOME="''${QQ_BRIDGE_HOME:-''${XDG_DATA_HOME:-$HOME/.local/share}/qq-bridge}"
+    mkdir -p "$QQ_BRIDGE_HOME"
+
+    # First run: copy entire package tree to writable location
+    if [ ! -f "$QQ_BRIDGE_HOME/package.json" ]; then
+      cp -r UNWRAPPED_PATH/lib/node_modules/qq-bridge/* "$QQ_BRIDGE_HOME/"
+      chmod -R u+w "$QQ_BRIDGE_HOME"
+    fi
+
+    # Config: create from example if missing
+    if [ ! -f "$QQ_BRIDGE_HOME/config.json" ] && [ -f "$QQ_BRIDGE_HOME/config.example.json" ]; then
+      cp "$QQ_BRIDGE_HOME/config.example.json" "$QQ_BRIDGE_HOME/config.json"
+    fi
+
+    exec node "$QQ_BRIDGE_HOME/src/bridge.js" "$@"
+    WRAPPER
+    chmod +x $out/bin/qq-bridge
+
+    substituteInPlace $out/bin/qq-bridge \
+      --replace-quiet 'UNWRAPPED_PATH' '${unwrapped}'
+
+    runHook postInstall
   '';
 
-  passthru.updateScript = nix-update-script {
-    attrPath = "qq-bridge";
-    extraArgs = [ "--flake" ];
+  passthru = {
+    inherit unwrapped;
   };
 
   meta = {
@@ -45,4 +65,4 @@ buildNpmPackage (finalAttrs: {
     platforms = lib.platforms.unix;
     mainProgram = "qq-bridge";
   };
-})
+}
