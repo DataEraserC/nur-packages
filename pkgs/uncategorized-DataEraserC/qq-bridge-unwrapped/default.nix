@@ -28,9 +28,18 @@ buildNpmPackage (finalAttrs: {
     test -f $out/lib/node_modules/qq-bridge/config.example.json
   '';
 
-  passthru.updateScript = nix-update-script {
-    attrPath = "qq-bridge-unwrapped";
-    extraArgs = [ "--flake" ];
+  passthru = {
+    aiProvenance = [
+      {
+        agent = "dsh";
+        model = "mimo-v2.5-free";
+        involvement = "assisted";
+      }
+    ];
+    updateScript = nix-update-script {
+      attrPath = "qq-bridge-unwrapped";
+      extraArgs = [ "--flake" ];
+    };
   };
 
   meta = {

@@ -55,6 +55,13 @@ stdenv.mkDerivation {
 
   passthru = {
     inherit unwrapped;
+    aiProvenance = [
+      {
+        agent = "dsh";
+        model = "mimo-v2.5-free";
+        involvement = "assisted";
+      }
+    ];
   };
 
   meta = {
