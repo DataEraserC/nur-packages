@@ -1,0 +1,10 @@
+{
+  "name": "qq-bridge-dsh",
+  "version": "@VERSION@",
+  "private": true,
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

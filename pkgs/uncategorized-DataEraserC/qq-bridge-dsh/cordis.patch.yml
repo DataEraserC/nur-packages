@@ -1,0 +1,28 @@
+# qq-bridge DSH bundle: MCP servers for QQ ↔ DSH bridge.
+# Paths are substituted at build time by Nix.
+- insert:
+    - id: mcp-snowluma
+      name: "@deepseek-ai/dsh-mcp-client"
+      config:
+        serverName: snowluma
+        transport: stdio
+        command: REPLACE_NODE
+        args:
+          - REPLACE_SRC/src/mcp-snowluma-safe.js
+        toolCallTimeoutMs: 725000
+    - id: mcp-snowluma-host
+      name: "@deepseek-ai/dsh-mcp-client"
+      config:
+        serverName: snowluma-host
+        transport: stdio
+        command: REPLACE_NODE
+        args:
+          - REPLACE_SRC/src/mcp-host-server.js
+    - id: mcp-web-search-safe
+      name: "@deepseek-ai/dsh-mcp-client"
+      config:
+        serverName: web-search-safe
+        transport: stdio
+        command: REPLACE_NODE
+        args:
+          - REPLACE_SRC/src/mcp-web-search-safe.js
