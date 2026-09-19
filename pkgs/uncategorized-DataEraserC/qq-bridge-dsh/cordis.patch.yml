@@ -6,23 +6,23 @@
       config:
         serverName: snowluma
         transport: stdio
-        command: REPLACE_NODE
+        command: "@NODE@"
         args:
-          - REPLACE_SRC/src/mcp-snowluma-safe.js
+          - "@SRC@/src/mcp-snowluma-safe.js"
         toolCallTimeoutMs: 725000
     - id: mcp-snowluma-host
       name: "@deepseek-ai/dsh-mcp-client"
       config:
         serverName: snowluma-host
         transport: stdio
-        command: REPLACE_NODE
+        command: "@NODE@"
         args:
-          - REPLACE_SRC/src/mcp-host-server.js
+          - "@SRC@/src/mcp-host-server.js"
     - id: mcp-web-search-safe
       name: "@deepseek-ai/dsh-mcp-client"
       config:
         serverName: web-search-safe
         transport: stdio
-        command: REPLACE_NODE
+        command: "@NODE@"
         args:
-          - REPLACE_SRC/src/mcp-web-search-safe.js
+          - "@SRC@/src/mcp-web-search-safe.js"

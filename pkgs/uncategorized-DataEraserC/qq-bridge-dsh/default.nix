@@ -16,7 +16,11 @@ let
   bundleSrc = runCommand "qq-bridge-dsh-src" { } ''
     mkdir -p $out
     substitute ${./package.json} $out/package.json --replace '@VERSION@' '${version}'
-    cp ${./cordis.patch.yml} $out/cordis.patch.yml
+    substitute ${./cordis.patch.yml} $out/cordis.patch.yml \
+      --replace '@NODE@' '${node}' \
+      --replace '@SRC@' '${src}'
+    substitute ${./dsh-bundles.json} $out/dsh-bundles.json \
+      --replace '@VERSION@' '${version}'
   '';
 in
 if inputs == null then
@@ -36,11 +40,7 @@ else
       mkdir -p $pkgDir
 
       cp $src/package.json $pkgDir/
-
-      # Substitute store paths into cordis.patch.yml
-      sed -e 's|REPLACE_NODE|${node}|g' \
-          -e "s|REPLACE_SRC|${src}|g" \
-          $src/cordis.patch.yml > $pkgDir/cordis.patch.yml
+      cp $src/cordis.patch.yml $pkgDir/
 
       # ── Preset files ──
       presetDir=$out/share/qq-bridge-presets
@@ -51,6 +51,11 @@ else
       pluginDir=$pkgDir/plugins/qq-mode-console
       mkdir -p $pluginDir
       cp -r ${src}/plugins/qq-mode-console/* $pluginDir/
+
+      # ── DSH bundle metadata ──
+      mkdir -p $out/nix-support
+      substitute $src/dsh-bundles.json $out/nix-support/dsh-bundles.json \
+        --replace '@PKGDIR@' "$pkgDir"
 
       runHook postInstall
     '';
