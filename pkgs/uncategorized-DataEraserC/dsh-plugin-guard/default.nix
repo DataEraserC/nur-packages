@@ -44,7 +44,7 @@ else
       mkdir -p $out/bin
       cp scripts/boot-guard.sh $out/bin/boot-guard.sh
       substituteInPlace $out/bin/boot-guard.sh \
-        --replace-quiet 'setsid "$dsh_cmd" web' 'setsid "$dsh_cmd" --profile "$PROFILE"'
+        --replace-quiet 'setsid "$dsh_cmd" web' 'setsid "$dsh_cmd" --profile "$PROFILE" $EXTRA_DSH_ARGS'
       substituteInPlace $out/bin/boot-guard.sh \
         --replace-quiet 'PROFILE="''${PROFILE:-web}"' 'PROFILE="''${PROFILE:-nix-web}"'
       chmod +x $out/bin/boot-guard.sh
