@@ -31,10 +31,6 @@ let
     done
 
     substitute ${./package.json} $out/package.json --replace '@VERSION@' '${version}'
-    substitute ${./cordis.patch.yml} $out/cordis.patch.yml \
-      --replace '@NODE@' '${node}' \
-      --replace '@PKGDIR@' '$out' \
-      --replace '@QQ_BRIDGE_HOME@' '${qqBridgeHome}'
     substitute ${./dsh-bundles.json} $out/dsh-bundles.json \
       --replace '@VERSION@' '${version}'
   '';
@@ -53,7 +49,11 @@ stdenv.mkDerivation {
     mkdir -p $pkgDir
 
     cp $src/package.json $pkgDir/
-    cp $src/cordis.patch.yml $pkgDir/
+    cp ${./cordis.patch.yml} $pkgDir/cordis.patch.yml
+    substituteInPlace $pkgDir/cordis.patch.yml \
+      --replace '@NODE@' '${node}' \
+      --replace '@PKGDIR@' "$pkgDir" \
+      --replace '@QQ_BRIDGE_HOME@' '${qqBridgeHome}'
 
     # ── Patched source tree (MCP servers + all sibling modules) ──
     cp -r $src/src $pkgDir/src
