@@ -45,6 +45,11 @@ stdenv.mkDerivation {
     # ── Full patched package (src + node_modules + all dependencies) ──
     cp -r ${patchedSrc}/* $pkgDir/
 
+    # ── DSH bundle package.json (must override unwrapped's) ──
+    cp ${./package.json} $pkgDir/package.json
+    substituteInPlace $pkgDir/package.json \
+      --replace '@VERSION@' '${version}'
+
     # ── cordis.patch.yml: substitute paths ──
     cp ${./cordis.patch.yml} $pkgDir/cordis.patch.yml
     substituteInPlace $pkgDir/cordis.patch.yml \
