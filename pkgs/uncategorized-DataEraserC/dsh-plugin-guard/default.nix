@@ -22,13 +22,12 @@ else
       hash = "sha256-GO08IIRmUtrn5qyGUKZIh9YcsXa8zNA1xKjL5kVfGW8=";
     };
 
-    npmDepsHash = "sha256-3ejcnV7OaOJCBiAmSHMZWiwSpctja2udmDQO9BoMrq0=";
-
-    forceEmptyCache = true;
+    npmDepsHash = "sha256-w0lU0iyO4MLXHatt3Cjbav85Hqq4IDm4sv8Vq/DdKKQ=";
 
     npmFlags = [ "--legacy-peer-deps" ];
 
     postPatch = ''
+      cp ${./package.json} package.json
       cp ${./package-lock.json} package-lock.json
     '';
 
@@ -36,6 +35,8 @@ else
 
     installPhase = ''
       runHook preInstall
+
+      npmInstallHook
 
       mkdir -p $out/lib/node_modules/dsh-plugin-guard
       cp -r . $out/lib/node_modules/dsh-plugin-guard/
