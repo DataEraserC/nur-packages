@@ -45,9 +45,9 @@ else
       mkdir -p $out/bin
       cp scripts/boot-guard.sh $out/bin/boot-guard.sh
       substituteInPlace $out/bin/boot-guard.sh \
-        --replace-quiet 'setsid "$dsh_cmd" web' 'setsid "$dsh_cmd" --profile "$PROFILE" $EXTRA_DSH_ARGS'
+        --replace-quiet 'setsid "$dsh_cmd" web' 'setsid "$dsh_cmd" --profile "$PROFILE" "''${EXTRA_DSH_ARGS[@]}"'
       substituteInPlace $out/bin/boot-guard.sh \
-        --replace-quiet 'PROFILE="''${PROFILE:-web}"' 'PROFILE="''${PROFILE:-nix-web}"'
+        --replace-quiet 'PROFILE="''${PROFILE:-web}"' 'EXTRA_DSH_ARGS=(); PROFILE="''${PROFILE:-nix-web}"'
       substituteInPlace $out/bin/boot-guard.sh \
         --replace-quiet 'HARNESS_ROOT="''${HARNESS_ROOT:-$(cd "$(dirname "$0")/.." && pwd)}"' \
         'HARNESS_ROOT="''${HARNESS_ROOT:-$(cd "$(dirname "$(readlink -f "$0")")/.." && pwd)}"'
