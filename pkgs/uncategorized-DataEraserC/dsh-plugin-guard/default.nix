@@ -50,6 +50,9 @@ else
       substituteInPlace $out/bin/boot-guard.sh \
         --replace-quiet 'HARNESS_ROOT="''${HARNESS_ROOT:-$(cd "$(dirname "$0")/.." && pwd)}"' \
         'HARNESS_ROOT="''${HARNESS_ROOT:-$(cd "$(dirname "$(readlink -f "$0")")/.." && pwd)}"'
+      substituteInPlace $out/bin/boot-guard.sh \
+        --replace-quiet 'CLI="$HARNESS_ROOT/node_modules/dsh-plugin-guard' \
+        'CLI="$HARNESS_ROOT/lib/node_modules/dsh-plugin-guard'
       chmod +x $out/bin/boot-guard.sh
 
       runHook postInstall
