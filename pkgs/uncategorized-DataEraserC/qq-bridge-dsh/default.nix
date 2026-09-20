@@ -44,6 +44,7 @@ stdenv.mkDerivation {
 
     # ── Full patched package (src + node_modules + all dependencies) ──
     cp -r ${patchedSrc}/* $pkgDir/
+    chmod -R u+w $pkgDir
 
     # ── DSH bundle package.json (must override unwrapped's) ──
     cp ${./package.json} $pkgDir/package.json
