@@ -36,12 +36,21 @@ else
 
     installPhase = ''
       runHook preInstall
+
       mkdir -p $out/lib/node_modules/dsh-plugin-guard
       cp -r . $out/lib/node_modules/dsh-plugin-guard/
+
+      # Create patched boot-guard in bin/ (upstream stays untouched)
+      mkdir -p $out/bin
+      cp scripts/boot-guard.sh $out/bin/boot-guard.sh
+      substituteInPlace $out/bin/boot-guard.sh \
+        --replace-quiet 'setsid "$dsh_cmd" web' 'setsid "$dsh_cmd" --profile "$PROFILE"'
+      substituteInPlace $out/bin/boot-guard.sh \
+        --replace-quiet 'PROFILE="''${PROFILE:-web}"' 'PROFILE="''${PROFILE:-nix-web}"'
+      chmod +x $out/bin/boot-guard.sh
+
       runHook postInstall
     '';
-
-    linkKernelNodeModules = dshPkgs.dsh.dsh-kernel;
 
     postInstall = ''
       test -f $out/lib/node_modules/dsh-plugin-guard/lib/client.js
@@ -66,7 +75,7 @@ else
       homepage = "https://github.com/lxzy-7/dsh-plugin-guard";
       license = lib.licenses.mit;
       maintainers = import ../maintainers.nix;
-      mainProgram = "dsh-guard";
+      mainProgram = "boot-guard.sh";
       platforms = lib.platforms.unix;
     };
   })
