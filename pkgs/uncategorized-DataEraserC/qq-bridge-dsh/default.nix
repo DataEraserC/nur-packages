@@ -2,10 +2,12 @@
   lib,
   stdenv,
   pkgs,
-  inputs ? null,
   runCommand,
   nodejs,
   nix-update-script,
+  # Runtime path to qq-bridge data directory (config.json, state/).
+  # Override via: pkgs.qq-bridge-dsh.override { qqBridgeHome = "/custom/path"; }
+  qqBridgeHome ? "~/.local/share/qq-bridge",
 }:
 
 let
@@ -15,74 +17,88 @@ let
   src = "${unwrapped}/lib/node_modules/qq-bridge";
   bundleSrc = runCommand "qq-bridge-dsh-src" { } ''
     mkdir -p $out
+
+    # ── Patched source tree ──
+    # MCP servers import sibling modules (./sensitive.js, ./safe-fetch.js, etc.),
+    # so we copy the entire src/ directory and patch ROOT in-place.
+    # In NixOS the store is read-only; ROOT falls back to $QQ_BRIDGE_HOME at runtime.
+    cp -r ${src}/src $out/src
+    chmod -R u+w $out/src
+    for f in mcp-snowluma-safe.js mcp-host-server.js; do
+      substituteInPlace $out/src/$f \
+        --replace 'const ROOT = path.resolve(__dirname, '"'"'..'"'"');' \
+                  'const ROOT = process.env.QQ_BRIDGE_HOME || path.resolve(__dirname, '"'"'..'"'"');'
+    done
+
     substitute ${./package.json} $out/package.json --replace '@VERSION@' '${version}'
     substitute ${./cordis.patch.yml} $out/cordis.patch.yml \
       --replace '@NODE@' '${node}' \
-      --replace '@SRC@' '${src}'
+      --replace '@PKGDIR@' '$out' \
+      --replace '@QQ_BRIDGE_HOME@' '${qqBridgeHome}'
     substitute ${./dsh-bundles.json} $out/dsh-bundles.json \
       --replace '@VERSION@' '${version}'
   '';
 in
-if inputs == null then
-  throw "qq-bridge-dsh requires the deepseek-harness flake input; evaluate it through the flake (nix build .#qq-bridge-dsh)"
-else
-  stdenv.mkDerivation {
-    pname = "qq-bridge-dsh";
-    inherit version;
+stdenv.mkDerivation {
+  pname = "qq-bridge-dsh";
+  inherit version;
 
-    src = bundleSrc;
-    dontUnpack = true;
+  src = bundleSrc;
+  dontUnpack = true;
 
-    installPhase = ''
-      runHook preInstall
+  installPhase = ''
+    runHook preInstall
 
-      pkgDir=$out/lib/node_modules/qq-bridge-dsh
-      mkdir -p $pkgDir
+    pkgDir=$out/lib/node_modules/qq-bridge-dsh
+    mkdir -p $pkgDir
 
-      cp $src/package.json $pkgDir/
-      cp $src/cordis.patch.yml $pkgDir/
+    cp $src/package.json $pkgDir/
+    cp $src/cordis.patch.yml $pkgDir/
 
-      # ── Preset files ──
-      presetDir=$out/share/qq-bridge-presets
-      mkdir -p $presetDir
-      cp -r ${src}/dsh/agent-presets/* $presetDir/
+    # ── Patched source tree (MCP servers + all sibling modules) ──
+    cp -r $src/src $pkgDir/src
 
-      # ── qq-mode-console plugin ──
-      pluginDir=$pkgDir/plugins/qq-mode-console
-      mkdir -p $pluginDir
-      cp -r ${src}/plugins/qq-mode-console/* $pluginDir/
+    # ── Preset files ──
+    presetDir=$out/share/qq-bridge-presets
+    mkdir -p $presetDir
+    cp -r ${src}/dsh/agent-presets/* $presetDir/
 
-      # ── DSH bundle metadata ──
-      mkdir -p $out/nix-support
-      substitute $src/dsh-bundles.json $out/nix-support/dsh-bundles.json \
-        --replace '@PKGDIR@' "$pkgDir"
+    # ── qq-mode-console plugin ──
+    pluginDir=$pkgDir/plugins/qq-mode-console
+    mkdir -p $pluginDir
+    cp -r ${src}/plugins/qq-mode-console/* $pluginDir/
 
-      runHook postInstall
-    '';
+    # ── DSH bundle metadata ──
+    mkdir -p $out/nix-support
+    substitute $src/dsh-bundles.json $out/nix-support/dsh-bundles.json \
+      --replace '@PKGDIR@' "$pkgDir"
 
-    passthru = {
-      inherit unwrapped;
-      dshBundle = true;
-      dshBundleHelper = "buildDshBundle";
-      runtimeDeps = [ ];
-      aiProvenance = [
-        {
-          agent = "dsh";
-          model = "mimo-v2.5-free";
-          involvement = "assisted";
-        }
-      ];
-      updateScript = nix-update-script {
-        attrPath = "qq-bridge-dsh";
-        extraArgs = [ "--flake" ];
-      };
+    runHook postInstall
+  '';
+
+  passthru = {
+    inherit unwrapped qqBridgeHome;
+    dshBundle = true;
+    dshBundleHelper = "buildDshBundle";
+    runtimeDeps = [ ];
+    aiProvenance = [
+      {
+        agent = "dsh";
+        model = "mimo-v2.5-free";
+        involvement = "assisted";
+      }
+    ];
+    updateScript = nix-update-script {
+      attrPath = "qq-bridge-dsh";
+      extraArgs = [ "--flake" ];
     };
+  };
 
-    meta = {
-      description = "DSH bundle for qq-bridge: MCP servers and agent presets";
-      homepage = "https://github.com/Derpyu520/qq-bridge";
-      license = lib.licenses.mit;
-      maintainers = import ../maintainers.nix;
-      platforms = lib.platforms.unix;
-    };
-  }
+  meta = {
+    description = "DSH bundle for qq-bridge: MCP servers and agent presets";
+    homepage = "https://github.com/Derpyu520/qq-bridge";
+    license = lib.licenses.mit;
+    maintainers = import ../maintainers.nix;
+    platforms = lib.platforms.unix;
+  };
+}

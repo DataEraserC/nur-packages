@@ -1,5 +1,10 @@
 # qq-bridge DSH bundle: MCP servers for QQ ↔ DSH bridge.
 # Paths are substituted at build time by Nix.
+#
+# QQ_BRIDGE_HOME: MCP servers need to read config.json and state/ from the
+# runtime data directory (~/.local/share/qq-bridge by default), not from the
+# read-only Nix store where they are installed. The patched source tree under
+# @PKGDIR@/src/ has ROOT modified to respect this env var.
 - insert:
     - id: mcp-snowluma
       name: "@deepseek-ai/dsh-mcp-client"
@@ -8,7 +13,9 @@
         transport: stdio
         command: "@NODE@"
         args:
-          - "@SRC@/src/mcp-snowluma-safe.js"
+          - "@PKGDIR@/src/mcp-snowluma-safe.js"
+        env:
+          QQ_BRIDGE_HOME: "@QQ_BRIDGE_HOME@"
         toolCallTimeoutMs: 725000
     - id: mcp-snowluma-host
       name: "@deepseek-ai/dsh-mcp-client"
@@ -17,7 +24,9 @@
         transport: stdio
         command: "@NODE@"
         args:
-          - "@SRC@/src/mcp-host-server.js"
+          - "@PKGDIR@/src/mcp-host-server.js"
+        env:
+          QQ_BRIDGE_HOME: "@QQ_BRIDGE_HOME@"
     - id: mcp-web-search-safe
       name: "@deepseek-ai/dsh-mcp-client"
       config:
@@ -25,4 +34,4 @@
         transport: stdio
         command: "@NODE@"
         args:
-          - "@SRC@/src/mcp-web-search-safe.js"
+          - "@PKGDIR@/src/mcp-web-search-safe.js"
