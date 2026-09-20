@@ -33,13 +33,13 @@ let
 in
 stdenv.mkDerivation (finalAttrs: {
   pname = "uni-api";
-  version = "1.7.276-unstable-2026-09-19";
+  version = "1.7.276-unstable-2026-09-20";
   src = fetchFromGitHub {
     owner = "yym68686";
     repo = "uni-api";
-    rev = "23d6a2f6368486c8a9fca42fceee18d60db32151";
+    rev = "d512d09905d63487ea80eb47a9b5d966e442bd9c";
     fetchSubmodules = true;
-    hash = "sha256-SVANOuHtNOfmd/aC2NBs9mMYkWfc7t+U9sPbpSzfqhI=";
+    hash = "sha256-Hh5ns8pc9l1JtHQ+gjM4t8xSD/cuu2+Yy4+XogESclg=";
   };
   nativeBuildInputs = [
     makeWrapper
