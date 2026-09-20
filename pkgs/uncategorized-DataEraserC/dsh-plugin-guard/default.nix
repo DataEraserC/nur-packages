@@ -63,6 +63,8 @@ else
       test -f $out/lib/node_modules/dsh-plugin-guard/lib/client.js
     '';
 
+    linkKernelNodeModules = dshPkgs.dsh.dsh-kernel;
+
     passthru = {
       aiProvenance = [
         {
