@@ -175,6 +175,7 @@
             pgy = import ./modules/pgy.nix;
             cliproxyapi = import ./modules/cliproxyapi.nix;
             m365-copilot2api = import ./modules/m365-copilot2api.nix;
+            opencode2api = import ./modules/opencode2api.nix;
           };
 
           hydraJobs.packages.x86_64-linux = self.hydraPackages.x86_64-linux;
