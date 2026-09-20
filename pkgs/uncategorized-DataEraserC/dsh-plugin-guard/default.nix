@@ -39,7 +39,10 @@ else
       npmInstallHook
 
       mkdir -p $out/lib/node_modules/dsh-plugin-guard
-      cp -r . $out/lib/node_modules/dsh-plugin-guard/
+      for item in *; do
+        [ "$item" = "node_modules" ] && continue
+        cp -r "$item" $out/lib/node_modules/dsh-plugin-guard/
+      done
 
       # Create patched boot-guard in bin/ (upstream stays untouched)
       mkdir -p $out/bin
