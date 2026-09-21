@@ -169,7 +169,16 @@ let
       runHook postInstall
     '';
 
-    passthru.updateScript = [ (toString ./update.sh) ];
+    passthru = {
+      updateScript = [ (toString ./update.sh) ];
+      aiProvenance = [
+        {
+          agent = "dsh";
+          model = "deepseek-v4-flash";
+          involvement = "assisted";
+        }
+      ];
+    };
 
     meta = {
       description = "Interactive desktop companion with real-time reactions to keyboard, mouse, and gamepad input";
