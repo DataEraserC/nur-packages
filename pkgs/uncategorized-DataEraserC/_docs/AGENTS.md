@@ -23,3 +23,24 @@
 ## 生成式 Lockfile
 
 - **脚本必须幂等**：进入包管理器之前先取 `SRC_BEFORE=$(nix build --no-link --print-out-paths ".#$UPDATE_NIX_ATTR_PATH.src")`，`nix-update "$UPDATE_NIX_ATTR_PATH" --src-only` 之后再取一次，两者相同就 `exit 0`（源码没变 → lockfile 不可能有理由变化）。否则每次更新都会让 semver 范围整体浮动、重写 lockfile 与 `npmDepsHash`，产出“版本号不变、只改哈希”的空转提交（实测 cliproxyapi-management-center 连续 4 次）并让二进制缓存反复失效。重新生成前还必须把已提交的 lockfile 复制进新源码树做种子（`cp "$SCRIPT_DIR/package-lock.json" package-lock.json`）再 `npm install`，否则已锁定的版本会无谓上浮；shebang 里的 `nodejs` 要与派生中的 `nodejs = nodejs_24` 对齐。
+
+## Fork 特有规则（下游对上游 AGENTS.md 的差异）
+
+以下规则仅适用于本 DataEraserC fork，不适用于上游 xddxdd/nur-packages。根目录 `AGENTS.md` 中对应位置已替换为指向本文件的引用。
+
+### Fork 仓库管理
+
+- **本仓库是 xddxdd/nur-packages 的 DataEraserC fork**：上游出现较大改动时（上次是上游把 nvfetcher 换掉）才从 `upstream/master` 全新重建分支，只保留 `pkgs/uncategorized-DataEraserC/`、自有模块（`modules/` 下的 `pgy`/`cpolar`/`hkdm`/`aw88399-legion-audio`/`cliproxyapi` 与 `modules/AGENTS.md`）、`AGENTS.md` 和自有工具/工作流（上游工作流原样放回 `.github/workflows/upstream/`，不启用）；缓存是 `dataeraserc.cachix.org`（`helpers/meta.nix`），CI 只构建上传自有目录里的包（`tools/build_own_cachix.py`）。**fork 自己的经验写进最近的一处 `AGENTS.md`**——`modules/AGENTS.md`（自有模块）、`pkgs/uncategorized-DataEraserC/<pkg>/AGENTS.md`（单包）、`pkgs/uncategorized-DataEraserC/_docs/AGENTS.md`（跨包/跨工具），三处都在保留范围内，改对应部分前先读；只有跨包跨工具的规则才写本文件
+- **自定义包的 `update.sh` 只读 `UPDATE_NIX_ATTR_PATH`/`UPDATE_NIX_OLD_VERSION`，再调 `nix-update "$UPDATE_NIX_ATTR_PATH" --version ...`**（多 URL/哈希的多平台包自己 sed/改写后逐个 `nix store prefetch-file` 回填哈希）
+
+### 包元数据（维护者）
+
+- **包含 xddxdd 或 DataEraserC，自有目录统一引用共享列表**：维护者列表至少含仓库负责人之一；nixpkgs 没有 `DataEraserC` 条目（`with lib.maintainers; [ DataEraserC ]` 求值即报 `undefined variable`，`nix-update` 与 `tools/check_package_meta.py` 都会触发），故 `pkgs/uncategorized-DataEraserC/` 的包一律写 `maintainers = import ../maintainers.nix;`（条目须含 `name` 与 `github`，且文件必须 `git add`，否则 flake 求值报 is not tracked by Git）
+
+### AI 参与记录规范
+
+AI 不写进 `meta.maintainers`（其语义是"谁负责、能 ping 谁"），AI 参与只用下面两个渠道，且 `passthru` 只写在迁移时会保留的 `pkgs/uncategorized-DataEraserC/` 内。
+
+- **包级来源用 `passthru.aiProvenance`**（不进 `meta`、不影响构建）：`passthru.aiProvenance = [ { agent = "dsh"; model = "deepseek-v4-flash"; involvement = "assisted"; } ];`——`agent` 必填，`model` 确实在用时才写、无法确证就省略（不要猜），`involvement` 取 `authored`/`assisted`/`reviewed`；查询 `nix eval --json .#<pkg>.passthru.aiProvenance`
+- **变更级来源用 commit trailer**：`passthru` 覆盖不到的文件（`modules/`、`update.sh`、`AGENTS.md` 等）加 `Assisted-by: dsh:deepseek-v4-flash`（`<agent>:<model>`，沿用内核 AI Coding Assistants 约定，不要用 `Co-authored-by`）
+- **不要新增自定义 `meta.*` 字段**（`checkMeta = true` 会硬失败 `key '...' is unrecognized`，`passthru` 不在校验范围），并且只在实质性参与时标注（构建逻辑、模块、更新脚本标；纯机械改动不标）

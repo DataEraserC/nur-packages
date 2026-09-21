@@ -1,11 +1,11 @@
 # NUR 包创建规则
 
+> **下游特有规则**：本仓库是 [xddxdd/nur-packages](https://github.com/xddxdd/nur-packages) 的 DataEraserC fork。本文件保留上游原版内容，下游特有规则（Fork 仓库管理、维护者列表、AI 参与记录等）请查阅 [`pkgs/uncategorized-DataEraserC/_docs/AGENTS.md`](pkgs/uncategorized-DataEraserC/_docs/AGENTS.md) 中的「Fork 特有规则」章节；自有模块的规则在 [`modules/AGENTS.md`](modules/AGENTS.md)；单包经验在各包目录的 `AGENTS.md`。
+
 ## 工作流程
 
 - **持续更新文档**：每次根据用户建议修改包后，应将可推广的经验教训更新到本文档（AGENTS.md）中
 - **提炼通用规则**：关注用户指出的模式、最佳实践和常见错误，将其转化为可应用于其他包的通用规则
-- **本仓库是 xddxdd/nur-packages 的 DataEraserC fork**：上游出现较大改动时（上次是上游把 nvfetcher 换掉）才从 `upstream/master` 全新重建分支，只保留 `pkgs/uncategorized-DataEraserC/`、自有模块（`modules/` 下的 `pgy`/`cpolar`/`hkdm`/`aw88399-legion-audio`/`cliproxyapi` 与 `modules/AGENTS.md`）、`AGENTS.md` 和自有工具/工作流（上游工作流原样放回 `.github/workflows/upstream/`，不启用）；缓存是 `dataeraserc.cachix.org`（`helpers/meta.nix`），CI 只构建上传自有目录里的包（`tools/build_own_cachix.py`）。**fork 自己的经验写进最近的一处 `AGENTS.md`**——`modules/AGENTS.md`（自有模块）、`pkgs/uncategorized-DataEraserC/<pkg>/AGENTS.md`（单包）、`pkgs/uncategorized-DataEraserC/_docs/AGENTS.md`（跨包/跨工具），三处都在保留范围内，改对应部分前先读；只有跨包跨工具的规则才写本文件
-- **自定义包的 `update.sh` 只读 `UPDATE_NIX_ATTR_PATH`/`UPDATE_NIX_OLD_VERSION`，再调 `nix-update "$UPDATE_NIX_ATTR_PATH" --version ...`**（多 URL/哈希的多平台包自己 sed/改写后逐个 `nix store prefetch-file` 回填哈希）
 
 ## Nix 包定义规范
 
@@ -67,7 +67,7 @@
 
 - **必须设置**：所有新包都必须设置 `meta.maintainers` 字段
 - **必须为非空列表**：维护者必须是一个非空列表
-- **包含 xddxdd 或 DataEraserC，自有目录统一引用共享列表**：维护者列表至少含仓库负责人之一；nixpkgs 没有 `DataEraserC` 条目（`with lib.maintainers; [ DataEraserC ]` 求值即报 `undefined variable`，`nix-update` 与 `tools/check_package_meta.py` 都会触发），故 `pkgs/uncategorized-DataEraserC/` 的包一律写 `maintainers = import ../maintainers.nix;`（条目须含 `name` 与 `github`，且文件必须 `git add`，否则 flake 求值报 is not tracked by Git）
+- **包含 xddxdd**：维护者列表中必须包含 xddxdd（`github = "xddxdd"`）
 
 ### meta.homepage（主页）
 
@@ -93,14 +93,6 @@
 
 - **有 bin 目录时必须设置**：如果包安装了 `bin` 目录，必须设置 `meta.mainProgram`
 - **主程序必须存在**：设置的主程序名必须在 `bin` 目录中实际存在
-
-## AI 参与记录规范
-
-AI 不写进 `meta.maintainers`（其语义是“谁负责、能 ping 谁”），AI 参与只用下面两个渠道，且 `passthru` 只写在迁移时会保留的 `pkgs/uncategorized-DataEraserC/` 内。
-
-- **包级来源用 `passthru.aiProvenance`**（不进 `meta`、不影响构建）：`passthru.aiProvenance = [ { agent = "dsh"; model = "deepseek-v4-flash"; involvement = "assisted"; } ];`——`agent` 必填，`model` 确实在用时才写、无法确证就省略（不要猜），`involvement` 取 `authored`/`assisted`/`reviewed`；查询 `nix eval --json .#<pkg>.passthru.aiProvenance`
-- **变更级来源用 commit trailer**：`passthru` 覆盖不到的文件（`modules/`、`update.sh`、`AGENTS.md` 等）加 `Assisted-by: dsh:deepseek-v4-flash`（`<agent>:<model>`，沿用内核 AI Coding Assistants 约定，不要用 `Co-authored-by`）
-- **不要新增自定义 `meta.*` 字段**（`checkMeta = true` 会硬失败 `key '...' is unrecognized`，`passthru` 不在校验范围），并且只在实质性参与时标注（构建逻辑、模块、更新脚本标；纯机械改动不标）
 
 ## AppImage 包
 
