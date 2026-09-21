@@ -10,3 +10,4 @@ update-git-commits.txt
 *.cmp
 *.fetchlog
 __pycache__/
+update-results.json
