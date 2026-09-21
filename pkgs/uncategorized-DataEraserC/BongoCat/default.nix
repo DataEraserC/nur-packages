@@ -6,6 +6,7 @@
   cmake,
   ninja,
   pkg-config,
+  wayland-scanner,
   curl,
   libGL,
   libX11,
@@ -13,6 +14,7 @@
   libXfixes,
   wayland,
   libxkbcommon,
+  libffi,
   makeWrapper,
 }:
 
@@ -106,6 +108,7 @@ let
       cmake
       ninja
       pkg-config
+      wayland-scanner
     ];
 
     buildInputs = [
@@ -114,6 +117,7 @@ let
       libX11
       libXi
       libXfixes
+      libffi
     ];
 
     propagatedBuildInputs = [
