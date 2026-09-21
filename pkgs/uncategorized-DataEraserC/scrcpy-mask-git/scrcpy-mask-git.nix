@@ -18,13 +18,13 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "scrcpy-mask-git";
-  version = "0.9.0-unstable-2026-08-16";
+  version = "0.9.0-unstable-2026-09-21";
 
   src = fetchFromGitHub {
     owner = "AkiChase";
     repo = "scrcpy-mask";
-    rev = "02edc6bea7547500eaa95786e7a3ae68c26d05aa";
-    hash = "sha256-UAV1wM0x6YYfzzmFMTUs8PLy1Wiar1zvnkE2WyggUaU=";
+    rev = "f490d8bb86ea305b9a3f6762ed050c98d7e4627a";
+    hash = "sha256-q8Qf6RuIxcH4E8kkNQtaJEk6R+Hz+DGQVmVxZIb88ns=";
     fetchSubmodules = true;
   };
 
