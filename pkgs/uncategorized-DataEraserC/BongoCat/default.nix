@@ -11,6 +11,8 @@
   libX11,
   libXi,
   libXfixes,
+  wayland,
+  libxkbcommon,
   makeWrapper,
 }:
 
@@ -112,6 +114,11 @@ let
       libX11
       libXi
       libXfixes
+    ];
+
+    propagatedBuildInputs = [
+      wayland
+      libxkbcommon
     ];
 
     dontStrip = true;
