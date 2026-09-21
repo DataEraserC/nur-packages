@@ -213,7 +213,13 @@ stdenv.mkDerivation {
   installPhase = ''
     runHook preInstall
     mkdir -p $out/bin
-    makeWrapper ${unwrapped}/share/BongoCat/BongoCat $out/bin/BongoCat
+    makeWrapper ${unwrapped}/share/BongoCat/BongoCat $out/bin/BongoCat \
+      --prefix LD_LIBRARY_PATH : "${
+        lib.makeLibraryPath [
+          wayland
+          libxkbcommon
+        ]
+      }"
     runHook postInstall
   '';
 
