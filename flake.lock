@@ -74,11 +74,11 @@
         "systems": "systems_6"
       },
       "locked": {
-        "lastModified": 1789981299,
-        "narHash": "sha256-7FqFutUgYdatz5RWN/3khz1JdVGmcsxQgTOGDlz0XNE=",
+        "lastModified": 1790066342,
+        "narHash": "sha256-yjUpRcUWdAJz9eJr7T9BIuqjWaYYOamjQRDsIwwh4AI=",
         "owner": "Moraxyc",
         "repo": "deepseek-harness.nix",
-        "rev": "1cbc58ee1847f43cfd997666b8ad66713520127a",
+        "rev": "0e21bce82c84873d28a10432e5ab17ddadedd20a",
         "type": "github"
       },
       "original": {
