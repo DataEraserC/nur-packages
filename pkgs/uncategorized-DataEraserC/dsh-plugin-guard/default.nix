@@ -6,43 +6,31 @@
   fetchFromGitHub,
 }:
 let
-  dshPkgs = if inputs != null then pkgs.extend inputs.deepseek-harness.overlays.default else null;
-  buildBundle = dshPkgs != null;
-in
-stdenv.mkDerivation (finalAttrs: {
-  pname = "dsh-plugin-guard";
   version = "0.3.2";
-
   src = fetchFromGitHub {
     owner = "lxzy-7";
     repo = "dsh-plugin-guard";
-    rev = "v${finalAttrs.version}";
+    rev = "v${version}";
     hash = "sha256-GO08IIRmUtrn5qyGUKZIh9YcsXa8zNA1xKjL5kVfGW8=";
   };
+  buildDshPlugin =
+    dshPkgs:
+    dshPkgs.dsh.buildDshBundle (finalAttrs: {
+      pname = "dsh-plugin-guard";
+      inherit version src;
 
-  dontUnpack = !buildBundle;
+      npmDepsHash = "sha256-w0lU0iyO4MLXHatt3Cjbav85Hqq4IDm4sv8Vq/DdKKQ=";
 
-  npmDepsHash = "sha256-w0lU0iyO4MLXHatt3Cjbav85Hqq4IDm4sv8Vq/DdKKQ=";
+      npmFlags = [ "--legacy-peer-deps" ];
 
-  npmFlags = [ "--legacy-peer-deps" ];
+      postPatch = ''
+        cp ${./package.json} package.json
+        cp ${./package-lock.json} package-lock.json
+      '';
 
-  postPatch = lib.optionalString buildBundle ''
-    cp ${./package.json} package.json
-    cp ${./package-lock.json} package-lock.json
-  '';
+      dontNpmBuild = true;
 
-  dontNpmBuild = true;
-
-  installPhase =
-    if !buildBundle then
-      ''
-        runHook preInstall
-        echo "ERROR: dsh-plugin-guard requires the deepseek-harness flake input. Use: nix build .#dsh-plugin-guard"
-        exit 1
-        runHook postInstall
-      ''
-    else
-      ''
+      installPhase = ''
         runHook preInstall
 
         npmInstallHook
@@ -71,29 +59,40 @@ stdenv.mkDerivation (finalAttrs: {
         runHook postInstall
       '';
 
-  postInstall = lib.optionalString buildBundle ''
-    test -f $out/lib/node_modules/dsh-plugin-guard/lib/client.js
-  '';
+      postInstall = ''
+        test -f $out/lib/node_modules/dsh-plugin-guard/lib/client.js
+      '';
 
-  linkKernelNodeModules = if buildBundle then dshPkgs.dsh.dsh-kernel else null;
+      linkKernelNodeModules = dshPkgs.dsh.dsh-kernel;
 
-  passthru = {
-    aiProvenance = [
-      {
-        agent = "dsh";
-        model = "mimo-v2.5-free";
-        involvement = "authored";
-      }
-    ];
-    updateScript = [ (toString ./update.sh) ];
-  };
+      passthru = {
+        aiProvenance = [
+          {
+            agent = "dsh";
+            model = "mimo-v2.5-free";
+            involvement = "authored";
+          }
+        ];
+        updateScript = [ (toString ./update.sh) ];
+      };
 
-  meta = {
-    description = "Install safety net for DeepSeek Harness: pre-install snapshots, one-click/automatic rollback, guarded boot, and incident reports that auto-trigger agent analysis";
-    homepage = "https://github.com/lxzy-7/dsh-plugin-guard";
-    license = lib.licenses.mit;
-    maintainers = import ../maintainers.nix;
-    mainProgram = "boot-guard.sh";
-    platforms = lib.platforms.unix;
-  };
-})
+      meta = {
+        description = "Install safety net for DeepSeek Harness: pre-install snapshots, one-click/automatic rollback, guarded boot, and incident reports that auto-trigger agent analysis";
+        homepage = "https://github.com/lxzy-7/dsh-plugin-guard";
+        license = lib.licenses.mit;
+        maintainers = import ../maintainers.nix;
+        mainProgram = "boot-guard.sh";
+        platforms = lib.platforms.unix;
+      };
+    });
+in
+if inputs == null then
+  stdenv.mkDerivation {
+    pname = "dsh-plugin-guard";
+    inherit version src;
+    dontUnpack = true;
+    buildPhase = "echo 'ERROR: dsh-plugin-guard requires the deepseek-harness flake input. Use: nix build .#dsh-plugin-guard' && exit 1";
+    installPhase = "true";
+  }
+else
+  buildDshPlugin (pkgs.extend inputs.deepseek-harness.overlays.default)
