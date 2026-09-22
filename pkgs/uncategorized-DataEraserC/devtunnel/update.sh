@@ -29,13 +29,13 @@ if old == new:
     sys.exit(0)
 
 text = open(path).read()
-text = text.replace(f"/cli/{old}/", f"/cli/{new}/")
 text = text.replace(f'version = "{old}";', f'version = "{new}";')
 
 
 def prefetch(url):
+    resolved_url = url.replace("${version}", new)
     out = subprocess.run(
-        ["nix", "store", "prefetch-file", "--json", url],
+        ["nix", "store", "prefetch-file", "--json", resolved_url],
         capture_output=True,
         text=True,
         check=True,
