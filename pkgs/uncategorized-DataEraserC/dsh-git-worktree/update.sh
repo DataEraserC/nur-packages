@@ -1,11 +1,12 @@
 #!/usr/bin/env nix-shell
 #!nix-shell -i bash -p bash -p nodejs_24 -p prefetch-npm-deps -p nix-update
 # shellcheck shell=bash
+set -e
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)
 
 SRC_BEFORE=$(nix build --no-link --print-out-paths ".#$UPDATE_NIX_ATTR_PATH.src")
 
-nix-update "$UPDATE_NIX_ATTR_PATH" --src-only
+nix-update "$UPDATE_NIX_ATTR_PATH" --src-only --flake
 
 SRC_AFTER=$(nix build --no-link --print-out-paths ".#$UPDATE_NIX_ATTR_PATH.src")
 
