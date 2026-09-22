@@ -6,12 +6,12 @@
 }:
 stdenv.mkDerivation {
   pname = "aw88399-legion-audio-patch";
-  version = "0-unstable-2026-09-18";
+  version = "0-unstable-2026-09-21";
 
   src = fetchgit {
     url = "https://github.com/Apps-Used-By-Myself/16iax10h-linux-sound-saga";
-    rev = "fbb8280a2e0c21a74c8b59322b066f2d565fbc91";
-    hash = "sha256-Fsjf8Dt75ZCqeUE4CoggNp1BNAv0c2cCAQ9yTL/TTgI=";
+    rev = "9b84875000eb3a65066f051de3e1cc8da216c5a7";
+    hash = "sha256-CAlstr7UDxO+WNjgmAj4tMTtH8gXOFiV3I4GYwFwwrQ=";
   };
 
   dontBuild = true;
