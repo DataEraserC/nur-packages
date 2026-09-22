@@ -309,9 +309,9 @@ in
         LoadCredential = lib.optionals (cfg.sessionSecretFile != null) [
           "session-secret:${cfg.sessionSecretFile}"
         ];
-        ExecStartPre = lib.optionalString (cfg.sessionSecretFile != null) ''
-          export SESSION_SECRET="$(cat "$CREDENTIALS_DIRECTORY/session-secret")"
-        '';
+        ExecStartPre = lib.optionalString (cfg.sessionSecretFile != null) [
+          "${pkgs.bash}/bin/bash -c 'export SESSION_SECRET=\"$(cat \"$CREDENTIALS_DIRECTORY/session-secret\")\"'"
+        ];
 
         # Hardening
         CapabilityBoundingSet = "";
