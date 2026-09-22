@@ -3,7 +3,6 @@
   pkgs,
   inputs ? null,
   fetchFromGitHub,
-  nix-update-script,
 }:
 let
   dshPkgs = pkgs.extend inputs.deepseek-harness.overlays.default;
@@ -76,10 +75,7 @@ else
           involvement = "authored";
         }
       ];
-      updateScript = nix-update-script {
-        attrPath = "dsh-plugin-guard";
-        extraArgs = [ "--flake" ];
-      };
+      updateScript = [ (toString ./update.sh) ];
     };
 
     meta = {
