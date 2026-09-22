@@ -1,31 +1,23 @@
 {
   lib,
   pkgs,
-  stdenv,
   inputs ? null,
   fetchurl,
 }:
 let
-  dshPkgs = if inputs != null then pkgs.extend inputs.deepseek-harness.overlays.default else null;
-  version = "0.9.2";
-  src = fetchurl {
-    url = "https://registry.npmjs.org/dsh-git-worktree/-/dsh-git-worktree-${version}.tgz";
-    hash = "sha256-PhsyQW7tb/P03pbPfodHuazAgs4BSOdNJ7ee53SfzgM==";
-  };
+  dshPkgs = pkgs.extend inputs.deepseek-harness.overlays.default;
 in
-if dshPkgs == null then
-  stdenv.mkDerivation {
-    pname = "dsh-git-worktree";
-    inherit version src;
-    dontUnpack = true;
-    buildPhase = "echo 'ERROR: dsh-git-worktree requires the deepseek-harness flake input. Use: nix build .#dsh-git-worktree' && exit 1";
-    installPhase = "true";
-    passthru.updateScript = [ (toString ./update.sh) ];
-  }
+if inputs == null then
+  throw "dsh-git-worktree requires the deepseek-harness flake input; evaluate it through the flake (nix build .#dsh-git-worktree)"
 else
   dshPkgs.dsh.buildDshBundle (finalAttrs: {
     pname = "dsh-git-worktree";
-    inherit version src;
+    version = "0.9.2";
+
+    src = fetchurl {
+      url = "https://registry.npmjs.org/dsh-git-worktree/-/dsh-git-worktree-${finalAttrs.version}.tgz";
+      hash = "sha256-PhsyQW7tb/P03pbPfodHuazAgs4BSOdNJ7ee53SfzgM==";
+    };
 
     npmDepsHash = "sha256-EySjNrUvF/TieWPHK4tCFIiGcOXDCUnskgGmzevPKU4=";
 

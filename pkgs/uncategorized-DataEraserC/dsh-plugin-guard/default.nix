@@ -1,33 +1,25 @@
 {
   lib,
   pkgs,
-  stdenv,
   inputs ? null,
   fetchFromGitHub,
 }:
 let
-  dshPkgs = if inputs != null then pkgs.extend inputs.deepseek-harness.overlays.default else null;
-  version = "0.3.2";
-  src = fetchFromGitHub {
-    owner = "lxzy-7";
-    repo = "dsh-plugin-guard";
-    rev = "v${version}";
-    hash = "sha256-GO08IIRmUtrn5qyGUKZIh9YcsXa8zNA1xKjL5kVfGW8=";
-  };
+  dshPkgs = pkgs.extend inputs.deepseek-harness.overlays.default;
 in
-if dshPkgs == null then
-  stdenv.mkDerivation {
-    pname = "dsh-plugin-guard";
-    inherit version src;
-    dontUnpack = true;
-    buildPhase = "echo 'ERROR: dsh-plugin-guard requires the deepseek-harness flake input. Use: nix build .#dsh-plugin-guard' && exit 1";
-    installPhase = "true";
-    passthru.updateScript = [ (toString ./update.sh) ];
-  }
+if inputs == null then
+  throw "dsh-plugin-guard requires the deepseek-harness flake input; evaluate it through the flake (nix build .#dsh-plugin-guard)"
 else
   dshPkgs.dsh.buildDshBundle (finalAttrs: {
     pname = "dsh-plugin-guard";
-    inherit version src;
+    version = "0.3.2";
+
+    src = fetchFromGitHub {
+      owner = "lxzy-7";
+      repo = "dsh-plugin-guard";
+      rev = "v${finalAttrs.version}";
+      hash = "sha256-GO08IIRmUtrn5qyGUKZIh9YcsXa8zNA1xKjL5kVfGW8=";
+    };
 
     npmDepsHash = "sha256-w0lU0iyO4MLXHatt3Cjbav85Hqq4IDm4sv8Vq/DdKKQ=";
 
