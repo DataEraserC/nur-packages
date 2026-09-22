@@ -3,7 +3,6 @@
   stdenv,
   pkgs,
   nodejs,
-  nix-update-script,
   # Runtime path to qq-bridge data directory (config.json, state/).
   # Override via: pkgs.qq-bridge-dsh.override { qqBridgeHome = "/custom/path"; }
   qqBridgeHome ? "~/.local/share/qq-bridge",
@@ -89,10 +88,6 @@ stdenv.mkDerivation {
         involvement = "assisted";
       }
     ];
-    updateScript = nix-update-script {
-      attrPath = "qq-bridge-dsh";
-      extraArgs = [ "--flake" ];
-    };
   };
 
   meta = {
