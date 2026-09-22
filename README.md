@@ -217,7 +217,7 @@ Or, use variables from this repository in case I change them:
 | `x86_64-linux` | `mtranservercore-rs` | [linguaspark-server](https://github.com/LinguaSpark/server) | 0-unstable-2026-07-19 | Lightweight multilingual translation service powered by the pure Rust LinguaSpark inference engine, compatible with multiple translation frontend APIs |
 |  | `n8n-openai-bridge` | [n8n-openai-bridge](https://github.com/sveneisenschmidt/n8n-openai-bridge) | 0.0.17 | OpenAI-compatible API middleware for n8n workflows |
 |  | `ncmdump-rs` | [ncmdump-rs](https://github.com/iqiziqi/ncmdump.rs) | 0.8.0 | NetEase Cloud Music copyright protection file dump by rust |
-|  | `ncmm` | [ncmm](https://github.com/3899/ncmm) | 1.2.2 | Command-line assistant for NetEase Cloud Music musicians |
+|  | `ncmm` | [ncmm](https://github.com/3899/ncmm) | 1.2.3 | Command-line assistant for NetEase Cloud Music musicians |
 |  | `ndrop` | [ndrop](https://github.com/Schweber/ndrop) | 0-unstable-2026-01-25 | Emulate 'tdrop' in niri (run, show and hide programs via keybind - similar to a dropdown terminal) |
 |  | `netboot-xyz` | [netboot-xyz](https://netboot.xyz/) | 3.0.3-RC | Network-based bootable operating system installer based on iPXE |
 |  | `netns-exec` | [netns-exec](https://github.com/pekman/netns-exec) | 0-unstable-2016-07-30 | Run command in Linux network namespace as normal user |
@@ -1511,7 +1511,7 @@ Or, use variables from this repository in case I change them:
 | `x86_64-linux` | `uncategorized.mtranservercore-rs` | [linguaspark-server](https://github.com/LinguaSpark/server) | 0-unstable-2026-07-19 | Lightweight multilingual translation service powered by the pure Rust LinguaSpark inference engine, compatible with multiple translation frontend APIs |
 |  | `uncategorized.n8n-openai-bridge` | [n8n-openai-bridge](https://github.com/sveneisenschmidt/n8n-openai-bridge) | 0.0.17 | OpenAI-compatible API middleware for n8n workflows |
 |  | `uncategorized.ncmdump-rs` | [ncmdump-rs](https://github.com/iqiziqi/ncmdump.rs) | 0.8.0 | NetEase Cloud Music copyright protection file dump by rust |
-|  | `uncategorized.ncmm` | [ncmm](https://github.com/3899/ncmm) | 1.2.2 | Command-line assistant for NetEase Cloud Music musicians |
+|  | `uncategorized.ncmm` | [ncmm](https://github.com/3899/ncmm) | 1.2.3 | Command-line assistant for NetEase Cloud Music musicians |
 |  | `uncategorized.netboot-xyz` | [netboot-xyz](https://netboot.xyz/) | 3.0.3-RC | Network-based bootable operating system installer based on iPXE |
 |  | `uncategorized.netns-exec` | [netns-exec](https://github.com/pekman/netns-exec) | 0-unstable-2016-07-30 | Run command in Linux network namespace as normal user |
 |  | `uncategorized.nftables-fullcone` | [nftables](https://netfilter.org/projects/nftables/) | 1.1.7 | Project that aims to replace the existing {ip,ip6,arp,eb}tables framework |
