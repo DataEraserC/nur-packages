@@ -4,11 +4,18 @@
 set -e
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)
 
-SRC_BEFORE=$(nix build --no-link --print-out-paths ".#$UPDATE_NIX_ATTR_PATH.src")
+# This package lives in a flat group (uncategorized-DataEraserC) and needs
+# flake inputs (deepseek-harness), so we must use --flake. However the
+# flake's packages output flattens groups via lib.isDerivation, exposing
+# only the bare name. helpers/update.nix passes the dotted path through
+# UPDATE_NIX_ATTR_PATH, so strip the group prefix here.
+FLAT_PATH="${UPDATE_NIX_ATTR_PATH##*.}"
 
-nix-update "$UPDATE_NIX_ATTR_PATH" --src-only --flake
+SRC_BEFORE=$(nix build --no-link --print-out-paths ".#$FLAT_PATH.src")
 
-SRC_AFTER=$(nix build --no-link --print-out-paths ".#$UPDATE_NIX_ATTR_PATH.src")
+nix-update "$FLAT_PATH" --src-only --flake
+
+SRC_AFTER=$(nix build --no-link --print-out-paths ".#$FLAT_PATH.src")
 
 if [ "$SRC_BEFORE" = "$SRC_AFTER" ]; then
   exit 0
