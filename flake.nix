@@ -177,6 +177,7 @@
             m365-copilot2api = import ./modules/m365-copilot2api.nix;
             opencode2api = import ./modules/opencode2api.nix;
             new-api = import ./modules/new-api.nix;
+            mimocode2api = import ./modules/mimocode2api.nix;
           };
 
           hydraJobs.packages.x86_64-linux = self.hydraPackages.x86_64-linux;
