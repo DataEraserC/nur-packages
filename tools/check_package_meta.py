@@ -327,11 +327,12 @@ def get_package_info(package_path: str) -> Optional[dict]:
 def get_package_meta(package_path: str) -> dict:
     nix_output = subprocess.run(
         ["nix", "eval", "--json", f".#{package_path}.meta"],
-        check=True,
         text=True,
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
     )
+    if nix_output.returncode != 0:
+        raise RuntimeError(nix_output.stderr)
     return json.loads(nix_output.stdout)
 
 
@@ -355,26 +356,37 @@ def check_package(args) -> bool:
 
     valid = True
 
-    package_info = get_package_info(package_path)
-    if package_info is None:
-        # Skip check of broken package
-        return True
+    try:
+        package_info = get_package_info(package_path)
+        if package_info is None:
+            # Skip check of broken package
+            return True
 
-    package_meta = get_package_meta(package_path)
+        package_meta = get_package_meta(package_path)
 
-    nvfetcher_config = get_package_nvfetcher_config(package_path)
-    nvfetcher_generated = get_package_nvfetcher_generated(package_path)
+        nvfetcher_config = get_package_nvfetcher_config(package_path)
+        nvfetcher_generated = get_package_nvfetcher_generated(package_path)
 
-    autocorrect_package_meta(
-        package_path, package_meta, nvfetcher_config, nvfetcher_generated
-    )
+        autocorrect_package_meta(
+            package_path, package_meta, nvfetcher_config, nvfetcher_generated
+        )
 
-    if not verify_package(package_path, package_meta, package_info):
-        valid = False
-
-    if build:
-        if not validate_package_content(package_path, package_meta):
+        if not verify_package(package_path, package_meta, package_info):
             valid = False
+
+        if build:
+            if not validate_package_content(package_path, package_meta):
+                valid = False
+    except Exception as error:
+        # One broken package (e.g. an external flake input failing to
+        # evaluate) must not abort the checks for every other package.
+        lines = [line.strip() for line in str(error).splitlines() if line.strip()]
+        summary = next(
+            (line for line in lines if line.startswith("error:")),
+            lines[-1] if lines else repr(error),
+        )
+        print(f"{package_path}: check crashed: {summary}")
+        return False
 
     return valid
 

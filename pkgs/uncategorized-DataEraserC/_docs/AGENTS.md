@@ -43,6 +43,8 @@
 
 - **本仓库是 xddxdd/nur-packages 的 DataEraserC fork**：上游出现较大改动时（上次是上游把 nvfetcher 换掉）才从 `upstream/master` 全新重建分支，只保留 `pkgs/uncategorized-DataEraserC/`、自有模块（`modules/` 下的 `pgy`/`cpolar`/`hkdm`/`aw88399-legion-audio`/`cliproxyapi` 与 `modules/AGENTS.md`）、`AGENTS.md` 和自有工具/工作流（上游工作流原样放回 `.github/workflows/upstream/`，不启用）；缓存是 `dataeraserc.cachix.org`（`helpers/meta.nix`），CI 只构建上传自有目录里的包（`tools/build_own_cachix.py`）。**fork 自己的经验写进最近的一处 `AGENTS.md`**——`modules/AGENTS.md`（自有模块）、`pkgs/uncategorized-DataEraserC/<pkg>/AGENTS.md`（单包）、`pkgs/uncategorized-DataEraserC/_docs/AGENTS.md`（跨包/跨工具），三处都在保留范围内，改对应部分前先读；只有跨包跨工具的规则才写本文件
 - **自定义包的 `update.sh` 只读 `UPDATE_NIX_ATTR_PATH`/`UPDATE_NIX_OLD_VERSION`，再调 `nix-update "$UPDATE_NIX_ATTR_PATH" --version ...`**（多 URL/哈希的多平台包自己 sed/改写后逐个 `nix store prefetch-file` 回填哈希）
+- **外部 flake 输入的构建工具链与本仓库 nixpkgs 不兼容时，钉版本而不是 `follows`**：给这类输入设 `inputs.nixpkgs.follows = "nixpkgs"` 会让它用本仓库的新 nixpkgs 求值，若其工具链（如 poetry2nix 无条件向 pypa `build` 传已被 nixpkgs 移除的 `tomli` 形参）不兼容就会报 `unexpected argument`。修法是在 `flake.nix` 里把该输入的 `nixpkgs` 与其构建工具（如 `poetry2nix`）双双钉到**该输入自己 flake.lock 验证过的 commit**（固定 commit 不会被 `nix flake update` 浮动），然后 `nix flake lock` + `nix eval --raw .#<包>.drvPath` + `nix build .#<包>` 端到端验证（钉旧 nixpkgs 的产物 drv 会与该输入 standalone 构建逐字节一致，可作对照）；上游已停更的输入这种钉死是永久性的。实例：LaphaeL-aicmd（2026-09，nixpkgs `2234999` + poetry2nix `d90f9db`）
+- **`tools/check_package_meta.py` 已改为单包失败不中断全仓**：worker 里任何包求值异常（外部输入坏掉等）原先会抛 `RuntimeError` 炸掉整个 multiprocessing pool，其余 1811 个包的检查结果全被掩盖；现在 `check_package` 捕获异常、打印 `check crashed: error: ...` 摘要并把该包判为失败后继续跑。定位具体出错包时用 `nix search --json . '^'` 的键逐包 `nix derivation show .#<pkg>` 扫描，**错误串必须精确匹配**（如 `unexpected argument 'tomli'`——用裸 `tomli` 子串会误报 "atom**tomli**cally" 等词命中的几十个包）
 
 ### 包元数据（维护者）
 

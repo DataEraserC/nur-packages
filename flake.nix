@@ -39,7 +39,8 @@
     };
     LaphaeL-aicmd = {
       url = "github:DataEraserC/LaphaeL-aicmd";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.url = "github:NixOS/nixpkgs/223499992b3dc653197db83a8a39c6c2be30b624";
+      inputs.poetry2nix.url = "github:nix-community/poetry2nix/d90f9db68a4bda31c346be16dfd8d3263be4547e";
     };
     deepseek-harness = {
       url = "github:Moraxyc/deepseek-harness.nix";
