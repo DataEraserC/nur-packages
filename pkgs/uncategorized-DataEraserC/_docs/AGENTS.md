@@ -24,6 +24,10 @@
 - **`cp ${./file}` 从 store 拷入源码树的文件是 444 只读**：`npm pack` 拷进 `$out` 会保留该模式，installPhase 里再 `cp -r` 覆盖同名文件会 `Permission denied`；postPatch 里补一句 `chmod u+w`（经 `jq > tmp && mv` 替换过的文件自带可写位，不受影响）
 - **无 `dsh.client` 半边的插件 `postInstall` 验收测 `lib/index.js`**：`lib/client.js` 只有声明了 `dsh.client` 的 bundle 才有，上面「产物验收」条目里的 client.js 检查只适用于带客户端半边的包
 - **运行期要执行 git 的 bundle 声明 `runtimeDeps = [ git ]`**：`dsh-base` 只带 ripgrep/bubblewrap、kernel 只带 bashInteractive，git 不在默认运行时里（上游 `turn-rewind` 同样声明）
+- **npm tarball 本身已是发布产物时不要重跑构建、也不用手写 installPhase**：上游 `prepublishOnly` 在发布前已跑过打包（如 modlens 的 `dsh/*.js` + vite 产物 `dist/main.js` 随 tarball 发布）时设 `dontNpmBuild = true` 即可；默认 `npmInstallHook` 的 `npm pack --dry-run` 按 packlist 全量拷贝，连没有 `files` 白名单的 tarball 也能整包落进 `$out/lib/node_modules/<pkg>`（作用域包是 `$out/lib/node_modules/@scope/name`），不必照搬 dsh-worktree / dsh-plugin-guard 那段手写 installPhase 循环拷贝
+- **带 `bin` 字段的 bundle 会自动生成 `$out/bin/<名>`，`meta.mainProgram` 因此必填**：`npmInstallHook` 的 `nodejsInstallExecutables` 按 package.json 的 `bin` 造包装脚本（shebang 指向 nodejs-slim），仓库「有 bin 目录必须设 mainProgram」的规则随之命中，名字用 `bin` 里的命令名并在构建产物里复核
+- **`linkKernelNodeModules` 会把引擎自锁版本的同名依赖换成 kernel 的大版本**：kernel 拥有 node_modules 中所有同名包，bundle 的本地副本会被 prune 后改链接到 kernel（modlens 锁 `commander ^13.1.0`，kernel 是 15.0.0；`undici` 恰好同大版本）。插件在子进程里 `spawn(process.execPath, <本包 dist/main.js>)` 跑自带引擎、依赖与插件版本锁定时，用 `linkKernelNodeModulesKeep = [ "commander" "undici" ]` 保住本地副本；`test ! -L` 这类断言必须放 `postFixup`——`postInstall` 在 installPhase 内先于 link 脚本执行，放那里恒过
+- **devDeps 多的生成式 lockfile 首次构建报 `Stream error in the HTTP/2 framing layer` / `couldn't fetch ...registry.npmjs.org` 是网络抖动**：`prefetch-npm-deps` 的 FOD 要抓全平台 optional 依赖（esbuild/biome 各几十个 tarball），失败直接重跑构建即可，**不要**去改 `npmDepsHash`（哈希并没有错）
 
 ## 生成式 Lockfile
 
