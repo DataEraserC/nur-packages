@@ -28,6 +28,8 @@
 - **带 `bin` 字段的 bundle 会自动生成 `$out/bin/<名>`，`meta.mainProgram` 因此必填**：`npmInstallHook` 的 `nodejsInstallExecutables` 按 package.json 的 `bin` 造包装脚本（shebang 指向 nodejs-slim），仓库「有 bin 目录必须设 mainProgram」的规则随之命中，名字用 `bin` 里的命令名并在构建产物里复核
 - **`linkKernelNodeModules` 会把引擎自锁版本的同名依赖换成 kernel 的大版本**：kernel 拥有 node_modules 中所有同名包，bundle 的本地副本会被 prune 后改链接到 kernel（modlens 锁 `commander ^13.1.0`，kernel 是 15.0.0；`undici` 恰好同大版本）。插件在子进程里 `spawn(process.execPath, <本包 dist/main.js>)` 跑自带引擎、依赖与插件版本锁定时，用 `linkKernelNodeModulesKeep = [ "commander" "undici" ]` 保住本地副本；`test ! -L` 这类断言必须放 `postFixup`——`postInstall` 在 installPhase 内先于 link 脚本执行，放那里恒过
 - **devDeps 多的生成式 lockfile 首次构建报 `Stream error in the HTTP/2 framing layer` / `couldn't fetch ...registry.npmjs.org` 是网络抖动**：`prefetch-npm-deps` 的 FOD 要抓全平台 optional 依赖（esbuild/biome 各几十个 tarball），失败直接重跑构建即可，**不要**去改 `npmDepsHash`（哈希并没有错）
+- **`buildDshBundle`（npm 版）默认 `doCheck = false`，要跑上游测试必须显式开**：构建日志里完全没有 `checkPhase` 行就是没跑测试；需在包内显式写 `doCheck = true;` 并自定义 `checkPhase = '' runHook preCheck; node --test; runHook postCheck ''`（`buildNpmPackage` 的 `npmBuildHook` 不会自动把 `scripts.test` 接进 checkPhase）。dsh-oauthpro 实测 325 个测试全过，约 6.5 分钟
+- **生成式 lockfile 不要加 `--legacy-peer-deps`**：本仓库多数 DSH 插件沿用 dsh-git-worktree 的 `npmFlags = [ "--legacy-peer-deps" ]`，但当上游 `dependencies`/`devDependencies` 的 peer 链（如 `@deepseek-ai/dsh-typert-protocol` → `@deepseek-ai/cordis`）依赖 npm 7+ 的自动 peer 安装时，legacy 模式会跳过安装，`node --test` 报 `ERR_MODULE_NOT_FOUND: Cannot find package '@deepseek-ai/cordis'`（构建能过、测试才炸，且该缺失在产物里同样是运行时炸弹）。先用不带 flag 的 `npm install` 生成 lockfile 跑通测试，确认无 peer 报错后就不要加该 flag
 
 ## 生成式 Lockfile
 
