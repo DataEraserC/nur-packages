@@ -24,6 +24,8 @@
 - **`cp ${./file}` 从 store 拷入源码树的文件是 444 只读**：`npm pack` 拷进 `$out` 会保留该模式，installPhase 里再 `cp -r` 覆盖同名文件会 `Permission denied`；postPatch 里补一句 `chmod u+w`（经 `jq > tmp && mv` 替换过的文件自带可写位，不受影响）
 - **无 `dsh.client` 半边的插件 `postInstall` 验收测 `lib/index.js`**：`lib/client.js` 只有声明了 `dsh.client` 的 bundle 才有，上面「产物验收」条目里的 client.js 检查只适用于带客户端半边的包
 - **运行期要执行 git 的 bundle 声明 `runtimeDeps = [ git ]`**：`dsh-base` 只带 ripgrep/bubblewrap、kernel 只带 bashInteractive，git 不在默认运行时里（上游 `turn-rewind` 同样声明）
+- **`buildDshBundle`（npm 版）默认 `doCheck = false`，要跑上游测试必须显式开**：构建日志里完全没有 `checkPhase` 行就是没跑测试；需在包内显式写 `doCheck = true;` 并自定义 `checkPhase = '' runHook preCheck; node --test; runHook postCheck ''`（`buildNpmPackage` 的 `npmBuildHook` 不会自动把 `scripts.test` 接进 checkPhase）。dsh-oauthpro 实测 325 个测试全过，约 6.5 分钟
+- **生成式 lockfile 不要加 `--legacy-peer-deps`**：本仓库多数 DSH 插件沿用 dsh-git-worktree 的 `npmFlags = [ "--legacy-peer-deps" ]`，但当上游 `dependencies`/`devDependencies` 的 peer 链（如 `@deepseek-ai/dsh-typert-protocol` → `@deepseek-ai/cordis`）依赖 npm 7+ 的自动 peer 安装时，legacy 模式会跳过安装，`node --test` 报 `ERR_MODULE_NOT_FOUND: Cannot find package '@deepseek-ai/cordis'`（构建能过、测试才炸，且该缺失在产物里同样是运行时炸弹）。先用不带 flag 的 `npm install` 生成 lockfile 跑通测试，确认无 peer 报错后就不要加该 flag
 
 ## 生成式 Lockfile
 

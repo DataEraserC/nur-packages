@@ -1,0 +1,97 @@
+{
+  "name": "dsh-oauthpro",
+  "version": "0.1.6",
+  "description": "dsh-oauthpro — provider account pool & quota plugin for DeepSeek Harness (Codex/Claude/Cursor/Grok/Antigravity/GLM), live model catalog + balance/quota, macOS/Windows/Linux",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": "^22.19.0 || >=24.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/meyaomiao/dsh-oauthpro.git"
+  },
+  "main": "./packages/dsh-plugin/dist/index.mjs",
+  "exports": {
+    ".": "./packages/dsh-plugin/dist/index.mjs",
+    "./client": "./packages/dsh-plugin/lib/client.js",
+    "./remote": "./packages/dsh-plugin/dist/dockyard-typert.remote.mjs",
+    "./typert": "./packages/dsh-plugin/dist/dockyard-typert.host.mjs",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "packages/dsh-plugin/dist",
+    "packages/dsh-plugin/lib/client.js",
+    "packages/dsh-plugin/cordis.patch.yml",
+    "SECURITY.md",
+    "packages/dsh-plugin/dist/dockyard-typert-shared.mjs",
+    "packages/dsh-plugin/dist/dockyard-typert.remote.mjs",
+    "packages/dsh-plugin/dist/dockyard-typert.host.mjs"
+  ],
+  "scripts": {
+    "build": "node scripts/check-platform-injects.mjs && node scripts/build.mjs && node packages/dsh-plugin/scripts/build-package.mjs",
+    "build:plugin": "node packages/dsh-plugin/scripts/build-package.mjs",
+    "prepack": "node packages/dsh-plugin/scripts/build-package.mjs",
+    "test": "node --test"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./packages/dsh-plugin/cordis.patch.yml"
+    },
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-api-remotes",
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-ui-model-selection"
+      ],
+      "platform": "web"
+    }
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "zod": "^4.4.3"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh-api-remotes": ">=0.1.5-rc.2",
+    "@deepseek-ai/dsh-client-ui-conversation": ">=0.1.5-rc.2",
+    "@deepseek-ai/dsh-client-ui-model-selection": ">=0.1.5-rc.2",
+    "@deepseek-ai/dsh-llm": ">=0.1.5-rc.2",
+    "@deepseek-ai/dsh-llm-pi-ai": ">=0.1.5-rc.2",
+    "@deepseek-ai/dsh-typert-protocol": ">=0.1.5-rc.2",
+    "@earendil-works/pi-ai": ">=0.85.1"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/dsh-api-remotes": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-client-ui-conversation": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-client-ui-model-selection": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-llm": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-llm-pi-ai": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-typert-protocol": {
+      "optional": true
+    },
+    "@earendil-works/pi-ai": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@deepseek-ai/dsh-api-remotes": ">=0.1.5-rc.2",
+    "@deepseek-ai/dsh-client-ui-conversation": ">=0.1.5-rc.2",
+    "@deepseek-ai/dsh-client-ui-model-selection": ">=0.1.5-rc.2",
+    "@deepseek-ai/dsh-llm": ">=0.1.5-rc.2",
+    "@deepseek-ai/dsh-llm-pi-ai": ">=0.1.5-rc.2",
+    "@deepseek-ai/dsh-typert-protocol": ">=0.1.5-rc.2",
+    "@earendil-works/pi-ai": ">=0.85.1",
+    "esbuild": "^0.25.0"
+  },
+  "build": "node scripts/check-platform-injects.mjs && undefined"
+}
