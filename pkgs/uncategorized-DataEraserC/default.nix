@@ -9,6 +9,7 @@ let
     opencode2dsh = p: if inputs == null then ifNotNUR p else p;
     dsh-bas-remote = p: if inputs == null then ifNotNUR p else p;
     dsh-git-worktree = p: if inputs == null then ifNotNUR p else p;
+    dsh-notifier = p: if inputs == null then ifNotNUR p else p;
     modlens = p: if inputs == null then ifNotNUR p else p;
   };
 in
