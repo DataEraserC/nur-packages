@@ -24,7 +24,12 @@ fi
 TMPDIR=$(mktemp -d)
 trap 'rm -rf "$TMPDIR"' EXIT
 
-cp -r "$SRC_AFTER" "$TMPDIR/source"
+if [ -d "$SRC_AFTER" ]; then
+  cp -r "$SRC_AFTER" "$TMPDIR/source"
+else
+  mkdir -p "$TMPDIR/source"
+  tar -xf "$SRC_AFTER" -C "$TMPDIR/source" --strip-components=1
+fi
 chmod -R +w "$TMPDIR/source"
 cd "$TMPDIR/source" || exit 1
 
