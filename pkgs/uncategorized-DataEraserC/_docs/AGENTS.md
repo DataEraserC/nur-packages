@@ -30,6 +30,8 @@
 - **devDeps 多的生成式 lockfile 首次构建报 `Stream error in the HTTP/2 framing layer` / `couldn't fetch ...registry.npmjs.org` 是网络抖动**：`prefetch-npm-deps` 的 FOD 要抓全平台 optional 依赖（esbuild/biome 各几十个 tarball），失败直接重跑构建即可，**不要**去改 `npmDepsHash`（哈希并没有错）
 - **`buildDshBundle`（npm 版）默认 `doCheck = false`，要跑上游测试必须显式开**：构建日志里完全没有 `checkPhase` 行就是没跑测试；需在包内显式写 `doCheck = true;` 并自定义 `checkPhase = '' runHook preCheck; node --test; runHook postCheck ''`（`buildNpmPackage` 的 `npmBuildHook` 不会自动把 `scripts.test` 接进 checkPhase）。dsh-oauthpro 实测 325 个测试全过，约 6.5 分钟
 - **生成式 lockfile 不要加 `--legacy-peer-deps`**：本仓库多数 DSH 插件沿用 dsh-git-worktree 的 `npmFlags = [ "--legacy-peer-deps" ]`，但当上游 `dependencies`/`devDependencies` 的 peer 链（如 `@deepseek-ai/dsh-typert-protocol` → `@deepseek-ai/cordis`）依赖 npm 7+ 的自动 peer 安装时，legacy 模式会跳过安装，`node --test` 报 `ERR_MODULE_NOT_FOUND: Cannot find package '@deepseek-ai/cordis'`（构建能过、测试才炸，且该缺失在产物里同样是运行时炸弹）。先用不带 flag 的 `npm install` 生成 lockfile 跑通测试，确认无 peer 报错后就不要加该 flag
+- **上游回归门不在 `test` script 里时，checkPhase 直接跑它**：如 dsh-notify-relay 只有 `check`/`gate`/`e2e` 等自定义命令，`node .sandbox/gate.cjs` 在沙箱内约 30 秒可跑完（host/client 双语 harness、破坏性变体、loopback HTTP 投递，全离线），而 `e2e`/`live` 才需要外网——`doCheck = true` + 自定义 `checkPhase` 跑前者即可；这类 gate 往往在模块加载期就 `import '@deepseek-ai/dsh-home-paths'`/`dsh-tools`，故 lockfile 必须解析 peerDependencies（见上条）
+- **上游「先打 tag、再 bump package.json」的 DSH 插件**：tag `vX.Y.Z` 的 package.json 仍是上一版（release 资产 tgz 才是 bump 后 pack 的，但不含 `.sandbox/`），所以 src 取 fetchFromGitHub tag、postPatch 用 sed 对齐 version，且 `update.sh` 生成 lockfile 前要做同一条 sed（否则 lockfile 根 version 每次更新都变），详见包内 AGENTS.md
 
 ## 生成式 Lockfile
 
