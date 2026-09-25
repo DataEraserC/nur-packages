@@ -262,6 +262,7 @@ appimageTools.wrapType2 {
 ### update.sh 脚本规范
 
 - **使用 `#!nix-shell` shebang**：`update.sh` 必须使用 `#!/usr/bin/env nix-shell` 加 `#!nix-shell -i bash -p <工具>` 的方式声明依赖工具（如 `nodejs`、`prefetch-npm-deps`），而非先 `nix build nixpkgs#<工具> --print-out-paths` 再引用输出路径
+- **`.src` 是 tarball 文件时必须先解包，不能 `cp -r` 当目录用**：`fetchurl`（npm registry、release 资产等）的 `.src` 在 store 里是单个 `.tgz`/`.tar.gz` **文件**，`cp -r "$SRC" "$TMPDIR/source"` 得到的 `source` 仍是文件，`cd "$TMPDIR/source"` 报「不是目录」使整个更新失败（dsh-git-worktree 实例）。应先 `[ -d "$SRC" ]` 判断：目录源（`fetchFromGitHub` 等）才 `cp -r`；文件源用 `mkdir -p "$TMPDIR/source" && tar -xf "$SRC" -C "$TMPDIR/source" --strip-components=1`（npm tarball 顶层固定为 `package/`，需剥一层）后再 `cd`
 - **示例**：
 
   ```bash
