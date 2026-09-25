@@ -72,11 +72,11 @@
         "systems": "systems_6"
       },
       "locked": {
-        "lastModified": 1790158124,
-        "narHash": "sha256-ik6ZkBVXP15U18X3B3FxY0hKya8LG61YnYOmFuvmj+I=",
+        "lastModified": 1790281345,
+        "narHash": "sha256-GHlbIzJTi5DX1IU06w78FcARKdpht2b4j6DDbI3v+jY=",
         "owner": "Moraxyc",
         "repo": "deepseek-harness.nix",
-        "rev": "a89c804d7aebcc0a9cb0de3cc740c1c7728a0ff2",
+        "rev": "7876734e1d5fae66540e68a19897b41adc80c61e",
         "type": "github"
       },
       "original": {
@@ -467,11 +467,11 @@
     },
     "nixpkgs_5": {
       "locked": {
-        "lastModified": 1790046670,
-        "narHash": "sha256-MYiI+CzL0tuWgRPjGsKCDHqYs2T3OzMlMQWOYWG0qso=",
+        "lastModified": 1790185690,
+        "narHash": "sha256-xJ+X4hBtOcAFGBOe5nAMyMUeF9foJBmIOu3NjBqBycU=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "6774f7bc253789b113a4f39285dc0fa100abeacc",
+        "rev": "4975466d324710c576dc11ad614684e6bd8cad8e",
         "type": "github"
       },
       "original": {
