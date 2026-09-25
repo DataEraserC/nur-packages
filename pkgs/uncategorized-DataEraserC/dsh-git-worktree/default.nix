@@ -12,11 +12,11 @@ if inputs == null then
 else
   dshPkgs.dsh.buildDshBundle (finalAttrs: {
     pname = "dsh-git-worktree";
-    version = "0.9.2";
+    version = "0.9.3";
 
     src = fetchurl {
       url = "https://registry.npmjs.org/dsh-git-worktree/-/dsh-git-worktree-${finalAttrs.version}.tgz";
-      hash = "sha256-PhsyQW7tb/P03pbPfodHuazAgs4BSOdNJ7ee53SfzgM==";
+      hash = "sha256-6g03Z/YchAEmHBAADSk0kKp00PSRfuOKihEI2hlA4Lc=";
     };
 
     npmDepsHash = "sha256-EySjNrUvF/TieWPHK4tCFIiGcOXDCUnskgGmzevPKU4=";
