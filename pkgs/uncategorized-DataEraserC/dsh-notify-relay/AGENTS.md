@@ -1,7 +1,0 @@
-# dsh-notify-relay（DSH 外联通知中继插件）
-
-- **上游发布节奏是「先打 tag、再 bump package.json」**：tag `v0.4.3` 里的 `package.json` version 仍是 `0.4.2`（v0.4.0 → 0.3.3、v0.4.1 → 0.4.0，逐版错一位），而 release 资产 `dsh-notify-relay-<版本>.tgz` 是 bump 之后 `npm pack` 出来的（version 正确，却**不含** `.sandbox/` 测试目录）。因此 src 取 `fetchFromGitHub` 的 tag（保住能跑的回归门），在 `postPatch` 里 `sed -i 's|"version": "[^"]*"|"version": "${finalAttrs.version}"|'` 对齐 version；`update.sh` 生成 lockfile 前必须做**同一条 sed**，否则 lockfile 根 version 永远落后一版（`npm ci` 实测容忍根 version 不一致，但不要依赖这个容错）
-- **lockfile 必须解析 peerDependencies，不能加 `--legacy-peer-deps`**：上游 gate 在模块加载期就 `import '@deepseek-ai/dsh-home-paths'` / `@deepseek-ai/dsh-tools`，没装 peer 会直接 `ERR_MODULE_NOT_FOUND`（测试与运行期一起炸）；让 npm 7+ 自动解析即可，lockfile 共 26 个条目，唯一 devDep `playwright` 没有 install 脚本（`package.json` 无 `scripts` 字段），`npm rebuild` 不会触发浏览器下载
-- **checkPhase 直接跑上游自带的回归门**：`package.json` 没有 `test` script（只有 `check`/`gate`/`e2e`/`live` 等自定义命令），`node .sandbox/gate.cjs` 约 30 秒——host/client 双语 harness、5 个破坏性变体、loopback HTTP 真实投递，沙箱内 loopback 可用且不需外网；需要外网的 `e2e`/`live` 不要挂进 checkPhase
-- **零构建步骤的插件要 `dontNpmBuild = true`**：上游没有 `build` script，`npmBuildHook` 会直接报 `no build script was specified`
-- **产物验收**：`files` 白名单已含 `index.js`/`client.js`/`cordis.patch.yml`，且上游自己声明了 `dsh.bundle.patch` 与 `dsh.client`，无需在 postPatch 注入声明；`npmInstallHook` 会把 prune 后的 peer `node_modules` 拷进 `$out`，随后 `linkKernelNodeModules` 把 kernel 拥有的包替换成内核链接
