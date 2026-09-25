@@ -275,15 +275,15 @@ pkgs.stdenvNoCC.mkDerivation {
     # Build results JSON
     RESULTS="["
     FIRST=true
-    for ATTR_PATH in $SUCCEEDED; do
-      $FIRST || RESULTS="$RESULTS,"
-      FIRST=false
-      RESULTS="$RESULTS$(jq -n --arg a "$ATTR_PATH" '{attrPath: $a, status: "success"}')"
-    done
     for ATTR_PATH in $FAILED; do
       $FIRST || RESULTS="$RESULTS,"
       FIRST=false
       RESULTS="$RESULTS$(jq -n --arg a "$ATTR_PATH" '{attrPath: $a, status: "failed"}')"
+    done
+    for ATTR_PATH in $SUCCEEDED; do
+      $FIRST || RESULTS="$RESULTS,"
+      FIRST=false
+      RESULTS="$RESULTS$(jq -n --arg a "$ATTR_PATH" '{attrPath: $a, status: "success"}')"
     done
     RESULTS="$RESULTS]"
     echo "$RESULTS" | jq '.' > "$RESULTS_FILE"
@@ -301,17 +301,17 @@ pkgs.stdenvNoCC.mkDerivation {
     echo "Failed:  $FAILED_COUNT"
     echo "-----------------------------------------"
 
-    if [ -n "$SUCCEEDED" ]; then
-      echo "Succeeded:"
-      for ATTR_PATH in $SUCCEEDED; do
-        echo "  ✓ $ATTR_PATH"
-      done
-    fi
-
     if [ -n "$FAILED" ]; then
       echo "Failed:"
       for ATTR_PATH in $FAILED; do
         echo "  ✗ $ATTR_PATH"
+      done
+    fi
+
+    if [ -n "$SUCCEEDED" ]; then
+      echo "Succeeded:"
+      for ATTR_PATH in $SUCCEEDED; do
+        echo "  ✓ $ATTR_PATH"
       done
     fi
 

@@ -198,6 +198,10 @@ appimageTools.wrapType2 {
 
 也可通过 flake app 调用：`nix run .#update-pkg -- <参数>`。顶层 `update` 命令会自动执行 `update-package --all`。
 
+### 更新结果展示
+
+- **failed 排最前**：更新结果的三处展示（`helpers/update.nix` 写出的 `update-results.json`、其控制台 Update Summary、工作流写入 `$GITHUB_STEP_SUMMARY` 的表格）一律把 `failed` 条目排在 `success` 之前，便于一眼看到失败项。JSON 生成顺序和控制台分组由 `helpers/update.nix` 控制；GitHub 表格另用 `jq 'sort_by(.status != "failed")'` 排序兜底（消费旧格式 JSON 时同样生效）
+
 ### 脚本文件命名约定
 
 - 包目录下的 `update.*`（如 `update.sh`）：passthru.updateScript 机制的新式更新脚本，由 `helpers/update.nix` 运行器发现并执行，不会被 `update` 命令的 find 循环执行。生成式 lockfile 包（如 pi-web）的更新脚本属于此类：脚本自身负责版本、src 哈希、lockfile 重生成与 `npmDepsHash` 的完整闭环（版本步用 `nix-update --src-only`），不要拆成 passthru + `update-standalone` 双机制（顶层 `update` 先跑 standalone 后跑 passthru，顺序会导致 lockfile 与版本失步）

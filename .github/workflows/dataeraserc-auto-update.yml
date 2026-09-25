@@ -72,7 +72,7 @@ jobs:
             echo "" >> "$GITHUB_STEP_SUMMARY"
             echo "| Package | Status |" >> "$GITHUB_STEP_SUMMARY"
             echo "|---------|--------|" >> "$GITHUB_STEP_SUMMARY"
-            jq -r '.[] | "| \(.attrPath) | \(.status) |"' update-results.json >> "$GITHUB_STEP_SUMMARY"
+            jq -r 'sort_by(.status != "failed") | .[] | "| \(.attrPath) | \(.status) |"' update-results.json >> "$GITHUB_STEP_SUMMARY"
             echo "" >> "$GITHUB_STEP_SUMMARY"
             SUCCESS=$(jq '[.[] | select(.status == "success")] | length' update-results.json)
             FAILED=$(jq '[.[] | select(.status == "failed")] | length' update-results.json)
