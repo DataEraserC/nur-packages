@@ -4,10 +4,18 @@
   pkgs,
   nodejs,
   coreutils,
+  # Data-dir default baked into the wrapper. Empty keeps the dynamic
+  # ${XDG_DATA_HOME:-$HOME/.local/share}/qq-bridge fallback; a non-empty value
+  # becomes the fallback instead (runtime env QQ_BRIDGE_HOME still wins, and
+  # paths must not contain spaces). Must resolve to the same directory that
+  # qq-bridge-dsh's qqBridgeHome override resolves to — see AGENTS.md.
+  qqBridgeHome ? "",
 }:
 
 let
   unwrapped = pkgs.callPackage ../qq-bridge-unwrapped { };
+  defaultHome =
+    if qqBridgeHome != "" then qqBridgeHome else "\${XDG_DATA_HOME:-$HOME/.local/share}/qq-bridge";
 in
 stdenv.mkDerivation {
   pname = "qq-bridge";
@@ -29,7 +37,7 @@ stdenv.mkDerivation {
     }:$PATH"
 
     # Config/data directory: QQ_BRIDGE_HOME > XDG_DATA_HOME > ~/.local/share
-    QQ_BRIDGE_HOME="''${QQ_BRIDGE_HOME:-''${XDG_DATA_HOME:-$HOME/.local/share}/qq-bridge}"
+    QQ_BRIDGE_HOME="''${QQ_BRIDGE_HOME:-${defaultHome}}"
     mkdir -p "$QQ_BRIDGE_HOME"
 
     # First run: copy entire package tree to writable location
@@ -54,12 +62,17 @@ stdenv.mkDerivation {
   '';
 
   passthru = {
-    inherit unwrapped;
+    inherit unwrapped qqBridgeHome;
     aiProvenance = [
       {
         agent = "dsh";
         model = "mimo-v2.5-free";
         involvement = "assisted";
+      }
+      {
+        agent = "dsh";
+        model = "mimo-v2.6-flash-free";
+        involvement = "authored";
       }
     ];
   };
