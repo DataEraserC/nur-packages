@@ -23,10 +23,10 @@
 }:
 stdenv.mkDerivation (finalAttrs: {
   pname = "easy-cliproxyapi-bin";
-  version = "0.3.4";
+  version = "0.3.8";
   src = fetchurl {
     url = "https://github.com/router-for-me/EasyCLIProxyAPI/releases/download/v${finalAttrs.version}/EasyCLIProxyAPI-v${finalAttrs.version}-Linux-amd64.tar.gz";
-    hash = "sha256-CRQqNaqj0UeOQmzvjjS+WJkeTw8G7lIQs4B4lV+hkEk=";
+    hash = "sha256-88wSioWGwaoR8VwylJgdIro4A1J0jgluWYoV4p53F5M=";
   };
 
   nativeBuildInputs = [
