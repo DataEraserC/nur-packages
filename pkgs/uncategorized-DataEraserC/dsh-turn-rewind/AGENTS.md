@@ -1,0 +1,6 @@
+# dsh-turn-rewind
+
+- **src 追 HEAD 用字面量 `rev`，不能用 `tag = "v${finalAttrs.version}"` 插值**：本包的 `nix-update-script { extraArgs = [ "--flake" "--version" "branch" ]; }` 靠「用新 rev 子串替换文件里的旧 rev」推进，插值行里根本没有旧 rev 字面量可替换（`tag` 同理只能跟 `version` 联动，追不了 HEAD）。`version` 与 `rev` 必须是全文唯一的字面量
+- **初次打包的版本号要按 nix-update 的口径算**：branch 模式的版本串 = `releases.atom` 最新 tag 名（含 `v` 前缀，写回时才 `removeprefix("v")`）+ `-unstable-` + `commits/HEAD.atom` 首条 `<updated>` 的日期（**不是** committer date）。因此本包是 `0.3.8-unstable-2026-09-26`（HEAD 87f59ef 的 feed 日期），照此写首次更新才是无操作；若按 `%cs` 写成别的日期，首次更新会产出一个只改日期的空转提交
+- **上游测试在 Nix 沙箱里会因缺机器身份整批失败**：`lib/store.js` 的 `hostIdentity()` 只读 `/etc/machine-id` / `/var/lib/dbus/machine-id`，沙箱里两个都不存在，`node --test` 会成批报 `HOST_ID_UNAVAILABLE`。上游留了逃生口 `DSH_TURN_REWIND_HOST_ID`（必须 64 位小写 hex），在 `checkPhase` 里 `export` 一个固定值即可，不必 `doCheck = false`。取值注意两处断言：`host identity validation fails before creating a shared lock` 给子进程显式传 `'invalid'`（覆盖外层 env，不受影响），而 `a foreign-host shared lock ...` 用 `'0'.repeat(64)` 当远端机器 id——所以导出的值**不能全 0**
+- **`fromPnpmWorkspace` 的产物形态**：`pnpm deploy --prod` 把运行时依赖 `ignore` 放在 `$out/lib/node_modules/ignore`（deploy 根），包目录里的 `node_modules` 是 `linkKernelNodeModules` 指向 `dsh-kernel` 的整目录符号链接（peer `@deepseek-ai/cordis` 等从 kernel 解析）。Node 从包目录逐级向上解析，`ignore` 在上一级命中（实测 `createRequire(pkg/lib/index.js).resolve('ignore')` 正确）；kernel 不带 `ignore`，别把它从部署树里去掉
