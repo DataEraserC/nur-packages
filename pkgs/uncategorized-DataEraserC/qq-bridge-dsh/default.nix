@@ -6,6 +6,12 @@
   # Runtime path to qq-bridge data directory (config.json, state/).
   # Override via: pkgs.qq-bridge-dsh.override { qqBridgeHome = "/custom/path"; }
   qqBridgeHome ? "~/.local/share/qq-bridge",
+  # Extra entries admitted by the presets' execution-time tool guard
+  # (qq-tool-restrict.mjs). Entries ending in "__" extend the MCP namespace
+  # prefix whitelist (SAFE_PREFIXES); all others extend the exact-name set
+  # (SAFE_EXACT). Known-dangerous global tools stay denied regardless.
+  # Override via: pkgs.qq-bridge-dsh.override { extraAllowedTools = [ ... ]; }
+  extraAllowedTools ? [ ],
   python3,
 }:
 
@@ -29,6 +35,31 @@ let
     '';
   });
   patchedSrc = "${patchedUnwrapped}/lib/node_modules/qq-bridge";
+
+  # Appended to every preset's qq-tool-restrict.mjs at build time. The block
+  # runs at module load (after the whitelist consts): "__"-suffixed entries
+  # join SAFE_PREFIXES, others join SAFE_EXACT, and names in
+  # KNOWN_DANGEROUS_GLOBAL_TOOLS are skipped so the deny layer stays absolute.
+  extraToolsSnippet = lib.optionalString (extraAllowedTools != [ ]) ''
+    # ── nix override: extraAllowedTools（构建期注入，勿手工编辑） ──
+    for f in "$presetDir"/*/qq-tool-restrict.mjs; do
+      [ -e "$f" ] || continue
+      chmod u+w "$f"
+      cat >> "$f" <<'QQ_TOOL_EXTRA'
+
+    // ── nix override: extraAllowedTools（构建期注入，勿手工编辑） ──
+    for (const t of ${builtins.toJSON extraAllowedTools}) {
+      if (typeof t !== 'string' || t.length === 0) continue
+      if (KNOWN_DANGEROUS_GLOBAL_TOOLS.includes(t)) continue
+      if (t.endsWith('__')) {
+        if (!SAFE_PREFIXES.includes(t)) SAFE_PREFIXES.push(t)
+      } else {
+        SAFE_EXACT.add(t)
+      }
+    }
+    QQ_TOOL_EXTRA
+    done
+  '';
 in
 stdenv.mkDerivation {
   pname = "qq-bridge-dsh";
@@ -55,6 +86,7 @@ stdenv.mkDerivation {
     presetDir=$out/share/qq-bridge-presets
     mkdir -p $presetDir
     cp -r ${patchedSrc}/dsh/agent-presets/* $presetDir/
+    ${extraToolsSnippet}
 
     # ── cordis.patch.yml: substitute paths, then generate preset rows ──
     cp ${./cordis.patch.yml} $pkgDir/cordis.patch.yml
@@ -79,7 +111,12 @@ stdenv.mkDerivation {
   '';
 
   passthru = {
-    inherit unwrapped patchedUnwrapped qqBridgeHome;
+    inherit
+      unwrapped
+      patchedUnwrapped
+      qqBridgeHome
+      extraAllowedTools
+      ;
     dshBundle = true;
     dshBundleHelper = "buildDshBundle";
     runtimeDeps = [ ];
