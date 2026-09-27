@@ -13,16 +13,16 @@ if inputs == null then
 else
   dshPkgs.dsh.buildDshBundle (finalAttrs: {
     pname = "dsh-notifier";
-    version = "0.12.0";
+    version = "0.13.1";
 
     src = fetchFromGitHub {
       owner = "THEWOLFWALKER";
       repo = "dsh-notifier";
       tag = "v${finalAttrs.version}";
-      hash = "sha256-mj5454vDdsAM/9X5Cv14l/47Xq7edfMgOH6FqfXWviM=";
+      hash = "sha256-nrLC1nrdZC3TWf+ZQMfdkGS/yy6CpOjvfbg0ItXZw6E=";
     };
 
-    npmDepsHash = "sha256-UZs/U2nVWT3VngQMUO+Kr/3JzkxUm2AzKFa08FrUO7s=";
+    npmDepsHash = "sha256-wXu1j29NFl+8J0pyM6AU/SeG618g98qoxNCQivw2GG8=";
 
     dontNpmBuild = true;
 
