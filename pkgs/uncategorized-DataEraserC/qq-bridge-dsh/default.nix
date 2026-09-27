@@ -6,6 +6,7 @@
   # Runtime path to qq-bridge data directory (config.json, state/).
   # Override via: pkgs.qq-bridge-dsh.override { qqBridgeHome = "/custom/path"; }
   qqBridgeHome ? "~/.local/share/qq-bridge",
+  python3,
 }:
 
 let
@@ -50,17 +51,18 @@ stdenv.mkDerivation {
     substituteInPlace $pkgDir/package.json \
       --replace '@VERSION@' '${version}'
 
-    # ── cordis.patch.yml: substitute paths ──
+    # ── Preset files: source of truth for the generated preset rows ──
+    presetDir=$out/share/qq-bridge-presets
+    mkdir -p $presetDir
+    cp -r ${patchedSrc}/dsh/agent-presets/* $presetDir/
+
+    # ── cordis.patch.yml: substitute paths, then generate preset rows ──
     cp ${./cordis.patch.yml} $pkgDir/cordis.patch.yml
     substituteInPlace $pkgDir/cordis.patch.yml \
       --replace '@NODE@' '${node}' \
       --replace '@PKGDIR@' "$pkgDir" \
       --replace '@QQ_BRIDGE_HOME@' '${qqBridgeHome}'
-
-    # ── Preset files ──
-    presetDir=$out/share/qq-bridge-presets
-    mkdir -p $presetDir
-    cp -r ${patchedSrc}/dsh/agent-presets/* $presetDir/
+    ${python3}/bin/python3 ${./generate-preset-rows.py} "$presetDir" "$pkgDir/cordis.patch.yml"
 
     # ── qq-mode-console plugin ──
     pluginDir=$pkgDir/plugins/qq-mode-console
@@ -86,6 +88,11 @@ stdenv.mkDerivation {
         agent = "dsh";
         model = "mimo-v2.5-free";
         involvement = "assisted";
+      }
+      {
+        agent = "dsh";
+        model = "mimo-v2.6-flash-free";
+        involvement = "authored";
       }
     ];
   };
