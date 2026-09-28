@@ -2,8 +2,6 @@
   lib,
   pkgs,
   inputs ? null,
-  fetchFromGitHub,
-  nix-update-script,
 }:
 
 let
@@ -18,12 +16,11 @@ else
     pname = "qq-mode-console";
     inherit version;
 
-    src = fetchFromGitHub {
-      owner = "Derpyu520";
-      repo = "qq-bridge";
-      rev = "v${version}";
-      hash = "sha256-SvepYcZ4hwv5bGHR28vZfKdjRsWGv+eoyTqhxsOx+F0=";
-    };
+    # src/npmDepsHash 跟随 qq-bridge-unwrapped（同仓库同 tag、同一把根 lock、同一组 npmFlags）。
+    # 历史教训：本包曾自带 fetchFromGitHub+本地 hash，而 version 继承 unwrapped 会自动涨号，
+    # auto-update 又因文件里没有 version 行从不更新它 → v0.1.7 切换后实际部署 0.1.5 内容
+    # （cachix 替换掩盖、冷构建 hash mismatch）。改为全派生后此类脱钩在结构上不可能发生。
+    inherit (unwrapped) src;
 
     sourceRoot = "source/plugins/qq-mode-console";
 
@@ -31,7 +28,7 @@ else
       cp ${finalAttrs.src}/package-lock.json .
     '';
 
-    npmDepsHash = "sha256-T01BWiii+F2nFVqrZTlUVC4C24ajucUTcPMeTS4l2+c=";
+    inherit (unwrapped) npmDepsHash;
     npmFlags = [ "--legacy-peer-deps" ];
     dontNpmBuild = true;
 
@@ -46,10 +43,8 @@ else
           involvement = "assisted";
         }
       ];
-      updateScript = nix-update-script {
-        attrPath = "qq-mode-console";
-        extraArgs = [ "--flake" ];
-      };
+      # 无需 updateScript：src/version/npmDepsHash 全部继承自 qq-bridge-unwrapped，
+      # bot 更新 unwrapped 时本包自动跟随，本地没有任何需要单独 bump 的 pin。
     };
 
     meta = {
