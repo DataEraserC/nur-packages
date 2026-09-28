@@ -42,7 +42,16 @@ let
   # KNOWN_DANGEROUS_GLOBAL_TOOLS are skipped so the deny layer stays absolute.
   extraToolsSnippet = lib.optionalString (extraAllowedTools != [ ]) ''
     # ── nix override: extraAllowedTools（构建期注入，勿手工编辑） ──
-    for f in "$presetDir"/*/qq-tool-restrict.mjs; do
+    # 上游 0.1.7 起 preset 目录里只是 re-export 壳：常量（KNOWN_DANGEROUS_…/
+    # SAFE_…）只存在于 bundle 内权威实现的模块作用域，注入壳会因无本地绑定抛
+    # ReferenceError。有实现文件就只注入它；老式内联版本回落到 preset 目录。
+    implFile="$pkgDir/plugins/qq-agent-presets/qq-tool-restrict.mjs"
+    if [ -e "$implFile" ]; then
+      injectTargets="$implFile"
+    else
+      injectTargets="$presetDir"/*/qq-tool-restrict.mjs
+    fi
+    for f in $injectTargets; do
       [ -e "$f" ] || continue
       chmod u+w "$f"
       cat >> "$f" <<'QQ_TOOL_EXTRA'
@@ -86,6 +95,18 @@ stdenv.mkDerivation {
     presetDir=$out/share/qq-bridge-presets
     mkdir -p $presetDir
     cp -r ${patchedSrc}/dsh/agent-presets/* $presetDir/
+
+    # 上游 0.1.7 起 preset 内组件改成了仓内相对路径的 re-export 壳
+    # （'../../../plugins/…'，在仓库 dsh/agent-presets/<p>/ 下成立）；拷到
+    # $out/share 后 ../../../ 指向不存在的 $out/plugins —— 重写到 bundle 内
+    # 权威实现。老版本（完整实现内联，无此 import）时 substitute 静默跳过。
+    for f in "$presetDir"/*/qq-tool-restrict.mjs; do
+      [ -e "$f" ] || continue
+      chmod u+w "$f"
+      substituteInPlace "$f" \
+        --replace "from '../../../plugins/qq-agent-presets/qq-tool-restrict.mjs'" \
+                  "from '$pkgDir/plugins/qq-agent-presets/qq-tool-restrict.mjs'"
+    done
     ${extraToolsSnippet}
 
     # ── cordis.patch.yml: substitute paths, then generate preset rows ──
