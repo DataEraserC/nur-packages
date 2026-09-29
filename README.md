@@ -85,8 +85,8 @@ Or, use variables from this repository in case I change them:
 | `x86_64-linux` | `baidunetdisk` | [baidunetdisk](https://pan.baidu.com/) | 8.7.0 | Baidu Netdisk |
 |  | `baidupcs-go` | [baidupcs-go](https://github.com/qjfoidnh/BaiduPCS-Go) | 4.0.2-unstable-2026-09-09 | Baidu Netdisk commandline client, mimicking Linux shell file handling commands |
 | `x86_64-linux` | `bambu-studio-bin` | [bambu-studio-bin](https://github.com/bambulab/BambuStudio) | 02.05.02.51 | PC Software for BambuLab and other 3D printers |
-|  | `bifrost` | [bifrost](https://github.com/maximhq/bifrost) | 2.2.3 | High-performance AI gateway with unified OpenAI-compatible API |
-|  | `bilibili` | [bilibili](https://app.bilibili.com/) | 1.19.0-1 | Desktop client for Bilibili |
+|  | `bifrost` | [bifrost](https://github.com/maximhq/bifrost) | 2.2.4 | High-performance AI gateway with unified OpenAI-compatible API |
+|  | `bilibili` | [bilibili](https://app.bilibili.com/) | 1.19.0-3 | Desktop client for Bilibili |
 |  | `bin-cpuflags-x86` | [bin-cpuflags-x86](https://github.com/HanabishiRecca/bin-cpuflags-x86) | 1.0.9 | Small CLI tool to detect CPU flags (instruction sets) of X86 binaries |
 |  | `bird-lg-go` | [bird-lg-go](https://github.com/xddxdd/bird-lg-go) | 1.4.8 | BIRD looking glass in Go, for better maintainability, easier deployment & smaller memory footprint |
 |  | `bird-lgproxy-go` | [bird-lgproxy-go](https://github.com/xddxdd/bird-lg-go) | 1.4.8 | BIRD looking glass in Go, for better maintainability, easier deployment & smaller memory footprint |
@@ -106,8 +106,8 @@ Or, use variables from this repository in case I change them:
 | `x86_64-linux` | `cleanuparr` | [cleanuparr](https://github.com/Cleanuparr/Cleanuparr) | 2.10.8 | Advanced download manager for the Servarr ecosystem |
 |  | `click-loglevel` | [click-loglevel](https://github.com/jwodder/click-loglevel) | 0.7.0 | Log level parameter type for Click |
 |  | `cliproxyapi` | [cliproxyapi](https://github.com/router-for-me/CLIProxyAPI) | 8.0.4 | Wrap Gemini CLI, Antigravity, ChatGPT Codex, Claude Code, Qwen Code, iFlow as an OpenAI/Gemini/Claude/Codex compatible API service |
-|  | `cliproxyapi-management-center` | [cliproxyapi-management-center](https://github.com/router-for-me/Cli-Proxy-API-Management-Center) | 1.24.2 | Web management interface for CLIProxyAPI |
-|  | `cliproxyapi-management-center-bin` | [cliproxyapi-management-center-bin](https://github.com/router-for-me/Cli-Proxy-API-Management-Center) | 1.24.2 | Prebuilt web management interface for CLIProxyAPI |
+|  | `cliproxyapi-management-center` | [cliproxyapi-management-center](https://github.com/router-for-me/Cli-Proxy-API-Management-Center) | 1.25.0 | Web management interface for CLIProxyAPI |
+|  | `cliproxyapi-management-center-bin` | [cliproxyapi-management-center-bin](https://github.com/router-for-me/Cli-Proxy-API-Management-Center) | 1.25.0 | Prebuilt web management interface for CLIProxyAPI |
 |  | `cockpy` | [cockpy](https://github.com/Hiro420/CockPY) | 0-unstable-2024-09-07 | Public and open source version of the cbt2 ps I'm working on |
 |  | `comp128` | [comp128](https://github.com/Takuto88/comp128-python) | 1.0.0 | Python implementation of the Comp128 v1-3 GSM authentication algorithms |
 |  | `cpolar` | cpolar | 3.3.12 | cpolar (Polar Cloud): Expose local web services to the public internet with ease. |
@@ -144,7 +144,7 @@ Or, use variables from this repository in case I change them:
 |  | `dsh-turn-rewind` | [dsh-turn-rewind](https://github.com/Anionex/dsh-turn-rewind) | 0.3.8-unstable-2026-09-26 | Turn-level conversation and workspace rewind for DeepSeek Harness powered by a persistent Change Ledger |
 |  | `dsh-worktree` | [dsh-worktree](https://github.com/FlashingChen/dsh-worktree) | 0.1.0 | Codex-style permanent git worktrees for DeepSeek Harness: agent tools, a /worktree command, and session context for durable worktrees |
 |  | `dump978` | [dump978](https://github.com/flightaware/dump978) | 11.1 | FlightAware's 978MHz UAT demodulator |
-| `x86_64-linux` | `easy-cliproxyapi-bin` | [easy-cliproxyapi-bin](https://github.com/router-for-me/EasyCLIProxyAPI) | 0.3.10 | Desktop GUI for CLIProxyAPI that configures popular AI agents |
+| `x86_64-linux` | `easy-cliproxyapi-bin` | [easy-cliproxyapi-bin](https://github.com/router-for-me/EasyCLIProxyAPI) | 0.3.11 | Desktop GUI for CLIProxyAPI that configures popular AI agents |
 |  | `edge-tts` | [edge-tts](https://github.com/rany2/edge-tts) | 7.2.8 | Use Microsoft Edge's online text-to-speech service from Python WITHOUT needing Microsoft Edge or Windows or an API key |
 |  | `ela-widget-tools` | [ela-widget-tools](https://github.com/Liniyous/ElaWidgetTools) | 0-unstable-2026-09-16 | Fluent-UI For QT-Widget |
 |  | `electron_11` | [electron](https://github.com/electron/electron) | 11.5.0 | Cross platform desktop application shell |
@@ -168,7 +168,7 @@ Or, use variables from this repository in case I change them:
 | `x86_64-linux` | `flashbrowser` | [flashbrowser](https://github.com/radubirsan/FlashBrowser) | 0.81 | Browser capable of viewing pages with embedded Flash content |
 |  | `fr24feed` | [fr24feed](https://www.flightradar24.com/share-your-data) | 1.0.57-1 | Flightradar24 Decoder & Feeder lets you effortlessly share ADS-B data with Flightradar24 |
 |  | `ftp-proxy` | [ftp-proxy](http://www.ftpproxy.org/) | 1.2.3 | FTP Proxy Server |
-|  | `funasr` | [funasr](https://www.funasr.com/) | 1.4.16-unstable-2026-09-28 | Fundamental End-to-End Speech Recognition Toolkit and Open Source SOTA Pretrained Models |
+|  | `funasr` | [funasr](https://www.funasr.com/) | 1.4.16-unstable-2026-09-29 | Fundamental End-to-End Speech Recognition Toolkit and Open Source SOTA Pretrained Models |
 |  | `geolite2` | [geolite2](https://dev.maxmind.com/geoip/geoip2/geolite2/) | 2026.09.28 | MaxMind's GeoIP2 GeoLite2 Country, City, and ASN databases |
 |  | `glauth` | [glauth](https://github.com/glauth/glauth) | 2.5.4 | Lightweight LDAP server for development, home use, or CI |
 | `x86_64-linux` | `google-earth-pro` | [google-earth-pro](https://www.google.com/earth/) | 7.3.7.1327 | Google Earth Pro |
@@ -188,7 +188,7 @@ Or, use variables from this repository in case I change them:
 |  | `hoyo-glyphs` | [hoyo-glyphs](https://github.com/SpeedyOrc-C/Hoyo-Glyphs) | 20250529 | Constructed scripts by Hoyoverse 米哈游的架空文字 |
 | `x86_64-linux` | `i915-sriov` | [i915-sriov](https://github.com/strongtz/i915-sriov-dkms) | 2026.09.16-unstable-2026-09-16 | DKMS module of Linux i915 driver with SR-IOV support |
 |  | `igsc` | [igsc](https://github.com/intel/igsc) | 1.3.2 | Intel graphics system controller firmware update library |
-|  | `imewlconverter` | [imewlconverter](https://github.com/studyzy/imewlconverter) | 3.4.3 | FOSS program for converting IME dictionaries |
+|  | `imewlconverter` | [imewlconverter](https://github.com/studyzy/imewlconverter) | 3.5.0 | FOSS program for converting IME dictionaries |
 |  | `invisible-firefox-unwrapped` | [invisible-firefox-unwrapped](https://github.com/feder-cr/invisible-firefox) | 151.0 | Firefox with anti fingerprinting modifications |
 |  | `it-tools` | [it-tools](https://github.com/sharevb/it-tools) | 2026.9.27 | Collection of handy online tools for developers, with great UX |
 |  | `ja-netfilter` | [ja-netfilter](https://3.jetbra.in) | 240701 | ja-netfilter |
@@ -203,7 +203,7 @@ Or, use variables from this repository in case I change them:
 | `x86_64-linux` | `libcrystalhd` | [libcrystalhd](https://launchpad.net/ubuntu/+source/crystalhd) | 0-unstable-2021-01-26 | Broadcom Crystal HD Hardware Decoder (BCM70012/70015) userspace library |
 |  | `libnftnl-fullcone` | [libnftnl](https://netfilter.org/projects/libnftnl/) | 1.3.2 | Userspace library providing a low-level netlink API to the in-kernel nf_tables subsystem |
 |  | `liboqs` | [liboqs](https://openquantumsafe.org) | 0.16.0 | C library for prototyping and experimenting with quantum-resistant cryptography |
-|  | `liboqs-unstable` | [liboqs](https://openquantumsafe.org) | 0-unstable-2026-09-28 | C library for prototyping and experimenting with quantum-resistant cryptography |
+|  | `liboqs-unstable` | [liboqs](https://openquantumsafe.org) | 0-unstable-2026-09-29 | C library for prototyping and experimenting with quantum-resistant cryptography |
 |  | `lightpanda` | [lightpanda](https://lightpanda.io) | 0.4.1 | Headless browser designed for AI and automation |
 | `x86_64-linux` | `linguaspark-server` | [linguaspark-server](https://github.com/LinguaSpark/server) | 0-unstable-2026-07-19 | Lightweight multilingual translation service powered by the pure Rust LinguaSpark inference engine, compatible with multiple translation frontend APIs |
 | `x86_64-linux` | `linguaspark-server-x86-64-v3` | [linguaspark-server](https://github.com/LinguaSpark/server) | 0-unstable-2026-07-19 | Lightweight multilingual translation service powered by the pure Rust LinguaSpark inference engine, compatible with multiple translation frontend APIs |
@@ -316,7 +316,7 @@ Or, use variables from this repository in case I change them:
 |  | `ttyescape` | [ttyescape](https://gitlab.com/postmarketOS/ttyescape) | 0-unstable-2023-03-08 | ttyescape |
 |  | `uesave` | [uesave](https://github.com/trumank/uesave-rs) | 0.7.1 | Library for reading and writing Unreal Engine save files (commonly referred to as GVAS) |
 |  | `uesave-0_3_0` | [uesave](https://github.com/trumank/uesave-rs) | 0.3.0 | Library for reading and writing Unreal Engine save files (commonly referred to as GVAS), older version that works with Palworld |
-|  | `uni-api` | [uni-api](https://github.com/yym68686/uni-api) | 1.7.276-unstable-2026-09-28 | Unifies the management of LLM APIs across multiple backend services |
+|  | `uni-api` | [uni-api](https://github.com/yym68686/uni-api) | 1.7.276-unstable-2026-09-29 | Unifies the management of LLM APIs across multiple backend services |
 | `x86_64-linux` | `unigine-heaven` | [unigine-heaven](https://benchmark.unigine.com/heaven) | 4.0 | Extreme performance and stability test for PC hardware: video card, power supply, cooling system |
 | `x86_64-linux` | `unigine-sanctuary` | [unigine-sanctuary](https://benchmark.unigine.com/sanctuary) | 2.3 | Extreme performance and stability test for PC hardware: video card, power supply, cooling system |
 | `x86_64-linux` | `unigine-superposition` | [unigine-superposition](https://benchmark.unigine.com/superposition) | 1.1 | Extreme performance and stability test for PC hardware: video card, power supply, cooling system |
@@ -324,13 +324,13 @@ Or, use variables from this repository in case I change them:
 | `x86_64-linux` | `unigine-valley` | [unigine-valley](https://benchmark.unigine.com/valley) | 1.0 | Extreme performance and stability test for PC hardware: video card, power supply, cooling system |
 |  | `usque` | [usque](https://github.com/Diniboy1123/usque) | 4.2.1 | Open-source reimplementation of the Cloudflare WARP client's MASQUE protocol |
 |  | `v2dat` | [v2dat](https://github.com/urlesistiana/v2dat) | 0-unstable-2022-12-15 | Cli tool that can unpack v2ray data packages. (Note: This project is for fun ONLY. You should build your own data dirctly from upstreams instead of unpacking a v2ray data pack.) |
-|  | `v2ray-rules-dat` | [v2ray-rules-dat](https://github.com/Loyalsoldier/v2ray-rules-dat) | 202609280014 | V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria. |
+|  | `v2ray-rules-dat` | [v2ray-rules-dat](https://github.com/Loyalsoldier/v2ray-rules-dat) | 202609292207 | V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria. |
 |  | `vbmeta-disable-verification` | [vbmeta-disable-verification](https://github.com/libxzr/vbmeta-disable-verification) | 1.0 | Patch Android vbmeta image and disable verification flags inside |
 |  | `vgpu-unlock-rs` | [vgpu-unlock-rs](https://github.com/mbilker/vgpu_unlock-rs) | 2.5.0 | Unlock vGPU functionality for consumer grade GPUs |
 |  | `vk-hdr-layer` | [vk-hdr-layer](https://github.com/Zamundaaa/VK_hdr_layer) | 0-unstable-2026-08-05 | Vulkan layer utilizing a small color management / HDR protocol for experimentation |
 |  | `vlmcsd` | [vlmcsd](https://github.com/Wind4/vlmcsd) | 1113-unstable-2023-07-28 | KMS Emulator in C |
 |  | `vuetorrent-backend` | [vuetorrent-backend](https://github.com/VueTorrent/vuetorrent-backend) | 2.7.3 | Simple backend service to store configuration server-side |
-|  | `waline` | [waline](https://github.com/walinejs/waline) | 1.43.3 | Server for the Waline comment system |
+|  | `waline` | [waline](https://github.com/walinejs/waline) | 1.43.4 | Server for the Waline comment system |
 |  | `watt-toolkit_2` | [watt-toolkit](https://steampp.net) | 2.8.6 | Cross-platform Steam toolbox |
 |  | `watt-toolkit_bin` | [watt-toolkit_bin](https://steampp.net) | 3.1.0 | an open source cross-platform multi-purpose game toolkit |
 |  | `wechat-uos-sandboxed` | [wechat-uos](https://weixin.qq.com/) | 4.1.1.7 | WeChat desktop with sandbox enabled ($HOME/Documents/WeChat_Data) (Adapted from https://aur.archlinux.org/packages/wechat-uos-bwrap) |
@@ -1396,7 +1396,7 @@ Or, use variables from this repository in case I change them:
 |  | `python3Packages.drissionpage` | [drissionpage](https://github.com/g1879/DrissionPage) | 4.1.1.4 | Python based web automation tool |
 |  | `python3Packages.drissionrecord` | [drissionrecord](https://gitcode.com/g1879/DrissionRecord) | 2.0.2 | Python data recording toolkit |
 |  | `python3Packages.edge-tts` | [edge-tts](https://github.com/rany2/edge-tts) | 7.2.8 | Use Microsoft Edge's online text-to-speech service from Python WITHOUT needing Microsoft Edge or Windows or an API key |
-|  | `python3Packages.funasr` | [funasr](https://www.funasr.com/) | 1.4.16-unstable-2026-09-28 | Fundamental End-to-End Speech Recognition Toolkit and Open Source SOTA Pretrained Models |
+|  | `python3Packages.funasr` | [funasr](https://www.funasr.com/) | 1.4.16-unstable-2026-09-29 | Fundamental End-to-End Speech Recognition Toolkit and Open Source SOTA Pretrained Models |
 |  | `python3Packages.kaldiio` | [kaldiio](https://github.com/nttcslab-sp/kaldiio) | 2.18.1 | Pure python module for reading and writing kaldi ark files |
 |  | `python3Packages.kb-manager` | [kb-manager](https://github.com/dubh3124/OpenWebUI-KB-Manager) | 0.2.0 | Command-line interface (CLI) tool for managing files and knowledge bases in OpenWebUI |
 |  | `python3Packages.loralib` | [loralib](https://arxiv.org/abs/2106.09685) | 0-unstable-2024-12-16 | Implementation of "LoRA: Low-Rank Adaptation of Large Language Models" |
@@ -1439,8 +1439,8 @@ Or, use variables from this repository in case I change them:
 | `x86_64-linux` | `uncategorized.baidunetdisk` | [baidunetdisk](https://pan.baidu.com/) | 8.7.0 | Baidu Netdisk |
 |  | `uncategorized.baidupcs-go` | [baidupcs-go](https://github.com/qjfoidnh/BaiduPCS-Go) | 4.0.2-unstable-2026-09-09 | Baidu Netdisk commandline client, mimicking Linux shell file handling commands |
 | `x86_64-linux` | `uncategorized.bambu-studio-bin` | [bambu-studio-bin](https://github.com/bambulab/BambuStudio) | 02.05.02.51 | PC Software for BambuLab and other 3D printers |
-|  | `uncategorized.bifrost` | [bifrost](https://github.com/maximhq/bifrost) | 2.2.3 | High-performance AI gateway with unified OpenAI-compatible API |
-|  | `uncategorized.bilibili` | [bilibili](https://app.bilibili.com/) | 1.19.0-1 | Desktop client for Bilibili |
+|  | `uncategorized.bifrost` | [bifrost](https://github.com/maximhq/bifrost) | 2.2.4 | High-performance AI gateway with unified OpenAI-compatible API |
+|  | `uncategorized.bilibili` | [bilibili](https://app.bilibili.com/) | 1.19.0-3 | Desktop client for Bilibili |
 |  | `uncategorized.bin-cpuflags-x86` | [bin-cpuflags-x86](https://github.com/HanabishiRecca/bin-cpuflags-x86) | 1.0.9 | Small CLI tool to detect CPU flags (instruction sets) of X86 binaries |
 |  | `uncategorized.bird-lg-go` | [bird-lg-go](https://github.com/xddxdd/bird-lg-go) | 1.4.8 | BIRD looking glass in Go, for better maintainability, easier deployment & smaller memory footprint |
 |  | `uncategorized.bird-lgproxy-go` | [bird-lgproxy-go](https://github.com/xddxdd/bird-lg-go) | 1.4.8 | BIRD looking glass in Go, for better maintainability, easier deployment & smaller memory footprint |
@@ -1493,7 +1493,7 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized.hi3-ii-martian-font` | [hi3-ii-martian-font](https://github.com/Wenti-D/HI3IIMartianFont) | 0-unstable-2023-10-12 | Font for Martian in Honkai Impact 3rd |
 |  | `uncategorized.hoyo-glyphs` | [hoyo-glyphs](https://github.com/SpeedyOrc-C/Hoyo-Glyphs) | 20250529 | Constructed scripts by Hoyoverse 米哈游的架空文字 |
 |  | `uncategorized.igsc` | [igsc](https://github.com/intel/igsc) | 1.3.2 | Intel graphics system controller firmware update library |
-|  | `uncategorized.imewlconverter` | [imewlconverter](https://github.com/studyzy/imewlconverter) | 3.4.3 | FOSS program for converting IME dictionaries |
+|  | `uncategorized.imewlconverter` | [imewlconverter](https://github.com/studyzy/imewlconverter) | 3.5.0 | FOSS program for converting IME dictionaries |
 |  | `uncategorized.invisible-firefox-unwrapped` | [invisible-firefox-unwrapped](https://github.com/feder-cr/invisible-firefox) | 151.0 | Firefox with anti fingerprinting modifications |
 |  | `uncategorized.it-tools` | [it-tools](https://github.com/sharevb/it-tools) | 2026.9.27 | Collection of handy online tools for developers, with great UX |
 |  | `uncategorized.jproxy` | [jproxy](https://github.com/LuckyPuppy514/jproxy) | 3.4.1 | Proxy between Sonarr / Radarr and Jackett / Prowlarr, mainly used to optimize search and improve recognition rate |
@@ -1505,7 +1505,7 @@ Or, use variables from this repository in case I change them:
 | `x86_64-linux` | `uncategorized.libcrystalhd` | [libcrystalhd](https://launchpad.net/ubuntu/+source/crystalhd) | 0-unstable-2021-01-26 | Broadcom Crystal HD Hardware Decoder (BCM70012/70015) userspace library |
 |  | `uncategorized.libnftnl-fullcone` | [libnftnl](https://netfilter.org/projects/libnftnl/) | 1.3.2 | Userspace library providing a low-level netlink API to the in-kernel nf_tables subsystem |
 |  | `uncategorized.liboqs` | [liboqs](https://openquantumsafe.org) | 0.16.0 | C library for prototyping and experimenting with quantum-resistant cryptography |
-|  | `uncategorized.liboqs-unstable` | [liboqs](https://openquantumsafe.org) | 0-unstable-2026-09-28 | C library for prototyping and experimenting with quantum-resistant cryptography |
+|  | `uncategorized.liboqs-unstable` | [liboqs](https://openquantumsafe.org) | 0-unstable-2026-09-29 | C library for prototyping and experimenting with quantum-resistant cryptography |
 |  | `uncategorized.lightpanda` | [lightpanda](https://lightpanda.io) | 0.4.1 | Headless browser designed for AI and automation |
 | `x86_64-linux` | `uncategorized.linguaspark-server` | [linguaspark-server](https://github.com/LinguaSpark/server) | 0-unstable-2026-07-19 | Lightweight multilingual translation service powered by the pure Rust LinguaSpark inference engine, compatible with multiple translation frontend APIs |
 | `x86_64-linux` | `uncategorized.linguaspark-server-x86-64-v3` | [linguaspark-server](https://github.com/LinguaSpark/server) | 0-unstable-2026-07-19 | Lightweight multilingual translation service powered by the pure Rust LinguaSpark inference engine, compatible with multiple translation frontend APIs |
@@ -1580,7 +1580,7 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized.tel42verifier` | [tel42verifier](https://github.com/strexp/tel42verifier) | 0.0.3 | Multi-domain ENUM-based Caller ID verifier for Asterisk |
 |  | `uncategorized.uesave` | [uesave](https://github.com/trumank/uesave-rs) | 0.7.1 | Library for reading and writing Unreal Engine save files (commonly referred to as GVAS) |
 |  | `uncategorized.uesave-0_3_0` | [uesave](https://github.com/trumank/uesave-rs) | 0.3.0 | Library for reading and writing Unreal Engine save files (commonly referred to as GVAS), older version that works with Palworld |
-|  | `uncategorized.uni-api` | [uni-api](https://github.com/yym68686/uni-api) | 1.7.276-unstable-2026-09-28 | Unifies the management of LLM APIs across multiple backend services |
+|  | `uncategorized.uni-api` | [uni-api](https://github.com/yym68686/uni-api) | 1.7.276-unstable-2026-09-29 | Unifies the management of LLM APIs across multiple backend services |
 | `x86_64-linux` | `uncategorized.unigine-heaven` | [unigine-heaven](https://benchmark.unigine.com/heaven) | 4.0 | Extreme performance and stability test for PC hardware: video card, power supply, cooling system |
 | `x86_64-linux` | `uncategorized.unigine-sanctuary` | [unigine-sanctuary](https://benchmark.unigine.com/sanctuary) | 2.3 | Extreme performance and stability test for PC hardware: video card, power supply, cooling system |
 | `x86_64-linux` | `uncategorized.unigine-superposition` | [unigine-superposition](https://benchmark.unigine.com/superposition) | 1.1 | Extreme performance and stability test for PC hardware: video card, power supply, cooling system |
@@ -1592,7 +1592,7 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized.vk-hdr-layer` | [vk-hdr-layer](https://github.com/Zamundaaa/VK_hdr_layer) | 0-unstable-2026-08-05 | Vulkan layer utilizing a small color management / HDR protocol for experimentation |
 |  | `uncategorized.vlmcsd` | [vlmcsd](https://github.com/Wind4/vlmcsd) | 1113-unstable-2023-07-28 | KMS Emulator in C |
 |  | `uncategorized.vuetorrent-backend` | [vuetorrent-backend](https://github.com/VueTorrent/vuetorrent-backend) | 2.7.3 | Simple backend service to store configuration server-side |
-|  | `uncategorized.waline` | [waline](https://github.com/walinejs/waline) | 1.43.3 | Server for the Waline comment system |
+|  | `uncategorized.waline` | [waline](https://github.com/walinejs/waline) | 1.43.4 | Server for the Waline comment system |
 |  | `uncategorized.wechat-uos-sandboxed` | [wechat-uos](https://weixin.qq.com/) | 4.1.1.7 | WeChat desktop with sandbox enabled ($HOME/Documents/WeChat_Data) (Adapted from https://aur.archlinux.org/packages/wechat-uos-bwrap) |
 | `x86_64-linux` | `uncategorized.wine-wechat` | [wine-wechat](https://weixin.qq.com/) | 3.9.12.57 | Wine WeChat x64 (Packaging script adapted from https://aur.archlinux.org/packages/deepin-wine-wechat) |
 | `x86_64-linux` | `uncategorized.wine-wechat-x86` | [wine-wechat-x86](https://weixin.qq.com/) | 3.9.12.56 | Wine WeChat x86 (Packaging script adapted from https://aur.archlinux.org/packages/deepin-wine-wechat) |
@@ -1622,8 +1622,8 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized-DataEraserC.cargo-tauri` | [tauri](https://tauri.app/) | 2.0.1 | Build smaller, faster, and more secure desktop applications with a web frontend |
 |  | `uncategorized-DataEraserC.clang_dev_env` | clang_dev_env |  |  |
 |  | `uncategorized-DataEraserC.clang_dev_env_fhs` | clang_dev_env_fhs-shell |  |  |
-|  | `uncategorized-DataEraserC.cliproxyapi-management-center` | [cliproxyapi-management-center](https://github.com/router-for-me/Cli-Proxy-API-Management-Center) | 1.24.2 | Web management interface for CLIProxyAPI |
-|  | `uncategorized-DataEraserC.cliproxyapi-management-center-bin` | [cliproxyapi-management-center-bin](https://github.com/router-for-me/Cli-Proxy-API-Management-Center) | 1.24.2 | Prebuilt web management interface for CLIProxyAPI |
+|  | `uncategorized-DataEraserC.cliproxyapi-management-center` | [cliproxyapi-management-center](https://github.com/router-for-me/Cli-Proxy-API-Management-Center) | 1.25.0 | Web management interface for CLIProxyAPI |
+|  | `uncategorized-DataEraserC.cliproxyapi-management-center-bin` | [cliproxyapi-management-center-bin](https://github.com/router-for-me/Cli-Proxy-API-Management-Center) | 1.25.0 | Prebuilt web management interface for CLIProxyAPI |
 |  | `uncategorized-DataEraserC.cpolar` | cpolar | 3.3.12 | cpolar (Polar Cloud): Expose local web services to the public internet with ease. |
 |  | `uncategorized-DataEraserC.cudatoolkit_dev_env` | cudatoolkit_dev_env |  |  |
 |  | `uncategorized-DataEraserC.cudatoolkit_dev_env_fhs` | cudatoolkit_dev_env_fhs-shell |  |  |
@@ -1638,7 +1638,7 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized-DataEraserC.dsh-settings-persist` | [dsh-settings-persist](https://github.com/DataEraserC/dsh-settings-persist) | 0.3.1 | Persist DSH Settings edits across nix managed-profile syncs and rebuilds, with auto/manual snapshots and a settings page |
 |  | `uncategorized-DataEraserC.dsh-turn-rewind` | [dsh-turn-rewind](https://github.com/Anionex/dsh-turn-rewind) | 0.3.8-unstable-2026-09-26 | Turn-level conversation and workspace rewind for DeepSeek Harness powered by a persistent Change Ledger |
 |  | `uncategorized-DataEraserC.dsh-worktree` | [dsh-worktree](https://github.com/FlashingChen/dsh-worktree) | 0.1.0 | Codex-style permanent git worktrees for DeepSeek Harness: agent tools, a /worktree command, and session context for durable worktrees |
-| `x86_64-linux` | `uncategorized-DataEraserC.easy-cliproxyapi-bin` | [easy-cliproxyapi-bin](https://github.com/router-for-me/EasyCLIProxyAPI) | 0.3.10 | Desktop GUI for CLIProxyAPI that configures popular AI agents |
+| `x86_64-linux` | `uncategorized-DataEraserC.easy-cliproxyapi-bin` | [easy-cliproxyapi-bin](https://github.com/router-for-me/EasyCLIProxyAPI) | 0.3.11 | Desktop GUI for CLIProxyAPI that configures popular AI agents |
 | `x86_64-linux` | `uncategorized-DataEraserC.escrcpy_appimage` | [escrcpy](https://github.com/keiko233/clash-nyanpasu) | 3.2.0 | Clash GUI based on tauri |
 |  | `uncategorized-DataEraserC.example-package` | example-package-1.0 | 1.0 |  |
 |  | `uncategorized-DataEraserC.fcitx5-pinyin-CustomPinyinDictionary` | [fcitx5-pinyin-CustomPinyinDictionary](https://github.com/wuhgit/CustomPinyinDictionary) | 20260101 | 自建拼音输入法词库，百万常用词汇量，适配 Fcitx5 (Linux / Android) 及 Gboard (Android + Magisk or KernelSU) |
@@ -1662,7 +1662,7 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized-DataEraserC.snell-server` | [snell-server](https://nssurge.com) | v6.0.0rc2 |  |
 |  | `uncategorized-DataEraserC.ttyescape` | [ttyescape](https://gitlab.com/postmarketOS/ttyescape) | 0-unstable-2023-03-08 | ttyescape |
 |  | `uncategorized-DataEraserC.v2dat` | [v2dat](https://github.com/urlesistiana/v2dat) | 0-unstable-2022-12-15 | Cli tool that can unpack v2ray data packages. (Note: This project is for fun ONLY. You should build your own data dirctly from upstreams instead of unpacking a v2ray data pack.) |
-|  | `uncategorized-DataEraserC.v2ray-rules-dat` | [v2ray-rules-dat](https://github.com/Loyalsoldier/v2ray-rules-dat) | 202609280014 | V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria. |
+|  | `uncategorized-DataEraserC.v2ray-rules-dat` | [v2ray-rules-dat](https://github.com/Loyalsoldier/v2ray-rules-dat) | 202609292207 | V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria. |
 |  | `uncategorized-DataEraserC.watt-toolkit_2` | [watt-toolkit](https://steampp.net) | 2.8.6 | Cross-platform Steam toolbox |
 |  | `uncategorized-DataEraserC.watt-toolkit_bin` | [watt-toolkit_bin](https://steampp.net) | 3.1.0 | an open source cross-platform multi-purpose game toolkit |
 | `x86_64-linux` | `uncategorized-DataEraserC.wechat_dev_tools_appimage` | [wechat_dev_tools_appimage](https://github.com/msojocs/wechat-web-devtools-linux) | 2.02.2608070-2 | The development tools for wechat projects |
