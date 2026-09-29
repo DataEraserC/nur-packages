@@ -8,6 +8,7 @@ let
   packages = loadPackages ./. {
     opencode2dsh = p: if inputs == null then ifNotNUR p else p;
     dsh-bas-remote = p: if inputs == null then ifNotNUR p else p;
+    dsh-chat-import = p: if inputs == null then ifNotNUR p else p;
     dsh-git-worktree = p: if inputs == null then ifNotNUR p else p;
     dsh-notifier = p: if inputs == null then ifNotNUR p else p;
     dsh-turn-rewind = p: if inputs == null then ifNotNUR p else p;
