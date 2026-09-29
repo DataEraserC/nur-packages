@@ -35,4 +35,3 @@
         command: "@NODE@"
         args:
           - "@PKGDIR@/src/mcp-web-search-safe.js"
-    # @GENERATED_PRESETS@

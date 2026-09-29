@@ -16,23 +16,16 @@
 
 改动任意一侧的数据目录解析方式时，必须同步另一侧。
 
-## 工具白名单 extra（`extraAllowedTools` override）
+## 分工变更：preset 行与工具白名单已迁至 `qq-agent-presets`
 
-预设插件 `qq-tool-restrict.mjs` 在**执行期**用白名单把关：`SAFE_PREFIXES`（MCP 命名空间前缀）与 `SAFE_EXACT`（精确工具名）之外的调用一律拒绝；`KNOWN_DANGEROUS_GLOBAL_TOOLS`（dev\_\* 管理工具）永远拒绝。host 层 `mcp-snowluma-safe` 的 `allow.groups` / `allow.private` 是「目标群/私聊」维度的门，与工具名白名单无关。
+本包现只负责 **bridge 树 + 三个 MCP server 行**（上节的 `QQ_BRIDGE_HOME` 纪律不变）。
 
-追加工具名单走包 override（改列表 = 重建生效）：
-
-```nix
-nur-DataEraserC.packages.${pkgs.system}.qq-bridge-dsh.override {
-  qqBridgeHome = "/home/${myvars.username}/.local/share/qq-bridge";
-  extraAllowedTools = [
-    "mcp__my-server__"   # 以 __ 结尾 → 追加为命名空间前缀（SAFE_PREFIXES）
-    "some_exact_tool"    # 其余      → 追加为精确名（SAFE_EXACT）
-  ];
-}
-```
-
-- 构建期注入：`extraAllowedTools != []` 时向**每个**预设目录的 `qq-tool-restrict.mjs` 末尾追加注入块（循环匹配，上游新增预设自动覆盖）；默认 `[]` 时不改任何文件（与不带 override 的产物逐字节一致）。
-- 安全边界不降级：名单里若混入 `KNOWN_DANGEROUS_GLOBAL_TOOLS` 的名字会在注入块里被跳过——schema 层 restrict + 执行层 guard 的双拒不受影响。
-- 生效值可用 `passthru.extraAllowedTools` 自检。
-- 下游 nix-config 在 `qqBundles` 的 `.override` 处传入（与 `qqBridgeHome` 同一处）。
+- 预设行（`@deepseek-ai/dsh-agent-preset` + 内联插件列表）与守卫实现
+  `qq-tool-restrict.mjs` 随 preset 组件迁至独立 bundle
+  [`../qq-agent-presets/AGENTS.md`](../qq-agent-presets/AGENTS.md)；
+- **`extraAllowedTools` override 也随迁**——本包不再接受该参数，
+  白名单改在 `qq-agent-presets.override { extraAllowedTools = [ ... ]; }` 传入
+  （下游 nix-config 的 `qqBundles` 已同步）；
+- `generate-preset-rows.py`、`$out/share/qq-bridge-presets` 拷贝、壳相对路径
+  重写（`@GENERATED_PRESETS@` 占位符）均已退役：preset 契约回归上游原生形态
+  （`presets/*.patch.yml` 构建期零改写）。历史成因见 `qq-agent-presets/AGENTS.md`。
