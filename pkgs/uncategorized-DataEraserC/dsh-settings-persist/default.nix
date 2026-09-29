@@ -12,14 +12,14 @@ if inputs == null then
 else
   dshPkgs.dsh.buildDshBundle (finalAttrs: {
     pname = "dsh-settings-persist";
-    version = "0.1.0";
+    version = "0.2.0";
 
     src = fetchFromGitHub {
       owner = "DataEraserC";
       repo = "dsh-settings-persist";
-      rev = "4c00c1254b61fcbb5dd9b89701b68aeda53802a6";
+      rev = "9b55c52c2611a5ce53914369edae2dd20693f416";
       # nix-prefetch-url --unpack of the codeload tarball for the pinned rev.
-      hash = "sha256-BNstcNytolI0f1N79VfbAtpdJDkDc2cyBFo2Id+vDb8=";
+      hash = "sha256-ovQuAzuaD3ypVacZa677Y24fcSoMd33p/Mdl3eZ5yTE=";
     };
 
     # Zero runtime dependencies: the lockfile has no cacheable entries, so
@@ -40,6 +40,7 @@ else
 
     postInstall = ''
       test -f $out/lib/node_modules/dsh-settings-persist/lib/index.js
+      test -f $out/lib/node_modules/dsh-settings-persist/lib/client.js
       test -f $out/lib/node_modules/dsh-settings-persist/cordis.patch.yml
     '';
 
@@ -54,7 +55,7 @@ else
     };
 
     meta = {
-      description = "Persist DSH Settings edits across nix managed-profile syncs by snapshotting and replaying the profile patch document";
+      description = "Persist DSH Settings edits across nix managed-profile syncs and rebuilds, with auto/manual snapshots and a settings page";
       homepage = "https://github.com/DataEraserC/dsh-settings-persist";
       license = lib.licenses.mit;
       maintainers = import ../maintainers.nix;
