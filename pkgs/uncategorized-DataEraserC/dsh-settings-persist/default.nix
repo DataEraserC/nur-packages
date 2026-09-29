@@ -17,9 +17,9 @@ else
     src = fetchFromGitHub {
       owner = "DataEraserC";
       repo = "dsh-settings-persist";
-      rev = "113334f98d78b4994ef613988fe92248ee7c6525";
+      rev = "bf30aadb563cba46cf91f3a0da001ef995ec8771";
       # nix-prefetch-url --unpack of the codeload tarball for the pinned rev.
-      hash = "sha256-89ZHH9uxjVWzufrTQ+627AXXoTIc0IWZItu1R2aQeoE=";
+      hash = "sha256-lPILejW+s/6rQHMMu2jQVpca3ReV2bGh6Wp07pVB6WI=";
     };
 
     # Zero runtime dependencies: the lockfile has no cacheable entries, so
