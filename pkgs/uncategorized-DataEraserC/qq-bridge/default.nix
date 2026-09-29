@@ -10,10 +10,11 @@
   # paths must not contain spaces). Must resolve to the same directory that
   # qq-bridge-dsh's qqBridgeHome override resolves to — see AGENTS.md.
   qqBridgeHome ? "",
+  # TEMP-TEST(qq_get_message_media): 允许注入本地 fork 构建的 unwrapped。
+  unwrapped ? pkgs.callPackage ../qq-bridge-unwrapped { },
 }:
 
 let
-  unwrapped = pkgs.callPackage ../qq-bridge-unwrapped { };
   defaultHome =
     if qqBridgeHome != "" then qqBridgeHome else "\${XDG_DATA_HOME:-$HOME/.local/share}/qq-bridge";
 in

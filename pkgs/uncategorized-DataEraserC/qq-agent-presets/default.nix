@@ -8,11 +8,13 @@
   # (SAFE_EXACT). Known-dangerous global tools stay denied regardless.
   # Override via: pkgs.qq-agent-presets.override { extraAllowedTools = [ ... ]; }
   extraAllowedTools ? [ ],
+  # TEMP-TEST(qq_get_message_media): 允许注入本地 fork 构建的 unwrapped
+  # （presets 的 src 跟随 unwrapped.src，fork 里改了 preset 也要跟上）。
+  unwrapped ? pkgs.callPackage ../qq-bridge-unwrapped { },
 }:
 
 let
   dshPkgs = pkgs.extend inputs.deepseek-harness.overlays.default;
-  unwrapped = pkgs.callPackage ../qq-bridge-unwrapped { };
   inherit (unwrapped) version;
 
   # Appended to qq-tool-restrict.mjs at build time (moved here from
