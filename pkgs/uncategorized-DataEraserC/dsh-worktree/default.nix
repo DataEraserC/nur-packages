@@ -23,6 +23,13 @@ else
 
     npmDepsHash = "sha256-ttKFjT5c9mqm82aKnPSNLJPyp7lEdT3VZtPJUpyLYBE=";
 
+    npmDeps = pkgs.fetchNpmDeps {
+      inherit (finalAttrs) src postPatch;
+      name = "${finalAttrs.pname}-${finalAttrs.version}-npm-deps";
+      hash = finalAttrs.npmDepsHash;
+      nativeBuildInputs = [ jq ];
+    };
+
     npmFlags = [ "--legacy-peer-deps" ];
 
     dontNpmBuild = true;
