@@ -12,14 +12,14 @@ if inputs == null then
 else
   dshPkgs.dsh.buildDshBundle (finalAttrs: {
     pname = "dsh-settings-persist";
-    version = "0.3.1";
+    version = "0.3.2";
 
     src = fetchFromGitHub {
       owner = "DataEraserC";
       repo = "dsh-settings-persist";
-      rev = "e951edc06ef6ac739b4d894661351e61f32914c2";
+      rev = "b75d81174a6b2b8b6fc3ff97ef6339cea1204b88";
       # nix-prefetch-url --unpack of the codeload tarball for the pinned rev.
-      hash = "sha256-ruj2QbJ8MP5tVVWOeXJdSurelC657fqY7VM3TzuRsBg=";
+      hash = "sha256-ZC04UesTSDXLnrVwQVfPjSDTSGKw/UfjByYw883xnoo=";
     };
 
     # Zero runtime dependencies: the lockfile has no cacheable entries, so
