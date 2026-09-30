@@ -8,7 +8,7 @@
   # (SAFE_EXACT). Known-dangerous global tools stay denied regardless.
   # Override via: pkgs.qq-agent-presets.override { extraAllowedTools = [ ... ]; }
   extraAllowedTools ? [ ],
-  # TEMP-TEST(qq_get_message_media): 允许注入本地 fork 构建的 unwrapped
+  # 允许注入本地 fork 构建的 unwrapped
   # （presets 的 src 跟随 unwrapped.src，fork 里改了 preset 也要跟上）。
   unwrapped ? pkgs.callPackage ../qq-bridge-unwrapped { },
 }:

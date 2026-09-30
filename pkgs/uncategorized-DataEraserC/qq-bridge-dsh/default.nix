@@ -8,7 +8,7 @@
   qqBridgeHome ? "~/.local/share/qq-bridge",
   # 工具白名单 extraAllowedTools 已随 preset 组件迁至 qq-agent-presets 包
   # （preset 行独立成 bundle 后守卫实现不再属于本包）。
-  # TEMP-TEST(qq_get_message_media): 允许注入本地 fork 构建的 unwrapped。
+  # 允许注入本地 fork 构建的 unwrapped。
   unwrapped ? pkgs.callPackage ../qq-bridge-unwrapped { },
 }:
 
