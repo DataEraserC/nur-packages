@@ -13,13 +13,13 @@ if inputs == null then
 else
   dshPkgs.dsh.buildDshBundle.fromPnpmWorkspace (finalAttrs: {
     pname = "opencode2dsh";
-    version = "0.3.5";
+    version = "0.3.6";
 
     src = fetchFromGitHub {
       owner = "FishBottle7";
       repo = "opencode2dsh";
       tag = "v${finalAttrs.version}";
-      hash = "sha256-d7b4A/W8BOq6mHS5lp2DNiwgiRv8MZc57R8fjOLjrQg=";
+      hash = "sha256-EvewtMOkIoAH3GpXzOMT8M0v0ZHK6YIb2yqxLNb+V4k=";
     };
 
     sourceRoot = "source/packages/plugin";
