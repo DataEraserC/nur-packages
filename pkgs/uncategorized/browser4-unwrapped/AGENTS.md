@@ -1,0 +1,9 @@
+# browser4-unwrapped 单包经验
+
+> 包装（wrapper、NixOS 模块、运行坑）见 [`../browser4/AGENTS.md`](../browser4/AGENTS.md)；本文件只记构建侧。
+
+- 上游 v4.13.23 的单元测试目标在 Linux 上从未被编译过（`.github/workflows/ci.yml` 只跑 `cargo test --test e2e`，`cargo test` 行被注释掉）。`--lib` 目标引用仅声明在 bin 根（main.rs）的 `crate::test_env`（E0433），bin 目标的 `#[cfg(not(windows))]` 分支调用 `#[cfg(windows)]` 门控的 `windows_powershell_candidates()`（E0425）。处理：`cargoTestFlags = [ "--bins" ]`（bin 根声明了全部共享模块，收窄无测试损失）+ `postPatch` 在 main.rs 末尾追加 `#[cfg(not(windows))]` 空实现 stub（返回 `Vec::new()`，与测试断言的空语义一致）。最终 1284 passed / 0 failed / 2 ignored。
+- 测试里构造 reqwest 客户端的用例在沙箱内报 `No CA certificates were loaded from the system`（reqwest 0.13 rustls → rustls-platform-verifier → rustls-native-certs 找不到系统证书）。修复：`preCheck` 中 `export SSL_CERT_FILE=${cacert}/etc/ssl/certs/ca-bundle.crt`。注意 nixpkgs cacert 只输出 `ca-bundle.crt`，写成 `ca-certificates.crt` 会静默加载到空证书库（文件不存在时 native-certs 记入 errors 但返回空列表），错误原样复现。
+- 双派生架构：`browser4-runtime` 用 fetchurl 拉预编译运行时资产（自带 jlink JRE25、Spring 后端 jar、skills），配 `autoPatchelfHook` 与 `installCheckPhase` 跑 `runtime/bin/java -version`；CLI 用 `buildRustPackage` 源码构建，`cargoRoot` 与 `buildAndTestSubdir` 必须配对为 `cli/browser4-cli`，上游 tag 自带的 Cargo.lock 随包附带（锁定 reqwest 0.13.3 等 245 个依赖）。
+- 本包是**未包装**构建（`pname = "browser4-unwrapped"`、产出裸 `bin/browser4-cli`），`versionCheckHook` 直接以干净环境跑裸二进制的 `--version`（已验证可行，无需 HOME）；`tag` 经 `passthru` 暴露给包装层注入 `--tag`。包装层 `../browser4` 只做 `ln -s` + `wrapProgram`，不重复任何构建逻辑。
+- 版本与资产不齐是该仓库的常态：v4.13.24 tag 无任何 release 资产，HEAD 是 4.14.0-rc.6，故打包钉在 v4.13.23；`update-standalone.sh` 与 `sources.json`、`Cargo.lock` 同目录，用 `git ls-remote --tags`（行尾锚定排除 rc 与 `^{}`）列候选，逐个验证 release 资产与 Cargo.lock 都存在才升级，`nix store prefetch-file [--unpack]` 算哈希，写入后以真实 `nix build .#browser4` 验证、失败回滚备份。脚本经 `git -C $SCRIPT_DIR rev-parse --show-toplevel` 或相对 `../../..` 定位仓库根，移动目录时与 `sources.json`、`Cargo.lock` 保持同级即可。
