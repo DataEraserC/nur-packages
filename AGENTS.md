@@ -1,6 +1,6 @@
-# NUR 包创建规则
-
 > **下游特有规则**：本仓库是 [xddxdd/nur-packages](https://github.com/xddxdd/nur-packages) 的 DataEraserC fork。本文件保留上游原版内容，下游特有规则（Fork 仓库管理、维护者列表、AI 参与记录等）请查阅 [`pkgs/uncategorized-DataEraserC/_docs/AGENTS.md`](pkgs/uncategorized-DataEraserC/_docs/AGENTS.md) 中的「Fork 特有规则」章节；自有模块的规则在 [`modules/AGENTS.md`](modules/AGENTS.md)；单包经验在各包目录的 `AGENTS.md`。
+
+# NUR 包创建规则
 
 ## 工作流程
 
@@ -25,10 +25,8 @@
   - 设置 `doInstallCheck = true`
   - 如果程序需要特定参数来显示版本，设置 `versionCheckProgramArg`（如 `--version`）
 - **不要禁用测试**：`doCheck` 默认启用，不需要设置 `doCheck = false`。仅当上游测试在 Nix 构建环境中确实无法通过时（如需要网络访问、需要特定硬件等），才应禁用测试
-- **上游测试不在 `test` script 里也要跑**：`package.json` 没有 `test` 字段不代表上游没有测试——不少项目把回归门放在自定义脚本里（如 DSH 插件的 `node .sandbox/gate.cjs`，含 harness、破坏性变体与 loopback HTTP 投递，沙箱内可跑）。此时应显式 `doCheck = true` 并自定义 `checkPhase` 跑该脚本，而不是当作「无测试」跳过；只有需要外网的 e2e/live 类脚本才排除在外
 - **禁用测试时启用安装检查**：如果设置 `doCheck = false` 禁用测试，必须同时设置 `doInstallCheck = true` 以确保 `versionCheckHook` 正常工作
 - **上游版本不一致处理**：当上游 Cargo.toml / package.json 等文件中的版本号与发布标签不一致时，可在 `postPatch` 中使用 `sed` 正则动态修正版本号，以使 `versionCheckHook` 正常工作
-- **上游「先打 tag、再 bump 版本号」时，修正必须同步进更新脚本**：部分仓库的 tag `vX.Y.Z` 里 package.json 仍是上一版，release 资产 tgz 才是 bump 后打包的。此时 postPatch 的 sed 只改构建期不够——若包同时维护生成式 lockfile，`update.sh` 生成 lockfile 前必须做**同一条 sed**（lockfile 根 version 来自 package.json），否则每次更新都会重写 lockfile 的 version 字段、且产物版本与 src 标签长期错位；`npm ci` 实测容忍根 version 与 package.json 不一致，但不要依赖这个容错
 - **处理 execstack 标记**：打包上游二进制时如遇到 `cannot enable executable stack`，用 `execstack -c`（`pax-utils`）或 `patchelf --clear-execstack` 清理需要可执行栈的 ELF（常见于某些 `.so`）
 - **.NET 单文件（PublishSingleFile）自包含预编译二进制**：上游以 `dotnet publish -p:PublishSingleFile=true` 产出的自包含 ELF（如 Cleanuparr）把 .NET 运行时与托管程序集作为**裸数据追加在 ELF 段之后**（文件可达数百 MB）。打包时有三个坑：(1) 默认 `stripPhase` 会把追加在 ELF 之后的 bundle 当作非 ELF 数据截掉，把几百 MB 的可执行文件削成十几 MB 的废桩，必须设 `dontStrip = true`（`buildDotnetModule` 已默认设）；(2) `autoPatchelfHook` / `patchelf --set-rpath` 会重写 ELF section 布局，破坏追加 bundle 的偏移，运行时报 `Failure processing application bundle; possible file corruption. Arithmetic overflow while reading bundle.`，因此**不能使用 autoPatchelfHook**，只能用 `patchelf --set-interpreter` 单独改解释器（该操作不挪动 section，不破坏 bundle），运行时库改用 `makeWrapper --prefix LD_LIBRARY_PATH` 注入；(3) 运行时依赖通常需要 `stdenv.cc.cc.lib`（libstdc++）、`icu`（缺失时报 `Couldn't find a valid ICU package installed on the system`）、`openssl`（缺失时报 `No usable version of libssl was found` 并 core dump）。此外这类应用常把配置/日志目录默认放在 `AppContext.BaseDirectory`（即只读 store 里的 exe 旁），需在 wrapper 里通过上游提供的环境变量重定向到可写位置（如 Cleanuparr 的 `CLEANUPARR_CONFIG_PATH`，用 `makeWrapper --run 'export XXX="''${XXX:-''${XDG_CONFIG_HOME:-$HOME/.config}/pkg}"'` 设默认值，保留用户覆盖能力）
 - **从源码构建 .NET 项目（buildDotnetModule）**：优先用 nixpkgs `buildDotnetModule` 从源码构建而非打预编译二进制。.NET 10 用 `dotnet-sdk = dotnetCorePackages.sdk_10_0`、`dotnet-runtime = dotnetCorePackages.runtime_10_0`；自包含单文件设 `selfContainedBuild = true` + `dotnetFlags = [ "-p:PublishSingleFile=true" ]`。NuGet 依赖锁文件用 `passthru.fetch-deps` 生成：派生里写 `nugetDeps = ./nuget-deps.json;`（先放占位 `[]`），构建后**直接执行生成的脚本文件**（`/nix/store/...-<pkg>-fetch-deps`），不要用 `nix run .#<pkg>.fetch-deps`——后者按 `meta.mainProgram` 找 `bin/<mainProgram>`，而 writeShellScript 产物是单文件无 `bin/` 目录，会报 `Not a directory`；脚本默认 depsFile 可能解析成只读 store 副本，需显式传工作区文件路径作第一个参数：`/nix/store/...-fetch-deps "$(pwd)/nuget-deps.json"`。**上游私有 NuGet 包（仅发布到 GitHub Packages 需认证）的处理**：先确认其源码是否公开（常有公开 fork 仓库），若公开则在 `postPatch` 里把 fork 源码拷进源码树，用 `substituteInPlace` 把 `<PackageReference Include="X" Version="Y" />` 替换成 `<ProjectReference Include="../path/to/fork.csproj" />`，这样 restore/build 完全走公开 NuGet，无需认证、无需为每个私有包单独 `packNupkg`+生成 deps；记得把 fork csproj 里的 `<GeneratePackageOnBuild>true</GeneratePackageOnBuild>` 改成 false 避免构建期打包。`buildDotnetModule` 的 `projectReferences`（配合 `packNupkg=true`）是另一条路但要求 nupkg 版本与 `PackageReference` 完全一致、且每个 nupkg 都要单独跑 fetch-deps，比 ProjectReference 替换法繁琐。**makeWrapperArgs 注意**：dotnet-hook 在非 structuredAttrs 时用 `makeWrapperArgs=( ${makeWrapperArgs-} )` 做不安全词分割，会把含空格的 `--run 'export ...'` 拆成多个参数报 `makeWrapper doesn't understand the arg`，需设 `__structuredAttrs = true` 保留数组；makeWrapperArgs 里的 `$out` 不会被运行时展开（makeWrapper 把它当字面量嵌入），要引用输出路径必须用 `${placeholder "out"}` 让 Nix 在求值期替换。**executables 必须显式指定**：否则 hook 的 `find $installPath ! -name "*.dll" -executable -type f` 会把随附的 `libe_sqlite3.so`/`libMono.Unix.so` 等带可执行位的 .so 也包进 `bin/`；设 `executables = [ "<AssemblyName>" ]` 只包主程序，wrapper 名取 exe basename（大小写敏感），可用 `postFixup = ''ln -s <ExeName> $out/bin/<lowercase>''` 提供 `meta.mainProgram` 对应的小写命令。前端（Angular/npm）单独用 `buildNpmPackage` 构建（`nodejs = nodejs_26`，`npmDepsHash` 用 `prefetch-npm-deps package-lock.json` 算），在 `postPatch` 把其 `wwwroot` 拷到主项目的 `wwwroot/` 目录，使 `dotnet publish` 把静态文件作为 static web assets 一并产出
@@ -200,10 +198,6 @@ appimageTools.wrapType2 {
 
 也可通过 flake app 调用：`nix run .#update-pkg -- <参数>`。顶层 `update` 命令会自动执行 `update-package --all`。
 
-### 更新结果展示
-
-- **failed 排最前**：更新结果的三处展示（`helpers/update.nix` 写出的 `update-results.json`、其控制台 Update Summary、工作流写入 `$GITHUB_STEP_SUMMARY` 的表格）一律把 `failed` 条目排在 `success` 之前，便于一眼看到失败项。JSON 生成顺序和控制台分组由 `helpers/update.nix` 控制；GitHub 表格另用 `jq 'sort_by(.status != "failed")'` 排序兜底（消费旧格式 JSON 时同样生效）
-
 ### 脚本文件命名约定
 
 - 包目录下的 `update.*`（如 `update.sh`）：passthru.updateScript 机制的新式更新脚本，由 `helpers/update.nix` 运行器发现并执行，不会被 `update` 命令的 find 循环执行。生成式 lockfile 包（如 pi-web）的更新脚本属于此类：脚本自身负责版本、src 哈希、lockfile 重生成与 `npmDepsHash` 的完整闭环（版本步用 `nix-update --src-only`），不要拆成 passthru + `update-standalone` 双机制（顶层 `update` 先跑 standalone 后跑 passthru，顺序会导致 lockfile 与版本失步）
@@ -262,7 +256,6 @@ appimageTools.wrapType2 {
 ### update.sh 脚本规范
 
 - **使用 `#!nix-shell` shebang**：`update.sh` 必须使用 `#!/usr/bin/env nix-shell` 加 `#!nix-shell -i bash -p <工具>` 的方式声明依赖工具（如 `nodejs`、`prefetch-npm-deps`），而非先 `nix build nixpkgs#<工具> --print-out-paths` 再引用输出路径
-- **`.src` 是 tarball 文件时必须先解包，不能 `cp -r` 当目录用**：`fetchurl`（npm registry、release 资产等）的 `.src` 在 store 里是单个 `.tgz`/`.tar.gz` **文件**，`cp -r "$SRC" "$TMPDIR/source"` 得到的 `source` 仍是文件，`cd "$TMPDIR/source"` 报「不是目录」使整个更新失败（dsh-git-worktree 实例）。应先 `[ -d "$SRC" ]` 判断：目录源（`fetchFromGitHub` 等）才 `cp -r`；文件源用 `mkdir -p "$TMPDIR/source" && tar -xf "$SRC" -C "$TMPDIR/source" --strip-components=1`（npm tarball 顶层固定为 `package/`，需剥一层）后再 `cd`
 - **示例**：
 
   ```bash
