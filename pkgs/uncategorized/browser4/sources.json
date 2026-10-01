@@ -1,0 +1,14 @@
+{
+  "browser4": {
+    "hash": "sha256-UBe4LpA80Kth2A5cCrZTg8nbzTMj9ydWsNOlDPeDhDQ=",
+    "tag": "v4.13.23",
+    "url": "https://github.com/platonai/Browser4/archive/refs/tags/v4.13.23.tar.gz",
+    "version": "4.13.23"
+  },
+  "runtime": {
+    "assetName": "browser4-bundle-runtime-linux-x64.tar.gz",
+    "hash": "sha256-pqcS5qh/eGZ07renmgei25QBg5bzC9+8BqXX6h7m5mk=",
+    "url": "https://github.com/platonai/Browser4/releases/download/v4.13.23/browser4-bundle-runtime-linux-x64.tar.gz",
+    "version": "4.13.23"
+  }
+}
