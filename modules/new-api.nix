@@ -7,7 +7,7 @@
 let
   cfg = config.services.dataEraserc.new-api;
 
-  stateDir = cfg.stateDir;
+  inherit (cfg) stateDir;
 
   # systemd creates directories directly below /var/lib; others need ReadWritePaths.
   useStateDirectory = builtins.dirOf stateDir == "/var/lib";
@@ -23,19 +23,9 @@ let
     else
       "";
 
-  logSqlDsn =
-    if cfg.logDatabase.enable then
-      cfg.logDatabase.dsn
-    else
-      "";
+  logSqlDsn = if cfg.logDatabase.enable then cfg.logDatabase.dsn else "";
 
   # Resolve secrets from files at runtime via systemd credentials
-  sessionSecretEnv =
-    if cfg.sessionSecretFile != null then
-      "SESSION_SECRET"
-    else
-      "";
-
   environmentVars = {
     PORT = toString cfg.port;
     SQLITE_PATH = "${stateDir}/new-api.db";
