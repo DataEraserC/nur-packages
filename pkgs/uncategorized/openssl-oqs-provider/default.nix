@@ -20,8 +20,8 @@ stdenv.mkDerivation (finalAttrs: {
   src = fetchFromGitHub {
     owner = "open-quantum-safe";
     repo = "oqs-provider";
-    rev = "322fd0a2bc047d100348e0b3ff64f9b379f51f6b";
-    hash = "sha256-eXVbjFixl64CCucDz1dEmVsKM0pqcMSQ3UApYo3h/zk=";
+    rev = "2168a7b4010d51ae15bae35a3f0cd99d336c29d7";
+    hash = "sha256-MoDk265fw3WKLnLxfuytihDN0Kv+afmymtv5hs6rmjk=";
   };
   enableParallelBuilding = true;
   dontFixCmake = true;
