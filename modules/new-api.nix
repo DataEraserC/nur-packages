@@ -59,9 +59,17 @@ let
           ''export SESSION_SECRET="$(cat "$CREDENTIALS_DIRECTORY/session-secret")"''
         else
           "";
+      cryptoSecretExport =
+        if cfg.cryptoSecret != null then
+          "export CRYPTO_SECRET=${lib.escapeShellArg cfg.cryptoSecret}"
+        else if cfg.cryptoSecretFile != null then
+          ''export CRYPTO_SECRET="$(cat "$CREDENTIALS_DIRECTORY/crypto-secret")"''
+        else
+          "";
     in
     pkgs.writeShellScript "new-api-start" ''
       ${sessionSecretExport}
+      ${cryptoSecretExport}
       exec ${lib.escapeShellArgs serverArgv}
     '';
 in
@@ -208,7 +216,37 @@ in
         up in the Nix store because the launcher script is world-readable,
         so prefer <literal>sessionSecretFile</literal> for production. When
         both are null, the application default is used (not recommended
-        for production).
+        for production). The literal value <literal>random_string</literal>
+        is rejected at evaluation time because upstream refuses to start
+        with it.
+      '';
+    };
+
+    cryptoSecretFile = lib.mkOption {
+      type = lib.types.nullOr lib.types.str;
+      default = null;
+      example = "/run/secrets/new-api-crypto-secret";
+      description = ''
+        Path to a file containing the application encryption key
+        (CRYPTO_SECRET), loaded as a systemd credential at runtime. When
+        null, upstream derives the key from the session secret instead.
+        Mutually exclusive with <literal>cryptoSecret</literal>.
+      '';
+    };
+
+    cryptoSecret = lib.mkOption {
+      type = lib.types.nullOr lib.types.str;
+      default = null;
+      example = "change-me-please";
+      description = ''
+        Application encryption key value supplied directly instead of via
+        a file (CRYPTO_SECRET). Mutually exclusive with
+        <literal>cryptoSecretFile</literal>; the conflict is rejected by a
+        module assertion. A plaintext value ends up in the Nix store
+        because the launcher script is world-readable, so prefer
+        <literal>cryptoSecretFile</literal> for production. When both are
+        null, upstream derives the key from the session secret (falling
+        back to a per-boot random value when that is also unset).
       '';
     };
 
@@ -308,6 +346,32 @@ in
           .sessionSecretFile; set the session secret through only one input.
         '';
       }
+      {
+        assertion = cfg.sessionSecret != "random_string";
+        message = ''
+          services.dataEraserc.new-api.sessionSecret is set to the literal
+          value "random_string", which upstream new-api refuses to start
+          with (log.Fatal); choose a random string instead.
+        '';
+      }
+      {
+        assertion = cfg.cryptoSecret == null || cfg.cryptoSecretFile == null;
+        message = ''
+          services.dataEraserc.new-api.cryptoSecret and
+          services.dataEraserc.new-api.cryptoSecretFile are mutually
+          exclusive; set only one of them.
+        '';
+      }
+      {
+        assertion =
+          !(cfg.extraEnvironment ? CRYPTO_SECRET)
+          || (cfg.cryptoSecret == null && cfg.cryptoSecretFile == null);
+        message = ''
+          services.dataEraserc.new-api.extraEnvironment.CRYPTO_SECRET
+          conflicts with services.dataEraserc.new-api.cryptoSecret or
+          .cryptoSecretFile; set the crypto secret through only one input.
+        '';
+      }
     ];
 
     users.users = lib.mkIf (cfg.user == "new-api") {
@@ -340,9 +404,9 @@ in
         Restart = "on-failure";
         RestartSec = 5;
         EnvironmentFile = lib.mkIf (cfg.environmentFile != null) [ cfg.environmentFile ];
-        LoadCredential = lib.optionals (cfg.sessionSecretFile != null) [
-          "session-secret:${cfg.sessionSecretFile}"
-        ];
+        LoadCredential =
+          lib.optionals (cfg.sessionSecretFile != null) [ "session-secret:${cfg.sessionSecretFile}" ]
+          ++ lib.optionals (cfg.cryptoSecretFile != null) [ "crypto-secret:${cfg.cryptoSecretFile}" ];
 
         # Hardening
         CapabilityBoundingSet = "";
