@@ -106,6 +106,13 @@ let
 
     passthru = {
       inherit runtime tag;
+      aiProvenance = [
+        {
+          agent = "dsh";
+          model = "mimo-v2.6-flash-free";
+          involvement = "assisted";
+        }
+      ];
     };
 
     meta = {
@@ -113,7 +120,7 @@ let
       homepage = "https://github.com/platonai/Browser4";
       changelog = "https://github.com/platonai/Browser4/releases";
       license = lib.licenses.asl20;
-      maintainers = with lib.maintainers; [ xddxdd ];
+      maintainers = import ../maintainers.nix;
       mainProgram = "browser4-cli";
       platforms = [ "x86_64-linux" ];
     };

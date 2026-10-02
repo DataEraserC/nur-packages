@@ -41,6 +41,7 @@ stdenv.mkDerivation (finalAttrs: {
     inherit unwrapped;
     inherit (unwrapped) runtime;
     inherit (unwrapped) tag;
+    inherit (unwrapped) aiProvenance;
   };
 
   meta = {
@@ -48,7 +49,7 @@ stdenv.mkDerivation (finalAttrs: {
     homepage = "https://github.com/platonai/Browser4";
     changelog = "https://github.com/platonai/Browser4/releases";
     license = lib.licenses.asl20;
-    maintainers = with lib.maintainers; [ xddxdd ];
+    maintainers = import ../maintainers.nix;
     mainProgram = "browser4-cli";
     platforms = [ "x86_64-linux" ];
   };

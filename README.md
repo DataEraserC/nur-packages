@@ -1429,7 +1429,7 @@ Or, use variables from this repository in case I change them:
 </details>
 
 <details>
-<summary>Package set: uncategorized (173 packages)</summary>
+<summary>Package set: uncategorized (171 packages)</summary>
 
 | State | Path | Name | Version | Description |
 | ----- | ---- | ---- | ------- | ----------- |
@@ -1449,8 +1449,6 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized.bird-lgproxy-go` | [bird-lgproxy-go](https://github.com/xddxdd/bird-lg-go) | 1.4.8 | BIRD looking glass in Go, for better maintainability, easier deployment & smaller memory footprint |
 |  | `uncategorized.bnxtnvm` | [bnxtnvm](https://resource.fs.com/mall/resource/broadcom-ethernet-network-adapter-user-manual.pdf) | 222.0.144.0 | Broadcom BNXTNVM utility |
 |  | `uncategorized.browser-control-mcp` | [browser-control-mcp](https://github.com/eyalzh/browser-control-mcp) | 1.5.2 | MCP server paired with a browser extension that enables AI agents to control the user's browser |
-| `x86_64-linux` | `uncategorized.browser4` | [browser4](https://github.com/platonai/Browser4) | 4.13.24 | MCP-driven browser automation toolkit pairing a Rust command-line client with a Java automation server |
-| `x86_64-linux` | `uncategorized.browser4-unwrapped` | [browser4-unwrapped](https://github.com/platonai/Browser4) | 4.13.24 | MCP-driven browser automation toolkit pairing a Rust command-line client with a Java automation server (unwrapped) |
 | `x86_64-linux` | `uncategorized.browseros` | [browseros](https://www.browseros.com) | 0.50.5 | Open source agentic browser |
 |  | `uncategorized.buname` | [buname](https://github.com/dramforever/buname) | 0-unstable-2025-09-18 | Uname wrapper that renumbers Linux versions as if 2.6 never ended |
 |  | `uncategorized.calibre-cops` | [calibre-cops](http://blog.slucas.fr/en/oss/calibre-opds-php-server) | 4.5.5 | Web-based light alternative to Calibre content server / Calibre2OPDS to serve ebooks |
@@ -1609,7 +1607,7 @@ Or, use variables from this repository in case I change them:
 </details>
 
 <details>
-<summary>Package set: uncategorized-DataEraserC (75 packages)</summary>
+<summary>Package set: uncategorized-DataEraserC (77 packages)</summary>
 
 | State | Path | Name | Version | Description |
 | ----- | ---- | ---- | ------- | ----------- |
@@ -1621,6 +1619,8 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized-DataEraserC.SakuraFrp` | [SakuraFrp](https://www.natfrp.com/) | 3.1.8 |  |
 |  | `uncategorized-DataEraserC.XiaoMiToolV2` | XiaoMiToolV2 | 0-unstable-2025-06-24 |  |
 | `x86_64-linux` | `uncategorized-DataEraserC.bqqnt` | [bqqnt](https://im.qq.com/index/) | 0.5.10 | Desktop client for QQ on Linux with bstar |
+| `x86_64-linux` | `uncategorized-DataEraserC.browser4` | [browser4](https://github.com/platonai/Browser4) | 4.13.24 | MCP-driven browser automation toolkit pairing a Rust command-line client with a Java automation server |
+| `x86_64-linux` | `uncategorized-DataEraserC.browser4-unwrapped` | [browser4-unwrapped](https://github.com/platonai/Browser4) | 4.13.24 | MCP-driven browser automation toolkit pairing a Rust command-line client with a Java automation server (unwrapped) |
 | `x86_64-linux` | `uncategorized-DataEraserC.bstar` | bstar | 0.5.10 | BStar compatibility library |
 |  | `uncategorized-DataEraserC.buffybox` | [buffybox](https://gitlab.com/postmarketOS/buffybox) | 0-unstable-2024-10-05 | Suite of graphical applications for the terminal |
 |  | `uncategorized-DataEraserC.c001apk-flutter` | [c001apk-flutter](https://github.com/bggRGjQaUbCoE/c001apk-flutter) | 0-unstable-2026-03-08 | c001apk |
