@@ -25,7 +25,6 @@ let
 
   logSqlDsn = if cfg.logDatabase.enable then cfg.logDatabase.dsn else "";
 
-  # Resolve secrets from files at runtime via systemd credentials
   environmentVars = {
     PORT = toString cfg.port;
     SQLITE_PATH = "${stateDir}/new-api.db";
@@ -36,24 +35,35 @@ let
   // lib.optionalAttrs (sqlDsn != "") { SQL_DSN = sqlDsn; }
   // lib.optionalAttrs (logSqlDsn != "") { LOG_SQL_DSN = logSqlDsn; }
   // lib.optionalAttrs (cfg.redisUrl != null) { REDIS_CONN_STRING = cfg.redisUrl; }
-  // lib.optionalAttrs (cfg.sessionSecretFile != null) {
-    SESSION_SECRET = "$SESSION_SECRET";
-  }
   // lib.optionalAttrs cfg.memoryCache { MEMORY_CACHE_ENABLED = "true"; }
   // lib.optionalAttrs cfg.debug { DEBUG = "true"; }
   // cfg.extraEnvironment;
 
   # Wrap the binary with --log-dir pointing to stateDir
-  serverCommand = lib.concatStringsSep " " (
-    [
-      (lib.getExe cfg.package)
-      "--port"
-      (toString cfg.port)
-      "--log-dir"
-      "${stateDir}/logs"
-    ]
-    ++ cfg.extraArgs
-  );
+  serverArgv = [
+    (if cfg.package != null then lib.getExe cfg.package else "${pkgs.coreutils}/bin/false")
+    "--port"
+    (toString cfg.port)
+    "--log-dir"
+    "${stateDir}/logs"
+  ]
+  ++ cfg.extraArgs;
+
+  # Resolve secrets from files at runtime via systemd credentials
+  serverLauncher =
+    let
+      sessionSecretExport =
+        if cfg.sessionSecret != null then
+          "export SESSION_SECRET=${lib.escapeShellArg cfg.sessionSecret}"
+        else if cfg.sessionSecretFile != null then
+          ''export SESSION_SECRET="$(cat "$CREDENTIALS_DIRECTORY/session-secret")"''
+        else
+          "";
+    in
+    pkgs.writeShellScript "new-api-start" ''
+      ${sessionSecretExport}
+      exec ${lib.escapeShellArgs serverArgv}
+    '';
 in
 {
   options.services.dataEraserc.new-api = {
@@ -182,7 +192,23 @@ in
       description = ''
         Path to a file containing the session secret key. Loaded as a
         systemd credential at runtime. If null, the application default is
-        used (not recommended for production).
+        used (not recommended for production). Mutually exclusive with
+        <literal>sessionSecret</literal>.
+      '';
+    };
+
+    sessionSecret = lib.mkOption {
+      type = lib.types.nullOr lib.types.str;
+      default = null;
+      example = "change-me-please";
+      description = ''
+        Session secret value supplied directly instead of via a file.
+        Mutually exclusive with <literal>sessionSecretFile</literal>; the
+        conflict is rejected by a module assertion. A plaintext value ends
+        up in the Nix store because the launcher script is world-readable,
+        so prefer <literal>sessionSecretFile</literal> for production. When
+        both are null, the application default is used (not recommended
+        for production).
       '';
     };
 
@@ -264,6 +290,24 @@ in
           string.
         '';
       }
+      {
+        assertion = cfg.sessionSecret == null || cfg.sessionSecretFile == null;
+        message = ''
+          services.dataEraserc.new-api.sessionSecret and
+          services.dataEraserc.new-api.sessionSecretFile are mutually
+          exclusive; set only one of them.
+        '';
+      }
+      {
+        assertion =
+          !(cfg.extraEnvironment ? SESSION_SECRET)
+          || (cfg.sessionSecret == null && cfg.sessionSecretFile == null);
+        message = ''
+          services.dataEraserc.new-api.extraEnvironment.SESSION_SECRET
+          conflicts with services.dataEraserc.new-api.sessionSecret or
+          .sessionSecretFile; set the session secret through only one input.
+        '';
+      }
     ];
 
     users.users = lib.mkIf (cfg.user == "new-api") {
@@ -292,15 +336,12 @@ in
         Type = "simple";
         User = cfg.user;
         Group = cfg.group;
-        ExecStart = serverCommand;
+        ExecStart = serverLauncher;
         Restart = "on-failure";
         RestartSec = 5;
         EnvironmentFile = lib.mkIf (cfg.environmentFile != null) [ cfg.environmentFile ];
         LoadCredential = lib.optionals (cfg.sessionSecretFile != null) [
           "session-secret:${cfg.sessionSecretFile}"
-        ];
-        ExecStartPre = lib.optionalString (cfg.sessionSecretFile != null) [
-          "${pkgs.bash}/bin/bash -c 'export SESSION_SECRET=\"$(cat \"$CREDENTIALS_DIRECTORY/session-secret\")\"'"
         ];
 
         # Hardening
