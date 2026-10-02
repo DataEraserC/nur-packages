@@ -8,6 +8,14 @@
   # (SAFE_EXACT). Known-dangerous global tools stay denied regardless.
   # Override via: pkgs.qq-agent-presets.override { extraAllowedTools = [ ... ]; }
   extraAllowedTools ? [ ],
+  # Extra entries pushed into the guard's deny layer
+  # (KNOWN_DANGEROUS_GLOBAL_TOOLS in qq-tool-restrict.mjs) at module load:
+  # each name is hidden from the tool schema by tools.restrict and rejected
+  # by the execution guard, the same path as the upstream deny list — for
+  # tools that must not even appear in a QQ sim session's schema. Must never
+  # overlap extraAllowedTools.
+  # Override via: pkgs.qq-agent-presets.override { extraRestrictedTools = [ ... ]; }
+  extraRestrictedTools ? [ ],
   # 允许注入本地 fork 构建的 unwrapped
   # （presets 的 src 跟随 unwrapped.src，fork 里改了 preset 也要跟上）。
   unwrapped ? pkgs.callPackage ../qq-bridge-unwrapped { },
@@ -22,24 +30,42 @@ let
   # module load after the whitelist consts: "__"-suffixed entries join
   # SAFE_PREFIXES, others join SAFE_EXACT, and names in
   # KNOWN_DANGEROUS_GLOBAL_TOOLS are skipped so the deny layer stays absolute.
-  extraToolsSnippet = lib.optionalString (extraAllowedTools != [ ]) ''
-    # ── nix override: extraAllowedTools（构建期注入，勿手工编辑） ──
-    implFile="$out/lib/node_modules/qq-agent-presets/qq-tool-restrict.mjs"
-    chmod u+w "$implFile"
-    cat >> "$implFile" <<'QQ_TOOL_EXTRA'
+  extraToolsSnippet =
+    lib.optionalString (extraAllowedTools != [ ]) ''
+      # ── nix override: extraAllowedTools（构建期注入，勿手工编辑） ──
+      implFile="$out/lib/node_modules/qq-agent-presets/qq-tool-restrict.mjs"
+      chmod u+w "$implFile"
+      cat >> "$implFile" <<'QQ_TOOL_EXTRA'
 
-    // ── nix override: extraAllowedTools（构建期注入，勿手工编辑） ──
-    for (const t of ${builtins.toJSON extraAllowedTools}) {
-      if (typeof t !== 'string' || t.length === 0) continue
-      if (KNOWN_DANGEROUS_GLOBAL_TOOLS.includes(t)) continue
-      if (t.endsWith('__')) {
-        if (!SAFE_PREFIXES.includes(t)) SAFE_PREFIXES.push(t)
-      } else {
-        SAFE_EXACT.add(t)
+      // ── nix override: extraAllowedTools（构建期注入，勿手工编辑） ──
+      for (const t of ${builtins.toJSON extraAllowedTools}) {
+        if (typeof t !== 'string' || t.length === 0) continue
+        if (KNOWN_DANGEROUS_GLOBAL_TOOLS.includes(t)) continue
+        if (t.endsWith('__')) {
+          if (!SAFE_PREFIXES.includes(t)) SAFE_PREFIXES.push(t)
+        } else {
+          SAFE_EXACT.add(t)
+        }
       }
-    }
-    QQ_TOOL_EXTRA
-  '';
+      QQ_TOOL_EXTRA
+    ''
+    + lib.optionalString (extraRestrictedTools != [ ]) ''
+      # ── nix override: extraRestrictedTools（构建期注入，勿手工编辑） ──
+      implFile="$out/lib/node_modules/qq-agent-presets/qq-tool-restrict.mjs"
+      chmod u+w "$implFile"
+      cat >> "$implFile" <<'QQ_TOOL_RESTRICT'
+
+      // ── nix override: extraRestrictedTools（构建期注入，勿手工编辑） ──
+      // apply() 在模块加载后才运行：此处 push 进 KNOWN_DANGEROUS_GLOBAL_TOOLS，
+      // schema 隐藏（tools.restrict）与执行期拒绝（tools.guard）同时生效，
+      // 与上游内置 deny 名单同路径。
+      for (const t of ${builtins.toJSON extraRestrictedTools}) {
+        if (typeof t !== 'string' || t.length === 0) continue
+        if (KNOWN_DANGEROUS_GLOBAL_TOOLS.includes(t)) continue
+        KNOWN_DANGEROUS_GLOBAL_TOOLS.push(t)
+      }
+      QQ_TOOL_RESTRICT
+    '';
 in
 if inputs == null then
   throw "qq-agent-presets requires the deepseek-harness flake input; evaluate it through the flake (nix build .#qq-agent-presets)"
@@ -77,7 +103,7 @@ else
     '';
 
     passthru = {
-      inherit unwrapped extraAllowedTools;
+      inherit unwrapped extraAllowedTools extraRestrictedTools;
       # buildDshBundle 注入 dshBundle/dshBundleHelper/runtimeDeps 协议字段
       # （validateDshBundle 校验）；registry（nix-support/dsh-bundles.json）
       # 由 validateInstalledBundle 按 package.json 的 dsh.bundle.patch 自动

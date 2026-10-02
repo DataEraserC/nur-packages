@@ -23,7 +23,7 @@ runtime resolution 会把选中 bundle 的包供给 Node ESM/CJS 解析器），
 守卫只做工具名白名单，不读 `config.json`/`state/`；数据目录纪律见
 [`../qq-bridge-dsh/AGENTS.md`](../qq-bridge-dsh/AGENTS.md)。
 
-## 工具白名单 extra（`extraAllowedTools` override，自 qq-bridge-dsh 迁入）
+## 工具白名单 extra（`extraAllowedTools` / `extraRestrictedTools` override，自 qq-bridge-dsh 迁入）
 
 `qq-tool-restrict.mjs` 在执行期用白名单把关：`SAFE_PREFIXES`（MCP 命名空间
 前缀，`__` 结尾条目）与 `SAFE_EXACT`（精确名）之外一律拒绝；
@@ -39,15 +39,29 @@ nur-DataEraserC.packages.${pkgs.system}.qq-agent-presets.override {
     "mcp__my-server__"   # 以 __ 结尾 → 追加为命名空间前缀（SAFE_PREFIXES）
     "some_exact_tool"    # 其余      → 追加为精确名（SAFE_EXACT）
   ];
+  extraRestrictedTools = [
+    "some_local_tool"    # 推入 KNOWN_DANGEROUS_GLOBAL_TOOLS：schema 隐藏 + 执行拒绝
+  ];
 }
 ```
 
-- 构建期注入：`extraAllowedTools != []` 时向包内权威实现
-  `lib/node_modules/qq-agent-presets/qq-tool-restrict.mjs` 末尾追加注入块；
-  默认 `[]` 时不改任何文件（与不带 override 的产物逐字节一致）。
-- 安全边界不降级：名单里混入 `KNOWN_DANGEROUS_GLOBAL_TOOLS` 的名字会在
-  注入块里被跳过——schema 层 restrict + 执行层 guard 的双拒不受影响。
-- 生效值可用 `passthru.extraAllowedTools` 自检。
+- 构建期注入：`extraAllowedTools != []` / `extraRestrictedTools != []` 时分别向
+  包内权威实现 `lib/node_modules/qq-agent-presets/qq-tool-restrict.mjs` 末尾
+  追加注入块；两个列表都为默认 `[]` 时不改任何文件（与不带 override 的产物
+  逐字节一致）。
+- 安全边界不降级：`extraAllowedTools` 里混入 `KNOWN_DANGEROUS_GLOBAL_TOOLS`
+  的名字会在注入块里被跳过——schema 层 restrict + 执行层 guard 的双拒不受
+  影响。
+- `extraRestrictedTools` 用途：新插件把「本地执行 / 本地文件 / 凭据 / 宿主
+  状态」类工具带进全局层后，光靠 guard 拒执行不够（工具名仍会出现在模型
+  schema 里诱导调用，违反 preset 铁律），要同时从 schema 隐藏。注入块在
+  模块加载期把名字 push 进 `KNOWN_DANGEROUS_GLOBAL_TOOLS`，`apply()` 运行时
+  与上游内置名单走同一路径（restrict 逐名 try/catch，QQ 组合里 ego 插件
+  缺席时也不报错）。
+- 两个列表不得有交集（交集 = 隐藏却可执行的矛盾态；注入块不做去重检查，
+  由调用方保证）。
+- 生效值可用 `passthru.extraAllowedTools` / `passthru.extraRestrictedTools`
+  自检。
 - 下游 nix-config 在 `qqBundles` 的 `.override` 处传入。
 
 ## src/npmDepsHash 纪律（与 qq-mode-console 相同）
