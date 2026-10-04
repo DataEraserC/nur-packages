@@ -12,14 +12,14 @@ if inputs == null then
 else
   dshPkgs.dsh.buildDshBundle (finalAttrs: {
     pname = "modlens";
-    version = "3.26.5";
+    version = "3.26.6";
 
     src = fetchurl {
       url = "https://registry.npmjs.org/@liustack/modlens/-/modlens-${finalAttrs.version}.tgz";
-      hash = "sha256-u4fRodC4qhz2INqd8S10LyNdU9emo+IeZe2DUq7VB2I=";
+      hash = "sha256-oGJn9SpTEw1nDx4OairK6d7aWkvXVRbl9ax/MvYi8JM=";
     };
 
-    npmDepsHash = "sha256-3M/YWzvfAddQk749BmogL+oIaIRhr8KmyFE8q4gAjlY=";
+    npmDepsHash = "sha256-pS7jpyCHjssSs5eVE9T5FbGLfI5m+08r8iHpnzD9fPM=";
 
     dontNpmBuild = true;
 

@@ -1,14 +1,14 @@
 {
   "browser4": {
-    "hash": "sha256-O4t+6creWMaS+x8RomZkPK2IcWsWezqw7vkTYyu8UA8=",
-    "tag": "v4.13.25",
-    "url": "https://github.com/platonai/Browser4/archive/refs/tags/v4.13.25.tar.gz",
-    "version": "4.13.25"
+    "hash": "sha256-azPS/4HsradPHEaD99UiwcRw4U8AEKTdqOBiuWmQ3FM=",
+    "tag": "v4.13.26",
+    "url": "https://github.com/platonai/Browser4/archive/refs/tags/v4.13.26.tar.gz",
+    "version": "4.13.26"
   },
   "runtime": {
     "assetName": "browser4-bundle-runtime-linux-x64.tar.gz",
-    "hash": "sha256-4Z/dStoZAPUijfqVzy3VwjunPbgovk59y+iBIOy44ic=",
-    "url": "https://github.com/platonai/Browser4/releases/download/v4.13.25/browser4-bundle-runtime-linux-x64.tar.gz",
-    "version": "4.13.25"
+    "hash": "sha256-Nh4Z9kJBOTkDHk/LZQqlTeh1G74ElMyc71ipRYpIrYA=",
+    "url": "https://github.com/platonai/Browser4/releases/download/v4.13.26/browser4-bundle-runtime-linux-x64.tar.gz",
+    "version": "4.13.26"
   }
 }
