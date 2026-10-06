@@ -4,7 +4,7 @@
   stdenv,
   cmake,
   liboqs,
-  openssl_3,
+  openssl_3_6,
 }:
 let
   qscKeyEncoderSrc = fetchFromGitHub {
@@ -16,12 +16,12 @@ let
 in
 stdenv.mkDerivation (finalAttrs: {
   pname = "openssl-oqs-provider";
-  version = "0.12.0-rc2-unstable-2026-10-02";
+  version = "0.12.0-rc2";
   src = fetchFromGitHub {
     owner = "open-quantum-safe";
     repo = "oqs-provider";
-    rev = "a17de50a069f9965ae7c4b98219e96e6419f15ff";
-    hash = "sha256-CFXJo18DRN6pej6Hm2s0cqVcVRbI+lwyiDQiDUezhew=";
+    rev = "26eee36470209deed9c9ec8364a611daad780fef";
+    hash = "sha256-QS2z1pKHZbGCTbPpx0DqTHP5z/TusKuLouKqv8wxrcA=";
   };
   enableParallelBuilding = true;
   dontFixCmake = true;
@@ -32,7 +32,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   buildInputs = [
     liboqs
-    openssl_3
+    openssl_3_6
   ];
 
   cmakeFlags = [ (lib.cmakeFeature "CMAKE_BUILD_TYPE" "Release") ];
