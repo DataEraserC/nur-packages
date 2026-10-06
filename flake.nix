@@ -179,6 +179,7 @@
             opencode2api = import ./modules/opencode2api.nix;
             new-api = import ./modules/new-api.nix;
             mimocode2api = import ./modules/mimocode2api.nix;
+            omniroute = import ./modules/omniroute.nix;
             browser4 = import ./modules/browser4.nix;
           };
 
