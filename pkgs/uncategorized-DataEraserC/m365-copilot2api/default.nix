@@ -6,12 +6,12 @@
 }:
 buildGoModule (finalAttrs: {
   pname = "m365-copilot2api";
-  version = "0.7.2";
+  version = "0.7.3";
   src = fetchFromGitHub {
     owner = "HEXUXIU";
     repo = "M365-Copilot2API";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-KfC+PqVRpRHUwWXN5lsyVDX+JLQp8Ge7CPRbNBUaetM=";
+    hash = "sha256-oEnDWTqWmoVebDUoUEI76S3/77nFfgnxTUlBphBKMJg=";
   };
 
   vendorHash = "sha256-FACvdzONqBcnQyF2b2u4lNC2MyxxBRX79H0r7jq6QNc=";
