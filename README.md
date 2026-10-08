@@ -62,7 +62,7 @@ Or, use variables from this repository in case I change them:
 ## Packages
 
 <details>
-<summary>Package set: (Uncategorized) (303 packages)</summary>
+<summary>Package set: (Uncategorized) (304 packages)</summary>
 
 | State | Path | Name | Version | Description |
 | ----- | ---- | ---- | ------- | ----------- |
@@ -143,6 +143,7 @@ Or, use variables from this repository in case I change them:
 |  | `dsh-git-worktree` | [dsh-git-worktree](https://github.com/wloops/dsh-git-worktree) | 0.10.0 | Git worktree Session Targets for DeepSeek Harness with isolated task sessions, reversible local preview, human-confirmed delivery, recovery, and same-session iteration |
 |  | `dsh-notifier` | [dsh-notifier](https://github.com/THEWOLFWALKER/dsh-notifier) | 0.13.1 | Notification and remote-control plane for DeepSeek Harness with 28 outbound channels, 6 inbound control channels and a native Notify & Control UI |
 |  | `dsh-oauthpro` | [dsh-oauthpro](https://github.com/meyaomiao/dsh-oauthpro) | 0.1.6 | Provider account pool and quota plugin for DeepSeek Harness with live model catalog, balance and quota display |
+|  | `dsh-our-free-model` | [dsh-our-free-model](https://github.com/Ebony-Vinyl/dsh-our-free-model) | 2.0.0 | Zero-setup free-model plugin for DeepSeek Harness: no login, no API key, live-tested model roster, real thinking budgets, an OpenAI-compatible forward port, and absorbed zero-quota channels |
 |  | `dsh-plugin-guard` | [dsh-plugin-guard](https://github.com/lxzy-7/dsh-plugin-guard) | 0.3.2 | Install safety net for DeepSeek Harness: pre-install snapshots, one-click/automatic rollback, guarded boot, and incident reports that auto-trigger agent analysis |
 |  | `dsh-settings-persist` | [dsh-settings-persist](https://github.com/DataEraserC/dsh-settings-persist) | 0.3.2 | Persist DSH Settings edits across nix managed-profile syncs and rebuilds, with auto/manual snapshots and a settings page |
 |  | `dsh-turn-rewind` | [dsh-turn-rewind](https://github.com/Anionex/dsh-turn-rewind) | 0.3.9-unstable-2026-10-01 | Turn-level conversation and workspace rewind for DeepSeek Harness powered by a persistent Change Ledger |
@@ -1609,7 +1610,7 @@ Or, use variables from this repository in case I change them:
 </details>
 
 <details>
-<summary>Package set: uncategorized-DataEraserC (79 packages)</summary>
+<summary>Package set: uncategorized-DataEraserC (80 packages)</summary>
 
 | State | Path | Name | Version | Description |
 | ----- | ---- | ---- | ------- | ----------- |
@@ -1643,6 +1644,7 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized-DataEraserC.dsh-git-worktree` | [dsh-git-worktree](https://github.com/wloops/dsh-git-worktree) | 0.10.0 | Git worktree Session Targets for DeepSeek Harness with isolated task sessions, reversible local preview, human-confirmed delivery, recovery, and same-session iteration |
 |  | `uncategorized-DataEraserC.dsh-notifier` | [dsh-notifier](https://github.com/THEWOLFWALKER/dsh-notifier) | 0.13.1 | Notification and remote-control plane for DeepSeek Harness with 28 outbound channels, 6 inbound control channels and a native Notify & Control UI |
 |  | `uncategorized-DataEraserC.dsh-oauthpro` | [dsh-oauthpro](https://github.com/meyaomiao/dsh-oauthpro) | 0.1.6 | Provider account pool and quota plugin for DeepSeek Harness with live model catalog, balance and quota display |
+|  | `uncategorized-DataEraserC.dsh-our-free-model` | [dsh-our-free-model](https://github.com/Ebony-Vinyl/dsh-our-free-model) | 2.0.0 | Zero-setup free-model plugin for DeepSeek Harness: no login, no API key, live-tested model roster, real thinking budgets, an OpenAI-compatible forward port, and absorbed zero-quota channels |
 |  | `uncategorized-DataEraserC.dsh-plugin-guard` | [dsh-plugin-guard](https://github.com/lxzy-7/dsh-plugin-guard) | 0.3.2 | Install safety net for DeepSeek Harness: pre-install snapshots, one-click/automatic rollback, guarded boot, and incident reports that auto-trigger agent analysis |
 |  | `uncategorized-DataEraserC.dsh-settings-persist` | [dsh-settings-persist](https://github.com/DataEraserC/dsh-settings-persist) | 0.3.2 | Persist DSH Settings edits across nix managed-profile syncs and rebuilds, with auto/manual snapshots and a settings page |
 |  | `uncategorized-DataEraserC.dsh-turn-rewind` | [dsh-turn-rewind](https://github.com/Anionex/dsh-turn-rewind) | 0.3.9-unstable-2026-10-01 | Turn-level conversation and workspace rewind for DeepSeek Harness powered by a persistent Change Ledger |
