@@ -1,0 +1,7 @@
+# dsh-share 打包经验
+
+- 上游 `package.json` 的 runtime `dependencies` 为空：三个可静态打包的依赖（`html-to-image`/`turndown`/`turndown-plugin-gfm`）被 tsdown 的 `onlyBundle` 打进 `lib/client.js`，`neverBundle` 的 `react`/`@deepseek-ai/dsh-client-ui-primitives`/`@mixmark-io/domino` 运行期从 kernel 解析；因此 `pnpm deploy --prod` 之后包目录下没有自己的 `node_modules`，`linkKernelNodeModules` 把 `$out/lib/node_modules/dsh-share/node_modules` 整体符号链接到 `${dsh-kernel}/lib/deepseek-harness/node_modules`（与 dsh-annotation 的「部署根落 3 个生产依赖」形态不同），整包仅约 560K，闭包 608M 全部来自这一条 kernel 引用
+- 构建与测试都在沙箱内跑通：`npmBuildScript = "build"`（`tsdown` 出 `lib/index.js`（esm/node/target es2024）与 `lib/client.js`（cjs/browser/target es2022），`tsc -p tsconfig.json` 出 `lib/types`），checkPhase 直接 `npm test`；13 个 spec 共 80 个用例，其中 8 个标 `@vitest-environment jsdom`，全部离线（读包内文件 + `semver.satisfies`，`@deepseek-ai/dsh-client-ui-primitives` 走 vitest alias stub），实测全绿
+- 产物验收写在派生里：`postInstall` 断言 `lib/index.js`/`lib/client.js`/`cordis.patch.yml`/`locale/zh.json` 存在，`installCheckPhase` 比对安装后 `package.json` 的 `version` 与 `finalAttrs.version`；`nix-support/dsh-bundles.json` 的 `patch` 取自 `dsh.bundle.patch = "./cordis.patch.yml"`，`packageRoot` 指向包目录
+- `dsh` 块里 `client.platform = "web"`（客户端注入 5 个 `@deepseek-ai` 包），所以必须带 `passthru.requiresWeb = true`，否则 profile-options 只在带 `nixosSystem` 的特殊输入下把该包算作 Web 端 bundle
+- 更新走 `nix-update-script { attrPath = "dsh-share"; extraArgs = [ "--flake" ]; }`：仓库更新运行器传的是分组 attrPath（`uncategorized-DataEraserC.dsh-share`），nix-update 的 flake 查找只看平铺包名，裸名 + `--flake` 缺一不可（详见 `_docs/AGENTS.md` 的「DSH 插件包」一节）
