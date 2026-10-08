@@ -73,7 +73,8 @@ let
   # WebUI edits survive restarts. The server rewrites it on the first start to
   # replace the bootstrap password with its Argon2id hash, so a rotated secret
   # has to invalidate the seeded file explicitly. A changed `settings` value can
-  # only be reported, because applying it would discard those edits.
+  # otherwise only be reported, because applying it would discard those edits —
+  # except for the listen addresses, which startCommand passes as flags.
   seedConfig =
     if cfg.mutableConfig then
       ''
@@ -89,7 +90,7 @@ let
           if [ "$current_secrets" != "$old_secrets" ]; then
             rm -f ${lib.escapeShellArg configPath} ${lib.escapeShellArg "${configPath}.bak"}
           elif [ "$current_settings" != "$old_settings" ]; then
-            echo "opencode2api: ${configPath} was seeded by an earlier configuration and keeps winning; delete it or set mutableConfig = false to apply the current settings" >&2
+            echo "opencode2api: ${configPath} was seeded by an earlier configuration and keeps winning (apart from the listen addresses, which are passed on the command line); delete it or set mutableConfig = false to apply the current settings" >&2
           fi
         fi
 
@@ -112,8 +113,24 @@ let
   serverExecutable =
     if cfg.package != null then lib.getExe cfg.package else "${pkgs.coreutils}/bin/false";
 
+  # Under mutableConfig config.json is only seeded once, so a file written while
+  # the service listened elsewhere keeps binding the old ports even though
+  # `settings` (and the firewall rule parsed from it) declare the current ones,
+  # with only a one-time "keeps winning" warning. -listen/-web-listen override
+  # config.json (verified against v1.3.7: the effective values are written back)
+  # without discarding WebUI-managed state, so the declared listeners are also
+  # passed on the command line; extraArgs comes last and can still override them.
+  listenArgs = [
+    "-listen"
+    settings.listen
+  ]
+  ++ lib.optionals webUiEnabled [
+    "-web-listen"
+    webUiSettings.listen
+  ];
+
   startCommand =
-    "${serverExecutable} -config ${lib.escapeShellArg configPath}"
+    "${serverExecutable} -config ${lib.escapeShellArg configPath} ${lib.escapeShellArgs listenArgs}"
     + lib.optionalString (cfg.extraArgs != [ ]) (" " + lib.escapeShellArgs cfg.extraArgs);
 
   # Both listeners are configured as "host:port" strings and may be overridden
@@ -291,6 +308,9 @@ in
         When true (default), `config.json` is only generated when missing, so
         changes made through the WebUI persist across restarts. Rotating a
         secret regenerates the file; changing `settings` only logs a warning.
+        The `listen` / `webui.listen` addresses are an exception: they are
+        passed on the command line (`-listen`, `-web-listen`), which overrides
+        the file, so they always match the declared settings.
         When false, the config is regenerated from `settings` on every start.
       '';
     };
@@ -304,7 +324,11 @@ in
     extraArgs = lib.mkOption {
       type = lib.types.listOf lib.types.str;
       default = [ ];
-      description = "Extra arguments appended to the server command line (`-listen`, `-web-listen`).";
+      description = ''
+        Extra arguments appended to the server command line, after the
+        `-listen`/`-web-listen` flags derived from `settings`, so a repeated
+        listener flag here overrides the declared address.
+      '';
     };
 
     environmentFile = lib.mkOption {
