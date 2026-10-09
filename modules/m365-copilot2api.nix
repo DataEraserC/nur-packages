@@ -150,6 +150,43 @@ in
       '';
     };
 
+    forceIpv4 = lib.mkOption {
+      type = lib.types.nullOr lib.types.bool;
+      default = null;
+      example = true;
+      description = ''
+        Whether to force outbound connections to Microsoft endpoints over
+        IPv4. Some networks have broken IPv6 routes to Microsoft and burn a
+        dial timeout on every new connection; enable this option to force the
+        gateway onto IPv4, or leave it at <literal>null</literal> to let the
+        system dialer choose.
+      '';
+    };
+
+    proxyPool = lib.mkOption {
+      type = lib.types.nullOr lib.types.str;
+      default = null;
+      example = "socks5://127.0.0.1:1080,http://127.0.0.1:8080";
+      description = ''
+        Proxy pool for outbound requests: <literal>http</literal>,
+        <literal>https</literal> or <literal>socks5</literal> URLs separated
+        by commas or newlines. <literal>null</literal> connects directly,
+        unless a single proxy is set through
+        <option>extraEnvironment</option>.
+      '';
+    };
+
+    proxyInsecureTls = lib.mkOption {
+      type = lib.types.nullOr lib.types.bool;
+      default = null;
+      description = ''
+        Whether to skip certificate verification on the TLS hop to a proxy
+        with a self-signed certificate. Only enable this for a proxy you
+        control; verification of the target site itself stays enabled.
+        <literal>null</literal> keeps verification enabled.
+      '';
+    };
+
     autoCleanup = lib.mkOption {
       type = lib.types.bool;
       default = true;
@@ -168,13 +205,80 @@ in
       description = "Number of recent conversations the periodic cleanup keeps.";
     };
 
+    strictModel = lib.mkOption {
+      type = lib.types.nullOr lib.types.bool;
+      default = null;
+      example = true;
+      description = ''
+        Whether to reject requests whose model id is unknown to the gateway
+        instead of forwarding them for compatibility.
+        <literal>null</literal> keeps the upstream default of accepting them.
+      '';
+    };
+
+    chatTimeoutSeconds = lib.mkOption {
+      type = lib.types.nullOr lib.types.ints.positive;
+      default = null;
+      description = ''
+        Seconds a chat response may take before the request fails.
+        <literal>null</literal> keeps the upstream default of 120.
+      '';
+    };
+
+    firstTokenTimeoutSeconds = lib.mkOption {
+      type = lib.types.nullOr lib.types.ints.positive;
+      default = null;
+      description = ''
+        Seconds to wait for the first streamed token before the request
+        fails. <literal>null</literal> keeps the upstream default of 40.
+      '';
+    };
+
+    imageTimeoutSeconds = lib.mkOption {
+      type = lib.types.nullOr lib.types.ints.positive;
+      default = null;
+      description = ''
+        Seconds an image request may take before it fails.
+        <literal>null</literal> keeps the upstream default of 150.
+      '';
+    };
+
+    transientThrottledCooldownSeconds = lib.mkOption {
+      type = lib.types.nullOr (lib.types.ints.between 5 600);
+      default = null;
+      description = ''
+        Seconds an account cools down after the upstream throttled it
+        transiently; the gateway clamps the value to 5-600.
+        <literal>null</literal> keeps the upstream default of 15.
+      '';
+    };
+
+    logLevel = lib.mkOption {
+      type = lib.types.nullOr (
+        lib.types.enum [
+          "silent"
+          "error"
+          "warn"
+          "info"
+          "debug"
+        ]
+      );
+      default = null;
+      example = "debug";
+      description = ''
+        Log verbosity of the gateway.
+        <literal>null</literal> keeps the upstream default of
+        <literal>info</literal>.
+      '';
+    };
+
     extraEnvironment = lib.mkOption {
       type = lib.types.attrsOf lib.types.str;
       default = { };
       example = lib.literalExpression ''
         {
-          M365_LOG_LEVEL = "debug";
-          M365_PROXY_POOL = "socks5://127.0.0.1:1080";
+          M365_PROXY_HEALTH_URL = "http://127.0.0.1:8080/health";
+          M365_RATE_LIMIT_COOLDOWN_SECONDS = "60";
         }
       '';
       description = "Extra environment variables for the service.";
@@ -243,6 +347,33 @@ in
         M365_AUTO_CLEANUP_MAX_AGE_HOURS = toString cfg.autoCleanupMaxAgeHours;
         M365_AUTO_CLEANUP_KEEP_N = toString cfg.autoCleanupKeepN;
         M365_REQUIRE_STRONG_ADMIN_PASSWORD = "1";
+      }
+      // lib.optionalAttrs (cfg.forceIpv4 != null) {
+        M365_FORCE_IPV4 = lib.boolToString cfg.forceIpv4;
+      }
+      // lib.optionalAttrs (cfg.strictModel != null) {
+        M365_STRICT_MODEL = lib.boolToString cfg.strictModel;
+      }
+      // lib.optionalAttrs (cfg.proxyPool != null) {
+        M365_PROXY_POOL = cfg.proxyPool;
+      }
+      // lib.optionalAttrs (cfg.proxyInsecureTls != null) {
+        M365_PROXY_INSECURE_TLS = lib.boolToString cfg.proxyInsecureTls;
+      }
+      // lib.optionalAttrs (cfg.chatTimeoutSeconds != null) {
+        M365_CHAT_TIMEOUT_SECONDS = toString cfg.chatTimeoutSeconds;
+      }
+      // lib.optionalAttrs (cfg.firstTokenTimeoutSeconds != null) {
+        M365_FIRST_TOKEN_TIMEOUT_SECONDS = toString cfg.firstTokenTimeoutSeconds;
+      }
+      // lib.optionalAttrs (cfg.imageTimeoutSeconds != null) {
+        M365_IMAGE_TIMEOUT_SECONDS = toString cfg.imageTimeoutSeconds;
+      }
+      // lib.optionalAttrs (cfg.transientThrottledCooldownSeconds != null) {
+        M365_TRANSIENT_THROTTLED_COOLDOWN_SECONDS = toString cfg.transientThrottledCooldownSeconds;
+      }
+      // lib.optionalAttrs (cfg.logLevel != null) {
+        M365_LOG_LEVEL = cfg.logLevel;
       }
       // cfg.extraEnvironment;
 
