@@ -126,8 +126,6 @@ let
     + lib.optionalString (cfg.extraArgs != [ ]) (" " + lib.escapeShellArgs cfg.extraArgs);
 in
 {
-  disabledModules = [ "services/misc/cliproxyapi.nix" ];
-
   options.services.dataEraserc.cliproxyapi = {
     enable = lib.mkEnableOption "CLIProxyAPI";
 
