@@ -9,12 +9,12 @@
 }:
 stdenv.mkDerivation (finalAttrs: {
   pname = "qsp-lib";
-  version = "5.9.5-unstable-2026-10-07";
+  version = "5.9.5-unstable-2026-10-10";
   src = fetchFromGitHub {
     owner = "QSPFoundation";
     repo = "qsp";
-    rev = "1b0400ce3d085b0e8f9931bcf90a64608610ddc0";
-    hash = "sha256-l91AwInL0crvNcZVa04iBCMyhFBQ5ZvZM9uX4fitFII=";
+    rev = "bc7e567c1241d9dec8fbdbefeada8eab424d2e3d";
+    hash = "sha256-sJipA8K3BW0+YcrqlVAyBa3Q+Ze6X8HzMIWk+twr5VY=";
   };
   prePatch = ''
     install -Dm644 ${./QspConfig.cmake.in} QspConfig.cmake.in

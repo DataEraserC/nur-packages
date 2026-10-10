@@ -13,13 +13,13 @@ if inputs == null then
 else
   dshPkgs.dsh.buildDshBundle.fromPnpmWorkspace (finalAttrs: {
     pname = "dsh-share";
-    version = "0.4.4";
+    version = "0.5.0";
 
     src = fetchFromGitHub {
       owner = "hellodigua";
       repo = "dsh-share";
       tag = "v${finalAttrs.version}";
-      hash = "sha256-KrGK7RzX5FceTv24m+/orf69EFzbsrvJhEowJeFzi44=";
+      hash = "sha256-0hQIXneC7TYw7JipaPmrCroyn1cnn+/aCDijJ0ub2OY=";
     };
 
     deployPackage = "dsh-share";
@@ -27,7 +27,7 @@ else
     pnpmDeps = dshPkgs.dsh.fetchPnpmDeps {
       inherit (finalAttrs) pname version src;
       fetcherVersion = 4;
-      hash = "sha256-RAz6C40tAKjEMJ8rtyZizOyfLwQhyjf3HznlUNUtNhM=";
+      hash = "sha256-ExGuzb6jtuS5fNWiWoUXVRHhYGPnLmwtfPBuNaV+h9Q=";
     };
 
     npmDeps = null;

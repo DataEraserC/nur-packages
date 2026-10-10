@@ -6,11 +6,11 @@
 }:
 appimageTools.wrapType2 rec {
   pname = "escrcpy";
-  version = "3.2.0";
+  version = "3.3.1";
 
   src = fetchurl {
     url = "https://github.com/viarotel-org/escrcpy/releases/download/v${version}/Escrcpy-${version}-linux-x86_64.AppImage";
-    sha256 = "sha256-VUn/N6BZnCunUTv/2uSh4JJETLAhjIsgKgdgAdJTCmY=";
+    sha256 = "sha256-QR9xqRsK7NFfcCWm8BxiAOpNrq6OPMLa839cPe+pJi4=";
   };
 
   dontUnpack = true;
