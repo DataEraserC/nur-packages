@@ -6,13 +6,13 @@
 }:
 buildGoModule (finalAttrs: {
   pname = "dlx";
-  version = "1.2.5";
+  version = "1.3.1";
 
   src = fetchFromGitHub {
     owner = "OwO-Network";
     repo = "DLX";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-uzjsV/FbQrbIk5TqBu3GFzzW1zjoxMwXXktt3LEexIM=";
+    hash = "sha256-9LHliew71lH4UImLq/64kGa2fEbvAapdWa5ZKFa1MG4=";
   };
   vendorHash = "sha256-w3KuV7+JUJYn8Bmku5aY1eyB8S+0y6ypDncVfiajDSY=";
 
