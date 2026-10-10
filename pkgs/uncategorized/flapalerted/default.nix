@@ -1,10 +1,10 @@
 {
-  buildGoModule,
+  buildGo127Module,
   fetchFromGitHub,
   lib,
   nix-update-script,
 }:
-buildGoModule (finalAttrs: {
+buildGo127Module (finalAttrs: {
   pname = "flapalerted";
   version = "4.6.0";
   src = fetchFromGitHub {
@@ -13,7 +13,11 @@ buildGoModule (finalAttrs: {
     tag = "v${finalAttrs.version}";
     hash = "sha256-7uK8d0XLSYRWHmw7wMxJsNpefdJTdzWWc5/lavz1vjM=";
   };
+  __structuredAttrs = true;
+  strictDeps = true;
   vendorHash = null;
+
+  patches = [ ./roaFilter-onstart.patch ];
 
   tags = [
     "mod_httpAPI"

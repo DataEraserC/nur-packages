@@ -14,6 +14,8 @@ buildNpmPackage (finalAttrs: {
     tag = "v${finalAttrs.version}";
     hash = "sha256-OfS8iAjP1yU40RNlJeFEvih4jn9Ab4joTgLfRD6e1pQ=";
   };
+  __structuredAttrs = true;
+  strictDeps = true;
   npmDepsHash = "sha256-6C4SIoP0+HdIoODkWq6uEJppOOfzFiNf/5FEtTG/Eo0=";
 
   npmFlags = [ "--ignore-scripts" ];
@@ -29,6 +31,7 @@ buildNpmPackage (finalAttrs: {
     mkdir -p $out/lib/node_modules/metapi
     cp -r dist node_modules package.json drizzle $out/lib/node_modules/metapi/
     makeWrapper ${lib.getExe nodejs} $out/bin/metapi \
+      --set NODE_ENV production \
       --add-flags "$out/lib/node_modules/metapi/dist/server/index.js"
 
     runHook postInstall

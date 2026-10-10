@@ -1,7 +1,6 @@
 {
   fetchurl,
   lib,
-  nix-update-script,
   stdenv,
   unzip,
 }:
@@ -15,6 +14,8 @@ stdenv.mkDerivation (finalAttrs: {
     url = "https://github.com/mikespub-org/seblucas-cops/releases/download/${finalAttrs.version}/cops-${finalAttrs.version}-php84.zip";
     hash = "sha256-KSPecmpzyV/OSvkW4Skvesbw3qe/LnT9a6wZ655Py4o=";
   };
+  __structuredAttrs = true;
+  strictDeps = true;
   unpackPhase = ''
     runHook preUnpack
 
@@ -37,7 +38,7 @@ stdenv.mkDerivation (finalAttrs: {
     runHook postInstall
   '';
 
-  passthru.updateScript = nix-update-script { };
+  passthru.updateScript = [ (toString ./update.sh) ];
   meta = {
     changelog = "https://github.com/mikespub-org/seblucas-cops/releases/tag/${finalAttrs.version}";
     maintainers = with lib.maintainers; [ xddxdd ];

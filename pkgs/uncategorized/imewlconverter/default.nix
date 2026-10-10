@@ -16,6 +16,8 @@ buildDotnetModule (finalAttrs: {
     tag = "v${finalAttrs.version}";
     hash = "sha256-2xuxPGiOffABOT1F0ajQNYhF3GSgVmpo5KARJqLu8oM=";
   };
+  __structuredAttrs = true;
+  strictDeps = true;
   projectFile = "src/ImeWlConverterCmd/ImeWlConverterCmd.csproj";
   nugetDeps = ./deps.json;
 

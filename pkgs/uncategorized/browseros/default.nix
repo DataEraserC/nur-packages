@@ -12,7 +12,7 @@ let
     hash = "sha256-tYbfcgg8BG4uotHMG2RjMl7Uywwxl11I4JzBQhXj578=";
   };
 
-  contents = appimageTools.extractType2 {
+  contents = appimageTools.extract {
     pname = "browseros";
     inherit version src;
   };
@@ -20,6 +20,8 @@ in
 appimageTools.wrapType2 {
   pname = "browseros";
   inherit version src;
+  __structuredAttrs = true;
+  strictDeps = true;
 
   extraInstallCommands = ''
     install -Dm644 ${contents}/browseros.desktop $out/share/applications/browseros.desktop

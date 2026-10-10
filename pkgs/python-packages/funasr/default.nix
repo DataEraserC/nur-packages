@@ -44,6 +44,8 @@ buildPythonPackage (finalAttrs: {
     rev = "e7e61293d308f4342ab9307895e710e4b51b949c";
     hash = "sha256-QW8sDkjRb29yCFFf/7nmzr8VEgEaAVU4GJhi/F2suvA=";
   };
+  __structuredAttrs = true;
+  strictDeps = true;
   build-system = [ setuptools ];
 
   propagatedBuildInputs = [

@@ -4,7 +4,15 @@
   stdenv,
   boost186,
   soapysdr-with-plugins,
+  soapyuhd,
 }:
+let
+  soapyuhd' = soapyuhd.overrideAttrs (old: {
+    patches = (old.patches or [ ]) ++ [
+      ./soapyuhd-uhd-4.11-log-add-impl.patch
+    ];
+  });
+in
 stdenv.mkDerivation (finalAttrs: {
   pname = "dump978";
   version = "11.1";
@@ -14,11 +22,13 @@ stdenv.mkDerivation (finalAttrs: {
     tag = "v${finalAttrs.version}";
     hash = "sha256-GErOwkO3dJBXOCI7RpXezNXa3hL6AOyl3KpMUmjfkTg=";
   };
+  __structuredAttrs = true;
+  strictDeps = true;
   enableParallelBuilding = true;
 
   buildInputs = [
     boost186
-    soapysdr-with-plugins
+    (soapysdr-with-plugins.override { soapyuhd = soapyuhd'; })
   ];
 
   makeFlags = [ "VERSION=${finalAttrs.version}" ];

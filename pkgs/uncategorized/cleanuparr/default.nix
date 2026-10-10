@@ -34,6 +34,7 @@ buildDotnetModule (finalAttrs: {
     hash = "sha256-NAq5z54xahcFxnNVDq1MHyhqMdqXQVfZDxVbfRht6MI=";
   };
   __structuredAttrs = true;
+  strictDeps = true;
 
   sourceRoot = "source/code/backend";
   projectFile = "Cleanuparr.Api/Cleanuparr.Api.csproj";

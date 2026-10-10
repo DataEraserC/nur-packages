@@ -15,6 +15,8 @@ buildNpmPackage (finalAttrs: {
     tag = "v${finalAttrs.version}";
     hash = "sha256-/zsv18BmpjhJ1UrXCtnynzvULWI8YqzhcUWNaCo84Ls=";
   };
+  __structuredAttrs = true;
+  strictDeps = true;
   npmDepsHash = "sha256-TaXOQnyZizPA8/Rr5pBNMIQl5zIiPQJs54mFPT/18o8=";
 
   dontNpmBuild = true;
@@ -22,6 +24,7 @@ buildNpmPackage (finalAttrs: {
   postInstall = ''
     mkdir -p $out/bin
     makeWrapper ${nodejs}/bin/node "$out/bin/vuetorrent-backend" \
+      --set NODE_ENV production \
       --add-flags "$out/lib/node_modules/vuetorrent-backend/src/index.js"
   '';
 

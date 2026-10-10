@@ -1,33 +1,45 @@
 {
-  fetchFromGitHub,
+  fetchurl,
   lib,
-  buildGoModule,
-  nix-update-script,
+  stdenv,
   versionCheckHook,
 }:
-buildGoModule (finalAttrs: {
+let
+  platform =
+    {
+      "aarch64-linux" = {
+        archive = "arm64";
+        hash = "sha256-O2iW5Ppe9eUj0hUCOdQiMgJofvQpuDcBX6c6+5sfxp4=";
+      };
+      "x86_64-linux" = {
+        archive = "x86_64";
+        hash = "sha256-WXO/TEzyKow8JfD2wpHNsUckF+oIcx568iPBOKb7pY8=";
+      };
+    }
+    .${stdenv.hostPlatform.system} or (throw "ncmm is not available on ${stdenv.hostPlatform.system}");
+in
+stdenv.mkDerivation (finalAttrs: {
   pname = "ncmm";
   version = "1.2.7";
-  src = fetchFromGitHub {
-    owner = "3899";
-    repo = "ncmm";
-    tag = "v${finalAttrs.version}";
-    hash = "sha256-G/EKJZKO4hRPOUvtkRvu3TY38PwckqVwWZbFq6DvfvI=";
+  src = fetchurl {
+    url = "https://github.com/3899/ncmm/releases/download/v${finalAttrs.version}/ncmm_Linux_${platform.archive}.tar.gz";
+    inherit (platform) hash;
   };
-  vendorHash = "sha256-dYGMbXaPARioUHlNcQCtCM8q79g66m9utnAS7Bdyrk4=";
+  __structuredAttrs = true;
+  strictDeps = true;
 
-  ldflags = [
-    "-s"
-    "-w"
-  ];
-
-  doCheck = false;
-
+  sourceRoot = ".";
   nativeInstallCheckInputs = [ versionCheckHook ];
   doInstallCheck = true;
   versionCheckProgramArg = "--version";
 
-  passthru.updateScript = nix-update-script { };
+  installPhase = ''
+    runHook preInstall
+    install -Dm755 ncmm $out/bin/ncmm
+    runHook postInstall
+  '';
+
+  passthru.updateScript = [ (toString ./update.sh) ];
   meta = {
     changelog = "https://github.com/3899/ncmm/releases/tag/v${finalAttrs.version}";
     mainProgram = "ncmm";
@@ -35,5 +47,9 @@ buildGoModule (finalAttrs: {
     description = "Command-line assistant for NetEase Cloud Music musicians";
     homepage = "https://github.com/3899/ncmm";
     license = lib.licenses.mit;
+    platforms = [
+      "aarch64-linux"
+      "x86_64-linux"
+    ];
   };
 })

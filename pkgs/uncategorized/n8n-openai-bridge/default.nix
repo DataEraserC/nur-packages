@@ -15,6 +15,8 @@ buildNpmPackage (finalAttrs: {
     tag = "v${finalAttrs.version}";
     hash = "sha256-tti1VBvY4UA1cGax99bRIkYWLbuuolI1MPbl9Ky1TxM=";
   };
+  __structuredAttrs = true;
+  strictDeps = true;
   npmDepsHash = "sha256-El0CL6jlyEIH73caqm6VU3V/eA3CMVSaD6Uno381QUg=";
 
   postPatch = ''
@@ -26,6 +28,7 @@ buildNpmPackage (finalAttrs: {
   postInstall = ''
     mkdir -p $out/bin
     makeWrapper ${lib.getExe nodejs} "$out/bin/n8n-openai-bridge" \
+      --set NODE_ENV production \
       --add-flags "$out/lib/node_modules/n8n-openai-bridge/src/server.js"
   '';
 

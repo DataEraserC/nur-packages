@@ -62,7 +62,7 @@ Or, use variables from this repository in case I change them:
 ## Packages
 
 <details>
-<summary>Package set: (Uncategorized) (305 packages)</summary>
+<summary>Package set: (Uncategorized) (237 packages)</summary>
 
 | State | Path | Name | Version | Description |
 | ----- | ---- | ---- | ------- | ----------- |
@@ -85,6 +85,8 @@ Or, use variables from this repository in case I change them:
 | `x86_64-linux` | `baidunetdisk` | [baidunetdisk](https://pan.baidu.com/) | 8.7.0 | Baidu Netdisk |
 |  | `baidupcs-go` | [baidupcs-go](https://github.com/qjfoidnh/BaiduPCS-Go) | 4.0.2-unstable-2026-09-09 | Baidu Netdisk commandline client, mimicking Linux shell file handling commands |
 | `x86_64-linux` | `bambu-studio-bin` | [bambu-studio-bin](https://github.com/bambulab/BambuStudio) | 02.05.02.51 | PC Software for BambuLab and other 3D printers |
+|  | `beellama-cpp` | [beellama-cpp](https://github.com/Anbeeld/beellama.cpp) | 0.4.7 | Anbeeld fork of llama.cpp with improved decoding and speculative decoding |
+|  | `beellama-cpp-cuda` | [beellama-cpp](https://github.com/Anbeeld/beellama.cpp) | 0.4.7 | Anbeeld fork of llama.cpp with improved decoding and speculative decoding |
 |  | `bifrost` | [bifrost](https://github.com/maximhq/bifrost) | 2.2.6 | High-performance AI gateway with unified OpenAI-compatible API |
 |  | `bilibili` | [bilibili](https://app.bilibili.com/) | 1.19.0-3 | Desktop client for Bilibili |
 |  | `bin-cpuflags-x86` | [bin-cpuflags-x86](https://github.com/HanabishiRecca/bin-cpuflags-x86) | 1.0.9 | Small CLI tool to detect CPU flags (instruction sets) of X86 binaries |
@@ -93,23 +95,14 @@ Or, use variables from this repository in case I change them:
 |  | `bnxtnvm` | [bnxtnvm](https://resource.fs.com/mall/resource/broadcom-ethernet-network-adapter-user-manual.pdf) | 222.0.144.0 | Broadcom BNXTNVM utility |
 | `x86_64-linux` | `bqqnt` | [bqqnt](https://im.qq.com/index/) | 0.5.10 | Desktop client for QQ on Linux with bstar |
 |  | `browser-control-mcp` | [browser-control-mcp](https://github.com/eyalzh/browser-control-mcp) | 1.5.2 | MCP server paired with a browser extension that enables AI agents to control the user's browser |
-| `x86_64-linux` | `browser4` | [browser4](https://github.com/platonai/Browser4) | 4.13.27 | MCP-driven browser automation toolkit pairing a Rust command-line client with a Java automation server |
-| `x86_64-linux` | `browser4-unwrapped` | [browser4-unwrapped](https://github.com/platonai/Browser4) | 4.13.27 | MCP-driven browser automation toolkit pairing a Rust command-line client with a Java automation server (unwrapped) |
 | `x86_64-linux` | `browseros` | [browseros](https://www.browseros.com) | 0.51.0 | Open source agentic browser |
-| `x86_64-linux` | `bstar` | bstar | 0.5.10 | BStar compatibility library |
-|  | `buffybox` | [buffybox](https://gitlab.com/postmarketOS/buffybox) | 0-unstable-2024-10-05 | Suite of graphical applications for the terminal |
 |  | `buname` | [buname](https://github.com/dramforever/buname) | 0-unstable-2025-09-18 | Uname wrapper that renumbers Linux versions as if 2.6 never ended |
 |  | `c001apk-flutter` | [c001apk-flutter](https://github.com/bggRGjQaUbCoE/c001apk-flutter) | 0-unstable-2026-03-08 | c001apk |
 |  | `calibre-cops` | [calibre-cops](http://blog.slucas.fr/en/oss/calibre-opds-php-server) | 4.5.5 | Web-based light alternative to Calibre content server / Calibre2OPDS to serve ebooks |
 |  | `cardpointers-cli` | [cardpointers-cli](https://github.com/cardpointers/cli) | 1.0.7 | Credit card rewards CLI for CardPointers |
-|  | `cargo-tauri` | [tauri](https://tauri.app/) | 2.0.1 | Build smaller, faster, and more secure desktop applications with a web frontend |
-|  | `clang_dev_env` | clang_dev_env |  |  |
-|  | `clang_dev_env_fhs` | clang_dev_env_fhs-shell |  |  |
 | `x86_64-linux` | `cleanuparr` | [cleanuparr](https://github.com/Cleanuparr/Cleanuparr) | 2.10.9 | Advanced download manager for the Servarr ecosystem |
 |  | `click-loglevel` | [click-loglevel](https://github.com/jwodder/click-loglevel) | 0.7.0 | Log level parameter type for Click |
 |  | `cliproxyapi` | [cliproxyapi](https://github.com/router-for-me/CLIProxyAPI) | 8.0.23 | Wrap Gemini CLI, Antigravity, ChatGPT Codex, Claude Code, Qwen Code, iFlow as an OpenAI/Gemini/Claude/Codex compatible API service |
-|  | `cliproxyapi-management-center` | [cliproxyapi-management-center](https://github.com/router-for-me/Cli-Proxy-API-Management-Center) | 1.26.0 | Web management interface for CLIProxyAPI |
-|  | `cliproxyapi-management-center-bin` | [cliproxyapi-management-center-bin](https://github.com/router-for-me/Cli-Proxy-API-Management-Center) | 1.26.0 | Prebuilt web management interface for CLIProxyAPI |
 |  | `cockpy` | [cockpy](https://github.com/Hiro420/CockPY) | 0-unstable-2024-09-07 | Public and open source version of the cbt2 ps I'm working on |
 |  | `comp128` | [comp128](https://github.com/Takuto88/comp128-python) | 1.0.0 | Python implementation of the Comp128 v1-3 GSM authentication algorithms |
 |  | `cpolar` | cpolar | 3.3.12 | cpolar (Polar Cloud): Expose local web services to the public internet with ease. |
@@ -121,7 +114,6 @@ Or, use variables from this repository in case I change them:
 |  | `datarecorder` | [datarecorder](https://github.com/g1879/DataRecorder) | 3.6.2 | Python-based toolkit to record data into files |
 |  | `dbip-lite` | [dbip-lite](https://db-ip.com/db/lite.php) | 2026-08 | DBIP's Lite GeoIP Country, City, and ASN databases |
 |  | `decluttarr` | [decluttarr](https://github.com/ManiMatter/decluttarr) | 2.2.0 | Watches radarr, sonarr, lidarr and readarr download queues and removes downloads if they become stalled or no longer needed |
-|  | `devtunnel` | [devtunnel](https://learn.microsoft.com/en-us/azure/developer/dev-tunnels/) | 1.0.2094+24665e6583 | Microsoft Dev Tunnels CLI for securely exposing local services to the internet |
 |  | `dlx` | [dlx](https://deeplx.owo.network) | 1.2.5 | Self-hosted translation API server |
 |  | `dn42-pingfinder` | [dn42-pingfinder](https://git.dn42.dev/dn42/pingfinder/src/branch/master/clients) | 0-unstable-2022-11-06 | DN42 Pingfinder |
 |  | `download-kit` | [downloadkit](https://github.com/g1879/DownloadKit) | 2.0.7 | Simple to use multi-threaded download toolkit |
@@ -150,7 +142,7 @@ Or, use variables from this repository in case I change them:
 |  | `dsh-turn-rewind` | [dsh-turn-rewind](https://github.com/Anionex/dsh-turn-rewind) | 0.3.9-unstable-2026-10-01 | Turn-level conversation and workspace rewind for DeepSeek Harness powered by a persistent Change Ledger |
 |  | `dsh-worktree` | [dsh-worktree](https://github.com/FlashingChen/dsh-worktree) | 0.1.0 | Codex-style permanent git worktrees for DeepSeek Harness: agent tools, a /worktree command, and session context for durable worktrees |
 |  | `dump978` | [dump978](https://github.com/flightaware/dump978) | 11.1 | FlightAware's 978MHz UAT demodulator |
-| `x86_64-linux` | `easy-cliproxyapi-bin` | [easy-cliproxyapi-bin](https://github.com/router-for-me/EasyCLIProxyAPI) | 0.3.30 | Desktop GUI for CLIProxyAPI that configures popular AI agents |
+|  | `easycliproxyapi` | [easycliproxyapi](https://github.com/router-for-me/EasyCLIProxyAPI) | 0.3.29 | Desktop GUI for managing CLIProxyAPI and configuring AI agent clients |
 |  | `edge-tts` | [edge-tts](https://github.com/rany2/edge-tts) | 7.2.8 | Use Microsoft Edge's online text-to-speech service from Python WITHOUT needing Microsoft Edge or Windows or an API key |
 |  | `ela-widget-tools` | [ela-widget-tools](https://github.com/Liniyous/ElaWidgetTools) | 0-unstable-2026-10-09 | Fluent-UI For QT-Widget |
 |  | `electron_11` | [electron](https://github.com/electron/electron) | 11.5.0 | Cross platform desktop application shell |
@@ -159,15 +151,12 @@ Or, use variables from this repository in case I change them:
 |  | `emperors-scepter` | [emperors-scepter](https://honkai-star-rail.fandom.com/wiki/As_I%27ve_Written/%CE%B4-me13.exe) | 0.1.0-6.18.55 | Idle kthreads for the twelve Scepter δ-me13 signals |
 |  | `env-dedup` | [env-dedup](https://github.com/alexjp/env-dedup) | 0-unstable-2025-09-06 | Deduplicate the environment variables values |
 |  | `epub-to-xtc-converter` | [epub-to-xtc-converter](https://github.com/bigbag/epub-to-xtc-converter) | 0.9.0 | CLI tool for converting EPUB files to XTC/XTCH format for Xteink e-readers |
-| `x86_64-linux` | `escrcpy_appimage` | [escrcpy](https://github.com/keiko233/clash-nyanpasu) | 3.3.1 | Clash GUI based on tauri |
 |  | `etherguard` | [etherguard](https://github.com/KusakabeShi/EtherGuard-VPN) | 0.3.5-f5 | Layer 2 version of WireGuard with Floyd Warshall implementation in Go |
-|  | `example-package` | example-package-1.0 | 1.0 |  |
 |  | `extenddb` | [extenddb](https://github.com/ExtendDB/extenddb) | 0.1.13 | DynamoDB-compatible API adapter backed by PostgreSQL |
 |  | `fake-ollama` | [fake-ollama](https://github.com/spoonnotfound/fake-ollama) | 0-unstable-2025-02-13 | Simulated server implementation of Ollama API |
 |  | `fastapi-dls` | [fastapi-dls](https://gitea.publichub.eu/oscar.krause/fastapi-dls) | 2.0.1-unstable-2025-05-13 | Minimal Delegated License Service (DLS) |
 |  | `fcitx5-breeze` | [fcitx5-breeze](https://github.com/scratch-er/fcitx5-breeze) | 3.1.0 | Fcitx5 theme to match KDE's Breeze style |
-|  | `fcitx5-pinyin-CustomPinyinDictionary` | [fcitx5-pinyin-CustomPinyinDictionary](https://github.com/wuhgit/CustomPinyinDictionary) | 20260101 | 自建拼音输入法词库，百万常用词汇量，适配 Fcitx5 (Linux / Android) 及 Gboard (Android + Magisk or KernelSU) |
-|  | `fhs` | fhs |  |  |
+| `x86_64-linux` | `fingerprint-chromium-bin` | [fingerprint-chromium-bin](https://github.com/adryfish/fingerprint-chromium) | 150.0.7871.186 | Fingerprint browser based on ungoogled-chromium, prebuilt Linux binaries |
 |  | `flapalerted` | [flapalerted](https://github.com/Kioubit/FlapAlerted) | 4.6.0 | BGP Update based flap detection |
 |  | `flaresolverr-21hsmw` | [flaresolverr-21hsmw](https://github.com/21hsmw/FlareSolverr) | 0-unstable-2025-03-04 | Proxy server to bypass Cloudflare protection, with 21hsmw modifications to support nodriver |
 |  | `flaresolverr-alexfozor` | [flaresolverr-alexfozor](https://github.com/AlexFozor/FlareSolverr) | 0-unstable-2024-07-20 | Proxy server to bypass Cloudflare protection, with AlexFozor modifications to support Drission Page |
@@ -175,7 +164,7 @@ Or, use variables from this repository in case I change them:
 |  | `fr24feed` | [fr24feed](https://www.flightradar24.com/share-your-data) | 1.0.57-1 | Flightradar24 Decoder & Feeder lets you effortlessly share ADS-B data with Flightradar24 |
 |  | `ftp-proxy` | [ftp-proxy](http://www.ftpproxy.org/) | 1.2.3 | FTP Proxy Server |
 |  | `funasr` | [funasr](https://www.funasr.com/) | 1.4.16-unstable-2026-10-08 | Fundamental End-to-End Speech Recognition Toolkit and Open Source SOTA Pretrained Models |
-|  | `geolite2` | [geolite2](https://dev.maxmind.com/geoip/geoip2/geolite2/) | 2026.10.10 | MaxMind's GeoIP2 GeoLite2 Country, City, and ASN databases |
+|  | `geolite2` | [geolite2](https://dev.maxmind.com/geoip/geoip2/geolite2/) | 2026.10.07 | MaxMind's GeoIP2 GeoLite2 Country, City, and ASN databases |
 |  | `glauth` | [glauth](https://github.com/glauth/glauth) | 2.5.4 | Lightweight LDAP server for development, home use, or CI |
 | `x86_64-linux` | `google-earth-pro` | [google-earth-pro](https://www.google.com/earth/) | 7.3.7.1327 | Google Earth Pro |
 |  | `gopherus` | [gopherus](http://gopherus.sourceforge.net/) | 1.2.2 | Free, multiplatform, console-mode gopher client that provides a classic text interface to the gopherspace |
@@ -194,10 +183,13 @@ Or, use variables from this repository in case I change them:
 |  | `hoyo-glyphs` | [hoyo-glyphs](https://github.com/SpeedyOrc-C/Hoyo-Glyphs) | 20250529 | Constructed scripts by Hoyoverse 米哈游的架空文字 |
 | `x86_64-linux` | `i915-sriov` | [i915-sriov](https://github.com/strongtz/i915-sriov-dkms) | 2026.09.16-unstable-2026-10-02 | DKMS module of Linux i915 driver with SR-IOV support |
 |  | `igsc` | [igsc](https://github.com/intel/igsc) | 1.3.2 | Intel graphics system controller firmware update library |
+|  | `ik-llama-cpp` | [ik-llama-cpp](https://github.com/ikawrakow/ik_llama.cpp) | 0-unstable-2026-10-09 | High-performance llama.cpp fork with optimized i-quantization kernels |
+|  | `ik-llama-cpp-avx` | [ik-llama-cpp](https://github.com/ikawrakow/ik_llama.cpp) | 0-unstable-2026-10-09 | High-performance llama.cpp fork with optimized i-quantization kernels |
+|  | `ik-llama-cpp-avx2` | [ik-llama-cpp](https://github.com/ikawrakow/ik_llama.cpp) | 0-unstable-2026-10-09 | High-performance llama.cpp fork with optimized i-quantization kernels |
+|  | `ik-llama-cpp-cuda` | [ik-llama-cpp](https://github.com/ikawrakow/ik_llama.cpp) | 0-unstable-2026-10-09 | High-performance llama.cpp fork with optimized i-quantization kernels |
 |  | `imewlconverter` | [imewlconverter](https://github.com/studyzy/imewlconverter) | 3.6.0 | FOSS program for converting IME dictionaries |
 |  | `invisible-firefox-unwrapped` | [invisible-firefox-unwrapped](https://github.com/feder-cr/invisible-firefox) | 151.0 | Firefox with anti fingerprinting modifications |
 |  | `it-tools` | [it-tools](https://github.com/sharevb/it-tools) | 2026.9.27 | Collection of handy online tools for developers, with great UX |
-|  | `ja-netfilter` | [ja-netfilter](https://3.jetbra.in) | 240701 | ja-netfilter |
 |  | `jproxy` | [jproxy](https://github.com/LuckyPuppy514/jproxy) | 3.4.1 | Proxy between Sonarr / Radarr and Jackett / Prowlarr, mainly used to optimize search and improve recognition rate |
 |  | `kaixinsong-fonts` | [kaixinsong-fonts](http://www.guoxuedashi.net/zidian/bujian/KaiXinSong.php) | 3.0 | KaiXinSong |
 |  | `kaldiio` | [kaldiio](https://github.com/nttcslab-sp/kaldiio) | 2.18.1 | Pure python module for reading and writing kaldi ark files |
@@ -217,7 +209,6 @@ Or, use variables from this repository in case I change them:
 |  | `lyrica` | [lyrica](https://github.com/chiyuki0325/lyrica) | 0.24 | Linux desktop lyrics widget focused on simplicity and integration |
 |  | `lyrica-plasmoid` | [lyrica](https://github.com/chiyuki0325/lyrica) | 0.24 | Linux desktop lyrics widget focused on simplicity and integration (Plasmoid component) |
 |  | `lyrics-on-panel-backend` | [lyrics-on-panel-backend](https://github.com/KangweiZhu/lyrics-on-panel) | 2.0 | MPRIS2 WebSocket backend for the Lyrics-on-Panel KDE Plasma widget |
-|  | `m365-copilot2api` | [m365-copilot2api](https://github.com/HEXUXIU/M365-Copilot2API) | 0.7.3 | Microsoft 365 Copilot to OpenAI/Anthropic compatible API gateway |
 |  | `mages-bin` | [mages-bin](https://github.com/mlm-games/Mages) | 5.1.2 | Experimental Matrix chat client built with Compose Multiplatform and matrix-rust-sdk |
 |  | `magiskboot` | [magiskboot](https://topjohnwu.github.io/Magisk/tools.html) | 31.0 | Tool to unpack / repack boot images, parse / patch / extract cpio, patch dtb, hex patch binaries, and compress / decompress files with multiple algorithms |
 |  | `mautrix-gmessages` | [mautrix-gmessages](https://github.com/mautrix/gmessages) | 0.2609.0 | Matrix-Google Messages puppeting bridge |
@@ -227,13 +218,11 @@ Or, use variables from this repository in case I change them:
 |  | `mlat-client` | [mlat-client](https://github.com/adsb-related-code/mlat-client) | 0.4.2 | Client that selectively forwards Mode S messages to a server that resolves the transmitter position by multilateration |
 |  | `modelscope` | [modelscope](https://www.modelscope.cn/) | 1.40.2 | Bring the notion of Model-as-a-Service to life |
 |  | `modelscope-hub` | [modelscope-hub](https://github.com/modelscope/modelscope_hub) | 0.4.6 | Official Python client to connect with ModelScope Hub |
-|  | `modlens` | [modlens](https://github.com/liustack/modlens) | 3.26.6 | Vision plugin for DeepSeek Harness that turns pasted images into structured JSON evidence through pluggable vision engines |
 |  | `mtkclient` | [mtkclient](https://github.com/bkerler/mtkclient) | 2.1.4.1-unstable-2026-09-12 | MTK reverse engineering and flash tool |
 | `x86_64-linux` | `mtranservercore-rs` | [linguaspark-server](https://github.com/LinguaSpark/server) | 0-unstable-2026-07-19 | Lightweight multilingual translation service powered by the pure Rust LinguaSpark inference engine, compatible with multiple translation frontend APIs |
 |  | `n8n-openai-bridge` | [n8n-openai-bridge](https://github.com/sveneisenschmidt/n8n-openai-bridge) | 0.0.17 | OpenAI-compatible API middleware for n8n workflows |
 |  | `ncmdump-rs` | [ncmdump-rs](https://github.com/iqiziqi/ncmdump.rs) | 0.8.0 | NetEase Cloud Music copyright protection file dump by rust |
 |  | `ncmm` | [ncmm](https://github.com/3899/ncmm) | 1.2.7 | Command-line assistant for NetEase Cloud Music musicians |
-|  | `ndrop` | [ndrop](https://github.com/Schweber/ndrop) | 0-unstable-2026-01-25 | Emulate 'tdrop' in niri (run, show and hide programs via keybind - similar to a dropdown terminal) |
 |  | `netboot-xyz` | [netboot-xyz](https://netboot.xyz/) | 3.0.3-RC | Network-based bootable operating system installer based on iPXE |
 |  | `netns-exec` | [netns-exec](https://github.com/pekman/netns-exec) | 0-unstable-2016-07-30 | Run command in Linux network namespace as normal user |
 |  | `new-api` | [new-api](https://github.com/QuantumNous/new-api) | 1.0.0-rc.43 | OpenAI-compatible LLM gateway with users, API tokens, quotas and usage logs |
@@ -246,8 +235,7 @@ Or, use variables from this repository in case I change them:
 |  | `nvlax-530` | [nvlax](https://github.com/illnyang/nvlax) | unstable-2021-10-29 | Future-proof NvENC & NvFBC patcher (for NVIDIA driver >= 530) |
 |  | `ocfs2-tools` | [ocfs2-tools](https://github.com/markfasheh/ocfs2-tools) | 1.8.9 | Oracle Cluster File System 2 (OCFS2) userspace tools (mkfs.ocfs2, mount.ocfs2, o2cb_ctl, fsck.ocfs2, etc.) |
 |  | `oci-arm-host-capacity` | [oci-arm-host-capacity](https://github.com/hitrov/oci-arm-host-capacity) | 0-unstable-2024-08-13 | This script allows to bypass Oracle Cloud Infrastructure 'Out of host capacity' error immediately when additional OCI capacity will appear in your Home Region / Availability domain |
-|  | `oidc-tester-app` | [oidc-tester-app](https://github.com/authelia/oidc-tester-app) | 0-unstable-2026-10-10 | OpenID Connect relying party web application for testing OIDC providers such as Authelia |
-|  | `omniroute` | [omniroute](https://github.com/diegosouzapw/OmniRoute) | 3.8.51 | Unified AI router with 358 providers, RTK+Caveman compression, auto fallback, MCP/A2A, desktop, PWA, and OpenAI-compatible APIs |
+|  | `oidc-tester-app` | [oidc-tester-app](https://github.com/authelia/oidc-tester-app) | 0-unstable-2026-09-25 | OpenID Connect relying party web application for testing OIDC providers such as Authelia |
 |  | `open-webui-kb-manager` | [kb-manager](https://github.com/dubh3124/OpenWebUI-KB-Manager) | 0.2.0 | Command-line interface (CLI) tool for managing files and knowledge bases in OpenWebUI |
 |  | `openai-edge-tts` | [openai-edge-tts](https://tts.travisvn.com/) | 2.0.0-unstable-2025-07-01 | Text-to-speech API endpoint compatible with OpenAI's TTS API endpoint, using Microsoft Edge TTS to generate speech for free locally |
 |  | `opencc-python-reimplemented` | [opencc-python-reimplemented](https://github.com/yichen0831/opencc-python) | 0-unstable-2023-02-11 | OpenCC made with Python |
@@ -255,7 +243,7 @@ Or, use variables from this repository in case I change them:
 |  | `opencode2dsh` | [opencode2dsh](https://github.com/FishBottle7/opencode2dsh) | 0.3.10 | DSH plugin for free OpenCode Zen models with native adapter and no API key |
 |  | `openedai-speech` | [openedai-speech](https://github.com/matatonic/openedai-speech) | 0.18.2 | OpenAI API compatible text to speech server using Coqui AI's xtts_v2 and/or piper tts as the backend |
 |  | `openssl-ech` | [openssl-ech](https://github.com/sftcd/openssl/tree/ECH-draft-13c) | 0-unstable-2026-06-09 | OpenSSL with Encrypted Client Hello support |
-|  | `openssl-oqs-provider` | [openssl-oqs-provider](https://openquantumsafe.org) | 0.12.0 | OpenSSL 3 provider containing post-quantum algorithms |
+|  | `openssl-oqs-provider` | [openssl-oqs-provider](https://openquantumsafe.org) | 0.12.0-unstable-2026-10-08 | OpenSSL 3 provider containing post-quantum algorithms |
 |  | `osdlyrics` | [osdlyrics](https://github.com/osdlyrics/osdlyrics) | 0.5.16 | Standalone lyrics fetcher/displayer (windowed and OSD mode) |
 |  | `palworld-exporter` | [palworld-exporter](https://github.com/palworldlol/palworld-exporter) | 1.3.1 | Prometheus exporter for Palworld Server |
 |  | `palworld-worldoptions` | [palworld-worldoptions](https://github.com/legoduded/palworld-worldoptions) | 1.11.0 | Tool for managing Palworld dedicated server settings |
@@ -268,13 +256,16 @@ Or, use variables from this repository in case I change them:
 |  | `plasma-panel-transparency-toggle` | [plasma-panel-transparency-toggle](https://github.com/sanjay-kr-commit/panelTransparencyToggleForPlasma6) | 0-unstable-2024-04-17 | Rewrite of Panel Transparency Button for Plasma 6 |
 |  | `plasma-smart-video-wallpaper-reborn` | [plasma-smart-video-wallpaper-reborn](https://store.kde.org/p/2139746) | 2.16.0 | Plasma 6 wallpaper plugin to play videos on your Desktop/Lock Screen |
 |  | `plasma-yesplaymusic-lyric` | [plasma-yesplaymusic-lyric](https://github.com/zsiothsu/org.kde.plasma.yesplaymusic-lyrics) | 0.2.3-unstable-2025-01-07 | Display YesPlayMusic lyrics on the plasma panel | 在KDE plasma面板中显示YesPlayMusic的歌词 |
+|  | `prismml-llama-cpp` | [prismml-llama-cpp](https://github.com/PrismML-Eng/llama.cpp) | b10770-6684606 | PrismML fork of llama.cpp with runtime CPU dispatch and unified llama binary |
+|  | `prismml-llama-cpp-cuda` | [prismml-llama-cpp](https://github.com/PrismML-Eng/llama.cpp) | b10770-6684606 | PrismML fork of llama.cpp with runtime CPU dispatch and unified llama binary |
 |  | `pterodactyl-wings` | [pterodactyl-wings](https://pterodactyl.io) | 1.13.3-unstable-2026-10-09 | Server control plane for Pterodactyl Panel |
 |  | `py-rcon` | [rcon](https://github.com/ttk1/py-rcon) | 1.3.0 | Python implementation of RCON |
 |  | `pyhss` | [pyhss](https://github.com/nickvsnetworking/pyhss) | 2.0.0-unstable-2026-10-08 | Python HSS / Diameter Server |
 |  | `pyosmocom` | [pyosmocom](https://gitea.osmocom.org/osmocom/pyosmocom) | 0.0.12-unstable-2026-08-23 | Python implementation of key Osmocom protocols/interfaces |
 |  | `pysctp` | [pysctp](https://github.com/p1sec/pysctp) | 0.7.3 | SCTP stack for Python |
 |  | `pytorch-wpe` | [pytorch-wpe](https://github.com/nttcslab-sp/dnn_wpe) | 0.0.1 | WPE implementation using PyTorch |
-|  | `qemu-user-static` | [qemu-user-static](http://www.qemu.org/) | 11.1.0+ds-2 | Generic and open source machine emulator, virtualizer |
+| `x86_64-linux` | `qdma` | [qdma](https://github.com/Xilinx/dma_ip_drivers) | 0-unstable-2026-08-20 | Xilinx QDMA PCIe kernel modules |
+|  | `qemu-user-static` | [qemu-user-static](http://www.qemu.org/) | 11.1.2+ds-2 | Generic and open source machine emulator, virtualizer |
 |  | `qq` | [qq](https://im.qq.com/linuxqq/index.html) | 3.2.18 | Desktop client for QQ on Linux |
 |  | `qq-agent-presets` | [qq-agent-presets](https://github.com/Derpyu520/qq-bridge) | 0.2.0-r3 | DSH bundle for qq-bridge: agent presets (qq-chat, qq-chat-v2) and the qq-tool-restrict guard |
 |  | `qq-bridge` | [qq-bridge](https://github.com/Derpyu520/qq-bridge) | 0.2.0-r3 | QQ (SnowLuma OneBot v11) bridge for DeepSeek Harness agents |
@@ -307,10 +298,12 @@ Or, use variables from this repository in case I change them:
 | `x86_64-linux` | `sgx-software-enable` | [sgx-software-enable](https://github.com/intel/sgx-software-enable) | 1.0-unstable-2023-01-06 | Application to enable Intel SGX on Linux systems |
 |  | `sidestore-vpn` | [sidestore-vpn](https://github.com/xddxdd/sidestore-vpn) | 0-unstable-2026-05-21 | Allow SideStore to work across all iOS devices on your local network |
 |  | `silero-vad` | [silero-vad](https://github.com/snakers4/silero-vad) | 6.2.3 | Pre-trained enterprise-grade Voice Activity Detector |
+| `x86_64-linux` | `skyline-speeder` | [skyline-speeder](https://github.com/CYBERVERSE-Research/skyline-speeder) | 0.5.0 | Sender-side TCP congestion control via eBPF struct_ops with a Rust control plane |
 |  | `smartrent_py` | [smartrent_py](https://github.com/ZacheryThomas/smartrent.py) | 0.5.2 | Api for SmartRent locks, thermostats, moisture sensors and switches |
 |  | `smfc` | [smfc](https://github.com/petersulyok/smfc) | 6.2.0 | Super Micro Fan Control |
 |  | `snell-server` | [snell-server](https://nssurge.com) | v6.0.0rc2 |  |
 |  | `space-cadet-pinball-full-tilt` | [SpaceCadetPinball](https://github.com/k4zmu2a/SpaceCadetPinball) | 2.1.0 | Reverse engineering of 3D Pinball for Windows – Space Cadet, a game bundled with Windows (With Full Tilt Pinball data) |
+|  | `strata` | [strata](https://github.com/Niko1221/Strata) | 0.1.41 | Local large language model inference stack with a CUDA engine and a self-managed data folder |
 |  | `suwayomi-server` | [suwayomi-server](https://github.com/Suwayomi/Suwayomi-Server) | 2.4.2366 | Rewrite of Tachiyomi for the Desktop |
 | `x86_64-linux` | `svp` | [svp](https://www.svp-team.com/wiki/SVP:Linux) | 4.7.305-1 | SmoothVideo Project 4 (SVP4) converts any video to 60 fps (and even higher) and performs this in real time right in your favorite video player |
 |  | `svp-mpv` | [mpv-with-scripts](https://mpv.io) | 0.41.0 | General-purpose media player, fork of MPlayer and mplayer2 |
@@ -338,34 +331,25 @@ Or, use variables from this repository in case I change them:
 |  | `vlmcsd` | [vlmcsd](https://github.com/Wind4/vlmcsd) | 1113-unstable-2023-07-28 | KMS Emulator in C |
 |  | `vuetorrent-backend` | [vuetorrent-backend](https://github.com/VueTorrent/vuetorrent-backend) | 2.7.3 | Simple backend service to store configuration server-side |
 |  | `waline` | [waline](https://github.com/walinejs/waline) | 1.43.4 | Server for the Waline comment system |
-|  | `watt-toolkit_2` | [watt-toolkit](https://steampp.net) | 2.8.6 | Cross-platform Steam toolbox |
-|  | `watt-toolkit_bin` | [watt-toolkit_bin](https://steampp.net) | 3.1.0 | an open source cross-platform multi-purpose game toolkit |
 |  | `wechat-uos-sandboxed` | [wechat-uos](https://weixin.qq.com/) | 4.1.1.7 | WeChat desktop with sandbox enabled ($HOME/Documents/WeChat_Data) (Adapted from https://aur.archlinux.org/packages/wechat-uos-bwrap) |
 | `x86_64-linux` | `wechat_dev_tools_appimage` | [wechat_dev_tools_appimage](https://github.com/msojocs/wechat-web-devtools-linux) | 2.02.2608080-1 | The development tools for wechat projects |
 | `x86_64-linux` | `wechat_dev_tools_bin` | [wechat_dev_tools_bin](https://github.com/msojocs/wechat-web-devtools-linux) | 2.02.2608080-1 | The development tools for wechat projects |
 | `x86_64-linux` | `wine-wechat` | [wine-wechat](https://weixin.qq.com/) | 3.9.12.57 | Wine WeChat x64 (Packaging script adapted from https://aur.archlinux.org/packages/deepin-wine-wechat) |
 | `x86_64-linux` | `wine-wechat-x86` | [wine-wechat-x86](https://weixin.qq.com/) | 3.9.12.56 | Wine WeChat x86 (Packaging script adapted from https://aur.archlinux.org/packages/deepin-wine-wechat) |
-|  | `xcursor-genshin-nahida` | [xcursor-genshin-nahida](https://aur.archlinux.org/packages/xcursor-genshin-nahida) | 0-unstable-2023-02-12 | xcursor genshin nahida |
+| `x86_64-linux` | `witch-weapon` | [witch-weapon](https://github.com/YANG301/Witch-Weapon-Godot-) | 1.4.2-unstable-2026-08-13 | Fan-made Godot remake of the Witch Weapon story |
+| `x86_64-linux` | `xdma` | [xdma](https://github.com/Xilinx/dma_ip_drivers) | 0-unstable-2026-08-20 | Xilinx XDMA PCIe kernel module |
 |  | `xstatic-asciinema-player` | [xstatic-asciinema-player](https://github.com/asciinema/asciinema-player) | 2.6.1.1 | Asciinema-player packaged for setuptools (easy_install) / pip |
 |  | `xstatic-font-awesome` | [xstatic-font-awesome](https://github.com/FortAwesome/Font-Awesome) | 6.2.1.2 | Font Awesome packaged for setuptools (easy_install) / pip |
 |  | `xt_rtpengine` | [xt_rtpengine](https://github.com/sipwise/rtpengine) | 0-unstable-2026-10-08 | Sipwise media proxy for Kamailio (kernel module) |
 |  | `xue` | [xue](https://pypi.org/project/xue/) | 0.0.34 | Minimalist web front-end framework composed of HTMX and Python |
-|  | `xvcd` | [xvcd](https://github.com/RHSResearchLLC/xvcd) | 0-unstable-2019-11-20 | Xilinx Virtual Cable Daemon |
-| `Broken` `x86_64-linux` | `Adobe_Illustrator_CS6_appimage` | [Adobe_Illustrator_CS6](https://t.me/Linux_Appimages/1052) | CS6 | Adobe_Illustrator_CS6 |
-| `Broken` `x86_64-linux` | `Adobe_Photoshop_CS6_appimage` | [Adobe_Photoshop_CS6](https://t.me/Linux_Appimages/1042) | CS6 | Adobe_Photoshop_CS6 |
-| `Broken` | `alipan` | [alipan](https://www.alipan.com/) | 6.9.3 | Aliyun aDrive |
+|  | `xvcd` | [xvcd](https://github.com/tmbinc/xvcd) | 0-unstable-2025-03-06 | Xilinx Virtual Cable Daemon |
 | `Broken` | `boringssl-oqs` | [boringssl-oqs](https://openquantumsafe.org) | OQS-BoringSSL-snapshot-2025-01 | Fork of BoringSSL that includes prototype quantum-resistant key exchange and authentication in the TLS handshake based on liboqs |
 | `Broken` `x86_64-linux` | `cisco-packet-tracer` | [ciscoPacketTracer8](https://www.netacad.com/courses/packet-tracer) | 8.2.2 | Network simulation tool from Cisco |
 | `Broken` `x86_64-linux` | `ciscoPacketTracer` | [ciscoPacketTracer8](https://www.netacad.com/courses/packet-tracer) | 8.2.2 | Network simulation tool from Cisco |
 | `Broken` `x86_64-linux` | `clash-nyanpasu` | [clash-nyanpasu](https://github.com/keiko233/clash-nyanpasu) | 1.6.1 | Clash GUI based on tauri |
 | `Broken` | `coqui-tts` | [coqui-tts](http://coqui.ai) | 0.22.0 | Deep learning toolkit for Text-to-Speech, battle-tested in research and production |
 | `Broken` | `douban-openapi-server` | [douban-openapi-server](https://github.com/caryyu/douban-openapi-server) | 0-unstable-2022-12-17 | Douban API server that provides unofficial APIs for media information gathering |
-| `Broken` `x86_64-linux` | `example-package-appimage` | [dingtalk](https://www.dingtalk.com/) | 2.1.22 | DingTalk desktop messaging application |
-| `Broken` | `himirage_unwrapped` | [himirage-unwrapped](https://photosir.com) | 2026-09-03 11:21:10 |  |
 | `Broken` | `kui` | [kui](https://kui.aber.sh/) | 1.15.0 | Easy-to-use web framework |
-| `Broken` | `llqqnt` | qq | qq=3.2.18+llqqnt_rev=1a8c9707c3673e0491445a1d6d7a86f0a1aa8000 |  |
-| `Broken` | `pgy` | [pgy](https://pgy.oray.com/download/) | 6.9.0 | Client for the Oray PgyVisitor software-defined networking platform |
-| `Broken` | `scrcpy-mask-git` | [scrcpy-mask-git](https://github.com/AkiChase/scrcpy-mask) | 0.9.0-unstable-2026-09-21 | scrcpy-mask |
 | `Broken` | `soggy` | [soggy](https://github.com/LDAsuku/soggy) | 0-unstable-2022-12-14 | Experimental server emulator for a game I forgot its name |
 | `Broken` | `uksmd` | [uksmd](https://github.com/CachyOS/uksmd) | 1.3.0 | Userspace KSM helper daemon |
 | `Broken` `x86_64-linux` | `vmware-workstation` | [vmware-workstation](https://www.vmware.com/products/workstation-pro.html) | 17.5.1 | Industry standard desktop hypervisor for x86-64 architecture |
@@ -373,22 +357,6 @@ Or, use variables from this repository in case I change them:
 | `Broken` | `waybar_bluetooth_battery_parse` | [waybar-bluetooth_battery_parse](https://github.com/Program-Learning/waybar-bluetooth_battery_parse) | 0.0.2 | Parse bluetooth battery level for waybar |
 </details>
 
-
-<details>
-<summary>Package set: UnknownAnimeGamePS (0 packages)</summary>
-
-| State | Path | Name | Version | Description |
-| ----- | ---- | ---- | ------- | ----------- |
-
-</details>
-
-<details>
-<summary>Package set: UnknownAnimeGamePS-wrapper (0 packages)</summary>
-
-| State | Path | Name | Version | Description |
-| ----- | ---- | ---- | ------- | ----------- |
-
-</details>
 
 <details>
 <summary>Package set: asteriskDigiumCodecs (80 packages)</summary>
@@ -492,13 +460,15 @@ Or, use variables from this repository in case I change them:
 | `x86_64-linux` | `kernel-modules.i915-sriov` | [i915-sriov](https://github.com/strongtz/i915-sriov-dkms) | 2026.09.16-unstable-2026-10-02 | DKMS module of Linux i915 driver with SR-IOV support |
 |  | `kernel-modules.nft-fullcone` | [nft-fullcone](https://github.com/fullcone-nat-nftables/nft-fullcone) | 0-unstable-2023-05-17 | Nftables fullcone expression kernel module |
 |  | `kernel-modules.nullfsvfs` | [nullfsvfs](https://github.com/abbbi/nullfsvfs) | 0.27 | Virtual black hole file system that behaves like /dev/null |
+| `x86_64-linux` | `kernel-modules.qdma` | [qdma](https://github.com/Xilinx/dma_ip_drivers) | 0-unstable-2026-08-20 | Xilinx QDMA PCIe kernel modules |
 |  | `kernel-modules.r8125` | [r8125](https://www.realtek.com/en/component/zoo/category/network-interface-controllers-10-100-1000m-gigabit-ethernet-pci-express-software) | 9.018.00-1 | Linux device driver for Realtek 2.5/5 Gigabit Ethernet controllers with PCI-Express interface |
 |  | `kernel-modules.r8168` | [r8168](https://www.realtek.com/en/component/zoo/category/network-interface-controllers-10-100-1000m-gigabit-ethernet-pci-express-software) | 8.057.00 | Linux device driver for Realtek Ethernet controllers |
+| `x86_64-linux` | `kernel-modules.xdma` | [xdma](https://github.com/Xilinx/dma_ip_drivers) | 0-unstable-2026-08-20 | Xilinx XDMA PCIe kernel module |
 |  | `kernel-modules.xt_rtpengine` | [xt_rtpengine](https://github.com/sipwise/rtpengine) | 0-unstable-2026-10-08 | Sipwise media proxy for Kamailio (kernel module) |
 </details>
 
 <details>
-<summary>Package set: lantianCustomized (14 packages)</summary>
+<summary>Package set: lantianCustomized (15 packages)</summary>
 
 | State | Path | Name | Version | Description |
 | ----- | ---- | ---- | ------- | ----------- |
@@ -514,6 +484,7 @@ Or, use variables from this repository in case I change them:
 |  | `lantianCustomized.nbfc-linux` | [nbfc-linux-lantian](https://github.com/xddxdd/nbfc-linux) | 0.1.6-unstable-2022-06-13 | NoteBook FanControl ported to Linux (with Lan Tian's modifications) |
 |  | `lantianCustomized.nginx` | [nginx-lantian](https://openresty.org) | 1.31.1.1 | OpenResty with Lan Tian modifications |
 |  | `lantianCustomized.nixos-cleanup` | [nixos-cleanup](https://github.com/xddxdd/nur-packages) | 1.0 | Cleanup old profiles on NixOS |
+|  | `lantianCustomized.qemu` | [qemu](https://www.qemu.org/) | 11.1.1 | Generic and open source machine emulator and virtualizer |
 |  | `lantianCustomized.transmission-with-webui` | [transmission](https://www.transmissionbt.com/) | 4.1.3 | Fast, easy and free BitTorrent client |
 |  | `lantianCustomized.x86-arch-level` | [x86-arch-level](https://unix.stackexchange.com/a/631226) | 1.0 | Check x86 architecture level |
 </details>
@@ -1433,7 +1404,7 @@ Or, use variables from this repository in case I change them:
 </details>
 
 <details>
-<summary>Package set: uncategorized (171 packages)</summary>
+<summary>Package set: uncategorized (184 packages)</summary>
 
 | State | Path | Name | Version | Description |
 | ----- | ---- | ---- | ------- | ----------- |
@@ -1446,6 +1417,8 @@ Or, use variables from this repository in case I change them:
 | `x86_64-linux` | `uncategorized.baidunetdisk` | [baidunetdisk](https://pan.baidu.com/) | 8.7.0 | Baidu Netdisk |
 |  | `uncategorized.baidupcs-go` | [baidupcs-go](https://github.com/qjfoidnh/BaiduPCS-Go) | 4.0.2-unstable-2026-09-09 | Baidu Netdisk commandline client, mimicking Linux shell file handling commands |
 | `x86_64-linux` | `uncategorized.bambu-studio-bin` | [bambu-studio-bin](https://github.com/bambulab/BambuStudio) | 02.05.02.51 | PC Software for BambuLab and other 3D printers |
+|  | `uncategorized.beellama-cpp` | [beellama-cpp](https://github.com/Anbeeld/beellama.cpp) | 0.4.7 | Anbeeld fork of llama.cpp with improved decoding and speculative decoding |
+|  | `uncategorized.beellama-cpp-cuda` | [beellama-cpp](https://github.com/Anbeeld/beellama.cpp) | 0.4.7 | Anbeeld fork of llama.cpp with improved decoding and speculative decoding |
 |  | `uncategorized.bifrost` | [bifrost](https://github.com/maximhq/bifrost) | 2.2.6 | High-performance AI gateway with unified OpenAI-compatible API |
 |  | `uncategorized.bilibili` | [bilibili](https://app.bilibili.com/) | 1.19.0-3 | Desktop client for Bilibili |
 |  | `uncategorized.bin-cpuflags-x86` | [bin-cpuflags-x86](https://github.com/HanabishiRecca/bin-cpuflags-x86) | 1.0.9 | Small CLI tool to detect CPU flags (instruction sets) of X86 binaries |
@@ -1467,6 +1440,7 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized.drone-file-secret` | [drone-file-secret](https://github.com/xddxdd/drone-file-secret) | 0-unstable-2023-06-26 | Secret provider for Drone CI that reads secrets from a given folder |
 |  | `uncategorized.drone-vault` | [drone-vault](https://docs.drone.io/configure/secrets/external/vault/) | 1.3.0 | Drone plugin for integrating with the Vault secrets manager |
 |  | `uncategorized.dump978` | [dump978](https://github.com/flightaware/dump978) | 11.1 | FlightAware's 978MHz UAT demodulator |
+|  | `uncategorized.easycliproxyapi` | [easycliproxyapi](https://github.com/router-for-me/EasyCLIProxyAPI) | 0.3.29 | Desktop GUI for managing CLIProxyAPI and configuring AI agent clients |
 |  | `uncategorized.ela-widget-tools` | [ela-widget-tools](https://github.com/Liniyous/ElaWidgetTools) | 0-unstable-2026-10-09 | Fluent-UI For QT-Widget |
 |  | `uncategorized.electron_11` | [electron](https://github.com/electron/electron) | 11.5.0 | Cross platform desktop application shell |
 |  | `uncategorized.electron_9` | [electron](https://github.com/electron/electron) | 9.4.4 | Cross platform desktop application shell |
@@ -1478,13 +1452,14 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized.fake-ollama` | [fake-ollama](https://github.com/spoonnotfound/fake-ollama) | 0-unstable-2025-02-13 | Simulated server implementation of Ollama API |
 |  | `uncategorized.fastapi-dls` | [fastapi-dls](https://gitea.publichub.eu/oscar.krause/fastapi-dls) | 2.0.1-unstable-2025-05-13 | Minimal Delegated License Service (DLS) |
 |  | `uncategorized.fcitx5-breeze` | [fcitx5-breeze](https://github.com/scratch-er/fcitx5-breeze) | 3.1.0 | Fcitx5 theme to match KDE's Breeze style |
+| `x86_64-linux` | `uncategorized.fingerprint-chromium-bin` | [fingerprint-chromium-bin](https://github.com/adryfish/fingerprint-chromium) | 150.0.7871.186 | Fingerprint browser based on ungoogled-chromium, prebuilt Linux binaries |
 |  | `uncategorized.flapalerted` | [flapalerted](https://github.com/Kioubit/FlapAlerted) | 4.6.0 | BGP Update based flap detection |
 |  | `uncategorized.flaresolverr-21hsmw` | [flaresolverr-21hsmw](https://github.com/21hsmw/FlareSolverr) | 0-unstable-2025-03-04 | Proxy server to bypass Cloudflare protection, with 21hsmw modifications to support nodriver |
 |  | `uncategorized.flaresolverr-alexfozor` | [flaresolverr-alexfozor](https://github.com/AlexFozor/FlareSolverr) | 0-unstable-2024-07-20 | Proxy server to bypass Cloudflare protection, with AlexFozor modifications to support Drission Page |
 | `x86_64-linux` | `uncategorized.flashbrowser` | [flashbrowser](https://github.com/radubirsan/FlashBrowser) | 0.81 | Browser capable of viewing pages with embedded Flash content |
 |  | `uncategorized.fr24feed` | [fr24feed](https://www.flightradar24.com/share-your-data) | 1.0.57-1 | Flightradar24 Decoder & Feeder lets you effortlessly share ADS-B data with Flightradar24 |
 |  | `uncategorized.ftp-proxy` | [ftp-proxy](http://www.ftpproxy.org/) | 1.2.3 | FTP Proxy Server |
-|  | `uncategorized.geolite2` | [geolite2](https://dev.maxmind.com/geoip/geoip2/geolite2/) | 2026.10.10 | MaxMind's GeoIP2 GeoLite2 Country, City, and ASN databases |
+|  | `uncategorized.geolite2` | [geolite2](https://dev.maxmind.com/geoip/geoip2/geolite2/) | 2026.10.07 | MaxMind's GeoIP2 GeoLite2 Country, City, and ASN databases |
 |  | `uncategorized.glauth` | [glauth](https://github.com/glauth/glauth) | 2.5.4 | Lightweight LDAP server for development, home use, or CI |
 | `x86_64-linux` | `uncategorized.google-earth-pro` | [google-earth-pro](https://www.google.com/earth/) | 7.3.7.1327 | Google Earth Pro |
 |  | `uncategorized.gopherus` | [gopherus](http://gopherus.sourceforge.net/) | 1.2.2 | Free, multiplatform, console-mode gopher client that provides a classic text interface to the gopherspace |
@@ -1500,6 +1475,10 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized.hi3-ii-martian-font` | [hi3-ii-martian-font](https://github.com/Wenti-D/HI3IIMartianFont) | 0-unstable-2023-10-12 | Font for Martian in Honkai Impact 3rd |
 |  | `uncategorized.hoyo-glyphs` | [hoyo-glyphs](https://github.com/SpeedyOrc-C/Hoyo-Glyphs) | 20250529 | Constructed scripts by Hoyoverse 米哈游的架空文字 |
 |  | `uncategorized.igsc` | [igsc](https://github.com/intel/igsc) | 1.3.2 | Intel graphics system controller firmware update library |
+|  | `uncategorized.ik-llama-cpp` | [ik-llama-cpp](https://github.com/ikawrakow/ik_llama.cpp) | 0-unstable-2026-10-09 | High-performance llama.cpp fork with optimized i-quantization kernels |
+|  | `uncategorized.ik-llama-cpp-avx` | [ik-llama-cpp](https://github.com/ikawrakow/ik_llama.cpp) | 0-unstable-2026-10-09 | High-performance llama.cpp fork with optimized i-quantization kernels |
+|  | `uncategorized.ik-llama-cpp-avx2` | [ik-llama-cpp](https://github.com/ikawrakow/ik_llama.cpp) | 0-unstable-2026-10-09 | High-performance llama.cpp fork with optimized i-quantization kernels |
+|  | `uncategorized.ik-llama-cpp-cuda` | [ik-llama-cpp](https://github.com/ikawrakow/ik_llama.cpp) | 0-unstable-2026-10-09 | High-performance llama.cpp fork with optimized i-quantization kernels |
 |  | `uncategorized.imewlconverter` | [imewlconverter](https://github.com/studyzy/imewlconverter) | 3.6.0 | FOSS program for converting IME dictionaries |
 |  | `uncategorized.invisible-firefox-unwrapped` | [invisible-firefox-unwrapped](https://github.com/feder-cr/invisible-firefox) | 151.0 | Firefox with anti fingerprinting modifications |
 |  | `uncategorized.it-tools` | [it-tools](https://github.com/sharevb/it-tools) | 2026.9.27 | Collection of handy online tools for developers, with great UX |
@@ -1538,11 +1517,11 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized.nvlax-530` | [nvlax](https://github.com/illnyang/nvlax) | unstable-2021-10-29 | Future-proof NvENC & NvFBC patcher (for NVIDIA driver >= 530) |
 |  | `uncategorized.ocfs2-tools` | [ocfs2-tools](https://github.com/markfasheh/ocfs2-tools) | 1.8.9 | Oracle Cluster File System 2 (OCFS2) userspace tools (mkfs.ocfs2, mount.ocfs2, o2cb_ctl, fsck.ocfs2, etc.) |
 |  | `uncategorized.oci-arm-host-capacity` | [oci-arm-host-capacity](https://github.com/hitrov/oci-arm-host-capacity) | 0-unstable-2024-08-13 | This script allows to bypass Oracle Cloud Infrastructure 'Out of host capacity' error immediately when additional OCI capacity will appear in your Home Region / Availability domain |
-|  | `uncategorized.oidc-tester-app` | [oidc-tester-app](https://github.com/authelia/oidc-tester-app) | 0-unstable-2026-10-10 | OpenID Connect relying party web application for testing OIDC providers such as Authelia |
+|  | `uncategorized.oidc-tester-app` | [oidc-tester-app](https://github.com/authelia/oidc-tester-app) | 0-unstable-2026-09-25 | OpenID Connect relying party web application for testing OIDC providers such as Authelia |
 |  | `uncategorized.openai-edge-tts` | [openai-edge-tts](https://tts.travisvn.com/) | 2.0.0-unstable-2025-07-01 | Text-to-speech API endpoint compatible with OpenAI's TTS API endpoint, using Microsoft Edge TTS to generate speech for free locally |
 |  | `uncategorized.openedai-speech` | [openedai-speech](https://github.com/matatonic/openedai-speech) | 0.18.2 | OpenAI API compatible text to speech server using Coqui AI's xtts_v2 and/or piper tts as the backend |
 |  | `uncategorized.openssl-ech` | [openssl-ech](https://github.com/sftcd/openssl/tree/ECH-draft-13c) | 0-unstable-2026-06-09 | OpenSSL with Encrypted Client Hello support |
-|  | `uncategorized.openssl-oqs-provider` | [openssl-oqs-provider](https://openquantumsafe.org) | 0.12.0 | OpenSSL 3 provider containing post-quantum algorithms |
+|  | `uncategorized.openssl-oqs-provider` | [openssl-oqs-provider](https://openquantumsafe.org) | 0.12.0-unstable-2026-10-08 | OpenSSL 3 provider containing post-quantum algorithms |
 |  | `uncategorized.osdlyrics` | [osdlyrics](https://github.com/osdlyrics/osdlyrics) | 0.5.16 | Standalone lyrics fetcher/displayer (windowed and OSD mode) |
 |  | `uncategorized.palworld-exporter` | [palworld-exporter](https://github.com/palworldlol/palworld-exporter) | 1.3.1 | Prometheus exporter for Palworld Server |
 |  | `uncategorized.palworld-worldoptions` | [palworld-worldoptions](https://github.com/legoduded/palworld-worldoptions) | 1.11.0 | Tool for managing Palworld dedicated server settings |
@@ -1554,9 +1533,11 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized.plasma-panel-transparency-toggle` | [plasma-panel-transparency-toggle](https://github.com/sanjay-kr-commit/panelTransparencyToggleForPlasma6) | 0-unstable-2024-04-17 | Rewrite of Panel Transparency Button for Plasma 6 |
 |  | `uncategorized.plasma-smart-video-wallpaper-reborn` | [plasma-smart-video-wallpaper-reborn](https://store.kde.org/p/2139746) | 2.16.0 | Plasma 6 wallpaper plugin to play videos on your Desktop/Lock Screen |
 |  | `uncategorized.plasma-yesplaymusic-lyric` | [plasma-yesplaymusic-lyric](https://github.com/zsiothsu/org.kde.plasma.yesplaymusic-lyrics) | 0.2.3-unstable-2025-01-07 | Display YesPlayMusic lyrics on the plasma panel | 在KDE plasma面板中显示YesPlayMusic的歌词 |
+|  | `uncategorized.prismml-llama-cpp` | [prismml-llama-cpp](https://github.com/PrismML-Eng/llama.cpp) | b10770-6684606 | PrismML fork of llama.cpp with runtime CPU dispatch and unified llama binary |
+|  | `uncategorized.prismml-llama-cpp-cuda` | [prismml-llama-cpp](https://github.com/PrismML-Eng/llama.cpp) | b10770-6684606 | PrismML fork of llama.cpp with runtime CPU dispatch and unified llama binary |
 |  | `uncategorized.pterodactyl-wings` | [pterodactyl-wings](https://pterodactyl.io) | 1.13.3-unstable-2026-10-09 | Server control plane for Pterodactyl Panel |
 |  | `uncategorized.pyhss` | [pyhss](https://github.com/nickvsnetworking/pyhss) | 2.0.0-unstable-2026-10-08 | Python HSS / Diameter Server |
-|  | `uncategorized.qemu-user-static` | [qemu-user-static](http://www.qemu.org/) | 11.1.0+ds-2 | Generic and open source machine emulator, virtualizer |
+|  | `uncategorized.qemu-user-static` | [qemu-user-static](http://www.qemu.org/) | 11.1.2+ds-2 | Generic and open source machine emulator, virtualizer |
 |  | `uncategorized.qq` | [qq](https://im.qq.com/linuxqq/index.html) | 3.2.18 | Desktop client for QQ on Linux |
 | `x86_64-linux` | `uncategorized.qqmusic` | [qqmusic](https://y.qq.com/) | 1.1.8 | Tencent QQ Music |
 |  | `uncategorized.qsp` | [qsp](https://github.com/QSPFoundation/qspgui) | 5.9.5-unstable-2026-04-14 | Interactive Fiction development platform (GUI application) |
@@ -1577,7 +1558,9 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized.sam-toki-mouse-cursors` | [sam-toki-mouse-cursors](https://github.com/SamToki/Sam-Toki-Mouse-Cursors) | 10.00 | Original mouse cursors (pointers) for Windows, with minimalistic design |
 | `x86_64-linux` | `uncategorized.sgx-software-enable` | [sgx-software-enable](https://github.com/intel/sgx-software-enable) | 1.0-unstable-2023-01-06 | Application to enable Intel SGX on Linux systems |
 |  | `uncategorized.sidestore-vpn` | [sidestore-vpn](https://github.com/xddxdd/sidestore-vpn) | 0-unstable-2026-05-21 | Allow SideStore to work across all iOS devices on your local network |
+| `x86_64-linux` | `uncategorized.skyline-speeder` | [skyline-speeder](https://github.com/CYBERVERSE-Research/skyline-speeder) | 0.5.0 | Sender-side TCP congestion control via eBPF struct_ops with a Rust control plane |
 |  | `uncategorized.space-cadet-pinball-full-tilt` | [SpaceCadetPinball](https://github.com/k4zmu2a/SpaceCadetPinball) | 2.1.0 | Reverse engineering of 3D Pinball for Windows – Space Cadet, a game bundled with Windows (With Full Tilt Pinball data) |
+|  | `uncategorized.strata` | [strata](https://github.com/Niko1221/Strata) | 0.1.41 | Local large language model inference stack with a CUDA engine and a self-managed data folder |
 |  | `uncategorized.suwayomi-server` | [suwayomi-server](https://github.com/Suwayomi/Suwayomi-Server) | 2.4.2366 | Rewrite of Tachiyomi for the Desktop |
 | `x86_64-linux` | `uncategorized.svp` | [svp](https://www.svp-team.com/wiki/SVP:Linux) | 4.7.305-1 | SmoothVideo Project 4 (SVP4) converts any video to 60 fps (and even higher) and performs this in real time right in your favorite video player |
 |  | `uncategorized.svp-mpv` | [mpv-with-scripts](https://mpv.io) | 0.41.0 | General-purpose media player, fork of MPlayer and mplayer2 |
@@ -1603,7 +1586,8 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized.wechat-uos-sandboxed` | [wechat-uos](https://weixin.qq.com/) | 4.1.1.7 | WeChat desktop with sandbox enabled ($HOME/Documents/WeChat_Data) (Adapted from https://aur.archlinux.org/packages/wechat-uos-bwrap) |
 | `x86_64-linux` | `uncategorized.wine-wechat` | [wine-wechat](https://weixin.qq.com/) | 3.9.12.57 | Wine WeChat x64 (Packaging script adapted from https://aur.archlinux.org/packages/deepin-wine-wechat) |
 | `x86_64-linux` | `uncategorized.wine-wechat-x86` | [wine-wechat-x86](https://weixin.qq.com/) | 3.9.12.56 | Wine WeChat x86 (Packaging script adapted from https://aur.archlinux.org/packages/deepin-wine-wechat) |
-|  | `uncategorized.xvcd` | [xvcd](https://github.com/RHSResearchLLC/xvcd) | 0-unstable-2019-11-20 | Xilinx Virtual Cable Daemon |
+| `x86_64-linux` | `uncategorized.witch-weapon` | [witch-weapon](https://github.com/YANG301/Witch-Weapon-Godot-) | 1.4.2-unstable-2026-08-13 | Fan-made Godot remake of the Witch Weapon story |
+|  | `uncategorized.xvcd` | [xvcd](https://github.com/tmbinc/xvcd) | 0-unstable-2025-03-06 | Xilinx Virtual Cable Daemon |
 | `Broken` | `uncategorized.boringssl-oqs` | [boringssl-oqs](https://openquantumsafe.org) | OQS-BoringSSL-snapshot-2025-01 | Fork of BoringSSL that includes prototype quantum-resistant key exchange and authentication in the TLS handshake based on liboqs |
 | `Broken` | `uncategorized.douban-openapi-server` | [douban-openapi-server](https://github.com/caryyu/douban-openapi-server) | 0-unstable-2022-12-17 | Douban API server that provides unofficial APIs for media information gathering |
 | `Broken` | `uncategorized.soggy` | [soggy](https://github.com/LDAsuku/soggy) | 0-unstable-2022-12-14 | Experimental server emulator for a game I forgot its name |

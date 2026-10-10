@@ -1,85 +1,33 @@
 {
   fetchFromGitHub,
   lib,
-  unstableGitUpdater,
-  stdenv,
-  python3,
-  makeWrapper,
-  curl,
+  nix-update-script,
+  rustPlatform,
 }:
-let
-  python = python3.withPackages (
-    p: with p; [
-      aiofiles
-      aiosqlite
-      cryptography
-      fastapi
-      greenlet
-      h2
-      httpx
-      httpx-socks
-      msgspec
-      pillow
-      pytest
-      python-multipart
-      ruamel-yaml
-      sqlalchemy
-      uvicorn
-      watchfiles
-      xue
-      zstandard
-    ]
-  );
-in
-stdenv.mkDerivation (finalAttrs: {
+rustPlatform.buildRustPackage (finalAttrs: {
   pname = "uni-api";
   version = "1.7.276-unstable-2026-10-09";
   src = fetchFromGitHub {
     owner = "yym68686";
     repo = "uni-api";
     rev = "daccc1633e4b126e7839c529db572231b50ce85a";
-    fetchSubmodules = true;
     hash = "sha256-5knYnRyC2ioEsNeSpifrnI/ss9VcnzVL99PtUr8kkfg=";
   };
-  nativeBuildInputs = [
-    makeWrapper
-    curl
-  ];
+  __structuredAttrs = true;
+  strictDeps = true;
+  cargoHash = "sha256-v5PKsnamz2dn6zAzoHIv4cT612P6RsZKBMCUnmD8coo=";
 
-  doCheck = true;
-  checkPhase = ''
-    runHook preCheck
-
-    ${python}/bin/python -c "import uni_api.app"
-
-    runHook postCheck
-  '';
-
-  installPhase = ''
-    runHook preInstall
-
-    mkdir -p $out/bin $out/opt
-    cp -r * $out/opt/
-
-    makeWrapper ${python}/bin/python $out/bin/uni-api \
-      --add-flags "-m" \
-      --add-flags "uvicorn" \
-      --add-flags "--app-dir" \
-      --add-flags "$out/opt" \
-      --add-flags "main:app"
-
-    runHook postInstall
-  '';
-
-  passthru.updateScript = unstableGitUpdater {
-    url = "https://github.com/yym68686/uni-api";
-    tagPrefix = "v";
+  passthru.updateScript = nix-update-script {
+    extraArgs = [
+      "--version"
+      "branch"
+    ];
   };
   meta = {
     maintainers = with lib.maintainers; [ xddxdd ];
     description = "Unifies the management of LLM APIs across multiple backend services";
     homepage = "https://github.com/yym68686/uni-api";
     license = lib.licenses.unfree;
-    mainProgram = "uni-api";
+    mainProgram = "uni-api-front";
   };
 })

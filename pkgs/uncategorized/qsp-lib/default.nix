@@ -13,9 +13,11 @@ stdenv.mkDerivation (finalAttrs: {
   src = fetchFromGitHub {
     owner = "QSPFoundation";
     repo = "qsp";
-    rev = "bc7e567c1241d9dec8fbdbefeada8eab424d2e3d";
-    hash = "sha256-sJipA8K3BW0+YcrqlVAyBa3Q+Ze6X8HzMIWk+twr5VY=";
+    rev = "b66294e387b28aba78ad9e38f94873213ce195f4";
+    hash = "sha256-IJ2abPu4i+fM0cz2LgdLttiO4wABfd4dFwlpjAQT9xQ=";
   };
+  __structuredAttrs = true;
+  strictDeps = true;
   prePatch = ''
     install -Dm644 ${./QspConfig.cmake.in} QspConfig.cmake.in
     substituteInPlace CMakeLists.txt \

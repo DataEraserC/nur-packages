@@ -49,6 +49,8 @@ stdenv.mkDerivation (finalAttrs: {
     rev = "13610a1e17da04c563c5c7f68640d30a70f40f9a";
     hash = "sha256-f0F9DLLbniKkCNGwFYcViBCt9wocImfdL5sTJG2Srs0=";
   };
+  __structuredAttrs = true;
+  strictDeps = true;
   nativeBuildInputs = [
     makeWrapper
     curl

@@ -36,6 +36,8 @@ stdenv.mkDerivation (finalAttrs: {
     rev = "12ecdbc2cf86fe3707657579eae29e38b40d6a50";
     hash = "sha256-SGQZPZYlWYnZFGBAyWxADrx3JXB0xAjmarqenphs38w=";
   };
+  __structuredAttrs = true;
+  strictDeps = true;
   enableParallelBuilding = true;
 
   nativeBuildInputs = [

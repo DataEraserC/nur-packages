@@ -21,6 +21,8 @@ buildGoModule (finalAttrs: {
     tag = "v${finalAttrs.version}";
     hash = "sha256-xIPH/IqnxfyeCaW/9utpN+SPZRkEp5KyabwjT8PsMUI=";
   };
+  __structuredAttrs = true;
+  strictDeps = true;
   vendorHash = "sha256-fCu/cJoQdWZHAYgfYtGj+sxeJ9P6br7BinJiMkX5vk8=";
 
   buildInputs = lib.optional (!withGoolm) olm;
@@ -28,7 +30,7 @@ buildGoModule (finalAttrs: {
 
   preBuild = ''
     export MAUTRIX_VERSION=$(cat go.mod | grep 'maunium.net/go/mautrix ' | awk '{ print $2 }')
-    ldflags=("''$ldflags[@]" "-X maunium.net/go/mautrix.GoModVersion=$MAUTRIX_VERSION")
+    ldflags+=("-X maunium.net/go/mautrix.GoModVersion=$MAUTRIX_VERSION")
   '';
 
   ldflags = [

@@ -19,13 +19,15 @@ stdenv.mkDerivation (finalAttrs: {
     tag = "v${finalAttrs.version}";
     hash = "sha256-tOTtibNYctIOX63MJzB28eq8FLmAuvtFuO/m226KUpE=";
   };
+  __structuredAttrs = true;
+  strictDeps = true;
   pnpmDeps = fetchPnpmDeps {
     pname = "it-tools";
     inherit (finalAttrs) version;
     inherit (finalAttrs) src;
     pnpm = pnpm_11;
     fetcherVersion = 4;
-    hash = "sha256-qfoBr6fy+IZOy7Yv4+tM/aQUB79DQ3dcmEServda5d0=";
+    hash = "sha256-Qn2DCJpxtzJO1qRoPOkaUk6s1YcLzS/ll6jyNaDe/Xc=";
   };
 
   nativeBuildInputs = [
@@ -50,7 +52,14 @@ stdenv.mkDerivation (finalAttrs: {
     runHook postInstall
   '';
 
-  passthru.updateScript = nix-update-script { };
+  passthru.updateScript = nix-update-script {
+    # Skip dependency hashes: the fetcherVersion = 4 (pnpm 11) pnpmDeps hash
+    # computed on GitHub Actions does not match lantian's builders. Switching
+    # to pnpm_10 + fetcherVersion = 3 is not possible because this lockfile
+    # stores pnpm 11 patch hashes in patchedDependencies, which pnpm 10
+    # rejects. Update only version/src; refresh pnpmDeps manually.
+    extraArgs = [ "--src-only" ];
+  };
   meta = {
     description = "Collection of handy online tools for developers, with great UX";
     homepage = "https://github.com/sharevb/it-tools";
