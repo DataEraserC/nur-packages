@@ -11,6 +11,7 @@ let
     dsh-annotation = p: if inputs == null then ifNotNUR p else p;
     dsh-bas-remote = p: if inputs == null then ifNotNUR p else p;
     dsh-chat-import = p: if inputs == null then ifNotNUR p else p;
+    dsh-free-search = p: if inputs == null then ifNotNUR p else p;
     dsh-git-worktree = p: if inputs == null then ifNotNUR p else p;
     dsh-notifier = p: if inputs == null then ifNotNUR p else p;
     dsh-our-free-model = p: if inputs == null then ifNotNUR p else p;
