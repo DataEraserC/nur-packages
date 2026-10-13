@@ -10,13 +10,13 @@
 }:
 
 let
-  version = "1.0.0-rc.43";
+  version = "1.0.0-rc.44";
 
   src = fetchFromGitHub {
     owner = "QuantumNous";
     repo = "new-api";
     tag = "v${version}";
-    hash = "sha256:sha256-dYXB545/wT6u3rFt3SRF6Hh2ZKq7YCz/+TG8+o4A1jg=";
+    hash = "sha256:sha256-fbfoKBKp4y3kiHPHp//JcICxUm0BOav7ZAK/V3TU1R4=";
   };
 
   # nixpkgs has no fetcher for bun lockfiles, so node_modules is a
@@ -45,7 +45,7 @@ let
     '';
     dontFixup = true;
     outputHashMode = "recursive";
-    outputHash = "sha256-k2SB39fzACU6m4xlzNyuuqMm1QBZYudUCEMSIPjAojA=";
+    outputHash = "sha256-tuaI4RBa4NUlTOORUogAKzHwuYQ3xNaqtk3k0LmYQP8=";
   };
 
   web = stdenv.mkDerivation {
@@ -78,7 +78,7 @@ buildGoModule {
   pname = "new-api";
   inherit version src;
 
-  vendorHash = "sha256-yc3Brddi7eupCZjBBFPssLEGFIDRlljkq1lN0yYL3lE=";
+  vendorHash = "sha256-QiF7XBGmUqFOjndRSZrd51fFcdvumZdABFcIUZ7wMxU=";
 
   # The vendor derivation must not depend on the frontend build.
   overrideModAttrs = _: {

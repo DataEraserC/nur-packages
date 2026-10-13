@@ -14,13 +14,13 @@ if inputs == null then
 else
   dshPkgs.dsh.buildDshBundle.fromPnpmWorkspace (finalAttrs: {
     pname = "dsh-agent-teams";
-    version = "0.1.22";
+    version = "0.1.23";
 
     src = fetchFromGitHub {
       owner = "NanmiCoder";
       repo = "dsh-agent-teams";
       tag = "v${finalAttrs.version}";
-      hash = "sha256-8etg7KTQfyi9bl+v/y10oScYjOSoJDc99IwYQekXK4k=";
+      hash = "sha256-pi2Weqrwv5RGagjhYRQ2CZthMfnGdkkxw5KKGtq3QV0=";
     };
 
     deployPackage = "@nanmicoder/dsh-agent-teams";

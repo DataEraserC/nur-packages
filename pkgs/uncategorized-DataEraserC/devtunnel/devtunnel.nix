@@ -18,25 +18,25 @@ let
     "aarch64-darwin"
   ];
   HostPlatform = stdenv.hostPlatform.system;
-  version = "1.0.2094+24665e6583";
+  version = "1.0.2115+e16833f284";
 
   src =
     {
       x86_64-linux = fetchurl {
         url = "https://tunnelsassetsprod.blob.core.windows.net/cli/${version}/linux-x64-devtunnel";
-        hash = "sha256-KqbEGq94QEJ+hLfh6ZvluCaplm/AJ932HcD2m2jbBgs=";
+        hash = "sha256-cj1q69wiYGSu8yElj7F8iidwycwr0FAEwPuD5yswLD8=";
       };
       aarch64-linux = fetchurl {
         url = "https://tunnelsassetsprod.blob.core.windows.net/cli/${version}/linux-arm64-devtunnel";
-        hash = "sha256-76w3j5/7QJFJNfvSNhVDCItQzWIkg3LfBsJD5vfEnMg=";
+        hash = "sha256-tTfycKVdV/I7diHOwLCYBqqa2hGXE7M+klUoQXm3a94=";
       };
       x86_64-darwin = fetchurl {
         url = "https://tunnelsassetsprod.blob.core.windows.net/cli/${version}/osx-x64-devtunnel";
-        hash = "sha256-79ZztbNs0TD12X5ZElr+65XK6m1ka5L7aJHGiW97goI=";
+        hash = "sha256-OeXL+7WyGpTxS/oVANflMdyQrgR7/pYUbE4Fq1rkoYw=";
       };
       aarch64-darwin = fetchurl {
         url = "https://tunnelsassetsprod.blob.core.windows.net/cli/${version}/osx-arm64-devtunnel";
-        hash = "sha256-vnImzLsBeDgdbunK1AJ04p8OjpQFUHx9cO5l+MDqsk4=";
+        hash = "sha256-fKyaI8u158F7M9OLmSHIsMEIM3UzmAvbJNVsDG5LVP4=";
       };
     }
     .${HostPlatform};
