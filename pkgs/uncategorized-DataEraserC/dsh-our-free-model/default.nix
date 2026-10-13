@@ -46,6 +46,8 @@ else
     postPatch = ''
       substituteInPlace scripts/forward-test.mjs \
         --replace-fail "resolveLoopbackBind('example.com'), /loopback/" "resolveLoopbackBind('example.com'), /loopback|could not resolve/"
+      substituteInPlace scripts/standalone-login-terminal-test.mjs \
+        --replace-fail "/usr/bin/printf '%s" "printf '%s"
     '';
 
     checkPhase = ''
