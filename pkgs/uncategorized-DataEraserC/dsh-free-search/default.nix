@@ -5,6 +5,7 @@
   fetchFromGitHub,
   nix-update-script,
   jq,
+  procps,
 }:
 let
   dshPkgs = pkgs.extend inputs.deepseek-harness.overlays.default;
@@ -43,6 +44,8 @@ else
     dontNpmBuild = true;
 
     doCheck = true;
+
+    nativeCheckInputs = [ procps ];
 
     checkPhase = ''
       runHook preCheck
