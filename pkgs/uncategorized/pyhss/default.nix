@@ -42,12 +42,12 @@ let
 in
 stdenv.mkDerivation (finalAttrs: {
   pname = "pyhss";
-  version = "2.0.0-unstable-2026-10-08";
+  version = "2.0.1-unstable-2026-10-14";
   src = fetchFromGitHub {
     owner = "nickvsnetworking";
     repo = "pyhss";
-    rev = "13610a1e17da04c563c5c7f68640d30a70f40f9a";
-    hash = "sha256-f0F9DLLbniKkCNGwFYcViBCt9wocImfdL5sTJG2Srs0=";
+    rev = "1451bc23a90cd0ac26c959ae2c4f7a061b54768b";
+    hash = "sha256-UJPWZdiUH9Te/s2WKQcHa4gGbeCK89DWKAu4p6UEv0Y=";
   };
   __structuredAttrs = true;
   strictDeps = true;
