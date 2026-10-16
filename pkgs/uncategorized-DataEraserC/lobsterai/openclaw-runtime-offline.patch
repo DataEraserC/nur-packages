@@ -1,0 +1,34 @@
+--- a/scripts/build-openclaw-runtime.sh
++++ b/scripts/build-openclaw-runtime.sh
+@@ -260,7 +260,7 @@
+ 
+ echo "[5/7] Installing production dependencies"
+ pushd "$OUT_DIR" >/dev/null
+-rm -rf node_modules package-lock.json
++rm -rf node_modules
+ 
+ # Avoid npm peer resolution conflicts caused by dev-only lint toolchain.
+ npm pkg delete devDependencies >/dev/null 2>&1 || true
+@@ -270,16 +270,12 @@
+ node "$ELECTRON_ROOT/scripts/pack-openclaw-workspace-deps.cjs" "$OPENCLAW_SRC" "$OUT_DIR"
+ 
+ echo "[openclaw-runtime] npm target platform=$NPM_TARGET_PLATFORM arch=$NPM_TARGET_ARCH"
+-# @mistralai/mistralai@2.6.4 treats the OpenTelemetry API as an optional peer,
+-# but its request path imports the no-op API eagerly. OpenClaw's source install
+-# receives it from dev tooling; the production tarball does not. Keep the small
+-# pure-JS API in LobsterAI's embedded runtime so the gateway bundle and Mistral
+-# provider both remain loadable without enabling the optional OTLP exporters.
+-NPM_CONFIG_LEGACY_PEER_DEPS=true \
+-npm_config_platform="$NPM_TARGET_PLATFORM" \
+-npm_config_arch="$NPM_TARGET_ARCH" \
+-npm install --omit=dev --no-audit --no-fund --save-exact \
+-  "@opentelemetry/api@$MISTRAL_OTEL_API_VERSION"
++cp "$CFMIND_PACKAGE_JSON" package.json
++cp "$CFMIND_PACKAGE_LOCK" package-lock.json
++npm ci --omit=dev --no-audit --no-fund --ignore-scripts
++rm -f package-lock.json
++cp "$CFMIND_PACKAGE_LOCK" package-lock.json
++chmod u+w package-lock.json
+ 
+ # Runtime sanity checks before packing gateway.asar
+ [[ -f "openclaw.mjs" ]]
