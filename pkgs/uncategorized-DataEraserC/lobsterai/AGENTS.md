@@ -25,6 +25,18 @@ LobsterAI（网易有道，MIT）是 Electron 43 桌面应用，Linux 侧**上�
 - **native `.node` 模块缺 `libstdc++.so.6`，要在 wrapper 里补 `LD_LIBRARY_PATH`**：手工拼装的 electron 不走 `autoPatchelfHook`，cfmind 运行时里的 linux glibc `.node`（better-sqlite3、tree-sitter 系等 7 个）直接 `ldd` 报 `libstdc++.so.6 => not found`，有模块还要求 `GLIBCXX_3.4.32`（实测 gcc-13 libstdc++ 最高 3.4.32 恰好够、gcc-15 到 3.4.34 更稳，主包自己的 12 个 `.node` 只要 3.4.29）。修法：`makeWrapper … --prefix LD_LIBRARY_PATH : "${lib.makeLibraryPath [ stdenv.cc.cc.lib ]}"`——wrapper 环境变量会被 Electron spawn 出的 cfmind gateway 子进程继承，一处覆盖主进程与运行时。排查手法：`find <out> -name '*.node' | grep -Ev 'musl|darwin|win32|arm'` 逐个 `ldd | grep 'not found'`、`readelf --version-info` 取所需 `GLIBCXX_*` 最高版再对 gcc-lib 各版本的 `strings` 产出。
 - **`registry.npmjs.org` 的 `@img/*` 系列 tarball 走 HTTP/2 偶发 `Stream error in the HTTP/2 framing layer`**，构建会报 `builder failed`，重试即可，不是哈希问题。
 
+## store 里的插件清单会被 openclaw 判为 `unsafe plugin manifest path`
+
+网关启动时报 `plugins.entries.<id>: plugin <id>: unsafe plugin manifest path: /nix/store/…/third-party-extensions/<id>/openclaw.plugin.json`，弹窗「openclaw.json is invalid」。根因链：
+
+- `loadPluginManifest(rootDir, rejectHardlinks = true)` 默认**拒绝硬链接**；fs-safe 的 `openRootFileSync({rejectHardlinks:true})` 见 `nlink>1` 就报 `hardlink`。
+- Nix store 靠 `.links` 做内容去重，**store 里的普通文件 nlink 恒 ≥2**（实测插件 manifest nlink=6~8），必被拒。已实证：同一个 manifest 用 `@openclaw/fs-safe` 直调，`rejectHardlinks=true → ok=false`、`rejectHardlinks=false → ok=true`。
+- 唯一放行点是 `src/plugins/hardlink-policy.ts` 的 `shouldRejectHardlinkedPluginFiles`：`origin==="bundled"` 放行，否则要求 **`OPENCLAW_NIX_MODE==="1"` 且插件根在 `/nix/store`** 才放行。而 LobsterAI 把这些插件写进 `plugins.load.paths`（见其 `main.js` 的 `{load:{paths}}`），origin 是 `"config"`，不走 bundled 分支。
+- **不能开 `OPENCLAW_NIX_MODE=1`**：`config/nix-mode-write-guard.ts` 对**所有**配置写入无条件 `throw NixModeConfigMutationError`（与文件位置无关），会直接废掉 `doctor --fix`（弹窗自己推荐的 Quick Repair）、插件增删、`openclaw setup`、sticky model 持久化；而 `openclawConfigSync.ts` 正是要运行期写 `openclaw.json`。
+- 修法：`openclaw-nix-store-plugin-hardlink.patch` 去掉 `resolveIsNixMode(...) &&` 这道闸，只保留 `isNixStorePluginRoot()` 白名单。安全上站得住——`/nix/store` 只读且只有 root 能建硬链接，该检查要防的「别名 inode」攻击在那儿不可能发生（这本就是上游 Nix 分支写的那段注释的原意，只是被 env 门挡住了）。
+
+两个易混的关卡（报错文案前缀一样，别认错）：`blocked plugin candidate: suspicious ownership (…, uid=…, expected uid=1000 or root)` 是 `discovery.ts` 的**候选筛查**（warning）；`unsafe plugin manifest path` 才是 `manifest-registry`/`discovery` 里 `loadPluginManifest` 的**硬链接拒绝**（error，会触发弹窗）。**在 bwrap 沙箱里复现不了后者**：`/proc/self/uid_map` 为 `1000 0 1`，宿主 uid 不在映射内 → `stat` 显示 65534 → 先撞 ownership 分支；宿主机上 store 文件 uid=1000 才能过筛查、走到硬链接这条。
+
 ## `fetchPnpmDeps` 的产物形态
 
 `fetchPnpmDeps` 的 FOD 输出目录里**只有两个条目**：`.fetcher-version`（内容就是版本号）和 `pnpm-store.tar.zst`（整个 pnpm store 的可复现 tarball）。tar 内部是 `./v11/files/<sha512 前两位>/<hash>` 的内容寻址布局；`fetcherVersion = 4` 时 SQLite 的 `v11/index.db` 会被 dump 成 `v11/index.db.sql`（二进制 SQLite 格式不确定，nixpkgs 刻意转成 SQL 文本，再把 `,x'` 换回 `,X'` 以兼容 sqlite 3.53.0 之前的表示）。派生用 `pnpm_12` 时产物**仍是 `v11/`**（不是 `v12/`），所以 nixpkgs fixup 阶段硬编码的 `{v3,v10,v11}` 够用。tar 的可复现参数为 `--sort=name --mtime=@$SOURCE_DATE_EPOCH --owner=0 --group=0 --numeric-owner --pax-option=exthdr.name=%d/PaxHeaders/%f,delete=atime,delete=ctime --zstd`。注意 openclaw 的 lockfile 覆盖全平台（`@anthropic-ai/claude-agent-sdk-*`、`@github/copilot-*`、`@rolldown/binding-*` 等各平台二进制，单个可到 185MB），这个 FOD 下载量极大，首次构建耗时以十分钟计。

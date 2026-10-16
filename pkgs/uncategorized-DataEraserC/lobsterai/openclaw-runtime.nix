@@ -76,6 +76,9 @@ stdenv.mkDerivation (finalAttrs: {
   ];
 
   postPatch = ''
+    patch -p1 --batch --forward --no-backup-if-mismatch \
+      < ${./openclaw-nix-store-plugin-hardlink.patch}
+
     patch -d "$NIX_BUILD_TOP/lobsterai" -p1 --batch --forward --no-backup-if-mismatch \
       < ${./openclaw-runtime-offline.patch}
 

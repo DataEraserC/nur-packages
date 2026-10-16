@@ -1,0 +1,33 @@
+--- a/src/plugins/hardlink-policy.ts
++++ b/src/plugins/hardlink-policy.ts
+@@ -1,6 +1,5 @@
+ /** Enforces plugin root hardlink policy with bundled and immutable Nix-store exceptions. */
+ import path from "node:path";
+-import { resolveIsNixMode } from "../config/paths.js";
+ import { pluginCacheRealpathSync } from "./plugin-cache-files.js";
+ import type { PluginOrigin } from "./plugin-origin.types.js";
+ 
+@@ -13,8 +12,12 @@
+ //
+ // Two roots are allowed:
+ // - bundled: plugins shipped with OpenClaw itself, not user-installed code.
+-// - /nix/store in OPENCLAW_NIX_MODE: immutable Nix package outputs, where
+-//   hardlinked files are normal package-store layout rather than user mutation.
++// - /nix/store: immutable Nix package outputs, where hardlinked files are
++//   normal package-store layout rather than user mutation. Only root can
++//   create links there, so the aliasing risk this check defends against
++//   cannot materialise. Deliberately not gated on OPENCLAW_NIX_MODE: that
++//   mode makes openclaw.json immutable, which LobsterAI cannot accept
++//   because it drives config sync at runtime.
+ /** Returns true when a plugin root resolves inside the immutable Nix store. */
+ function isNixStorePluginRoot(rootDir: string): boolean {
+   const rootRealPath = pluginCacheRealpathSync(rootDir) ?? path.resolve(rootDir);
+@@ -31,7 +34,7 @@
+   if (params.origin === "bundled") {
+     return false;
+   }
+-  if (resolveIsNixMode(params.env) && isNixStorePluginRoot(params.rootDir)) {
++  if (isNixStorePluginRoot(params.rootDir)) {
+     return false;
+   }
+   return true;
