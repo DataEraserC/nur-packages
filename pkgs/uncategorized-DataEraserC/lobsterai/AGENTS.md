@@ -4,7 +4,9 @@ LobsterAI（网易有道，MIT）是 Electron 43 桌面应用，Linux 侧**上�
 
 ## 派生结构
 
-- `default.nix`（`lobsterai`）：`build` → `tsc` + 双 vite + `compile:electron`，然后手工拼装目录而不是跑 electron-builder（避免 AppImage/deb 工具链与 electron 下载），用 nixpkgs `electron_43.dist`。
+- `default.nix`（`lobsterai`，unwrapped）：`build` → `tsc` + 双 vite + `compile:electron`，然后手工拼装目录而不是跑 electron-builder（避免 AppImage/deb 工具链与 electron 下载），用 nixpkgs `electron_43.dist`。只产出 `$out/opt/lobsterai` 原始应用树，**没有 `bin/`、没有 desktop 条目、没有图标安装**（`meta.mainProgram` 也随之移除——元数据检查只在产物存在 `bin/` 时校验它），它不是给人直接启动的。
+- `../lobsterai-wrapper/default.nix`（`lobsterai-wrapper`）：轻量启动包装包，`inherit (lobsterai) version`、`passthru.unwrapped = lobsterai`。`makeWrapper` 指向 `${lobsterai}/opt/lobsterai/LobsterAI`，承载全部启动逻辑：`--no-sandbox`、`LD_LIBRARY_PATH`（stdenv.cc.cc.lib，见关键坑）、desktop 条目、hicolor 图标、ozone 平台自适应 flag（见下条）。调启动逻辑只重建这个秒级包，不再触发重型 lobsterai 重编。
+- **ozone 平台自适应 flag 照抄 nixpkgs qq**：`--add-flags "\''${NIXOS_OZONE_WL:+\''${WAYLAND_DISPLAY:+--ozone-platform-hint=auto --enable-features=WaylandWindowDecorations --enable-wayland-ime=true --wayland-text-input-version=3}}"`。转义链：Nix 把 `\''${` 输出成字面 `\${` → installPhase 的 bash 在**构建期**不展开它 → makeWrapper 收到纯文本 `${NIXOS_OZONE_WL:+...}` 并转义写进 wrapper 脚本 → **运行期**展开。若误写成 `''${...}`，构建期就展开成空串（沙箱里两个变量都没有），flag 静默消失、构建照样成功。双闸门语义：会话同时有 `NIXOS_OZONE_WL`（本机 GNOME Wayland 会话全局设了 =1）和 `WAYLAND_DISPLAY` 才追加 wayland flags；ssh/waypipe 远程会话没有 `NIXOS_OZONE_WL`（sshd 不透传环境），继续用显式 `--ozone-platform=wayland` 启动即可，两者叠加无冲突。
 - `openclaw-runtime.nix`（`lobsterai-openclaw-runtime`）：从 openclaw 源码打 64 个补丁构建 cfmind 运行时。
 - `mkSkill`（文件内 let 绑定）：`web-search` / `pptx` / `imap-smtp-email` 三个技能各自一个 FOD + 小派生。
 
@@ -22,7 +24,7 @@ LobsterAI（网易有道，MIT）是 Electron 43 桌面应用，Linux 侧**上�
 - **Electron 侧不用 asar**：手工拼装用 `resources/app/` 目录，`electron-builder.json` 里那几个 `asarUnpack`（`better-sqlite3`/`@img`/`npm`）自然就不需要了。`better-sqlite3` v13 自带全平台 `prebuilds/linux-x64.node`，`hasInstallScript` 为假，不编译。
 - **`process.resourcesPath` 取决于可执行文件位置**：`electron_43.dist`（即 `$electron/libexec/electron`，已 patchelf）整个拷到 `$out/opt/lobsterai/` 后必须把里面的 `electron` 改名成 `LobsterAI`，否则它会指向 nixpkgs electron 自己的 resources 目录，`cfmind`/`SKILLs` 全找不到。
 - **修 `dontStrip = true` 和 `dontPatchELF = true`**：fixup 的 `patchelf --shrink-rpath` 会删掉 `$ORIGIN` 相对 rpath，把 electron 与 native `.node` 模块打坏。
-- **native `.node` 模块缺 `libstdc++.so.6`，要在 wrapper 里补 `LD_LIBRARY_PATH`**：手工拼装的 electron 不走 `autoPatchelfHook`，cfmind 运行时里的 linux glibc `.node`（better-sqlite3、tree-sitter 系等 7 个）直接 `ldd` 报 `libstdc++.so.6 => not found`，有模块还要求 `GLIBCXX_3.4.32`（实测 gcc-13 libstdc++ 最高 3.4.32 恰好够、gcc-15 到 3.4.34 更稳，主包自己的 12 个 `.node` 只要 3.4.29）。修法：`makeWrapper … --prefix LD_LIBRARY_PATH : "${lib.makeLibraryPath [ stdenv.cc.cc.lib ]}"`——wrapper 环境变量会被 Electron spawn 出的 cfmind gateway 子进程继承，一处覆盖主进程与运行时。排查手法：`find <out> -name '*.node' | grep -Ev 'musl|darwin|win32|arm'` 逐个 `ldd | grep 'not found'`、`readelf --version-info` 取所需 `GLIBCXX_*` 最高版再对 gcc-lib 各版本的 `strings` 产出。
+- **native `.node` 模块缺 `libstdc++.so.6`，要在 wrapper 里补 `LD_LIBRARY_PATH`（现属 lobsterai-wrapper）**：手工拼装的 electron 不走 `autoPatchelfHook`，cfmind 运行时里的 linux glibc `.node`（better-sqlite3、tree-sitter 系等 7 个）直接 `ldd` 报 `libstdc++.so.6 => not found`，有模块还要求 `GLIBCXX_3.4.32`（实测 gcc-13 libstdc++ 最高 3.4.32 恰好够、gcc-15 到 3.4.34 更稳，主包自己的 12 个 `.node` 只要 3.4.29）。修法：`makeWrapper … --prefix LD_LIBRARY_PATH : "${lib.makeLibraryPath [ stdenv.cc.cc.lib ]}"`——wrapper 环境变量会被 Electron spawn 出的 cfmind gateway 子进程继承，一处覆盖主进程与运行时。注意拆分后这行在 `lobsterai-wrapper` 里，**unwrapped 的二进制直接裸跑会缺 libstdc++**，排查底层问题时要从 wrapper 脚本里抄上 env。排查手法：`find <out> -name '*.node' | grep -Ev 'musl|darwin|win32|arm'` 逐个 `ldd | grep 'not found'`、`readelf --version-info` 取所需 `GLIBCXX_*` 最高版再对 gcc-lib 各版本的 `strings` 产出。
 - **`registry.npmjs.org` 的 `@img/*` 系列 tarball 走 HTTP/2 偶发 `Stream error in the HTTP/2 framing layer`**，构建会报 `builder failed`，重试即可，不是哈希问题。
 
 ## store 里的插件清单会被 openclaw 判为 `unsafe plugin manifest path`

@@ -6,9 +6,6 @@
   npmHooks,
   nodejs_24,
   electron_43,
-  makeWrapper,
-  copyDesktopItems,
-  makeDesktopItem,
   callPackage,
 }:
 
@@ -137,27 +134,6 @@ stdenv.mkDerivation (finalAttrs: {
   nativeBuildInputs = [
     nodejs_24
     npmHooks.npmConfigHook
-    makeWrapper
-    copyDesktopItems
-  ];
-
-  desktopItems = [
-    (makeDesktopItem {
-      name = "lobsterai";
-      desktopName = "LobsterAI";
-      genericName = "AI Assistant";
-      comment = "AI-assisted coding and productivity tool";
-      exec = "lobsterai %U";
-      icon = "lobsterai";
-      startupWMClass = "LobsterAI";
-      mimeTypes = [ "x-scheme-handler/lobsterai" ];
-      categories = [ "Utility" ];
-      keywords = [
-        "AI"
-        "assistant"
-        "coding"
-      ];
-    })
   ];
 
   postPatch = ''
@@ -217,13 +193,6 @@ stdenv.mkDerivation (finalAttrs: {
     cp -r ${openclawRuntime}/. "$app/resources/cfmind/"
     cp -r SKILLs "$app/resources/SKILLs"
 
-    install -Dm644 build/icons/png/512x512.png "$out/share/icons/hicolor/512x512/apps/lobsterai.png"
-
-    mkdir -p "$out/bin"
-    makeWrapper "$app/LobsterAI" "$out/bin/lobsterai" \
-      --add-flags "--no-sandbox" \
-      --prefix LD_LIBRARY_PATH : "${lib.makeLibraryPath [ stdenv.cc.cc.lib ]}"
-
     runHook postInstall
   '';
 
@@ -236,14 +205,18 @@ stdenv.mkDerivation (finalAttrs: {
         involvement = "authored";
       }
     ];
-    inherit openclawRuntime skillWebSearch skillEmail skillPptx;
+    inherit
+      openclawRuntime
+      skillWebSearch
+      skillEmail
+      skillPptx
+      ;
   };
 
   meta = {
     description = "AI assistant for coding and productivity with an embedded OpenClaw agent runtime";
     homepage = "https://github.com/netease-youdao/LobsterAI";
     license = lib.licenses.mit;
-    mainProgram = "lobsterai";
     maintainers = import ../maintainers.nix;
     platforms = lib.platforms.linux;
   };
