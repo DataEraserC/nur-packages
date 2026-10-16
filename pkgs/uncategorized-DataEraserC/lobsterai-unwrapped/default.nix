@@ -119,7 +119,7 @@ let
   };
 in
 stdenv.mkDerivation (finalAttrs: {
-  pname = "lobsterai";
+  pname = "lobsterai-unwrapped";
   inherit version src;
 
   __structuredAttrs = true;
@@ -214,7 +214,7 @@ stdenv.mkDerivation (finalAttrs: {
   };
 
   meta = {
-    description = "AI assistant for coding and productivity with an embedded OpenClaw agent runtime";
+    description = "Unwrapped LobsterAI application tree without the launcher wrapper, for use with lobsterai-wrapper";
     homepage = "https://github.com/netease-youdao/LobsterAI";
     license = lib.licenses.mit;
     maintainers = import ../maintainers.nix;

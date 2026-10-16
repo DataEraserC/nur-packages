@@ -1,11 +1,11 @@
-# lobsterai 打包经验
+# lobsterai-unwrapped 打包经验
 
 LobsterAI（网易有道，MIT）是 Electron 43 桌面应用，Linux 侧**上游完全不发布产物**：更新接口 `api-overmind.youdao.com/openapi/get/luna/hardware/lobsterai/prod/update` 只有 `windowsX64`/`macIntel`/`macArm` 三个 key，GitHub releases 也没有资产（issue #273 正是在要 Linux 版），CI 虽然 `electron-builder --linux` 但产物不发布。因此只能源码构建，且必须自己补齐上游 `dist:linux` 里被省略的部分。
 
 ## 派生结构
 
-- `default.nix`（`lobsterai`，unwrapped）：`build` → `tsc` + 双 vite + `compile:electron`，然后手工拼装目录而不是跑 electron-builder（避免 AppImage/deb 工具链与 electron 下载），用 nixpkgs `electron_43.dist`。只产出 `$out/opt/lobsterai` 原始应用树，**没有 `bin/`、没有 desktop 条目、没有图标安装**（`meta.mainProgram` 也随之移除——元数据检查只在产物存在 `bin/` 时校验它），它不是给人直接启动的。
-- `../lobsterai-wrapper/default.nix`（`lobsterai-wrapper`）：轻量启动包装包，`inherit (lobsterai) version`、`passthru.unwrapped = lobsterai`。`makeWrapper` 指向 `${lobsterai}/opt/lobsterai/LobsterAI`，承载全部启动逻辑：`--no-sandbox`、`LD_LIBRARY_PATH`（stdenv.cc.cc.lib，见关键坑）、desktop 条目、hicolor 图标、ozone 平台自适应 flag（见下条）。调启动逻辑只重建这个秒级包，不再触发重型 lobsterai 重编。
+- `default.nix`（`lobsterai-unwrapped`，unwrapped——目录名与 `pname` 都带 `-unwrapped` 后缀，包名上写明它是未包装的裸构建产物）：`build` → `tsc` + 双 vite + `compile:electron`，然后手工拼装目录而不是跑 electron-builder（避免 AppImage/deb 工具链与 electron 下载），用 nixpkgs `electron_43.dist`。只产出 `$out/opt/lobsterai` 原始应用树，**没有 `bin/`、没有 desktop 条目、没有图标安装**（`meta.mainProgram` 也随之移除——元数据检查只在产物存在 `bin/` 时校验它），它不是给人直接启动的。
+- `../lobsterai-wrapper/default.nix`（`lobsterai-wrapper`）：轻量启动包装包，`inherit (lobsterai-unwrapped) version`、`passthru.unwrapped = lobsterai-unwrapped`。`makeWrapper` 指向 `${lobsterai-unwrapped}/opt/lobsterai/LobsterAI`，承载全部启动逻辑：`--no-sandbox`、`LD_LIBRARY_PATH`（stdenv.cc.cc.lib，见关键坑）、desktop 条目、hicolor 图标、ozone 平台自适应 flag（见下条）。调启动逻辑只重建这个秒级包，不再触发重型 lobsterai-unwrapped 重编。
 - **ozone 平台自适应 flag 照抄 nixpkgs qq**：`--add-flags "\''${NIXOS_OZONE_WL:+\''${WAYLAND_DISPLAY:+--ozone-platform-hint=auto --enable-features=WaylandWindowDecorations --enable-wayland-ime=true --wayland-text-input-version=3}}"`。转义链：Nix 把 `\''${` 输出成字面 `\${` → installPhase 的 bash 在**构建期**不展开它 → makeWrapper 收到纯文本 `${NIXOS_OZONE_WL:+...}` 并转义写进 wrapper 脚本 → **运行期**展开。若误写成 `''${...}`，构建期就展开成空串（沙箱里两个变量都没有），flag 静默消失、构建照样成功。双闸门语义：会话同时有 `NIXOS_OZONE_WL`（本机 GNOME Wayland 会话全局设了 =1）和 `WAYLAND_DISPLAY` 才追加 wayland flags；ssh/waypipe 远程会话没有 `NIXOS_OZONE_WL`（sshd 不透传环境），继续用显式 `--ozone-platform=wayland` 启动即可，两者叠加无冲突。
 - `openclaw-runtime.nix`（`lobsterai-openclaw-runtime`）：从 openclaw 源码打 64 个补丁构建 cfmind 运行时。
 - `mkSkill`（文件内 let 绑定）：`web-search` / `pptx` / `imap-smtp-email` 三个技能各自一个 FOD + 小派生。

@@ -4,12 +4,12 @@
   makeWrapper,
   copyDesktopItems,
   makeDesktopItem,
-  lobsterai,
+  lobsterai-unwrapped,
 }:
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "lobsterai-wrapper";
-  inherit (lobsterai) version;
+  inherit (lobsterai-unwrapped) version;
 
   __structuredAttrs = true;
   strictDeps = true;
@@ -43,10 +43,10 @@ stdenv.mkDerivation (finalAttrs: {
   installPhase = ''
     runHook preInstall
 
-    install -Dm644 ${lobsterai}/opt/lobsterai/resources/app-icon/512x512.png "$out/share/icons/hicolor/512x512/apps/lobsterai.png"
+    install -Dm644 ${lobsterai-unwrapped}/opt/lobsterai/resources/app-icon/512x512.png "$out/share/icons/hicolor/512x512/apps/lobsterai.png"
 
     mkdir -p "$out/bin"
-    makeWrapper ${lobsterai}/opt/lobsterai/LobsterAI "$out/bin/lobsterai" \
+    makeWrapper ${lobsterai-unwrapped}/opt/lobsterai/LobsterAI "$out/bin/lobsterai" \
       --add-flags "--no-sandbox" \
       --add-flags "\''${NIXOS_OZONE_WL:+\''${WAYLAND_DISPLAY:+--ozone-platform-hint=auto --enable-features=WaylandWindowDecorations --enable-wayland-ime=true --wayland-text-input-version=3}}" \
       --prefix LD_LIBRARY_PATH : "${lib.makeLibraryPath [ stdenv.cc.cc.lib ]}"
@@ -55,7 +55,7 @@ stdenv.mkDerivation (finalAttrs: {
   '';
 
   passthru = {
-    unwrapped = lobsterai;
+    unwrapped = lobsterai-unwrapped;
     aiProvenance = [
       {
         agent = "dsh";
