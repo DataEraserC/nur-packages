@@ -182,6 +182,7 @@
             mimocode2api = import ./modules/mimocode2api.nix;
             omniroute = import ./modules/omniroute.nix;
             browser4 = import ./modules/browser4.nix;
+            our-free-model-standalone = import ./modules/our-free-model-standalone.nix;
           };
 
           hydraJobs.packages.x86_64-linux = self.hydraPackages.x86_64-linux;
