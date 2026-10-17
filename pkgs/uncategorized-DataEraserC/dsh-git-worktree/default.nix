@@ -21,7 +21,10 @@ else
 
     npmDepsHash = "sha256-0jQfK0LdZ6Te74n3tNTlIpMiSFp2Zr+y6u9XtoXEtT0=";
 
-    npmFlags = [ "--legacy-peer-deps" ];
+    npmFlags = [
+      "--legacy-peer-deps"
+      "--ignore-scripts"
+    ];
 
     dontNpmBuild = true;
 
@@ -56,6 +59,11 @@ else
           agent = "dsh";
           model = "mimo-v2.5-free";
           involvement = "authored";
+        }
+        {
+          agent = "dsh";
+          model = "mimo-v2.6-flash-free";
+          involvement = "assisted";
         }
       ];
       updateScript = [ (toString ./update.sh) ];
