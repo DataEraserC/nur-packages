@@ -71,6 +71,7 @@
 ### 包元数据（维护者）
 
 - **包含 xddxdd 或 DataEraserC，自有目录统一引用共享列表**：维护者列表至少含仓库负责人之一；nixpkgs 没有 `DataEraserC` 条目（`with lib.maintainers; [ DataEraserC ]` 求值即报 `undefined variable`，`nix-update` 与 `tools/check_package_meta.py` 都会触发），故 `pkgs/uncategorized-DataEraserC/` 的包一律写 `maintainers = import ../maintainers.nix;`（条目须含 `name` 与 `github`，且文件必须 `git add`，否则 flake 求值报 is not tracked by Git）
+- **外部 flake 输入再导出的包标 `upstream` 而不是仓库负责人**：`flake.nix` `ptr` 块里用 `overrideAttrs` 补 meta 的包（laphael_aicmd、ZeroBot-Plugin、android-attestation-keybox-generator）由各自上游仓库维护，本仓库只做再导出，`forkMaintainers` 写占位条目 `[ { name = "upstream"; github = "upstream"; } ]`（ASCII，不写中文），不冒认负责人；`tools/check_package_meta.py` 的 `MaintainersCheck` 把 `github = "upstream"` 与 xddxdd/DataEraserC 并列接受，description/license/homepage/name+github 结构等其余规则照常校验
 
 ### AI 参与记录规范
 

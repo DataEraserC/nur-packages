@@ -94,11 +94,11 @@ class MaintainersCheck(Check):
             self.fail("meta.maintainers must be a non-empty list")
         if not any(
             [
-                m.get("github") == "xddxdd" or m.get("github") == "DataEraserC"
+                m.get("github") in ("xddxdd", "DataEraserC", "upstream")
                 for m in (maintainers or [])
             ]
         ):
-            self.fail("Both of xddxdd and DataEraserC not in maintainers")
+            self.fail("None of xddxdd, DataEraserC or upstream in maintainers")
         return self.valid
 
 
