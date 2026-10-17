@@ -68,16 +68,18 @@ jobs:
         if: always()
         run: |
           if [ -f update-results.json ]; then
-            echo "## Update Results" >> "$GITHUB_STEP_SUMMARY"
-            echo "" >> "$GITHUB_STEP_SUMMARY"
-            echo "| Package | Status |" >> "$GITHUB_STEP_SUMMARY"
-            echo "|---------|--------|" >> "$GITHUB_STEP_SUMMARY"
-            jq -r 'sort_by(.status != "failed") | .[] | "| \(.attrPath) | \(.status) |"' update-results.json >> "$GITHUB_STEP_SUMMARY"
-            echo "" >> "$GITHUB_STEP_SUMMARY"
             SUCCESS=$(jq '[.[] | select(.status == "success")] | length' update-results.json)
             FAILED=$(jq '[.[] | select(.status == "failed")] | length' update-results.json)
             TOTAL=$((SUCCESS + FAILED))
-            echo "**Total:** $TOTAL | **Success:** $SUCCESS | **Failed:** $FAILED" >> "$GITHUB_STEP_SUMMARY"
+            {
+              echo "## Update Results"
+              echo ""
+              echo "| Package | Status |"
+              echo "|---------|--------|"
+              jq -r 'sort_by(.status != "failed") | .[] | "| \(.attrPath) | \(.status) |"' update-results.json
+              echo ""
+              echo "**Total:** $TOTAL | **Success:** $SUCCESS | **Failed:** $FAILED"
+            } >> "$GITHUB_STEP_SUMMARY"
           fi
 
       - name: Upload update results
