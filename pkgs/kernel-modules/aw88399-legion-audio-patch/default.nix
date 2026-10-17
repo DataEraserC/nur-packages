@@ -33,6 +33,7 @@ stdenv.mkDerivation {
     description = "Audio patches for aw88399 on Lenovo Legion laptops";
     homepage = "https://github.com/nadimkobeissi/16iax10h-linux-sound-saga";
     license = lib.licenses.gpl3Only;
+    maintainers = import ../../uncategorized-DataEraserC/maintainers.nix;
     platforms = [ "x86_64-linux" ];
   };
 }

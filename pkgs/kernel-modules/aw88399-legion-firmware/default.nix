@@ -33,6 +33,7 @@ stdenv.mkDerivation {
     description = "Firmware for aw88399 audio codec on Lenovo Legion laptops";
     homepage = "https://github.com/nadimkobeissi/16iax10h-linux-sound-saga";
     license = lib.licenses.unfree;
+    maintainers = import ../../uncategorized-DataEraserC/maintainers.nix;
     platforms = [ "x86_64-linux" ];
   };
 }
