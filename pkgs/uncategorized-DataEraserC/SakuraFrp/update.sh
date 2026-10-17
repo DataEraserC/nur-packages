@@ -23,10 +23,9 @@ text = open(path).read()
 old = re.search(r'^  version = "([^"]+)";', text, re.M).group(1)
 new = os.environ["NEW_VERSION"]
 if old == new:
-    print(f"SakuraFrp already at {new}")
-    sys.exit(0)
-
-text = text.replace(f'version = "{old}";', f'version = "{new}";')
+    print(f"SakuraFrp already at {new}; re-prefetching to detect re-published content")
+else:
+    text = text.replace(f'version = "{old}";', f'version = "{new}";')
 
 
 def prefetch(url):
@@ -40,7 +39,8 @@ def prefetch(url):
 
 
 def repl(m):
-    return f'url = "{m.group(1)}";\n{m.group(2)}hash = "{prefetch(m.group(1))}";'
+    url = m.group(1).replace("${version}", new)
+    return f'url = "{m.group(1)}";\n{m.group(2)}hash = "{prefetch(url)}";'
 
 
 block_re = re.compile(
@@ -50,3 +50,8 @@ text, n = block_re.subn(repl, text)
 open(path, "w").write(text)
 print(f"SakuraFrp updated to {new} ({n} hashes)")
 PYEOF
+
+# Real build verification so hash/version mistakes fail here, not in CI
+# (repo rule: hash-writing update scripts must build-verify their output).
+echo "Build test: nix build .#SakuraFrp"
+nix build --no-link ".#SakuraFrp"
