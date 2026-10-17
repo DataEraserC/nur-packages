@@ -1,5 +1,5 @@
 #!/usr/bin/env nix-shell
-#!nix-shell -i bash -p bash -p nix -p gnused -p python3
+#!nix-shell -i bash -p bash -p nix -p gnused -p gnugrep -p python3
 # shellcheck shell=bash
 set -euo pipefail
 
@@ -7,7 +7,7 @@ SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)
 NIX_FILE="$SCRIPT_DIR/default.nix"
 
 # Get the latest release tag
-LATEST_TAG=$(curl -sL "https://github.com/vladelaina/BongoCat/releases.atom" |
+LATEST_TAG=$(curl -fsSL "https://github.com/vladelaina/BongoCat/releases.atom" |
   sed -n 's|.*<link[^>]*href="https://github.com/vladelaina/BongoCat/releases/tag/\([^"]*\)".*|\1|p' |
   head -1)
 
@@ -26,41 +26,49 @@ TMPDIR=$(mktemp -d)
 trap 'rm -rf "$TMPDIR"' EXIT
 
 SRC_URL="https://github.com/vladelaina/BongoCat/archive/refs/tags/${LATEST_TAG}.tar.gz"
-curl -sL "$SRC_URL" -o "$TMPDIR/source.tar.gz"
+curl -fsSL "$SRC_URL" -o "$TMPDIR/source.tar.gz"
 tar -xzf "$TMPDIR/source.tar.gz" -C "$TMPDIR" --strip-components=1
 
-# Extract FetchContent URLs from cmake files
+# Extract a FetchContent URL by content name, searching the whole cmake/
+# directory: upstream restructures cmake files between releases (miniz and
+# about_webp declarations were dropped entirely in 1.14.0), and a bare grep
+# pipeline under `set -e -o pipefail` used to kill the script silently when a
+# file disappeared. Fail loudly with the content name instead.
 extract_url() {
-  grep -A2 "FetchContent_Declare($1" "$TMPDIR/cmake/$2" 2>/dev/null |
-    grep "URL " | head -1 | sed 's/.*URL //' | tr -d ' '
+  local name=$1 url
+  url=$(
+    grep -rhA2 -E "FetchContent_Declare\(${name}[[:space:])]" "$TMPDIR/cmake/" 2>/dev/null |
+      grep -m1 "URL " | sed 's/.*URL //' | tr -d ' \r' || true
+  )
+  if [ -z "$url" ]; then
+    echo "ERROR: FetchContent URL for '$name' not found under cmake/ of ${LATEST_TAG}" >&2
+    exit 1
+  fi
+  printf '%s\n' "$url"
 }
 
-SDL3_URL=$(extract_url "SDL3" "Dependencies.cmake")
-YYJSON_URL=$(extract_url "yyjson" "Dependencies.cmake")
-STB_URL=$(extract_url "stb" "Dependencies.cmake")
-MINIAUDIO_URL=$(extract_url "miniaudio" "Dependencies.cmake")
-NUKLEAR_URL=$(extract_url "nuklear" "Dependencies.cmake")
-MINIZ_URL=$(extract_url "miniz" "Archive.cmake")
-WEBP_URL=$(extract_url "about_webp" "AboutWebP.cmake")
+echo "Prefetching dependencies..."
+SDL3_URL=$(extract_url "SDL3")
+YYJSON_URL=$(extract_url "yyjson")
+STB_URL=$(extract_url "stb")
+MINIAUDIO_URL=$(extract_url "miniaudio")
+NUKLEAR_URL=$(extract_url "nuklear")
 
 # Prefetch and convert hashes
 prefetch_sri() {
   local url=$1
   local base32
-  base32=$(nix-prefetch-url "$url" 2>/dev/null | tail -1)
-  nix hash to-sri --type sha256 "$base32" 2>/dev/null | head -1
+  base32=$(nix-prefetch-url "$url" | tail -1)
+  nix hash to-sri --type sha256 "$base32" | head -1
 }
 
-echo "Prefetching dependencies..."
 SDL3_SRI=$(prefetch_sri "$SDL3_URL")
 YYJSON_SRI=$(prefetch_sri "$YYJSON_URL")
 STB_SRI=$(prefetch_sri "$STB_URL")
 MINIAUDIO_SRI=$(prefetch_sri "$MINIAUDIO_URL")
 NUKLEAR_SRI=$(prefetch_sri "$NUKLEAR_URL")
-MINIZ_SRI=$(prefetch_sri "$MINIZ_URL")
-WEBP_SRI=$(prefetch_sri "$WEBP_URL")
 
-SRC_SRI=$(nix store prefetch-file --json --unpack "$SRC_URL" 2>/dev/null | python3 -c "import sys,json; print(json.load(sys.stdin)['hash'])")
+SRC_SRI=$(nix store prefetch-file --json --unpack "$SRC_URL" | python3 -c "import sys,json; print(json.load(sys.stdin)['hash'])")
 
 # Update nix file
 python3 <<PYEOF
@@ -72,8 +80,8 @@ with open("$NIX_FILE") as f:
 updates = {
     "version": "$NEW_VERSION",
     "src": "$SRC_SRI",
-    ("SDL3", "url"): "$SDL3_URL",
-    ("SDL3", "hash"): "$SDL3_SRI",
+    ("sdl3-source", "url"): "$SDL3_URL",
+    ("sdl3-source", "hash"): "$SDL3_SRI",
     ("yyjson-source", "url"): "$YYJSON_URL",
     ("yyjson-source", "hash"): "$YYJSON_SRI",
     ("stb-source", "url"): "$STB_URL",
@@ -82,28 +90,44 @@ updates = {
     ("miniaudio-source", "hash"): "$MINIAUDIO_SRI",
     ("nuklear-source", "url"): "$NUKLEAR_URL",
     ("nuklear-source", "hash"): "$NUKLEAR_SRI",
-    ("miniz-source", "url"): "$MINIZ_URL",
-    ("miniz-source", "hash"): "$MINIZ_SRI",
-    ("libwebp-source", "url"): "$WEBP_URL",
-    ("libwebp-source", "hash"): "$WEBP_SRI",
 }
 
-# Update version
-content = re.sub(r'(version = ")[^"]*"', rf'\g<1>{updates["version"]}"', content)
+# Update version (the only version = "..." line in the file)
+content, n = re.subn(r'(version = ")[^"]*"', rf'\g<1>{updates["version"]}"', content, count=1)
+if n != 1 or f'version = "{updates["version"]}";' not in content:
+    raise SystemExit("ERROR: version line not rewritten")
 
-# Update src hash (first occurrence after hash = "sha256-)
-content = re.sub(
+# Update src hash (first hash before the closing }; of the fetchFromGitHub
+# block). updates["src"] is a full SRI ("sha256-...") while group 1 already
+# includes the "sha256-" prefix — strip it or the file gets a doubled prefix
+# ("sha256-sha256-...") that fails SRI parsing with "length 0".
+src_sri = updates["src"]
+if src_sri.startswith("sha256-"):
+    src_sri = src_sri[len("sha256-"):]
+content, n = re.subn(
     r'(hash = "sha256-)([^"]*)(";\s*\n\s*};\s*\n\s*sdl3)',
-    rf'\g<1>{updates["src"]}\g<3>',
-    content, count=1
+    rf'\g<1>{src_sri}\g<3>',
+    content, count=1,
 )
+if n != 1:
+    raise SystemExit("ERROR: src hash line not rewritten")
 
-# Update each dep block: name = "xxx"; url = "..."; hash = "..."
-for (name, field), value in updates.items():
-    if isinstance(name, tuple):
-        dep_name, field = name
-        pattern = rf'(name = "{dep_name}";\s*\n\s*{field} = ")[^"]*(")'
-        content = re.sub(pattern, rf'\g<1>{value}\g<2>', content)
+# Update each fetchurl dep block: name = "<dep>-source"; url = "..."; hash = "..."
+# Guard BEFORE unpacking: "version"/"src" keys are plain strings and cannot be
+# destructured into (name, field).
+for key, value in updates.items():
+    if isinstance(key, str):
+        continue
+    name, field = key
+    if field == "hash":
+        # The dep blocks read name/url/hash on three adjacent lines, so the
+        # hash key is never directly below the name key.
+        pattern = rf'(name = "{name}";\s*\n\s*url = "[^"]*";\s*\n\s*hash = ")[^"]*(")'
+    else:
+        pattern = rf'(name = "{name}";\s*\n\s*{field} = ")[^"]*(")'
+    content, n = re.subn(pattern, rf'\g<1>{value}\g<2>', content, count=1)
+    if n != 1:
+        raise SystemExit(f"ERROR: {field} of {name} not rewritten")
 
 with open("$NIX_FILE", "w") as f:
     f.write(content)
@@ -112,3 +136,5 @@ print(f"Updated to version {updates['version']}")
 PYEOF
 
 echo "Build test: nix build .#BongoCat"
+nix build --no-link .#BongoCat
+echo "BongoCat update OK"

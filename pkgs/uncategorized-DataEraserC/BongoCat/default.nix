@@ -19,12 +19,12 @@
 }:
 
 let
-  version = "1.12.0";
+  version = "1.14.0";
   src = fetchFromGitHub {
     owner = "vladelaina";
     repo = "BongoCat";
     tag = "v${version}";
-    hash = "sha256-I8rJ8ocFoMQppRJM6izYitml2PL5fMQWC3RHuZhyyps=";
+    hash = "sha256-u8k+yaKeH27bq3W6vUPR70pSG+fXMD+fpfLVmXE7WMw=";
   };
 
   sdl3 = fetchurl {
@@ -57,18 +57,6 @@ let
     hash = "sha256-I+XhsS6Jfx1WjrcDqjE7ciTJt14RGHZM66R30TuOOfQ=";
   };
 
-  minizSrc = fetchurl {
-    name = "miniz-source";
-    url = "https://codeload.github.com/richgel999/miniz/tar.gz/refs/tags/3.1.0";
-    hash = "sha256-CVafwZ0GCsn1mZupNWcowklOvmokrA6wprauPTls/qY=";
-  };
-
-  webpSrc = fetchurl {
-    name = "libwebp-source";
-    url = "https://storage.googleapis.com/downloads.webmproject.org/releases/webp/libwebp-1.6.0.tar.gz";
-    hash = "sha256-5KtwCb8GKf0RmC1MKqg5ZM8kTP+6c0fs05AZqeOMRWQ=";
-  };
-
   deps = [
     {
       name = "SDL3";
@@ -89,14 +77,6 @@ let
     {
       name = "nuklear";
       src = nuklearSrc;
-    }
-    {
-      name = "miniz";
-      src = minizSrc;
-    }
-    {
-      name = "about_webp";
-      src = webpSrc;
     }
   ];
 
@@ -188,6 +168,11 @@ let
           model = "deepseek-v4-flash";
           involvement = "assisted";
         }
+        {
+          agent = "dsh";
+          model = "mimo-v2.6-flash-free";
+          involvement = "assisted";
+        }
       ];
     };
 
@@ -222,6 +207,16 @@ stdenv.mkDerivation {
       }"
     runHook postInstall
   '';
+
+  passthru = {
+    aiProvenance = [
+      {
+        agent = "dsh";
+        model = "mimo-v2.6-flash-free";
+        involvement = "assisted";
+      }
+    ];
+  };
 
   inherit (unwrapped) meta;
 }
