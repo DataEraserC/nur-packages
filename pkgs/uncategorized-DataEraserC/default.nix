@@ -17,6 +17,7 @@ let
     dsh-our-free-model = p: if inputs == null then ifNotNUR p else p;
     dsh-share = p: if inputs == null then ifNotNUR p else p;
     dsh-turn-rewind = p: if inputs == null then ifNotNUR p else p;
+    dsh-video-fetch = p: if inputs == null then ifNotNUR p else p;
     modlens = p: if inputs == null then ifNotNUR p else p;
   };
 in
