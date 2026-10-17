@@ -108,6 +108,7 @@ buildGoModule {
     homepage = "https://github.com/QuantumNous/new-api";
     license = lib.licenses.agpl3Only;
     mainProgram = "new-api";
+    maintainers = import ../maintainers.nix;
     platforms = lib.platforms.linux;
   };
 }
