@@ -8,15 +8,15 @@ SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)
 echo "Updating new-api..."
 
 # Detect latest release tag from atom feed
-LATEST_TAG=$(curl -fsSL "https://github.com/QuantumNous/new-api/releases.atom" \
-  | grep -oP '(?<=<id>tag:github.com,2008:Repository/[0-9]+/)v[0-9][^<]+' \
-  | head -1) || true
+LATEST_TAG=$(curl -fsSL "https://github.com/QuantumNous/new-api/releases.atom" |
+  grep -oP '(?<=<id>tag:github.com,2008:Repository/[0-9]+/)v[0-9][^<]+' |
+  head -1) || true
 
 if [ -z "$LATEST_TAG" ]; then
-  LATEST_TAG=$(git ls-remote --tags https://github.com/QuantumNous/new-api \
-    | sed -n 's#.*refs/tags/v\([0-9].*\)$#v\1#p' \
-    | grep -v '\^{}' \
-    | sort -V | tail -1)
+  LATEST_TAG=$(git ls-remote --tags https://github.com/QuantumNous/new-api |
+    sed -n 's#.*refs/tags/v\([0-9].*\)$#v\1#p' |
+    grep -v '\^{}' |
+    sort -V | tail -1)
 fi
 
 NEW_VERSION="${LATEST_TAG#v}"
@@ -38,8 +38,8 @@ nix-update "$UPDATE_NIX_ATTR_PATH" --version "$NEW_VERSION"
 # Replace the current outputHash with lib.fakeHash, build, extract the real hash.
 sed -i 's|outputHash = "sha256-[^"]*"|outputHash = lib.fakeHash|' "$SCRIPT_DIR/default.nix"
 
-WEB_DEPS_HASH=$(nix build ".#${UPDATE_NIX_ATTR_PATH}" --no-link 2>&1 \
-  | grep -oP 'got:\s+sha256-[A-Za-z0-9/+=]+' | head -1 | sed 's/got:\s*//') || true
+WEB_DEPS_HASH=$(nix build ".#${UPDATE_NIX_ATTR_PATH}" --no-link 2>&1 |
+  grep -oP 'got:\s+sha256-[A-Za-z0-9/+=]+' | head -1 | sed 's/got:\s*//') || true
 
 if [ -n "$WEB_DEPS_HASH" ]; then
   sed -i "s|outputHash = lib.fakeHash;|outputHash = \"$WEB_DEPS_HASH\";|" "$SCRIPT_DIR/default.nix"
