@@ -198,7 +198,12 @@
           let
             ptr =
               let
-                forkMaintainers = import ./pkgs/uncategorized-DataEraserC/maintainers.nix;
+                forkMaintainers = [
+                  {
+                    name = "upstream";
+                    github = "upstream";
+                  }
+                ];
                 withForkMeta =
                   pkg: extra:
                   pkg.overrideAttrs (old: {
