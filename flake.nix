@@ -196,13 +196,35 @@
             ...
           }:
           let
-            ptr = {
-              inherit (inputs.LaphaeL-aicmd.packages.${system}) laphael_aicmd;
-              ZeroBot-Plugin = inputs.ZeroBot-Plugin.packages.${system}.default;
-              inherit (inputs.android-attestation-keybox-generator.packages.${system})
-                android-attestation-keybox-generator
-                ;
-            };
+            ptr =
+              let
+                forkMaintainers = import ./pkgs/uncategorized-DataEraserC/maintainers.nix;
+                withForkMeta =
+                  pkg: extra:
+                  pkg.overrideAttrs (old: {
+                    meta = (old.meta or { }) // extra;
+                  });
+              in
+              {
+                laphael_aicmd = withForkMeta inputs.LaphaeL-aicmd.packages.${system}.laphael_aicmd {
+                  maintainers = forkMaintainers;
+                };
+                ZeroBot-Plugin = withForkMeta inputs.ZeroBot-Plugin.packages.${system}.default {
+                  description = "Plugin collection for the ZeroBot QQ bot framework";
+                  homepage = "https://github.com/FloatTech/ZeroBot-Plugin";
+                  license = pkgs.lib.licenses.agpl3Only;
+                  maintainers = forkMaintainers;
+                };
+                android-attestation-keybox-generator =
+                  withForkMeta
+                    inputs.android-attestation-keybox-generator.packages.${system}.android-attestation-keybox-generator
+                    {
+                      description = "ECDSA keybox generator for Android hardware attestation";
+                      homepage = "https://github.com/AndroidAppsUsedByMyself/android-attestation-keybox-generator";
+                      license = pkgs.lib.licenses.mit;
+                      maintainers = forkMaintainers;
+                    };
+              };
           in
           rec {
             nixpkgs-options = {
