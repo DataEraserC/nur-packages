@@ -12,13 +12,13 @@
 }:
 stdenv.mkDerivation (finalAttrs: {
   pname = "dsh-our-free-model-standalone";
-  version = "2.2.0";
+  version = "2.5.2";
 
   src = fetchFromGitHub {
     owner = "Ebony-Vinyl";
     repo = "dsh-our-free-model";
     rev = "v${finalAttrs.version}";
-    hash = "sha256-xAeS/txdFrSXe2a+jisjZRGcRuIJ0+aP4/G2hDUwpgc=";
+    hash = "sha256-bvsRCZEmtCEtlhBiCgnbugBO7D5YSNqemQQc6cswrQE=";
   };
 
   __structuredAttrs = true;
