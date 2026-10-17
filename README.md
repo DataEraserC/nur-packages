@@ -62,10 +62,11 @@ Or, use variables from this repository in case I change them:
 ## Packages
 
 <details>
-<summary>Package set: (Uncategorized) (323 packages)</summary>
+<summary>Package set: (Uncategorized) (327 packages)</summary>
 
 | State | Path | Name | Version | Description |
 | ----- | ---- | ---- | ------- | ----------- |
+|  | `9router` | [9router](https://github.com/decolua/9router) | 0.5.99 | Local AI gateway that routes coding agent requests across multiple providers with automatic fallback |
 | `x86_64-linux` | `AppimageLauncher_deb` | [appimagelauncher-2.2.0](https://github.com/TheAssassin/AppImageLauncher) |  | appimagelauncher |
 |  | `BongoCat` | [BongoCat](https://github.com/vladelaina/BongoCat) | 1.12.0 | Interactive desktop companion with real-time reactions to keyboard, mouse, and gamepad input |
 |  | `ChatRWKV` | [rwkv](https://github.com/BlinkDL/ChatRWKV) | 0.8.32 | The RWKV Language Model |
@@ -147,6 +148,7 @@ Or, use variables from this repository in case I change them:
 |  | `dsh-notifier` | [dsh-notifier](https://github.com/THEWOLFWALKER/dsh-notifier) | 0.13.1 | Notification and remote-control plane for DeepSeek Harness with 28 outbound channels, 6 inbound control channels and a native Notify & Control UI |
 |  | `dsh-oauthpro` | [dsh-oauthpro](https://github.com/meyaomiao/dsh-oauthpro) | 0.1.6 | Provider account pool and quota plugin for DeepSeek Harness with live model catalog, balance and quota display |
 |  | `dsh-our-free-model` | [dsh-our-free-model](https://github.com/Ebony-Vinyl/dsh-our-free-model) | 2.2.0 | Zero-setup free-model plugin for DeepSeek Harness: no login, no API key, live-tested model roster, real thinking budgets, an OpenAI-compatible forward port, and absorbed zero-quota channels |
+|  | `dsh-our-free-model-standalone` | [dsh-our-free-model-standalone](https://github.com/Ebony-Vinyl/dsh-our-free-model) | 2.2.0 | Standalone zero-setup free-model gateway with a web management console, distilled from dsh-our-free-model and runnable without DeepSeek Harness |
 |  | `dsh-plugin-guard` | [dsh-plugin-guard](https://github.com/lxzy-7/dsh-plugin-guard) | 0.3.2 | Install safety net for DeepSeek Harness: pre-install snapshots, one-click/automatic rollback, guarded boot, and incident reports that auto-trigger agent analysis |
 |  | `dsh-settings-persist` | [dsh-settings-persist](https://github.com/DataEraserC/dsh-settings-persist) | 0.3.2 | Persist DSH Settings edits across nix managed-profile syncs and rebuilds, with auto/manual snapshots and a settings page |
 |  | `dsh-share` | [dsh-share](https://github.com/hellodigua/dsh-share) | 0.5.0 | Share selected DeepSeek Harness conversations as PNG images or Markdown text |
@@ -222,6 +224,8 @@ Or, use variables from this repository in case I change them:
 |  | `lightpanda` | [lightpanda](https://lightpanda.io) | 1.0.0 | Headless browser designed for AI and automation |
 | `x86_64-linux` | `linguaspark-server` | [linguaspark-server](https://github.com/LinguaSpark/server) | 0-unstable-2026-07-19 | Lightweight multilingual translation service powered by the pure Rust LinguaSpark inference engine, compatible with multiple translation frontend APIs |
 | `x86_64-linux` | `linguaspark-server-x86-64-v3` | [linguaspark-server](https://github.com/LinguaSpark/server) | 0-unstable-2026-07-19 | Lightweight multilingual translation service powered by the pure Rust LinguaSpark inference engine, compatible with multiple translation frontend APIs |
+|  | `lobsterai-unwrapped` | [lobsterai-unwrapped](https://github.com/netease-youdao/LobsterAI) | 2026.10.13 | Unwrapped LobsterAI application tree without the launcher wrapper, for use with lobsterai-wrapper |
+|  | `lobsterai-wrapper` | [lobsterai-wrapper](https://github.com/netease-youdao/LobsterAI) | 2026.10.13 | Launcher wrapper for LobsterAI with automatic Wayland ozone platform detection |
 |  | `loralib` | [loralib](https://arxiv.org/abs/2106.09685) | 0-unstable-2024-12-16 | Implementation of "LoRA: Low-Rank Adaptation of Large Language Models" |
 |  | `lyrica` | [lyrica](https://github.com/chiyuki0325/lyrica) | 0.24 | Linux desktop lyrics widget focused on simplicity and integration |
 |  | `lyrica-plasmoid` | [lyrica](https://github.com/chiyuki0325/lyrica) | 0.24 | Linux desktop lyrics widget focused on simplicity and integration (Plasmoid component) |
@@ -1645,10 +1649,11 @@ Or, use variables from this repository in case I change them:
 </details>
 
 <details>
-<summary>Package set: uncategorized-DataEraserC (84 packages)</summary>
+<summary>Package set: uncategorized-DataEraserC (88 packages)</summary>
 
 | State | Path | Name | Version | Description |
 | ----- | ---- | ---- | ------- | ----------- |
+|  | `uncategorized-DataEraserC.9router` | [9router](https://github.com/decolua/9router) | 0.5.99 | Local AI gateway that routes coding agent requests across multiple providers with automatic fallback |
 | `x86_64-linux` | `uncategorized-DataEraserC.AppimageLauncher_deb` | [appimagelauncher-2.2.0](https://github.com/TheAssassin/AppImageLauncher) |  | appimagelauncher |
 |  | `uncategorized-DataEraserC.BongoCat` | [BongoCat](https://github.com/vladelaina/BongoCat) | 1.12.0 | Interactive desktop companion with real-time reactions to keyboard, mouse, and gamepad input |
 |  | `uncategorized-DataEraserC.ChatRWKV` | [rwkv](https://github.com/BlinkDL/ChatRWKV) | 0.8.32 | The RWKV Language Model |
@@ -1681,6 +1686,7 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized-DataEraserC.dsh-notifier` | [dsh-notifier](https://github.com/THEWOLFWALKER/dsh-notifier) | 0.13.1 | Notification and remote-control plane for DeepSeek Harness with 28 outbound channels, 6 inbound control channels and a native Notify & Control UI |
 |  | `uncategorized-DataEraserC.dsh-oauthpro` | [dsh-oauthpro](https://github.com/meyaomiao/dsh-oauthpro) | 0.1.6 | Provider account pool and quota plugin for DeepSeek Harness with live model catalog, balance and quota display |
 |  | `uncategorized-DataEraserC.dsh-our-free-model` | [dsh-our-free-model](https://github.com/Ebony-Vinyl/dsh-our-free-model) | 2.2.0 | Zero-setup free-model plugin for DeepSeek Harness: no login, no API key, live-tested model roster, real thinking budgets, an OpenAI-compatible forward port, and absorbed zero-quota channels |
+|  | `uncategorized-DataEraserC.dsh-our-free-model-standalone` | [dsh-our-free-model-standalone](https://github.com/Ebony-Vinyl/dsh-our-free-model) | 2.2.0 | Standalone zero-setup free-model gateway with a web management console, distilled from dsh-our-free-model and runnable without DeepSeek Harness |
 |  | `uncategorized-DataEraserC.dsh-plugin-guard` | [dsh-plugin-guard](https://github.com/lxzy-7/dsh-plugin-guard) | 0.3.2 | Install safety net for DeepSeek Harness: pre-install snapshots, one-click/automatic rollback, guarded boot, and incident reports that auto-trigger agent analysis |
 |  | `uncategorized-DataEraserC.dsh-settings-persist` | [dsh-settings-persist](https://github.com/DataEraserC/dsh-settings-persist) | 0.3.2 | Persist DSH Settings edits across nix managed-profile syncs and rebuilds, with auto/manual snapshots and a settings page |
 |  | `uncategorized-DataEraserC.dsh-share` | [dsh-share](https://github.com/hellodigua/dsh-share) | 0.5.0 | Share selected DeepSeek Harness conversations as PNG images or Markdown text |
@@ -1694,6 +1700,8 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized-DataEraserC.hdrop` | [hdrop](https://github.com/Schweber/hdrop) | 0.7.9-unstable-2026-02-17 | Emulate 'tdrop' in Hyprland (run, show and hide specific programs per keybind) |
 |  | `uncategorized-DataEraserC.hkdm` | [hkdm](https://gitlab.com/postmarketOS/hkdm) | 0.2.1-unstable-2023-03-06 | Lighter-weight hotkey daemon |
 |  | `uncategorized-DataEraserC.ja-netfilter` | [ja-netfilter](https://3.jetbra.in) | 240701 | ja-netfilter |
+|  | `uncategorized-DataEraserC.lobsterai-unwrapped` | [lobsterai-unwrapped](https://github.com/netease-youdao/LobsterAI) | 2026.10.13 | Unwrapped LobsterAI application tree without the launcher wrapper, for use with lobsterai-wrapper |
+|  | `uncategorized-DataEraserC.lobsterai-wrapper` | [lobsterai-wrapper](https://github.com/netease-youdao/LobsterAI) | 2026.10.13 | Launcher wrapper for LobsterAI with automatic Wayland ozone platform detection |
 |  | `uncategorized-DataEraserC.m365-copilot2api` | [m365-copilot2api](https://github.com/HEXUXIU/M365-Copilot2API) | 0.7.3 | Microsoft 365 Copilot to OpenAI/Anthropic compatible API gateway |
 |  | `uncategorized-DataEraserC.mimocode2api` | [mimocode2api](https://github.com/wx8472235-cell/mimocode2api) | 0.2.0 | Converts Xiaomi MiMo Code built-in free models into an OpenAI-compatible API without API keys |
 |  | `uncategorized-DataEraserC.modlens` | [modlens](https://github.com/liustack/modlens) | 3.26.6 | Vision plugin for DeepSeek Harness that turns pasted images into structured JSON evidence through pluggable vision engines |
