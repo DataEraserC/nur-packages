@@ -16,6 +16,10 @@
   libxkbcommon,
   libffi,
   makeWrapper,
+  unzip,
+  gtk3,
+  libayatana-appindicator,
+  libappindicator-gtk3,
 }:
 
 let
@@ -57,6 +61,16 @@ let
     hash = "sha256-I+XhsS6Jfx1WjrcDqjE7ciTJt14RGHZM66R30TuOOfQ=";
   };
 
+  cubismSdk = fetchurl {
+    url = "https://cubism.live2d.com/sdk-native/bin/CubismSdkForNative-5-r.5.zip";
+    hash = "sha256-f/Oku8GcCocollqlIqt36xGyUpFkU+aKinjTtxGIuxI=";
+  };
+
+  glewSrc = fetchurl {
+    url = "https://github.com/nigels-com/glew/releases/download/glew-2.2.0/glew-2.2.0.zip";
+    hash = "sha256-qQRqkTd0OVoJXtzAsKwtgcOqzKYXh7OYOblB6b4U4NQ=";
+  };
+
   deps = [
     {
       name = "SDL3";
@@ -89,6 +103,7 @@ let
       ninja
       pkg-config
       wayland-scanner
+      unzip
     ];
 
     buildInputs = [
@@ -111,6 +126,27 @@ let
       runHook preUnpack
       cp -r ${src} source
       chmod -R +w source
+
+      mkdir -p source/vendor/CubismSdkForNative
+      unzip -q ${cubismSdk} -d "$TMPDIR/cubism"
+      core_header=$(find "$TMPDIR/cubism" -maxdepth 4 -path "*/Core/include/Live2DCubismCore.h" | head -n 1)
+      if [ -z "$core_header" ]; then
+        echo "Cubism SDK archive layout unexpected: Core/include/Live2DCubismCore.h not found" >&2
+        exit 1
+      fi
+      sdk_root=$(dirname "$(dirname "$(dirname "$core_header")")")
+      cp -r "$sdk_root/Core" "$sdk_root/Framework" source/vendor/CubismSdkForNative/
+
+      unzip -q ${glewSrc} -d "$TMPDIR/glew"
+      glew_cmake=$(find "$TMPDIR/glew" -maxdepth 4 -path "*/build/cmake/CMakeLists.txt" | head -n 1)
+      if [ -z "$glew_cmake" ]; then
+        echo "GLEW archive layout unexpected: build/cmake/CMakeLists.txt not found" >&2
+        exit 1
+      fi
+      glew_root=$(dirname "$(dirname "$(dirname "$glew_cmake")")")
+      mkdir -p source/vendor/CubismSdkForNative/Samples/OpenGL/thirdParty
+      mv "$glew_root" source/vendor/CubismSdkForNative/Samples/OpenGL/thirdParty/glew
+
       runHook postUnpack
     '';
 
@@ -138,7 +174,8 @@ let
         -DCMAKE_BUILD_TYPE=Release \
         -DBUILD_TESTING=OFF \
         -DBONGO_CAT_FETCH_DEPS=ON \
-        -DBONGO_CAT_REQUIRE_CUBISM=OFF \
+        -DBONGO_CAT_CUBISM_SDK="$PWD/source/vendor/CubismSdkForNative" \
+        -DBONGO_CAT_REQUIRE_CUBISM=ON \
         -C "$cmakeCache"
 
       runHook postConfigure
@@ -181,7 +218,7 @@ let
       homepage = "https://github.com/vladelaina/BongoCat";
       changelog = "https://github.com/vladelaina/BongoCat/releases/tag/v${version}";
       license = lib.licenses.agpl3Only;
-      platforms = lib.platforms.linux;
+      platforms = [ "x86_64-linux" ];
       maintainers = import ../maintainers.nix;
       mainProgram = "BongoCat";
     };
@@ -203,6 +240,9 @@ stdenv.mkDerivation {
         lib.makeLibraryPath [
           wayland
           libxkbcommon
+          gtk3
+          libayatana-appindicator
+          libappindicator-gtk3
         ]
       }"
     runHook postInstall
