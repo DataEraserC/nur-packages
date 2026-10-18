@@ -14,7 +14,7 @@ if inputs == null then
 else
   dshPkgs.dsh.buildDshBundle (finalAttrs: {
     pname = "dsh-video-fetch";
-    version = "0.1.2";
+    version = "0.2.0";
 
     src = fetchFromGitHub {
       owner = "DataEraserC";
@@ -22,7 +22,7 @@ else
       # Follow the release tag; update.sh bumps version, src hash and
       # npmDepsHash together (the lockfile ships inside the tag).
       rev = "v${finalAttrs.version}";
-      hash = "sha256-KshxxqbhqWMyWk1Jq/e+OyvrhNeSJmB11LBzfTA8IPc=";
+      hash = "sha256-JExX9Z4bq9y4kNrjHNLdtcbQsPxF4KE/d5Frn8oDnhw=";
     };
 
     npmDepsHash = "sha256-pWerSrDjSd173wbTWlNiIsQQ+U5VmMVIkSTP4REZdpE=";
