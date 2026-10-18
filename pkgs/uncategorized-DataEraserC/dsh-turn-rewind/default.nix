@@ -14,13 +14,13 @@ if inputs == null then
 else
   dshPkgs.dsh.buildDshBundle.fromPnpmWorkspace (finalAttrs: {
     pname = "dsh-turn-rewind";
-    version = "0.3.9-unstable-2026-10-01";
+    version = "0.3.10-unstable-2026-10-18";
 
     src = fetchFromGitHub {
       owner = "Anionex";
       repo = "dsh-turn-rewind";
-      rev = "9610ab93c87e2405e7512d53a099b8fb2caf6936";
-      hash = "sha256-+fvnOm0hJRpaocsM4bwEFr6zU4tiYuFLIu4O+Vn23W0=";
+      rev = "5b33fd51925dbd615836d72323e89262796efae5";
+      hash = "sha256-gx8FAq2tliGxGvUi9LrYklGr0BHM9U1X6OkQHJSuAAs=";
     };
 
     deployPackage = "@anionex/dsh-turn-rewind";

@@ -7,17 +7,17 @@
 
 buildNpmPackage (finalAttrs: {
   pname = "qq-bridge-unwrapped";
-  version = "0.2.0-r3";
+  version = "0.2.0-r4";
 
   src = fetchFromGitHub {
     owner = "Derpyu520";
     repo = "qq-bridge";
     # Follow the release tag, so nix-update only has to bump `version`.
     rev = "v${finalAttrs.version}";
-    hash = "sha256-iJHpj1G+g8oX2x2Ev50IdLCvMZ0MKVRtS6F9xsbs2nk=";
+    hash = "sha256-XNfDcBQD3/rHl3AxTs0atzRL/EXvm0vpqlkcHdCsYSI=";
   };
 
-  npmDepsHash = "sha256-wrhFeMI4uNjtPDH6vHLyCTgOZAOtF8bbo/VLdWCz488=";
+  npmDepsHash = "sha256-0J+novef8zIp5xyFumglORObBtWJHBZ8PhY3v7Irhyg=";
 
   npmFlags = [ "--legacy-peer-deps" ];
 
