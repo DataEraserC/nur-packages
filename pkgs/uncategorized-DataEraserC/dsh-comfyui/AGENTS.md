@@ -1,0 +1,9 @@
+# dsh-comfyui 打包经验
+
+- **src 必须用 GitHub tag，不能用 npm tarball**：上游 `files` 白名单只有 `lib`/`client`/`cordis.patch.yml`/README/图片/LICENSE，不含 `scripts/` 与 `src/`，而 5 个离线自测全在 `scripts/test-*.mjs`，tgz 当 src 会直接没测试可跑；tag `v0.5.5` 的 `package.json` version 与 tag 一致，installCheck 直接比对即可、无需 postPatch 改版本
+- checkPhase 三段全离线、沙箱内全绿：`npm run typecheck`（host + client 两个 tsconfig）后循环 `node scripts/{test-host-compat,test-store-params,test-skillpack,test-transfer,test-convert}.mjs`；`npmBuildScript = "build"` 已在 buildPhase 产出 `lib/`，所以**不必**照抄上游 npm script 里「先 `build:host` 再测」的顺序；`test-host-compat` 拨本地 ComfyUI WebSocket 是 best-effort，被拒后自己 3 秒定时器退出，不会挂住沙箱
+- 运行期依赖只有 `@deepseek-ai/schemastery` 与 `fflate`，但 `linkKernelNodeModules = dshPkgs.dsh.dsh-kernel` 把 `$out/lib/node_modules/dsh-comfyui/node_modules` 整体指到 kernel，两者都由 kernel 解析（实测 `require.resolve` 落 kernel 路径），部署根只剩 `.pnpm` 4KB
+- 全项目唯一 spawn 的外部进程是 `/comfyui/workflows/skill/reveal` 路由里的 `xdg-open`（`child.on('error', () => {})` 吞掉失败），所以 `runtimeDeps = [ xdg-utils ]`（`xdg-utils` 同时进函数形参列表）让 DSH wrapper 的 PATH 拿到它；Agent 工具侧没有 xdg-open 能力，这是服务端路由专用
+- **非确定性坑（`fromPnpmWorkspace` 全系列系统性，dsh-share 等也中招）**：`pnpm deploy` 在 `$out/lib/node_modules/` 写 `.modules.yaml`（`prunedAt` 墙钟时间 + `storeDir: /build/tmp.XXXXXXXX/v11` 沙箱随机目录）和 `.pnpm-workspace-state-v1.json`（`lastValidatedTimestamp` 毫秒），三处字段每次重建都变，`nix build --rebuild` 报 `may not be deterministic: output differs`（普通 `nix build` 不受影响，但 `--rebuild`/`--check` 必炸）。修法是 `postInstall` 里 sed 把三者规范成固定值，实测 `--rebuild` 通过；新包一律带上这三行，别再踩
+- `dsh.client` 声明 `platform = "web"`（注入 `@deepseek-ai/dsh-client-connection`/`dsh-client-locale`/`dsh-client-ui-settings`）→ 必须 `passthru.requiresWeb = true`；客户端半边验收 `client/client.js`（tsdown 产物）与服务端 `lib/index.js` 分开断言
+- 更新走 `nix-update-script { attrPath = "dsh-comfyui"; extraArgs = [ "--flake" ]; }`（裸包名 + `--flake`，见 `_docs/AGENTS.md` 的「DSH 插件包」一节）

@@ -62,17 +62,17 @@ Or, use variables from this repository in case I change them:
 ## Packages
 
 <details>
-<summary>Package set: (Uncategorized) (327 packages)</summary>
+<summary>Package set: (Uncategorized) (329 packages)</summary>
 
 | State | Path | Name | Version | Description |
 | ----- | ---- | ---- | ------- | ----------- |
 |  | `9router` | [9router](https://github.com/decolua/9router) | 0.5.99 | Local AI gateway that routes coding agent requests across multiple providers with automatic fallback |
 | `x86_64-linux` | `AppimageLauncher_deb` | [appimagelauncher-2.2.0](https://github.com/TheAssassin/AppImageLauncher) |  | appimagelauncher |
-|  | `BongoCat` | [BongoCat](https://github.com/vladelaina/BongoCat) | 1.12.0 | Interactive desktop companion with real-time reactions to keyboard, mouse, and gamepad input |
+| `x86_64-linux` | `BongoCat` | [BongoCat](https://github.com/vladelaina/BongoCat) | 1.14.0 | Interactive desktop companion with real-time reactions to keyboard, mouse, and gamepad input |
 |  | `ChatRWKV` | [rwkv](https://github.com/BlinkDL/ChatRWKV) | 0.8.32 | The RWKV Language Model |
-|  | `MC-LauncherX` | [MC-LauncherX](https://kb.corona.studio/) | 18b0ac05-425f-44f9-baec-bb9d07b5371c/net9.0-linux.linux-x64 |  |
+|  | `MC-LauncherX` | [MC-LauncherX](https://kb.corona.studio/) | 68817072-c920-4868-96b2-3267c2db89cd/net10.0-linux.linux-x64 | Next-generation Minecraft launcher with a modern Avalonia interface |
 | `x86_64-linux` | `MIO_KITCHEN_bin` | [MIO_KITCHEN_bin](https://github.com/ColdWindScholar/MIO-KITCHEN-SOURCE) | 4.2.1 | Android ROM tooling suite |
-|  | `SakuraFrp` | [SakuraFrp](https://www.natfrp.com/) | 3.1.8 |  |
+|  | `SakuraFrp` | [SakuraFrp](https://www.natfrp.com/) | 3.1.8 | FRP-based tunnel client for the SakuraFrp service bundling natfrp-service and frpc |
 |  | `XiaoMiToolV2` | XiaoMiToolV2 | 0-unstable-2025-06-24 |  |
 |  | `acpi-ec` | [acpi-ec](https://github.com/musikid/acpi_ec) | 1.0.4 | Kernel module to access directly to the ACPI EC |
 | `x86_64-linux` | `adspower` | [adspower](https://www.adspower.com/) | 8.9.23 | Antidetect Browser for Multi-Accounts |
@@ -142,6 +142,7 @@ Or, use variables from this repository in case I change them:
 |  | `dsh-annotation` | [dsh-annotation](https://github.com/omdsh-dev/dsh-annotation) | 1.4.11-preview.1 | Annotate selected assistant text in the DeepSeek Harness web UI and reply to each annotation by number |
 |  | `dsh-bas-remote` | [dsh-bas-remote](https://github.com/DataEraserC/dsh-bas-remote) | 0.5.0+6 | SAP Business Application Studio remote dev spaces for DeepSeek Harness |
 |  | `dsh-chat-import` | [dsh-chat-import](https://github.com/Nwflower/dsh-chat-import) | 0.26.0 | Import conversation history from 25+ AI coding agents into DeepSeek Harness as resumable sessions with tool calls and reasoning intact |
+|  | `dsh-comfyui` | [dsh-comfyui](https://github.com/fandc520/dsh-comfyui) | 0.5.5 | Drive a local or remote ComfyUI from DeepSeek Harness with workflow, asset and queue panels plus per-workflow skill packs |
 |  | `dsh-ego-browser` | [dsh-ego-browser](https://github.com/Fisfzy/dsh-ego-browser) | 0.8.6 | Chrome-driven browser automation bundle for DeepSeek Harness with 32 ego_* tools, CDP/FFmpeg capture, casting and a live observation panel |
 |  | `dsh-free-search` | [dsh-free-search](https://github.com/DDDMUC/dsh-free-search) | 0.8.10 | Provide free web search with smart engine routing, keyless fallback and a settings UI for DeepSeek Harness |
 |  | `dsh-git-worktree` | [dsh-git-worktree](https://github.com/wloops/dsh-git-worktree) | 0.10.0 | Git worktree Session Targets for DeepSeek Harness with isolated task sessions, reversible local preview, human-confirmed delivery, recovery, and same-session iteration |
@@ -153,6 +154,7 @@ Or, use variables from this repository in case I change them:
 |  | `dsh-settings-persist` | [dsh-settings-persist](https://github.com/DataEraserC/dsh-settings-persist) | 0.3.2 | Persist DSH Settings edits across nix managed-profile syncs and rebuilds, with auto/manual snapshots and a settings page |
 |  | `dsh-share` | [dsh-share](https://github.com/hellodigua/dsh-share) | 0.5.0 | Share selected DeepSeek Harness conversations as PNG images or Markdown text |
 |  | `dsh-turn-rewind` | [dsh-turn-rewind](https://github.com/Anionex/dsh-turn-rewind) | 0.3.9-unstable-2026-10-01 | Turn-level conversation and workspace rewind for DeepSeek Harness powered by a persistent Change Ledger |
+|  | `dsh-video-fetch` | [dsh-video-fetch](https://github.com/DataEraserC/dsh-video-fetch) | 0.1.2 | Video downloading for DeepSeek Harness with per-site login (bilibili QR / cookie import) and ffmpeg compression |
 |  | `dsh-worktree` | [dsh-worktree](https://github.com/FlashingChen/dsh-worktree) | 0.1.0 | Codex-style permanent git worktrees for DeepSeek Harness: agent tools, a /worktree command, and session context for durable worktrees |
 |  | `dump978` | [dump978](https://github.com/flightaware/dump978) | 11.1 | FlightAware's 978MHz UAT demodulator |
 | `x86_64-linux` | `easy-cliproxyapi-bin` | [easy-cliproxyapi-bin](https://github.com/router-for-me/EasyCLIProxyAPI) | 0.3.38 | Desktop GUI for CLIProxyAPI that configures popular AI agents |
@@ -1649,17 +1651,17 @@ Or, use variables from this repository in case I change them:
 </details>
 
 <details>
-<summary>Package set: uncategorized-DataEraserC (88 packages)</summary>
+<summary>Package set: uncategorized-DataEraserC (90 packages)</summary>
 
 | State | Path | Name | Version | Description |
 | ----- | ---- | ---- | ------- | ----------- |
 |  | `uncategorized-DataEraserC.9router` | [9router](https://github.com/decolua/9router) | 0.5.99 | Local AI gateway that routes coding agent requests across multiple providers with automatic fallback |
 | `x86_64-linux` | `uncategorized-DataEraserC.AppimageLauncher_deb` | [appimagelauncher-2.2.0](https://github.com/TheAssassin/AppImageLauncher) |  | appimagelauncher |
-|  | `uncategorized-DataEraserC.BongoCat` | [BongoCat](https://github.com/vladelaina/BongoCat) | 1.12.0 | Interactive desktop companion with real-time reactions to keyboard, mouse, and gamepad input |
+| `x86_64-linux` | `uncategorized-DataEraserC.BongoCat` | [BongoCat](https://github.com/vladelaina/BongoCat) | 1.14.0 | Interactive desktop companion with real-time reactions to keyboard, mouse, and gamepad input |
 |  | `uncategorized-DataEraserC.ChatRWKV` | [rwkv](https://github.com/BlinkDL/ChatRWKV) | 0.8.32 | The RWKV Language Model |
-|  | `uncategorized-DataEraserC.MC-LauncherX` | [MC-LauncherX](https://kb.corona.studio/) | 18b0ac05-425f-44f9-baec-bb9d07b5371c/net9.0-linux.linux-x64 |  |
+|  | `uncategorized-DataEraserC.MC-LauncherX` | [MC-LauncherX](https://kb.corona.studio/) | 68817072-c920-4868-96b2-3267c2db89cd/net10.0-linux.linux-x64 | Next-generation Minecraft launcher with a modern Avalonia interface |
 | `x86_64-linux` | `uncategorized-DataEraserC.MIO_KITCHEN_bin` | [MIO_KITCHEN_bin](https://github.com/ColdWindScholar/MIO-KITCHEN-SOURCE) | 4.2.1 | Android ROM tooling suite |
-|  | `uncategorized-DataEraserC.SakuraFrp` | [SakuraFrp](https://www.natfrp.com/) | 3.1.8 |  |
+|  | `uncategorized-DataEraserC.SakuraFrp` | [SakuraFrp](https://www.natfrp.com/) | 3.1.8 | FRP-based tunnel client for the SakuraFrp service bundling natfrp-service and frpc |
 |  | `uncategorized-DataEraserC.XiaoMiToolV2` | XiaoMiToolV2 | 0-unstable-2025-06-24 |  |
 | `x86_64-linux` | `uncategorized-DataEraserC.bqqnt` | [bqqnt](https://im.qq.com/index/) | 0.5.10 | Desktop client for QQ on Linux with bstar |
 | `x86_64-linux` | `uncategorized-DataEraserC.browser4` | [browser4](https://github.com/platonai/Browser4) | 4.13.27 | MCP-driven browser automation toolkit pairing a Rust command-line client with a Java automation server |
@@ -1680,6 +1682,7 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized-DataEraserC.dsh-annotation` | [dsh-annotation](https://github.com/omdsh-dev/dsh-annotation) | 1.4.11-preview.1 | Annotate selected assistant text in the DeepSeek Harness web UI and reply to each annotation by number |
 |  | `uncategorized-DataEraserC.dsh-bas-remote` | [dsh-bas-remote](https://github.com/DataEraserC/dsh-bas-remote) | 0.5.0+6 | SAP Business Application Studio remote dev spaces for DeepSeek Harness |
 |  | `uncategorized-DataEraserC.dsh-chat-import` | [dsh-chat-import](https://github.com/Nwflower/dsh-chat-import) | 0.26.0 | Import conversation history from 25+ AI coding agents into DeepSeek Harness as resumable sessions with tool calls and reasoning intact |
+|  | `uncategorized-DataEraserC.dsh-comfyui` | [dsh-comfyui](https://github.com/fandc520/dsh-comfyui) | 0.5.5 | Drive a local or remote ComfyUI from DeepSeek Harness with workflow, asset and queue panels plus per-workflow skill packs |
 |  | `uncategorized-DataEraserC.dsh-ego-browser` | [dsh-ego-browser](https://github.com/Fisfzy/dsh-ego-browser) | 0.8.6 | Chrome-driven browser automation bundle for DeepSeek Harness with 32 ego_* tools, CDP/FFmpeg capture, casting and a live observation panel |
 |  | `uncategorized-DataEraserC.dsh-free-search` | [dsh-free-search](https://github.com/DDDMUC/dsh-free-search) | 0.8.10 | Provide free web search with smart engine routing, keyless fallback and a settings UI for DeepSeek Harness |
 |  | `uncategorized-DataEraserC.dsh-git-worktree` | [dsh-git-worktree](https://github.com/wloops/dsh-git-worktree) | 0.10.0 | Git worktree Session Targets for DeepSeek Harness with isolated task sessions, reversible local preview, human-confirmed delivery, recovery, and same-session iteration |
@@ -1691,6 +1694,7 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized-DataEraserC.dsh-settings-persist` | [dsh-settings-persist](https://github.com/DataEraserC/dsh-settings-persist) | 0.3.2 | Persist DSH Settings edits across nix managed-profile syncs and rebuilds, with auto/manual snapshots and a settings page |
 |  | `uncategorized-DataEraserC.dsh-share` | [dsh-share](https://github.com/hellodigua/dsh-share) | 0.5.0 | Share selected DeepSeek Harness conversations as PNG images or Markdown text |
 |  | `uncategorized-DataEraserC.dsh-turn-rewind` | [dsh-turn-rewind](https://github.com/Anionex/dsh-turn-rewind) | 0.3.9-unstable-2026-10-01 | Turn-level conversation and workspace rewind for DeepSeek Harness powered by a persistent Change Ledger |
+|  | `uncategorized-DataEraserC.dsh-video-fetch` | [dsh-video-fetch](https://github.com/DataEraserC/dsh-video-fetch) | 0.1.2 | Video downloading for DeepSeek Harness with per-site login (bilibili QR / cookie import) and ffmpeg compression |
 |  | `uncategorized-DataEraserC.dsh-worktree` | [dsh-worktree](https://github.com/FlashingChen/dsh-worktree) | 0.1.0 | Codex-style permanent git worktrees for DeepSeek Harness: agent tools, a /worktree command, and session context for durable worktrees |
 | `x86_64-linux` | `uncategorized-DataEraserC.easy-cliproxyapi-bin` | [easy-cliproxyapi-bin](https://github.com/router-for-me/EasyCLIProxyAPI) | 0.3.38 | Desktop GUI for CLIProxyAPI that configures popular AI agents |
 | `x86_64-linux` | `uncategorized-DataEraserC.escrcpy_appimage` | [escrcpy](https://github.com/keiko233/clash-nyanpasu) | 3.3.1 | Clash GUI based on tauri |
