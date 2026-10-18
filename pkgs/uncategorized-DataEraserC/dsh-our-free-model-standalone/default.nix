@@ -2,6 +2,8 @@
   lib,
   stdenv,
   fetchFromGitHub,
+  fetchNpmDeps,
+  npmHooks,
   git,
   jq,
   nodejs,
@@ -24,11 +26,27 @@ stdenv.mkDerivation (finalAttrs: {
   __structuredAttrs = true;
   strictDeps = true;
 
+  # Two 2.5.2 suites import packages the package.json lists as peer/dev
+  # dependencies only: scripts/reload-test.mjs needs @deepseek-ai/cordis, and
+  # scripts/channel-pack-test.mjs --source needs typescript plus dsh-llm and
+  # dsh-llm/invariant. Without them 71/73 suites pass and reload plus
+  # channel-source fail. The lockfile already pins all of them, so install the
+  # tree rather than adding them one by one; nothing is imported at runtime, and
+  # installPhase drops node_modules again so the output stays dependency-free.
+  # npmConfigHook reads $npmDeps, which __structuredAttrs only exports from env.
+  env.npmDeps = fetchNpmDeps {
+    name = "dsh-our-free-model-standalone-npm-deps";
+    inherit (finalAttrs) src;
+    hash = "sha256-uWZihElCAB0x5glQnPwt0DhRP1qcMUmX+KMZc6L03OM=";
+  };
+
   nativeBuildInputs = [
     git
     jq
     nodejs
+    nodejs.python
     makeWrapper
+    npmHooks.npmConfigHook
   ];
 
   postPatch = ''
@@ -50,7 +68,7 @@ stdenv.mkDerivation (finalAttrs: {
   installPhase = ''
     runHook preInstall
 
-    rm -rf .git
+    rm -rf .git node_modules
     packageDir=$out/lib/our-free-model-standalone
     mkdir -p $packageDir
     cp -r . $packageDir/
