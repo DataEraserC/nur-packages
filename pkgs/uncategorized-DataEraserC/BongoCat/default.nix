@@ -94,135 +94,143 @@ let
     }
   ];
 
-  unwrapped = stdenv.mkDerivation (finalAttrs: {
-    pname = "BongoCat-unwrapped";
-    inherit version src;
+  mkBongoCat =
+    { glewEgl }:
+    stdenv.mkDerivation (finalAttrs: {
+      pname = if glewEgl then "BongoCat-unwrapped-egl" else "BongoCat-unwrapped";
+      inherit version src;
 
-    nativeBuildInputs = [
-      cmake
-      ninja
-      pkg-config
-      wayland-scanner
-      unzip
-    ];
-
-    buildInputs = [
-      curl
-      libGL
-      libX11
-      libXi
-      libXfixes
-      libffi
-    ];
-
-    propagatedBuildInputs = [
-      wayland
-      libxkbcommon
-    ];
-
-    dontStrip = true;
-
-    unpackPhase = ''
-      runHook preUnpack
-      cp -r ${src} source
-      chmod -R +w source
-
-      mkdir -p source/vendor/CubismSdkForNative
-      unzip -q ${cubismSdk} -d "$TMPDIR/cubism"
-      core_header=$(find "$TMPDIR/cubism" -maxdepth 4 -path "*/Core/include/Live2DCubismCore.h" | head -n 1)
-      if [ -z "$core_header" ]; then
-        echo "Cubism SDK archive layout unexpected: Core/include/Live2DCubismCore.h not found" >&2
-        exit 1
-      fi
-      sdk_root=$(dirname "$(dirname "$(dirname "$core_header")")")
-      cp -r "$sdk_root/Core" "$sdk_root/Framework" source/vendor/CubismSdkForNative/
-
-      unzip -q ${glewSrc} -d "$TMPDIR/glew"
-      glew_cmake=$(find "$TMPDIR/glew" -maxdepth 4 -path "*/build/cmake/CMakeLists.txt" | head -n 1)
-      if [ -z "$glew_cmake" ]; then
-        echo "GLEW archive layout unexpected: build/cmake/CMakeLists.txt not found" >&2
-        exit 1
-      fi
-      glew_root=$(dirname "$(dirname "$(dirname "$glew_cmake")")")
-      mkdir -p source/vendor/CubismSdkForNative/Samples/OpenGL/thirdParty
-      mv "$glew_root" source/vendor/CubismSdkForNative/Samples/OpenGL/thirdParty/glew
-
-      runHook postUnpack
-    '';
-
-    configurePhase = ''
-      runHook preConfigure
-
-      mkdir -p source/_fetchcontent_cache
-      ${lib.concatStringsSep "\n" (
-        map (dep: ''
-          mkdir -p source/_fetchcontent_cache/${dep.name}
-          tar -xzf ${dep.src} -C source/_fetchcontent_cache/${dep.name} --strip-components=1
-        '') deps
-      )}
-
-      cmakeCache=source/_fetchcontent_cache/cmake-initial-cache.cmake
-      echo 'set(FETCHCONTENT_FULLY_DISCONNECTED ON CACHE BOOL "" FORCE)' > "$cmakeCache"
-      ${lib.concatStringsSep "\n" (
-        map (dep: ''
-          echo "set(FETCHCONTENT_SOURCE_DIR_${lib.toUpper dep.name} \"$PWD/source/_fetchcontent_cache/${dep.name}\" CACHE PATH \"\" FORCE)" >> "$cmakeCache"
-        '') deps
-      )}
-
-      cmake -S source -B build \
-        -GNinja \
-        -DCMAKE_BUILD_TYPE=Release \
-        -DBUILD_TESTING=OFF \
-        -DBONGO_CAT_FETCH_DEPS=ON \
-        -DBONGO_CAT_CUBISM_SDK="$PWD/source/vendor/CubismSdkForNative" \
-        -DBONGO_CAT_REQUIRE_CUBISM=ON \
-        -C "$cmakeCache"
-
-      runHook postConfigure
-    '';
-
-    buildPhase = ''
-      runHook preBuild
-      ninja -C build
-      runHook postBuild
-    '';
-
-    installPhase = ''
-      runHook preInstall
-
-      mkdir -p $out/share/BongoCat
-      install -Dm755 build/BongoCat $out/share/BongoCat/BongoCat
-      cp -r source/resources/assets $out/share/BongoCat/assets
-
-      runHook postInstall
-    '';
-
-    passthru = {
-      updateScript = [ (toString ./update.sh) ];
-      aiProvenance = [
-        {
-          agent = "dsh";
-          model = "deepseek-v4-flash";
-          involvement = "assisted";
-        }
-        {
-          agent = "dsh";
-          model = "mimo-v2.6-flash-free";
-          involvement = "assisted";
-        }
+      nativeBuildInputs = [
+        cmake
+        ninja
+        pkg-config
+        wayland-scanner
+        unzip
       ];
-    };
 
-    meta = {
-      description = "Interactive desktop companion with real-time reactions to keyboard, mouse, and gamepad input";
-      homepage = "https://github.com/vladelaina/BongoCat";
-      changelog = "https://github.com/vladelaina/BongoCat/releases/tag/v${version}";
-      license = lib.licenses.agpl3Only;
-      platforms = [ "x86_64-linux" ];
-      maintainers = import ../maintainers.nix;
-      mainProgram = "BongoCat";
-    };
-  });
+      buildInputs = [
+        curl
+        libGL
+        libX11
+        libXi
+        libXfixes
+        libffi
+      ];
+
+      propagatedBuildInputs = [
+        wayland
+        libxkbcommon
+      ];
+
+      dontStrip = true;
+
+      unpackPhase = ''
+        runHook preUnpack
+        cp -r ${src} source
+        chmod -R +w source
+
+        mkdir -p source/vendor/CubismSdkForNative
+        unzip -q ${cubismSdk} -d "$TMPDIR/cubism"
+        core_header=$(find "$TMPDIR/cubism" -maxdepth 4 -path "*/Core/include/Live2DCubismCore.h" | head -n 1)
+        if [ -z "$core_header" ]; then
+          echo "Cubism SDK archive layout unexpected: Core/include/Live2DCubismCore.h not found" >&2
+          exit 1
+        fi
+        sdk_root=$(dirname "$(dirname "$(dirname "$core_header")")")
+        cp -r "$sdk_root/Core" "$sdk_root/Framework" source/vendor/CubismSdkForNative/
+
+        unzip -q ${glewSrc} -d "$TMPDIR/glew"
+        glew_cmake=$(find "$TMPDIR/glew" -maxdepth 4 -path "*/build/cmake/CMakeLists.txt" | head -n 1)
+        if [ -z "$glew_cmake" ]; then
+          echo "GLEW archive layout unexpected: build/cmake/CMakeLists.txt not found" >&2
+          exit 1
+        fi
+        glew_root=$(dirname "$(dirname "$(dirname "$glew_cmake")")")
+        mkdir -p source/vendor/CubismSdkForNative/Samples/OpenGL/thirdParty
+        mv "$glew_root" source/vendor/CubismSdkForNative/Samples/OpenGL/thirdParty/glew
+
+        runHook postUnpack
+      '';
+
+      configurePhase = ''
+        runHook preConfigure
+
+        mkdir -p source/_fetchcontent_cache
+        ${lib.concatStringsSep "\n" (
+          map (dep: ''
+            mkdir -p source/_fetchcontent_cache/${dep.name}
+            tar -xzf ${dep.src} -C source/_fetchcontent_cache/${dep.name} --strip-components=1
+          '') deps
+        )}
+
+        cmakeCache=source/_fetchcontent_cache/cmake-initial-cache.cmake
+        echo 'set(FETCHCONTENT_FULLY_DISCONNECTED ON CACHE BOOL "" FORCE)' > "$cmakeCache"
+        ${lib.optionalString glewEgl ''echo 'set(GLEW_EGL ON CACHE BOOL "" FORCE)' >> "$cmakeCache"''}
+        ${lib.concatStringsSep "\n" (
+          map (dep: ''
+            echo "set(FETCHCONTENT_SOURCE_DIR_${lib.toUpper dep.name} \"$PWD/source/_fetchcontent_cache/${dep.name}\" CACHE PATH \"\" FORCE)" >> "$cmakeCache"
+          '') deps
+        )}
+
+        cmake -S source -B build \
+          -GNinja \
+          -DCMAKE_BUILD_TYPE=Release \
+          -DBUILD_TESTING=OFF \
+          -DBONGO_CAT_FETCH_DEPS=ON \
+          -DBONGO_CAT_CUBISM_SDK="$PWD/source/vendor/CubismSdkForNative" \
+          -DBONGO_CAT_REQUIRE_CUBISM=ON \
+          -C "$cmakeCache"
+
+        runHook postConfigure
+      '';
+
+      buildPhase = ''
+        runHook preBuild
+        ninja -C build
+        runHook postBuild
+      '';
+
+      installPhase = ''
+        runHook preInstall
+
+        mkdir -p $out/share/BongoCat
+        install -Dm755 build/BongoCat $out/share/BongoCat/BongoCat
+        cp -r source/resources/assets $out/share/BongoCat/assets
+        cp -r build/FrameworkShaders $out/share/BongoCat/FrameworkShaders
+        cp -r build/FrameworkShaders $out/share/BongoCat/assets/FrameworkShaders
+
+        runHook postInstall
+      '';
+
+      passthru = {
+        updateScript = [ (toString ./update.sh) ];
+        aiProvenance = [
+          {
+            agent = "dsh";
+            model = "deepseek-v4-flash";
+            involvement = "assisted";
+          }
+          {
+            agent = "dsh";
+            model = "mimo-v2.6-flash-free";
+            involvement = "assisted";
+          }
+        ];
+      };
+
+      meta = {
+        description = "Interactive desktop companion with real-time reactions to keyboard, mouse, and gamepad input";
+        homepage = "https://github.com/vladelaina/BongoCat";
+        changelog = "https://github.com/vladelaina/BongoCat/releases/tag/v${version}";
+        license = lib.licenses.agpl3Only;
+        platforms = [ "x86_64-linux" ];
+        maintainers = import ../maintainers.nix;
+        mainProgram = "BongoCat";
+      };
+    });
+
+  unwrapped = mkBongoCat { glewEgl = false; };
+  unwrappedEgl = mkBongoCat { glewEgl = true; };
 in
 stdenv.mkDerivation {
   pname = "BongoCat";
@@ -244,7 +252,8 @@ stdenv.mkDerivation {
           libayatana-appindicator
           libappindicator-gtk3
         ]
-      }"
+      }" \
+      --run 'eff="''${SDL_VIDEODRIVER:-}"; first="''${eff%%,*}"; if [ -z "$first" ]; then if [ -n "''${WAYLAND_DISPLAY:-}" ]; then first=wayland; else first=x11; fi; fi; if [ "$first" = wayland ]; then exec ${unwrappedEgl}/share/BongoCat/BongoCat "$@"; fi'
     runHook postInstall
   '';
 
