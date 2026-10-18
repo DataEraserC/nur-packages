@@ -31,8 +31,7 @@ else
       hash = "sha256-bvsRCZEmtCEtlhBiCgnbugBO7D5YSNqemQQc6cswrQE=";
     };
 
-    npmDeps = null;
-    npmConfigHook = pkgs.emptyDirectory;
+    npmDepsHash = "sha256-uWZihElCAB0x5glQnPwt0DhRP1qcMUmX+KMZc6L03OM=";
 
     nativeBuildInputs = [
       git
@@ -98,14 +97,17 @@ else
           echo "dsh-our-free-model: ${profile} already names a sealed-host profile" >&2
           exit 1
         fi
-        if [ "$(grep -cxF "  if (profileName === 'desktop') return FLAVOR_HARNESS" $packageDir/src/vault.js)" -ne 1 ]; then
+        if [ "$(grep -cF "  if (profileName === 'desktop'" $packageDir/src/vault.js)" -ne 1 ]; then
           echo "dsh-our-free-model: cannot locate the desktop branch of detectSealedHost" >&2
           exit 1
         fi
         # Insert before the desktop line instead of substituting it: one
         # substitution consumes its own pattern, so a second profile would
-        # find no anchor and be dropped without failing the build.
-        sed -i "\|^  if (profileName === 'desktop') return FLAVOR_HARNESS\$|i\\  if (profileName === '${profile}') return FLAVOR_WEB" $packageDir/src/vault.js
+        # find no anchor and be dropped without failing the build. Anchor on
+        # the prefix rather than the whole line: 2.5.2 widened the branch to
+        # `=== 'desktop' || === 'tauri'`, and the guard above must survive the
+        # next widening too without letting the patch silently no-op.
+        sed -i "\|^  if (profileName === 'desktop'|i\\  if (profileName === '${profile}') return FLAVOR_WEB" $packageDir/src/vault.js
       '') extraWebProfiles}
     '';
 
