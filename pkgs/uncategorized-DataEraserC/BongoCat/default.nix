@@ -20,6 +20,7 @@
   gtk3,
   libayatana-appindicator,
   libappindicator-gtk3,
+  lxgw-neoxihei,
 }:
 
 let
@@ -115,6 +116,7 @@ let
         libXi
         libXfixes
         libffi
+        lxgw-neoxihei
       ];
 
       propagatedBuildInputs = [
@@ -150,6 +152,12 @@ let
         mv "$glew_root" source/vendor/CubismSdkForNative/Samples/OpenGL/thirdParty/glew
 
         runHook postUnpack
+      '';
+
+      postPatch = ''
+        substituteInPlace source/src/ui/rendering/ui_font.c \
+          --replace-fail '"/usr/share/fonts/truetype/noto/NotoSansCJK-Regular.ttc",' \
+                          '"${lxgw-neoxihei}/share/fonts/truetype/LXGWNeoXiHei.ttf",'
       '';
 
       configurePhase = ''
