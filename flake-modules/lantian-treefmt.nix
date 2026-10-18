@@ -21,6 +21,8 @@
             "_sources/**"
             "**/deps.nix"
             "*.age"
+            ".probe/**"
+            "**/.probe/**"
           ];
         };
 
