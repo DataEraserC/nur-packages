@@ -47,6 +47,11 @@ else
       runHook postCheck
     '';
 
+    postInstall = ''
+      if [ -f $out/lib/node_modules/.modules.yaml ]; then sed -i -E -e 's#"prunedAt": "[^"]*"#"prunedAt": "Thu, 01 Jan 1970 00:00:00 GMT"#' -e 's#"storeDir": "[^"]*"#"storeDir": "/build/pnpm-store/v11"#' $out/lib/node_modules/.modules.yaml; fi
+      if [ -f $out/lib/node_modules/.pnpm-workspace-state-v1.json ]; then sed -i -E 's#"lastValidatedTimestamp": [0-9]+#"lastValidatedTimestamp": 0#' $out/lib/node_modules/.pnpm-workspace-state-v1.json; fi
+    '';
+
     linkKernelNodeModules = dshPkgs.dsh.dsh-kernel;
     runtimeDeps = [ git ];
 

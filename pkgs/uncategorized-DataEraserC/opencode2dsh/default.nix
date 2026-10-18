@@ -25,6 +25,10 @@ else
     sourceRoot = "source/packages/plugin";
     deployPackage = "@opencode2dsh/dsh-plugin";
 
+    postPatch = ''
+      substituteInPlace tsdown.client.config.ts --replace-fail 'for (const [local, exp] of Object.entries(cssExports ?? {})) classMap[local] = exp.name' 'for (const [local, exp] of Object.entries(cssExports ?? {}).sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0))) classMap[local] = exp.name'
+    '';
+
     pnpmDeps = dshPkgs.dsh.fetchPnpmDeps {
       inherit (finalAttrs) pname version src;
       sourceRoot = "source/packages/plugin";
@@ -35,6 +39,11 @@ else
     npmDeps = null;
     npmConfigHook = dshPkgs.pnpmConfigHook;
     npmBuildScript = "prepack";
+
+    postInstall = ''
+      if [ -f $out/lib/node_modules/.modules.yaml ]; then sed -i -E -e 's#"prunedAt": "[^"]*"#"prunedAt": "Thu, 01 Jan 1970 00:00:00 GMT"#' -e 's#"storeDir": "[^"]*"#"storeDir": "/build/pnpm-store/v11"#' $out/lib/node_modules/.modules.yaml; fi
+      if [ -f $out/lib/node_modules/.pnpm-workspace-state-v1.json ]; then sed -i -E 's#"lastValidatedTimestamp": [0-9]+#"lastValidatedTimestamp": 0#' $out/lib/node_modules/.pnpm-workspace-state-v1.json; fi
+    '';
 
     passthru.updateScript = nix-update-script {
       attrPath = "opencode2dsh";
