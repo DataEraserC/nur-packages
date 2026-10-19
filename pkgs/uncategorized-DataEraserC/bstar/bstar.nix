@@ -24,14 +24,17 @@ stdenv.mkDerivation rec {
     in
     # bstar_so_name= "liblightweight-v8-inject.so";
     ''
+      runHook preInstall
       mkdir -p $out/lib
       install -Dm755 ${src}/${bstar_so_name} $out/lib/${bstar_so_name}
       ln -svf $out/lib/${bstar_so_name} $out/lib/libbstar.so
+      runHook postInstall
     '';
 
   meta = with lib; {
     maintainers = import ../maintainers.nix;
-    description = "BStar compatibility library";
+    description = "V8 injection library that adds ChronoCat support to the QQ NT client";
+    homepage = "https://github.com/chrononeko/chronocat";
     license = licenses.unfree;
     platforms = [ "x86_64-linux" ];
   };

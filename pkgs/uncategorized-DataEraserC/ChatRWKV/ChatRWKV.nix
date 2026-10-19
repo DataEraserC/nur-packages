@@ -30,7 +30,7 @@ buildPythonPackage rec {
   pythonImportsCheck = [ "rwkv" ];
 
   meta = with lib; {
-    description = "The RWKV Language Model";
+    description = "RWKV language model implementation in PyTorch";
     homepage = "https://github.com/BlinkDL/ChatRWKV";
     license = licenses.asl20;
     maintainers = import ../maintainers.nix;

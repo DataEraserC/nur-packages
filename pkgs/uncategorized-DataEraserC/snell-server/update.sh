@@ -19,7 +19,8 @@ import subprocess
 import sys
 
 path = sys.argv[1]
-new = os.environ["NEW_VERSION"]
+tag = os.environ["NEW_VERSION"]
+new = tag.removeprefix("v")
 text = open(path).read()
 suffixes = {"x86_64-linux": "amd64", "i686-linux": "i386", "aarch64-linux": "aarch64", "aarch32-linux": "armv7l"}
 
@@ -30,13 +31,13 @@ for plat, suffix in suffixes.items():
     old = m.group(1)
     if old == new:
         continue
-    new_url = f"https://dl.nssurge.com/snell/snell-server-{new}-linux-{suffix}.zip"
+    new_url = f"https://dl.nssurge.com/snell/snell-server-{tag}-linux-{suffix}.zip"
     out = subprocess.run(["nix", "store", "prefetch-file", "--json", new_url], capture_output=True, text=True)
     if out.returncode != 0:
         print(f"snell {plat}: no release for {new}, keeping {old}")
         continue
     url_hash[new_url] = json.loads(out.stdout)["hash"]
-    text = text.replace(f"snell-server-{old}-linux-{suffix}.zip", f"snell-server-{new}-linux-{suffix}.zip")
+    text = text.replace(f"snell-server-v{old}-linux-{suffix}.zip", f"snell-server-{tag}-linux-{suffix}.zip")
     text = text.replace(f'{plat} = "{old}";', f'{plat} = "{new}";')
     changed = True
     print(f"snell {plat}: {old} -> {new}")

@@ -65,3 +65,31 @@ it-tools 的 `pnpmDeps` 哈希会被 auto-update 反复改错（`ba9c1129` 手�
 
 - it-tools 用 `pnpm_11` + `fetcherVersion = 4`，GHA 与兰天哈希不一致，已实测复现。改用 `pnpm_10` + `fetcherVersion = 3` 不可行：it-tools 的 lockfile（pnpm 11 生成）在 `patchedDependencies:` 里存的是 pnpm 11 的补丁哈希，pnpm 10.34.5 校验时报 `ERR_PNPM_LOCKFILE_CONFIG_MISMATCH`。因此 it-tools 保持 `nix-update-script { extraArgs = [ "--src-only" ]; }`，auto-update 只更新 version/src，**不写 GHA 上算出的 pnpmDeps 哈希**；版本升级后哈希变旧、Hydra 报 FOD hash mismatch，需在可信构建机上手工刷新。
 - axonhub 用 `pnpm_10` + `fetcherVersion = 3`，不受影响：GHA 算出的 `sha256-Juge/qz…` 与本地/远程构建机一致（pnpm 10.34.5 已含 10.29.0 的 `initStore` 修复）。历史上 axonhub 出现过的 vendorHash 被污染是 `passthru.pnpmDeps` 缺失导致的字段错位（见 commit `0aa06b4a`，由 `75b86aff` 修复），与哈希不可复现无关。因此 axonhub 保持普通 `nix-update-script { extraArgs = [ "--version" "unstable" ]; }`。
+
+## 包元数据检查（check-package-meta）
+
+每次 push 由 `.github/workflows/dataeraserc-build-cache.yml` 的 `check-package-meta` job 运行 `tools/check_package_meta.py`；失败不阻断构建，但会一直保持红叉。`nur-check` 等其它 job 不覆盖这些规则。
+
+本地复现时，Nix 的缓存目录必须可写（沙箱里 `~/.cache/nix` 只读，否则报 `opening lock file ...: Read-only file system`）：
+
+```bash
+export XDG_CACHE_HOME=$PWD/.cache
+python3 tools/check_package_meta.py
+```
+
+只想验证少量包时，导入该脚本并直接调用 `check_package((attr, False))`，避免 `nix search` 扫全仓库：
+
+```python
+import importlib.util
+spec = importlib.util.spec_from_file_location("cpm", "tools/check_package_meta.py")
+cpm = importlib.util.module_from_spec(spec); spec.loader.exec_module(cpm)
+cpm.check_package(("packages.x86_64-linux.foo", False))
+```
+
+容易踩的规则（脚本实现，不是主观约定）：
+
+- **`description` 不得以包名开头**：比较是 `description.lower().startswith(package_name.lower())`，`package_name` 取属性名（`fhs`、`bstar`、`XiaoMiToolV2` …）。所以 `fhs: FHS sandbox ...`、`cpolar: cpolar (Polar Cloud) ...` 都会被判违规；换成不以包名开头的说法。
+- 其余 description 规则：首字母大写、不以 `a/an/the` 开头、不以句号结尾、不含 `. `（多句）。`version` 不以 `v` 开头；上游 tag 带 `v` 时，`version` 去掉前缀，更新脚本里 **URL 用带 `v` 的 tag、`version` 用去前缀值**（snell-server 的 `update.sh` 即此模式）。
+- **分阶段脚本必须显式带 `runHook preX` / `runHook postX`**，包括自定义的 `unpackPhase`；只写 `installPhase` 的自定义内容同样要补。
+- `license` / `homepage` / `maintainers` 必须非空：仓库自有 wrapper、示例包用仓库自身（MIT + 本仓库 URL）；聚合 `buildEnv` / FHS 环境用被聚合工具的 license；闭源二进制用 `licenses.unfree`。
+- 检查会同时跑 `packages.*` 与 `legacyPackages.*` 两个命名空间，报错成对出现，改一处即可。

@@ -67,7 +67,9 @@ stdenvNoCC.mkDerivation rec {
   ];
 
   unpackPhase = ''
+    runHook preUnpack
     unzip $src
+    runHook postUnpack
   '';
 
   installPhase = ''
@@ -83,7 +85,8 @@ stdenvNoCC.mkDerivation rec {
 
   meta = {
     maintainers = import ../maintainers.nix;
-    description = "cpolar (Polar Cloud): Expose local web services to the public internet with ease.";
+    description = "Expose local web services to the public internet";
+    homepage = "https://www.cpolar.com";
     mainProgram = "cpolar";
     license = lib.licenses.unfree;
     platforms = SupportedPlatforms;

@@ -84,6 +84,7 @@ stdenvNoCC.mkDerivation {
     maintainers = import ../maintainers.nix;
     description = "Android ROM tooling suite";
     homepage = repo;
+    license = lib.licenses.agpl3Only;
     platforms = [ "x86_64-linux" ];
     mainProgram = "MIO-KITCHEN";
   };

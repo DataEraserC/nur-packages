@@ -19,9 +19,11 @@ stdenvNoCC.mkDerivation {
 
   dontUnpack = true;
   installPhase = ''
+    runHook preInstall
     mkdir -p $out/share/fcitx5/pinyin/dictionaries
     cp $src $out/share/fcitx5/pinyin/dictionaries/CustomPinyinDictionary_Fcitx.dict
     chmod 644 $out/share/fcitx5/pinyin/dictionaries/CustomPinyinDictionary_Fcitx.dict
+    runHook postInstall
   '';
 
   meta = with lib; {

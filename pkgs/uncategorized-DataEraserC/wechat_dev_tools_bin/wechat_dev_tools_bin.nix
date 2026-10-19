@@ -10,7 +10,7 @@
 }:
 let
   github_url = "https://github.com/msojocs/wechat-web-devtools-linux";
-  package_description = "The development tools for wechat projects";
+  package_description = "Development tools for WeChat mini program projects";
   version = "2.02.2608080-1";
 
   src = fetchurl {

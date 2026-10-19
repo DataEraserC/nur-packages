@@ -1,5 +1,6 @@
 {
   fetchgit,
+  lib,
   stdenvNoCC,
   unstableGitUpdater,
   bash,
@@ -39,8 +40,9 @@ stdenvNoCC.mkDerivation rec {
   };
 
   meta = {
-    description = "ttyescape";
+    description = "Tools for switching a mobile device to a TTY";
     homepage = "https://gitlab.com/postmarketOS/ttyescape";
+    license = lib.licenses.gpl2Only;
     mainProgram = "togglevt.sh";
     maintainers = import ../maintainers.nix;
   };

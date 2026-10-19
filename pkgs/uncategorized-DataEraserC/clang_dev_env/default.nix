@@ -1,4 +1,5 @@
 {
+  lib,
   pkgs ? import <nixpkgs> { },
 }:
 let
@@ -11,5 +12,10 @@ in
 pkgs.buildEnv {
   name = "clang_dev_env";
   paths = devShellPackages;
-  meta.maintainers = import ../maintainers.nix;
+  meta = {
+    description = "Development environment with Clang and C language tooling";
+    homepage = "https://clang.llvm.org/";
+    license = lib.licenses.ncsa;
+    maintainers = import ../maintainers.nix;
+  };
 }

@@ -12,7 +12,12 @@
       profile = "export FHS=1";
       runScript = "bash";
       extraOutputsToInstall = [ "dev" ];
-      meta.maintainers = import ../maintainers.nix;
+      meta = {
+        description = "Sandbox environment for running non-NixOS binaries";
+        homepage = "https://github.com/DataEraserC/nur-packages";
+        license = pkgs.lib.licenses.mit;
+        maintainers = import ../maintainers.nix;
+      };
     }
   )
 )

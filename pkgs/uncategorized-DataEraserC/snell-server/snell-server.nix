@@ -20,10 +20,10 @@ let
 
   version =
     {
-      x86_64-linux = "v6.0.0rc2";
-      i686-linux = "v6.0.0rc2";
-      aarch64-linux = "v6.0.0rc2";
-      aarch32-linux = "v5.0.1";
+      x86_64-linux = "6.0.0rc2";
+      i686-linux = "6.0.0rc2";
+      aarch64-linux = "6.0.0rc2";
+      aarch32-linux = "5.0.1";
     }
     .${HostPlatform} or (throw "Unsupported platform: ${HostPlatform}");
 
@@ -63,15 +63,21 @@ stdenv.mkDerivation {
     gcc.cc.lib
   ];
   unpackPhase = ''
+    runHook preUnpack
     unzip $src
     upx -d snell-server || true
+    runHook postUnpack
   '';
   installPhase = ''
+    runHook preInstall
     install -Dm755 snell-server $out/bin/snell-server
+    runHook postInstall
   '';
   meta = with lib; {
     maintainers = import ../maintainers.nix;
+    description = "Proxy server implementing the Snell protocol";
     homepage = "https://nssurge.com";
+    license = licenses.unfree;
     mainProgram = "snell-server";
     platforms = SupportedPlatforms;
   };

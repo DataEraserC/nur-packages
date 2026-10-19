@@ -1,4 +1,5 @@
 {
+  lib,
   pkgs ? import <nixpkgs> { },
 }:
 let
@@ -9,5 +10,10 @@ in
 pkgs.buildEnv {
   name = "cudatoolkit_dev_env";
   paths = devShellPackages;
-  meta.maintainers = import ../maintainers.nix;
+  meta = {
+    description = "Development environment with the CUDA toolkit";
+    homepage = "https://developer.nvidia.com/cuda-toolkit";
+    license = lib.licenses.unfree;
+    maintainers = import ../maintainers.nix;
+  };
 }

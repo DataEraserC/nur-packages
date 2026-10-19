@@ -40,7 +40,7 @@ appimageTools.wrapType2 rec {
   passthru.updateScript = [ (toString ./update.sh) ];
 
   meta = {
-    description = "The development tools for wechat projects";
+    description = "Development tools for WeChat mini program projects";
     homepage = "https://github.com/msojocs/wechat-web-devtools-linux";
     license = lib.licenses.unfree;
     mainProgram = "wechat_dev_tools_appimage";

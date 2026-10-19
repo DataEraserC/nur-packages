@@ -75,6 +75,7 @@ let
     runtimeLibs = lib.makeLibraryPath libraries;
 
     installPhase = ''
+      runHook preInstall
       mkdir -p $out/{bin,share/XiaoMiToolV2/bin}
       mkdir -p $out/share/XiaoMiToolV2/lib/res/tools/lin
       ln -s ${android-tools}/bin/adb $out/share/XiaoMiToolV2/lib/res/tools/lin/adb
@@ -94,8 +95,12 @@ let
       makeWrapper "$out/share/XiaoMiToolV2/bin/XiaoMiTool V2" $out/bin/XiaoMiToolV2 \
         --set JAVA_HOME "${jdk}" \
         --prefix LD_LIBRARY_PATH : "${runtimeLibs}"
+      runHook postInstall
     '';
 
+    meta.description = "Tool for unlocking bootloaders and installing ROMs on Xiaomi devices";
+    meta.homepage = "https://github.com/topminipie/XiaoMiToolV2";
+    meta.license = lib.licenses.asl20;
     meta.sourceProvenance = with lib.sourceTypes; [
       fromSource
       binaryBytecode # mitm cache

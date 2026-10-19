@@ -61,7 +61,7 @@ flutter.buildFlutterApplication rec {
 
   meta = {
     maintainers = import ../maintainers.nix;
-    description = "c001apk";
+    description = "Unofficial Flutter client for Coolapk";
     homepage = "https://github.com/bggRGjQaUbCoE/c001apk-flutter";
     license = lib.licenses.agpl3Only;
     platforms = lib.platforms.linux;

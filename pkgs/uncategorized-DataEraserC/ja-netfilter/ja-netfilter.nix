@@ -1,4 +1,5 @@
 {
+  lib,
   stdenvNoCC,
   fetchzip,
 }:
@@ -32,7 +33,8 @@ stdenvNoCC.mkDerivation (finalAttrs: {
 
   meta = {
     maintainers = import ../maintainers.nix;
-    description = "ja-netfilter";
+    description = "JVM agent framework for JetBrains IDE network filtering";
     homepage = "https://3.jetbra.in";
+    license = lib.licenses.unfree;
   };
 })

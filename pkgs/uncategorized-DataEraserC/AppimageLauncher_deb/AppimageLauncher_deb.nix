@@ -79,8 +79,10 @@ stdenv.mkDerivation rec {
   runtimeLibs = pkgs.lib.makeLibraryPath libraries;
 
   unpackPhase = ''
+    runHook preUnpack
     mkdir -p $out
     dpkg -x $src $out
+    runHook postUnpack
   '';
 
   # Extract and copy executable in $out/bin
@@ -123,7 +125,7 @@ stdenv.mkDerivation rec {
   '';
 
   meta = {
-    description = "appimagelauncher";
+    description = "Desktop integration for running AppImage applications";
     homepage = "https://github.com/TheAssassin/AppImageLauncher";
     license = lib.licenses.mit;
     maintainers = import ../maintainers.nix;

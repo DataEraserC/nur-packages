@@ -32,20 +32,24 @@ stdenvNoCC.mkDerivation rec {
   passthru.updateScript = [ (toString ./update.sh) ];
 
   unpackPhase = ''
+    runHook preUnpack
     unzip ${src}
+    runHook postUnpack
   '';
   installPhase = ''
+    runHook preInstall
     mkdir -p $out/share/v2ray-rules-dat
     cp -r *.txt $out/share/v2ray-rules-dat
     cp -r *.dat $out/share/v2ray-rules-dat
     ${v2dat}/bin/v2dat unpack geoip -o $out/share/v2ray-rules-dat ./geoip.dat
     ${v2dat}/bin/v2dat unpack geosite -o $out/share/v2ray-rules-dat ./geosite.dat
     chmod 444 $out/share/v2ray-rules-dat/*
+    runHook postInstall
   '';
 
   meta = {
     maintainers = import ../maintainers.nix;
-    description = "V2Ray 路由规则文件加强版，可代替 V2Ray 官方 geoip.dat 和 geosite.dat，兼容 Shadowsocks-windows、Xray-core、Trojan-Go、leaf 和 hysteria。Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows, Trojan-Go, leaf and hysteria.";
+    description = "Enhanced V2Ray routing rules replacing the official geoip.dat and geosite.dat";
     homepage = "https://github.com/Loyalsoldier/v2ray-rules-dat";
     license = lib.licenses.gpl3;
   };

@@ -1,4 +1,5 @@
 {
+  lib,
   pkgs ? import <nixpkgs> { },
 }:
 let
@@ -20,9 +21,16 @@ pkgs.stdenv.mkDerivation {
   nativeBuildInputs = [ fhs ];
   src = builtins.path { path = ./.; };
   installPhase = ''
+    runHook preInstall
     mkdir --mode=0755 --parent $out/bin
     cp -r ${fhs}/bin "$out"
+    runHook postInstall
   '';
   shellHook = "exec clang_dev_env_fhs";
-  meta.maintainers = import ../maintainers.nix;
+  meta = {
+    description = "FHS sandbox providing Clang and C language tooling";
+    homepage = "https://clang.llvm.org/";
+    license = lib.licenses.ncsa;
+    maintainers = import ../maintainers.nix;
+  };
 }
