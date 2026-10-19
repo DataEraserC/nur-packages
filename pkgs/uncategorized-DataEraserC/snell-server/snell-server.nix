@@ -20,9 +20,9 @@ let
 
   version =
     {
-      x86_64-linux = "6.0.0rc2";
-      i686-linux = "6.0.0rc2";
-      aarch64-linux = "6.0.0rc2";
+      x86_64-linux = "6.0.0";
+      i686-linux = "6.0.0";
+      aarch64-linux = "6.0.0";
       aarch32-linux = "5.0.1";
     }
     .${HostPlatform} or (throw "Unsupported platform: ${HostPlatform}");
@@ -30,15 +30,15 @@ let
   src =
     {
       x86_64-linux = fetchurl {
-        url = "https://dl.nssurge.com/snell/snell-server-v6.0.0rc2-linux-amd64.zip";
+        url = "https://dl.nssurge.com/snell/snell-server-v6.0.0-linux-amd64.zip";
         hash = "sha256-ipxEY8qHz6Xqo3xq8NN6uT6idaoSORmFuyo3XKOr1/I=";
       };
       i686-linux = fetchurl {
-        url = "https://dl.nssurge.com/snell/snell-server-v6.0.0rc2-linux-i386.zip";
+        url = "https://dl.nssurge.com/snell/snell-server-v6.0.0-linux-i386.zip";
         hash = "sha256-ZwYO95rE7wu2TFIDAjlmILOgb49tXOtFC+KD5Pp0kzU=";
       };
       aarch64-linux = fetchurl {
-        url = "https://dl.nssurge.com/snell/snell-server-v6.0.0rc2-linux-aarch64.zip";
+        url = "https://dl.nssurge.com/snell/snell-server-v6.0.0-linux-aarch64.zip";
         hash = "sha256-oLKRXLx33Duvj6Bp50HCCAjYoQw6ipPnCaClgGRcO9c=";
       };
       aarch32-linux = fetchurl {

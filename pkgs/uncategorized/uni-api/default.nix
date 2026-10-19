@@ -10,12 +10,12 @@ rustPlatform.buildRustPackage (finalAttrs: {
   src = fetchFromGitHub {
     owner = "yym68686";
     repo = "uni-api";
-    rev = "cc0d4d2a38ecb4a1c82db8eb4e958ca7bd660faa";
-    hash = "sha256-RG+QnfWLl1yapJTE3aptsrEn6iaIraWE1EFa1E0/N4o=";
+    rev = "b4a803f118563ec2609581a3e10079f5e4c557dc";
+    hash = "sha256-GukSm3r/l6gImrB88X7C7t2RNu0z32I67VcUVDO+AKQ=";
   };
   __structuredAttrs = true;
   strictDeps = true;
-  cargoHash = "sha256-IALHtmAxZ9Vmtl/CFnTk4f0NflyKf+u8BngdXLAMaSo=";
+  cargoHash = "sha256-Hs40PDk7oXqbmI5dWt1/b09MfNdz5QO2TQ0wxbf6U60=";
 
   passthru.updateScript = nix-update-script {
     extraArgs = [

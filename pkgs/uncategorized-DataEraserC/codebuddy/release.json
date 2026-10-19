@@ -1,11 +1,11 @@
 {
-  "version": "2.169.0",
+  "version": "2.170.0",
   "x86_64-linux": {
-    "url": "https://acc-1258344699.cos.accelerate.myqcloud.com/@tencent-ai/codebuddy-code/releases/download/2.169.0/codebuddy-code_Linux_x86_64.tar.gz",
-    "hash": "sha256-QvCwl/dLCz+hurMQ835++Csrt1ddXR2Aqf4iq/wlAR8="
+    "url": "https://acc-1258344699.cos.accelerate.myqcloud.com/@tencent-ai/codebuddy-code/releases/download/2.170.0/codebuddy-code_Linux_x86_64.tar.gz",
+    "hash": "sha256-bz+0HvBFLFocfAkPCS86aRBx5YFGY04mboUhAjTwJ+E="
   },
   "aarch64-linux": {
-    "url": "https://acc-1258344699.cos.accelerate.myqcloud.com/@tencent-ai/codebuddy-code/releases/download/2.169.0/codebuddy-code_Linux_arm64.tar.gz",
-    "hash": "sha256-Ijdavjm5lbyHLIqrXlMsbwaDFAKSaG1LUoaoMouVqfA="
+    "url": "https://acc-1258344699.cos.accelerate.myqcloud.com/@tencent-ai/codebuddy-code/releases/download/2.170.0/codebuddy-code_Linux_arm64.tar.gz",
+    "hash": "sha256-djKCotKYtsDm4jgVGhlO3+xYtfV/4ujvncKUm1d3Ka0="
   }
 }
