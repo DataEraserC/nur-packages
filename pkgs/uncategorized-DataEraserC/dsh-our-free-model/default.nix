@@ -22,16 +22,16 @@ if inputs == null then
 else
   dshPkgs.dsh.buildDshBundle (finalAttrs: {
     pname = "dsh-our-free-model";
-    version = "2.5.3";
+    version = "2.5.5-macos-unofficial";
 
     src = fetchFromGitHub {
       owner = "Ebony-Vinyl";
       repo = "dsh-our-free-model";
       rev = "v${finalAttrs.version}";
-      hash = "sha256-wjfq6TkatXAqjIlpAD5mqfQC4fSXuCRU0U4jzY+xnd0=";
+      hash = "sha256-6RcNZ+ptT2+M/l8Eist8kVv4ITX5cMu5AXSop65jAiQ=";
     };
 
-    npmDepsHash = "sha256-HvkJOh0E7/dW3hqkqxRR2UlD+ZebaClEG4hG6y9PkeA=";
+    npmDepsHash = "sha256-8losWQvMy0cd1R4c2m8MhCFX8Aq8W/21ecW4HCN9DiE=";
 
     nativeBuildInputs = [
       git

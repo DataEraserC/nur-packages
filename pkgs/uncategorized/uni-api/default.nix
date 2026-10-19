@@ -6,16 +6,16 @@
 }:
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "uni-api";
-  version = "1.7.276-unstable-2026-10-18";
+  version = "1.7.276-unstable-2026-10-19";
   src = fetchFromGitHub {
     owner = "yym68686";
     repo = "uni-api";
-    rev = "af69cf5e5305dc141258713b939e1c0f32744f26";
-    hash = "sha256-I+56vwEdmJet+qdkWqk+b6OAMUHk4Z4NH4ZELVF6xMw=";
+    rev = "cc0d4d2a38ecb4a1c82db8eb4e958ca7bd660faa";
+    hash = "sha256-RG+QnfWLl1yapJTE3aptsrEn6iaIraWE1EFa1E0/N4o=";
   };
   __structuredAttrs = true;
   strictDeps = true;
-  cargoHash = "sha256-rKqgrwpaALGnsR4VMbos77mDfWfkannhPRUEs8KuFXQ=";
+  cargoHash = "sha256-IALHtmAxZ9Vmtl/CFnTk4f0NflyKf+u8BngdXLAMaSo=";
 
   passthru.updateScript = nix-update-script {
     extraArgs = [

@@ -15,13 +15,13 @@ if inputs == null then
 else
   dshPkgs.dsh.buildDshBundle.fromPnpmWorkspace (finalAttrs: {
     pname = "dsh-free-search";
-    version = "0.9.5";
+    version = "0.9.6";
 
     src = fetchFromGitHub {
       owner = "DDDMUC";
       repo = "dsh-free-search";
       tag = "v${finalAttrs.version}";
-      hash = "sha256-sR39q5rhnbYnIMiPTCUAe4dSPj5DsKbqeBGNbyZxfvI=";
+      hash = "sha256-z1ha4W5dN8FnH3yDMAHPOAKSZunyI0U49aV5jIAxmKU=";
     };
 
     deployPackage = "dsh-free-search";
