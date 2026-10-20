@@ -53,6 +53,8 @@ buildNpmPackage (finalAttrs: {
     test -e node_modules/better-sqlite3/build/Release/better_sqlite3.node
     ${nodejs_24}/bin/node -e "require('better-sqlite3')(':memory:').close()"
     ${nodejs_24}/bin/node -e "const wreq = require('wreq-js'); if (typeof wreq.createTransport !== 'function') throw new Error('wreq-js createTransport unavailable');"
+    ${nodejs_24}/bin/node ${./materialize-swc-native.mjs} node_modules
+    ${nodejs_24}/bin/node -e "require('@swc/core').transformSync('const a = 1;', { jsc: { parser: { syntax: 'ecmascript' } } })"
   '';
 
   doCheck = false;
