@@ -50,6 +50,13 @@
       url = "github:AndroidAppsUsedByMyself/android-attestation-keybox-generator";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # Its own flake builds both halves — the Rust library behind the C ABI and
+    # the DSH bundle that installs it — so the recipe is not duplicated here.
+    dsh-bas-remote = {
+      url = "github:DataEraserC/dsh-bas-remote";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.deepseek-harness.follows = "deepseek-harness";
+    };
   };
   outputs =
     { self, flake-parts, ... }@inputs:

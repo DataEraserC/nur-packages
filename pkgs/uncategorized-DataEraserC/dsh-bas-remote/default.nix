@@ -1,51 +1,25 @@
 {
-  lib,
   pkgs,
   inputs ? null,
-  fetchFromGitHub,
-  nix-update-script,
 }:
-let
-  dshPkgs = pkgs.extend inputs.deepseek-harness.overlays.default;
-in
 if inputs == null then
-  throw "dsh-bas-remote requires the deepseek-harness flake input; evaluate it through the flake (nix build .#dsh-bas-remote)"
+  throw "dsh-bas-remote requires the dsh-bas-remote flake input; evaluate it through the flake (nix build .#dsh-bas-remote)"
 else
-  dshPkgs.dsh.buildDshBundle (finalAttrs: {
-    pname = "dsh-bas-remote";
-    version = "0.5.0+6";
-
-    src = fetchFromGitHub {
-      owner = "DataEraserC";
-      repo = "dsh-bas-remote";
-      # Follow the release tag, so nix-update only has to bump `version`.
-      rev = "v${finalAttrs.version}";
-      hash = "sha256-PXIrKkdZX0ku1xrpwobRFLZYhgxKU3IaoLUoDGWf+xw=";
+  # The upstream flake builds both halves itself — the Rust library behind the C
+  # ABI and the bundle that installs it at native/libbas_api.so — against the
+  # same deepseek-harness this repository pins (the input follows it). Re-export
+  # instead of repeating the recipe, so the two cannot drift and no hash has to
+  # be refreshed per release.
+  (inputs.dsh-bas-remote.packages.${pkgs.stdenv.hostPlatform.system}.default.overrideAttrs (old: {
+    passthru = (old.passthru or { }) // {
+      # meta.position of a re-export points into the input's store path, which
+      # hides the package from tools/build_own_cachix.py's path filter. This
+      # marker is how that filter recognises own-group packages re-exported
+      # from a flake input.
+      ownPackage = true;
     };
-
-    npmDepsHash = "sha256-MUQWVvGbKal5nhoILXxGNUuE3raXTYNEvxy8MgDUu7Q=";
-
-    npmFlags = [ "--legacy-peer-deps" ];
-
-    dontNpmBuild = true;
-
-    linkKernelNodeModules = dshPkgs.dsh.dsh-kernel;
-
-    postInstall = ''
-      test -f $out/lib/node_modules/dsh-bas-remote/lib/client.js
-    '';
-
-    passthru.updateScript = nix-update-script {
-      attrPath = "dsh-bas-remote";
-      extraArgs = [ "--flake" ];
-    };
-
-    meta = {
+    meta = (old.meta or { }) // {
       changelog = "https://github.com/DataEraserC/dsh-bas-remote/blob/main/CHANGELOG.md";
-      description = "SAP Business Application Studio remote dev spaces for DeepSeek Harness";
-      homepage = "https://github.com/DataEraserC/dsh-bas-remote";
-      license = lib.licenses.asl20;
       maintainers = import ../maintainers.nix;
-      platforms = lib.platforms.unix;
     };
-  })
+  }))

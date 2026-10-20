@@ -16,8 +16,11 @@ x: builtins.filter
     && (d ? drvPath)
     && !(d.meta.broken or false)
     && ((d.meta.platforms or [ ]) == [ ] || builtins.elem "x86_64-linux" d.meta.platforms)
+    # meta.position of a package re-exported from a flake input points into
+    # that input's store path, so own-group packages set passthru.ownPackage.
     && (builtins.match ".*/pkgs/uncategorized-DataEraserC/.*" pos != null
-        || builtins.match ".*/pkgs/kernel-modules/aw88399-legion.*" pos != null)
+        || builtins.match ".*/pkgs/kernel-modules/aw88399-legion.*" pos != null
+        || (d.passthru or { }).ownPackage or false)
   )
   (builtins.attrNames x)
 """
