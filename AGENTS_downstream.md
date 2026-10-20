@@ -29,6 +29,9 @@
 ## 源码管理
 
 - 多源包使用 `sources.json` + `importJSON`/`fromJSON`（如 fr24feed、qemu-user-static、lantianCustomized.nginx），由包内 `update.sh` 整体重写（下游修订：上游原文此处的示例列表不含 `lantianCustomized.nginx`）
+- **闭源预编译二进制不进 git，改放本仓库的 GitHub release 资产**：`fetchurl` 的 `url` 指向 `https://github.com/DataEraserC/nur-packages/releases/download/<tag>/<file>`，`hash` 用 `nix store prefetch-file --json <url>` 取值；仓库里已有先例（`alipan` 的 `aDrive` tag、`cisco-packet-tracer` 的 `lsof` 式 deb tag、`Adobe_Photoshop_CS6_appimage`）。理由：几 MB 的 `.so`/`.exe`/`.deb` 提交进 git 后每次 clone、CI checkout、`nix flake` 求值都要拖这份历史，且二进制无法 review、diff 无法读。建 release 时把 `SHA256SUMS` 一并上传，`notes` 里写清每个资产的来源、哈希与用途。注意 release 资产**不是** FOD 缓存：删掉 release 会让包永久不可构建，所以换版本时保留旧 tag。实例：`bstar`（见 `pkgs/uncategorized-DataEraserC/bstar/AGENTS.md`）
+- **`fetchurl` 拉预编译产物要配 `dontUnpack = true` + `meta.sourceProvenance = with sourceTypes; [ binaryNativeCode ]`**：前者避免 stdenv 尝试解包一个 `.so`，后者让 Hydra/NUR 正确标注产物来源；`autoPatchelfHook` 仍照常对 `$out` 里的 `.so` 生效（实测 `bstar` 修完 RUNPATH 与改动前逐字节一致）
+
 
 ## Hydra 构建失败修复
 

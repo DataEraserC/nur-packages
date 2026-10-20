@@ -1,16 +1,27 @@
-# bstar/default.nix
 {
   stdenv,
   lib,
+  fetchurl,
   autoPatchelfHook,
   glibc,
   gcc,
 }:
-stdenv.mkDerivation rec {
+let
+  releaseBase = "https://github.com/DataEraserC/nur-packages/releases/download/bstar-0.5.10";
+in
+stdenv.mkDerivation (finalAttrs: {
   pname = "bstar";
   version = "0.5.10";
 
-  src = ./.;
+  __structuredAttrs = true;
+  strictDeps = true;
+
+  src = fetchurl {
+    url = "${releaseBase}/bstar-${finalAttrs.version}.so";
+    hash = "sha256-I5ejRvQfSSutRcDavM2Uyc9l3W1JrdOq81cRe2pFWAw=";
+  };
+
+  dontUnpack = true;
 
   nativeBuildInputs = [ autoPatchelfHook ];
   buildInputs = [
@@ -18,18 +29,28 @@ stdenv.mkDerivation rec {
     gcc.cc.lib
   ];
 
-  installPhase =
-    let
-      bstar_so_name = "bstar-0.5.10.so";
-    in
-    # bstar_so_name= "liblightweight-v8-inject.so";
-    ''
-      runHook preInstall
-      mkdir -p $out/lib
-      install -Dm755 ${src}/${bstar_so_name} $out/lib/${bstar_so_name}
-      ln -svf $out/lib/${bstar_so_name} $out/lib/libbstar.so
-      runHook postInstall
-    '';
+  installPhase = ''
+    runHook preInstall
+    install -Dm755 ${finalAttrs.src} $out/lib/bstar-${finalAttrs.version}.so
+    ln -svf $out/lib/bstar-${finalAttrs.version}.so $out/lib/libbstar.so
+    runHook postInstall
+  '';
+
+  passthru = {
+    # Same project, different build; it cannot drive the current QQ NT client,
+    # so it is kept reachable but is deliberately not what the package installs.
+    lightweightV8Inject = fetchurl {
+      url = "${releaseBase}/liblightweight-v8-inject.so";
+      hash = "sha256-X4/Aqmq2Vo13m/XwHqPwvrYyD39O7yyrRegclK9FgEQ=";
+    };
+    aiProvenance = [
+      {
+        agent = "dsh";
+        model = "deepseek-v4.1-flash-sg";
+        involvement = "assisted";
+      }
+    ];
+  };
 
   meta = with lib; {
     maintainers = import ../maintainers.nix;
@@ -37,5 +58,6 @@ stdenv.mkDerivation rec {
     homepage = "https://github.com/chrononeko/chronocat";
     license = licenses.unfree;
     platforms = [ "x86_64-linux" ];
+    sourceProvenance = with sourceTypes; [ binaryNativeCode ];
   };
-}
+})
