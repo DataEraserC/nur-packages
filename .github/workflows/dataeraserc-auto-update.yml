@@ -27,6 +27,11 @@ jobs:
 
       - name: Checkout repository
         uses: actions/checkout@v7
+        with:
+          # Full history: the push-retry step rebases onto a moved origin/main,
+          # and a shallow clone has no parent commit to replay the local commit
+          # against. The pack is small (tens of MiB), so this costs little.
+          fetch-depth: 0
 
       - name: Set up QEMU
         id: qemu
@@ -104,8 +109,42 @@ jobs:
           git add .
           if git diff --cached --quiet; then
             echo "Nothing to commit"
-          elif git commit -m "auto: update packages"; then
-            git remote remove origin
-            git remote add origin "https://DataEraserC:$API_TOKEN_GITHUB@github.com/DataEraserC/nur-packages.git"
-            git push -u origin main
+            exit 0
           fi
+          git commit -m "auto: update packages"
+
+          git remote remove origin || true
+          git remote add origin "https://DataEraserC:$API_TOKEN_GITHUB@github.com/DataEraserC/nur-packages.git"
+
+          # The update run takes tens of minutes, so main often moves while it
+          # is building (another auto-update, a manual push, a merge). Rebase
+          # onto the new head and retry instead of dropping the whole run.
+          for attempt in 1 2 3; do
+            if git push origin HEAD:main; then
+              echo "pushed on attempt $attempt"
+              exit 0
+            fi
+            echo "push rejected on attempt $attempt; syncing with origin/main"
+            if ! git fetch origin main; then
+              sleep $((attempt * 10))
+              continue
+            fi
+            if git rebase origin/main; then
+              continue
+            fi
+            # Rebase replays commits one at a time, so an intermediate conflict
+            # aborts it even when the tips merge cleanly (or when a local commit
+            # is already applied upstream and would become empty). A single
+            # three-way merge of the two tips still succeeds in those cases.
+            echo "rebase onto origin/main failed; trying a merge instead"
+            git rebase --abort || true
+            if git merge --no-edit origin/main; then
+              continue
+            fi
+            echo "merge also conflicted; cannot reconcile automatically" >&2
+            git merge --abort || true
+            git status --short >&2
+            exit 1
+          done
+          echo "giving up after 3 push attempts" >&2
+          exit 1
