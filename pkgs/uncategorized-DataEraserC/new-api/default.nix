@@ -10,13 +10,13 @@
 }:
 
 let
-  version = "1.0.0-rc.45";
+  version = "1.0.0-rc.46";
 
   src = fetchFromGitHub {
     owner = "QuantumNous";
     repo = "new-api";
     tag = "v${version}";
-    hash = "sha256:sha256-gvF9aR/bOvDZA4nPQkyLnthH12GRzC+I7X2JcqdbQtE=";
+    hash = "sha256:sha256-AfKsrBMmyx7U2dtW41ncdu/Gz4mFOi6k8zbsTZ9epdo=";
   };
 
   # nixpkgs has no fetcher for bun lockfiles, so node_modules is a
