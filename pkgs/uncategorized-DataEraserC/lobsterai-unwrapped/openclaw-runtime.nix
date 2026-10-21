@@ -29,7 +29,7 @@ let
     src = openclawSrc;
     pnpm = pnpm_12;
     fetcherVersion = 4;
-    hash = "sha256-LiF79u6cIYFB/Pn2UM5Vq4WkKhOn+dNDrcBNKGOSz7Y=";
+    hash = "sha256-0uQN8a+6WxQ7NV5EMaX9RtMj666irv68JO0IzVHB3Cw=";
   };
 
   appDeps = fetchNpmDeps {
