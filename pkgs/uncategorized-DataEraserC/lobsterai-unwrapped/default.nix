@@ -10,13 +10,13 @@
 }:
 
 let
-  version = "2026.10.13";
+  version = "2026.10.16";
 
   src = fetchFromGitHub {
     owner = "netease-youdao";
     repo = "LobsterAI";
     tag = version;
-    hash = "sha256-gDfILyA3ksuaBHR43ygCnvNDJAOF6PyU1iWK+1BnBBk=";
+    hash = "sha256-36HsWiem8GAkXaQ1LCcP6qMsQa/rugNuOCJv/TPHs3A=";
   };
 
   openclawRuntime = callPackage ./openclaw-runtime.nix { lobsteraiSrc = src; };
@@ -112,7 +112,7 @@ let
   appDeps = fetchNpmDeps {
     name = "lobsterai-${version}-npm-deps";
     inherit src;
-    hash = "sha256-Kc2CG6k5gglTRRqSfD2wXxcdyNe65fOOM1feuaK6jNg=";
+    hash = "sha256-xBsn+rjOlMlOnFYks/p2Lhi7XbRqQzIpWLi3boli3Js=";
     postPatch = ''
       cp ${./package-lock.json} package-lock.json
     '';
@@ -127,6 +127,13 @@ stdenv.mkDerivation (finalAttrs: {
 
   npmDeps = appDeps;
   env.makeCacheWritable = true;
+
+  # npmConfigHook runs `npm rebuild` after the offline install. Everything this
+  # tree ships comes from the installPhase `npm ci --ignore-scripts` below, so
+  # rebuilding native modules here only compiles into a tree that is thrown
+  # away - and 2026.10.16 added selection-hook, whose gyp build wants X11 and
+  # libevdev headers for a prebuild it already ships under prebuilds/linux-x64.
+  npmRebuildFlags = [ "--ignore-scripts" ];
 
   dontStrip = true;
   dontPatchELF = true;
@@ -202,6 +209,11 @@ stdenv.mkDerivation (finalAttrs: {
       {
         agent = "dsh";
         model = "mimo-v2.6-flash-free";
+        involvement = "authored";
+      }
+      {
+        agent = "dsh";
+        model = "deepseek-flash";
         involvement = "authored";
       }
     ];

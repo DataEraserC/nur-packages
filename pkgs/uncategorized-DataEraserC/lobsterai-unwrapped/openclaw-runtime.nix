@@ -35,7 +35,7 @@ let
   appDeps = fetchNpmDeps {
     name = "lobsterai-openclaw-runtime-app-${version}-npm-deps";
     src = lobsteraiSrc;
-    hash = "sha256-Kc2CG6k5gglTRRqSfD2wXxcdyNe65fOOM1feuaK6jNg=";
+    hash = "sha256-xBsn+rjOlMlOnFYks/p2Lhi7XbRqQzIpWLi3boli3Js=";
     postPatch = ''
       cp ${./package-lock.json} package-lock.json
     '';
@@ -60,6 +60,11 @@ stdenv.mkDerivation (finalAttrs: {
   pnpmDeps = openclawPnpmDeps;
   npmDeps = appDeps;
   npmRoot = "../lobsterai";
+
+  # The LobsterAI tree is unpacked here only to run the runtime build scripts;
+  # `npm rebuild` would compile selection-hook against X11 headers for a
+  # prebuild it already ships, and nothing from this node_modules is installed.
+  npmRebuildFlags = [ "--ignore-scripts" ];
 
   postUnpack = ''
     cp -r ${lobsteraiSrc} "$NIX_BUILD_TOP/lobsterai"
