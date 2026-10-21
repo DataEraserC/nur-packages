@@ -54,6 +54,8 @@ stdenv.mkDerivation (finalAttrs: {
   __structuredAttrs = true;
   strictDeps = true;
 
+  env.OPENCLAW_BUILD_ALL_NO_PNPM = "1";
+
   src = openclawSrc;
   pnpmDeps = openclawPnpmDeps;
   npmDeps = appDeps;
