@@ -205,6 +205,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   passthru = {
     npmDeps = appDeps;
+    updateScript = [ (toString ./update.sh) ];
     aiProvenance = [
       {
         agent = "dsh";
