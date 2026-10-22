@@ -7,55 +7,38 @@
 #   - @deepseek-ai/dsh-experimental-computer-use-cua-driver-mcp
 #       config: { command: cua-driver, args: [mcp] }
 #
-# Both packages ship inside this bundle because the dsh kernel deploys only
-# its own dependency closure, which does not include them. They are prebuilt
-# npm tarballs pinned to the harness version (see the assert below); their
-# peers (cordis, schemastery, dsh-mcp-client, dsh-brand) are NOT shipped —
-# linkKernelNodeModules links the kernel's node_modules into each package so
-# every peer resolves to the kernel's single instance.
+# Everything the provider runs is upstream's: the two packages are unpacked
+# straight from the harness workspace's cohort output (the `pnpm pack` release
+# set of deepseek-ai/deepseek-harness — the same derivation that builds the
+# kernel), and the composition rows are the recipe from the provider's own
+# README. The dsh kernel deploys only its own dependency closure, which
+# excludes both packages, so this bundle is the Nix vehicle that puts them on
+# disk; upstream itself ships no bundle for them (no dsh.bundle.patch).
 #
 # runtimeDeps pins the Nix-built cua-driver (this repo's sibling package) onto
 # the dsh launcher PATH, which is how `command: cua-driver` resolves at MCP
 # spawn time. On Linux the spawned `cua-driver mcp` owns a direct runtime and
 # inherits DISPLAY / WAYLAND_DISPLAY from the dsh process.
 #
-# Bundle version tracks the cua-driver it drives; the @deepseek-ai provider
-# pair tracks the dsh kernel (pinned by the assert). Bump all three together:
-# cua-driver (sibling package) for a new driver release, and the two hashes
-# here when deepseek-harness.nix moves.
+# Bundle version tracks the cua-driver it drives. Bump it together with the
+# sibling cua-driver package on a new cua-driver-rs-v* tag; the provider pair
+# needs no manual bump — the cohort glob follows the harness automatically.
 {
   lib,
   pkgs,
   inputs ? null,
-  fetchurl,
   nix-update-script,
   cua-driver,
 }:
 let
   dshPkgs = pkgs.extend inputs.deepseek-harness.overlays.default;
-  dshVersion = dshPkgs.dsh.dsh-kernel.version;
-
-  # The provider packages are published per dsh release; the hashes below
-  # belong to exactly this version. A harness bump trips the assert with a
-  # message instead of a cryptic fixed-output hash mismatch.
-  pinnedDshVersion = "0.2.1-rc.2";
-  computerUse = fetchurl {
-    url = "https://registry.npmjs.org/@deepseek-ai/dsh-computer-use/-/dsh-computer-use-${dshVersion}.tgz";
-    hash = "sha256-bgm8Fn9tBxHW4k0rwsenTDtfhHJd8bvJeDuBZ4lujpc=";
-  };
-  cuaDriverMcp = fetchurl {
-    url = "https://registry.npmjs.org/@deepseek-ai/dsh-experimental-computer-use-cua-driver-mcp/-/dsh-experimental-computer-use-cua-driver-mcp-${dshVersion}.tgz";
-    hash = "sha256-WilVAvwKO0FEEezSXnjycpLoRKFHffzfyvgzryj4REE=";
-  };
+  # The harness workspace's release set: one pnpm-packed tarball per workspace
+  # package, built by the same derivation as the kernel, so the provider
+  # packages are version-matched to the kernel by construction.
+  cohort = dshPkgs.dsh.dsh-workspace.cohort;
 in
 if inputs == null then
   throw "dsh-cua-driver requires the deepseek-harness flake input; evaluate it through the flake (nix build .#dsh-cua-driver)"
-else if dshVersion != pinnedDshVersion then
-  throw ''
-    dsh-cua-driver: the pinned @deepseek-ai provider packages target dsh ${pinnedDshVersion},
-    but the deepseek-harness input is ${dshVersion}. Fetch the matching npm
-    versions and re-pin computerUse/cuaDriverMcp hashes.
-  ''
 else
   dshPkgs.dsh.buildDshBundle (finalAttrs: {
     pname = "dsh-cua-driver";
@@ -78,14 +61,28 @@ else
       mkdir -p $packageDir
       cp package.json cordis.patch.yml $packageDir/
 
-      # The two provider packages, prebuilt, peers resolved from the kernel
-      # via linkKernelNodeModules below.
-      mkdir -p $out/lib/node_modules/@deepseek-ai/dsh-computer-use
-      tar xzf ${computerUse} --strip-components=1 \
-        -C $out/lib/node_modules/@deepseek-ai/dsh-computer-use
-      mkdir -p $out/lib/node_modules/@deepseek-ai/dsh-experimental-computer-use-cua-driver-mcp
-      tar xzf ${cuaDriverMcp} --strip-components=1 \
-        -C $out/lib/node_modules/@deepseek-ai/dsh-experimental-computer-use-cua-driver-mcp
+      # Unpack the two upstream provider packages from the harness cohort.
+      # pnpm pack layout: every file sits under package/ inside the tarball.
+      # A glob rather than a pinned filename: a harness bump follows
+      # automatically, and a renamed or removed package fails the build here
+      # instead of silently mounting a stale provider. Exactly one match per
+      # package is required — the experimental package's name starts with
+      # deepseek-ai-dsh-experimental-, so the two globs stay disjoint.
+      cohort=${cohort}
+      unpack_provider() {
+        local prefix=$1 dest=$2
+        local matches=("$cohort"/''${prefix}-*.tgz)
+        if [ "''${#matches[@]}" -ne 1 ] || [ ! -f "''${matches[0]}" ]; then
+          printf 'dsh-cua-driver: expected exactly one %s-*.tgz in the cohort output\n' "$prefix" >&2
+          exit 1
+        fi
+        mkdir -p "$out/lib/node_modules/@deepseek-ai/$dest"
+        tar xzf "''${matches[0]}" --strip-components=1 \
+          -C "$out/lib/node_modules/@deepseek-ai/$dest"
+      }
+      unpack_provider deepseek-ai-dsh-computer-use dsh-computer-use
+      unpack_provider deepseek-ai-dsh-experimental-computer-use-cua-driver-mcp \
+        dsh-experimental-computer-use-cua-driver-mcp
 
       runHook postInstall
     '';
