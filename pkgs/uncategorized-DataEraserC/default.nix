@@ -12,6 +12,7 @@ let
     dsh-bas-remote = p: if inputs == null then ifNotNUR p else p;
     dsh-chat-import = p: if inputs == null then ifNotNUR p else p;
     dsh-comfyui = p: if inputs == null then ifNotNUR p else p;
+    dsh-cua-driver = p: if inputs == null then ifNotNUR p else p;
     dsh-free-search = p: if inputs == null then ifNotNUR p else p;
     dsh-git-worktree = p: if inputs == null then ifNotNUR p else p;
     dsh-notifier = p: if inputs == null then ifNotNUR p else p;

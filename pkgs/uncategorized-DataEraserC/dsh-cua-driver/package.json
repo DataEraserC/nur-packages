@@ -1,0 +1,12 @@
+{
+  "name": "dsh-cua-driver",
+  "version": "0.38.0",
+  "private": true,
+  "description": "Computer use for DeepSeek Harness through an installed cua-driver MCP executable",
+  "type": "module",
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

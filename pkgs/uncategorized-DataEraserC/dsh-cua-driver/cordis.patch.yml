@@ -1,0 +1,30 @@
+# The dsh-cua-driver bundle patch: mounts the shared computer-use service and
+# the experimental Cua Driver MCP provider on top of any profile that lists
+# this bundle. Applied as ONE insert over the empty profile root; later bundle
+# patches and the profile's own cordis.patch.yml address these rows by id,
+# with the last write winning per row.
+#
+# The two rows follow the upstream recipe
+# (packages/experimental/computer-use-cua-driver-mcp/README.md): the
+# computer-use service owns the single provider slot, and the MCP provider
+# registers as `cua-driver-mcp` before connecting. Initial connection or tool
+# discovery failure rejects the row and rolls the registration back.
+#
+# `command: cua-driver` is resolved through PATH at MCP spawn time; the
+# bundle's runtimeDeps (default.nix) pins the Nix-built cua-driver binary onto
+# the dsh launcher PATH, so no absolute store path is baked in here.
+- insert:
+    - id: computer-use
+      name: '@deepseek-ai/dsh-computer-use'
+
+    # The model sees the driver's tools under the fixed
+    # `mcp__cua-driver-mcp__` namespace. On Linux the spawned
+    # `cua-driver mcp` process owns a direct runtime (no daemon socket), so it
+    # inherits DISPLAY / WAYLAND_DISPLAY from the dsh process; run dsh from
+    # the graphical session (or import the session env) for capture and input
+    # to reach the desktop.
+    - id: cua-driver-mcp
+      name: '@deepseek-ai/dsh-experimental-computer-use-cua-driver-mcp'
+      config:
+        command: cua-driver
+        args: [mcp]
