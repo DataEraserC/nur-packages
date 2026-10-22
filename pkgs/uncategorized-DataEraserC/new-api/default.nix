@@ -3,7 +3,7 @@
   lib,
   stdenv,
   fetchFromGitHub,
-  buildGoModule,
+  buildGo127Module,
   bun,
   cacert,
   nodejs,
@@ -16,7 +16,7 @@ let
     owner = "QuantumNous";
     repo = "new-api";
     tag = "v${version}";
-    hash = "sha256:sha256-AfKsrBMmyx7U2dtW41ncdu/Gz4mFOi6k8zbsTZ9epdo=";
+    hash = "sha256-AfKsrBMmyx7U2dtW41ncdu/Gz4mFOi6k8zbsTZ9epdo=";
   };
 
   # nixpkgs has no fetcher for bun lockfiles, so node_modules is a
@@ -45,7 +45,7 @@ let
     '';
     dontFixup = true;
     outputHashMode = "recursive";
-    outputHash = "sha256-tuaI4RBa4NUlTOORUogAKzHwuYQ3xNaqtk3k0LmYQP8=";
+    outputHash = "sha256-8zVE7rcRyakodKjel5r0UNQFst/5MiXYOSwrJe38TJE=";
   };
 
   web = stdenv.mkDerivation {
@@ -74,11 +74,11 @@ let
     '';
   };
 in
-buildGoModule {
+buildGo127Module {
   pname = "new-api";
   inherit version src;
 
-  vendorHash = "sha256-pS+uzNKoxWl9WXFndp7J9WhEqRBPqqDgeZwASbF6RoA=";
+  vendorHash = "sha256-lIwjkjCtsTF8HHmle2VrhBihcVsERL8fQ/vqtSRyCRM=";
 
   # The vendor derivation must not depend on the frontend build.
   overrideModAttrs = _: {
@@ -101,7 +101,16 @@ buildGoModule {
   # The upstream test suite needs network and databases.
   doCheck = false;
 
-  passthru.updateScript = [ (toString ./update.sh) ];
+  passthru = {
+    aiProvenance = [
+      {
+        agent = "dsh";
+        model = "deepseek-flash";
+        involvement = "assisted";
+      }
+    ];
+    updateScript = [ (toString ./update.sh) ];
+  };
 
   meta = {
     description = "OpenAI-compatible LLM gateway with users, API tokens, quotas and usage logs";

@@ -8,8 +8,8 @@ SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)
 echo "Updating new-api..."
 
 # Detect latest release tag from atom feed
-LATEST_TAG=$(curl -fsSL "https://github.com/QuantumNous/new-api/releases.atom" |
-  grep -oP '(?<=<id>tag:github.com,2008:Repository/[0-9]+/)v[0-9][^<]+' |
+FEED=$(curl -fsSL "https://github.com/QuantumNous/new-api/releases.atom") || true
+LATEST_TAG=$(grep -oP '<id>tag:github.com,2008:Repository/[0-9]+/\Kv[0-9][^<]+' <<<"$FEED" |
   head -1) || true
 
 if [ -z "$LATEST_TAG" ]; then
