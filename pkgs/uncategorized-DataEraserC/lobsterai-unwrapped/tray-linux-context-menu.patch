@@ -1,0 +1,22 @@
+--- a/src/main/trayManager.ts
++++ b/src/main/trayManager.ts
+@@ -167,6 +167,11 @@
+   tray.on('click', clickHandler);
+   tray.on('right-click', rightClickHandler);
+ 
++  // Linux desktops render the tray through StatusNotifierItem, where the host
++  // (e.g. GNOME's AppIndicator extension) owns clicks and never forwards
++  // `right-click`; export the menu so the host can show it instead.
++  if (process.platform === 'linux') tray.setContextMenu(contextMenu);
++
+   return tray;
+ }
+ 
+@@ -174,6 +179,7 @@
+   if (!tray) return;
+   contextMenu = buildContextMenu(getWindow);
+   tray.setToolTip(resolveTrayTooltip());
++  if (process.platform === 'linux') tray.setContextMenu(contextMenu);
+ }
+ 
+ export function updateTrayReminder(

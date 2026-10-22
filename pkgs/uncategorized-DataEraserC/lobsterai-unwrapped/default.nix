@@ -143,6 +143,8 @@ stdenv.mkDerivation (finalAttrs: {
     npmHooks.npmConfigHook
   ];
 
+  patches = [ ./tray-linux-context-menu.patch ];
+
   postPatch = ''
     cp ${./package-lock.json} package-lock.json
   '';
