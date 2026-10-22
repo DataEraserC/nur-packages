@@ -1,0 +1,33 @@
+--- a/plugin.js
++++ b/plugin.js
+@@ -1287,18 +1287,18 @@
+         name, binary: cmd, found: !!p, path: p || null,
+         role: (DEP_ROLES[name] || []).join(' / '),
+         required: need.has(name),
+-        package: (PACKAGES[distro.family]?.map || {})[name] || undefined,
++        package: (PACKAGES[distro.family]?.map || {})[name] || null,
+       }
+     })
+     deps.push({
+       name: 'identify', binary: 'identify', found: !!which('identify'), path: which('identify'),
+       role: '截图尺寸', required: need.has('identify'),
+-      package: (PACKAGES[distro.family]?.map || {}).identify,
++      package: (PACKAGES[distro.family]?.map || {}).identify || null,
+     })
+     // 查看器是二选一：gvncviewer 或 TigerVNC vncviewer
+     const viewerOk = !!(which(bin.viewer) || which('vncviewer'))
+     deps.push({ name: 'viewer', binary: bin.viewer, found: viewerOk, path: which(bin.viewer) || which('vncviewer'),
+-      role: '弹出窗口的查看器', required: false, package: (PACKAGES[distro.family]?.map || {}).gvncviewer })
++      role: '弹出窗口的查看器', required: false, package: (PACKAGES[distro.family]?.map || {}).gvncviewer || null })
+     for (const d of deps) if (d.required && !d.found) missing.push(d.name)
+     if (!viewerOk) warnings.push('没有 VNC 查看器：iso_display_popout 会失败（headless 自动化本身不受影响）')
+ 
+@@ -1399,7 +1399,7 @@
+         swayRunDirBase: swayRunBase, allowForeignDisplays, exposeWaylandClients,
+       },
+       backends: {
+-        sway: { available: await swayUsable(), gpu: resolvedBackend === 'sway' ? (gpu.accessible ? 'gpu' : 'software') : undefined },
++        sway: { available: await swayUsable(), gpu: resolvedBackend === 'sway' ? (gpu.accessible ? 'gpu' : 'software') : null },
+         xvfb: { available: !!(which(bin.xvfb) && which(bin.xdpyinfo)) },
+         xephyr: { available: !!(which(bin.xephyr) && x11.alive) },
+       },

@@ -28,6 +28,36 @@ nixpkgs 的 `gtk-vnc` 只装 `gvnccapture`，**没有** `gvncviewer`（GTK 查�
 `vncviewer`（TigerVNC）；插件本来就按 basename 区分查看器，`vncviewer` 会走
 `localhost::<port>` + `-Shared` 的正确参数路径。`runtimeDeps` 里因此放 `tigervnc`。
 
+## 第二个补丁：doctor 返回 undefined 让工具结果校验直接失败
+
+`iso_display_doctor` 在 NixOS 上**永远**报 `tool "iso_display_doctor" returned
+invalid output: value is not lossless JSON`，而同一个 `doctor()` 走 HTTP
+`/gui-isolation/doctor` 却返回 200 和完整 JSON——两条路径的分歧就在 `undefined`：
+
+- `JSON.stringify` 会**静默丢弃**值为 `undefined` 的键，HTTP 出去看着正常；
+  实测 135 个键在序列化后只剩 123 个。
+- dsh 校验的是**内存里的值**，`undefined` 不是 JSON 值，整条工具调用作废。
+
+来源有三处（都在 `doctor()` 里）：
+
+1. `package: (PACKAGES[distro.family]?.map || {})[name] || undefined` ——
+   `PACKAGES` 只覆盖 debian/fedora/arch/suse/alpine，NixOS 命中 `family: 'unknown'`，
+   十二个依赖条目全部落到 `undefined`（这是每台 NixOS 上必现的那一半）。
+2. `package: (...).identify` / `package: (...).gvncviewer` —— 同样的原因，无 `|| null` 兜底。
+3. `backends.sway.gpu: ... : undefined` —— 后端不是 sway 时（如 `backend: 'xvfb'`）。
+
+`patches/0001-doctor-return-null-instead-of-undefined.patch` 把这四处改成 `null`。
+不要顺手把 `deps[].path` 也改成 `|| null`：`which()` 找不到时返回的就是 `null`
+（不是 `undefined`），改它属于噪音。
+
+验证手法（不依赖 dsh 运行）：用假 `ctx` 直接调插件注册的 `execute`，再按
+「遍历找 `undefined` + `JSON.parse(JSON.stringify(x))` 前后键数是否相等」判定
+lossless。复现与修复都是这一个脚本，旧包 12 处 `undefined` / 135→123 键，
+新包 0 处 / 135→135。
+
+上游应修的版本更彻底：`doctor()` 输出干脆不带这些键（像 `listDisplays()` 里
+`if (v !== undefined) item[k] = v` 那样），或声明 schema 允许 `null`。
+
 ## runtimeDeps：插件只认 PATH
 
 `which()` 只沿 `process.env.PATH` 解析命令（裸命令名不能 `existsSync`），

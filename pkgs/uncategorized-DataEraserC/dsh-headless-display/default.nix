@@ -22,6 +22,14 @@ else
       hash = "sha256-wFnLqRE70FX8I3eNuGD1ZrlPmXHfbcaBeZ9fR7IUC9s=";
     };
 
+    # doctor() emitted `undefined` for fields that legitimately have no value on
+    # this host (per-dependency `package` under an unrecognised distro,
+    # `backends.sway.gpu` when the backend is not sway). DSH validates tool
+    # results as lossless JSON and rejects the whole call on the first
+    # `undefined`, even though the HTTP route looks fine because
+    # JSON.stringify drops those keys. `null` says the same thing and survives.
+    patches = [ ./patches/0001-doctor-return-null-instead-of-undefined.patch ];
+
     # Upstream is a dependency-free, prebuilt-cordis bundle (no dependencies,
     # peerDependencies or lockfile at all), so there is nothing for npm to
     # install and no npmDeps FOD to fetch. Overriding npmConfigHook with an
