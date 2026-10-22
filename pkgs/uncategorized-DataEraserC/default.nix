@@ -6,6 +6,7 @@
 }:
 let
   packages = loadPackages ./. {
+    cua-cli = p: if inputs == null then ifNotNUR p else p;
     opencode2dsh = p: if inputs == null then ifNotNUR p else p;
     dsh-agent-teams = p: if inputs == null then ifNotNUR p else p;
     dsh-annotation = p: if inputs == null then ifNotNUR p else p;
@@ -13,6 +14,7 @@ let
     dsh-chat-import = p: if inputs == null then ifNotNUR p else p;
     dsh-comfyui = p: if inputs == null then ifNotNUR p else p;
     dsh-cua-driver = p: if inputs == null then ifNotNUR p else p;
+    dsh-cua-sandbox = p: if inputs == null then ifNotNUR p else p;
     dsh-free-search = p: if inputs == null then ifNotNUR p else p;
     dsh-git-worktree = p: if inputs == null then ifNotNUR p else p;
     dsh-notifier = p: if inputs == null then ifNotNUR p else p;

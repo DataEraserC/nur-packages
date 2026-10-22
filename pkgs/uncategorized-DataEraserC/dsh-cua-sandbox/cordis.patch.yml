@@ -1,0 +1,30 @@
+# dsh-cua-sandbox — `cua mcp` 的挂载行。
+#
+# 直接 insert kernel 自带的通用 MCP 客户端插件（不写 wrapper JS）：
+# linkKernelNodeModules 把 kernel 的 node_modules 链进本 bundle，
+# `@deepseek-ai/dsh-mcp-client` 因此可解析，其 Config schema 本就覆盖
+# command / args / env / stdio。
+#
+# serverName "cua-mcp" 与 dsh-cua-driver 的 "cua-driver-mcp" 刻意不相交：
+#   mcp__cua-mcp__*          沙盒面（sandbox_* 生命周期 + computer_* 桌面控制）
+#   mcp__cua-driver-mcp__*   本机面（这台机器的桌面会话）
+# 两个 serverName 若撞名，mcp-client 的 activeServerNames 检查会让第二个
+# 实例激活失败。
+#
+# failOnStartupError 留默认 false：`cua mcp` 的启动不依赖容器引擎
+# （podman socket 没起时 server 照常起、tools/list 照常回 138 个工具），
+# 引擎缺失只在具体 tool 调用时报错——不该让整个 dsh 起不来。
+#
+# command: cua 走 PATH 解析：runtimeDeps 把 NUR 的 cua-cli 钉到 dsh 启动器
+# PATH 上，这里不烤绝对路径。子进程环境 = 父进程 scrub 后的 env（HOME、
+# XDG_RUNTIME_DIR 都在）+ 本行 env: 追加；rootless podman 的引擎 socket 在
+# $XDG_RUNTIME_DIR/podman/podman.sock，是 cua-vmm 的 well-known 候选之一，
+# 因此无需在此写死路径。
+- insert:
+    - id: cua-mcp
+      name: '@deepseek-ai/dsh-mcp-client'
+      config:
+        transport: stdio
+        serverName: cua-mcp
+        command: cua
+        args: [mcp]
