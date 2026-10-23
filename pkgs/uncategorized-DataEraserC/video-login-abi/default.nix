@@ -26,7 +26,10 @@ rustPlatform.buildRustPackage (finalAttrs: {
 
   buildInputs = [ openssl ];
 
-  cargoBuildFlags = [ "-p" "vlogin-abi" ];
+  cargoBuildFlags = [
+    "-p"
+    "vlogin-abi"
+  ];
 
   installPhase = ''
     runHook preInstall
