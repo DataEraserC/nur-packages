@@ -18,37 +18,37 @@ let
     "loong64-linux"
   ];
   HostPlatform = stdenv.hostPlatform.system;
-  version = "3.1.8";
+  version = "3.1.9";
 
   src =
     {
       x86_64-linux = fetchurl {
         url = "https://nya.globalslb.net/natfrp/client/launcher-unix/${version}/natfrp-service_linux_amd64.tar.zst";
-        hash = "sha256-xwWd9835sGrwuRgrvXUX2Xj0dNwLRKhuAffvSpJwQio=";
+        hash = "sha256-QxMKIGbDe2NkWXhe0zIV4r+0r2tfdIDC+weeJmeguKw=";
       };
       i686-linux = fetchurl {
         url = "https://nya.globalslb.net/natfrp/client/launcher-unix/${version}/natfrp-service_linux_386.tar.zst";
-        hash = "sha256-zI5D5aNlKJMdl9urnBI93bl9oHDMldC3N77r12tTUqg=";
+        hash = "sha256-fJeDAwQCBa9TUPhgnCz2W034nVuK1bxJDIBkgQJdCKA=";
       };
       aarch64-linux = fetchurl {
         url = "https://nya.globalslb.net/natfrp/client/launcher-unix/${version}/natfrp-service_linux_arm64.tar.zst";
-        hash = "sha256-Mu/zM/qLZjPCFudNUwbHMIM+7O95Ta8StUm4WIR48kM=";
+        hash = "sha256-rlxUfVZIjPfj3zFcxfFdc9nSfhyko7jdoP5lo49BlIw=";
       };
       aarch32-linux = fetchurl {
         url = "https://nya.globalslb.net/natfrp/client/launcher-unix/${version}/natfrp-service_linux_armv7.tar.zst";
-        hash = "sha256-cVBamfZFJDRr2z5Ro/03Bj1QkbNcTnpdRMMsjgH8tpw=";
+        hash = "sha256-VGLjcmTBFkicrpMXPjC4PLJ+Ufztx9Pr1sAc3bz5WsA=";
       };
       mips64-linux = fetchurl {
         url = "https://nya.globalslb.net/natfrp/client/launcher-unix/${version}/natfrp-service_linux_mips64.tar.zst";
-        hash = "sha256-HziBCQi3EzUdUi0rhFu3vAfAw8/gPMJE95BhuiGeaKU=";
+        hash = "sha256-qj0IEiBCvPTa+Vmfocz2a0ywKR+s6kROBdMGD+mKlf4=";
       };
       mips-linux = fetchurl {
         url = "https://nya.globalslb.net/natfrp/client/launcher-unix/${version}/natfrp-service_linux_mips.tar.zst";
-        hash = "sha256-rfeq7A+cT2gYdsT8+f+6oOADaYyIRZnr9/itiPH7sGw=";
+        hash = "sha256-3LUZ7Ot1YI8BGvlJz5a2W+xWfhCVtHr5KSPWgnnf69U=";
       };
       loong64-linux = fetchurl {
         url = "https://nya.globalslb.net/natfrp/client/launcher-unix/${version}/natfrp-service_linux_loong64.tar.zst";
-        hash = "sha256-TL75UbfK/e35eEOno4e2mOMFM7rYMe9L/WzClz3Kc/8=";
+        hash = "sha256-WwPSUGvegDMB3QyXLD85DIXfDmNgL1DsAMHIOchYXI8=";
       };
     }
     .${HostPlatform};

@@ -5,7 +5,7 @@
   appimageTools,
 }:
 let
-  version = "3.16.2";
+  version = "3.16.3";
 
   plat =
     {
@@ -16,8 +16,8 @@ let
 
   hash =
     {
-      x86_64-linux = "sha256-gj88AkqsU4rIeXYFU5pACwajk+uiUQzBT6pYK5fm/Zg=";
-      aarch64-linux = "sha256-ttzTKAAxHmxFtGbVkHFfWJP9YHGTLp1G+Eb6AR+1iUU=";
+      x86_64-linux = "sha256-SdAHZHuDHuUiDuNNCX4Dj7iaLfLGhrl6o7awLn0KC6I=";
+      aarch64-linux = "sha256-98r+ELzGueqtwV8zHFFJcPhJV/NrNbyV1RmkxiDNyQ4=";
     }
     .${stdenv.hostPlatform.system};
 

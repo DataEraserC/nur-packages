@@ -35,7 +35,7 @@ let
   appDeps = fetchNpmDeps {
     name = "lobsterai-openclaw-runtime-app-${version}-npm-deps";
     src = lobsteraiSrc;
-    hash = "sha256-xBsn+rjOlMlOnFYks/p2Lhi7XbRqQzIpWLi3boli3Js=";
+    hash = "sha256-7QeQky1pqhlK+rXSrOATKHrIzd9KNIaw3KyX5iUk2DE=";
     postPatch = ''
       cp ${./package-lock.json} package-lock.json
     '';
