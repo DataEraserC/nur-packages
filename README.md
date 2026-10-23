@@ -87,6 +87,7 @@ Or, use variables from this repository in case I change them:
 | `x86_64-linux` | `baidunetdisk` | [baidunetdisk](https://pan.baidu.com/) | 8.7.0 | Baidu Netdisk |
 |  | `baidupcs-go` | [baidupcs-go](https://github.com/qjfoidnh/BaiduPCS-Go) | 4.0.2-unstable-2026-09-09 | Baidu Netdisk commandline client, mimicking Linux shell file handling commands |
 | `x86_64-linux` | `bambu-studio-bin` | [bambu-studio-bin](https://github.com/bambulab/BambuStudio) | 02.05.02.51 | PC Software for BambuLab and other 3D printers |
+|  | `bas-remote` | [bas-remote](https://github.com/DataEraserC/bas-remote) | 0.7.0 | SAP Business Application Studio remote dev spaces, as a Rust library with a DeepSeek Harness host |
 |  | `beellama-cpp` | [beellama-cpp](https://github.com/Anbeeld/beellama.cpp) | 0.4.8 | Anbeeld fork of llama.cpp with improved decoding and speculative decoding |
 |  | `beellama-cpp-cuda` | [beellama-cpp](https://github.com/Anbeeld/beellama.cpp) | 0.4.8 | Anbeeld fork of llama.cpp with improved decoding and speculative decoding |
 |  | `bifrost` | [bifrost](https://github.com/maximhq/bifrost) | 2.3.2 | High-performance AI gateway with unified OpenAI-compatible API |
@@ -144,7 +145,6 @@ Or, use variables from this repository in case I change them:
 |  | `drone-vault` | [drone-vault](https://docs.drone.io/configure/secrets/external/vault/) | 1.3.0 | Drone plugin for integrating with the Vault secrets manager |
 |  | `dsh-agent-teams` | [dsh-agent-teams](https://github.com/NanmiCoder/dsh-agent-teams) | 0.1.26 | Multi-agent team collaboration for DeepSeek Harness |
 |  | `dsh-annotation` | [dsh-annotation](https://github.com/omdsh-dev/dsh-annotation) | 1.4.11-preview.1 | Annotate selected assistant text in the DeepSeek Harness web UI and reply to each annotation by number |
-|  | `dsh-bas-remote` | [dsh-bas-remote](https://github.com/DataEraserC/dsh-bas-remote) | 0.6.1 | SAP Business Application Studio remote dev spaces for DeepSeek Harness |
 |  | `dsh-chat-import` | [dsh-chat-import](https://github.com/Nwflower/dsh-chat-import) | 0.26.2 | Import conversation history from 25+ AI coding agents into DeepSeek Harness as resumable sessions with tool calls and reasoning intact |
 |  | `dsh-comfyui` | [dsh-comfyui](https://github.com/fandc520/dsh-comfyui) | 0.5.5 | Drive a local or remote ComfyUI from DeepSeek Harness with workflow, asset and queue panels plus per-workflow skill packs |
 |  | `dsh-cua-driver` | [dsh-cua-driver](https://github.com/trycua/cua) | 0.38.0 | Computer use for DeepSeek Harness through an installed Cua Driver MCP executable |
@@ -1693,6 +1693,7 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized-DataEraserC.SakuraFrp` | [SakuraFrp](https://www.natfrp.com/) | 3.1.8 | FRP-based tunnel client for the SakuraFrp service bundling natfrp-service and frpc |
 |  | `uncategorized-DataEraserC.XiaoMiToolV2` | [XiaoMiToolV2](https://github.com/topminipie/XiaoMiToolV2) | 0-unstable-2025-06-24 | Tool for unlocking bootloaders and installing ROMs on Xiaomi devices |
 |  | `uncategorized-DataEraserC.anymd` | [anymd](https://github.com/SylphxAI/anymd) | 8.5.5 | Convert any file to clean Markdown for AI agents, as a CLI and MCP server |
+|  | `uncategorized-DataEraserC.bas-remote` | [bas-remote](https://github.com/DataEraserC/bas-remote) | 0.7.0 | SAP Business Application Studio remote dev spaces, as a Rust library with a DeepSeek Harness host |
 | `x86_64-linux` | `uncategorized-DataEraserC.bqqnt` | [bqqnt](https://im.qq.com/index/) | 0.5.10 | Desktop client for QQ on Linux with bstar |
 | `x86_64-linux` | `uncategorized-DataEraserC.browser4` | [browser4](https://github.com/platonai/Browser4) | 4.13.27 | MCP-driven browser automation toolkit pairing a Rust command-line client with a Java automation server |
 | `x86_64-linux` | `uncategorized-DataEraserC.browser4-unwrapped` | [browser4-unwrapped](https://github.com/platonai/Browser4) | 4.13.27 | MCP-driven browser automation toolkit pairing a Rust command-line client with a Java automation server (unwrapped) |
@@ -1713,7 +1714,6 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized-DataEraserC.devtunnel` | [devtunnel](https://learn.microsoft.com/en-us/azure/developer/dev-tunnels/) | 1.0.2115+e16833f284 | Microsoft Dev Tunnels CLI for securely exposing local services to the internet |
 |  | `uncategorized-DataEraserC.dsh-agent-teams` | [dsh-agent-teams](https://github.com/NanmiCoder/dsh-agent-teams) | 0.1.26 | Multi-agent team collaboration for DeepSeek Harness |
 |  | `uncategorized-DataEraserC.dsh-annotation` | [dsh-annotation](https://github.com/omdsh-dev/dsh-annotation) | 1.4.11-preview.1 | Annotate selected assistant text in the DeepSeek Harness web UI and reply to each annotation by number |
-|  | `uncategorized-DataEraserC.dsh-bas-remote` | [dsh-bas-remote](https://github.com/DataEraserC/dsh-bas-remote) | 0.6.1 | SAP Business Application Studio remote dev spaces for DeepSeek Harness |
 |  | `uncategorized-DataEraserC.dsh-chat-import` | [dsh-chat-import](https://github.com/Nwflower/dsh-chat-import) | 0.26.2 | Import conversation history from 25+ AI coding agents into DeepSeek Harness as resumable sessions with tool calls and reasoning intact |
 |  | `uncategorized-DataEraserC.dsh-comfyui` | [dsh-comfyui](https://github.com/fandc520/dsh-comfyui) | 0.5.5 | Drive a local or remote ComfyUI from DeepSeek Harness with workflow, asset and queue panels plus per-workflow skill packs |
 |  | `uncategorized-DataEraserC.dsh-cua-driver` | [dsh-cua-driver](https://github.com/trycua/cua) | 0.38.0 | Computer use for DeepSeek Harness through an installed Cua Driver MCP executable |

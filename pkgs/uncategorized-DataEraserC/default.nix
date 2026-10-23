@@ -9,7 +9,7 @@ let
     opencode2dsh = p: if inputs == null then ifNotNUR p else p;
     dsh-agent-teams = p: if inputs == null then ifNotNUR p else p;
     dsh-annotation = p: if inputs == null then ifNotNUR p else p;
-    dsh-bas-remote = p: if inputs == null then ifNotNUR p else p;
+    bas-remote = p: if inputs == null then ifNotNUR p else p;
     dsh-chat-import = p: if inputs == null then ifNotNUR p else p;
     dsh-comfyui = p: if inputs == null then ifNotNUR p else p;
     dsh-cua-driver = p: if inputs == null then ifNotNUR p else p;
