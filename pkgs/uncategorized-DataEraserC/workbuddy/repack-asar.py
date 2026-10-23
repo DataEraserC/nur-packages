@@ -27,12 +27,17 @@ from pathlib import Path
 def read_asar(path: str):
     """Read asar header + payload from a file path."""
     with open(path, "rb") as f:
-        f0, f1, f2, n = struct.unpack("<4I", f.read(16))
-        header = json.loads(f.read(n).decode("utf-8"))
-        pad = f1 - 8 - n
-        data_start = 8 + f1
-        f.seek(data_start)
-        payload = f.read()
+        body = f.read()
+    return read_asar_bytes(body)
+
+
+def read_asar_bytes(body: bytes):
+    """Read asar header + payload from already-loaded bytes."""
+    f0, f1, f2, n = struct.unpack("<4I", body[:16])
+    header = json.loads(body[16 : 16 + n].decode("utf-8"))
+    pad = f1 - 8 - n
+    data_start = 8 + f1
+    payload = body[data_start:]
     return header, payload, (f0, f1, f2, n, pad, data_start)
 
 
@@ -63,7 +68,11 @@ def rebuild(header, payload, origin, replace=None):
             continue
         if replace and asar_path in replace:
             data = replace[asar_path]
-            meta["size"] = str(len(data))
+            # `size` is an integer in the Chromium asar reader, while `offset`
+            # is a decimal string. Writing size as a string makes Electron
+            # treat the entry as unreadable: "Cannot find module
+            # .../app.asar/main/index.js".
+            meta["size"] = len(data)
             h = hashlib.sha256(data).hexdigest()
             meta["integrity"] = {
                 "algorithm": "SHA256",
@@ -122,6 +131,37 @@ def apply_wayland_patch(orig_bytes: bytes) -> bytes:
     return orig_bytes.replace(old.encode("utf-8"), new.encode("utf-8"))
 
 
+def verify_types(orig_header, new_header):
+    """Fail loudly if rebuilding changed the JSON type of any metadata field.
+
+    Electron's asar reader is strict about `size` being an integer and
+    `offset` a string; a silent type change makes the entry unreadable at
+    runtime ("Cannot find module .../app.asar/main/index.js") while the
+    bytes and hashes still look correct. This check is what catches that.
+    """
+    orig_entries = dict(walk(orig_header))
+    new_entries = dict(walk(new_header))
+    if set(orig_entries) != set(new_entries):
+        raise SystemExit("verify: entry set changed across rebuild")
+
+    problems = []
+    for path, new_meta in new_entries.items():
+        orig_meta = orig_entries[path]
+        if set(orig_meta) != set(new_meta):
+            problems.append(f"{path}: keys {sorted(orig_meta)} -> {sorted(new_meta)}")
+            continue
+        for key in orig_meta:
+            if type(orig_meta[key]) is not type(new_meta[key]):
+                problems.append(
+                    f"{path}: {key} {type(orig_meta[key]).__name__}"
+                    f" -> {type(new_meta[key]).__name__}"
+                )
+    if problems:
+        raise SystemExit(
+            "verify: metadata type drift:\n  " + "\n  ".join(problems[:20])
+        )
+
+
 def main():
     if len(sys.argv) != 3:
         print(f"Usage: {sys.argv[0]} <input.asar> <output.asar>", file=sys.stderr)
@@ -157,8 +197,19 @@ def main():
         raise SystemExit("main/index.js not found in asar")
 
     out = rebuild(header, payload, origin, replace={"main/index.js": patched_js})
+
+    # Re-read what we are about to write and prove the header still carries
+    # the original field types; a repacked asar that Electron cannot read
+    # would otherwise only fail at app start-up.
+    new_header, _, _ = read_asar_bytes(out)
+    verify_types(header, new_header)
+
     Path(asar_out).write_bytes(out)
-    print(f"Repacked asar: {len(out)} bytes -> {asar_out}", file=sys.stderr)
+    print(
+        f"Repacked asar: {len(out)} bytes, {len(dict(walk(new_header)))} entries "
+        f"(types verified) -> {asar_out}",
+        file=sys.stderr,
+    )
 
 
 if __name__ == "__main__":
