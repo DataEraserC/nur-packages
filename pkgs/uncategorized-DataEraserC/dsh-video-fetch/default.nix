@@ -3,6 +3,7 @@
   pkgs,
   inputs ? null,
   fetchFromGitHub,
+  video-login-abi,
   yt-dlp,
   ffmpeg,
 }:
@@ -14,7 +15,7 @@ if inputs == null then
 else
   dshPkgs.dsh.buildDshBundle (finalAttrs: {
     pname = "dsh-video-fetch";
-    version = "0.2.0";
+    version = "0.3.0";
 
     src = fetchFromGitHub {
       owner = "DataEraserC";
@@ -22,14 +23,18 @@ else
       # Follow the release tag; update.sh bumps version, src hash and
       # npmDepsHash together (the lockfile ships inside the tag).
       rev = "v${finalAttrs.version}";
-      hash = "sha256-JExX9Z4bq9y4kNrjHNLdtcbQsPxF4KE/d5Frn8oDnhw=";
+      hash = "sha256-PW/nguCStq3ddQ9+cgp9yH49WOHnhEcsPEvJsD0NfQE=";
     };
 
-    npmDepsHash = "sha256-pWerSrDjSd173wbTWlNiIsQQ+U5VmMVIkSTP4REZdpE=";
+    npmDepsHash = "sha256-wOfWXOt0UZ90Lb4ZuzGKqozUbD5nFsPWsW1JrmKG4q4=";
 
     dontNpmBuild = true;
 
-    # Unit tests are offline: they only use $TMPDIR and a DSH_HOME they set themselves.
+    preCheck = ''
+      mkdir -p native
+      cp ${video-login-abi}/lib/libvlogin.so native/libvlogin.so
+    '';
+
     doCheck = true;
     checkPhase = ''
       runHook preCheck
@@ -49,6 +54,9 @@ else
 
     postInstall = ''
       test -f $out/lib/node_modules/dsh-video-fetch/lib/index.js
+
+      mkdir -p $out/lib/node_modules/dsh-video-fetch/native
+      cp ${video-login-abi}/lib/libvlogin.so $out/lib/node_modules/dsh-video-fetch/native/libvlogin.so
     '';
 
     passthru = {
@@ -63,7 +71,7 @@ else
     };
 
     meta = {
-      description = "Video downloading for DeepSeek Harness with per-site login (bilibili QR / cookie import) and ffmpeg compression";
+      description = "Video downloading for DeepSeek Harness with per-channel login (QR / cookie / SMS / password / browser) and ffmpeg compression";
       homepage = "https://github.com/DataEraserC/dsh-video-fetch";
       license = lib.licenses.mit;
       maintainers = import ../maintainers.nix;
