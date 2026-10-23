@@ -97,3 +97,12 @@ cpm.check_package(("packages.x86_64-linux.foo", False))
 - **分阶段脚本必须显式带 `runHook preX` / `runHook postX`**，包括自定义的 `unpackPhase`；只写 `installPhase` 的自定义内容同样要补。
 - `license` / `homepage` / `maintainers` 必须非空：仓库自有 wrapper、示例包用仓库自身（MIT + 本仓库 URL）；聚合 `buildEnv` / FHS 环境用被聚合工具的 license；闭源二进制用 `licenses.unfree`。
 - 检查会同时跑 `packages.*` 与 `legacyPackages.*` 两个命名空间，报错成对出现，改一处即可。
+
+## Rust 源码包
+
+- **`cargoBuildHook` 会带 `--target <triple>`，产物不在 `target/release/`**：Rust 派生里 cargo 命令由 `cargoBuildHook` 拼装，它无条件追加 `--target ${stdenv.hostPlatform.rust.rustcTargetSpec}`，因此 cdylib 实际落在 `target/<triple>/release/`（第 3 层）。写成 `find target -maxdepth 2 -name '*.so'` 会**静默匹配不到**，`installPhase` 仍然返回 0，但 `$out/lib` 是空的，只有回头检查产物才发现。安装路径统一写 `target/${stdenv.hostPlatform.rust.rustcTargetSpec}/release/<artifact>`；要钉某个 crate 时 `cargoTestFlags` 同理也要给。
+- **依赖哈希用 `cargoHash`，不要提交本地 `./Cargo.lock`**：`cargoLock.lockFile = ./Cargo.lock` 虽不产生 IFD（不同于 `${finalAttrs.src}/Cargo.lock`），但 nix-update 不会改写仓库里的 lock 文件，版本升级后 lock 与新 Cargo.toml 失步才炸。用 `cargoHash` 时先填字面量占位哈希（`sha256-AAAA...=`），构建失败后从报错的 `got:` 行取真实值——**不要**用 `lib.fakeHash`。
+
+## 构建期测试与打包产物的顺序
+
+- **`checkPhase` 早于 `installPhase` / `postInstall`**：只在 `postInstall` 落盘的东西（从别的派生拷来的原生库、生成的文件）在测试阶段都不存在。若测试要读它，必须同时在 `preCheck` 里准备一份。否则现象是测试拿到「不可用」的降级结果（如 503）而不是直接报错，很容易被误判成功能正常。反过来，让测试断言 200 而不是写 `if (!available) return` 跳过，等于在构建期真的把接口跑了一遍，更有价值。
