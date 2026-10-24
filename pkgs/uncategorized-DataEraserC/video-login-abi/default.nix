@@ -9,18 +9,20 @@
 }:
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "video-login-abi";
-  version = "0.1.0";
+  version = "0.2.0";
 
   src = fetchFromGitHub {
     owner = "DataEraserC";
     repo = "video-login";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-ZSlAhJDtQ4I+DKtTRqrky+gWm0cil7jKg4MMNqxMmvI=";
+    hash = "sha256-CUr1Neq2W6Kb6HRDbSdKmgDTMDJHrZdOQurV/0L9HCI=";
   };
   __structuredAttrs = true;
   strictDeps = true;
 
-  cargoHash = "sha256-g6Wvsi4vWUfmbwef2QWuFsa0nEVzgyyqAKihXRWwwrU=";
+  # Bumping the workspace version changes this too: cargo vendors the local
+  # path crates into the same directory, so they hash into it.
+  cargoHash = "sha256-ImNgKvP4JTW+8mb/EXvlsVpzSTEmiYnoqtTb4S1e/TQ=";
 
   nativeBuildInputs = [ pkg-config ];
 
