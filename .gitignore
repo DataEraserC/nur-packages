@@ -4,6 +4,7 @@ trace.txt*
 .gcroots
 .vscode
 .direnv
+.cache
 *.log
 .pre-commit-config.yaml
 update-git-commits.txt
