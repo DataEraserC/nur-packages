@@ -73,11 +73,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1792832278,
-        "narHash": "sha256-nXTyt1ZeLj49DK3JMzThCVk15PC2cgLKN29U1SwrLls=",
+        "lastModified": 1792834894,
+        "narHash": "sha256-T88uxT6ukFtmbnrf5U5WTqp59Kr3rFpw9ldprKaNTMA=",
         "owner": "DataEraserC",
         "repo": "bas-remote",
-        "rev": "2e7b95122a8dab66da14418feab69341fbd527ac",
+        "rev": "7ae174cb66ec613c7b4c425aae717c37529d1371",
         "type": "github"
       },
       "original": {
