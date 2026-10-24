@@ -12,14 +12,14 @@ if inputs == null then
 else
   dshPkgs.dsh.buildDshBundle (finalAttrs: {
     pname = "dsh-settings-persist";
-    version = "0.3.2";
+    version = "0.4.0";
 
     src = fetchFromGitHub {
       owner = "DataEraserC";
       repo = "dsh-settings-persist";
-      rev = "b75d81174a6b2b8b6fc3ff97ef6339cea1204b88";
+      rev = "8f04716b62c31508fae5d4db7eca12ab0fc94157";
       # nix-prefetch-url --unpack of the codeload tarball for the pinned rev.
-      hash = "sha256-ZC04UesTSDXLnrVwQVfPjSDTSGKw/UfjByYw883xnoo=";
+      hash = "sha256-+1xas63mmKRPPI5h/l2ec21oOAVh0bWP0UygbCqqKlw=";
     };
 
     # Zero runtime dependencies: the lockfile has no cacheable entries, so
@@ -55,7 +55,7 @@ else
     };
 
     meta = {
-      description = "Persist DSH Settings edits across nix managed-profile syncs and rebuilds, with auto/manual snapshots and a settings page";
+      description = "Persist DSH Settings edits across nix managed-profile syncs and rebuilds, with auto/manual snapshots, a settings page and a /snapshots command";
       homepage = "https://github.com/DataEraserC/dsh-settings-persist";
       license = lib.licenses.mit;
       maintainers = import ../maintainers.nix;
