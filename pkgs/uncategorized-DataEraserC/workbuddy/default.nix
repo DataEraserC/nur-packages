@@ -4,7 +4,7 @@
   fetchurl,
   dpkg,
   autoPatchelfHook,
-  makeWrapper,
+  makeShellWrapper,
   wrapGAppsHook3,
   python3,
   coreutils,
@@ -99,7 +99,7 @@ stdenv.mkDerivation (finalAttrs: {
   nativeBuildInputs = [
     dpkg
     autoPatchelfHook
-    makeWrapper
+    makeShellWrapper
     wrapGAppsHook3
     python3
   ];
@@ -153,7 +153,14 @@ stdenv.mkDerivation (finalAttrs: {
     substituteInPlace $out/share/applications/workbuddy.desktop \
       --replace-fail 'Exec=/opt/WorkBuddy/workbuddy' "Exec=$out/bin/workbuddy"
 
-    makeWrapper $out/opt/WorkBuddy/workbuddy $out/bin/workbuddy \
+    # makeShellWrapper, not makeWrapper: wrapGAppsHook3 pulls in
+    # make-binary-wrapper's setup hook, which redefines makeWrapper to
+    # makeBinaryWrapper. The binary implementation bakes --add-flags into a
+    # fixed argv array, so the shell conditional below would reach Electron
+    # verbatim, unexpanded, and the Wayland flags would never apply.
+    # makeShellWrapper keeps the wrapper a bash script, so the condition is
+    # evaluated at run time.
+    makeShellWrapper $out/opt/WorkBuddy/workbuddy $out/bin/workbuddy \
       --add-flags "--no-sandbox" \
       --add-flags "\''${NIXOS_OZONE_WL:+\''${WAYLAND_DISPLAY:+--ozone-platform-hint=auto --enable-features=WaylandWindowDecorations --enable-wayland-ime=true --wayland-text-input-version=3}}" \
       --prefix LD_LIBRARY_PATH : "${lib.makeLibraryPath libraries}" \
