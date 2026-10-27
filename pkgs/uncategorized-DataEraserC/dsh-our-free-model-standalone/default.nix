@@ -50,6 +50,16 @@ stdenv.mkDerivation (finalAttrs: {
   ];
 
   postPatch = ''
+    # 2.7.2's legacy-upgrade suite replays the historical updaters from tags
+    # v1.3.1/v2.5.9 via `git show <tag>:<path>` and `git archive <tag>`, so it
+    # needs the upstream object database. A fetched source tree has none
+    # (`git init -q` below only makes it empty, and fetchGit also stores a
+    # .git-less tree), hence the misleading "path exists on disk, but not in
+    # <rev>" failure; the remaining 99 suites still run.
+    substituteInPlace scripts/test-all.mjs \
+      --replace-fail "  ['legacy-upgrade', 'legacy-upgrade-test.mjs', mode === 'contributor' ? [] : ['--production']],
+" ""
+
     substituteInPlace scripts/forward-test.mjs \
       --replace-fail "resolveLoopbackBind('example.com'), /loopback/" "resolveLoopbackBind('example.com'), /loopback|could not resolve/"
     substituteInPlace scripts/standalone-login-terminal-test.mjs \

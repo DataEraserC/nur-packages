@@ -105,4 +105,5 @@ cpm.check_package(("packages.x86_64-linux.foo", False))
 
 ## 构建期测试与打包产物的顺序
 
+- **上游测试里 shell 出 `git show`/`git archive`/`git log` 的，在 Nix 沙箱里必然不可行，要按「无历史」设计**：`fetchFromGitHub` 的树只有 `.gitignore`/`.gitattributes`、没有 `.git`，`fetchgit` 也救不了——本机 Nix 的 `builtins.fetchGit`（连 `allRefs = true` + `file://` 克隆都验过）存进 store 的同样是不含 `.git` 的树，所以两条路都拿不到对象库。checkPhase 里惯用的 `git init -q` 只造出零对象的空仓库，git 解析不到 rev 时会**回退去查工作区**，于是报出误导性的 `path '<file>' exists on disk, but not in '<rev>'`（真实原因是零对象库，不是文件缺失；代码看着完全相干、极难第一时间定位）。三种处理：①测试只是检查脏工作区/`git describe` 之类可降级的，`git init` 后按需打 tag 或改读 `package.json`；②测试的**全部价值**就在历史版本回放（升级器/迁移回归），沙箱里无法成立，就在 `postPatch` 里 `substituteInPlace` 删掉 `test-all.mjs` 之类运行器里对应的条目并写注释说明，其余套件照跑、`doCheck` 保持开启，别整个关掉 `doCheck`；③真要保留检查，把历史版本的 tarball 作为额外 FOD 引入，把脚本里的 git 调用改成读那些目录。删条目时**连同行尾换行一起替换**（`--replace-fail "<整行>\n" ""`），只删行内容会留下空行或悬空注释（实例：dsh-our-free-model-standalone 的 `legacy-upgrade`）
 - **`checkPhase` 早于 `installPhase` / `postInstall`**：只在 `postInstall` 落盘的东西（从别的派生拷来的原生库、生成的文件）在测试阶段都不存在。若测试要读它，必须同时在 `preCheck` 里准备一份。否则现象是测试拿到「不可用」的降级结果（如 503）而不是直接报错，很容易被误判成功能正常。反过来，让测试断言 200 而不是写 `if (!available) return` 跳过，等于在构建期真的把接口跑了一遍，更有价值。
