@@ -24,7 +24,6 @@
   fetchurl,
   rustPlatform,
   pkg-config,
-  nix-update-script,
   libx11,
   libxext,
   libxi,
@@ -111,13 +110,10 @@ rustPlatform.buildRustPackage rec {
     test -f $out/share/cua-driver-skills/SKILL.md
   '';
 
-  passthru.updateScript = nix-update-script {
-    attrPath = "cua-driver";
-    extraArgs = [
-      "--version-regex"
-      "^cua-driver-rs-v(.*)$"
-    ];
-  };
+  # The releases atom feed is flooded with nightly-cua-driver-rs-*/cua-spaces-*
+  # tags and the version lives in versionData.tag, so nix-update cannot drive
+  # this package; see update.sh.
+  passthru.updateScript = [ (toString ./update.sh) ];
 
   meta = {
     description = "Cross-platform MCP server and CLI for computer-use automation (trycua/cua driver)";

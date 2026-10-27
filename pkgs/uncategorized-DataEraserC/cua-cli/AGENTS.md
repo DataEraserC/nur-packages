@@ -1,13 +1,26 @@
 # cua-cli 打包笔记
 
-上游：<https://github.com/trycua/cua>（MIT）。锁定 tag `cua-sdk-v0.7.0`，
-`nix-update --flake --version-regex '^cua-sdk-v(.*)$'` 随 tag 更新
-（同 tag 发 cua-driver-rs-v* / cua-sdk-v* 两套，regex 只认 sdk 这条线）。
+上游：<https://github.com/trycua/cua>（MIT）。锁定 tag `cua-sdk-v0.9.0`，
+用 `update.sh` 随 tag 更新（同 tag 发 cua-driver-rs-v* / cua-sdk-v* 两套，
+脚本只认 sdk 这条线）。
+
+`nix-update-script` 在这个包上用不了：①releases atom feed 只列最近约 10 条，
+被 `nightly-cua-driver-rs-*` / `cua-spaces-*` / `nightly-lume-*` 占满，
+`--version-regex` 永远匹配不到，直接抛 `VersionError` 让整个 CI 挂；
+②版本在 `versionData.tag` 里派生，文件里没有 `version = "..."` 字面量，
+nix-update 无法重写 tag，src/skills 哈希也无从更新。所以 update.sh 自己来：
+`git ls-remote --tags` 过滤 `cua-sdk-v<semver>`（行尾锚定，自动排除
+`nightly-*` 与 `^{}`  peeled ref）→ 与 default.nix 里的 tag 比较，相同就
+`exit 0` → 否则先 `nix store prefetch-file` 算好 src tarball 与 3 个 skill
+的新哈希，再一次性 sed tag + 4 处哈希，最后 `nix build .#cua-cli` 验证。
 
 ## 预编译二进制 + autoPatchelf，不源码构建
 
-- release asset `cua-cli-<version>-linux-x64.tar.gz` 只有一个裸 `cua` 文件
-  （155MB，strip 后约 100MB——上游没 strip，fixup 默认会剥）。
+- release asset `cua-cli-<version>-linux-x64.tar.gz`：0.7.0 及以前只有
+  一个裸 `cua` 文件（155MB，strip 后约 100MB——上游没 strip，fixup 默认
+  会剥）；**cua-sdk-v0.9.0 起多带 `cua-microvm-init` 与
+  `cua-spacesd-linux-x86_64`**（沙盒引擎，sandbox_* 生命周期工具会拉起
+  它们），installPhase 用 glob 全盘装入 $out/bin，autoPatchelfHook 一视同仁。
 - 动态链接但 NEEDED 只有 glibc + libgcc_s，最高符号 GLIBC_2.30，
   `autoPatchelfHook` + `stdenv.cc.cc.lib` 就是在 NixOS 上跑起来的全部代价。
   不满足于「能跑」的验证放 `doInstallCheck`（fixup 已换解释器之后），

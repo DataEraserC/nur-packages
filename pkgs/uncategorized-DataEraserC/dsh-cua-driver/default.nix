@@ -27,7 +27,6 @@
   lib,
   pkgs,
   inputs ? null,
-  nix-update-script,
   cua-driver,
 }:
 let
@@ -109,13 +108,11 @@ else
           involvement = "authored";
         }
       ];
-      updateScript = nix-update-script {
-        attrPath = "dsh-cua-driver";
-        extraArgs = [
-          "--version-regex"
-          "^cua-driver-rs-v(.*)$"
-        ];
-      };
+      # The nix version is inherited from cua-driver and follows the upstream
+      # cua-driver-rs-v* tag automatically; nix-update cannot evaluate this
+      # bundle (flake inputs, no fetchable src), so update.sh syncs
+      # package.json's version from the upstream tag list directly.
+      updateScript = [ (toString ./update.sh) ];
     };
 
     meta = {

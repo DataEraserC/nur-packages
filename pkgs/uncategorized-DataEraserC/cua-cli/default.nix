@@ -22,12 +22,11 @@
   fetchurl,
   stdenv,
   autoPatchelfHook,
-  nix-update-script,
 }:
 let
   versionData = {
-    tag = "cua-sdk-v0.7.0";
-    hash = "sha256-AUBh+jC1U8pYv2/p3q/L84ArFaOJl5JJiE1mkIfAqsA=";
+    tag = "cua-sdk-v0.9.0";
+    hash = "sha256-l4Af9MOqLz2Z+POa4tCHldzOwkFZOrN0vnypJXYUIco=";
   };
   version = lib.removePrefix "cua-sdk-v" versionData.tag;
   # Same tag as the binary: the skills describe the CLI's own commands, so a
@@ -37,7 +36,7 @@ let
   skills = {
     "cua-sandboxes/SKILL.md" = fetchurl {
       url = skillUrl "cua-sandboxes/SKILL.md";
-      hash = "sha256-95asSLc+QChJObingVZnZywyP/RjzK+SKGnjLuAqHYs=";
+      hash = "sha256-6VKoWQpJzh9dKRwhyRI9IzkhzU4IlRKkwqjSxAcZAHw=";
     };
     "gui-automation/SKILL.md" = fetchurl {
       url = skillUrl "gui-automation/SKILL.md";
@@ -61,8 +60,9 @@ stdenv.mkDerivation rec {
   nativeBuildInputs = [ autoPatchelfHook ];
   buildInputs = [ stdenv.cc.cc.lib ];
 
-  # The tarball holds a single bare `cua` file; unpack it explicitly instead of
-  # relying on extension sniffing through fetchurl.
+  # The tarball holds the `cua` binary (plus, since cua-sdk-v0.9.0, the
+  # sandbox engine binaries); unpack it explicitly instead of relying on
+  # extension sniffing through fetchurl.
   unpackPhase = ''
     runHook preUnpack
     tar xzf $src
@@ -72,7 +72,15 @@ stdenv.mkDerivation rec {
   installPhase = ''
     runHook preInstall
 
-    install -Dm755 cua $out/bin/cua
+    # Since cua-sdk-v0.9.0 the tarball also ships the sandbox engine
+    # binaries (cua-microvm-init, cua-spacesd-linux-x86_64) that the
+    # sandbox_* lifecycle tools spawn, so keep every executable —
+    # autoPatchelfHook rewraps all of them alike.
+    for bin in cua cua-microvm-init cua-spacesd-*; do
+      if [ -e "$bin" ]; then
+        install -Dm755 "$bin" "$out/bin/$bin"
+      fi
+    done
 
     install -Dm644 ${skills."cua-sandboxes/SKILL.md"} \
       $out/share/cua-skills/cua-sandboxes/SKILL.md
@@ -109,13 +117,10 @@ stdenv.mkDerivation rec {
         involvement = "authored";
       }
     ];
-    updateScript = nix-update-script {
-      attrPath = "cua-cli";
-      extraArgs = [
-        "--version-regex"
-        "^cua-sdk-v(.*)$"
-      ];
-    };
+    # The releases atom feed is flooded with nightly-*/cua-spaces-* tags and
+    # the version lives in versionData.tag, so nix-update cannot drive this
+    # package; see update.sh.
+    updateScript = [ (toString ./update.sh) ];
   };
 
   meta = {

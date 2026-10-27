@@ -3,6 +3,11 @@
 # shellcheck shell=bash
 set -e
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)
+# The npm step below cds into a temporary copy of the new source; the flake
+# lives in the repository, so return here before the verification build
+# (a bare ".#attr" reference resolves against the current directory and
+# fails with "could not find a flake.nix" from the temp dir).
+REPO_ROOT=$(cd -- "$SCRIPT_DIR/../../.." && pwd)
 
 # This package lives in a flat group (uncategorized-DataEraserC) and needs
 # flake inputs (deepseek-harness), so nix-update must run in --flake mode.
@@ -46,4 +51,5 @@ sed -i "s|npmDepsHash = \"sha256-[^\"]*\";|npmDepsHash = \"$NEW_HASH\";|" "$SCRI
 
 # Build once so a bad npmDepsHash or a broken new release fails here instead
 # of waiting for CI.
+cd "$REPO_ROOT"
 nix build --no-link ".#$FLAT_PATH"

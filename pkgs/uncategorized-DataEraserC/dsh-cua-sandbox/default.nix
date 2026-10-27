@@ -34,7 +34,6 @@
   lib,
   pkgs,
   inputs ? null,
-  nix-update-script,
   cua-cli,
 }:
 let
@@ -88,13 +87,11 @@ else
           involvement = "authored";
         }
       ];
-      updateScript = nix-update-script {
-        attrPath = "dsh-cua-sandbox";
-        extraArgs = [
-          "--version-regex"
-          "^cua-sdk-v(.*)$"
-        ];
-      };
+      # The nix version is inherited from cua-cli and follows the upstream
+      # cua-sdk-v* tag automatically; nix-update cannot evaluate this bundle
+      # (flake inputs, no fetchable src), so update.sh syncs package.json's
+      # version from the upstream tag list directly.
+      updateScript = [ (toString ./update.sh) ];
     };
 
     meta = {
