@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """Minimal asar re-packer for the workbuddy Nix package.
 
-Replaces one file (main/index.js) inside app.asar so that BrowserWindow
-calls show() at the top of the ready-to-show handler, fixing a Wayland/
-waypipe deadlock where ready-to-show never fires.
+Replaces one file (main/index.js) inside app.asar so that the main window is
+shown on a fallback timer instead of waiting only for `ready-to-show`, which
+can stay silent forever on Wayland/waypipe and leaves the app running with no
+visible window.
 
 The repack preserves asar structure (header + payload), recalculates
 offsets/sizes/integrity hashes for all entries, and keeps the original
@@ -98,30 +99,31 @@ def rebuild(header, payload, origin, replace=None):
 def apply_wayland_patch(orig_bytes: bytes) -> bytes:
     """Apply the Wayland show() fix to main/index.js content.
 
-    The fix adds show() at the top of the ready-to-show handler, before
-    the existing show() call at the bottom. On X11 this is a no-op because
-    ready-to-show fires normally and the window is already visible.
+    The main window is created with `show: false` and upstream only calls
+    show() from the `ready-to-show` callback. That callback is emitted after
+    the first frame, but on Wayland/waypipe a window that was never mapped
+    does not produce one, so the event can stay silent forever and the app
+    looks hung with no window at all.
+
+    Adding show() inside the `ready-to-show` handler does not help: the
+    handler is exactly what never runs. The fix instead schedules a fallback
+    show() right after window creation. Locally `ready-to-show` arrives well
+    within the timeout, so the timer finds the window already visible and
+    does nothing; under waypipe it is what surfaces the window.
     """
-    old = (
-        '\t\tmainWindow.once("ready-to-show", () => {\n'
-        "\t\t\tif (mainWindow.isDestroyed()) {\n"
-        '\t\t\t\trequire_log_acl_guard.windowLog.info("[WindowManager] '
-        'ready-to-show arrived after window destroyed, skipping");\n'
-        "\t\t\t\treturn;\n"
-        "\t\t\t}"
-    )
+    old = '\t\trequire_log_acl_guard.windowLog.info("[WindowManager] Window created");'
     new = (
-        '\t\tmainWindow.once("ready-to-show", () => {\n'
-        "\t\t\tif (mainWindow.isDestroyed()) {\n"
-        '\t\t\t\trequire_log_acl_guard.windowLog.info("[WindowManager] '
-        'ready-to-show arrived after window destroyed, skipping");\n'
-        "\t\t\t\treturn;\n"
+        old + "\n"
+        "\t\t// [nixos-patch] Wayland/waypipe: `ready-to-show` can stay silent\n"
+        "\t\t// because the window is never mapped, so it never paints a first\n"
+        "\t\t// frame. Show it on a timer; the normal path is a no-op when\n"
+        "\t\t// `ready-to-show` fired first.\n"
+        "\t\tsetTimeout(() => {\n"
+        "\t\t\tif (this.mainWindow && !this.mainWindow.isDestroyed() && !this.mainWindow.isVisible()) {\n"
+        '\t\t\t\trequire_log_acl_guard.windowLog.info("[WindowManager] [nixos-patch] ready-to-show timeout, showing window");\n'
+        "\t\t\t\tthis.mainWindow.show();\n"
         "\t\t\t}\n"
-        "\t\t\t// [nixos-patch] Wayland/waypipe fix: ready-to-show may not fire\n"
-        "\t\t\t// because first-paint needs a surface commit, but the surface\n"
-        "\t\t\t// isn't shown until show(). Break the deadlock by calling\n"
-        "\t\t\t// show() here even though the normal show() is below.\n"
-        "\t\t\ttry { if (!mainWindow.isVisible()) mainWindow.show(); } catch(e) {}"
+        "\t\t}, 1000).unref?.();"
     )
     count = orig_bytes.count(old.encode("utf-8"))
     if count != 1:

@@ -135,11 +135,12 @@ stdenv.mkDerivation (finalAttrs: {
     patchShebangs $out/opt/WorkBuddy/resources/app.asar.unpacked/cli/vendor/shim/safe-bin
 
     # Repack app.asar with the Wayland/waypipe show() fix.
-    # WorkBuddy creates BrowserWindow with show:false and only calls show()
-    # in the ready-to-show callback. On Wayland/waypipe, ready-to-show never
-    # fires because Chromium needs a surface commit to produce the first
-    # frame, but the surface isn't shown until show() — a deadlock. The
-    # patch adds a show() call at the top of the ready-to-show handler.
+    # WorkBuddy creates the main BrowserWindow with show:false and only calls
+    # show() inside the ready-to-show callback. On Wayland/waypipe a window
+    # that was never mapped never paints a first frame, so ready-to-show can
+    # stay silent forever and the app runs with no window. The patch adds a
+    # fallback show() timer right after window creation; on a normal session
+    # ready-to-show wins and the timer is a no-op.
     python3 ${./repack-asar.py} \
       $out/opt/WorkBuddy/resources/app.asar \
       $out/opt/WorkBuddy/resources/app.asar.new
