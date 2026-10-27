@@ -3,7 +3,7 @@
 上游：<https://github.com/trycua/cua>（MIT），Rust 实现的 computer-use driver
 （MCP server + CLI）。锁定 tag `cua-driver-rs-v0.38.0`
 （commit `85e2b1318bd77ccf3cfa88ccdf875a4bb7eaed19`），
-`nix-update --flake --version-regex '^cua-driver-rs-v(.*)$'` 随 tag 更新。
+`update.sh` 随 tag 更新（自定义脚本，机制见下）。
 
 ## 源码构建而非预编译二进制
 
@@ -30,6 +30,31 @@
 `~/.dsh/skills/cua-driver`（dsh 的 user 级 skill 根）。driver 自带的
 `cua-driver skills install` 会联网抓 GitHub release 资产并写进各 agent 目录，
 Nix 下不用它。
+
+## 更新机制（update.sh）
+
+nix-update 驱动不了这个包：①releases atom feed 只列最近约 10 条，被
+`nightly-cua-driver-rs-*` / `cua-spaces-*` / `nightly-lume-*` 占满，
+`--version-regex` 永远匹配不到，直接抛 `VersionError` 让整个 CI 挂；
+②版本在 `versionData.tag` 里派生，文件里没有 `version = "..."` 字面量，
+nix-update 无法重写 tag，src/skills 哈希也无从更新。所以 update.sh 自己来：
+`git ls-remote --tags` 过滤 `cua-driver-rs-v<semver>`（行尾锚定，自动排除
+`nightly-*` 与 `^{}` peeled ref）→ 与 default.nix 里的 tag 比较，相同就
+`exit 0` → 否则先算好两个新哈希再一次性 sed tag + 2 处哈希，最后
+`nix build .#cua-driver` 验证。
+
+**哈希必须用 FOD-echo 算，不能用 `nix store prefetch-file`**：GitHub 的
+`archive/refs/tags/*.tar.gz` 是按需生成的归档，宿主机 prefetch 下载到的
+字节流与构建沙箱里 fetchurl 下载到的不是同一个变体（2026-10-27 对本 tag
+实测：prefetch `sha256-w8pz...` vs 构建 `sha256-Fpryc...`，且各自稳定
+复现），prefetch 出来的哈希过不了 FOD 校验。做法与 nix-update 内部同款
+（见根 AGENTS.md「tarball prefetch 哈希」一节）：以 dummy 哈希构建同一个
+fetchFromGitHub / fetchurl，从报错的 `got:` 行取真实哈希。skills 那个是
+release asset（字节稳定），但统一走 FOD-echo，只保留一种机制。
+
+tag 未变时脚本仍会 `nix build .#cua-driver.src` 自检：哈希没坏是 store hit
+（不下载）；被上游就地重生成归档坏了（同 commit、新字节），就从 `got:` 行
+取新哈希自愈，再全量构建验证。
 
 ## 与 nur-ryan4yin 版的关系
 

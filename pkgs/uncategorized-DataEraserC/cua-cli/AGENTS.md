@@ -14,6 +14,12 @@ nix-update 无法重写 tag，src/skills 哈希也无从更新。所以 update.s
 `exit 0` → 否则先 `nix store prefetch-file` 算好 src tarball 与 3 个 skill
 的新哈希，再一次性 sed tag + 4 处哈希，最后 `nix build .#cua-cli` 验证。
 
+这里用 `nix store prefetch-file` 是安全的：src 是 release asset、skills 是
+raw.githubusercontent.com 的源码树文件，两者字节稳定，宿主机 prefetch 与
+构建沙箱的下载一致。**GitHub `archive/refs/tags/*.tar.gz` 则不行**——宿主机
+prefetch 与沙箱 fetchurl 会下载到不同的字节变体，prefetch 出的哈希过不了
+FOD 校验（实测与做法见 cua-driver 打包笔记「更新机制」）。
+
 ## 预编译二进制 + autoPatchelf，不源码构建
 
 - release asset `cua-cli-<version>-linux-x64.tar.gz`：0.7.0 及以前只有
