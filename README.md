@@ -104,7 +104,7 @@ Or, use variables from this repository in case I change them:
 | `x86_64-linux` | `bstar` | [bstar](https://github.com/chrononeko/chronocat) | 0.5.10 | V8 injection library that adds ChronoCat support to the QQ NT client |
 |  | `buffybox` | [buffybox](https://gitlab.com/postmarketOS/buffybox) | 0-unstable-2024-10-05 | Suite of graphical applications for the terminal |
 |  | `buname` | [buname](https://github.com/dramforever/buname) | 0-unstable-2025-09-18 | Uname wrapper that renumbers Linux versions as if 2.6 never ended |
-|  | `c001apk-flutter` | [c001apk-flutter](https://github.com/bggRGjQaUbCoE/c001apk-flutter) | 0-unstable-2026-03-08 | Unofficial Flutter client for Coolapk |
+|  | `c001apk` | [c001apk](https://github.com/TG-Twilight/c001apk) | 1.3.5 | Unofficial lightweight Coolapk client built with Flutter |
 |  | `calibre-cops` | [calibre-cops](http://blog.slucas.fr/en/oss/calibre-opds-php-server) | 4.6.1 | Web-based light alternative to Calibre content server / Calibre2OPDS to serve ebooks |
 |  | `cardpointers-cli` | [cardpointers-cli](https://github.com/cardpointers/cli) | 1.0.7 | Credit card rewards CLI for CardPointers |
 |  | `cargo-tauri` | [tauri](https://tauri.app/) | 2.0.1 | Build smaller, faster, and more secure desktop applications with a web frontend |
@@ -1704,7 +1704,7 @@ Or, use variables from this repository in case I change them:
 | `x86_64-linux` | `uncategorized-DataEraserC.browser4-unwrapped` | [browser4-unwrapped](https://github.com/platonai/Browser4) | 4.13.27 | MCP-driven browser automation toolkit pairing a Rust command-line client with a Java automation server (unwrapped) |
 | `x86_64-linux` | `uncategorized-DataEraserC.bstar` | [bstar](https://github.com/chrononeko/chronocat) | 0.5.10 | V8 injection library that adds ChronoCat support to the QQ NT client |
 |  | `uncategorized-DataEraserC.buffybox` | [buffybox](https://gitlab.com/postmarketOS/buffybox) | 0-unstable-2024-10-05 | Suite of graphical applications for the terminal |
-|  | `uncategorized-DataEraserC.c001apk-flutter` | [c001apk-flutter](https://github.com/bggRGjQaUbCoE/c001apk-flutter) | 0-unstable-2026-03-08 | Unofficial Flutter client for Coolapk |
+|  | `uncategorized-DataEraserC.c001apk` | [c001apk](https://github.com/TG-Twilight/c001apk) | 1.3.5 | Unofficial lightweight Coolapk client built with Flutter |
 |  | `uncategorized-DataEraserC.cargo-tauri` | [tauri](https://tauri.app/) | 2.0.1 | Build smaller, faster, and more secure desktop applications with a web frontend |
 |  | `uncategorized-DataEraserC.clang_dev_env` | [clang_dev_env](https://clang.llvm.org/) |  | Development environment with Clang and C language tooling |
 |  | `uncategorized-DataEraserC.clang_dev_env_fhs` | [clang_dev_env_fhs-shell](https://clang.llvm.org/) |  | FHS sandbox providing Clang and C language tooling |
