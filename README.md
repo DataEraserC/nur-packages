@@ -84,7 +84,7 @@ Or, use variables from this repository in case I change them:
 |  | `awawausb-native-stub` | [awawausb-native-stub](https://github.com/ArcaneNibble/awawausb) | 0.2 | Native messaging stub for the awawausb WebUSB Firefox extension |
 |  | `axiom-syslog-proxy` | [axiom-syslog-proxy](https://github.com/axiomhq/axiom-syslog-proxy) | 0.8.0 | Syslog push interface to Axiom |
 |  | `axonhub` | [axonhub](https://github.com/looplj/axonhub) | 1.0.0-beta11 | Open-source AI gateway with built-in failover, load balancing, cost control and end-to-end tracing |
-| `x86_64-linux` | `baidunetdisk` | [baidunetdisk](https://pan.baidu.com/) | 8.7.0 | Baidu Netdisk |
+| `x86_64-linux` | `baidunetdisk` | [baidunetdisk](https://pan.baidu.com/) | 8.9.6 | Baidu Netdisk |
 |  | `baidupcs-go` | [baidupcs-go](https://github.com/qjfoidnh/BaiduPCS-Go) | 4.0.2-unstable-2026-09-09 | Baidu Netdisk commandline client, mimicking Linux shell file handling commands |
 | `x86_64-linux` | `bambu-studio-bin` | [bambu-studio-bin](https://github.com/bambulab/BambuStudio) | 02.05.02.51 | PC Software for BambuLab and other 3D printers |
 |  | `bas-remote` | [bas-remote](https://github.com/DataEraserC/bas-remote) | 0.7.3 | SAP Business Application Studio remote dev spaces, as a Rust library with a DeepSeek Harness host |
@@ -122,7 +122,7 @@ Or, use variables from this repository in case I change them:
 |  | `cpolar` | [cpolar](https://www.cpolar.com) | 3.3.12 | Expose local web services to the public internet |
 |  | `cryptodev-unstable` | [cryptodev-linux](http://cryptodev-linux.org/) | 1.14-unstable-2025-11-03 | Device that allows access to Linux kernel cryptographic drivers |
 | `x86_64-linux` | `crystalhd` | [crystalhd](https://github.com/dbason/crystalhd) | 0-unstable-2021-01-26 | Broadcom Crystal HD Hardware Decoder (BCM70012/70015) driver |
-| `x86_64-linux` | `cua-cli` | [cua-cli](https://github.com/trycua/cua) | 0.7.0 | CLI for the Cua computer-use stack: sandbox lifecycle (Podman/Docker/QEMU/Lume) and its MCP server |
+| `x86_64-linux` | `cua-cli` | [cua-cli](https://github.com/trycua/cua) | 0.9.0 | CLI for the Cua computer-use stack: sandbox lifecycle (Podman/Docker/QEMU/Lume) and its MCP server |
 |  | `cua-driver` | [cua-driver](https://github.com/trycua/cua) | 0.38.0 | Cross-platform MCP server and CLI for computer-use automation (trycua/cua driver) |
 |  | `cudatoolkit_dev_env` | [cudatoolkit_dev_env](https://developer.nvidia.com/cuda-toolkit) |  | Development environment with the CUDA toolkit |
 |  | `cudatoolkit_dev_env_fhs` | [cudatoolkit_dev_env_fhs-shell](https://developer.nvidia.com/cuda-toolkit) |  | FHS sandbox providing the CUDA toolkit |
@@ -149,9 +149,9 @@ Or, use variables from this repository in case I change them:
 |  | `dsh-chat-import` | [dsh-chat-import](https://github.com/Nwflower/dsh-chat-import) | 0.26.2 | Import conversation history from 25+ AI coding agents into DeepSeek Harness as resumable sessions with tool calls and reasoning intact |
 |  | `dsh-comfyui` | [dsh-comfyui](https://github.com/fandc520/dsh-comfyui) | 0.5.5 | Drive a local or remote ComfyUI from DeepSeek Harness with workflow, asset and queue panels plus per-workflow skill packs |
 |  | `dsh-cua-driver` | [dsh-cua-driver](https://github.com/trycua/cua) | 0.38.0 | Computer use for DeepSeek Harness through an installed Cua Driver MCP executable |
-|  | `dsh-cua-sandbox` | [dsh-cua-sandbox](https://github.com/trycua/cua) | 0.7.0 | Sandboxed desktop control for DeepSeek Harness through the cua CLI MCP server |
+|  | `dsh-cua-sandbox` | [dsh-cua-sandbox](https://github.com/trycua/cua) | 0.9.0 | Sandboxed desktop control for DeepSeek Harness through the cua CLI MCP server |
 |  | `dsh-ego-browser` | [dsh-ego-browser](https://github.com/Fisfzy/dsh-ego-browser) | 0.9.4 | Chrome-driven browser automation bundle for DeepSeek Harness with 32 ego_* tools, CDP/FFmpeg capture, casting and a live observation panel |
-|  | `dsh-free-search` | [dsh-free-search](https://github.com/DDDMUC/dsh-free-search) | 0.9.16 | Provide free web search with smart engine routing, keyless fallback and a settings UI for DeepSeek Harness |
+|  | `dsh-free-search` | [dsh-free-search](https://github.com/DDDMUC/dsh-free-search) | 0.9.17 | Provide free web search with smart engine routing, keyless fallback and a settings UI for DeepSeek Harness |
 |  | `dsh-git-worktree` | [dsh-git-worktree](https://github.com/wloops/dsh-git-worktree) | 0.11.0 | Git worktree Session Targets for DeepSeek Harness with isolated task sessions, reversible local preview, human-confirmed delivery, recovery, and same-session iteration |
 |  | `dsh-headless-display` | [dsh-headless-display](https://github.com/jingyingruodi/dsh-headless-display) | 1.4.1 | Isolated headless X display for DeepSeek Harness with GPU-capable sway backend, silent audio and remote operation tools |
 |  | `dsh-notifier` | [dsh-notifier](https://github.com/THEWOLFWALKER/dsh-notifier) | 0.13.1 | Notification and remote-control plane for DeepSeek Harness with 28 outbound channels, 6 inbound control channels and a native Notify & Control UI |
@@ -165,8 +165,8 @@ Or, use variables from this repository in case I change them:
 |  | `dsh-video-fetch` | [dsh-video-fetch](https://github.com/DataEraserC/dsh-video-fetch) | 0.5.0 | Video downloading for DeepSeek Harness with per-channel login (QR / cookie / SMS / password / browser) and ffmpeg compression |
 |  | `dsh-worktree` | [dsh-worktree](https://github.com/FlashingChen/dsh-worktree) | 0.1.0 | Codex-style permanent git worktrees for DeepSeek Harness: agent tools, a /worktree command, and session context for durable worktrees |
 |  | `dump978` | [dump978](https://github.com/flightaware/dump978) | 11.1 | FlightAware's 978MHz UAT demodulator |
-| `x86_64-linux` | `easy-cliproxyapi-bin` | [easy-cliproxyapi-bin](https://github.com/router-for-me/EasyCLIProxyAPI) | 0.3.53 | Desktop GUI for CLIProxyAPI that configures popular AI agents |
-|  | `easycliproxyapi` | [easycliproxyapi](https://github.com/router-for-me/EasyCLIProxyAPI) | 0.3.53 | Desktop GUI for managing CLIProxyAPI and configuring AI agent clients |
+| `x86_64-linux` | `easy-cliproxyapi-bin` | [easy-cliproxyapi-bin](https://github.com/router-for-me/EasyCLIProxyAPI) | 0.3.54 | Desktop GUI for CLIProxyAPI that configures popular AI agents |
+|  | `easycliproxyapi` | [easycliproxyapi](https://github.com/router-for-me/EasyCLIProxyAPI) | 0.3.54 | Desktop GUI for managing CLIProxyAPI and configuring AI agent clients |
 |  | `edge-tts` | [edge-tts](https://github.com/rany2/edge-tts) | 7.3.1 | Use Microsoft Edge's online text-to-speech service from Python WITHOUT needing Microsoft Edge or Windows or an API key |
 |  | `ela-widget-tools` | [ela-widget-tools](https://github.com/Liniyous/ElaWidgetTools) | 0-unstable-2026-10-09 | Fluent-UI For QT-Widget |
 |  | `electron_11` | [electron](https://github.com/electron/electron) | 11.5.0 | Cross platform desktop application shell |
@@ -211,10 +211,10 @@ Or, use variables from this repository in case I change them:
 |  | `hoyo-glyphs` | [hoyo-glyphs](https://github.com/SpeedyOrc-C/Hoyo-Glyphs) | 20250529 | Constructed scripts by Hoyoverse 米哈游的架空文字 |
 | `x86_64-linux` | `i915-sriov` | [i915-sriov](https://github.com/strongtz/i915-sriov-dkms) | 2026.09.16-unstable-2026-10-02 | DKMS module of Linux i915 driver with SR-IOV support |
 |  | `igsc` | [igsc](https://github.com/intel/igsc) | 1.3.2 | Intel graphics system controller firmware update library |
-|  | `ik-llama-cpp` | [ik-llama-cpp](https://github.com/ikawrakow/ik_llama.cpp) | 0-unstable-2026-10-26 | High-performance llama.cpp fork with optimized i-quantization kernels |
-|  | `ik-llama-cpp-avx` | [ik-llama-cpp](https://github.com/ikawrakow/ik_llama.cpp) | 0-unstable-2026-10-26 | High-performance llama.cpp fork with optimized i-quantization kernels |
-|  | `ik-llama-cpp-avx2` | [ik-llama-cpp](https://github.com/ikawrakow/ik_llama.cpp) | 0-unstable-2026-10-26 | High-performance llama.cpp fork with optimized i-quantization kernels |
-|  | `ik-llama-cpp-cuda` | [ik-llama-cpp](https://github.com/ikawrakow/ik_llama.cpp) | 0-unstable-2026-10-26 | High-performance llama.cpp fork with optimized i-quantization kernels |
+|  | `ik-llama-cpp` | [ik-llama-cpp](https://github.com/ikawrakow/ik_llama.cpp) | 0-unstable-2026-10-27 | High-performance llama.cpp fork with optimized i-quantization kernels |
+|  | `ik-llama-cpp-avx` | [ik-llama-cpp](https://github.com/ikawrakow/ik_llama.cpp) | 0-unstable-2026-10-27 | High-performance llama.cpp fork with optimized i-quantization kernels |
+|  | `ik-llama-cpp-avx2` | [ik-llama-cpp](https://github.com/ikawrakow/ik_llama.cpp) | 0-unstable-2026-10-27 | High-performance llama.cpp fork with optimized i-quantization kernels |
+|  | `ik-llama-cpp-cuda` | [ik-llama-cpp](https://github.com/ikawrakow/ik_llama.cpp) | 0-unstable-2026-10-27 | High-performance llama.cpp fork with optimized i-quantization kernels |
 |  | `imewlconverter` | [imewlconverter](https://github.com/studyzy/imewlconverter) | 3.6.0 | FOSS program for converting IME dictionaries |
 |  | `invisible-firefox-unwrapped` | [invisible-firefox-unwrapped](https://github.com/feder-cr/invisible-firefox) | 151.0 | Firefox with anti fingerprinting modifications |
 |  | `it-tools` | [it-tools](https://github.com/sharevb/it-tools) | 2026.10.25 | Collection of handy online tools for developers, with great UX |
@@ -242,7 +242,7 @@ Or, use variables from this repository in case I change them:
 |  | `lyrica-plasmoid` | [lyrica](https://github.com/chiyuki0325/lyrica) | 0.24 | Linux desktop lyrics widget focused on simplicity and integration (Plasmoid component) |
 |  | `lyrics-on-panel-backend` | [lyrics-on-panel-backend](https://github.com/KangweiZhu/lyrics-on-panel) | 2.0 | MPRIS2 WebSocket backend for the Lyrics-on-Panel KDE Plasma widget |
 |  | `m365-copilot2api` | [m365-copilot2api](https://github.com/HEXUXIU/M365-Copilot2API) | 0.7.3 | Microsoft 365 Copilot to OpenAI/Anthropic compatible API gateway |
-|  | `mages-bin` | [mages-bin](https://github.com/mlm-games/Mages) | 5.2.6 | Experimental Matrix chat client built with Compose Multiplatform and matrix-rust-sdk |
+|  | `mages-bin` | [mages-bin](https://github.com/mlm-games/Mages) | 5.2.7 | Experimental Matrix chat client built with Compose Multiplatform and matrix-rust-sdk |
 |  | `magiskboot` | [magiskboot](https://topjohnwu.github.io/Magisk/tools.html) | 31.1 | Tool to unpack / repack boot images, parse / patch / extract cpio, patch dtb, hex patch binaries, and compress / decompress files with multiple algorithms |
 |  | `mautrix-gmessages` | [mautrix-gmessages](https://github.com/mautrix/gmessages) | 0.2610.0 | Matrix-Google Messages puppeting bridge |
 |  | `metapi` | [metapi](https://github.com/cita-777/metapi) | 1.3.0 | Meta-layer management and unified proxy for AI API aggregation platforms |
@@ -314,7 +314,7 @@ Or, use variables from this repository in case I change them:
 |  | `qq-mode-console` | [qq-mode-console](https://github.com/Derpyu520/qq-bridge) | 0.2.1-r1 | DSH plugin: QQ bridge mode console for settings UI |
 | `x86_64-linux` | `qqmusic` | [qqmusic](https://y.qq.com/) | 1.1.8 | Tencent QQ Music |
 |  | `qsp` | [qsp](https://github.com/QSPFoundation/qspgui) | 5.9.5-unstable-2026-10-15 | Interactive Fiction development platform (GUI application) |
-|  | `qsp-lib` | [qsp-lib](https://github.com/QSPFoundation/qsp) | 5.9.5-unstable-2026-10-26 | Interactive fiction development platform (Game Library) |
+|  | `qsp-lib` | [qsp-lib](https://github.com/QSPFoundation/qsp) | 5.9.5-unstable-2026-10-27 | Interactive fiction development platform (Game Library) |
 |  | `qtwebapp` | [qtwebapp](https://stefanfrings.de/qtwebapp/index-en.html) | 1.9.1 | HTTP server library in C++, inspired by Java Servlets |
 |  | `r8125` | [r8125](https://www.realtek.com/en/component/zoo/category/network-interface-controllers-10-100-1000m-gigabit-ethernet-pci-express-software) | 9.018.00-1 | Linux device driver for Realtek 2.5/5 Gigabit Ethernet controllers with PCI-Express interface |
 |  | `r8168` | [r8168](https://www.realtek.com/en/component/zoo/category/network-interface-controllers-10-100-1000m-gigabit-ethernet-pci-express-software) | 8.057.00 | Linux device driver for Realtek Ethernet controllers |
@@ -378,8 +378,8 @@ Or, use variables from this repository in case I change them:
 |  | `watt-toolkit_2` | [watt-toolkit](https://steampp.net) | 2.8.6 | Cross-platform Steam toolbox |
 |  | `watt-toolkit_bin` | [watt-toolkit_bin](https://steampp.net) | 3.1.0 | Open source cross-platform multi-purpose game toolkit |
 |  | `wechat-uos-sandboxed` | [wechat-uos](https://weixin.qq.com/) | 4.1.1.7 | WeChat desktop with sandbox enabled ($HOME/Documents/WeChat_Data) (Adapted from https://aur.archlinux.org/packages/wechat-uos-bwrap) |
-| `x86_64-linux` | `wechat_dev_tools_appimage` | [wechat_dev_tools_appimage](https://github.com/msojocs/wechat-web-devtools-linux) | 2.02.2608080-1 | Development tools for WeChat mini program projects |
-| `x86_64-linux` | `wechat_dev_tools_bin` | [wechat_dev_tools_bin](https://github.com/msojocs/wechat-web-devtools-linux) | 2.02.2608080-1 | Development tools for WeChat mini program projects |
+| `x86_64-linux` | `wechat_dev_tools_appimage` | [wechat_dev_tools_appimage](https://github.com/msojocs/wechat-web-devtools-linux) | 2.02.2608080-2 | Development tools for WeChat mini program projects |
+| `x86_64-linux` | `wechat_dev_tools_bin` | [wechat_dev_tools_bin](https://github.com/msojocs/wechat-web-devtools-linux) | 2.02.2608080-2 | Development tools for WeChat mini program projects |
 | `x86_64-linux` | `wine-wechat` | [wine-wechat](https://weixin.qq.com/) | 3.9.12.57 | Wine WeChat x64 (Packaging script adapted from https://aur.archlinux.org/packages/deepin-wine-wechat) |
 | `x86_64-linux` | `wine-wechat-x86` | [wine-wechat-x86](https://weixin.qq.com/) | 3.9.12.56 | Wine WeChat x86 (Packaging script adapted from https://aur.archlinux.org/packages/deepin-wine-wechat) |
 | `x86_64-linux` | `witch-weapon` | [witch-weapon](https://github.com/YANG301/Witch-Weapon-Godot-) | 1.4.2-unstable-2026-08-13 | Fan-made Godot remake of the Witch Weapon story |
@@ -1503,7 +1503,7 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized.awawausb-native-stub` | [awawausb-native-stub](https://github.com/ArcaneNibble/awawausb) | 0.2 | Native messaging stub for the awawausb WebUSB Firefox extension |
 |  | `uncategorized.axiom-syslog-proxy` | [axiom-syslog-proxy](https://github.com/axiomhq/axiom-syslog-proxy) | 0.8.0 | Syslog push interface to Axiom |
 |  | `uncategorized.axonhub` | [axonhub](https://github.com/looplj/axonhub) | 1.0.0-beta11 | Open-source AI gateway with built-in failover, load balancing, cost control and end-to-end tracing |
-| `x86_64-linux` | `uncategorized.baidunetdisk` | [baidunetdisk](https://pan.baidu.com/) | 8.7.0 | Baidu Netdisk |
+| `x86_64-linux` | `uncategorized.baidunetdisk` | [baidunetdisk](https://pan.baidu.com/) | 8.9.6 | Baidu Netdisk |
 |  | `uncategorized.baidupcs-go` | [baidupcs-go](https://github.com/qjfoidnh/BaiduPCS-Go) | 4.0.2-unstable-2026-09-09 | Baidu Netdisk commandline client, mimicking Linux shell file handling commands |
 | `x86_64-linux` | `uncategorized.bambu-studio-bin` | [bambu-studio-bin](https://github.com/bambulab/BambuStudio) | 02.05.02.51 | PC Software for BambuLab and other 3D printers |
 |  | `uncategorized.beellama-cpp` | [beellama-cpp](https://github.com/Anbeeld/beellama.cpp) | 0.4.8 | Anbeeld fork of llama.cpp with improved decoding and speculative decoding |
@@ -1529,7 +1529,7 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized.drone-file-secret` | [drone-file-secret](https://github.com/xddxdd/drone-file-secret) | 0-unstable-2023-06-26 | Secret provider for Drone CI that reads secrets from a given folder |
 |  | `uncategorized.drone-vault` | [drone-vault](https://docs.drone.io/configure/secrets/external/vault/) | 1.3.0 | Drone plugin for integrating with the Vault secrets manager |
 |  | `uncategorized.dump978` | [dump978](https://github.com/flightaware/dump978) | 11.1 | FlightAware's 978MHz UAT demodulator |
-|  | `uncategorized.easycliproxyapi` | [easycliproxyapi](https://github.com/router-for-me/EasyCLIProxyAPI) | 0.3.53 | Desktop GUI for managing CLIProxyAPI and configuring AI agent clients |
+|  | `uncategorized.easycliproxyapi` | [easycliproxyapi](https://github.com/router-for-me/EasyCLIProxyAPI) | 0.3.54 | Desktop GUI for managing CLIProxyAPI and configuring AI agent clients |
 |  | `uncategorized.ela-widget-tools` | [ela-widget-tools](https://github.com/Liniyous/ElaWidgetTools) | 0-unstable-2026-10-09 | Fluent-UI For QT-Widget |
 |  | `uncategorized.electron_11` | [electron](https://github.com/electron/electron) | 11.5.0 | Cross platform desktop application shell |
 |  | `uncategorized.electron_9` | [electron](https://github.com/electron/electron) | 9.4.4 | Cross platform desktop application shell |
@@ -1564,10 +1564,10 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized.hi3-ii-martian-font` | [hi3-ii-martian-font](https://github.com/Wenti-D/HI3IIMartianFont) | 0-unstable-2023-10-12 | Font for Martian in Honkai Impact 3rd |
 |  | `uncategorized.hoyo-glyphs` | [hoyo-glyphs](https://github.com/SpeedyOrc-C/Hoyo-Glyphs) | 20250529 | Constructed scripts by Hoyoverse 米哈游的架空文字 |
 |  | `uncategorized.igsc` | [igsc](https://github.com/intel/igsc) | 1.3.2 | Intel graphics system controller firmware update library |
-|  | `uncategorized.ik-llama-cpp` | [ik-llama-cpp](https://github.com/ikawrakow/ik_llama.cpp) | 0-unstable-2026-10-26 | High-performance llama.cpp fork with optimized i-quantization kernels |
-|  | `uncategorized.ik-llama-cpp-avx` | [ik-llama-cpp](https://github.com/ikawrakow/ik_llama.cpp) | 0-unstable-2026-10-26 | High-performance llama.cpp fork with optimized i-quantization kernels |
-|  | `uncategorized.ik-llama-cpp-avx2` | [ik-llama-cpp](https://github.com/ikawrakow/ik_llama.cpp) | 0-unstable-2026-10-26 | High-performance llama.cpp fork with optimized i-quantization kernels |
-|  | `uncategorized.ik-llama-cpp-cuda` | [ik-llama-cpp](https://github.com/ikawrakow/ik_llama.cpp) | 0-unstable-2026-10-26 | High-performance llama.cpp fork with optimized i-quantization kernels |
+|  | `uncategorized.ik-llama-cpp` | [ik-llama-cpp](https://github.com/ikawrakow/ik_llama.cpp) | 0-unstable-2026-10-27 | High-performance llama.cpp fork with optimized i-quantization kernels |
+|  | `uncategorized.ik-llama-cpp-avx` | [ik-llama-cpp](https://github.com/ikawrakow/ik_llama.cpp) | 0-unstable-2026-10-27 | High-performance llama.cpp fork with optimized i-quantization kernels |
+|  | `uncategorized.ik-llama-cpp-avx2` | [ik-llama-cpp](https://github.com/ikawrakow/ik_llama.cpp) | 0-unstable-2026-10-27 | High-performance llama.cpp fork with optimized i-quantization kernels |
+|  | `uncategorized.ik-llama-cpp-cuda` | [ik-llama-cpp](https://github.com/ikawrakow/ik_llama.cpp) | 0-unstable-2026-10-27 | High-performance llama.cpp fork with optimized i-quantization kernels |
 |  | `uncategorized.imewlconverter` | [imewlconverter](https://github.com/studyzy/imewlconverter) | 3.6.0 | FOSS program for converting IME dictionaries |
 |  | `uncategorized.invisible-firefox-unwrapped` | [invisible-firefox-unwrapped](https://github.com/feder-cr/invisible-firefox) | 151.0 | Firefox with anti fingerprinting modifications |
 |  | `uncategorized.it-tools` | [it-tools](https://github.com/sharevb/it-tools) | 2026.10.25 | Collection of handy online tools for developers, with great UX |
@@ -1587,7 +1587,7 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized.lyrica` | [lyrica](https://github.com/chiyuki0325/lyrica) | 0.24 | Linux desktop lyrics widget focused on simplicity and integration |
 |  | `uncategorized.lyrica-plasmoid` | [lyrica](https://github.com/chiyuki0325/lyrica) | 0.24 | Linux desktop lyrics widget focused on simplicity and integration (Plasmoid component) |
 |  | `uncategorized.lyrics-on-panel-backend` | [lyrics-on-panel-backend](https://github.com/KangweiZhu/lyrics-on-panel) | 2.0 | MPRIS2 WebSocket backend for the Lyrics-on-Panel KDE Plasma widget |
-|  | `uncategorized.mages-bin` | [mages-bin](https://github.com/mlm-games/Mages) | 5.2.6 | Experimental Matrix chat client built with Compose Multiplatform and matrix-rust-sdk |
+|  | `uncategorized.mages-bin` | [mages-bin](https://github.com/mlm-games/Mages) | 5.2.7 | Experimental Matrix chat client built with Compose Multiplatform and matrix-rust-sdk |
 |  | `uncategorized.magiskboot` | [magiskboot](https://topjohnwu.github.io/Magisk/tools.html) | 31.1 | Tool to unpack / repack boot images, parse / patch / extract cpio, patch dtb, hex patch binaries, and compress / decompress files with multiple algorithms |
 |  | `uncategorized.mautrix-gmessages` | [mautrix-gmessages](https://github.com/mautrix/gmessages) | 0.2610.0 | Matrix-Google Messages puppeting bridge |
 |  | `uncategorized.metapi` | [metapi](https://github.com/cita-777/metapi) | 1.3.0 | Meta-layer management and unified proxy for AI API aggregation platforms |
@@ -1631,7 +1631,7 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized.qq` | [qq](https://im.qq.com/linuxqq/index.html) | 3.2.18 | Desktop client for QQ on Linux |
 | `x86_64-linux` | `uncategorized.qqmusic` | [qqmusic](https://y.qq.com/) | 1.1.8 | Tencent QQ Music |
 |  | `uncategorized.qsp` | [qsp](https://github.com/QSPFoundation/qspgui) | 5.9.5-unstable-2026-10-15 | Interactive Fiction development platform (GUI application) |
-|  | `uncategorized.qsp-lib` | [qsp-lib](https://github.com/QSPFoundation/qsp) | 5.9.5-unstable-2026-10-26 | Interactive fiction development platform (Game Library) |
+|  | `uncategorized.qsp-lib` | [qsp-lib](https://github.com/QSPFoundation/qsp) | 5.9.5-unstable-2026-10-27 | Interactive fiction development platform (Game Library) |
 |  | `uncategorized.qtwebapp` | [qtwebapp](https://stefanfrings.de/qtwebapp/index-en.html) | 1.9.1 | HTTP server library in C++, inspired by Java Servlets |
 | `x86_64-linux` | `uncategorized.red-star-os-rgjanggi` | [red-star-os-rgjanggi](https://archive.org/details/RedStarOS) | 3.0 | Rgjanggi game from DPRK Red Star OS 3.0, heavily sandboxed, use at your own risk |
 |  | `uncategorized.red-star-os-wallpapers` | [red-star-os-wallpapers](https://archive.org/details/RedStarOS) | 3.0 | Wallpapers from DPRK Red Star OS 3.0 |
@@ -1713,7 +1713,7 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized-DataEraserC.codearts` | [codearts](https://support.huaweicloud.com/codeartsagent/index.html) | 26.10.9 | Terminal coding agent CLI from Huawei Cloud CodeArts |
 |  | `uncategorized-DataEraserC.codebuddy` | [codebuddy](https://cnb.cool/codebuddy/codebuddy-code) | 2.177.0 | Terminal AI coding assistant from Tencent CodeBuddy |
 |  | `uncategorized-DataEraserC.cpolar` | [cpolar](https://www.cpolar.com) | 3.3.12 | Expose local web services to the public internet |
-| `x86_64-linux` | `uncategorized-DataEraserC.cua-cli` | [cua-cli](https://github.com/trycua/cua) | 0.7.0 | CLI for the Cua computer-use stack: sandbox lifecycle (Podman/Docker/QEMU/Lume) and its MCP server |
+| `x86_64-linux` | `uncategorized-DataEraserC.cua-cli` | [cua-cli](https://github.com/trycua/cua) | 0.9.0 | CLI for the Cua computer-use stack: sandbox lifecycle (Podman/Docker/QEMU/Lume) and its MCP server |
 |  | `uncategorized-DataEraserC.cua-driver` | [cua-driver](https://github.com/trycua/cua) | 0.38.0 | Cross-platform MCP server and CLI for computer-use automation (trycua/cua driver) |
 |  | `uncategorized-DataEraserC.cudatoolkit_dev_env` | [cudatoolkit_dev_env](https://developer.nvidia.com/cuda-toolkit) |  | Development environment with the CUDA toolkit |
 |  | `uncategorized-DataEraserC.cudatoolkit_dev_env_fhs` | [cudatoolkit_dev_env_fhs-shell](https://developer.nvidia.com/cuda-toolkit) |  | FHS sandbox providing the CUDA toolkit |
@@ -1723,9 +1723,9 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized-DataEraserC.dsh-chat-import` | [dsh-chat-import](https://github.com/Nwflower/dsh-chat-import) | 0.26.2 | Import conversation history from 25+ AI coding agents into DeepSeek Harness as resumable sessions with tool calls and reasoning intact |
 |  | `uncategorized-DataEraserC.dsh-comfyui` | [dsh-comfyui](https://github.com/fandc520/dsh-comfyui) | 0.5.5 | Drive a local or remote ComfyUI from DeepSeek Harness with workflow, asset and queue panels plus per-workflow skill packs |
 |  | `uncategorized-DataEraserC.dsh-cua-driver` | [dsh-cua-driver](https://github.com/trycua/cua) | 0.38.0 | Computer use for DeepSeek Harness through an installed Cua Driver MCP executable |
-|  | `uncategorized-DataEraserC.dsh-cua-sandbox` | [dsh-cua-sandbox](https://github.com/trycua/cua) | 0.7.0 | Sandboxed desktop control for DeepSeek Harness through the cua CLI MCP server |
+|  | `uncategorized-DataEraserC.dsh-cua-sandbox` | [dsh-cua-sandbox](https://github.com/trycua/cua) | 0.9.0 | Sandboxed desktop control for DeepSeek Harness through the cua CLI MCP server |
 |  | `uncategorized-DataEraserC.dsh-ego-browser` | [dsh-ego-browser](https://github.com/Fisfzy/dsh-ego-browser) | 0.9.4 | Chrome-driven browser automation bundle for DeepSeek Harness with 32 ego_* tools, CDP/FFmpeg capture, casting and a live observation panel |
-|  | `uncategorized-DataEraserC.dsh-free-search` | [dsh-free-search](https://github.com/DDDMUC/dsh-free-search) | 0.9.16 | Provide free web search with smart engine routing, keyless fallback and a settings UI for DeepSeek Harness |
+|  | `uncategorized-DataEraserC.dsh-free-search` | [dsh-free-search](https://github.com/DDDMUC/dsh-free-search) | 0.9.17 | Provide free web search with smart engine routing, keyless fallback and a settings UI for DeepSeek Harness |
 |  | `uncategorized-DataEraserC.dsh-git-worktree` | [dsh-git-worktree](https://github.com/wloops/dsh-git-worktree) | 0.11.0 | Git worktree Session Targets for DeepSeek Harness with isolated task sessions, reversible local preview, human-confirmed delivery, recovery, and same-session iteration |
 |  | `uncategorized-DataEraserC.dsh-headless-display` | [dsh-headless-display](https://github.com/jingyingruodi/dsh-headless-display) | 1.4.1 | Isolated headless X display for DeepSeek Harness with GPU-capable sway backend, silent audio and remote operation tools |
 |  | `uncategorized-DataEraserC.dsh-notifier` | [dsh-notifier](https://github.com/THEWOLFWALKER/dsh-notifier) | 0.13.1 | Notification and remote-control plane for DeepSeek Harness with 28 outbound channels, 6 inbound control channels and a native Notify & Control UI |
@@ -1738,7 +1738,7 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized-DataEraserC.dsh-turn-rewind` | [dsh-turn-rewind](https://github.com/Anionex/dsh-turn-rewind) | 0.3.11-unstable-2026-10-26 | Turn-level conversation and workspace rewind for DeepSeek Harness powered by a persistent Change Ledger |
 |  | `uncategorized-DataEraserC.dsh-video-fetch` | [dsh-video-fetch](https://github.com/DataEraserC/dsh-video-fetch) | 0.5.0 | Video downloading for DeepSeek Harness with per-channel login (QR / cookie / SMS / password / browser) and ffmpeg compression |
 |  | `uncategorized-DataEraserC.dsh-worktree` | [dsh-worktree](https://github.com/FlashingChen/dsh-worktree) | 0.1.0 | Codex-style permanent git worktrees for DeepSeek Harness: agent tools, a /worktree command, and session context for durable worktrees |
-| `x86_64-linux` | `uncategorized-DataEraserC.easy-cliproxyapi-bin` | [easy-cliproxyapi-bin](https://github.com/router-for-me/EasyCLIProxyAPI) | 0.3.53 | Desktop GUI for CLIProxyAPI that configures popular AI agents |
+| `x86_64-linux` | `uncategorized-DataEraserC.easy-cliproxyapi-bin` | [easy-cliproxyapi-bin](https://github.com/router-for-me/EasyCLIProxyAPI) | 0.3.54 | Desktop GUI for CLIProxyAPI that configures popular AI agents |
 | `x86_64-linux` | `uncategorized-DataEraserC.escrcpy_appimage` | [escrcpy](https://github.com/keiko233/clash-nyanpasu) | 3.3.1 | Clash GUI based on tauri |
 |  | `uncategorized-DataEraserC.example-package` | [example-package-1.0](https://github.com/DataEraserC/nur-packages) | 1.0 | Example package demonstrating the repository packaging conventions |
 |  | `uncategorized-DataEraserC.fcitx5-pinyin-CustomPinyinDictionary` | [fcitx5-pinyin-CustomPinyinDictionary](https://github.com/wuhgit/CustomPinyinDictionary) | 20260101 | 自建拼音输入法词库，百万常用词汇量，适配 Fcitx5 (Linux / Android) 及 Gboard (Android + Magisk or KernelSU) |
@@ -1771,8 +1771,8 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized-DataEraserC.video-login-abi` | [video-login-abi](https://github.com/DataEraserC/video-login) | 0.2.0 | C ABI shared library for multi-channel video site login |
 |  | `uncategorized-DataEraserC.watt-toolkit_2` | [watt-toolkit](https://steampp.net) | 2.8.6 | Cross-platform Steam toolbox |
 |  | `uncategorized-DataEraserC.watt-toolkit_bin` | [watt-toolkit_bin](https://steampp.net) | 3.1.0 | Open source cross-platform multi-purpose game toolkit |
-| `x86_64-linux` | `uncategorized-DataEraserC.wechat_dev_tools_appimage` | [wechat_dev_tools_appimage](https://github.com/msojocs/wechat-web-devtools-linux) | 2.02.2608080-1 | Development tools for WeChat mini program projects |
-| `x86_64-linux` | `uncategorized-DataEraserC.wechat_dev_tools_bin` | [wechat_dev_tools_bin](https://github.com/msojocs/wechat-web-devtools-linux) | 2.02.2608080-1 | Development tools for WeChat mini program projects |
+| `x86_64-linux` | `uncategorized-DataEraserC.wechat_dev_tools_appimage` | [wechat_dev_tools_appimage](https://github.com/msojocs/wechat-web-devtools-linux) | 2.02.2608080-2 | Development tools for WeChat mini program projects |
+| `x86_64-linux` | `uncategorized-DataEraserC.wechat_dev_tools_bin` | [wechat_dev_tools_bin](https://github.com/msojocs/wechat-web-devtools-linux) | 2.02.2608080-2 | Development tools for WeChat mini program projects |
 |  | `uncategorized-DataEraserC.workbuddy` | [workbuddy](https://www.workbuddy.cn) | 5.6.2.40046327 | AI agent desktop application for everyday office work |
 |  | `uncategorized-DataEraserC.workbuddy-ai` | [workbuddy-ai](https://www.workbuddy.ai) | 5.6.2.40046327 | AI agent desktop application for everyday office work, international deployment |
 |  | `uncategorized-DataEraserC.xcursor-genshin-nahida` | [xcursor-genshin-nahida](https://aur.archlinux.org/packages/xcursor-genshin-nahida) | 0-unstable-2023-02-12 | Cursor theme featuring Nahida from Genshin Impact |
