@@ -30,6 +30,19 @@ let
     pname = "zcode-cn";
     inherit version src;
   };
+
+  # ZCode is a VS Code fork, but its AppImage launcher passes none of the
+  # Wayland arguments that buildVscode (and therefore Trae) adds, and that
+  # workbuddy and lobsterai add in their wrappers. A second wrapper here keeps
+  # every Electron app in this directory on the same backend with the same IME
+  # behaviour. The block expands only when both NIXOS_OZONE_WL and
+  # WAYLAND_DISPLAY are set, so an X11 session is untouched.
+  launcher = ''
+    #!/bin/sh
+    exec "@out@/bin/.zcode-cn-unwrapped" \
+      ''${NIXOS_OZONE_WL:+''${WAYLAND_DISPLAY:+--ozone-platform-hint=auto --enable-features=WaylandWindowDecorations --enable-wayland-ime=true --wayland-text-input-version=3}} \
+      "$@"
+  '';
 in
 appimageTools.wrapType2 {
   pname = "zcode-cn";
@@ -43,6 +56,11 @@ appimageTools.wrapType2 {
       --replace-fail 'Exec=AppRun' 'Exec=zcode-cn' \
       --replace-fail 'Icon=zcode' 'Icon=zcode-cn'
     install -Dm644 ${contents}/zcode.png $out/share/pixmaps/zcode-cn.png
+
+    mv "$out/bin/zcode-cn" "$out/bin/.zcode-cn-unwrapped"
+    printf '%s\n' ${lib.escapeShellArg launcher} > "$out/bin/zcode-cn"
+    substituteInPlace "$out/bin/zcode-cn" --replace-fail '@out@' "$out"
+    chmod +x "$out/bin/zcode-cn"
   '';
 
   passthru.updateScript = [ (toString ./update.sh) ];
