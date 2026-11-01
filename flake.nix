@@ -178,6 +178,7 @@
 
             # My additions
             "9router" = import ./modules/9router.nix;
+            agent2api = import ./modules/agent2api.nix;
             aw88399-legion-audio = import ./modules/aw88399-legion-audio.nix;
             hkdm = import ./modules/hkdm.nix;
             cpolar = import ./modules/cpolar.nix;
