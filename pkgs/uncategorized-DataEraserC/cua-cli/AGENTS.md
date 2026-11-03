@@ -1,6 +1,6 @@
 # cua-cli 打包笔记
 
-上游：<https://github.com/trycua/cua>（MIT）。锁定 tag `cua-sdk-v0.9.0`，
+上游：<https://github.com/trycua/cua>（MIT）。锁定 tag `cua-sdk-v0.10.1`，
 用 `update.sh` 随 tag 更新（同 tag 发 cua-driver-rs-v* / cua-sdk-v* 两套，
 脚本只认 sdk 这条线）。
 
@@ -19,6 +19,12 @@ raw.githubusercontent.com 的源码树文件，两者字节稳定，宿主机 pr
 构建沙箱的下载一致。**GitHub `archive/refs/tags/*.tar.gz` 则不行**——宿主机
 prefetch 与沙箱 fetchurl 会下载到不同的字节变体，prefetch 出的哈希过不了
 FOD 校验（实测与做法见 cua-driver 打包笔记「更新机制」）。
+
+**tag 可见 ≠ asset 已上传完**：2026-11-03 的周更里 `cua-sdk-v0.10.1` 已经在
+tag 列表里，但 `cua-cli-0.10.1-linux-x64.tar.gz` 仍返回 404，整包因此
+FAILED——几分钟后同一 URL 就能下载（tag 先建、asset 后传的竞态，发版当晚
+跑更新必踩）。所以 prefetch 改成 4 次重试、间隔 30 s，src 与 skills 都走这个
+helper；真缺 asset（改名/删档）只是把报错推迟 90 s，判定不变。
 
 ## 预编译二进制 + autoPatchelf，不源码构建
 

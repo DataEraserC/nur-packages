@@ -25,8 +25,8 @@
 }:
 let
   versionData = {
-    tag = "cua-sdk-v0.9.0";
-    hash = "sha256-l4Af9MOqLz2Z+POa4tCHldzOwkFZOrN0vnypJXYUIco=";
+    tag = "cua-sdk-v0.10.1";
+    hash = "sha256-6kILCsIcUksJUHxXbPnFWiF3zjyEFp3LXi0XkvGMKSk=";
   };
   version = lib.removePrefix "cua-sdk-v" versionData.tag;
   # Same tag as the binary: the skills describe the CLI's own commands, so a
@@ -54,7 +54,7 @@ stdenv.mkDerivation rec {
 
   src = fetchurl {
     url = "https://github.com/trycua/cua/releases/download/${versionData.tag}/cua-cli-${version}-linux-x64.tar.gz";
-    hash = versionData.hash;
+    inherit (versionData) hash;
   };
 
   nativeBuildInputs = [ autoPatchelfHook ];
