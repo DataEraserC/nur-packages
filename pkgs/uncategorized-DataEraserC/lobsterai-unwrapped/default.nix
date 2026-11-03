@@ -10,13 +10,13 @@
 }:
 
 let
-  version = "2026.10.23";
+  version = "2026.10.30";
 
   src = fetchFromGitHub {
     owner = "netease-youdao";
     repo = "LobsterAI";
     tag = version;
-    hash = "sha256-Z52uT8XpH1s6o5UiYUmk0kJJoo8JptjDr+dHLzrMmS8=";
+    hash = "sha256-SQNa6synPmoXhNiE4qMQV4/Aqcc0BPE3JMYFXtMuXeo=";
   };
 
   openclawRuntime = callPackage ./openclaw-runtime.nix { lobsteraiSrc = src; };
@@ -112,7 +112,7 @@ let
   appDeps = fetchNpmDeps {
     name = "lobsterai-${version}-npm-deps";
     inherit src;
-    hash = "sha256-7QeQky1pqhlK+rXSrOATKHrIzd9KNIaw3KyX5iUk2DE=";
+    hash = "sha256-/cYWfwQ+0KKhvKa5ulNfvDcZcHPa814P966Vfh1P4WI=";
     postPatch = ''
       cp ${./package-lock.json} package-lock.json
     '';

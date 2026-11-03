@@ -4,11 +4,11 @@
   fetchurl,
 }:
 let
-  version = "2.02.2609240-1";
+  version = "2.02.2609240-2";
 
   src = fetchurl {
     url = "https://github.com/msojocs/wechat-web-devtools-linux/releases/download/v${version}/WeChat_Dev_Tools_v${version}_x86_64_linux.AppImage";
-    hash = "sha256-QKjJQDTXGHmSyjJFRX8apA1yFXK58uOoVPEYyldN+9s=";
+    hash = "sha256-l/ka87YaOOV7GJMVTcRGbepnsIjiy8ehMw1kgjsWao0=";
   };
 in
 appimageTools.wrapType2 rec {

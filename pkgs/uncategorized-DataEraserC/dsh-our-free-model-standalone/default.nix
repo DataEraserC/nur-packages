@@ -14,13 +14,13 @@
 }:
 stdenv.mkDerivation (finalAttrs: {
   pname = "dsh-our-free-model-standalone";
-  version = "2.7.2";
+  version = "2.8.0-macos-unofficial";
 
   src = fetchFromGitHub {
     owner = "Ebony-Vinyl";
     repo = "dsh-our-free-model";
     rev = "v${finalAttrs.version}";
-    hash = "sha256-0Z3GAFNbvR20jNAxGyZNxB+6qWzguou1ZDq/WHm0GQk=";
+    hash = "sha256-pok9OYdcoi5fNZse9GF3b8jqEtcagO3T+nlN2DXc0UQ=";
   };
 
   __structuredAttrs = true;
@@ -37,7 +37,7 @@ stdenv.mkDerivation (finalAttrs: {
   env.npmDeps = fetchNpmDeps {
     name = "dsh-our-free-model-standalone-npm-deps";
     inherit (finalAttrs) src;
-    hash = "sha256-4o61JjPTDBVldCfB7EJBqU8LI44VM1bMmFNQnuAPmnw=";
+    hash = "sha256-7JuM/ZSRO/vrYmlyOSFz5bvrWsQm7P/0OefbHYPfig8=";
   };
 
   nativeBuildInputs = [
