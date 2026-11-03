@@ -62,7 +62,7 @@ Or, use variables from this repository in case I change them:
 ## Packages
 
 <details>
-<summary>Package set: (Uncategorized) (350 packages)</summary>
+<summary>Package set: (Uncategorized) (351 packages)</summary>
 
 | State | Path | Name | Version | Description |
 | ----- | ---- | ---- | ------- | ----------- |
@@ -124,7 +124,7 @@ Or, use variables from this repository in case I change them:
 |  | `cpolar` | [cpolar](https://www.cpolar.com) | 3.3.12 | Expose local web services to the public internet |
 |  | `cryptodev-unstable` | [cryptodev-linux](http://cryptodev-linux.org/) | 1.14-unstable-2025-11-03 | Device that allows access to Linux kernel cryptographic drivers |
 | `x86_64-linux` | `crystalhd` | [crystalhd](https://github.com/dbason/crystalhd) | 0-unstable-2021-01-26 | Broadcom Crystal HD Hardware Decoder (BCM70012/70015) driver |
-| `x86_64-linux` | `cua-cli` | [cua-cli](https://github.com/trycua/cua) | 0.9.0 | CLI for the Cua computer-use stack: sandbox lifecycle (Podman/Docker/QEMU/Lume) and its MCP server |
+| `x86_64-linux` | `cua-cli` | [cua-cli](https://github.com/trycua/cua) | 0.10.1 | CLI for the Cua computer-use stack: sandbox lifecycle (Podman/Docker/QEMU/Lume) and its MCP server |
 |  | `cua-driver` | [cua-driver](https://github.com/trycua/cua) | 0.38.0 | Cross-platform MCP server and CLI for computer-use automation (trycua/cua driver) |
 |  | `cudatoolkit_dev_env` | [cudatoolkit_dev_env](https://developer.nvidia.com/cuda-toolkit) |  | Development environment with the CUDA toolkit |
 |  | `cudatoolkit_dev_env_fhs` | [cudatoolkit_dev_env_fhs-shell](https://developer.nvidia.com/cuda-toolkit) |  | FHS sandbox providing the CUDA toolkit |
@@ -151,7 +151,7 @@ Or, use variables from this repository in case I change them:
 |  | `dsh-chat-import` | [dsh-chat-import](https://github.com/Nwflower/dsh-chat-import) | 0.26.3 | Import conversation history from 25+ AI coding agents into DeepSeek Harness as resumable sessions with tool calls and reasoning intact |
 |  | `dsh-comfyui` | [dsh-comfyui](https://github.com/fandc520/dsh-comfyui) | 0.5.5 | Drive a local or remote ComfyUI from DeepSeek Harness with workflow, asset and queue panels plus per-workflow skill packs |
 |  | `dsh-cua-driver` | [dsh-cua-driver](https://github.com/trycua/cua) | 0.38.0 | Computer use for DeepSeek Harness through an installed Cua Driver MCP executable |
-|  | `dsh-cua-sandbox` | [dsh-cua-sandbox](https://github.com/trycua/cua) | 0.9.0 | Sandboxed desktop control for DeepSeek Harness through the cua CLI MCP server |
+|  | `dsh-cua-sandbox` | [dsh-cua-sandbox](https://github.com/trycua/cua) | 0.10.1 | Sandboxed desktop control for DeepSeek Harness through the cua CLI MCP server |
 |  | `dsh-ego-browser` | [dsh-ego-browser](https://github.com/Fisfzy/dsh-ego-browser) | 0.9.8 | Chrome-driven browser automation bundle for DeepSeek Harness with 32 ego_* tools, CDP/FFmpeg capture, casting and a live observation panel |
 |  | `dsh-free-search` | [dsh-free-search](https://github.com/DDDMUC/dsh-free-search) | 0.9.27 | Provide free web search with smart engine routing, keyless fallback and a settings UI for DeepSeek Harness |
 |  | `dsh-git-worktree` | [dsh-git-worktree](https://github.com/wloops/dsh-git-worktree) | 0.12.0 | Git worktree Session Targets for DeepSeek Harness with isolated task sessions, reversible local preview, human-confirmed delivery, recovery, and same-session iteration |
@@ -378,6 +378,7 @@ Or, use variables from this repository in case I change them:
 |  | `waline` | [waline](https://github.com/walinejs/waline) | 1.43.6 | Server for the Waline comment system |
 |  | `watt-toolkit_2` | [watt-toolkit](https://steampp.net) | 2.8.6 | Cross-platform Steam toolbox |
 |  | `watt-toolkit_bin` | [watt-toolkit_bin](https://steampp.net) | 3.1.0 | Open source cross-platform multi-purpose game toolkit |
+|  | `webmux` | [webmux](https://github.com/mzdluo123/webmux) | 0.10.1 | Browser-based persistent terminal server that keeps sessions alive across disconnects |
 |  | `wechat-uos-sandboxed` | [wechat-uos](https://weixin.qq.com/) | 4.1.1.7 | WeChat desktop with sandbox enabled ($HOME/Documents/WeChat_Data) (Adapted from https://aur.archlinux.org/packages/wechat-uos-bwrap) |
 | `x86_64-linux` | `wechat_dev_tools_appimage` | [wechat_dev_tools_appimage](https://github.com/msojocs/wechat-web-devtools-linux) | 2.02.2609240-2 | Development tools for WeChat mini program projects |
 | `x86_64-linux` | `wechat_dev_tools_bin` | [wechat_dev_tools_bin](https://github.com/msojocs/wechat-web-devtools-linux) | 2.02.2609240-2 | Development tools for WeChat mini program projects |
@@ -1685,7 +1686,7 @@ Or, use variables from this repository in case I change them:
 </details>
 
 <details>
-<summary>Package set: uncategorized-DataEraserC (105 packages)</summary>
+<summary>Package set: uncategorized-DataEraserC (106 packages)</summary>
 
 | State | Path | Name | Version | Description |
 | ----- | ---- | ---- | ------- | ----------- |
@@ -1715,7 +1716,7 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized-DataEraserC.codearts` | [codearts](https://support.huaweicloud.com/codeartsagent/index.html) | 26.10.13 | Terminal coding agent CLI from Huawei Cloud CodeArts |
 |  | `uncategorized-DataEraserC.codebuddy` | [codebuddy](https://cnb.cool/codebuddy/codebuddy-code) | 2.179.3 | Terminal AI coding assistant from Tencent CodeBuddy |
 |  | `uncategorized-DataEraserC.cpolar` | [cpolar](https://www.cpolar.com) | 3.3.12 | Expose local web services to the public internet |
-| `x86_64-linux` | `uncategorized-DataEraserC.cua-cli` | [cua-cli](https://github.com/trycua/cua) | 0.9.0 | CLI for the Cua computer-use stack: sandbox lifecycle (Podman/Docker/QEMU/Lume) and its MCP server |
+| `x86_64-linux` | `uncategorized-DataEraserC.cua-cli` | [cua-cli](https://github.com/trycua/cua) | 0.10.1 | CLI for the Cua computer-use stack: sandbox lifecycle (Podman/Docker/QEMU/Lume) and its MCP server |
 |  | `uncategorized-DataEraserC.cua-driver` | [cua-driver](https://github.com/trycua/cua) | 0.38.0 | Cross-platform MCP server and CLI for computer-use automation (trycua/cua driver) |
 |  | `uncategorized-DataEraserC.cudatoolkit_dev_env` | [cudatoolkit_dev_env](https://developer.nvidia.com/cuda-toolkit) |  | Development environment with the CUDA toolkit |
 |  | `uncategorized-DataEraserC.cudatoolkit_dev_env_fhs` | [cudatoolkit_dev_env_fhs-shell](https://developer.nvidia.com/cuda-toolkit) |  | FHS sandbox providing the CUDA toolkit |
@@ -1725,7 +1726,7 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized-DataEraserC.dsh-chat-import` | [dsh-chat-import](https://github.com/Nwflower/dsh-chat-import) | 0.26.3 | Import conversation history from 25+ AI coding agents into DeepSeek Harness as resumable sessions with tool calls and reasoning intact |
 |  | `uncategorized-DataEraserC.dsh-comfyui` | [dsh-comfyui](https://github.com/fandc520/dsh-comfyui) | 0.5.5 | Drive a local or remote ComfyUI from DeepSeek Harness with workflow, asset and queue panels plus per-workflow skill packs |
 |  | `uncategorized-DataEraserC.dsh-cua-driver` | [dsh-cua-driver](https://github.com/trycua/cua) | 0.38.0 | Computer use for DeepSeek Harness through an installed Cua Driver MCP executable |
-|  | `uncategorized-DataEraserC.dsh-cua-sandbox` | [dsh-cua-sandbox](https://github.com/trycua/cua) | 0.9.0 | Sandboxed desktop control for DeepSeek Harness through the cua CLI MCP server |
+|  | `uncategorized-DataEraserC.dsh-cua-sandbox` | [dsh-cua-sandbox](https://github.com/trycua/cua) | 0.10.1 | Sandboxed desktop control for DeepSeek Harness through the cua CLI MCP server |
 |  | `uncategorized-DataEraserC.dsh-ego-browser` | [dsh-ego-browser](https://github.com/Fisfzy/dsh-ego-browser) | 0.9.8 | Chrome-driven browser automation bundle for DeepSeek Harness with 32 ego_* tools, CDP/FFmpeg capture, casting and a live observation panel |
 |  | `uncategorized-DataEraserC.dsh-free-search` | [dsh-free-search](https://github.com/DDDMUC/dsh-free-search) | 0.9.27 | Provide free web search with smart engine routing, keyless fallback and a settings UI for DeepSeek Harness |
 |  | `uncategorized-DataEraserC.dsh-git-worktree` | [dsh-git-worktree](https://github.com/wloops/dsh-git-worktree) | 0.12.0 | Git worktree Session Targets for DeepSeek Harness with isolated task sessions, reversible local preview, human-confirmed delivery, recovery, and same-session iteration |
@@ -1773,6 +1774,7 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized-DataEraserC.video-login-abi` | [video-login-abi](https://github.com/DataEraserC/video-login) | 0.2.0 | C ABI shared library for multi-channel video site login |
 |  | `uncategorized-DataEraserC.watt-toolkit_2` | [watt-toolkit](https://steampp.net) | 2.8.6 | Cross-platform Steam toolbox |
 |  | `uncategorized-DataEraserC.watt-toolkit_bin` | [watt-toolkit_bin](https://steampp.net) | 3.1.0 | Open source cross-platform multi-purpose game toolkit |
+|  | `uncategorized-DataEraserC.webmux` | [webmux](https://github.com/mzdluo123/webmux) | 0.10.1 | Browser-based persistent terminal server that keeps sessions alive across disconnects |
 | `x86_64-linux` | `uncategorized-DataEraserC.wechat_dev_tools_appimage` | [wechat_dev_tools_appimage](https://github.com/msojocs/wechat-web-devtools-linux) | 2.02.2609240-2 | Development tools for WeChat mini program projects |
 | `x86_64-linux` | `uncategorized-DataEraserC.wechat_dev_tools_bin` | [wechat_dev_tools_bin](https://github.com/msojocs/wechat-web-devtools-linux) | 2.02.2609240-2 | Development tools for WeChat mini program projects |
 |  | `uncategorized-DataEraserC.workbuddy` | [workbuddy](https://www.workbuddy.cn) | 5.6.2.40046327 | AI agent desktop application for everyday office work |
