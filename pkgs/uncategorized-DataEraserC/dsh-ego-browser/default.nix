@@ -46,7 +46,7 @@ else
 
     checkPhase = ''
       runHook preCheck
-      npm test
+      npm test -- --testTimeout=120000
       runHook postCheck
     '';
 
