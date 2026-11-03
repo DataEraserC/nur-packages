@@ -9,6 +9,13 @@
 
 - 自动化提交用 `auto: update packages`；整仓库性修复可用描述性标题，如 `Fix Hydra build failures (eval <id>)`（下游修订：上游原文此处的示例为 `Fix package evaluation errors`）
 
+## nixpkgs 输入与 nix-config 对齐
+
+- **`nixpkgs` 这个 flake input 应尽量与本机 `/home/nixos/nix-config` 的 `flake.lock` 中 `nixpkgs` 的 locked rev 保持一致**：对齐方法是读 `~/nix-config/flake.lock` 取该 rev，再在本仓库执行 `nix flake lock --override-input nixpkgs github:NixOS/nixpkgs/<rev>`（本仓库该 input 名称就是 `nixpkgs`，见 [`flake.nix`](flake.nix) 的 `inputs.nixpkgs.url`）
+- 这类 `flake.lock` 变更**单独提交**，提交信息写明与 nix-config 对齐（如 `chore(flake): align nixpkgs input with nix-config`），不要混进包改动或上游合并的提交
+- 对齐后 README 需用 `nix build --no-link --print-out-paths .#_meta.readme` 重新生成：部分包的 `version` 来自 nixpkgs，rev 变化会改到 README 的版本列
+- **每次更新上游并 merge 进下游后，顺手检查并重新对齐该 nixpkgs rev**
+
 ## Nix 包定义规范
 
 ### 最佳实践
