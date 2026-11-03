@@ -45,8 +45,8 @@ This NUR automatically builds and pushes build artifacts to my binary cache. You
 
 ```nix
 {
-  nix.settings.substituters = [ "https://attic.xuyh0120.win/lantian" ];
-  nix.settings.trusted-public-keys = [ "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc=" ];
+  nix.settings.substituters = [ "https://cache.lantian.pub/lantian" ];
+  nix.settings.trusted-public-keys = [ "lantian:WVGO7vsRMSEN+h7Lp7kv6SAmrkEXgUGbbXm7jMDjBuQ=" ];
 }
 ```
 
@@ -62,7 +62,7 @@ Or, use variables from this repository in case I change them:
 ## Packages
 
 <details>
-<summary>Package set: (Uncategorized) (351 packages)</summary>
+<summary>Package set: (Uncategorized) (357 packages)</summary>
 
 | State | Path | Name | Version | Description |
 | ----- | ---- | ---- | ------- | ----------- |
@@ -191,6 +191,7 @@ Or, use variables from this repository in case I change them:
 |  | `flaresolverr-21hsmw` | [flaresolverr-21hsmw](https://github.com/21hsmw/FlareSolverr) | 0-unstable-2025-03-04 | Proxy server to bypass Cloudflare protection, with 21hsmw modifications to support nodriver |
 |  | `flaresolverr-alexfozor` | [flaresolverr-alexfozor](https://github.com/AlexFozor/FlareSolverr) | 0-unstable-2024-07-20 | Proxy server to bypass Cloudflare protection, with AlexFozor modifications to support Drission Page |
 | `x86_64-linux` | `flashbrowser` | [flashbrowser](https://github.com/radubirsan/FlashBrowser) | 0.81 | Browser capable of viewing pages with embedded Flash content |
+|  | `folia-major-bin` | [folia-major-bin](https://github.com/chthollyphile/folia-major) | 0.7.25 | Music player with animated lyrics and audio visualization |
 |  | `fr24feed` | [fr24feed](https://www.flightradar24.com/share-your-data) | 1.0.57-1 | Flightradar24 Decoder & Feeder lets you effortlessly share ADS-B data with Flightradar24 |
 |  | `ftp-proxy` | [ftp-proxy](http://www.ftpproxy.org/) | 1.2.3 | FTP Proxy Server |
 |  | `funasr` | [funasr](https://www.funasr.com/) | 1.4.20-unstable-2026-11-03 | Fundamental End-to-End Speech Recognition Toolkit and Open Source SOTA Pretrained Models |
@@ -199,6 +200,8 @@ Or, use variables from this repository in case I change them:
 | `x86_64-linux` | `google-earth-pro` | [google-earth-pro](https://www.google.com/earth/) | 7.3.7.1327 | Google Earth Pro |
 |  | `gopherus` | [gopherus](http://gopherus.sourceforge.net/) | 1.2.2 | Free, multiplatform, console-mode gopher client that provides a classic text interface to the gopherspace |
 |  | `gost-engine` | [gost-engine](https://github.com/gost-engine/engine) | 3.0.5 | Reference implementation of the Russian GOST crypto algorithms for OpenSSL |
+| `x86_64-linux` | `gpu-unlock` | [gpu-unlock](https://github.com/Zagitta/gpu-unlock) | unraid-unstable-2026-10-28 | Early-boot Ampere GPU floating-point instruction rate unlock |
+| `x86_64-linux` | `gpu-unlock-firmware` | [gpu-unlock-firmware](https://github.com/Zagitta/gpu-unlock) | unraid-unstable-2026-10-28 | Pinned NVIDIA firmware assets for gpu-unlock |
 |  | `grasscutter` | [grasscutter](https://github.com/Grasscutters/Grasscutter) | 1.7.4 | Server software reimplementation for a certain anime game |
 |  | `grok-search-rs` | [grok-search-rs](https://github.com/Episkey-G/GrokSearch-rs) | 0.1.26 | Rust MCP server for Grok web search and Tavily-backed source retrieval |
 | `x86_64-linux` | `gst-plugin-crystalhd` | [gst-plugin-crystalhd](https://launchpad.net/ubuntu/+source/crystalhd) | 0-unstable-2020-03-22 | Broadcom Crystal HD Hardware Decoder (BCM70012/70015) GStreamer plugin |
@@ -219,6 +222,7 @@ Or, use variables from this repository in case I change them:
 |  | `ik-llama-cpp-cuda` | [ik-llama-cpp](https://github.com/ikawrakow/ik_llama.cpp) | 0-unstable-2026-11-02 | High-performance llama.cpp fork with optimized i-quantization kernels |
 |  | `imewlconverter` | [imewlconverter](https://github.com/studyzy/imewlconverter) | 3.6.0 | FOSS program for converting IME dictionaries |
 |  | `invisible-firefox-unwrapped` | [invisible-firefox-unwrapped](https://github.com/feder-cr/invisible-firefox) | 151.0 | Firefox with anti fingerprinting modifications |
+|  | `invisible-firefox-unwrapped-bin` | [invisible-firefox-unwrapped-bin](https://github.com/feder-cr/firefox_antidetect_patch) | 159.0 | Anti-fingerprinting Firefox, packaged from upstream prebuilt Linux binaries |
 |  | `it-tools` | [it-tools](https://github.com/sharevb/it-tools) | 2026.10.25 | Collection of handy online tools for developers, with great UX |
 |  | `ja-netfilter` | [ja-netfilter](https://3.jetbra.in) | 240701 | JVM agent framework for JetBrains IDE network filtering |
 |  | `ja4-nginx-module` | [ja4-nginx-module](https://github.com/FoxIO-LLC/ja4-nginx-module) | 0-unstable-2026-10-26 | JA4+ TLS fingerprint module for nginx |
@@ -283,7 +287,7 @@ Or, use variables from this repository in case I change them:
 |  | `opencode2api` | [opencode2api](https://github.com/jasonxu114514/opencode2api) | 1.4.6 | OpenCode Zen and Zen Go API gateway with OpenAI and Anthropic compatibility, key pooling, and WebUI |
 |  | `opencode2dsh` | [opencode2dsh](https://github.com/FishBottle7/opencode2dsh) | 0.3.14 | DSH plugin for free OpenCode Zen models with native adapter and no API key |
 |  | `openedai-speech` | [openedai-speech](https://github.com/matatonic/openedai-speech) | 0.18.2 | OpenAI API compatible text to speech server using Coqui AI's xtts_v2 and/or piper tts as the backend |
-|  | `openssl-oqs-provider` | [openssl-oqs-provider](https://openquantumsafe.org) | 0.12.0 | OpenSSL 3 provider containing post-quantum algorithms |
+|  | `openssl-oqs-provider` | [openssl-oqs-provider](https://openquantumsafe.org) | 0.12.0-unstable-2026-11-02 | OpenSSL 3 provider containing post-quantum algorithms |
 |  | `osdlyrics` | [osdlyrics](https://github.com/osdlyrics/osdlyrics) | 0.6.0 | Standalone lyrics fetcher/displayer (windowed and OSD mode) |
 |  | `palworld-exporter` | [palworld-exporter](https://github.com/palworldlol/palworld-exporter) | 1.3.1 | Prometheus exporter for Palworld Server |
 |  | `palworld-worldoptions` | [palworld-worldoptions](https://github.com/legoduded/palworld-worldoptions) | 1.11.0 | Tool for managing Palworld dedicated server settings |
@@ -299,6 +303,7 @@ Or, use variables from this repository in case I change them:
 |  | `plasma-yesplaymusic-lyric` | [plasma-yesplaymusic-lyric](https://github.com/zsiothsu/org.kde.plasma.yesplaymusic-lyrics) | 0.2.3-unstable-2025-01-07 | Display YesPlayMusic lyrics on the plasma panel | 在KDE plasma面板中显示YesPlayMusic的歌词 |
 |  | `prismml-llama-cpp` | [prismml-llama-cpp](https://github.com/PrismML-Eng/llama.cpp) | b12128-d7b2896 | PrismML fork of llama.cpp with runtime CPU dispatch and unified llama binary |
 |  | `prismml-llama-cpp-cuda` | [prismml-llama-cpp](https://github.com/PrismML-Eng/llama.cpp) | b12128-d7b2896 | PrismML fork of llama.cpp with runtime CPU dispatch and unified llama binary |
+|  | `prometheus-knot-exporter-go` | [prometheus-knot-exporter-go](https://github.com/CZ-NIC/knot-exporter) | 3.5.3-unstable-2025-10-31 | Prometheus exporter for Knot DNS written in Go |
 |  | `pterodactyl-wings` | [pterodactyl-wings](https://pterodactyl.io) | 1.13.4-unstable-2026-10-14 | Server control plane for Pterodactyl Panel |
 |  | `py-rcon` | [rcon](https://github.com/ttk1/py-rcon) | 1.3.0 | Python implementation of RCON |
 |  | `pyhss` | [pyhss](https://github.com/nickvsnetworking/pyhss) | 2.0.1-unstable-2026-10-30 | Python HSS / Diameter Server |
@@ -344,7 +349,7 @@ Or, use variables from this repository in case I change them:
 |  | `smfc` | [smfc](https://github.com/petersulyok/smfc) | 6.2.0 | Super Micro Fan Control |
 |  | `snell-server` | [snell-server](https://nssurge.com) | 6.0.0 | Proxy server implementing the Snell protocol |
 |  | `space-cadet-pinball-full-tilt` | [SpaceCadetPinball](https://github.com/k4zmu2a/SpaceCadetPinball) | 2.1.0 | Reverse engineering of 3D Pinball for Windows – Space Cadet, a game bundled with Windows (With Full Tilt Pinball data) |
-|  | `strata` | [strata](https://github.com/Niko1221/Strata) | 0.2.10 | Local large language model inference stack with a CUDA engine and a self-managed data folder |
+|  | `strata` | [strata-runtime](https://github.com/Niko1221/Strata) | 0.2.10 | Local large language model inference stack with a CUDA engine and a self-managed data folder |
 |  | `stream-echo-nginx-module` | [stream-echo-nginx-module](https://github.com/openresty/stream-echo-nginx-module) | 0-unstable-2016-12-18 | TCP stream echo module for nginx |
 |  | `suwayomi-server` | [suwayomi-server](https://github.com/Suwayomi/Suwayomi-Server) | 2.4.2366 | Rewrite of Tachiyomi for the Desktop |
 | `x86_64-linux` | `svp` | [svp](https://www.svp-team.com/wiki/SVP:Linux) | 4.7.305-1 | SmoothVideo Project 4 (SVP4) converts any video to 60 fps (and even higher) and performs this in real time right in your favorite video player |
@@ -372,6 +377,7 @@ Or, use variables from this repository in case I change them:
 |  | `vbmeta-disable-verification` | [vbmeta-disable-verification](https://github.com/libxzr/vbmeta-disable-verification) | 1.0 | Patch Android vbmeta image and disable verification flags inside |
 |  | `vgpu-unlock-rs` | [vgpu-unlock-rs](https://github.com/mbilker/vgpu_unlock-rs) | 2.5.0 | Unlock vGPU functionality for consumer grade GPUs |
 |  | `video-login-abi` | [video-login-abi](https://github.com/DataEraserC/video-login) | 0.2.0 | C ABI shared library for multi-channel video site login |
+| `x86_64-linux` | `vivado` | [vivado](https://www.amd.com/en/products/software/fpga-and-adaptive-socs/vivado.html) | 2025.2.1 | AMD Vivado ML Standard design suite |
 |  | `vk-hdr-layer` | [vk-hdr-layer](https://github.com/Zamundaaa/VK_hdr_layer) | 0-unstable-2026-08-05 | Vulkan layer utilizing a small color management / HDR protocol for experimentation |
 |  | `vlmcsd` | [vlmcsd](https://github.com/Wind4/vlmcsd) | 1113-unstable-2023-07-28 | KMS Emulator in C |
 |  | `vuetorrent-backend` | [vuetorrent-backend](https://github.com/VueTorrent/vuetorrent-backend) | 2.7.4 | Simple backend service to store configuration server-side |
@@ -524,7 +530,7 @@ Or, use variables from this repository in case I change them:
 </details>
 
 <details>
-<summary>Package set: kernel-modules (15 packages)</summary>
+<summary>Package set: kernel-modules (17 packages)</summary>
 
 | State | Path | Name | Version | Description |
 | ----- | ---- | ---- | ------- | ----------- |
@@ -535,6 +541,8 @@ Or, use variables from this repository in case I change them:
 | `x86_64-linux` | `kernel-modules.crystalhd` | [crystalhd](https://github.com/dbason/crystalhd) | 0-unstable-2021-01-26 | Broadcom Crystal HD Hardware Decoder (BCM70012/70015) driver |
 |  | `kernel-modules.dpdk-kmod` | [dpdk-kmod](https://git.dpdk.org/dpdk-kmods/) | 0-unstable-2024-11-20 | DPDK kernel modules or add-ons |
 |  | `kernel-modules.emperors-scepter` | [emperors-scepter](https://honkai-star-rail.fandom.com/wiki/As_I%27ve_Written/%CE%B4-me13.exe) | 0.1.0-6.18.60 | Idle kthreads for the twelve Scepter δ-me13 signals |
+| `x86_64-linux` | `kernel-modules.gpu-unlock` | [gpu-unlock](https://github.com/Zagitta/gpu-unlock) | unraid-unstable-2026-10-28 | Early-boot Ampere GPU floating-point instruction rate unlock |
+| `x86_64-linux` | `kernel-modules.gpu-unlock-firmware` | [gpu-unlock-firmware](https://github.com/Zagitta/gpu-unlock) | unraid-unstable-2026-10-28 | Pinned NVIDIA firmware assets for gpu-unlock |
 | `x86_64-linux` | `kernel-modules.i915-sriov` | [i915-sriov](https://github.com/strongtz/i915-sriov-dkms) | 2026.10.28-unstable-2026-11-01 | DKMS module of Linux i915 driver with SR-IOV support |
 |  | `kernel-modules.nft-fullcone` | [nft-fullcone](https://github.com/fullcone-nat-nftables/nft-fullcone) | 0-unstable-2023-05-17 | Nftables fullcone expression kernel module |
 |  | `kernel-modules.nullfsvfs` | [nullfsvfs](https://github.com/abbbi/nullfsvfs) | 0.27 | Virtual black hole file system that behaves like /dev/null |
@@ -546,14 +554,13 @@ Or, use variables from this repository in case I change them:
 </details>
 
 <details>
-<summary>Package set: lantianCustomized (15 packages)</summary>
+<summary>Package set: lantianCustomized (14 packages)</summary>
 
 | State | Path | Name | Version | Description |
 | ----- | ---- | ---- | ------- | ----------- |
 | `x86_64-linux` | `lantianCustomized.asterisk` | [asterisk](https://www.asterisk.org/) | 22.11.0 | Asterisk with Lan Tian modifications |
 |  | `lantianCustomized.attic-telnyx-compatible` | [attic](https://github.com/zhaofengli/attic) | 0-unstable-2026-07-06 | Multi-tenant Nix Binary Cache |
 |  | `lantianCustomized.coredns` | [coredns](https://github.com/xddxdd/coredns) | 1.14.7 | CoreDNS with Lan Tian's modifications |
-|  | `lantianCustomized.firefox-esr-unwrapped` | [firefox-unwrapped](https://github.com/feder-cr/firefox_antidetect_patch) | 153.6.0esr | Firefox with anti fingerprinting modifications |
 |  | `lantianCustomized.firefox-icon-mikozilla-fireyae` | [firefox-icon-mikozilla-fireyae](https://www.reddit.com/r/Genshin_Impact/comments/x73g4p/mikozilla_fireyae/) |  | Custom icon "Mikozilla Fireyae" for Firefox |
 |  | `lantianCustomized.firefox-unwrapped` | [firefox-unwrapped](https://github.com/feder-cr/firefox_antidetect_patch) | 159.0 | Firefox with anti fingerprinting modifications |
 |  | `lantianCustomized.librime-with-plugins` | [librime](https://rime.im/) | 1.17.0 | Librime with plugins (librime-charcode, librime-lua, librime-octagram, librime-proto) |
@@ -1495,7 +1502,7 @@ Or, use variables from this repository in case I change them:
 </details>
 
 <details>
-<summary>Package set: uncategorized (184 packages)</summary>
+<summary>Package set: uncategorized (188 packages)</summary>
 
 | State | Path | Name | Version | Description |
 | ----- | ---- | ---- | ------- | ----------- |
@@ -1548,6 +1555,7 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized.flaresolverr-21hsmw` | [flaresolverr-21hsmw](https://github.com/21hsmw/FlareSolverr) | 0-unstable-2025-03-04 | Proxy server to bypass Cloudflare protection, with 21hsmw modifications to support nodriver |
 |  | `uncategorized.flaresolverr-alexfozor` | [flaresolverr-alexfozor](https://github.com/AlexFozor/FlareSolverr) | 0-unstable-2024-07-20 | Proxy server to bypass Cloudflare protection, with AlexFozor modifications to support Drission Page |
 | `x86_64-linux` | `uncategorized.flashbrowser` | [flashbrowser](https://github.com/radubirsan/FlashBrowser) | 0.81 | Browser capable of viewing pages with embedded Flash content |
+|  | `uncategorized.folia-major-bin` | [folia-major-bin](https://github.com/chthollyphile/folia-major) | 0.7.25 | Music player with animated lyrics and audio visualization |
 |  | `uncategorized.fr24feed` | [fr24feed](https://www.flightradar24.com/share-your-data) | 1.0.57-1 | Flightradar24 Decoder & Feeder lets you effortlessly share ADS-B data with Flightradar24 |
 |  | `uncategorized.ftp-proxy` | [ftp-proxy](http://www.ftpproxy.org/) | 1.2.3 | FTP Proxy Server |
 |  | `uncategorized.geolite2` | [geolite2](https://dev.maxmind.com/geoip/geoip2/geolite2/) | 2026.11.01 | MaxMind's GeoIP2 GeoLite2 Country, City, and ASN databases |
@@ -1572,6 +1580,7 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized.ik-llama-cpp-cuda` | [ik-llama-cpp](https://github.com/ikawrakow/ik_llama.cpp) | 0-unstable-2026-11-02 | High-performance llama.cpp fork with optimized i-quantization kernels |
 |  | `uncategorized.imewlconverter` | [imewlconverter](https://github.com/studyzy/imewlconverter) | 3.6.0 | FOSS program for converting IME dictionaries |
 |  | `uncategorized.invisible-firefox-unwrapped` | [invisible-firefox-unwrapped](https://github.com/feder-cr/invisible-firefox) | 151.0 | Firefox with anti fingerprinting modifications |
+|  | `uncategorized.invisible-firefox-unwrapped-bin` | [invisible-firefox-unwrapped-bin](https://github.com/feder-cr/firefox_antidetect_patch) | 159.0 | Anti-fingerprinting Firefox, packaged from upstream prebuilt Linux binaries |
 |  | `uncategorized.it-tools` | [it-tools](https://github.com/sharevb/it-tools) | 2026.10.25 | Collection of handy online tools for developers, with great UX |
 |  | `uncategorized.jproxy` | [jproxy](https://github.com/LuckyPuppy514/jproxy) | 3.4.1 | Proxy between Sonarr / Radarr and Jackett / Prowlarr, mainly used to optimize search and improve recognition rate |
 |  | `uncategorized.kaixinsong-fonts` | [kaixinsong-fonts](http://www.guoxuedashi.net/zidian/bujian/KaiXinSong.php) | 3.0 | KaiXinSong |
@@ -1611,7 +1620,7 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized.oidc-tester-app` | [oidc-tester-app](https://github.com/authelia/oidc-tester-app) | 0-unstable-2026-10-28 | OpenID Connect relying party web application for testing OIDC providers such as Authelia |
 |  | `uncategorized.openai-edge-tts` | [openai-edge-tts](https://tts.travisvn.com/) | 2.0.0-unstable-2025-07-01 | Text-to-speech API endpoint compatible with OpenAI's TTS API endpoint, using Microsoft Edge TTS to generate speech for free locally |
 |  | `uncategorized.openedai-speech` | [openedai-speech](https://github.com/matatonic/openedai-speech) | 0.18.2 | OpenAI API compatible text to speech server using Coqui AI's xtts_v2 and/or piper tts as the backend |
-|  | `uncategorized.openssl-oqs-provider` | [openssl-oqs-provider](https://openquantumsafe.org) | 0.12.0 | OpenSSL 3 provider containing post-quantum algorithms |
+|  | `uncategorized.openssl-oqs-provider` | [openssl-oqs-provider](https://openquantumsafe.org) | 0.12.0-unstable-2026-11-02 | OpenSSL 3 provider containing post-quantum algorithms |
 |  | `uncategorized.osdlyrics` | [osdlyrics](https://github.com/osdlyrics/osdlyrics) | 0.6.0 | Standalone lyrics fetcher/displayer (windowed and OSD mode) |
 |  | `uncategorized.palworld-exporter` | [palworld-exporter](https://github.com/palworldlol/palworld-exporter) | 1.3.1 | Prometheus exporter for Palworld Server |
 |  | `uncategorized.palworld-worldoptions` | [palworld-worldoptions](https://github.com/legoduded/palworld-worldoptions) | 1.11.0 | Tool for managing Palworld dedicated server settings |
@@ -1626,6 +1635,7 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized.plasma-yesplaymusic-lyric` | [plasma-yesplaymusic-lyric](https://github.com/zsiothsu/org.kde.plasma.yesplaymusic-lyrics) | 0.2.3-unstable-2025-01-07 | Display YesPlayMusic lyrics on the plasma panel | 在KDE plasma面板中显示YesPlayMusic的歌词 |
 |  | `uncategorized.prismml-llama-cpp` | [prismml-llama-cpp](https://github.com/PrismML-Eng/llama.cpp) | b12128-d7b2896 | PrismML fork of llama.cpp with runtime CPU dispatch and unified llama binary |
 |  | `uncategorized.prismml-llama-cpp-cuda` | [prismml-llama-cpp](https://github.com/PrismML-Eng/llama.cpp) | b12128-d7b2896 | PrismML fork of llama.cpp with runtime CPU dispatch and unified llama binary |
+|  | `uncategorized.prometheus-knot-exporter-go` | [prometheus-knot-exporter-go](https://github.com/CZ-NIC/knot-exporter) | 3.5.3-unstable-2025-10-31 | Prometheus exporter for Knot DNS written in Go |
 |  | `uncategorized.pterodactyl-wings` | [pterodactyl-wings](https://pterodactyl.io) | 1.13.4-unstable-2026-10-14 | Server control plane for Pterodactyl Panel |
 |  | `uncategorized.pyhss` | [pyhss](https://github.com/nickvsnetworking/pyhss) | 2.0.1-unstable-2026-10-30 | Python HSS / Diameter Server |
 |  | `uncategorized.qemu-user-static` | [qemu-user-static](http://www.qemu.org/) | 11.1.2+ds-3 | Generic and open source machine emulator, virtualizer |
@@ -1651,7 +1661,7 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized.sidestore-vpn` | [sidestore-vpn](https://github.com/xddxdd/sidestore-vpn) | 0-unstable-2026-05-21 | Allow SideStore to work across all iOS devices on your local network |
 | `x86_64-linux` | `uncategorized.skyline-speeder` | [skyline-speeder](https://github.com/CYBERVERSE-Research/skyline-speeder) | 0.5.4 | Sender-side TCP congestion control via eBPF struct_ops with a Rust control plane |
 |  | `uncategorized.space-cadet-pinball-full-tilt` | [SpaceCadetPinball](https://github.com/k4zmu2a/SpaceCadetPinball) | 2.1.0 | Reverse engineering of 3D Pinball for Windows – Space Cadet, a game bundled with Windows (With Full Tilt Pinball data) |
-|  | `uncategorized.strata` | [strata](https://github.com/Niko1221/Strata) | 0.2.10 | Local large language model inference stack with a CUDA engine and a self-managed data folder |
+|  | `uncategorized.strata` | [strata-runtime](https://github.com/Niko1221/Strata) | 0.2.10 | Local large language model inference stack with a CUDA engine and a self-managed data folder |
 |  | `uncategorized.suwayomi-server` | [suwayomi-server](https://github.com/Suwayomi/Suwayomi-Server) | 2.4.2366 | Rewrite of Tachiyomi for the Desktop |
 | `x86_64-linux` | `uncategorized.svp` | [svp](https://www.svp-team.com/wiki/SVP:Linux) | 4.7.305-1 | SmoothVideo Project 4 (SVP4) converts any video to 60 fps (and even higher) and performs this in real time right in your favorite video player |
 |  | `uncategorized.svp-mpv` | [mpv-with-scripts](https://mpv.io) | 0.41.0 | General-purpose media player, fork of MPlayer and mplayer2 |
@@ -1670,6 +1680,7 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized.usque` | [usque](https://github.com/Diniboy1123/usque) | 4.2.1 | Open-source reimplementation of the Cloudflare WARP client's MASQUE protocol |
 |  | `uncategorized.vbmeta-disable-verification` | [vbmeta-disable-verification](https://github.com/libxzr/vbmeta-disable-verification) | 1.0 | Patch Android vbmeta image and disable verification flags inside |
 |  | `uncategorized.vgpu-unlock-rs` | [vgpu-unlock-rs](https://github.com/mbilker/vgpu_unlock-rs) | 2.5.0 | Unlock vGPU functionality for consumer grade GPUs |
+| `x86_64-linux` | `uncategorized.vivado` | [vivado](https://www.amd.com/en/products/software/fpga-and-adaptive-socs/vivado.html) | 2025.2.1 | AMD Vivado ML Standard design suite |
 |  | `uncategorized.vk-hdr-layer` | [vk-hdr-layer](https://github.com/Zamundaaa/VK_hdr_layer) | 0-unstable-2026-08-05 | Vulkan layer utilizing a small color management / HDR protocol for experimentation |
 |  | `uncategorized.vlmcsd` | [vlmcsd](https://github.com/Wind4/vlmcsd) | 1113-unstable-2023-07-28 | KMS Emulator in C |
 |  | `uncategorized.vuetorrent-backend` | [vuetorrent-backend](https://github.com/VueTorrent/vuetorrent-backend) | 2.7.4 | Simple backend service to store configuration server-side |

@@ -31,7 +31,6 @@ let
   };
 in
 (nginxMainline.override {
-  withImageFilter = true;
   modules = [
     (staticModule nginxModules.geoip2)
     (staticModule nginxModules.vts)
@@ -44,6 +43,15 @@ in
     ngx_http_js_challenge_module
     stream-echo-nginx-module
     zstd-nginx-module
+    (staticModule (
+      nginxModules.njs.overrideAttrs (old: {
+        preConfigure =
+          lib.replaceString
+            ''configureFlags="''${configureFlags/--add-module=*nginx-mod-njs-${old.version}/&/nginx}"''
+            ''configureFlags=("''${configureFlags[@]/--add-module=*nginx-mod-njs-${old.version}/&/nginx}")''
+            old.preConfigure;
+      })
+    ))
   ];
 }).overrideAttrs
   (old: {
@@ -62,6 +70,7 @@ in
       ./patches/nginx-ja4.patch
       ./patches/nginx-http2-fingerprint.patch
       ./patches/nginx-io-uring.patch
+      ./patches/nginx-ktls-lingering-close.patch
     ];
 
     postPatch = old.postPatch + ''

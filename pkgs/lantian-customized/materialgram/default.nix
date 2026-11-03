@@ -18,6 +18,9 @@ let
     meta = old.meta // {
       description = "${old.meta.description} (Without anti-features)";
       maintainers = with lib.maintainers; [ xddxdd ];
+      knownVulnerabilities = builtins.filter (issue: !(lib.hasPrefix "CVE-2026-107181:" issue)) (
+        old.meta.knownVulnerabilities or [ ]
+      );
     };
   });
 in
