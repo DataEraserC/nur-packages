@@ -12,13 +12,13 @@
 }:
 
 let
-  version = "0.10.1";
+  version = "0.11.1";
 
   src = fetchFromGitHub {
     owner = "mzdluo123";
     repo = "webmux";
     tag = "v${version}";
-    hash = "sha256-wn6ihaxTYj7qzlHC2voVdR0BcJtdr8P19ocRAQ7hYPA=";
+    hash = "sha256-/INPtjonLg24seq9GhmQMdCzQ3dYo1E6BmVbGf7gVEk=";
   };
 
   webPnpmDeps = fetchPnpmDeps {
