@@ -222,10 +222,14 @@ in
         ProtectControlGroups = true;
         ProtectProc = "invisible";
         ProcSubset = "pid";
+        # os.networkInterfaces() (libuv uv_interface_addresses) opens an
+        # AF_NETLINK route socket on Linux; without it the process aborts at
+        # startup with EAFNOSUPPORT, reported as "Unknown system error 97".
         RestrictAddressFamilies = [
           "AF_UNIX"
           "AF_INET"
           "AF_INET6"
+          "AF_NETLINK"
         ];
         RestrictNamespaces = true;
         RestrictSUIDSGID = true;
