@@ -30,6 +30,18 @@ rustPlatform.buildRustPackage (finalAttrs: {
     "agent2api-server"
   ];
 
+  # Upstream v3.4.1 test code predates its own type changes: RequestQuery grew
+  # client/api_key/production_only/completed_only, WebDavConfig grew user_agent,
+  # and send_with_retry gained the images and network parameters (its telemetry
+  # argument is now an Arc). The library and the binary compile; only the test
+  # targets fail. One more test still asserts the built-in CodeArts quota
+  # classifier, which moved to the out-of-tree agent2api-providers plugin,
+  # so adapter_for() now hands out the missing-plugin placeholder. Repair the
+  # three call sites and mark that obsolete case #[ignore]; the other 277 tests
+  # keep running. Remove the patch once upstream fixes its tests (v3.4.2 and
+  # master still carry the old shapes).
+  patches = [ ./test-drift.patch ];
+
   nativeBuildInputs = [ makeWrapper ];
 
   preCheck = ''
