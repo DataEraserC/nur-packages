@@ -18,19 +18,19 @@
 }:
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "agent2api-desktop";
-  version = "3.4.0";
+  version = "3.4.1";
 
   src = fetchFromGitHub {
     owner = "aimod-cc";
     repo = "Agent2API";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-VgfUBb8Rb8fCG6cVunT3/g+Yp7lOCjJOpkDaleLTH9M=";
+    hash = "sha256-17xzNr7PaoOlOFlBmtvJPt5VwUl9BYLYmSmP8eD624A=";
   };
 
   cargoRoot = "desktop-tauri/src-tauri";
   buildAndTestSubdir = "desktop-tauri/src-tauri";
 
-  cargoHash = "sha256-oQYNq4w/BLPn4mKNH2IlarKLt+Q6F0887nN2CKy9VvA=";
+  cargoHash = "sha256-hVjhaBxsdj6tkLH+aW07P1SHBWoqZpp5br3zpuvigZk=";
 
   __structuredAttrs = true;
   strictDeps = true;
