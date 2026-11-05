@@ -190,6 +190,12 @@ in
 
       environment = {
         HOME = stateDir;
+        # The OpenCode free lane spawns a native Bun for inference and for the
+        # catalog refresh; without one the refresh logs "requires a local Bun
+        # executable" and keeps the cached roster. Hand discovery the packaged
+        # binary instead of relying on the service PATH; extraEnvironment can
+        # still override it.
+        OUR_FREE_MODEL_BUN = lib.getExe pkgs.bun;
       }
       // cfg.extraEnvironment;
 
