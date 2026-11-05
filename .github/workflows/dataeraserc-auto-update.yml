@@ -95,8 +95,31 @@ jobs:
           path: update-results.json
           if-no-files-found: ignore
 
-      - name: Commit back to repository
+      # bd04579e ("auto: update packages") published new-api with
+      # outputHash = lib.fakeHash: the update script writes the placeholder
+      # before probing for the real value, and this job commits the working
+      # tree even when an update script fails. Refuse the commit instead.
+      - name: Reject placeholder hashes
+        id: placeholder-guard
         if: always()
+        run: |
+          set -euo pipefail
+          if [ ! -d pkgs ]; then
+            echo "::error::pkgs/ is missing; cannot check for placeholder hashes"
+            exit 1
+          fi
+          matches=$(grep -rnE \
+            'lib\.fakeHash|sha256-A{16,}|sha256-0{16,}|outputHash[[:space:]]*=[[:space:]]*""' \
+            --include='*.nix' pkgs || true)
+          if [ -n "$matches" ]; then
+            echo "::error::placeholder hashes left in package definitions; refusing to commit"
+            printf '%s\n' "$matches"
+            exit 1
+          fi
+          echo "No placeholder hashes found in pkgs/*.nix"
+
+      - name: Commit back to repository
+        if: always() && steps.placeholder-guard.outcome == 'success'
         env:
           API_TOKEN_GITHUB: ${{ secrets.AUTOMERGE_TOKEN }}
         run: |
