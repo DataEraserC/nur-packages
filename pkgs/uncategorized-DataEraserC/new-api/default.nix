@@ -45,7 +45,7 @@ let
     '';
     dontFixup = true;
     outputHashMode = "recursive";
-    outputHash = lib.fakeHash;
+    outputHash = "sha256-eE7H7kkzcKTb/sYs/38tt1isz6znSLUgbtR8J0mxHhA=";
   };
 
   web = stdenv.mkDerivation {
