@@ -6,12 +6,12 @@
 }:
 buildGoModule (finalAttrs: {
   pname = "opencode2api";
-  version = "1.4.6";
+  version = "1.4.7";
   src = fetchFromGitHub {
     owner = "jasonxu114514";
     repo = "opencode2api";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-V9TYUxtU0J4LtcCc2qTZhPA7KPv1/opHqx4z9mkAOH8=";
+    hash = "sha256-PFL9WimG1jGxqzGPUatOuRzxHikUZ+a7zEv4i90Br0M=";
   };
   vendorHash = "sha256-MWF1L41tS2V5VbfRUocch2k/TrN1y+8hr1wq9y1+dMg=";
 
