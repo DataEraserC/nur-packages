@@ -62,7 +62,7 @@ Or, use variables from this repository in case I change them:
 ## Packages
 
 <details>
-<summary>Package set: (Uncategorized) (357 packages)</summary>
+<summary>Package set: (Uncategorized) (358 packages)</summary>
 
 | State | Path | Name | Version | Description |
 | ----- | ---- | ---- | ------- | ----------- |
@@ -325,6 +325,7 @@ Or, use variables from this repository in case I change them:
 |  | `r8125` | [r8125](https://www.realtek.com/en/component/zoo/category/network-interface-controllers-10-100-1000m-gigabit-ethernet-pci-express-software) | 9.018.00-1 | Linux device driver for Realtek 2.5/5 Gigabit Ethernet controllers with PCI-Express interface |
 |  | `r8168` | [r8168](https://www.realtek.com/en/component/zoo/category/network-interface-controllers-10-100-1000m-gigabit-ethernet-pci-express-software) | 8.057.00 | Linux device driver for Realtek Ethernet controllers |
 |  | `rcon` | [rcon](https://github.com/ttk1/py-rcon) | 1.3.0 | Python implementation of RCON |
+|  | `rdp-primary-monitor` | [rdp-primary-monitor](https://github.com/michal-b-bozek/rdp-primary-monitor) | 0.1.0-unstable-2026-10-26 | GNOME Shell extension making an RDP client's virtual monitor primary while connected |
 | `x86_64-linux` | `red-star-os-rgjanggi` | [red-star-os-rgjanggi](https://archive.org/details/RedStarOS) | 3.0 | Rgjanggi game from DPRK Red Star OS 3.0, heavily sandboxed, use at your own risk |
 |  | `red-star-os-wallpapers` | [red-star-os-wallpapers](https://archive.org/details/RedStarOS) | 3.0 | Wallpapers from DPRK Red Star OS 3.0 |
 |  | `resin` | [resin](https://github.com/Resinat/Resin) | 1.3.0 | High-performance intelligent proxy pool gateway with sticky sessions |
@@ -1691,7 +1692,7 @@ Or, use variables from this repository in case I change them:
 </details>
 
 <details>
-<summary>Package set: uncategorized-DataEraserC (106 packages)</summary>
+<summary>Package set: uncategorized-DataEraserC (107 packages)</summary>
 
 | State | Path | Name | Version | Description |
 | ----- | ---- | ---- | ------- | ----------- |
@@ -1770,6 +1771,7 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized-DataEraserC.qq-bridge-dsh` | [qq-bridge-dsh](https://github.com/Derpyu520/qq-bridge) | 0.2.1-r2 | DSH bundle for qq-bridge: MCP servers (agent presets live in qq-agent-presets) |
 |  | `uncategorized-DataEraserC.qq-bridge-unwrapped` | [qq-bridge-unwrapped](https://github.com/Derpyu520/qq-bridge) | 0.2.1-r2 | QQ (SnowLuma OneBot v11) bridge for DeepSeek Harness agents (unwrapped) |
 |  | `uncategorized-DataEraserC.qq-mode-console` | [qq-mode-console](https://github.com/Derpyu520/qq-bridge) | 0.2.1-r2 | DSH plugin: QQ bridge mode console for settings UI |
+|  | `uncategorized-DataEraserC.rdp-primary-monitor` | [rdp-primary-monitor](https://github.com/michal-b-bozek/rdp-primary-monitor) | 0.1.0-unstable-2026-10-26 | GNOME Shell extension making an RDP client's virtual monitor primary while connected |
 |  | `uncategorized-DataEraserC.snell-server` | [snell-server](https://nssurge.com) | 6.0.0 | Proxy server implementing the Snell protocol |
 |  | `uncategorized-DataEraserC.trae-cn` | [trae-cn](https://www.trae.cn/) | 2.3.99936 | ByteDance AI-powered IDE with China-region model services |
 |  | `uncategorized-DataEraserC.trae-intl` | [trae-intl](https://www.trae.ai/) | 2.3.99397 | AI-powered IDE by ByteDance with global model services |
