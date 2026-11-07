@@ -1,0 +1,11 @@
+# cyime（IBus Rime 前端）
+
+- **上游状态**：`Cyletix/CyIME` 本体只有 Android 输入法（Kotlin/Gradle/NDK），没有官方 Linux 版本。本包使用社区分支 `tuxKOH/CyIME` 的 `feat/linux-desktop-preview`（2026-10-31）中的 `linux/` Python 实现：IBus 引擎 + 剪贴板 GUI/守护进程。该分支是个人预览版，不是上游发布，Ubuntu 22.04 + GNOME + X11 之外未经验证。
+- **属性名**：nix-config 已按 `cyime` 预置；包目录名必须保持 `cyime`，否则 `nur-DataEraserC.packages.<system>.cyime` 失效。包内命令为 `cyime`（GUI）、`cyime-setup`（Rime 数据准备/可选注册）、`cyime-ibus-engine`（组件 XML 的 exec）、`cyime-python`（带完整运行环境的解释器）。
+- **Python 环境**：`cyime-python` 是 `makeBinaryWrapper --inherit-argv0` 包住 `python3.withPackages`，并显式设置 `PYTHONHOME`、`GI_TYPELIB_PATH`、`LD_LIBRARY_PATH`、`CYIME_RIME_LIBRARY`、`QT_PLUGIN_PATH`。`PYTHONHOME` 不可省：`--inherit-argv0` 会把 `sys.executable` 改成 wrapper 路径，若不指定 Python home 就找不到 withPackages 的 site-packages。由此 `setup_ibus.py --register` 生成的 component 会指向 `cyime-python`，而不是裸解释器。
+- **IBus 组件**：包内已经安装 `$out/share/ibus/component/cyime.xml`（component `org.freedesktop.IBus.CyIME`，engine `cyime-rime`），NixOS 下由 `i18n.inputMethod.ibus.engines` / `ibus-with-plugins` 或 nix-config 的 `IBUS_COMPONENT_PATH` 发现。`cyime-setup --register` 是可选路径，会写 `~/.local/share/ibus/component/cyime.xml` 与 `~/.config/environment.d/60-cyime-ibus.conf`；Nix 下不要让它指向裸 Python，当前 wrapper 已保证 exec 可自包含运行。
+- **Rime 数据**：共享数据固定用 nixpkgs `rime-data`（`$out/share/rime-data`，含 default/essay/stroke），由 `cyime-setup` 通过 `--shared-dir` 传入，不能依赖默认 `/usr/share/rime-data`。用户数据目录是 `$XDG_DATA_HOME/cyime-linux/rime`（默认 `~/.local/share/cyime-linux/rime`）。
+- **Schema 结论**：包内自带 `pinyin_simp.dict.yaml`、`pinyin_simp_ext.dict.yaml`、`symbols.yaml`（来自 fork 的 submodule `kingzcheung/rime-wubi@a9d394b`），`cyime-setup` 生成 `cyime_pinyin` schema。`rime-ice` **不随包提供**；需要时用 `cyime-setup --ice-dir ${pkgs.rime-ice}/share/rime-data`（已实测可生成 `dictionary: rime_ice`）。`flypy` 不在该 Linux 分支支持范围内。
+- **非交互 setup**：`cyime-setup` 默认只准备 schema，不再询问；适合放在 home-manager activation 中，先判断 `$XDG_DATA_HOME/cyime-linux/rime/cyime_pinyin.schema.yaml` 不存在再执行。
+- **更新注意**：`unstableGitUpdater` 只更新主 `src`；`rimeAssets` 是 fork 的 submodule 钉点，更新上游 rev 时必须同时检查 `.gitmodules` / submodule rev 是否变化并手动更新资产 rev/hash。
+- **验证记录**：`nix build .#cyime` 通过；`checkPhase` 跑 Rime 部分选词/提交测试；手工跑通 `tests/ibus_smoke.py`（隔离 IBus，候选含“你好”）；`ibus-with-plugins.override { plugins = [ cyime ]; }` 能产出 `share/ibus/component/cyime.xml`。剪贴板 GUI 与 GTK 自绘候选窗未在真实桌面会话验证。
