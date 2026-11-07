@@ -18,7 +18,7 @@
   libxkbcommon,
 }:
 let
-  version = "2.3.99936";
+  version = "2.3.100185";
 
   plat =
     {
@@ -29,8 +29,8 @@ let
 
   hash =
     {
-      x86_64-linux = "sha256-t6IzMOsZ0gpIjuSz/le2N1pUSpRrC4JkmyPg00mKdUI=";
-      aarch64-linux = "sha256-l4eJri/NmteT1fuRkjGL0f8XHc1ujMUpU2D2fb2ZqAo=";
+      x86_64-linux = "sha256-wTR3X17QoDLboUspMyF4+DdRlzc2alUq2n0MZRv0sM8=";
+      aarch64-linux = "sha256-CAWhnfixOyMkt298ip78ntWeOzVY3ymAFYN+OTeWeWs=";
     }
     .${stdenv.hostPlatform.system};
 in

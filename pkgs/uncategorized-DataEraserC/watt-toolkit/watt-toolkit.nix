@@ -8,13 +8,13 @@
 }:
 buildDotnetModule rec {
   pname = "watt-toolkit";
-  version = "3.1.0-unstable-2026-11-04";
+  version = "3.1.0-unstable-2026-11-05";
 
   src = fetchFromGitHub {
     owner = "BeyondDimension";
     repo = "SteamTools";
-    rev = "a65b50fd0c924f6ce08da1a43072ac658f831c0d";
-    hash = "sha256-7dN7NkmBtruBTwh30v4r0kHAip0RoMxpVEdcErqOmiU=";
+    rev = "11f35fcf36cda1d1e924dab2eccb5bf19a0006bf";
+    hash = "sha256-BZAkRjQt3bbPUMfXTu2bVMcn6tGUqZI38V8KJx5tMY4=";
     fetchSubmodules = true;
   };
 
