@@ -28,6 +28,7 @@ let
     ps.pygobject3
     ps.cryptography
     ps.qrcode
+    ps.pillow
     ps.zeroconf
     ps.pyyaml
     ps.python-xlib
