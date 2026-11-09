@@ -17,7 +17,6 @@
 ## 已知风险
 
 - 本包 pnpm 依赖用 `fetcherVersion = 4`，落在 `AGENTS_downstream.md` 记录的「GHA 上 pnpm 哈希不可复现」范围内。若 auto-update 后构建报 FOD hash mismatch，在可信构建机上 `nix build .#webmux`，把报错里的 `got: sha256-…` 手工回填到 `webPnpmDeps.hash` 即可
-- **本包保持零本地补丁**：需要本地功能补丁（如给上游还没收录的 CLI 加 ACP agent 适配器）时，另建派生包用 `overrideAttrs` 叠加，见 `../webmux-acp`。往本包塞 `patches` 会让补丁失效与版本 bump 纠缠在自动更新链路里
 
 ## 验收
 
