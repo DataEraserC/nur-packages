@@ -28,14 +28,14 @@ buildGoModule (finalAttrs: {
   doInstallCheck = true;
   versionCheckProgramArg = "--acp-proxy-version";
 
+  # Only the distinctly named shim is installed. Never shadow the real
+  # `codebuddy` in the global PATH: a deployment that needs the shim behind a
+  # wrapper (e.g. multi-instance) puts it on WebMux's session PATH under the
+  # agent's name, isolated to that service. CODEBUDDY_ACP_REAL always points
+  # at the real CLI, so the shim works under any name.
   postInstall = ''
-    mkdir -p $out/libexec
-    ln -s ${lib.getExe codebuddy} $out/libexec/codebuddy
-    cp $out/bin/codebuddy-acp $out/bin/codebuddy
-    for prog in codebuddy codebuddy-acp; do
-      wrapProgram $out/bin/$prog \
-        --set CODEBUDDY_ACP_REAL $out/libexec/codebuddy
-    done
+    wrapProgram $out/bin/codebuddy-acp \
+      --set CODEBUDDY_ACP_REAL ${lib.getExe codebuddy}
   '';
 
   passthru = {

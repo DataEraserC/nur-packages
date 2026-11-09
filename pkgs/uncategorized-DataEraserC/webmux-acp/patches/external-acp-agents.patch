@@ -1,0 +1,808 @@
+diff --git a/internal/agentprofile/agents/external.go b/internal/agentprofile/agents/external.go
+new file mode 100644
+index 00000000..bdc829bb
+--- /dev/null
++++ b/internal/agentprofile/agents/external.go
+@@ -0,0 +1,75 @@
++package agents
++
++import (
++	"encoding/json"
++	"log/slog"
++	"os"
++	"slices"
++	"sort"
++	"strings"
++
++	"github.com/rainchan/webmux/internal/agentprofile"
++)
++
++// ExternalAgentsEnv names the variable that declares agents this build has no
++// adapter for. Its value is a JSON object from executable base name to
++// agentprofile.Spec, for example:
++//
++//	{"codebuddy": {"title": "CodeBuddy", "acpArg": "--acp", "resumeFlag": "--resume"}}
++//
++// Keeping the table outside the source is what lets a new ACP CLI join hybrid
++// sessions without a code change: only the facts ACP cannot report are
++// declared, everything else is negotiated at initialize time.
++const ExternalAgentsEnv = "WEBMUX_ACP_AGENTS"
++
++// init extends the built-in registry with the declared agents. It lives in a
++// file of its own and only reassigns the package's registry variable, so the
++// change that carries it adds files instead of editing the adapter list:
++// upstream can rework its adapters without invalidating anything here.
++func init() {
++	extra := external()
++	if len(extra) == 0 {
++		return
++	}
++	builtins := defaultRegistry.Agents()
++	defaultRegistry = agentprofile.NewRegistry(append(slices.Clone(builtins), extra...)...)
++}
++
++// external answers the agents declared in ExternalAgentsEnv, sorted by name so
++// the registry order is stable. Bad entries are logged and skipped: a typo
++// disables one agent instead of the whole server, and an empty variable leaves
++// the built-in registry untouched.
++func external() []agentprofile.Agent {
++	raw := strings.TrimSpace(os.Getenv(ExternalAgentsEnv))
++	if raw == "" {
++		return nil
++	}
++	var specs map[string]agentprofile.Spec
++	if err := json.Unmarshal([]byte(raw), &specs); err != nil {
++		slog.Warn("ignoring declared agents", "env", ExternalAgentsEnv, "err", err)
++		return nil
++	}
++	names := make([]string, 0, len(specs))
++	for name := range specs {
++		names = append(names, name)
++	}
++	sort.Strings(names)
++	out := make([]agentprofile.Agent, 0, len(names))
++	for _, name := range names {
++		if strings.ContainsAny(name, "/\\ \t") || name == "" {
++			slog.Warn("ignoring declared agent", "name", name, "err", "not an executable base name")
++			continue
++		}
++		if _, taken := defaultRegistry.Lookup(name); taken {
++			slog.Warn("ignoring declared agent", "name", name, "err", "built-in name")
++			continue
++		}
++		spec := specs[name]
++		if err := spec.Validate(); err != nil {
++			slog.Warn("ignoring declared agent", "name", name, "err", err)
++			continue
++		}
++		out = append(out, spec.Agent(name))
++	}
++	return out
++}
+diff --git a/internal/agentprofile/agents/external_test.go b/internal/agentprofile/agents/external_test.go
+new file mode 100644
+index 00000000..18633496
+--- /dev/null
++++ b/internal/agentprofile/agents/external_test.go
+@@ -0,0 +1,62 @@
++package agents
++
++import (
++	"reflect"
++	"testing"
++
++	"github.com/rainchan/webmux/internal/agentprofile"
++)
++
++func TestExternal(t *testing.T) {
++	t.Setenv(ExternalAgentsEnv, `{"codebuddy":{"title":"CodeBuddy","acpArg":"--acp","resumeFlag":"--resume"},"zcode":{"acpArg":"--acp","resumeFlag":"--resume","launcher":"node"}}`)
++	got := external()
++	if len(got) != 2 {
++		t.Fatalf("external() = %d agents, want 2", len(got))
++	}
++	if name := got[0].Profile().Name; name != "codebuddy" {
++		t.Fatalf("first agent = %q, want codebuddy (sorted)", name)
++	}
++	if p := got[1].Profile(); p.Name != "zcode" || p.Launcher != "node" {
++		t.Fatalf("second agent = %+v", p)
++	}
++}
++
++func TestExternalSkipsBadEntries(t *testing.T) {
++	t.Setenv(ExternalAgentsEnv, `{"opencode":{"acpArg":"--acp"},"bad name":{},"not/a/name":{},"broken":{"kind":"lsp"},"good":{}}`)
++	got := external()
++	if len(got) != 1 || got[0].Profile().Name != "good" {
++		names := make([]string, len(got))
++		for i, a := range got {
++			names[i] = a.Profile().Name
++		}
++		t.Fatalf("external() = %v, want [good] (built-in name, bad names and bad spec skipped)", names)
++	}
++}
++
++func TestExternalBrokenJSON(t *testing.T) {
++	t.Setenv(ExternalAgentsEnv, "not json")
++	if got := external(); got != nil {
++		t.Fatalf("external() = %v, want nil", got)
++	}
++}
++
++func TestExternalEmpty(t *testing.T) {
++	t.Setenv(ExternalAgentsEnv, "")
++	if got := external(); got != nil {
++		t.Fatalf("external() = %v, want nil", got)
++	}
++}
++
++// The declared agents join the built-in registry behind it in order.
++func TestExternalRegistry(t *testing.T) {
++	builtins := Default().Agents()
++	t.Setenv(ExternalAgentsEnv, `{"codebuddy":{"acpArg":"--acp","resumeFlag":"--resume"}}`)
++	extra := external()
++	combined := agentprofile.NewRegistry(append(builtins, extra...)...)
++	if _, ok := combined.Lookup("codebuddy"); !ok {
++		t.Fatal("declared agent missing from the combined registry")
++	}
++	if !reflect.DeepEqual(combined.Agents()[:len(builtins)], builtins) {
++		t.Fatal("built-in registry order changed")
++	}
++}
+diff --git a/internal/agentprofile/command.go b/internal/agentprofile/command.go
+index 819fa18a..874070f6 100644
+--- a/internal/agentprofile/command.go
++++ b/internal/agentprofile/command.go
+@@ -123,16 +123,20 @@ type Command struct {
+ 	Shell string
+ 	// Executable is argv's agent executable as written (possibly a path).
+ 	Executable string
+-	args       []string
+-	kept       []string
+-	acpKept    []string
+-	keptOpts   []KeptOption
+-	dropped    []string
+-	hasPrompt  bool
++	// identity is the wrapper's fixed leading arguments between the
++	// executable and the agent's own command line; nil runs the agent
++	// directly.
++	identity  []string
++	args      []string
++	kept      []string
++	acpKept   []string
++	keptOpts  []KeptOption
++	dropped   []string
++	hasPrompt bool
+ }
+ 
+-func newCommand(agent Agent, form Form, shell, exe string, args []string) (Command, error) {
+-	cmd := Command{Agent: agent, Profile: agent.Profile(), Form: form, Shell: shell, Executable: exe, args: slices.Clone(args)}
++func newCommand(agent Agent, form Form, shell, exe string, identity, args []string) (Command, error) {
++	cmd := Command{Agent: agent, Profile: agent.Profile(), Form: form, Shell: shell, Executable: exe, identity: slices.Clone(identity), args: slices.Clone(args)}
+ 	if err := cmd.classify(); err != nil {
+ 		return Command{}, err
+ 	}
+@@ -246,16 +250,18 @@ func (c Command) wrap(script string, args ...string) []string {
+ 	return c.wrapExec(script, c.Executable, args...)
+ }
+ 
+-// wrapExec runs executable in the command's form.
++// wrapExec runs executable with the command's identity arguments in the
++// command's form.
+ func (c Command) wrapExec(script, executable string, args ...string) []string {
++	head := append([]string{executable}, c.identity...)
+ 	if c.Form == FormStartup {
+ 		prefix := []string{c.Shell, "-ic"}
+ 		if c.Shell == ShellBash {
+ 			prefix = []string{"/usr/bin/env", ShellBash, "-ic"}
+ 		}
+-		return append(append(prefix, script, startupName, executable), args...)
++		return append(append(prefix, script, startupName), append(head, args...)...)
+ 	}
+-	return append([]string{executable}, args...)
++	return append(head, args...)
+ }
+ 
+ // Lookup runs `command -v` for each name in the command's form, so a
+@@ -381,6 +387,14 @@ func (c Command) ACPArgv() (argv, unsupported []string) {
+ 		acpArg = "acp"
+ 	}
+ 	args := append([]string{acpArg}, c.acpKept...)
++	// A shim replaces the agent's own argv only for a direct run. A wrapped
++	// command resolves its executable inside the wrapper (which owns the
++	// sandbox and the agent's state), so a shim cannot be injected as an
++	// extra argument there: deployments that need one put it on the session
++	// PATH under the agent's name. The wrapper's identity stays intact.
++	if shim := c.Profile.ACPExe; shim != "" && len(c.identity) == 0 {
++		return c.wrapExec(startupACPScript, shim, args...), unsupported
++	}
+ 	return c.wrap(startupACPScript, args...), unsupported
+ }
+ 
+diff --git a/internal/agentprofile/profile.go b/internal/agentprofile/profile.go
+index bb88b9ec..778098b6 100644
+--- a/internal/agentprofile/profile.go
++++ b/internal/agentprofile/profile.go
+@@ -238,6 +238,13 @@ type Profile struct {
+ 	// means the default "acp" subcommand; set to "--acp" for agents whose
+ 	// ACP mode is a flag rather than a subcommand.
+ 	ACPArg string
++	// ACPExe is the executable that serves ACP in place of the agent's own
++	// CLI, for agents whose ACP server has protocol gaps a stdio shim can
++	// fill: the shim receives the agent's kept arguments and ACPArg. Only a
++	// direct run swaps argv[0]; a wrapped command keeps its prefix, since
++	// the wrapper resolves the executable itself. Empty runs the agent's own
++	// executable.
++	ACPExe string
+ 	// TUIInject are options every terminal run needs.
+ 	TUIInject []string
+ 	// PassToACP writes the kept options into the ACP command too.
+diff --git a/internal/agentprofile/registry.go b/internal/agentprofile/registry.go
+index 3a2f0a1a..743ddc16 100644
+--- a/internal/agentprofile/registry.go
++++ b/internal/agentprofile/registry.go
+@@ -87,14 +87,29 @@ func (r *Registry) Check(argv []string) Support {
+ }
+ 
+ // Parse recognises argv as an agent's command in a supported form and
+-// classifies its arguments. The returned error is always *UnsupportedError.
++// classifies its arguments. A declared wrapper executable runs the agent its
++// first argument names, keeping the wrapper's leading arguments. The returned
++// error is always *UnsupportedError.
+ func (r *Registry) Parse(argv []string) (Command, error) {
+ 	form, shell, exe, args, ok := splitForm(argv)
++	if !ok {
++		return Command{}, &UnsupportedError{Reason: r.unrecognised(argv)}
++	}
++	if w, wrapped := wrapperFor(filepath.Base(exe)); wrapped {
++		if len(args) < w.Args {
++			return Command{}, &UnsupportedError{Reason: ReasonUnsupportedForm, Arg: exe}
++		}
++		agent, known := r.Lookup(args[0])
++		if !known {
++			return Command{}, &UnsupportedError{Reason: r.unrecognised(argv)}
++		}
++		return newCommand(launchAgent(agent, w), form, shell, exe, args[:w.Args], args[w.Args:])
++	}
+ 	agent, known := r.ForExecutable(filepath.Base(exe))
+-	if !ok || !known {
++	if !known {
+ 		return Command{}, &UnsupportedError{Reason: r.unrecognised(argv)}
+ 	}
+-	return newCommand(agent, form, shell, exe, args)
++	return newCommand(agent, form, shell, exe, nil, args)
+ }
+ 
+ // unrecognised distinguishes a wrapper around a known agent, which the user
+diff --git a/internal/agentprofile/spec.go b/internal/agentprofile/spec.go
+new file mode 100644
+index 00000000..4936073c
+--- /dev/null
++++ b/internal/agentprofile/spec.go
+@@ -0,0 +1,129 @@
++package agentprofile
++
++import (
++	"errors"
++	"fmt"
++	"path/filepath"
++	"strings"
++	"unicode/utf8"
++)
++
++// Spec describes an agent that has no built-in adapter. It carries only the
++// facts the ACP handshake cannot report: how to start the ACP server, how to
++// reopen a session in the terminal UI and how terminal processes are matched
++// to agent sessions. Everything else is negotiated at initialize time, so a
++// new CLI joins hybrid sessions with a Spec and no Go code.
++type Spec struct {
++	// Kind is the protocol family. Empty and "acp" both mean ACP.
++	Kind string `json:"kind,omitempty"`
++	// Title is the display name; empty falls back to the executable name.
++	Title string `json:"title,omitempty"`
++	// Icon is a launch-config icon key; empty falls back to "terminal".
++	Icon string `json:"icon,omitempty"`
++	// ACPArg starts the ACP server: a flag such as "--acp" or a subcommand
++	// such as "acp". Empty means the default "acp" subcommand.
++	ACPArg string `json:"acpArg,omitempty"`
++	// ACPExe runs the ACP server in place of the agent's executable, for
++	// CLIs whose ACP server has protocol gaps a stdio shim can fill: the
++	// shim receives the agent's kept arguments and ACPArg. It applies only
++	// to a direct run; a wrapped command keeps its identity and must be
++	// served the shim on the session PATH instead. Empty runs the agent
++	// itself.
++	ACPExe string `json:"acpExe,omitempty"`
++	// ResumeFlag opens a session in the terminal UI, followed by the session
++	// ID. Empty leaves the terminal side to session/load.
++	ResumeFlag string `json:"resumeFlag,omitempty"`
++	// Identity is how a terminal process is matched to an agent session.
++	// Empty and "none" both mean the match falls back to session/list.
++	Identity string `json:"identity,omitempty"`
++	// Launcher is the interpreter that runs as the PTY's root process when
++	// its direct child is the agent's native executable, such as "node" for
++	// an npm install. Empty means the executable runs the agent itself.
++	Launcher string `json:"launcher,omitempty"`
++}
++
++const (
++	// KindACP is the only protocol family a Spec can describe today.
++	KindACP = "acp"
++	// IdentityNone matches sessions through session/list instead of terminal
++	// signals. It is the only strategy, and the one agents without a session
++	// identity source need.
++	IdentityNone = "none"
++	// MaxSpecTitleChars bounds the display name like launch names are bound.
++	MaxSpecTitleChars = 64
++)
++
++// Validate reports whether s can build a profile.
++func (s Spec) Validate() error {
++	switch s.Kind {
++	case "", KindACP:
++	default:
++		return fmt.Errorf("unsupported kind %q", s.Kind)
++	}
++	switch s.Identity {
++	case "", IdentityNone:
++	default:
++		return fmt.Errorf("unsupported identity %q", s.Identity)
++	}
++	if strings.ContainsAny(s.ACPArg, " \t\n") || strings.ContainsAny(s.ResumeFlag, " \t\n") {
++		return errors.New("acpArg and resumeFlag must not contain whitespace")
++	}
++	if s.ACPExe != "" && strings.ContainsAny(s.ACPExe, "/\\ \t\n") {
++		return errors.New("acpExe must be a base name")
++	}
++	if s.Launcher != "" && strings.ContainsAny(s.Launcher, "/\\ \t\n") {
++		return errors.New("launcher must be a base name")
++	}
++	if !utf8.ValidString(s.Title) {
++		return errors.New("title is not valid UTF-8")
++	}
++	if utf8.RuneCountInString(s.Title) > MaxSpecTitleChars {
++		return fmt.Errorf("title exceeds %d characters", MaxSpecTitleChars)
++	}
++	return nil
++}
++
++// Agent builds the agent that runs as executable exe. The executable's base
++// name is both the agent name on the wire and the name the registry matches,
++// which is how built-in adapters identify their CLI too.
++func (s Spec) Agent(exe string) Agent {
++	name := filepath.Base(exe)
++	title := s.Title
++	if title == "" {
++		title = name
++	}
++	icon := s.Icon
++	if icon == "" {
++		icon = "terminal"
++	}
++	profile := Profile{
++		Name:        name,
++		Title:       title,
++		Icon:        icon,
++		Executables: []string{name},
++		Launcher:    s.Launcher,
++		ACPArg:      s.ACPArg,
++		ACPExe:      s.ACPExe,
++		ResumeFlag:  s.ResumeFlag,
++		Positional:  PositionalPrompt,
++		Options:     map[string]Option{},
++		Subcommands: SetOf(),
++	}
++	return &specAgent{profile: profile}
++}
++
++// specAgent is an agent whose behaviour comes entirely from its Spec. It has
++// no terminal-signal identity, so hybrid sessions match it by session/list.
++type specAgent struct{ profile Profile }
++
++// Profile implements Agent.
++func (a *specAgent) Profile() *Profile { return &a.profile }
++
++// Identify implements Agent. A spec agent reports no terminal identity: the
++// spec has no way to describe one, and a false result sends the caller to the
++// session/list fallback, which never writes to the agent's session store.
++func (a *specAgent) Identify(Signals) (Identity, bool) { return Identity{}, false }
++
++// InterruptKeys implements Agent with ctrl-c, which every terminal UI treats
++// as "stop the running turn".
++func (a *specAgent) InterruptKeys() [][]byte { return [][]byte{{0x03}} }
+diff --git a/internal/agentprofile/wrapper.go b/internal/agentprofile/wrapper.go
+new file mode 100644
+index 00000000..c8110384
+--- /dev/null
++++ b/internal/agentprofile/wrapper.go
+@@ -0,0 +1,120 @@
++package agentprofile
++
++import (
++	"encoding/json"
++	"fmt"
++	"log/slog"
++	"os"
++	"strings"
++	"sync"
++)
++
++// WrapperEnv names the variable that declares wrapper executables. Its value
++// is a JSON object from wrapper executable base name to spec, for example:
++//
++//	{"multi-instance": {"args": 2}}
++//
++// A wrapper runs a registered agent behind a fixed leading argument list: the
++// first argument names the agent, Args-1 more pass through unchanged (an
++// instance or profile name), and everything after them is the agent's own
++// command line. WebMux keeps the leading list when it rebuilds the resume and
++// ACP commands, so the wrapped run and its chat side see the same state.
++const WrapperEnv = "WEBMUX_AGENT_WRAPPERS"
++
++// MaxWrapperArgs bounds how many leading arguments one wrapper may claim.
++const MaxWrapperArgs = 8
++
++// Wrapper is one declared wrapper executable.
++type Wrapper struct {
++	// Args is how many arguments follow the wrapper executable before the
++	// agent's own command line starts. The first names a registered agent;
++	// the rest pass through unchanged. It is at least 1.
++	Args int `json:"args"`
++	// Launcher is the wrapper's root process when it does not exec the
++	// agent itself, such as "bwrap" for a sandboxing wrapper: the PTY's
++	// root process is the launcher and the agent's executable is its direct
++	// child. Empty means the wrapper chain ends at the agent's executable.
++	Launcher string `json:"launcher,omitempty"`
++}
++
++// Validate reports whether w describes a wrapper.
++func (w Wrapper) Validate() error {
++	if w.Args < 1 {
++		return fmt.Errorf("args must be at least 1")
++	}
++	if w.Args > MaxWrapperArgs {
++		return fmt.Errorf("args exceeds %d", MaxWrapperArgs)
++	}
++	if w.Launcher != "" && strings.ContainsAny(w.Launcher, "/\\ \t\n") {
++		return fmt.Errorf("launcher must be a base name")
++	}
++	return nil
++}
++
++var (
++	// wrappersOnce is a pointer so tests can swap in a fresh once without
++	// copying a sync.Once value (which go vet's copylocks rejects).
++	wrappersOnce = new(sync.Once)
++	wrappers     map[string]Wrapper
++)
++
++// wrapperFor answers the wrapper declared for executable base name base.
++func wrapperFor(base string) (Wrapper, bool) {
++	wrappersOnce.Do(func() { wrappers = loadWrappers() })
++	w, ok := wrappers[base]
++	return w, ok
++}
++
++// launchAgent answers agent with the profile a wrapper's launcher needs:
++// the same profile with Launcher set, so a command run through the wrapper
++// recognises the launcher as its root process. Wrappers without a launcher
++// get the agent unchanged.
++func launchAgent(agent Agent, w Wrapper) Agent {
++	if w.Launcher == "" {
++		return agent
++	}
++	profile := *agent.Profile()
++	profile.Launcher = w.Launcher
++	return launchedAgent{Agent: agent, profile: &profile}
++}
++
++// launchedAgent is an agent that runs under a wrapper's launcher.
++type launchedAgent struct {
++	Agent
++	profile *Profile
++}
++
++// Profile implements Agent with the launcher-adjusted copy.
++func (a launchedAgent) Profile() *Profile { return a.profile }
++
++// loadWrappers reads WrapperEnv. Bad entries are logged and skipped: a typo
++// disables one wrapper instead of the whole server, and an empty variable
++// leaves every command parsed as before.
++func loadWrappers() map[string]Wrapper {
++	raw := strings.TrimSpace(os.Getenv(WrapperEnv))
++	if raw == "" {
++		return nil
++	}
++	var specs map[string]Wrapper
++	if err := json.Unmarshal([]byte(raw), &specs); err != nil {
++		slog.Warn("ignoring declared wrappers", "env", WrapperEnv, "err", err)
++		return nil
++	}
++	out := make(map[string]Wrapper, len(specs))
++	for name, spec := range specs {
++		if name == "" || strings.ContainsAny(name, "/\\ \t") {
++			slog.Warn("ignoring declared wrapper", "name", name, "err", "not an executable base name")
++			continue
++		}
++		if spec.Args == 0 {
++			// Omitted args means the wrapper takes only the agent name.
++			spec.Args = 1
++		}
++		if err := spec.Validate(); err != nil {
++			slog.Warn("ignoring declared wrapper", "name", name, "err", err)
++			continue
++		}
++		out[name] = spec
++	}
++	return out
++}
+diff --git a/internal/agentprofile/wrapper_test.go b/internal/agentprofile/wrapper_test.go
+new file mode 100644
+index 00000000..b80ba01d
+--- /dev/null
++++ b/internal/agentprofile/wrapper_test.go
+@@ -0,0 +1,267 @@
++package agentprofile
++
++import (
++	"reflect"
++	"sync"
++	"testing"
++)
++
++func TestSpecValidate(t *testing.T) {
++	tests := []struct {
++		name    string
++		spec    Spec
++		wantErr bool
++	}{
++		{name: "minimal", spec: Spec{}},
++		{name: "acp", spec: Spec{Kind: KindACP, Identity: IdentityNone}},
++		{name: "unknown kind", spec: Spec{Kind: "lsp"}, wantErr: true},
++		{name: "unknown identity", spec: Spec{Identity: "locks"}, wantErr: true},
++		{name: "acpArg with space", spec: Spec{ACPArg: "--acp stdio"}, wantErr: true},
++		{name: "resumeFlag with space", spec: Spec{ResumeFlag: "--resume now"}, wantErr: true},
++		{name: "acpExe with slash", spec: Spec{ACPExe: "/usr/bin/shim"}, wantErr: true},
++		{name: "acpExe with space", spec: Spec{ACPExe: "shim --acp"}, wantErr: true},
++		{name: "launcher with slash", spec: Spec{Launcher: "/usr/bin/node"}, wantErr: true},
++		{name: "long title", spec: Spec{Title: string(make([]byte, MaxSpecTitleChars+1))}, wantErr: true},
++	}
++	for _, tt := range tests {
++		t.Run(tt.name, func(t *testing.T) {
++			err := tt.spec.Validate()
++			if (err != nil) != tt.wantErr {
++				t.Fatalf("Validate() error = %v, wantErr %v", err, tt.wantErr)
++			}
++		})
++	}
++}
++
++func TestSpecAgentProfile(t *testing.T) {
++	agent := Spec{Title: "CodeBuddy", Icon: "codebuddy", ACPArg: "--acp", ResumeFlag: "--resume", Launcher: "node"}.Agent("/usr/bin/codebuddy")
++	p := agent.Profile()
++	if p.Name != "codebuddy" {
++		t.Fatalf("agent name = %q, want codebuddy", p.Name)
++	}
++	if p.Title != "CodeBuddy" || p.Icon != "codebuddy" {
++		t.Fatalf("title/icon not kept: %q %q", p.Title, p.Icon)
++	}
++	if !reflect.DeepEqual(p.Executables, []string{"codebuddy"}) {
++		t.Fatalf("executables = %v", p.Executables)
++	}
++	if p.Launcher != "node" || p.ACPArg != "--acp" || p.ResumeFlag != "--resume" {
++		t.Fatalf("launcher/acpArg/resumeFlag not kept: %q %q %q", p.Launcher, p.ACPArg, p.ResumeFlag)
++	}
++	if _, ok := agent.Identify(Signals{}); ok {
++		t.Fatal("spec agent must not claim terminal identity")
++	}
++	if keys := agent.InterruptKeys(); len(keys) != 1 || keys[0][0] != 0x03 {
++		t.Fatalf("interrupt keys = %v", keys)
++	}
++	bare := Spec{}.Agent("myagent")
++	if bare.Profile().Title != "myagent" || bare.Profile().Icon != "terminal" {
++		t.Fatalf("defaults not applied: %+v", bare.Profile())
++	}
++}
++
++func TestWrapperValidate(t *testing.T) {
++	tests := []struct {
++		name    string
++		wrapper Wrapper
++		wantErr bool
++	}{
++		{name: "one arg", wrapper: Wrapper{Args: 1}},
++		{name: "two args", wrapper: Wrapper{Args: 2}},
++		{name: "zero args", wrapper: Wrapper{}, wantErr: true},
++		{name: "too many args", wrapper: Wrapper{Args: MaxWrapperArgs + 1}, wantErr: true},
++	}
++	for _, tt := range tests {
++		t.Run(tt.name, func(t *testing.T) {
++			err := tt.wrapper.Validate()
++			if (err != nil) != tt.wantErr {
++				t.Fatalf("Validate() error = %v, wantErr %v", err, tt.wantErr)
++			}
++		})
++	}
++}
++
++func TestLoadWrappers(t *testing.T) {
++	t.Setenv(WrapperEnv, `{"multi-instance":{"args":2},"bad":{"args":-1},"with/slash":{"args":1},"huge":{"args":99},"one":{}}`)
++	got := loadWrappers()
++	want := map[string]Wrapper{"multi-instance": {Args: 2}, "one": {Args: 1}}
++	if !reflect.DeepEqual(got, want) {
++		t.Fatalf("wrappers = %v, want %v", got, want)
++	}
++	t.Setenv(WrapperEnv, "not json")
++	if got := loadWrappers(); got != nil {
++		t.Fatalf("broken JSON returned %v", got)
++	}
++	t.Setenv(WrapperEnv, "")
++	if got := loadWrappers(); got != nil {
++		t.Fatalf("empty variable returned %v", got)
++	}
++}
++
++// setWrappers installs table for the test; Parse consults it through the
++// package's cached lookup.
++func setWrappers(t *testing.T, table map[string]Wrapper) {
++	t.Helper()
++	old, oldOnce := wrappers, wrappersOnce
++	wrappers = table
++	// Install a consumed once so the first lookup does not overwrite the
++	// table, and the cached lookup keeps using it for the rest of the test.
++	fresh := new(sync.Once)
++	fresh.Do(func() {})
++	wrappersOnce = fresh
++	t.Cleanup(func() { wrappers, wrappersOnce = old, oldOnce })
++}
++
++func specRegistry(t *testing.T) *Registry {
++	t.Helper()
++	return NewRegistry(Spec{Title: "CodeBuddy", ACPArg: "--acp", ResumeFlag: "--resume"}.Agent("codebuddy"))
++}
++
++func TestParseWrapper(t *testing.T) {
++	setWrappers(t, map[string]Wrapper{"multi-instance": {Args: 2}})
++	r := specRegistry(t)
++	tests := []struct {
++		name   string
++		argv   []string
++		agent  string
++		reason Reason
++	}{
++		{name: "instance name", argv: []string{"multi-instance", "codebuddy", "1"}, agent: "codebuddy"},
++		{name: "named instance", argv: []string{"multi-instance", "codebuddy", "work"}, agent: "codebuddy"},
++		{name: "path to wrapper", argv: []string{"/usr/bin/multi-instance", "codebuddy", "home"}, agent: "codebuddy"},
++		{name: "startup form", argv: []string{"bash", "-ic", `exec -- "$@"`, "webmux", "multi-instance", "codebuddy", "1"}, agent: "codebuddy"},
++		{name: "agent args follow", argv: []string{"multi-instance", "codebuddy", "1", "--", "hello"}, agent: "codebuddy"},
++		{name: "missing identity arg", argv: []string{"multi-instance", "codebuddy"}, reason: ReasonUnsupportedForm},
++		{name: "unknown agent", argv: []string{"multi-instance", "trae", "1"}, reason: ReasonUnknownAgent},
++		{name: "direct still works", argv: []string{"codebuddy"}, agent: "codebuddy"},
++	}
++	for _, tt := range tests {
++		t.Run(tt.name, func(t *testing.T) {
++			support := r.Check(tt.argv)
++			if tt.agent != "" {
++				if !support.Supported || support.Agent != tt.agent {
++					t.Fatalf("support = %+v, want agent %q", support, tt.agent)
++				}
++				return
++			}
++			if support.Supported || support.Reason != tt.reason {
++				t.Fatalf("support = %+v, want reason %q", support, tt.reason)
++			}
++		})
++	}
++}
++
++func TestWrapperArgv(t *testing.T) {
++	setWrappers(t, map[string]Wrapper{"multi-instance": {Args: 2}})
++	r := specRegistry(t)
++	cmd, err := r.Parse([]string{"multi-instance", "codebuddy", "1"})
++	if err != nil {
++		t.Fatal(err)
++	}
++	if got := cmd.TUIArgv(); !reflect.DeepEqual(got, []string{"multi-instance", "codebuddy", "1"}) {
++		t.Fatalf("tui argv = %v", got)
++	}
++	if argv, _ := cmd.ACPArgv(); !reflect.DeepEqual(argv, []string{"multi-instance", "codebuddy", "1", "--acp"}) {
++		t.Fatalf("acp argv = %v", argv)
++	}
++	if argv, _ := cmd.ResumeArgv("sid-1"); !reflect.DeepEqual(argv, []string{"multi-instance", "codebuddy", "1", "--resume", "sid-1"}) {
++		t.Fatalf("resume argv = %v", argv)
++	}
++}
++
++func TestWrapperArgvStartupForm(t *testing.T) {
++	setWrappers(t, map[string]Wrapper{"multi-instance": {Args: 2}})
++	r := specRegistry(t)
++	cmd, err := r.Parse([]string{"bash", "-ic", `exec -- "$@"`, "webmux", "multi-instance", "codebuddy", "1"})
++	if err != nil {
++		t.Fatal(err)
++	}
++	want := []string{"/usr/bin/env", "bash", "-ic", `exec -- "$@"`, "webmux", "multi-instance", "codebuddy", "1"}
++	if got := cmd.TUIArgv(); !reflect.DeepEqual(got, want) {
++		t.Fatalf("tui argv = %v, want %v", got, want)
++	}
++	argv, _ := cmd.ACPArgv()
++	want = []string{"/usr/bin/env", "bash", "-ic", `exec -- "$@" 1>&3 3>&-`, "webmux", "multi-instance", "codebuddy", "1", "--acp"}
++	if !reflect.DeepEqual(argv, want) {
++		t.Fatalf("acp argv = %v, want %v", argv, want)
++	}
++}
++
++func TestWrapperPromptDropped(t *testing.T) {
++	setWrappers(t, map[string]Wrapper{"multi-instance": {Args: 2}})
++	r := specRegistry(t)
++	cmd, err := r.Parse([]string{"multi-instance", "codebuddy", "1", "fix the bug"})
++	if err != nil {
++		t.Fatal(err)
++	}
++	if got := cmd.TUIArgv(); !reflect.DeepEqual(got, []string{"multi-instance", "codebuddy", "1", "fix the bug"}) {
++		t.Fatalf("tui argv = %v", got)
++	}
++	argv, _ := cmd.ResumeArgv("sid-1")
++	if !reflect.DeepEqual(argv, []string{"multi-instance", "codebuddy", "1", "--resume", "sid-1"}) {
++		t.Fatalf("resume argv = %v", argv)
++	}
++	if dropped := cmd.Dropped(); !reflect.DeepEqual(dropped, []string{"fix the bug"}) {
++		t.Fatalf("dropped = %v", dropped)
++	}
++}
++
++func TestWrapperLauncher(t *testing.T) {
++	setWrappers(t, map[string]Wrapper{"multi-instance": {Args: 2, Launcher: "bwrap"}})
++	r := specRegistry(t)
++	cmd, err := r.Parse([]string{"multi-instance", "codebuddy", "1"})
++	if err != nil {
++		t.Fatal(err)
++	}
++	if cmd.Profile.Launcher != "bwrap" {
++		t.Fatalf("launcher = %q, want bwrap", cmd.Profile.Launcher)
++	}
++	if !cmd.Profile.RunsAs("codebuddy") {
++		t.Fatal("wrapped agent lost its executable")
++	}
++	direct, err := r.Parse([]string{"codebuddy"})
++	if err != nil {
++		t.Fatal(err)
++	}
++	if direct.Profile.Launcher != "" {
++		t.Fatalf("direct run got launcher %q", direct.Profile.Launcher)
++	}
++}
++
++func TestLoadWrappersLauncher(t *testing.T) {
++	t.Setenv(WrapperEnv, `{"sandbox":{"args":1,"launcher":"bwrap"},"broken":{"args":1,"launcher":"/usr/bin/bwrap"}}`)
++	got := loadWrappers()
++	want := map[string]Wrapper{"sandbox": {Args: 1, Launcher: "bwrap"}}
++	if !reflect.DeepEqual(got, want) {
++		t.Fatalf("wrappers = %v, want %v", got, want)
++	}
++}
++
++func TestSpecACPExe(t *testing.T) {
++	setWrappers(t, map[string]Wrapper{"multi-instance": {Args: 2}})
++	r := NewRegistry(Spec{ACPArg: "--acp", ACPExe: "codebuddy-acp", ResumeFlag: "--resume"}.Agent("codebuddy"))
++	wrapped, err := r.Parse([]string{"multi-instance", "codebuddy", "1"})
++	if err != nil {
++		t.Fatal(err)
++	}
++	// A wrapped command keeps its identity: the wrapper resolves the agent
++	// inside its own sandbox, so a shim cannot become an extra argument.
++	// Deployments that need one put it on the session PATH under the
++	// agent's name instead.
++	if argv, _ := wrapped.ACPArgv(); !reflect.DeepEqual(argv, []string{"multi-instance", "codebuddy", "1", "--acp"}) {
++		t.Fatalf("wrapped acp argv = %v", argv)
++	}
++	if got := wrapped.TUIArgv(); !reflect.DeepEqual(got, []string{"multi-instance", "codebuddy", "1"}) {
++		t.Fatalf("tui argv = %v", got)
++	}
++	direct, err := r.Parse([]string{"codebuddy"})
++	if err != nil {
++		t.Fatal(err)
++	}
++	if argv, _ := direct.ACPArgv(); !reflect.DeepEqual(argv, []string{"codebuddy-acp", "--acp"}) {
++		t.Fatalf("direct acp argv = %v", argv)
++	}
++	if argv, _ := direct.ResumeArgv("sid-1"); !reflect.DeepEqual(argv, []string{"codebuddy", "--resume", "sid-1"}) {
++		t.Fatalf("resume argv = %v", argv)
++	}
++}
