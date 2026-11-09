@@ -64,8 +64,6 @@ buildGoModule (finalAttrs: {
 
   subPackages = [ "cmd/webmux" ];
 
-  patches = [ ./codebuddy-agent.patch ];
-
   preBuild = ''
     mkdir -p web/dist
     cp ${frontendDist}/embed.zip web/dist/embed.zip
