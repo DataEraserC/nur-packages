@@ -119,3 +119,12 @@ cpm.check_package(("packages.x86_64-linux.foo", False))
 
 - **上游测试里 shell 出 `git show`/`git archive`/`git log` 的，在 Nix 沙箱里必然不可行，要按「无历史」设计**：`fetchFromGitHub` 的树只有 `.gitignore`/`.gitattributes`、没有 `.git`，`fetchgit` 也救不了——本机 Nix 的 `builtins.fetchGit`（连 `allRefs = true` + `file://` 克隆都验过）存进 store 的同样是不含 `.git` 的树，所以两条路都拿不到对象库。checkPhase 里惯用的 `git init -q` 只造出零对象的空仓库，git 解析不到 rev 时会**回退去查工作区**，于是报出误导性的 `path '<file>' exists on disk, but not in '<rev>'`（真实原因是零对象库，不是文件缺失；代码看着完全相干、极难第一时间定位）。三种处理：①测试只是检查脏工作区/`git describe` 之类可降级的，`git init` 后按需打 tag 或改读 `package.json`；②测试的**全部价值**就在历史版本回放（升级器/迁移回归），沙箱里无法成立，就在 `postPatch` 里 `substituteInPlace` 删掉 `test-all.mjs` 之类运行器里对应的条目并写注释说明，其余套件照跑、`doCheck` 保持开启，别整个关掉 `doCheck`；③真要保留检查，把历史版本的 tarball 作为额外 FOD 引入，把脚本里的 git 调用改成读那些目录。删条目时**连同行尾换行一起替换**（`--replace-fail "<整行>\n" ""`），只删行内容会留下空行或悬空注释（实例：dsh-our-free-model-standalone 的 `legacy-upgrade`）
 - **`checkPhase` 早于 `installPhase` / `postInstall`**：只在 `postInstall` 落盘的东西（从别的派生拷来的原生库、生成的文件）在测试阶段都不存在。若测试要读它，必须同时在 `preCheck` 里准备一份。否则现象是测试拿到「不可用」的降级结果（如 503）而不是直接报错，很容易被误判成功能正常。反过来，让测试断言 200 而不是写 `if (!available) return` 跳过，等于在构建期真的把接口跑了一遍，更有价值。
+
+
+## 用同名 stdio 代理补齐上游 CLI 的 ACP 能力
+
+- **上游 CLI 的 ACP 缺口用「同名替换的代理包」补，不要 fork 消费端、也不要把代理做成新命令**：消费端（webmux）识别 agent 的唯一入口是**命令名**（`ForExecutable(filepath.Base(exe))` 对每个 adapter 的 `RunsAs` 求交），agent 表是源码里固定的 `NewRegistry(...)` 列表，没有配置文件扩展点。所以代理必须把产物装成**与原命令同名**（`bin/codebuddy`，同时保留 `bin/codebuddy-acp` 本体），用户只替换 `environment.systemPackages` 里的原包即可，消费端零改动；做成独立的 `codebuddy-acp` 命令则必须让用户改启动配置，等于没解决问题（实例：codebuddy-acp）
+  - 启动配置必须写**裸命令名**（`["codebuddy"]`）。写绝对路径会被消费端判成"包装形式不受支持"（`ReasonUnsupportedForm`），靠 PATH 前置也不可靠——`bash -ic 'exec -- "$@"'` 会重载登录 shell 的 PATH，把前缀顶掉，最终仍解析到系统里的原二进制，症状是 ACP 探测拿到 `-32601` 却看不出是谁在应答
+  - 真二进制路径与 Nix 解耦：先读 `CODEBUDDY_ACP_REAL`，再在 `PATH` 里找第一个**不等于自身**的 `codebuddy`/`cbc`；Nix 侧只做 `makeWrapper --set CODEBUDDY_ACP_REAL $out/libexec/codebuddy`，代理本身不认识任何 store 路径
+- **代理只改该改的帧，其余逐行透传，非 ACP 调用直接 `exec` 真二进制**：`codebuddy-acp` 仅在 `initialize` 响应里注入上游缺失的 `sessionCapabilities.list`、并把 `session/list` 截在自己这里应答，其余 JSON-RPC 原样双向转发；不带 `--acp` 时 `syscall.Exec` 真程序，TUI 与 `-p` 的行为和开销完全不变（这是"能直接替换原包"的前提，也顺带避免了代理层长期偏离上游）
+- **`session/list` 的数据从 CLI 自己的落盘会话推导，字段语义必须与消费端的解析方式对齐**：`updatedAt` 取 `.jsonl` 的 mtime 并格式化成 RFC3339Nano（消费端用 `time.Parse(time.RFC3339Nano, ...)`，格式不符的会话永远不入选且**不会报错**，现象只是"看起来没有会话"）；`cwd` 从文件头部记录里恢复，不要按目录名反推（slug 有损）；`title` 取首条用户消息截断。上游若把会话落盘位置改成可配置目录，要跟着 `CODEBUDDY_CONFIG_DIR` 走而不是硬编码 `$HOME/.codebuddy`
