@@ -1,0 +1,193 @@
+diff -ruN -x .git -x dist -x webmux-env webmux-0.12.1/internal/agentprofile/agents/external.go wm-env/internal/agentprofile/agents/external.go
+--- /dev/null
++++ b/internal/agentprofile/agents/external.go
+@@ -0,0 +1,75 @@
++package agents
++
++import (
++	"encoding/json"
++	"log/slog"
++	"os"
++	"slices"
++	"sort"
++	"strings"
++
++	"github.com/rainchan/webmux/internal/agentprofile"
++)
++
++// ExternalAgentsEnv names the variable that declares agents this build has no
++// adapter for. Its value is a JSON object from executable base name to
++// agentprofile.Spec, for example:
++//
++//	{"codebuddy": {"title": "CodeBuddy", "acpArg": "--acp", "resumeFlag": "--resume"}}
++//
++// Keeping the table outside the source is what lets a new ACP CLI join hybrid
++// sessions without a code change: only the facts ACP cannot report are
++// declared, everything else is negotiated at initialize time.
++const ExternalAgentsEnv = "WEBMUX_ACP_AGENTS"
++
++// init extends the built-in registry with the declared agents. It lives in a
++// file of its own and only reassigns the package's registry variable, so the
++// patch that carries it adds files instead of editing them: upstream can
++// rework its adapter list without invalidating anything here.
++func init() {
++	extra := external()
++	if len(extra) == 0 {
++		return
++	}
++	builtins := defaultRegistry.Agents()
++	defaultRegistry = agentprofile.NewRegistry(append(slices.Clone(builtins), extra...)...)
++}
++
++// external answers the agents declared in ExternalAgentsEnv, sorted by name so
++// the registry order is stable. Bad entries are logged and skipped: a typo
++// disables one agent instead of the whole server, and an empty variable leaves
++// the built-in registry untouched.
++func external() []agentprofile.Agent {
++	raw := strings.TrimSpace(os.Getenv(ExternalAgentsEnv))
++	if raw == "" {
++		return nil
++	}
++	var specs map[string]agentprofile.Spec
++	if err := json.Unmarshal([]byte(raw), &specs); err != nil {
++		slog.Warn("ignoring declared agents", "env", ExternalAgentsEnv, "err", err)
++		return nil
++	}
++	names := make([]string, 0, len(specs))
++	for name := range specs {
++		names = append(names, name)
++	}
++	sort.Strings(names)
++	out := make([]agentprofile.Agent, 0, len(names))
++	for _, name := range names {
++		if strings.ContainsAny(name, "/\\ \t") || name == "" {
++			slog.Warn("ignoring declared agent", "name", name, "err", "not an executable base name")
++			continue
++		}
++		if _, taken := defaultRegistry.Lookup(name); taken {
++			slog.Warn("ignoring declared agent", "name", name, "err", "built-in name")
++			continue
++		}
++		spec := specs[name]
++		if err := spec.Validate(); err != nil {
++			slog.Warn("ignoring declared agent", "name", name, "err", err)
++			continue
++		}
++		out = append(out, spec.Agent(name))
++	}
++	return out
++}
+diff -ruN -x .git -x dist -x webmux-env webmux-0.12.1/internal/agentprofile/spec.go wm-env/internal/agentprofile/spec.go
+--- /dev/null
++++ b/internal/agentprofile/spec.go
+@@ -0,0 +1,110 @@
++package agentprofile
++
++import (
++	"errors"
++	"fmt"
++	"path/filepath"
++	"strings"
++	"unicode/utf8"
++)
++
++// Spec describes an agent that has no built-in profile. It carries only the
++// facts the ACP handshake cannot report: how to start the ACP server, how to
++// reopen a session in the terminal UI and how terminal processes are matched
++// to agent sessions. Everything else is negotiated at initialize time, so a
++// new CLI needs a Spec and no Go code.
++type Spec struct {
++	// Kind is the protocol family. Empty and "acp" both mean ACP.
++	Kind string `json:"kind,omitempty"`
++	// Title is the display name; empty falls back to the executable name.
++	Title string `json:"title,omitempty"`
++	// Icon is a launch-config icon key; empty falls back to "terminal".
++	Icon string `json:"icon,omitempty"`
++	// ACPArg starts the ACP server: a flag such as "--acp" or a subcommand
++	// such as "acp". Empty means the default "acp" subcommand.
++	ACPArg string `json:"acpArg,omitempty"`
++	// ResumeFlag opens a session in the terminal UI, followed by the session
++	// ID. Empty leaves the terminal side to session/load.
++	ResumeFlag string `json:"resumeFlag,omitempty"`
++	// Identity is how a terminal process is matched to an agent session.
++	// Empty and "none" both mean the match falls back to session/list.
++	Identity string `json:"identity,omitempty"`
++}
++
++const (
++	// KindACP is the only protocol family a Spec can describe today.
++	KindACP = "acp"
++	// IdentityNone matches sessions through session/list instead of terminal
++	// signals. It is the only strategy, and the one agents without a session
++	// identity source need.
++	IdentityNone = "none"
++	// MaxSpecTitleChars bounds the display name like launch names are bound.
++	MaxSpecTitleChars = 64
++)
++
++// Validate reports whether s can build a profile.
++func (s Spec) Validate() error {
++	switch s.Kind {
++	case "", KindACP:
++	default:
++		return fmt.Errorf("kind 只支持 %q", KindACP)
++	}
++	switch s.Identity {
++	case "", IdentityNone:
++	default:
++		return fmt.Errorf("identity 只支持 %q", IdentityNone)
++	}
++	if strings.ContainsAny(s.ACPArg, " \t\n") || strings.ContainsAny(s.ResumeFlag, " \t\n") {
++		return errors.New("acpArg 与 resumeFlag 不能包含空白")
++	}
++	if !utf8.ValidString(s.Title) {
++		return errors.New("title 不是有效的 UTF-8")
++	}
++	if utf8.RuneCountInString(s.Title) > MaxSpecTitleChars {
++		return fmt.Errorf("title 不能超过 %d 个字符", MaxSpecTitleChars)
++	}
++	return nil
++}
++
++// Agent builds the agent that runs as executable exe. The executable's base
++// name is both the agent name on the wire and the name the registry matches,
++// which is how built-in adapters identify their CLI too.
++func (s Spec) Agent(exe string) Agent {
++	name := filepath.Base(exe)
++	title := s.Title
++	if title == "" {
++		title = name
++	}
++	icon := s.Icon
++	if icon == "" {
++		icon = "terminal"
++	}
++	profile := Profile{
++		Name:        name,
++		Title:       title,
++		Icon:        icon,
++		Executables: []string{name},
++		ACPArg:      s.ACPArg,
++		ResumeFlag:  s.ResumeFlag,
++		Positional:  PositionalPrompt,
++		Options:     map[string]Option{},
++		Subcommands: SetOf(),
++	}
++	return &specAgent{profile: profile}
++}
++
++// specAgent is an agent whose behaviour comes entirely from its Spec. It has
++// no terminal-signal identity, so hybrid sessions match it by session/list.
++type specAgent struct{ profile Profile }
++
++// Profile implements Agent.
++func (a *specAgent) Profile() *Profile { return &a.profile }
++
++// Identify implements Agent. A spec agent reports no terminal identity: the
++// spec has no way to describe one, and a false result sends the caller to the
++// session/list fallback, which never writes to the agent's session store.
++func (a *specAgent) Identify(Signals) (Identity, bool) { return Identity{}, false }
++
++// InterruptKeys implements Agent with ctrl-c, which every terminal UI treats
++// as "stop the running turn".
++func (a *specAgent) InterruptKeys() [][]byte { return [][]byte{{0x03}} }
