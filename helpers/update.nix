@@ -217,11 +217,16 @@ pkgs.stdenvNoCC.mkDerivation {
       LOG=$(mktemp "$LOGDIR/log.XXXXXX")
       echo ">>> $ATTR_PATH: updating ($OLD_VERSION)"
       (
+        # A single hung update script (a stalled download or nix build) used
+        # to block `wait -n` forever and left the whole scheduled run to be
+        # cancelled by GitHub. Bound each package so the run always finishes
+        # and reports the offender as a failure instead.
         if env \
             UPDATE_NIX_ATTR_PATH="$ATTR_PATH" \
             UPDATE_NIX_PNAME="$(jq -r .pname <<<"$PKG")" \
             UPDATE_NIX_NAME="$(jq -r .name <<<"$PKG")" \
             UPDATE_NIX_OLD_VERSION="$OLD_VERSION" \
+            timeout --kill-after=30 "''${UPDATE_PACKAGE_TIMEOUT:-900}" \
             bash -c "$(jq -r '.updateScript | map(@sh) | join(" ")' <<<"$PKG")"; then
           echo ">>> $ATTR_PATH: done"
           exit 0

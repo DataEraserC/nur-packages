@@ -6,11 +6,20 @@ on:
 permissions:
   actions: write
   contents: write
+# Two overlapping auto-update runs both commit to main and can cancel each
+# other; a queued run must wait instead of superseding a running one.
+concurrency:
+  group: auto-update
+  cancel-in-progress: false
 jobs:
   auto-update:
     runs-on: ubuntu-latest
+    timeout-minutes: 120
     env:
       GIT_SSL_NO_VERIFY: 'true'
+      # Bound each package's update script (see helpers/update.nix) so one
+      # stalled download cannot hold `wait -n` until GitHub cancels the run.
+      UPDATE_PACKAGE_TIMEOUT: '600'
     steps:
       - name: Maximize build space
         uses: easimon/maximize-build-space@master
@@ -62,6 +71,7 @@ jobs:
 
       - name: Update packages
         continue-on-error: true
+        timeout-minutes: 100
         run: |
           sudo mkdir -p /nix/tmpdir2
           sudo chown "$(whoami)" /nix/tmpdir2
