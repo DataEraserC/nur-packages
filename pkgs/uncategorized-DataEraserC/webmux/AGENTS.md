@@ -18,6 +18,13 @@
 
 - 本包 pnpm 依赖用 `fetcherVersion = 4`，落在 `AGENTS_downstream.md` 记录的「GHA 上 pnpm 哈希不可复现」范围内。若 auto-update 后构建报 FOD hash mismatch，在可信构建机上 `nix build .#webmux`，把报错里的 `got: sha256-…` 手工回填到 `webPnpmDeps.hash` 即可
 
+## 本地补丁：CodeBuddy 混合会话适配器
+
+- `codebuddy-agent.patch` 只做两件事：新增 `internal/agentprofile/codebuddy/codebuddy.go`（92 行的 adapter），并在 `internal/agentprofile/agents/agents.go` 里加一行 import、一处 `NewRegistry(...)` 参数。不碰 `internal/hybrid/` 的任何判据——早期为绕过 `session/list` 直接放宽 `eligibility.go`/`link.go` 的做法已废弃，缺口由单独的 `codebuddy-acp` 包在 CLI 外面补
+- **agent 表是源码里固定的 `NewRegistry(...)` 列表，没有任何配置/插件扩展点**，所以"给 webmux 加一个 agent"在 0.12.1 上必然要改这两个文件；等这套配置用稳后再提上游 PR（上游 `internal/launch/presets.go` 已有 `CodeBuddy Code` 预设，缺的只是 hybrid 适配）
+- **版本 bump 时这个补丁大概率需要重做**：`agents.go` 的 import 块与 `NewRegistry` 单行是 nix-update 之后最容易变的地方，`patch -p1` 报 hunk 失败就按 `AGENTS_downstream.md` 的「上游补丁失效时的重新生成方法」，在解包的新源码上重放这两个文件的变换再 `diff -u` 生成（注意把补丁头改回 `a/`、`b/`，新文件用 `--- /dev/null`）
+- 验收：`nix build .#webmux` 后 `POST /api/launch-configs/hybrid-support` 传 `{"cmd":["codebuddy"]}` 应返回 `supported: true, agent: "codebuddy"`；完整链路（终端起会话 → 切聊天）需要 PATH 里有 `codebuddy-acp` 包
+
 ## 验收
 
 ```bash
