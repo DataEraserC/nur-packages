@@ -130,21 +130,21 @@ diff -ruN -x .git -x dist -x webmux-env webmux-0.12.1/internal/agentprofile/spec
 +	switch s.Kind {
 +	case "", KindACP:
 +	default:
-+		return fmt.Errorf("kind 只支持 %q", KindACP)
++		return fmt.Errorf("unsupported kind %q", s.Kind)
 +	}
 +	switch s.Identity {
 +	case "", IdentityNone:
 +	default:
-+		return fmt.Errorf("identity 只支持 %q", IdentityNone)
++		return fmt.Errorf("unsupported identity %q", s.Identity)
 +	}
 +	if strings.ContainsAny(s.ACPArg, " \t\n") || strings.ContainsAny(s.ResumeFlag, " \t\n") {
-+		return errors.New("acpArg 与 resumeFlag 不能包含空白")
++		return errors.New("acpArg and resumeFlag must not contain whitespace")
 +	}
 +	if !utf8.ValidString(s.Title) {
-+		return errors.New("title 不是有效的 UTF-8")
++		return errors.New("title is not valid UTF-8")
 +	}
 +	if utf8.RuneCountInString(s.Title) > MaxSpecTitleChars {
-+		return fmt.Errorf("title 不能超过 %d 个字符", MaxSpecTitleChars)
++		return fmt.Errorf("title exceeds %d characters", MaxSpecTitleChars)
 +	}
 +	return nil
 +}
