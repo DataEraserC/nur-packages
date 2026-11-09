@@ -3,6 +3,7 @@
   stdenv,
   fetchFromGitHub,
   fetchPnpmDeps,
+  git,
   pnpm_12,
   pnpmConfigHook,
   nodejs_26,
@@ -12,13 +13,13 @@
 }:
 
 let
-  version = "0.12.1";
+  version = "0.14.1";
 
   src = fetchFromGitHub {
     owner = "mzdluo123";
     repo = "webmux";
     tag = "v${version}";
-    hash = "sha256-wdFjwm3M4/61TtJvD4DQMc0wLLPAsXNrBBP1A+jMHuY=";
+    hash = "sha256-FMFTbVd2wY00iPEuQsrnMXbVFsJ+UxDIggHVyJK9MGA=";
   };
 
   webPnpmDeps = fetchPnpmDeps {
@@ -27,7 +28,7 @@ let
     sourceRoot = "source/web";
     pnpm = pnpm_12;
     fetcherVersion = 4;
-    hash = "sha256-/KJh4BmQ1zj63HcK7ukuSTxiC1ZnVP2tdTuu4IYnq74=";
+    hash = "sha256-mXzBS6RIQ61HMGuWDeKDeKeR3ZEyo6kRrzfXL42R94Y=";
   };
 
   frontendDist = stdenv.mkDerivation {
@@ -60,7 +61,7 @@ buildGoModule (finalAttrs: {
   inherit version src;
   __structuredAttrs = true;
   strictDeps = true;
-  vendorHash = "sha256-t7j9hOvZhYzNwBhLVBtn1vbm0WVptKERzLNAhs5b+Ms=";
+  vendorHash = "sha256-86gMpaRVlJGjeEzLXoVYawIat2QM4EGdxHEtBI9DbZo=";
 
   subPackages = [ "cmd/webmux" ];
 
@@ -74,6 +75,10 @@ buildGoModule (finalAttrs: {
     "-w"
     "-X main.version=${finalAttrs.version}"
   ];
+
+  # 0.14.1's CLI tests shell out to `git` (worktree / workspace tests). The
+  # build sandbox has no git on PATH, so `go test ./...` fails without it.
+  nativeCheckInputs = [ git ];
 
   nativeInstallCheckInputs = [ versionCheckHook ];
   doInstallCheck = true;
