@@ -1,0 +1,114 @@
+--- /dev/null
++++ b/internal/agentprofile/codebuddy/codebuddy.go
+@@ -0,0 +1,92 @@
++// Package codebuddy is the hybrid adapter for CodeBuddy Code, Tencent's
++// terminal agent. Unlike Codex and Claude Code it needs no connector: the CLI
++// has a native ACP server behind the --acp flag (stdio, ndjson), so the chat
++// view talks to the same executable the terminal runs.
++//
++// Measured against 2.180.0: initialize answers protocolVersion 1 with
++// loadSession and image/embeddedContext prompt capabilities, and advertises its
++// login methods, so an unauthenticated server reaches ACP and reports
++// auth_required instead of failing to start.
++package codebuddy
++
++import (
++	ap "github.com/rainchan/webmux/internal/agentprofile"
++)
++
++// Name identifies CodeBuddy on the wire and in hybrid session records.
++const Name = "codebuddy"
++
++// Agent is the CodeBuddy adapter.
++var Agent ap.Agent = adapter{}
++
++type adapter struct{}
++
++var profile = &ap.Profile{
++	Name:        Name,
++	Title:       "CodeBuddy Code",
++	Icon:        "codebuddy",
++	Executables: []string{"codebuddy", "cbc"},
++	// Verified against 2.180.0; an older CLI is only a notice.
++	VerifiedVersion: "2.180.0",
++	// ACP is a flag, not a subcommand, and it has no separate store.
++	ACPArg: "--acp",
++	// --resume takes a session id, or none for the picker.
++	ResumeFlag: "--resume",
++	Positional: ap.PositionalPrompt,
++	Options:    options(),
++	Subcommands: ap.SetOf("config", "mcp", "sandbox", "plugin", "project", "doctor",
++		"update", "install", "cleanup", "daemon", "ps", "logs", "attach", "kill",
++		"stop", "rm", "respawn", "agents", "auto-mode", "help"),
++}
++
++func options() map[string]ap.Option {
++	o := map[string]ap.Option{}
++
++	// Output modes and informational flags start no interactive UI.
++	ap.Options(o, ap.ArgNonInteractive, ap.ArityNone, "-p", "--print", "-h", "--help",
++		"-V", "-v", "--version", "--include-partial-messages")
++	ap.Options(o, ap.ArgNonInteractive, ap.ArityOne, "--output-format", "--input-format", "--json-schema")
++	ap.Options(o, ap.ArgNonInteractive, ap.ArityVariadic, "-H", "--header")
++
++	// The chat side creates its own session, so options that select one are
++	// dropped from the resume/ACP command instead of carried over.
++	ap.Options(o, ap.ArgDrop, ap.ArityNone, "-c", "--continue", "--no-session-persistence")
++	ap.Options(o, ap.ArgDrop, ap.ArityOne, "--session-id")
++	ap.Options(o, ap.ArgDrop, ap.ArityOptional, "-r", "--resume")
++
++	// A worktree or sandbox is chosen when the session starts; the chat side
++	// cannot move an existing one.
++	ap.Options(o, ap.ArgDirectory, ap.ArityOptional, "-w", "--worktree")
++	ap.Options(o, ap.ArgDirectory, ap.ArityOne, "--worktree-branch")
++	ap.Options(o, ap.ArgStore, ap.ArityNone, "--serve", "--sandbox-new", "--sandbox-kill",
++		"--sandbox-upload-dir", "--strict-mcp-config")
++	ap.Options(o, ap.ArgStore, ap.ArityOne, "--sandbox", "--sandbox-id", "--teleport")
++
++	// Model and permission mode exist on both sides (the CLI documents
++	// --permission-mode as applying to the ACP server too), so they are
++	// passed through rather than reapplied after a load.
++	ap.PassthroughOptions(o, ap.ArityOne, "--model", "--permission-mode",
++		"--permission-mode-before-plan", "--subagent-permission-mode")
++
++	ap.Options(o, ap.ArgKeep, ap.ArityNone, "-y", "--dangerously-skip-permissions",
++		"--verbose", "--brief", "--ide", "--dangerously-load-development-channels")
++	ap.Options(o, ap.ArgKeep, ap.ArityOptional, "-d", "--debug")
++	ap.Options(o, ap.ArgKeep, ap.ArityVariadic, "--allowedTools", "--disallowedTools", "--add-dir")
++	ap.Options(o, ap.ArgKeep, ap.ArityOne, "--tools", "--mcp-config", "--channels",
++		"--fallback-model", "--text-to-image-model", "--image-to-image-model")
++	return o
++}
++
++func (adapter) Profile() *ap.Profile { return profile }
++
++// Identify reads CodeBuddy's OSC 7501 root record when the terminal emits one.
++// Its session id comes from no terminal signal, so the chat view starts the
++// session it owns and reconnection relies on session/load.
++func (adapter) Identify(s ap.Signals) (ap.Identity, bool) {
++	if s.ProgramApp != Name {
++		return ap.Identity{}, false
++	}
++	return ap.Identity{Agent: Name, Cwd: s.RootCwd}, true
++}
++
++func (adapter) InterruptKeys() [][]byte { return [][]byte{[]byte("\x1b")} }
+--- a/internal/agentprofile/agents/agents.go
++++ b/internal/agentprofile/agents/agents.go
+@@ -6,6 +6,7 @@
+ 	"github.com/rainchan/webmux/internal/agentprofile"
+ 	"github.com/rainchan/webmux/internal/agentprofile/agy"
+ 	"github.com/rainchan/webmux/internal/agentprofile/claudecode"
++	"github.com/rainchan/webmux/internal/agentprofile/codebuddy"
+ 	"github.com/rainchan/webmux/internal/agentprofile/codex"
+ 	"github.com/rainchan/webmux/internal/agentprofile/omp"
+ 	"github.com/rainchan/webmux/internal/agentprofile/opencode"
+@@ -15,7 +16,7 @@
+ 
+ // defaultRegistry is in Identify order: omp's Warp events take precedence
+ // over another agent's OSC 7501 record.
+-var defaultRegistry = agentprofile.NewRegistry(omp.Agent, opencode.Agent, codex.Agent, claudecode.Agent, qoder.Agent, qodercn.Agent, agy.Agent)
++var defaultRegistry = agentprofile.NewRegistry(omp.Agent, opencode.Agent, codex.Agent, claudecode.Agent, codebuddy.Agent, qoder.Agent, qodercn.Agent, agy.Agent)
+ 
+ // Default returns the immutable registry of built-in agents.
+ func Default() *agentprofile.Registry { return defaultRegistry }
