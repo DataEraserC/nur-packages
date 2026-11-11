@@ -4,6 +4,7 @@
 
 - **硬规则**：根 `AGENTS.md`「工作流程」要求的『修改包后更新经验教训』，在本 fork 一律写入本文件，禁止写入根 `AGENTS.md`
 - Fork 仓库管理、维护者列表、AI 参与记录等 Fork 特有规则见 [`pkgs/uncategorized-DataEraserC/_docs/AGENTS.md`](pkgs/uncategorized-DataEraserC/_docs/AGENTS.md) 中的「Fork 特有规则」章节；自有模块的规则在 [`modules/AGENTS.md`](modules/AGENTS.md)；单包经验在各包目录的 `AGENTS.md`
+- **更新 WebMux、`webmux-acp`、`codebuddy-acp` 或其 nix-config 接线时**，先读 [`webmux-codebuddy-acp-requirements.md`](pkgs/uncategorized-DataEraserC/_docs/webmux-codebuddy-acp-requirements.md)，按稳定需求 ID 逐项验证并在交付摘要记录结果；该文件是这些跨包/跨仓不变量的单一事实源
 
 ## 提交信息格式
 
@@ -121,11 +122,10 @@ cpm.check_package(("packages.x86_64-linux.foo", False))
 - **`checkPhase` 早于 `installPhase` / `postInstall`**：只在 `postInstall` 落盘的东西（从别的派生拷来的原生库、生成的文件）在测试阶段都不存在。若测试要读它，必须同时在 `preCheck` 里准备一份。否则现象是测试拿到「不可用」的降级结果（如 503）而不是直接报错，很容易被误判成功能正常。反过来，让测试断言 200 而不是写 `if (!available) return` 跳过，等于在构建期真的把接口跑了一遍，更有价值。
 
 
-## 用同名 stdio 代理补齐上游 CLI 的 ACP 能力
+## 用独立命名的 stdio 代理补齐上游 CLI 的 ACP 能力
 
-- **上游 CLI 的 ACP 缺口用「同名替换的代理包」补，不要 fork 消费端、也不要把代理做成新命令**：消费端（webmux）识别 agent 的唯一入口是**命令名**（`ForExecutable(filepath.Base(exe))` 对每个 adapter 的 `RunsAs` 求交），agent 表是源码里固定的 `NewRegistry(...)` 列表，没有配置文件扩展点。所以代理必须把产物装成**与原命令同名**（`bin/codebuddy`，同时保留 `bin/codebuddy-acp` 本体），用户只替换 `environment.systemPackages` 里的原包即可，消费端零改动；做成独立的 `codebuddy-acp` 命令则必须让用户改启动配置，等于没解决问题（实例：codebuddy-acp）
-  - 启动配置必须写**裸命令名**（`["codebuddy"]`）。写绝对路径会被消费端判成"包装形式不受支持"（`ReasonUnsupportedForm`），靠 PATH 前置也不可靠——`bash -ic 'exec -- "$@"'` 会重载登录 shell 的 PATH，把前缀顶掉，最终仍解析到系统里的原二进制，症状是 ACP 探测拿到 `-32601` 却看不出是谁在应答
-  - 真二进制路径与 Nix 解耦：先读 `CODEBUDDY_ACP_REAL`，再在 `PATH` 里找第一个**不等于自身**的 `codebuddy`/`cbc`；Nix 侧只做 `makeWrapper --set CODEBUDDY_ACP_REAL $out/libexec/codebuddy`，代理本身不认识任何 store 路径
-- **代理只改该改的帧，其余逐行透传，非 ACP 调用直接 `exec` 真二进制**：`codebuddy-acp` 仅在 `initialize` 响应里注入上游缺失的 `sessionCapabilities.list`、并把 `session/list` 截在自己这里应答，其余 JSON-RPC 原样双向转发；不带 `--acp` 时 `syscall.Exec` 真程序，TUI 与 `-p` 的行为和开销完全不变（这是"能直接替换原包"的前提，也顺带避免了代理层长期偏离上游）
+- **消费端有通用外部 ACP 声明时，代理保持独立命名，不 shadow vendor 命令**：`codebuddy-acp` 只公开 `bin/codebuddy-acp`；WebMux 的 `WEBMUX_ACP_AGENTS` 分别声明 launch、ACP 与 resume argv，不要求三者的 executable 与稳定 agent ID 同名。这样 vendor `codebuddy` 仍由原包拥有，代理不会改变系统 PATH 上既有命令的含义
+- **需要原样 exec 的入口直接安装 ELF，vendor 默认路径用 ldflags 注入**：Nix 以 `-X main.defaultRealBinary=${lib.getExe codebuddy}` 编译默认路径，caller 的非空 `CODEBUDDY_ACP_REAL` 仍可覆盖；非 stdio 路径把 caller 的 `os.Args[0]`、其余 argv 与 `os.Environ()` 原样交给 `syscall.Exec`。不要在公开入口外再套 `makeWrapper --set CODEBUDDY_ACP_REAL`：wrapper 会把 proxy 看到的 argv0 改成私有可执行路径并向 caller 环境注入变量，破坏透明透传。安装检查同时断言唯一公开 bin 是直接 ELF、无 libexec wrapper，并在 unset override 时验证 vendor `--version`
+- **代理只改该改的帧，其余逐行透传**：`codebuddy-acp` 仅在 `initialize` 响应里注入上游缺失的 `sessionCapabilities.list`、并把 `session/list` 截在自己这里应答，其余 JSON-RPC 原样双向转发；不选择 stdio ACP 时直接 `syscall.Exec` vendor，使 TUI 与 print 等行为和开销保持不变
 - **派生补丁里的文案跟随上游的分层，不要因为"上游是中文项目"就一律写中文**：webmux 没有 i18n 框架（无 gettext/go-i18n/多语言资源，前端字符串也硬编码），但两类文案语言不同——**面向用户的**（API 返回、hybrid 切换失败原因、tray 菜单）写简体中文，**面向开发者/只进日志的**（`slog` 字段、`http.Error`、内部校验错误）写英文。判断标准看**消费方**：错误最终出现在 UI 就中文，只被 `slog.Warn(..., "err", err)` 打出来就英文；领域术语（worktree、session/list、ACP、acpArg）两种都保留英文原词
 - **`session/list` 的数据从 CLI 自己的落盘会话推导，字段语义必须与消费端的解析方式对齐**：`updatedAt` 取 `.jsonl` 的 mtime 并格式化成 RFC3339Nano（消费端用 `time.Parse(time.RFC3339Nano, ...)`，格式不符的会话永远不入选且**不会报错**，现象只是"看起来没有会话"）；`cwd` 从文件头部记录里恢复，不要按目录名反推（slug 有损）；`title` 取首条用户消息截断。上游若把会话落盘位置改成可配置目录，要跟着 `CODEBUDDY_CONFIG_DIR` 走而不是硬编码 `$HOME/.codebuddy`

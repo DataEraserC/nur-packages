@@ -1,0 +1,178 @@
+# WebMux / CodeBuddy ACP 下游需求与升级闸门
+
+本文件是 DataEraserC 下游对 WebMux 外部 ACP、`webmux-acp`、`codebuddy-acp` 与 nix-config 接线的单一需求源。修改或更新这些组件前先读本文件；完成后逐项记录验收结果。包级 `AGENTS.md` 只保留实现经验和指针，不复制本文件。
+
+## 1. 范围和术语
+
+- **稳定 agent ID**：`WEBMUX_ACP_AGENTS` 顶层键，只用于持久化身份与 UI，不是命令名或进程名。
+- **launch argv**：用户保存并由 TUI 启动的完整内层 argv。
+- **ACP argv**：启动 stdio ACP server 的完整 argv。
+- **resume argv**：恢复 TUI 的完整 argv 前缀；WebMux 追加 session ID。
+- **native process**：TUI 最终运行的 agent 进程。
+- **launcher**：保持为 PTY 根进程、把 native process 作为直接子进程运行的可选程序。
+- **connector**：需要另装并由 WebMux 检查/提示的 ACP 程序元数据；它不参与命令推导。
+
+`multi-instance` 和 CodeBuddy 是下游部署实例，不属于 WebMux 的通用领域模型。WebMux 上游源码、测试和文档使用虚构的通用示例。
+
+## 2. WebMux 通用外部 ACP 契约
+
+### WM-ACP-01：单一、通用、精确的声明入口
+
+`WEBMUX_ACP_AGENTS` 是唯一外部声明入口。顶层对象按稳定 agent ID 保存 `Spec`；每条 command 同时声明完整 `match`、`acp` 和 `resume` argv。
+
+验收条件：
+
+- 不存在第二张 wrapper 表、固定 wrapper 参数个数或 per-instance 可执行文件。
+- WebMux 不理解 launcher 的业务语义，也不包含 CodeBuddy 或本地部署专用分支。
+- declared agent 只靠完整 binding 识别，不在任意 argv token、label 或 shell 文本中扫描 agent 名。
+- built-in adapter 继续使用自己的 executable/options parser；仅可对结构化识别出的既有 wrapper 形态给出诊断。
+
+### WM-ACP-02：稳定 ID、命令、进程与安装元数据相互独立
+
+`Spec` 必须明确声明非空 `processExecutables`；稳定 ID 不得隐式成为进程名或 launch executable。每条 command 可分别声明 `launcher` 与 `connector`。
+
+`connector` 省略或为 `null` 表示无安装检测语义。存在时必须显式提供 executable、title、installCommand、HTTP(S) docsUrl，并可提供 verifiedVersion；WebMux 不从 `acp[0]` 推断 connector，因为 ACP argv 可从 `env`、解释器、绝对路径或 wrapper 开始。
+
+验收条件：两条同 agent binding 可以拥有不同 connector/launcher；support、create、switch、start failure、missing notice、version notice 和 recheck 全部读取当前 command 的 connector。
+
+### WM-ACP-03：argv 保真与精确匹配
+
+- `match[0]` 是 executable basename；实际首 token 可为同 basename 的绝对/相对路径。
+- 其余 token 和 argv 长度逐字相同；多一个参数、不同实例值或不同 wrapper 参数都需要新 binding。
+- argv 始终以数组执行，不拼 shell command string。
+- executable token 必须非空；其它 token 可以为空、含空格或以 `-` 开头；所有 token 禁止 NUL。
+- ACP argv 按声明原样执行；resume 只在声明前缀末尾追加 session ID。
+
+### WM-ACP-04：startup-file 外层与 fd 3 不变
+
+通过“加载 shell 启动文件”保存的 `/usr/bin/env bash -ic`、bare `bash -ic` 或 `zsh -ic` 外层不属于 `match`。切换模式时只替换内层 argv，保留外层的原始拼写；ACP 继续使用 fd 3，避免启动文件输出污染协议流。
+
+验收条件：TUI argv 与原始输入完全相同；ACP/resume argv 保留相同 outer prefix；ACP 使用 fd 3。
+
+### WM-ACP-05：launcher 进程身份唯一
+
+若 PTY 根进程本身是 native process，直接使用它。否则只有在根进程 basename 等于 command 的 launcher，且其直接子进程中恰好一个匹配 `processExecutables` 时才接受。
+
+验收条件：0 个或 2 个匹配 child 均拒绝；无关 child 不影响唯一匹配；身份与 cwd 取被选中的 native child，不取 launcher。
+
+### WM-ACP-06：严格、有界、显式加载
+
+- JSON 使用严格 decoder：未知字段、重复或大小写折叠冲突字段、尾随数据都拒绝。
+- 文档总大小、agent 数、每 agent command 数、每 argv token 数和 token 字节数都有上限。
+- 整份文档无效时 built-ins 保持可用；单个无效/冲突 agent 记录安全 warning 后跳过。
+- 跨 agent 重复 binding、覆盖 built-in binding 或可执行入口时跳过，不 panic。
+- loader 是纯函数，不在 package `init()` 读取环境或改写全局 registry。
+- `cmd/webmux` 在应用 launch environment 后读取变量，构造一个 registry，并把同一实例注入 session submit-delay、launch support/normalize、API chat support 与 hybrid service。
+- `webmux service install` 持久化 `WEBMUX_ACP_AGENTS`；不持久化 token 等未批准环境变量，systemd/launchd 转义后须能无损还原 JSON。
+
+## 3. 文件归属与单一事实源
+
+| 层 | 唯一职责 | 事实源 |
+| --- | --- | --- |
+| WebMux upstream branch | 通用 schema、严格 loader、registry 注入、exact argv、launcher/process、service persistence、通用测试与文档 | 获准公共分支上的单个匿名 commit |
+| NUR `webmux` | 未打补丁的上游源码基线、前端/Go 依赖哈希与组合 updater | `pkgs/uncategorized-DataEraserC/webmux/default.nix` |
+| NUR `webmux-acp` | 在相同 `webmux` 派生上只追加匿名 commit 导出的 patch，并扩大 check 范围 | `webmux-acp/default.nix` 与 `patches/external-acp-agents.patch` |
+| NUR `codebuddy-acp` | CodeBuddy 专用双模式入口及 stdio ACP compatibility proxy | `codebuddy-acp/` |
+| nix-config | CodeBuddy 实例声明、state compatibility、WebMux JSON 与 NUR pin | 对应 module、host 与 focused test |
+| 本文件 | 跨层不变量、升级顺序与验收矩阵 | 本文件；其它 `AGENTS.md` 只保留触发指针和本地实现经验 |
+
+WebMux upstream 不承载下游实例；NUR patch 不手工维护第二份实现；nix-config 不内嵌包实现；包级指南不复制本文件的规范正文。
+
+## 4. NUR 包与补丁来源
+
+### PKG-01：`webmux` 与 `webmux-acp` 共用精确源码基线
+
+主 `webmux` 与 patched `webmux-acp` 必须取同一 version、rev、source hash、frontend pnpm deps 和 Go vendor deps。`webmux-acp` 只在主包上追加 external ACP patch，不复制或漂移主包构建逻辑。
+
+当前基线（更新时整行一起改）：
+
+| 项目 | 值 |
+| --- | --- |
+| version | `0.14.4-unstable-2026-11-11` |
+| upstream rev | `cf23a4036a525b569bc562c913c3ae05c5973fcc` |
+| source hash | `sha256-kFmtz744vHA9wqw+RfYE54u5NwBnU5F7sAm42UrSXzE=` |
+| pnpm hash | `sha256-NP63QLqCd9tYgHBd7v+G90EupZF9MKoo3IKW48svUrs=` |
+| vendor hash | `sha256-Je+YqoTY0A5VCNtBBMpGjcmHLa2otbuKydnYGDEVCl0=` |
+| external ACP commit | `b93529a73f824dcae371e004653c30809b007bc0` |
+
+### PKG-02：补丁等于一个可审计的匿名上游 commit
+
+`webmux-acp/patches/external-acp-agents.patch` 必须由 `git format-patch` 从精确基线之上的单个 commit 导出，不手工拼装。该 commit 使用仓库局部身份 `anonymous <anonymous@users.noreply.github.com>`，采用 WebMux Conventional Commit 规范，不含真实身份、主机路径、私有部署名、会话/任务 ID、协作者 trailer 或下游 CodeBuddy/multi-instance 内容。
+
+更新基线时：把这一个 commit rebase/重做到新基线，完成 WebMux 全部验证后重新导出；补丁内容与 commit tree diff 必须一致。
+
+### PKG-03：主包 updater 同时更新三类哈希
+
+主 `webmux` updater 先用 `unstableGitUpdater`（`tagFormat = "v*"`, `tagPrefix = "v"`）更新 version/rev/source，再用 `nix-update --version skip --no-src` 更新 vendorHash 与公开的 pnpmDeps hash。更新器必须忽略无关 `dev` tag；只更新 source 而留下依赖哈希是失败。
+
+### PKG-04：测试范围覆盖新增 internal 包
+
+主包 `subPackages = [ "cmd/webmux" ]` 会把默认 Go check 收窄。`webmux-acp` 必须显式运行 external ACP 所涉及的 internal tests（至少 agentprofile、service、hybrid/architecture/doc guards 中适用部分），不能以主包构建成功代替补丁测试。
+
+## 5. `codebuddy-acp` 产品契约
+
+### CB-01：唯一公开入口
+
+产物只公开 `bin/codebuddy-acp`，不得公开或 PATH-shadow `bin/codebuddy`。vendor CodeBuddy 作为闭包依赖，不公开第二入口。
+
+### CB-02：非 ACP 行为等同 vendor CLI
+
+不选择 stdio ACP 时，`codebuddy-acp` 用 `syscall.Exec` 进入 vendor CLI，保持 argv（含 argv[0]）、环境、TUI、print 与其它参数语义。只有 `--acp` 默认 stdio或显式 `--acp-transport stdio` 进入 proxy；flags 顺序无关，非 stdio或缺失 transport value 不得误入 proxy。
+
+公开入口必须是直接 Go ELF；默认 vendor 路径由构建期 ldflags 注入，非空 `CODEBUDDY_ACP_REAL` caller override 优先。安装检查必须证明没有 shell wrapper/libexec proxy，并在未设置 override 时验证 vendor `--version`；不得用会改写 argv0 或注入环境变量的 wrapper 传递 vendor 路径。
+
+### CB-03：proxy 只补 CodeBuddy 缺口
+
+本包不是跨 agent 通用 proxy。它只：
+
+- 转发 vendor CodeBuddy ACP；
+- 在 initialize response 中补 `sessionCapabilities.list`；
+- 本地实现 `session/list`，从 CodeBuddy transcript 恢复 ID/cwd/title/updatedAt；
+- 其它 JSON-RPC 帧逐行透传。
+
+会话时间使用 RFC3339Nano，cwd 从 transcript 内容恢复，数据根按以下三态跟随 CodeBuddy 配置：`CODEBUDDY_CONFIG_DIR` 未设置时使用 `$HOME/.codebuddy/projects`；设置为非空时使用其 `projects` 子目录；显式设置为空是无效的显式配置，`session/list` 返回空列表且不得回退默认 profile。
+
+## 6. nix-config 部署不变量
+
+### NC-01：应用名、可执行文件与状态 key 分离
+
+- 应用/module/可执行文件：`codebuddy-acp`。
+- vendor 持久状态 key：`codebuddy`。
+- 保留 `.codebuddy`、`.local/share/CodeBuddyExtension` 与既有 multi-instance 状态根；迁移不得清空、改名或重建用户数据。
+- multi-instance 数据模型显式保存 app、executable、state key，不再假设三者同名。
+
+### NC-02：WebMux 只消费通用声明
+
+nix-config 通过一个 `WEBMUX_ACP_AGENTS` JSON 定义 direct 与 wrapped 完整 argv。wrapped binding 的 launcher 是实际 PTY 根进程，native process 列表是 vendor TUI 的实际进程名。部署可出现 `multi-instance` 与 CodeBuddy；WebMux 通用实现不可出现这些专名。
+
+### NC-03：包来源与旧配置兼容
+
+- WebMux package 直接取 pinned `nur-DataEraserC.legacyPackages.${system}.webmux-acp`，不为改名创建本地 overlay。
+- 已存在的 `launch-configs.json` 只由上游 seed-once 规则管理；迁移不得删除或整体重写。
+- NUR commit 完成后再更新 nix-config 的 NUR lock；配置和 lock 必须指向包含相同 patch/package 的提交。
+
+## 7. 升级流程
+
+每次更新 WebMux、CodeBuddy vendor、对应 NUR 包或 nix-config 接线时按顺序执行：
+
+1. 读取本文件，列出本次可能受影响的需求 ID。
+2. 更新主 `webmux` 基线与三类固定输出哈希；证明 updater 不会选择无关 tag。
+3. 在相同基线上重放单个 external ACP commit；运行 upstream tests/docs/architecture/user-story gates。
+4. 做隐私检查后导出该 commit，替换 `webmux-acp` patch；验证 patch dry-run 无 fuzz/offset 和 tree diff 等价。
+5. 构建并测试 `webmux`、`webmux-acp`、`codebuddy-acp`；检查公开 `bin/`。
+6. 提交 NUR 后更新 nix-config NUR lock；运行 focused eval、格式化、module tests 与目标 host build。
+7. 在提交/PR 摘要按需求 ID 记录 pass、环境性限制和未运行项。任何未验证项保持未完成，不能用“构建成功”概括。
+
+## 8. 最低验收矩阵
+
+| 需求 | 自动化证据 |
+| --- | --- |
+| WM-ACP-01..03 | exact match/path first token/no scan/empty args/connector per command tests |
+| WM-ACP-04 | env bash、bare bash、zsh startup argv 与 fd 3 tests |
+| WM-ACP-05 | native root 与 launcher 0/1/2 matching child、child cwd tests |
+| WM-ACP-06 | strict JSON、limits、skip/conflict/no panic、constructor wiring、service render round-trip tests |
+| PKG-01..04 | source identity assertion、format-patch identity、Nix builds、explicit internal Go tests |
+| CB-01..03 | dispatch/argv/env/transport ordering/initialize/session-list tests、`bin/` listing |
+| NC-01..03 | focused Nix expected-output test、shell syntax、module eval、target host build、state path assertions |
+
+真实 ACP 切换 smoke 至少覆盖一次 direct binding 和一次 launcher binding：launch support → TUI session → ACP initialize/session/list/session/load → resume TUI。若环境无法运行真实 vendor CLI，应明确记录为未运行，不以 fake-agent 单测替代。

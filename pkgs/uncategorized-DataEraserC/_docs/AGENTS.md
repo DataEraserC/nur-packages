@@ -2,6 +2,8 @@
 
 本目录只存放**分组级经验**：同一条经验涉及多个包，或同时涉及包 + 模块 + 工具链时写在这里；只涉及单个包的写在该包目录的 `AGENTS.md` 里。
 
+更新 WebMux、`webmux-acp`、`codebuddy-acp` 或其 nix-config 接线时，先读 [`webmux-codebuddy-acp-requirements.md`](webmux-codebuddy-acp-requirements.md)，按稳定需求 ID 执行升级闸门；该文件是这组跨包/跨仓不变量的单一事实源。
+
 `default.nix` 里的 `{ }: { }` 是给 `helpers/group.nix` 的 `createLoadPackages` 用的占位——它把分组目录下每个非 `.nix` 条目都当包 `callPackage`，所以本目录必须能被 import；分组的 `default.nix` 再用 `removeAttrs packages [ "_docs" ]` 把它从包集合里剔除，任何工具都看不到它。
 
 ## CLIProxyAPI 家族（面板 / 内核 / GUI）

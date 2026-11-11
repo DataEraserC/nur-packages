@@ -2,7 +2,6 @@
   lib,
   buildGoModule,
   codebuddy,
-  makeWrapper,
   versionCheckHook,
 }:
 buildGoModule (finalAttrs: {
@@ -20,26 +19,44 @@ buildGoModule (finalAttrs: {
     "-s"
     "-w"
     "-X main.version=${finalAttrs.version}"
+    "-X main.defaultRealBinary=${lib.getExe codebuddy}"
   ];
 
-  nativeBuildInputs = [ makeWrapper ];
+  doCheck = true;
+  checkPhase = ''
+    runHook preCheck
+    go test -race ./...
+    runHook postCheck
+  '';
 
   nativeInstallCheckInputs = [ versionCheckHook ];
   doInstallCheck = true;
   versionCheckProgramArg = "--acp-proxy-version";
 
-  # Only the distinctly named shim is installed. Never shadow the real
-  # `codebuddy` in the global PATH: a deployment that needs the shim behind a
-  # wrapper (e.g. multi-instance) puts it on WebMux's session PATH under the
-  # agent's name, isolated to that service. CODEBUDDY_ACP_REAL always points
-  # at the real CLI, so the shim works under any name.
-  postInstall = ''
-    wrapProgram $out/bin/codebuddy-acp \
-      --set CODEBUDDY_ACP_REAL ${lib.getExe codebuddy}
+  postInstallCheck = ''
+    test "$(find $out/bin -mindepth 1 -maxdepth 1 -printf '%f\n')" = codebuddy-acp
+    test -f $out/bin/codebuddy-acp
+    test ! -L $out/bin/codebuddy-acp
+    test ! -e $out/libexec
+    test "$(od -An -tx1 -N4 $out/bin/codebuddy-acp | tr -d ' \n')" = 7f454c46
+    test "$(env -u CODEBUDDY_ACP_REAL $out/bin/codebuddy-acp --acp-proxy-version)" = ${finalAttrs.version}
+    test "$(env -u CODEBUDDY_ACP_REAL $out/bin/codebuddy-acp --version)" = ${codebuddy.version}
   '';
 
   passthru = {
     inherit codebuddy;
+    aiProvenance = [
+      {
+        agent = "dsh";
+        model = "1AgentRouter/gpt-5.6-sol";
+        involvement = "assisted";
+      }
+      {
+        agent = "dsh";
+        model = "2AgentRouter/gpt-5.6-sol";
+        involvement = "assisted";
+      }
+    ];
   };
 
   meta = {

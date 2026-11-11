@@ -2,11 +2,6 @@
   webmux,
 }:
 
-# Test build only. The main `webmux` package keeps its own updateScript and
-# follows upstream releases; this overlay adds the local, un-PR'd
-# `feat/external-acp-agents` change on top of whatever version it currently
-# pins, so the generic ACP / wrapper support can be tried without touching the
-# updateable package or publishing anything upstream.
 webmux.overrideAttrs (old: {
   pname = "webmux-acp";
 
@@ -14,12 +9,24 @@ webmux.overrideAttrs (old: {
     ./patches/external-acp-agents.patch
   ];
 
+  doCheck = true;
+  checkPhase = ''
+    runHook preCheck
+    go test -race ./internal/agentprofile/... ./internal/service ./internal/launch
+    go test -race ./internal/hybrid -run '^TestSelectDeclaredAgentProcess$' -count=20
+    go test -race ./internal/hybrid -run '^(TestCheckCreate|TestCodexConnectorMissing|TestCreateACPFailureRemovesSessionAndReturnsStderr|TestStartFailurePreservesCause)$' -count=1
+    go test -race ./cmd/internal/assemble -run '^TestSessionOptionsUsesInjectedRegistry$'
+    go test -race ./internal/api -run '^TestOneInjectedRegistryServesLaunchAPIAndHybrid$'
+    go test ./internal/archtest ./internal/docguard
+    runHook postCheck
+  '';
+
   passthru = (old.passthru or { }) // {
     updateScript = null;
     inherit webmux;
   };
 
   meta = (old.meta or { }) // {
-    description = "WebMux test build with config-driven ACP agents and wrapper commands";
+    description = "WebMux with support for externally declared ACP agents";
   };
 })

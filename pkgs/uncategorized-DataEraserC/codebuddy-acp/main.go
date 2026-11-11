@@ -10,12 +10,13 @@
 //     (~/.codebuddy/projects/<cwd-slug>/<session-id>.jsonl) instead of being
 //     forwarded, where they would fail with -32601.
 //
-// Without --acp the proxy execs the real binary, so the TUI and --print behave
-// exactly as before.
+// When the arguments do not select stdio ACP, the proxy execs the real binary,
+// so the TUI, --print and other transports behave exactly as before.
 package main
 
 import (
 	"bufio"
+	"encoding/base64"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -52,22 +53,52 @@ type listResponse struct {
 	NextCursor string        `json:"nextCursor,omitempty"`
 }
 
+type proxyState struct {
+	mu     sync.Mutex
+	initID string
+	out    *frameWriter
+}
+
+type frameWriter struct {
+	mu sync.Mutex
+	w  io.Writer
+}
+
+func (w *frameWriter) Write(p []byte) (int, error) {
+	w.mu.Lock()
+	defer w.mu.Unlock()
+
+	written := 0
+	for len(p) > 0 {
+		n, err := w.w.Write(p)
+		written += n
+		p = p[n:]
+		if err != nil {
+			return written, err
+		}
+		if n == 0 {
+			return written, io.ErrShortWrite
+		}
+	}
+	return written, nil
+}
+
+func newProxyState(out io.Writer) *proxyState {
+	return &proxyState{out: &frameWriter{w: out}}
+}
+
+// version and defaultRealBinary are set at build time. The proxy answers only
+// its exact --acp-proxy-version invocation; every other non-stdio invocation
+// execs the caller override or the compiled-in vendor binary.
 var (
-	outMu    sync.Mutex
-	initID   string
-	initSeen bool
+	version           = "dev"
+	defaultRealBinary string
 )
 
-// version is the proxy's own version, set at build time. The wrapped CLI keeps
-// its own version: only --acp-proxy-version is answered here.
-var version = "dev"
-
 func main() {
-	for _, arg := range os.Args[1:] {
-		if arg == "--acp-proxy-version" {
-			fmt.Println(version)
-			return
-		}
+	if proxyVersionRequested(os.Args[1:]) {
+		fmt.Println(version)
+		return
 	}
 	args := os.Args[1:]
 	real, err := realBinary()
@@ -75,57 +106,72 @@ func main() {
 		fmt.Fprintln(os.Stderr, "codebuddy-acp:", err)
 		os.Exit(2)
 	}
-	if !acpStdio(args) {
-		if err := syscall.Exec(real, append([]string{real}, args...), os.Environ()); err != nil {
-			fmt.Fprintln(os.Stderr, "codebuddy-acp: exec:", err)
-			os.Exit(2)
-		}
+	proxy, err := dispatch(real, os.Args[0], args, os.Environ(), syscall.Exec, serve)
+	if err == nil {
 		return
 	}
-	if err := serve(real, args); err != nil {
+	if proxy {
 		fmt.Fprintln(os.Stderr, "codebuddy-acp:", err)
 		os.Exit(1)
 	}
+	fmt.Fprintln(os.Stderr, "codebuddy-acp: exec:", err)
+	os.Exit(2)
+}
+
+// dispatch either replaces this process with the real CLI or runs the ACP
+// proxy. Its injected functions keep the exec boundary testable without a
+// subprocess replacing the test runner.
+func dispatch(
+	real, argv0 string,
+	args, environ []string,
+	execReal func(string, []string, []string) error,
+	serveACP func(string, []string) error,
+) (bool, error) {
+	if !acpStdio(args) {
+		return false, execReal(real, append([]string{argv0}, args...), environ)
+	}
+	return true, serveACP(real, args)
+}
+
+func proxyVersionRequested(args []string) bool {
+	return len(args) == 1 && args[0] == "--acp-proxy-version"
 }
 
 // acpStdio reports whether these arguments select the stdio ACP server, the
 // only transport a line proxy can sit in front of.
 func acpStdio(args []string) bool {
 	acp := false
+	transport := "stdio"
 	for i := 0; i < len(args); i++ {
+		if args[i] == "--" {
+			break
+		}
 		switch {
 		case args[i] == "--acp":
 			acp = true
-		case args[i] == "--acp-transport" && i+1 < len(args):
-			return acp && args[i+1] == "stdio"
+		case args[i] == "--acp-transport":
+			if i+1 >= len(args) {
+				return false
+			}
+			i++
+			transport = args[i]
 		case strings.HasPrefix(args[i], "--acp-transport="):
-			return acp && strings.TrimPrefix(args[i], "--acp-transport=") == "stdio"
+			transport = strings.TrimPrefix(args[i], "--acp-transport=")
 		}
 	}
-	return acp
+	return acp && transport == "stdio"
 }
 
-// realBinary locates the wrapped CLI: the explicit override first, then the
-// first codebuddy/cbc on PATH that is not this proxy.
+// realBinary locates the real CLI: a non-empty caller override first, then the
+// linker-injected package default.
 func realBinary() (string, error) {
 	if p := os.Getenv("CODEBUDDY_ACP_REAL"); p != "" {
 		return p, nil
 	}
-	self, _ := os.Executable()
-	for _, dir := range filepath.SplitList(os.Getenv("PATH")) {
-		for _, name := range []string{"codebuddy", "cbc"} {
-			candidate := filepath.Join(dir, name)
-			info, err := os.Stat(candidate)
-			if err != nil || info.IsDir() || info.Mode()&0o111 == 0 {
-				continue
-			}
-			if resolved, err := filepath.EvalSymlinks(candidate); err == nil && resolved == self {
-				continue
-			}
-			return candidate, nil
-		}
+	if defaultRealBinary != "" {
+		return defaultRealBinary, nil
 	}
-	return "", errors.New("cannot find the codebuddy binary to wrap (set CODEBUDDY_ACP_REAL)")
+	return "", errors.New("real CodeBuddy path is not configured (set CODEBUDDY_ACP_REAL or build with main.defaultRealBinary)")
 }
 
 // serve runs the real ACP server and shuttles frames in both directions.
@@ -144,15 +190,29 @@ func serve(real string, args []string) error {
 		return err
 	}
 
-	done := make(chan struct{})
+	return proxyProcess(os.Stdin, os.Stdout, stdin, stdout, cmd.Wait)
+}
+
+func proxyProcess(
+	clientIn io.ReadCloser,
+	clientOut io.Writer,
+	vendorIn io.WriteCloser,
+	vendorOut io.Reader,
+	waitVendor func() error,
+) error {
+	state := newProxyState(clientOut)
+	var closeVendorIn sync.Once
+	closeInput := func() {
+		closeVendorIn.Do(func() { _ = vendorIn.Close() })
+	}
 	go func() {
-		defer close(done)
-		forward(os.Stdin, stdin, interceptClient)
-		stdin.Close()
+		forward(clientIn, vendorIn, state.interceptClient)
+		closeInput()
 	}()
-	forward(stdout, os.Stdout, rewriteServer)
-	<-done
-	return cmd.Wait()
+	forward(vendorOut, state.out, state.rewriteServer)
+	_ = clientIn.Close()
+	closeInput()
+	return waitVendor()
 }
 
 // forward copies newline-delimited frames from src to dst, passing each one
@@ -173,14 +233,18 @@ func forward(src io.Reader, dst io.Writer, transform func(line []byte) []byte) {
 }
 
 func writeAll(dst io.Writer, p []byte) {
-	if _, err := dst.Write(p); err != nil {
-		return
+	for len(p) > 0 {
+		n, err := dst.Write(p)
+		p = p[n:]
+		if err != nil || n == 0 {
+			return
+		}
 	}
 }
 
 // interceptClient drops session/list (answered locally) and remembers the
 // initialize id so its response can be patched. Every other frame passes.
-func interceptClient(line []byte) []byte {
+func (s *proxyState) interceptClient(line []byte) []byte {
 	var msg struct {
 		ID     json.RawMessage `json:"id"`
 		Method string          `json:"method"`
@@ -194,13 +258,12 @@ func interceptClient(line []byte) []byte {
 	}
 	switch msg.Method {
 	case "initialize":
-		initID = string(msg.ID)
+		s.mu.Lock()
+		s.initID = string(msg.ID)
+		s.mu.Unlock()
 		return line
 	case "session/list":
-		answer := listAnswer(msg.ID, msg.Params.Cwd, msg.Params.Cursor)
-		outMu.Lock()
-		defer outMu.Unlock()
-		os.Stdout.Write(answer)
+		_, _ = s.out.Write(listAnswer(msg.ID, msg.Params.Cwd, msg.Params.Cursor))
 		return nil
 	}
 	return line
@@ -208,18 +271,29 @@ func interceptClient(line []byte) []byte {
 
 // rewriteServer injects the session/list capability into the initialize
 // response and passes everything else through untouched.
-func rewriteServer(line []byte) []byte {
-	if initID == "" {
-		return line
-	}
+func (s *proxyState) rewriteServer(line []byte) []byte {
 	var msg map[string]json.RawMessage
 	if json.Unmarshal(line, &msg) != nil {
 		return line
 	}
 	id, ok := msg["id"]
-	if !ok || string(id) != initID {
+	if !ok {
 		return line
 	}
+	s.mu.Lock()
+	if s.initID == "" || string(id) != s.initID {
+		s.mu.Unlock()
+		return line
+	}
+	if _, hasResult := msg["result"]; !hasResult {
+		if _, hasError := msg["error"]; !hasError {
+			s.mu.Unlock()
+			return line
+		}
+	}
+	s.initID = ""
+	s.mu.Unlock()
+
 	result, ok := msg["result"]
 	if !ok {
 		return line
@@ -242,13 +316,14 @@ func addListCapability(result json.RawMessage) (json.RawMessage, error) {
 	if err := json.Unmarshal(result, &res); err != nil {
 		return nil, err
 	}
-	rawCaps, ok := res["agentCapabilities"]
-	if !ok {
-		return nil, errors.New("initialize result has no agentCapabilities")
+	if res == nil {
+		return nil, errors.New("initialize result is null")
 	}
-	var caps map[string]json.RawMessage
-	if err := json.Unmarshal(rawCaps, &caps); err != nil {
-		return nil, err
+	caps := map[string]json.RawMessage{}
+	if rawCaps, ok := res["agentCapabilities"]; ok && len(rawCaps) > 0 && string(rawCaps) != "null" {
+		if err := json.Unmarshal(rawCaps, &caps); err != nil {
+			return nil, err
+		}
 	}
 	sessions := map[string]json.RawMessage{}
 	if raw, ok := caps["sessionCapabilities"]; ok && len(raw) > 0 && string(raw) != "null" {
@@ -272,38 +347,110 @@ func addListCapability(result json.RawMessage) (json.RawMessage, error) {
 	return json.Marshal(res)
 }
 
+type sessionCursor struct {
+	SessionID string `json:"sessionId"`
+	Cwd       string `json:"cwd"`
+	UpdatedAt string `json:"updatedAt"`
+}
+
 // listAnswer builds a session/list response from CodeBuddy's transcripts.
 func listAnswer(id json.RawMessage, cwd, cursor string) []byte {
-	if cwd == "" {
-		cwd, _ = os.Getwd()
-	}
 	sessions := listSessions(cwd)
+	if sessions == nil {
+		sessions = []sessionInfo{}
+	}
+	page, nextCursor, err := paginateSessions(sessions, cursor)
+	if err != nil {
+		return errorAnswer(id, -32602, "invalid session/list cursor")
+	}
 	resp := map[string]json.RawMessage{
 		"jsonrpc": json.RawMessage(`"2.0"`),
 		"id":      id,
 	}
-	body, err := json.Marshal(listResponse{Sessions: sessions})
+	body, err := json.Marshal(listResponse{Sessions: page, NextCursor: nextCursor})
 	if err != nil {
-		errFrame := fmt.Sprintf(`{"jsonrpc":"2.0","id":%s,"error":{"code":-32603,"message":"session/list failed"}}`+"\n", id)
-		return []byte(errFrame)
+		return errorAnswer(id, -32603, "session/list failed")
 	}
 	resp["result"] = body
 	out, err := json.Marshal(resp)
 	if err != nil {
-		return []byte(fmt.Sprintf(`{"jsonrpc":"2.0","id":%s,"result":{"sessions":[]}}`+"\n", id))
+		return errorAnswer(id, -32603, "session/list failed")
 	}
 	return append(out, '\n')
 }
 
-// transcriptBase is CodeBuddy's transcript root. The CLI stores transcripts in
-// $CODEBUDDY_CONFIG_DIR/projects when an isolated profile exists there, and in
-// ~/.codebuddy/projects otherwise, so both are tried.
-func transcriptBase() (string, error) {
-	if dir := os.Getenv("CODEBUDDY_CONFIG_DIR"); dir != "" {
-		path := filepath.Join(dir, "projects")
-		if info, err := os.Stat(path); err == nil && info.IsDir() {
-			return path, nil
+func errorAnswer(id json.RawMessage, code int, message string) []byte {
+	resp := struct {
+		JSONRPC string          `json:"jsonrpc"`
+		ID      json.RawMessage `json:"id"`
+		Error   struct {
+			Code    int    `json:"code"`
+			Message string `json:"message"`
+		} `json:"error"`
+	}{JSONRPC: "2.0", ID: id}
+	resp.Error.Code = code
+	resp.Error.Message = message
+	out, err := json.Marshal(resp)
+	if err != nil {
+		return []byte("{\"jsonrpc\":\"2.0\",\"id\":null,\"error\":{\"code\":-32603,\"message\":\"session/list failed\"}}\n")
+	}
+	return append(out, '\n')
+}
+
+func paginateSessions(sessions []sessionInfo, cursor string) ([]sessionInfo, string, error) {
+	start := 0
+	if cursor != "" {
+		decoded, err := base64.RawURLEncoding.DecodeString(cursor)
+		if err != nil {
+			return nil, "", err
 		}
+		var marker sessionCursor
+		if err := json.Unmarshal(decoded, &marker); err != nil {
+			return nil, "", err
+		}
+		if marker.SessionID == "" || marker.Cwd == "" || marker.UpdatedAt == "" {
+			return nil, "", errors.New("incomplete cursor")
+		}
+		found := false
+		for i, session := range sessions {
+			if session.SessionID == marker.SessionID && session.Cwd == marker.Cwd && session.UpdatedAt == marker.UpdatedAt {
+				start = i + 1
+				found = true
+				break
+			}
+		}
+		if !found {
+			return nil, "", errors.New("cursor session not found")
+		}
+	}
+
+	end := min(start+listLimit, len(sessions))
+	page := sessions[start:end]
+	if end == len(sessions) {
+		return page, "", nil
+	}
+	last := page[len(page)-1]
+	encoded, err := json.Marshal(sessionCursor{
+		SessionID: last.SessionID,
+		Cwd:       last.Cwd,
+		UpdatedAt: last.UpdatedAt,
+	})
+	if err != nil {
+		return nil, "", err
+	}
+	return page, base64.RawURLEncoding.EncodeToString(encoded), nil
+}
+
+// transcriptBase is CodeBuddy's transcript root. The CLI stores transcripts in
+// $CODEBUDDY_CONFIG_DIR/projects when an isolated profile is selected, and in
+// ~/.codebuddy/projects when the variable is unset. An explicitly empty value
+// is invalid and must not fall back to the default profile.
+func transcriptBase() (string, error) {
+	if dir, set := os.LookupEnv("CODEBUDDY_CONFIG_DIR"); set {
+		if dir == "" {
+			return "", errors.New("CODEBUDDY_CONFIG_DIR is set but empty")
+		}
+		return filepath.Join(dir, "projects"), nil
 	}
 	home, err := os.UserHomeDir()
 	if err != nil {
@@ -312,22 +459,22 @@ func transcriptBase() (string, error) {
 	return filepath.Join(home, ".codebuddy", "projects"), nil
 }
 
-// listSessions reads the transcript store for cwd, newest first.
+// listSessions reads the transcript store, optionally filters by cwd, and sorts
+// newest first.
 func listSessions(cwd string) []sessionInfo {
 	base, err := transcriptBase()
 	if err != nil {
 		return nil
 	}
-	dirs := []string{filepath.Join(base, projectSlug(cwd))}
-	if _, err := os.Stat(dirs[0]); err != nil {
-		entries, readErr := os.ReadDir(base)
-		if readErr != nil {
-			return nil
-		}
-		for _, e := range entries {
-			if e.IsDir() {
-				dirs = append(dirs, filepath.Join(base, e.Name()))
-			}
+
+	entries, err := os.ReadDir(base)
+	if err != nil {
+		return nil
+	}
+	dirs := make([]string, 0, len(entries))
+	for _, entry := range entries {
+		if entry.IsDir() {
+			dirs = append(dirs, filepath.Join(base, entry.Name()))
 		}
 	}
 
@@ -335,51 +482,55 @@ func listSessions(cwd string) []sessionInfo {
 		info sessionInfo
 		at   time.Time
 	}
-	var hits []hit
-	seen := map[string]bool{}
+	hitsByID := make(map[string]hit)
 	for _, dir := range dirs {
 		entries, err := os.ReadDir(dir)
 		if err != nil {
 			continue
 		}
-		for _, e := range entries {
-			name := e.Name()
-			if e.IsDir() || !strings.HasSuffix(name, ".jsonl") {
+		for _, entry := range entries {
+			name := entry.Name()
+			if entry.IsDir() || !strings.HasSuffix(name, ".jsonl") {
 				continue
 			}
-			sid := strings.TrimSuffix(name, ".jsonl")
-			if seen[sid] {
-				continue
-			}
-			info, err := e.Info()
+			info, err := entry.Info()
 			if err != nil {
 				continue
 			}
-			path := filepath.Join(dir, name)
-			recordCwd, title := transcriptHead(path)
-			if recordCwd != "" && !samePath(recordCwd, cwd) {
+			sessionID := strings.TrimSuffix(name, ".jsonl")
+			recordCwd, title := transcriptHead(filepath.Join(dir, name))
+			if recordCwd == "" || cwd != "" && !samePath(recordCwd, cwd) {
 				continue
 			}
-			seen[sid] = true
 			at := info.ModTime().UTC()
-			hits = append(hits, hit{
+			if previous, ok := hitsByID[sessionID]; ok && !at.After(previous.at) {
+				continue
+			}
+			hitsByID[sessionID] = hit{
 				info: sessionInfo{
-					SessionID: sid,
-					Cwd:       cwd,
+					SessionID: sessionID,
+					Cwd:       recordCwd,
 					Title:     title,
 					UpdatedAt: at.Format(time.RFC3339Nano),
 				},
 				at: at,
-			})
+			}
 		}
 	}
-	sort.Slice(hits, func(i, j int) bool { return hits[i].at.After(hits[j].at) })
-	if len(hits) > listLimit {
-		hits = hits[:listLimit]
+
+	hits := make([]hit, 0, len(hitsByID))
+	for _, item := range hitsByID {
+		hits = append(hits, item)
 	}
+	sort.Slice(hits, func(i, j int) bool {
+		if hits[i].at.Equal(hits[j].at) {
+			return hits[i].info.SessionID < hits[j].info.SessionID
+		}
+		return hits[i].at.After(hits[j].at)
+	})
 	out := make([]sessionInfo, 0, len(hits))
-	for _, h := range hits {
-		out = append(out, h.info)
+	for _, item := range hits {
+		out = append(out, item.info)
 	}
 	return out
 }
