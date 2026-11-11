@@ -67,14 +67,14 @@
 
 ## 3. 文件归属与单一事实源
 
-| 层 | 唯一职责 | 事实源 |
-| --- | --- | --- |
-| WebMux upstream branch | 通用 schema、严格 loader、registry 注入、exact argv、launcher/process、service persistence、通用测试与文档 | 获准公共分支上的单个匿名 commit |
-| NUR `webmux` | 未打补丁的上游源码基线、前端/Go 依赖哈希与组合 updater | `pkgs/uncategorized-DataEraserC/webmux/default.nix` |
-| NUR `webmux-acp` | 在相同 `webmux` 派生上只追加匿名 commit 导出的 patch，并扩大 check 范围 | `webmux-acp/default.nix` 与 `patches/external-acp-agents.patch` |
-| NUR `codebuddy-acp` | CodeBuddy 专用双模式入口及 stdio ACP compatibility proxy | `codebuddy-acp/` |
-| nix-config | CodeBuddy 实例声明、state compatibility、WebMux JSON 与 NUR pin | 对应 module、host 与 focused test |
-| 本文件 | 跨层不变量、升级顺序与验收矩阵 | 本文件；其它 `AGENTS.md` 只保留触发指针和本地实现经验 |
+| 层                     | 唯一职责                                                                                                   | 事实源                                                          |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- |
+| WebMux upstream branch | 通用 schema、严格 loader、registry 注入、exact argv、launcher/process、service persistence、通用测试与文档 | 获准公共分支上的单个匿名 commit                                 |
+| NUR `webmux`           | 未打补丁的上游源码基线、前端/Go 依赖哈希与组合 updater                                                     | `pkgs/uncategorized-DataEraserC/webmux/default.nix`             |
+| NUR `webmux-acp`       | 在相同 `webmux` 派生上只追加匿名 commit 导出的 patch，并扩大 check 范围                                    | `webmux-acp/default.nix` 与 `patches/external-acp-agents.patch` |
+| NUR `codebuddy-acp`    | CodeBuddy 专用双模式入口及 stdio ACP compatibility proxy                                                   | `codebuddy-acp/`                                                |
+| nix-config             | CodeBuddy 实例声明、state compatibility、WebMux JSON 与 NUR pin                                            | 对应 module、host 与 focused test                               |
+| 本文件                 | 跨层不变量、升级顺序与验收矩阵                                                                             | 本文件；其它 `AGENTS.md` 只保留触发指针和本地实现经验           |
 
 WebMux upstream 不承载下游实例；NUR patch 不手工维护第二份实现；nix-config 不内嵌包实现；包级指南不复制本文件的规范正文。
 
@@ -86,14 +86,14 @@ WebMux upstream 不承载下游实例；NUR patch 不手工维护第二份实现
 
 当前基线（更新时整行一起改）：
 
-| 项目 | 值 |
-| --- | --- |
-| version | `0.14.4-unstable-2026-11-11` |
-| upstream rev | `cf23a4036a525b569bc562c913c3ae05c5973fcc` |
-| source hash | `sha256-kFmtz744vHA9wqw+RfYE54u5NwBnU5F7sAm42UrSXzE=` |
-| pnpm hash | `sha256-NP63QLqCd9tYgHBd7v+G90EupZF9MKoo3IKW48svUrs=` |
-| vendor hash | `sha256-Je+YqoTY0A5VCNtBBMpGjcmHLa2otbuKydnYGDEVCl0=` |
-| external ACP commit | `b93529a73f824dcae371e004653c30809b007bc0` |
+| 项目                | 值                                                    |
+| ------------------- | ----------------------------------------------------- |
+| version             | `0.14.4-unstable-2026-11-11`                          |
+| upstream rev        | `cf23a4036a525b569bc562c913c3ae05c5973fcc`            |
+| source hash         | `sha256-kFmtz744vHA9wqw+RfYE54u5NwBnU5F7sAm42UrSXzE=` |
+| pnpm hash           | `sha256-NP63QLqCd9tYgHBd7v+G90EupZF9MKoo3IKW48svUrs=` |
+| vendor hash         | `sha256-Je+YqoTY0A5VCNtBBMpGjcmHLa2otbuKydnYGDEVCl0=` |
+| external ACP commit | `b93529a73f824dcae371e004653c30809b007bc0`            |
 
 ### PKG-02：补丁等于一个可审计的匿名上游 commit
 
@@ -136,19 +136,20 @@ WebMux upstream 不承载下游实例；NUR patch 不手工维护第二份实现
 
 ### NC-01：应用名、可执行文件与状态 key 分离
 
-- 应用/module/可执行文件：`codebuddy-acp`。
+- 应用/module/可执行文件与 canonical multi-instance app key：`codebuddy-acp`；canonical `apps` 中不得保留 `codebuddy`。
 - vendor 持久状态 key：`codebuddy`。
+- 为 seed-once 旧启动配置保留 `aliases.codebuddy = "codebuddy-acp"` 这类 CLI-only alias；alias 必须复用 canonical app 的 executable/state/paths，不得复制 app、桌面入口或持久化声明。
 - 保留 `.codebuddy`、`.local/share/CodeBuddyExtension` 与既有 multi-instance 状态根；迁移不得清空、改名或重建用户数据。
-- multi-instance 数据模型显式保存 app、executable、state key，不再假设三者同名。
+- multi-instance 数据模型显式保存 app、executable、state key 和独立 alias，不再假设这些名字相同。
 
 ### NC-02：WebMux 只消费通用声明
 
-nix-config 通过一个 `WEBMUX_ACP_AGENTS` JSON 定义 direct 与 wrapped 完整 argv。wrapped binding 的 launcher 是实际 PTY 根进程，native process 列表是 vendor TUI 的实际进程名。部署可出现 `multi-instance` 与 CodeBuddy；WebMux 通用实现不可出现这些专名。
+nix-config 通过一个 `WEBMUX_ACP_AGENTS` JSON 定义 direct、canonical wrapped 与 seed-once legacy wrapped 完整 argv；旧 binding 只兼容精确的已保存命令，不让 WebMux 推导 alias。wrapped binding 的 launcher 是实际 PTY 根进程，`processExecutables` 只列 proxy 在非 ACP 模式 `exec` 后的 vendor TUI 实际进程名，不列只存在于 ACP side 的 proxy 名。部署可出现 `multi-instance` 与 CodeBuddy；WebMux 通用实现不可出现这些专名。
 
 ### NC-03：包来源与旧配置兼容
 
 - WebMux package 直接取 pinned `nur-DataEraserC.legacyPackages.${system}.webmux-acp`，不为改名创建本地 overlay。
-- 已存在的 `launch-configs.json` 只由上游 seed-once 规则管理；迁移不得删除或整体重写。
+- 已存在的 `launch-configs.json` 只由上游 seed-once 规则管理；迁移不得删除、逐项迁移或整体重写。旧 `multi-instance codebuddy 1` 由 multi-instance CLI alias 和同 argv 的 WebMux exact binding 兼容。
 - NUR commit 完成后再更新 nix-config 的 NUR lock；配置和 lock 必须指向包含相同 patch/package 的提交。
 
 ## 7. 升级流程
@@ -165,14 +166,14 @@ nix-config 通过一个 `WEBMUX_ACP_AGENTS` JSON 定义 direct 与 wrapped 完�
 
 ## 8. 最低验收矩阵
 
-| 需求 | 自动化证据 |
-| --- | --- |
-| WM-ACP-01..03 | exact match/path first token/no scan/empty args/connector per command tests |
-| WM-ACP-04 | env bash、bare bash、zsh startup argv 与 fd 3 tests |
-| WM-ACP-05 | native root 与 launcher 0/1/2 matching child、child cwd tests |
-| WM-ACP-06 | strict JSON、limits、skip/conflict/no panic、constructor wiring、service render round-trip tests |
-| PKG-01..04 | source identity assertion、format-patch identity、Nix builds、explicit internal Go tests |
-| CB-01..03 | dispatch/argv/env/transport ordering/initialize/session-list tests、`bin/` listing |
-| NC-01..03 | focused Nix expected-output test、shell syntax、module eval、target host build、state path assertions |
+| 需求          | 自动化证据                                                                                                                                                                                                                      |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| WM-ACP-01..03 | exact match/path first token/no scan/empty args/connector per command tests                                                                                                                                                     |
+| WM-ACP-04     | env bash、bare bash、zsh startup argv 与 fd 3 tests                                                                                                                                                                             |
+| WM-ACP-05     | native root 与 launcher 0/1/2 matching child、child cwd tests                                                                                                                                                                   |
+| WM-ACP-06     | strict JSON、limits、skip/conflict/no panic、constructor wiring、service render round-trip tests                                                                                                                                |
+| PKG-01..04    | source identity assertion、format-patch identity、Nix builds、explicit internal Go tests                                                                                                                                        |
+| CB-01..03     | dispatch/argv/env/transport ordering/initialize/session-list tests、`bin/` listing                                                                                                                                              |
+| NC-01..03     | focused Nix expected-output test（canonical app/CLI alias/old-key removal/exact bindings）、生产 spec runtime test（canonical/legacy/default/userDataDir）、shell syntax、module eval、target host build、state path assertions |
 
 真实 ACP 切换 smoke 至少覆盖一次 direct binding 和一次 launcher binding：launch support → TUI session → ACP initialize/session/list/session/load → resume TUI。若环境无法运行真实 vendor CLI，应明确记录为未运行，不以 fake-agent 单测替代。
