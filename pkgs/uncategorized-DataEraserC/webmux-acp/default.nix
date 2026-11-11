@@ -1,13 +1,20 @@
 {
+  fetchFromGitHub,
   webmux,
 }:
 
-webmux.overrideAttrs (old: {
+let
+  pinnedWebmux = webmux.override {
+    webmuxSource = fetchFromGitHub {
+      owner = "mzdluo123";
+      repo = "webmux";
+      rev = "5512028a55fce892d5ceb40ac2453094ca3a4f51";
+      hash = "sha256-jEbTkq2HjEAqqwViPF9oy1QzAD9+V08LNrhTkr+iSUA=";
+    };
+  };
+in
+pinnedWebmux.overrideAttrs (old: {
   pname = "webmux-acp";
-
-  patches = (old.patches or [ ]) ++ [
-    ./patches/external-acp-agents.patch
-  ];
 
   doCheck = true;
   checkPhase = ''

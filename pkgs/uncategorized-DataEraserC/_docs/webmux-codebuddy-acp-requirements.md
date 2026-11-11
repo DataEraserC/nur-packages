@@ -70,36 +70,37 @@
 | 层                     | 唯一职责                                                                                                   | 事实源                                                          |
 | ---------------------- | ---------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- |
 | WebMux upstream branch | 通用 schema、严格 loader、registry 注入、exact argv、launcher/process、service persistence、通用测试与文档 | 获准公共分支上的单个匿名 commit                                 |
-| NUR `webmux`           | 未打补丁的上游源码基线、前端/Go 依赖哈希与组合 updater                                                     | `pkgs/uncategorized-DataEraserC/webmux/default.nix`             |
-| NUR `webmux-acp`       | 在相同 `webmux` 派生上只追加匿名 commit 导出的 patch，并扩大 check 范围                                    | `webmux-acp/default.nix` 与 `patches/external-acp-agents.patch` |
+| NUR `webmux`           | upstream base 源码、前端/Go 依赖哈希与组合 updater                                                        | `pkgs/uncategorized-DataEraserC/webmux/default.nix`             |
+| NUR `webmux-acp`       | 复用 `webmux` 构建定义，源码直接固定到 upstream base 的匿名单提交后继，并扩大 check 范围 | `webmux-acp/default.nix`                                          |
 | NUR `codebuddy-acp`    | CodeBuddy 专用双模式入口及 stdio ACP compatibility proxy                                                   | `codebuddy-acp/`                                                |
 | nix-config             | CodeBuddy 实例声明、state compatibility、WebMux JSON 与 NUR pin                                            | 对应 module、host 与 focused test                               |
 | 本文件                 | 跨层不变量、升级顺序与验收矩阵                                                                             | 本文件；其它 `AGENTS.md` 只保留触发指针和本地实现经验           |
 
-WebMux upstream 不承载下游实例；NUR patch 不手工维护第二份实现；nix-config 不内嵌包实现；包级指南不复制本文件的规范正文。
+WebMux upstream 不承载下游实例；NUR 不手工维护第二份实现；nix-config 不内嵌包实现；包级指南不复制本文件的规范正文。
 
-## 4. NUR 包与补丁来源
+## 4. NUR 包与固定源码来源
 
-### PKG-01：`webmux` 与 `webmux-acp` 共用精确源码基线
+### PKG-01：`webmux` 与 `webmux-acp` 共用构建与依赖基线
 
-主 `webmux` 与 patched `webmux-acp` 必须取同一 version、rev、source hash、frontend pnpm deps 和 Go vendor deps。`webmux-acp` 只在主包上追加 external ACP patch，不复制或漂移主包构建逻辑。
+主 `webmux` 与 `webmux-acp` 必须取同一 version、frontend pnpm deps、Go vendor deps 和完整构建定义。主包源码固定到审计过的 upstream base；`webmux-acp` 把 source 原子化替换为该 base 的匿名单提交后继，不复制或漂移主包构建逻辑。
 
 当前基线（更新时整行一起改）：
 
-| 项目                | 值                                                    |
-| ------------------- | ----------------------------------------------------- |
-| version             | `0.14.5-unstable-2026-11-11`                          |
-| upstream rev        | `4c9589b85aad3987953cd3037eee7c90bd9f43fe`            |
-| source hash         | `sha256-UvJ0MqPHfLl17NkGuIlyTCnhMyFtXn0fmP3jmoIDIko=` |
-| pnpm hash           | `sha256-AJEflSNtB60DwyJHkUM5i8Ju1DrsOULfC1MORuZLErU=` |
-| vendor hash         | `sha256-8jgAcb9znAtAlDfwuBD5+qTimc3mwoCRZ38i6pHr/d4=` |
-| external ACP commit | `5512028a55fce892d5ceb40ac2453094ca3a4f51`            |
+| 项目                     | 值                                                    |
+| ------------------------ | ----------------------------------------------------- |
+| version                  | `0.14.5-unstable-2026-11-11`                          |
+| upstream rev             | `4c9589b85aad3987953cd3037eee7c90bd9f43fe`            |
+| upstream source hash     | `sha256-UvJ0MqPHfLl17NkGuIlyTCnhMyFtXn0fmP3jmoIDIko=` |
+| external ACP commit      | `5512028a55fce892d5ceb40ac2453094ca3a4f51`            |
+| external ACP source hash | `sha256-jEbTkq2HjEAqqwViPF9oy1QzAD9+V08LNrhTkr+iSUA=` |
+| pnpm hash                | `sha256-AJEflSNtB60DwyJHkUM5i8Ju1DrsOULfC1MORuZLErU=` |
+| vendor hash              | `sha256-8jgAcb9znAtAlDfwuBD5+qTimc3mwoCRZ38i6pHr/d4=` |
 
-### PKG-02：补丁等于一个可审计的匿名上游 commit
+### PKG-02：ACP source 等于一个可审计的匿名上游 commit
 
-`webmux-acp/patches/external-acp-agents.patch` 必须由 `git format-patch` 从精确基线之上的单个 commit 导出，不手工拼装。该 commit 使用仓库局部身份 `anonymous <anonymous@users.noreply.github.com>`，采用 WebMux Conventional Commit 规范，不含真实身份、主机路径、私有部署名、会话/任务 ID、协作者 trailer 或下游 CodeBuddy/multi-instance 内容。
+`webmux-acp` 必须直接固定 `mzdluo123/webmux` 中可解析的 external ACP commit 及其 Nix source hash，不携带本地 patch。该 commit 的唯一 parent 必须是表中的 upstream rev；它使用仓库局部身份 `anonymous <anonymous@users.noreply.github.com>`，采用 WebMux Conventional Commit 规范，不含真实身份、主机路径、私有部署名、会话/任务 ID、协作者 trailer 或下游 CodeBuddy/multi-instance 内容。
 
-更新基线时：把这一个 commit rebase/重做到新基线，完成 WebMux 全部验证后重新导出；补丁内容与 commit tree diff 必须一致。
+更新基线时：把这一个 commit rebase/重做到新 base，完成 WebMux 全部验证后同时更新 commit 与 source hash；验证 commit parent、tree scope 与归档 hash，不从 patch 邮件头间接推导源码版本。
 
 ### PKG-03：主包 updater 同时更新三类哈希
 
@@ -107,7 +108,7 @@ WebMux upstream 不承载下游实例；NUR patch 不手工维护第二份实现
 
 ### PKG-04：测试范围覆盖新增 internal 包
 
-主包 `subPackages = [ "cmd/webmux" ]` 会把默认 Go check 收窄。`webmux-acp` 必须显式运行 external ACP 所涉及的 internal tests（至少 agentprofile、service、hybrid/architecture/doc guards 中适用部分），不能以主包构建成功代替补丁测试。
+主包 `subPackages = [ "cmd/webmux" ]` 会把默认 Go check 收窄。`webmux-acp` 必须显式运行 external ACP 所涉及的 internal tests（至少 agentprofile、service、hybrid/architecture/doc guards 中适用部分），不能以主包构建成功代替新增功能测试。
 
 ## 5. `codebuddy-acp` 产品契约
 
@@ -150,7 +151,7 @@ nix-config 通过一个 `WEBMUX_ACP_AGENTS` JSON 定义 direct、canonical wrapp
 
 - WebMux package 直接取 pinned `nur-DataEraserC.legacyPackages.${system}.webmux-acp`，不为改名创建本地 overlay。
 - 已存在的 `launch-configs.json` 只由上游 seed-once 规则管理；迁移不得删除、逐项迁移或整体重写。旧 `multi-instance codebuddy 1` 由 multi-instance CLI alias 和同 argv 的 WebMux exact binding 兼容。
-- NUR commit 完成后再更新 nix-config 的 NUR lock；配置和 lock 必须指向包含相同 patch/package 的提交。
+- NUR commit 完成后再更新 nix-config 的 NUR lock；配置和 lock 必须指向包含相同 pinned package 的提交。
 
 ## 7. 升级流程
 
@@ -158,8 +159,8 @@ nix-config 通过一个 `WEBMUX_ACP_AGENTS` JSON 定义 direct、canonical wrapp
 
 1. 读取本文件，列出本次可能受影响的需求 ID。
 2. 更新主 `webmux` 基线与三类固定输出哈希；证明 updater 不会选择无关 tag。
-3. 在相同基线上重放单个 external ACP commit；运行 upstream tests/docs/architecture/user-story gates。
-4. 做隐私检查后导出该 commit，替换 `webmux-acp` patch；验证 patch dry-run 无 fuzz/offset 和 tree diff 等价。
+3. 在该 base 上重放单个 external ACP commit；运行 upstream tests/docs/architecture/user-story gates。
+4. 做隐私检查后发布固定 commit；验证 parent/scope，并把 commit 与 Nix source hash 写入 `webmux-acp`。
 5. 构建并测试 `webmux`、`webmux-acp`、`codebuddy-acp`；检查公开 `bin/`。
 6. 提交 NUR 后更新 nix-config NUR lock；运行 focused eval、格式化、module tests 与目标 host build。
 7. 在提交/PR 摘要按需求 ID 记录 pass、环境性限制和未运行项。任何未验证项保持未完成，不能用“构建成功”概括。
@@ -172,7 +173,7 @@ nix-config 通过一个 `WEBMUX_ACP_AGENTS` JSON 定义 direct、canonical wrapp
 | WM-ACP-04     | env bash、bare bash、zsh startup argv 与 fd 3 tests                                                                                                                                                                             |
 | WM-ACP-05     | native root 与 launcher 0/1/2 matching child、child cwd tests                                                                                                                                                                   |
 | WM-ACP-06     | strict JSON、limits、skip/conflict/no panic、constructor wiring、service render round-trip tests                                                                                                                                |
-| PKG-01..04    | source identity assertion、format-patch identity、Nix builds、explicit internal Go tests                                                                                                                                        |
+| PKG-01..04    | build definition/dependency identity、commit parent/source hash、Nix builds、explicit internal Go tests                                                                                                                         |
 | CB-01..03     | dispatch/argv/env/transport ordering/initialize/session-list tests、`bin/` listing                                                                                                                                              |
 | NC-01..03     | focused Nix expected-output test（canonical app/CLI alias/old-key removal/exact bindings）、生产 spec runtime test（canonical/legacy/default/userDataDir）、shell syntax、module eval、target host build、state path assertions |
 

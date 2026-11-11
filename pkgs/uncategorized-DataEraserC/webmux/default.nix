@@ -12,17 +12,17 @@
   unstableGitUpdater,
   versionCheckHook,
   writeShellApplication,
-}:
-
-let
-  version = "0.14.5-unstable-2026-11-11";
-
-  src = fetchFromGitHub {
+  webmuxSource ? fetchFromGitHub {
     owner = "mzdluo123";
     repo = "webmux";
     rev = "4c9589b85aad3987953cd3037eee7c90bd9f43fe";
     hash = "sha256-UvJ0MqPHfLl17NkGuIlyTCnhMyFtXn0fmP3jmoIDIko=";
-  };
+  },
+}:
+
+let
+  version = "0.14.5-unstable-2026-11-11";
+  src = webmuxSource;
 
   sourceUpdater = unstableGitUpdater {
     url = "https://github.com/mzdluo123/webmux.git";

@@ -1,6 +1,6 @@
 # webmux 打包经验
 
-更新 WebMux 基线、updater 或 `webmux-acp` 补丁前，先按 [`../_docs/webmux-codebuddy-acp-requirements.md`](../_docs/webmux-codebuddy-acp-requirements.md) 的 `WM-ACP-*` 与 `PKG-*` 逐项验收；该文档是跨包/跨仓需求的单一事实源。
+更新 WebMux 基线、updater 或 `webmux-acp` 固定源码前，先按 [`../_docs/webmux-codebuddy-acp-requirements.md`](../_docs/webmux-codebuddy-acp-requirements.md) 的 `WM-ACP-*` 与 `PKG-*` 逐项验收；该文档是跨包/跨仓需求的单一事实源。
 
 上游：<https://github.com/mzdluo123/webmux>（Go 后端 + Svelte/Vite 前端，前端产物以 ZIP 形式 `//go:embed` 进二进制）
 
