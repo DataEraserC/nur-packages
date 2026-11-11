@@ -88,12 +88,12 @@ WebMux upstream 不承载下游实例；NUR patch 不手工维护第二份实现
 
 | 项目                | 值                                                    |
 | ------------------- | ----------------------------------------------------- |
-| version             | `0.14.4-unstable-2026-11-11`                          |
-| upstream rev        | `cf23a4036a525b569bc562c913c3ae05c5973fcc`            |
-| source hash         | `sha256-kFmtz744vHA9wqw+RfYE54u5NwBnU5F7sAm42UrSXzE=` |
-| pnpm hash           | `sha256-NP63QLqCd9tYgHBd7v+G90EupZF9MKoo3IKW48svUrs=` |
-| vendor hash         | `sha256-Je+YqoTY0A5VCNtBBMpGjcmHLa2otbuKydnYGDEVCl0=` |
-| external ACP commit | `b93529a73f824dcae371e004653c30809b007bc0`            |
+| version             | `0.14.5-unstable-2026-11-11`                          |
+| upstream rev        | `4c9589b85aad3987953cd3037eee7c90bd9f43fe`            |
+| source hash         | `sha256-UvJ0MqPHfLl17NkGuIlyTCnhMyFtXn0fmP3jmoIDIko=` |
+| pnpm hash           | `sha256-AJEflSNtB60DwyJHkUM5i8Ju1DrsOULfC1MORuZLErU=` |
+| vendor hash         | `sha256-8jgAcb9znAtAlDfwuBD5+qTimc3mwoCRZ38i6pHr/d4=` |
+| external ACP commit | `5512028a55fce892d5ceb40ac2453094ca3a4f51`            |
 
 ### PKG-02：补丁等于一个可审计的匿名上游 commit
 

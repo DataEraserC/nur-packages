@@ -15,7 +15,7 @@
 
 ## 构建测试
 
-主包的 `subPackages = [ "cmd/webmux" ]` 会收窄默认 Go tests。本变体的 `checkPhase` 必须显式覆盖补丁涉及的 internal packages、架构/doc guards 与适用 hybrid tests，不能只继承主包 check。
+主包的 `subPackages = [ "cmd/webmux" ]` 会收窄默认 Go tests。本变体的 `checkPhase` 必须显式覆盖补丁涉及的 internal packages、架构/doc guards 与适用 hybrid tests，不能只继承主包 check。`cmd/baseline` 的 `TestFixtureIsolatesAPIGitAndRestoresEnvironment` 硬编码 `/usr/bin/env`，Nix sandbox 只跳过这一项；package 仍完整编译并运行其余 tests，registry wiring 由 assemble/API/P2P/hybrid focused tests 覆盖。
 
 验收至少包括：
 

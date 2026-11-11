@@ -1,48 +1,59 @@
-From b93529a73f824dcae371e004653c30809b007bc0 Mon Sep 17 00:00:00 2001
+From 5512028a55fce892d5ceb40ac2453094ca3a4f51 Mon Sep 17 00:00:00 2001
 From: anonymous <anonymous@users.noreply.github.com>
 Date: Wed, 11 Nov 2026 16:59:45 +0800
 Subject: [PATCH] feat(hybrid): support externally declared ACP agents
 
+Rebased-from: b93529a73f824dcae371e004653c30809b007bc0
 ---
  cmd/baseline/fixture.go                       |   6 +-
  cmd/internal/assemble/assemble.go             |   6 +-
  cmd/internal/assemble/assemble_test.go        |  19 +-
- cmd/webmux/main.go                            |  15 +-
+ cmd/webmux/main.go                            |  14 +-
+ cmd/webmux/server_config.go                   |   2 +
+ docs/architecture.md                          |   3 +-
  docs/deployment/configuration.md              |  31 +++
  docs/deployment/services.md                   |   2 +-
  docs/hybrid-sessions/agents.md                |  44 ++++
  docs/user-stories/hybrid-sessions.md          |   3 +-
- ...rification-log-2026-11-archived-history.md |  16 ++
+ ...rification-log-2026-11-archived-history.md |  15 ++
  internal/agentprofile/agents/external.go      | 118 ++++++++++
- internal/agentprofile/agents/external_test.go | 184 ++++++++++++++++
- internal/agentprofile/command.go              |  99 +++++++--
- internal/agentprofile/external_test.go        | 187 ++++++++++++++++
+ internal/agentprofile/agents/external_test.go | 214 ++++++++++++++++++
+ internal/agentprofile/command.go              |  99 ++++++--
+ internal/agentprofile/external_test.go        | 188 +++++++++++++++
  internal/agentprofile/profile.go              |  10 +-
- internal/agentprofile/registry.go             | 136 ++++++++++--
- internal/agentprofile/spec.go                 | 208 ++++++++++++++++++
+ internal/agentprofile/registry.go             | 136 +++++++++--
+ internal/agentprofile/spec.go                 | 213 +++++++++++++++++
  internal/api/launch.go                        |   3 +-
  internal/api/launch_test.go                   |  36 ++-
+ internal/api/p2p_test.go                      |  43 ++++
  internal/api/router.go                        |   8 +
+ internal/archtest/layers_test.go              |   1 +
  internal/hybrid/connector.go                  |  21 +-
- internal/hybrid/eligibility.go                |  34 +--
- internal/hybrid/external_process_test.go      |  50 +++++
+ internal/hybrid/create.go                     |   2 +-
+ internal/hybrid/eligibility.go                |  13 +-
+ internal/hybrid/external_process_test.go      |  50 ++++
+ internal/hybrid/identity_trackers.go          |  21 +-
  internal/hybrid/link.go                       |   2 +-
- internal/hybrid/service.go                    |  11 +-
+ internal/hybrid/service.go                    |   9 +-
+ internal/hybrid/service_test.go               |   9 +-
  internal/hybrid/switch.go                     |   2 +-
+ internal/hybrid/work_test.go                  |  35 +++
  internal/launch/inspect.go                    |  10 +-
  internal/launch/presets.go                    |   6 +-
  internal/launch/presets_test.go               |   2 +-
  internal/launch/store.go                      |  55 +++--
  internal/launch/store_test.go                 |  31 +++
- internal/launch/types.go                      |  23 +-
+ internal/launch/types.go                      |  28 ++-
+ internal/launchicon/catalog.go                |  14 ++
  internal/service/render.go                    |   2 +-
  internal/service/service_test.go              |  63 +++++-
- 33 files changed, 1322 insertions(+), 121 deletions(-)
+ 42 files changed, 1462 insertions(+), 127 deletions(-)
  create mode 100644 internal/agentprofile/agents/external.go
  create mode 100644 internal/agentprofile/agents/external_test.go
  create mode 100644 internal/agentprofile/external_test.go
  create mode 100644 internal/agentprofile/spec.go
  create mode 100644 internal/hybrid/external_process_test.go
+ create mode 100644 internal/launchicon/catalog.go
 
 diff --git a/cmd/baseline/fixture.go b/cmd/baseline/fixture.go
 index dcec7ca2..4a5863ab 100644
@@ -74,7 +85,7 @@ index dcec7ca2..4a5863ab 100644
  	f.stopSignals = stop
  	go func() { <-ctx.Done(); f.close() }()
 diff --git a/cmd/internal/assemble/assemble.go b/cmd/internal/assemble/assemble.go
-index f2625b16..5f1c6fb5 100644
+index cea63edf..e641af00 100644
 --- a/cmd/internal/assemble/assemble.go
 +++ b/cmd/internal/assemble/assemble.go
 @@ -6,7 +6,7 @@ import (
@@ -85,8 +96,8 @@ index f2625b16..5f1c6fb5 100644
 +	"github.com/rainchan/webmux/internal/agentprofile"
  	"github.com/rainchan/webmux/internal/agenttrust"
  	"github.com/rainchan/webmux/internal/config"
- 	"github.com/rainchan/webmux/internal/session"
-@@ -16,7 +16,7 @@ import (
+ 	"github.com/rainchan/webmux/internal/p2p"
+@@ -17,7 +17,7 @@ import (
  )
  
  // SessionOptions converts the loaded configuration for session.NewManager.
@@ -95,7 +106,7 @@ index f2625b16..5f1c6fb5 100644
  	var preLaunch func(string, []string, map[string]string) map[string]string
  	if c.AgentPretrust {
  		preLaunch = agenttrust.New().Prepare
-@@ -32,7 +32,7 @@ func SessionOptions(c config.Config) session.Options {
+@@ -33,7 +33,7 @@ func SessionOptions(c config.Config) session.Options {
  		DisableBellAttention: !c.BellAttention,
  		DisableProgramStatus: !c.ProgramStatus,
  		PreLaunch:            preLaunch,
@@ -177,10 +188,10 @@ index ad34917f..69a53d12 100644
  		}
  	}
 diff --git a/cmd/webmux/main.go b/cmd/webmux/main.go
-index d00a5d4f..60144d04 100644
+index fc400418..85508c74 100644
 --- a/cmd/webmux/main.go
 +++ b/cmd/webmux/main.go
-@@ -21,6 +21,7 @@ import (
+@@ -20,6 +20,7 @@ import (
  
  	"github.com/rainchan/webmux/cmd/internal/assemble"
  	"github.com/rainchan/webmux/internal/agentprofile"
@@ -188,15 +199,7 @@ index d00a5d4f..60144d04 100644
  	"github.com/rainchan/webmux/internal/api"
  	"github.com/rainchan/webmux/internal/artifacts"
  	"github.com/rainchan/webmux/internal/clicmd"
-@@ -184,6 +185,7 @@ func versionCommand(args []string, stdout, stderr io.Writer) int {
- // serverRun is the validated server configuration plus how it was obtained.
- type serverRun struct {
- 	config.Config
-+	Agents         *agentprofile.Registry
- 	ConfigPath     string
- 	ConfigExplicit bool
- 	// ConfigFound reports whether the configuration file was loaded from disk.
-@@ -352,6 +354,7 @@ func run(args []string) error {
+@@ -181,6 +182,7 @@ func run(args []string) error {
  		}
  	}
  	applyLaunchEnv()
@@ -204,7 +207,7 @@ index d00a5d4f..60144d04 100644
  	ctx, stop := signal.NotifyContext(context.Background(), os.Interrupt, syscall.SIGTERM)
  	defer stop()
  	return serve(ctx, c, os.Stdout)
-@@ -362,6 +365,10 @@ func run(args []string) error {
+@@ -191,6 +193,10 @@ func run(args []string) error {
  // structured logs.
  func serve(ctx context.Context, c serverRun, out io.Writer) error {
  	// Direct embedders/tests supply validated config rather than loadConfig.
@@ -215,7 +218,7 @@ index d00a5d4f..60144d04 100644
  	if c.TunnelSettings == nil {
  		c.TunnelSettings = tunnelsettings.Open(c.StateDir, c.Tunnel)
  		c.Tunnel, c.TunnelWebManaged = c.TunnelSettings.Effective()
-@@ -407,7 +414,7 @@ func serve(ctx context.Context, c serverRun, out io.Writer) error {
+@@ -244,7 +250,7 @@ func serve(ctx context.Context, c serverRun, out io.Writer) error {
  	if err != nil {
  		return err
  	}
@@ -224,7 +227,7 @@ index d00a5d4f..60144d04 100644
  	// Keep the child terminal identity tied to the running WebMux build. The
  	// session package still defaults to "dev" for embedders and tests.
  	sessionOptions.TerminalVersion = version
-@@ -420,7 +427,7 @@ func serve(ctx context.Context, c serverRun, out io.Writer) error {
+@@ -257,7 +263,7 @@ func serve(ctx context.Context, c serverRun, out io.Writer) error {
  	m := session.NewManager(sessionOptions)
  	// Opening never fails: a locked, corrupt or unreadable store only
  	// disables launch configs, and the endpoints answer 503 with the reason.
@@ -233,7 +236,7 @@ index d00a5d4f..60144d04 100644
  	defer launches.Close()
  	if err := launches.Unavailable(); err != nil {
  		slog.Warn("launch configs unavailable", "error", err)
-@@ -444,7 +451,7 @@ func serve(ctx context.Context, c serverRun, out io.Writer) error {
+@@ -281,7 +287,7 @@ func serve(ctx context.Context, c serverRun, out io.Writer) error {
  	hybrids := hybrid.New(hybrid.Options{
  		Conversations: conversations,
  		StateDir:      c.StateDir, Manager: m, ScrollbackBytes: sessionOptions.ScrollbackBytes,
@@ -242,8 +245,8 @@ index d00a5d4f..60144d04 100644
  	})
  	if err := hybrids.Unavailable(); err != nil {
  		slog.Warn("hybrid records unreadable; session artifacts folders kept", "error", err)
-@@ -526,7 +533,7 @@ func serve(ctx context.Context, c serverRun, out io.Writer) error {
- 	voiceService := voice.New(assemble.VoiceOptions(voiceConfig))
+@@ -381,7 +387,7 @@ func serve(ctx context.Context, c serverRun, out io.Writer) error {
+ 	p2pCtl := newP2PController(c.P2PSettings, p2pService)
  	deps := api.Deps{
  		Config: c.Config, Manager: m, Workspace: workspaces, Code: codes,
 -		Files: files.New(c.DefaultCwd), Artifacts: folders, Push: pushes, Launch: launches, Settings: preferences, Hybrid: hybrids,
@@ -251,8 +254,49 @@ index d00a5d4f..60144d04 100644
  		Forward:       forwards,
  		Voice:         voiceService,
  		VoiceSettings: newVoiceController(voiceStore, voiceService, voiceConfig),
+diff --git a/cmd/webmux/server_config.go b/cmd/webmux/server_config.go
+index 7ee8ad19..f747c066 100644
+--- a/cmd/webmux/server_config.go
++++ b/cmd/webmux/server_config.go
+@@ -8,6 +8,7 @@ import (
+ 	"os"
+ 	"path/filepath"
+ 
++	"github.com/rainchan/webmux/internal/agentprofile"
+ 	"github.com/rainchan/webmux/internal/config"
+ 	"github.com/rainchan/webmux/internal/p2psettings"
+ 	"github.com/rainchan/webmux/internal/pathutil"
+@@ -19,6 +20,7 @@ import (
+ // serverRun is the validated server configuration plus how it was obtained.
+ type serverRun struct {
+ 	config.Config
++	Agents         *agentprofile.Registry
+ 	ConfigPath     string
+ 	ConfigExplicit bool
+ 	// ConfigFound reports whether the configuration file was loaded from disk.
+diff --git a/docs/architecture.md b/docs/architecture.md
+index 43cb05c5..51f95c90 100644
+--- a/docs/architecture.md
++++ b/docs/architecture.md
+@@ -50,6 +50,7 @@ flowchart LR
+ | `internal/contract`                           | 只依赖标准库的线上类型：REST 请求与响应、WebSocket 事件与终端帧、本机控制面与 `/local/v1` 路径             |
+ | `internal/wire`                               | Controller 层：Service 类型与 `contract` 线上类型之间的双向转换                                            |
+ | `internal/pathutil`, `internal/attentionkind` | 共享的路径展开与注意力种类，供 Service、配置与客户端共用                                                   |
++| `internal/launchicon`                        | 浏览器启动配置与 agent 档案共用的图标 key 目录                                                            |
+ | `internal/localclient`                        | 经任意拨号器访问 HTTP/WS API 的客户端，可交叉编译到 Windows                                                |
+ | `internal/client`                             | CLI 侧的实例定位、链接推导、`status`/`stop` 退回逻辑                                                       |
+ | `internal/config`                             | TOML 解析、默认值与校验                                                                                    |
+@@ -116,7 +117,7 @@ Tailscale 控制器的生命周期：
+ | 装配根         | `cmd/...`                                                                                                                                                                  | 唯一构造 Service、把配置转换为 Service 选项并注入 Controller 的位置                |
+ | Controller     | `internal/api`、`internal/hub`、`internal/wire`                                                                                                                            | HTTP/WebSocket 传输：解析请求、调用注入的 Service 方法、映射状态码、编解码线上类型 |
+ | Service        | `session`、`hybrid`、`conversation`、`workspace`、`settings`、`launch`、`push`、`codeview`、`files`、`artifacts`、`tunnelsettings`、`tailscale`、`tailscalesettings`       | 业务规则、状态、文件系统与进程                                                     |
+-| 共享           | `contract`、`config`、`runtime`、`jsonutil`、`statefile`、`settingsstore`、`fetch`、`pathutil`、`attentionkind`、`procpeek`、`vtpreview`、`wsl`、`acp`、`agentprofile/...` | 线上契约与基础设施，不依赖 Service 或 Controller                                   |
++| 共享           | `contract`、`config`、`runtime`、`jsonutil`、`launchicon`、`statefile`、`settingsstore`、`fetch`、`pathutil`、`attentionkind`、`procpeek`、`vtpreview`、`wsl`、`acp`、`agentprofile/...` | 线上契约与基础设施，不依赖 Service 或 Controller                                   |
+ | 服务器外客户端 | `client`、`localclient`、`attach`、`clicmd`、`tray/...`、`wslclient`、`tunnel`、`service`                                                                                  | 只通过线上协议访问服务器，只依赖共享层和其他客户端                                 |
+ 
+ | 规则 | 检查                                                                                                                                                                                                                                                                                      |
 diff --git a/docs/deployment/configuration.md b/docs/deployment/configuration.md
-index be6da0a9..775bdc41 100644
+index 98d4e506..6061ffcc 100644
 --- a/docs/deployment/configuration.md
 +++ b/docs/deployment/configuration.md
 @@ -51,6 +51,37 @@ curl -H 'Authorization: Bearer YOUR_TOKEN' http://127.0.0.1:7681/api/health
@@ -362,10 +406,10 @@ index 6bcbe6be..8a12ab56 100644
  
  能开启混合模式的命令需满足以下全部条件：
 diff --git a/docs/user-stories/hybrid-sessions.md b/docs/user-stories/hybrid-sessions.md
-index 99420fd3..64fccea9 100644
+index 2f7ef7e1..54e62d88 100644
 --- a/docs/user-stories/hybrid-sessions.md
 +++ b/docs/user-stories/hybrid-sessions.md
-@@ -10,7 +10,8 @@
+@@ -12,7 +12,8 @@
      - 未识别的 agent、命令写法、会话库或目录参数、非交互参数；
      - `codex resume`/`fork`、Claude Code 的 `--continue`/`--resume`/`--session-id` 等打开已有会话的参数；
      - Claude 的 `--worktree`/`--tmux`、`--no-session-persistence`/`--environment`，以及 Antigravity CLI 的 `--project`/`--new-project` 与非交互参数；
@@ -376,14 +420,13 @@ index 99420fd3..64fccea9 100644
    - Claude Code 使用稳定档案 ID `claudecode`，允许 `CLAUDE_CONFIG_DIR` 环境但不允许命令内会话参数；
    - 列表显示“混合”标记；
 diff --git a/docs/user-stories/verification-log-2026-11-archived-history.md b/docs/user-stories/verification-log-2026-11-archived-history.md
-index 34160f4e..99a961e5 100644
+index c224ae5c..b575d1e8 100644
 --- a/docs/user-stories/verification-log-2026-11-archived-history.md
 +++ b/docs/user-stories/verification-log-2026-11-archived-history.md
-@@ -145,3 +145,19 @@
-   - `web/test/launch-configs.test.ts`、`svelte-check`、Oxlint、`pnpm --dir web check:arch` 与 `make docs-check` 通过。
+@@ -198,3 +198,18 @@
+   - 隔离实例 Playwright E2E（`p2p.spec.ts`，桌面与手机视口）覆盖本机自动跳过、真实 Chromium ↔ Pion WebRTC 直连升级、终端流与无 HTTP XHR 的分块文件上传、双路径回显测速及在线关闭无损回退，桌面（1280×900）、平板（768×800）与手机（390×844）无页面横向溢出。
  - 限制：
-   - 未在 iOS/Android 真机上核对触控体验，无头浏览器未验证 hover 与 `any-pointer: coarse`；未重新核验其余故事能力。
-+
+   - 仅在 Linux 本地隔离实例与无头 Chromium 中核验；无头浏览器未验证 `hover` 与 `any-pointer: coarse` 媒体查询，未在 macOS、iOS/Android 真机或跨运营商对称 NAT / 移动蜂窝公网链路上实测打洞成功率。
 +本次局部核对（2026-11-11）：支持通过 `WEBMUX_ACP_AGENTS` 声明没有内置适配器的 ACP agent，更新 US-Q01，不新增故事或改变覆盖索引。
 +
 +- 范围：
@@ -525,10 +568,10 @@ index 00000000..c517d0a0
 +}
 diff --git a/internal/agentprofile/agents/external_test.go b/internal/agentprofile/agents/external_test.go
 new file mode 100644
-index 00000000..5a6c975d
+index 00000000..ba99263e
 --- /dev/null
 +++ b/internal/agentprofile/agents/external_test.go
-@@ -0,0 +1,184 @@
+@@ -0,0 +1,214 @@
 +package agents
 +
 +import (
@@ -696,6 +739,36 @@ index 00000000..5a6c975d
 +			t.Fatal("valid sibling of oversize entry was skipped")
 +		}
 +	})
++}
++
++func TestLoadExternalRejectsIconsOutsideCatalog(t *testing.T) {
++	for name, icon := range map[string]string{
++		"unknown":  "unknown",
++		"oversize": strings.Repeat("x", 1<<20),
++	} {
++		t.Run(name, func(t *testing.T) {
++			raw, err := json.Marshal(map[string]agentprofile.Spec{
++				"bad": {
++					Icon: icon, ProcessExecutables: []string{"bad-native"},
++					Commands: []agentprofile.CommandSpec{{Match: []string{"bad"}, ACP: []string{"bad-acp"}, Resume: []string{"bad-resume"}}},
++				},
++				"good": {
++					Icon: "terminal", ProcessExecutables: []string{"good-native"},
++					Commands: []agentprofile.CommandSpec{{Match: []string{"good"}, ACP: []string{"good-acp"}, Resume: []string{"good-resume"}}},
++				},
++			})
++			if err != nil {
++				t.Fatal(err)
++			}
++			registry := LoadExternal(string(raw), nil)
++			if _, ok := registry.Lookup("bad"); ok {
++				t.Fatal("invalid icon entry was loaded")
++			}
++			if _, ok := registry.Lookup("good"); !ok {
++				t.Fatal("valid sibling was skipped")
++			}
++		})
++	}
 +}
 +
 +func TestLoadExternalSortsStableNames(t *testing.T) {
@@ -883,10 +956,10 @@ index 819fa18a..14d77e93 100644
  
 diff --git a/internal/agentprofile/external_test.go b/internal/agentprofile/external_test.go
 new file mode 100644
-index 00000000..605cd715
+index 00000000..857cb8c5
 --- /dev/null
 +++ b/internal/agentprofile/external_test.go
-@@ -0,0 +1,187 @@
+@@ -0,0 +1,188 @@
 +package agentprofile
 +
 +import (
@@ -1062,6 +1135,7 @@ index 00000000..605cd715
 +		"empty resume": {ProcessExecutables: valid.ProcessExecutables, Commands: []CommandSpec{{Match: []string{"a"}, ACP: []string{"p"}}}},
 +		"path match":   {ProcessExecutables: valid.ProcessExecutables, Commands: []CommandSpec{{Match: []string{"/bin/a"}, ACP: []string{"p"}, Resume: []string{"r"}}}},
 +		"bad process":  {ProcessExecutables: []string{"/bin/a"}, Commands: valid.Commands},
++		"unknown icon": {Icon: "unknown", ProcessExecutables: valid.ProcessExecutables, Commands: valid.Commands},
 +		"duplicate": {ProcessExecutables: valid.ProcessExecutables, Commands: []CommandSpec{
 +			{Match: []string{"a"}, ACP: []string{"p"}, Resume: []string{"r"}},
 +			{Match: []string{"a"}, ACP: []string{"q"}, Resume: []string{"s"}},
@@ -1292,10 +1366,10 @@ index f3dbd681..beaa3825 100644
 +}
 diff --git a/internal/agentprofile/spec.go b/internal/agentprofile/spec.go
 new file mode 100644
-index 00000000..a87d2d38
+index 00000000..00e57e70
 --- /dev/null
 +++ b/internal/agentprofile/spec.go
-@@ -0,0 +1,208 @@
+@@ -0,0 +1,213 @@
 +package agentprofile
 +
 +import (
@@ -1306,6 +1380,8 @@ index 00000000..a87d2d38
 +	"slices"
 +	"strings"
 +	"unicode/utf8"
++
++	"github.com/rainchan/webmux/internal/launchicon"
 +)
 +
 +// CommandSpec binds one complete terminal launch command to the complete
@@ -1359,6 +1435,9 @@ index 00000000..a87d2d38
 +	case "", KindACP:
 +	default:
 +		return fmt.Errorf("unsupported kind %q", s.Kind)
++	}
++	if !launchicon.Supported(s.Icon) {
++		return errors.New("unsupported icon")
 +	}
 +	if !utf8.ValidString(s.Title) {
 +		return errors.New("title is not valid UTF-8")
@@ -1596,8 +1675,75 @@ index a111ada9..27815b6c 100644
  func TestLaunchConfigHybrid(t *testing.T) {
  	h := newLaunchHarness(t, openLaunchStore(t))
  	var created struct {
+diff --git a/internal/api/p2p_test.go b/internal/api/p2p_test.go
+index 6ddce5c9..67ff81af 100644
+--- a/internal/api/p2p_test.go
++++ b/internal/api/p2p_test.go
+@@ -6,12 +6,15 @@ import (
+ 	"fmt"
+ 	"net/http"
+ 	"net/http/httptest"
++	"reflect"
+ 	"strings"
+ 	"sync"
+ 	"testing"
+ 
++	"github.com/rainchan/webmux/internal/agentprofile"
+ 	"github.com/rainchan/webmux/internal/config"
+ 	"github.com/rainchan/webmux/internal/contract"
++	"github.com/rainchan/webmux/internal/launch"
+ 	"github.com/rainchan/webmux/internal/p2p"
+ 	"github.com/rainchan/webmux/internal/p2psettings"
+ 	"github.com/rainchan/webmux/internal/session"
+@@ -260,6 +263,46 @@ func TestP2PRPCAuthAndRouting(t *testing.T) {
+ 	}
+ }
+ 
++func TestP2PRPCUsesInjectedRegistryLikeHTTP(t *testing.T) {
++	registry := agentprofile.NewRegistry(agentprofile.Spec{
++		Title: "Acme Agent", ProcessExecutables: []string{"acme-native"},
++		Commands: []agentprofile.CommandSpec{{
++			Match:  []string{"acme", "work"},
++			ACP:    []string{"acme", "serve"},
++			Resume: []string{"acme", "resume"},
++		}},
++	}.Agent("acme-agent"))
++	store := launch.Open(t.TempDir(), registry)
++	t.Cleanup(store.Close)
++	m := session.NewManager(session.Options{DefaultCwd: t.TempDir()})
++	t.Cleanup(func() { m.Shutdown(context.Background()) })
++	bridge := NewBridge(testDeps(t, Deps{
++		Config: config.Config{Token: "login-secret"}, Manager: m, Launch: store, Agents: registry,
++	}))
++	body := `{"cmd":["/opt/acme","work"]}`
++	httpResp := tunnelAPIRequest(bridge.HTTPHandler, http.MethodPost, "/api/launch-configs/chat-support", body, "login-secret", "")
++	rpcResp := bridge.ServeRPC(context.Background(), p2p.RPCRequest{
++		Method: http.MethodPost, Path: "/api/launch-configs/chat-support", Body: []byte(body),
++		Headers: map[string]string{"Authorization": "Bearer login-secret", "Content-Type": "application/json"},
++	})
++	if rpcResp.Status != httpResp.Code {
++		t.Fatalf("RPC status = %d, HTTP status = %d", rpcResp.Status, httpResp.Code)
++	}
++	var httpSupport, rpcSupport contract.ChatSupport
++	if err := json.Unmarshal(httpResp.Body.Bytes(), &httpSupport); err != nil {
++		t.Fatal(err)
++	}
++	if err := json.Unmarshal(rpcResp.Body, &rpcSupport); err != nil {
++		t.Fatal(err)
++	}
++	if !reflect.DeepEqual(rpcSupport, httpSupport) {
++		t.Fatalf("RPC support = %+v, HTTP support = %+v", rpcSupport, httpSupport)
++	}
++	if !rpcSupport.Supported || rpcSupport.Agent != "acme-agent" || !reflect.DeepEqual(rpcSupport.SupportedAgents, registry.Titles()) {
++		t.Fatalf("injected registry support = %+v", rpcSupport)
++	}
++}
++
+ func TestWireSnapshotsP2P(t *testing.T) {
+ 	rec := &wireRecorder{t: t, norm: newWireNormalizer(), seen: map[string]bool{}}
+ 	control := newP2PControlFixture()
 diff --git a/internal/api/router.go b/internal/api/router.go
-index 9dd4aae9..f99db324 100644
+index 68391362..7b30e703 100644
 --- a/internal/api/router.go
 +++ b/internal/api/router.go
 @@ -16,6 +16,8 @@ import (
@@ -1619,7 +1765,7 @@ index 9dd4aae9..f99db324 100644
  	// Tunnel reports the runtime tunnel state; nil leaves GET /api/config
  	// describing only the configured mode.
  	Tunnel         func() contract.TunnelStatus
-@@ -123,6 +128,9 @@ func newServer(d Deps) *Server {
+@@ -110,6 +115,9 @@ func newServer(d Deps) *Server {
  	if d.Manager == nil || d.Workspace == nil || d.Code == nil || d.Files == nil {
  		panic("api: Deps requires Manager, Workspace, Code and Files")
  	}
@@ -1629,6 +1775,18 @@ index 9dd4aae9..f99db324 100644
  	s := &Server{Deps: d}
  	if d.Forward != nil {
  		s.gatewayProxy = newGatewayProxy(d.Forward)
+diff --git a/internal/archtest/layers_test.go b/internal/archtest/layers_test.go
+index 56edace8..0e2e6830 100644
+--- a/internal/archtest/layers_test.go
++++ b/internal/archtest/layers_test.go
+@@ -57,6 +57,7 @@ var webmux = manifest{
+ 		"internal/runtime":                 shared,
+ 		"internal/hoststat":                shared,
+ 		"internal/jsonutil":                shared,
++		"internal/launchicon":              shared,
+ 		"internal/statefile":               shared,
+ 		"internal/settingsstore":           shared,
+ 		"internal/fetch":                   shared,
 diff --git a/internal/hybrid/connector.go b/internal/hybrid/connector.go
 index af80ec21..a49810d5 100644
 --- a/internal/hybrid/connector.go
@@ -1721,62 +1879,24 @@ index af80ec21..a49810d5 100644
  		return
  	}
  	if !errors.Is(err, ErrConnectorMissing) {
+diff --git a/internal/hybrid/create.go b/internal/hybrid/create.go
+index e0477806..110f9cfa 100644
+--- a/internal/hybrid/create.go
++++ b/internal/hybrid/create.go
+@@ -42,7 +42,7 @@ type CreateInput struct {
+ // only the connector lookup.
+ func (s *Service) CheckCreate(ctx context.Context, in CreateInput) error {
+ 	cmd, side, cwd, err := s.admit(in)
+-	if err != nil || side != SideACP || cmd.Profile.Connector == nil {
++	if err != nil || side != SideACP || cmd.Connector() == nil {
+ 		return err
+ 	}
+ 	probe, err := s.manager.ProbeShell(session.CreateInput{Cwd: cwd, Cmd: cmd.TUIArgv(), Env: in.Env, ConfigID: in.ConfigID})
 diff --git a/internal/hybrid/eligibility.go b/internal/hybrid/eligibility.go
-index 39e99d9e..51c7f4a9 100644
+index 1bcbffdf..b5d5773e 100644
 --- a/internal/hybrid/eligibility.go
 +++ b/internal/hybrid/eligibility.go
-@@ -230,7 +230,10 @@ func (a *actor) registeredSession(id session.Identity) string {
- // agentProcess selects the native agent root, or exactly one native direct
- // child of an allowed launcher. Process facts never leave the service.
- func (a *actor) agentProcess() (agentprofile.ProcessFacts, bool) {
--	processes := a.shell.RunProcesses()
-+	return selectAgentProcess(a.cmd, a.shell.RunProcesses())
-+}
-+
-+func selectAgentProcess(cmd agentprofile.Command, processes []session.ProcessFacts) (agentprofile.ProcessFacts, bool) {
- 	if len(processes) == 0 {
- 		return agentprofile.ProcessFacts{}, false
- 	}
-@@ -238,16 +241,17 @@ func (a *actor) agentProcess() (agentprofile.ProcessFacts, bool) {
- 		return agentprofile.ProcessFacts{PID: p.PID, Executable: p.Executable, Cwd: p.Cwd, Start: p.Start, Domain: p.Domain}
- 	}
- 	root := convert(processes[0])
--	if a.cmd.Profile.RunsProcess(root.Executable) {
-+	if cmd.RunsProcess(root.Executable) {
- 		return root, true
- 	}
--	if a.cmd.Profile.Launcher == "" || root.Executable != a.cmd.Profile.Launcher {
-+	launcher := cmd.Launcher()
-+	if launcher == "" || root.Executable != launcher {
- 		return agentprofile.ProcessFacts{}, false
- 	}
- 	var selected agentprofile.ProcessFacts
- 	for _, process := range processes[1:] {
- 		candidate := convert(process)
--		if !a.cmd.Profile.RunsProcess(candidate.Executable) {
-+		if !cmd.RunsProcess(candidate.Executable) {
- 			continue
- 		}
- 		if selected.PID != 0 {
-@@ -334,11 +338,14 @@ func (a *actor) agentIsRoot(id session.Identity) bool {
- 	if id.PID == 0 {
- 		return false
- 	}
--	p := a.cmd.Profile
--	if p.RunsProcess(id.Executable) {
-+	if a.cmd.RunsProcess(id.Executable) {
- 		return true
- 	}
--	return p.Launcher != "" && id.Executable == p.Launcher && slices.ContainsFunc(a.shell.RunChildren(), p.RunsProcess)
-+	if launcher := a.cmd.Launcher(); launcher == "" || id.Executable != launcher {
-+		return false
-+	}
-+	_, ok := a.agentProcess()
-+	return ok
- }
- 
- // tracksLocks reports that the agent's session IDs come from its writer
-@@ -416,13 +423,12 @@ func (a *actor) identify() (session.Identity, agentprofile.Identity, bool) {
+@@ -170,13 +170,12 @@ func (a *actor) identify() (session.Identity, agentprofile.Identity, bool) {
  		}
  		return id, ident, known
  	}
@@ -1795,7 +1915,7 @@ index 39e99d9e..51c7f4a9 100644
  			switch {
  			case a.tracksLocks():
  				fallback.AgentSessionID = a.lockedSession(id)
-@@ -509,7 +515,7 @@ func (a *actor) listedReason(t target) string {
+@@ -263,7 +262,7 @@ func (a *actor) listedReason(t target) string {
  func (a *actor) setEligibility(reason string) {
  	e := Eligibility{Available: reason == "", Reason: reason}
  	if reason == ReasonConnectorMissing {
@@ -1860,11 +1980,66 @@ index 00000000..e8d77b83
 +		})
 +	}
 +}
+diff --git a/internal/hybrid/identity_trackers.go b/internal/hybrid/identity_trackers.go
+index 8735734f..61d48640 100644
+--- a/internal/hybrid/identity_trackers.go
++++ b/internal/hybrid/identity_trackers.go
+@@ -128,7 +128,10 @@ func (a *actor) registeredSession(id session.Identity) string {
+ // agentProcess selects the native agent root, or exactly one native direct
+ // child of an allowed launcher. Process facts never leave the service.
+ func (a *actor) agentProcess() (agentprofile.ProcessFacts, bool) {
+-	processes := a.shell.RunProcesses()
++	return selectAgentProcess(a.cmd, a.shell.RunProcesses())
++}
++
++func selectAgentProcess(cmd agentprofile.Command, processes []session.ProcessFacts) (agentprofile.ProcessFacts, bool) {
+ 	if len(processes) == 0 {
+ 		return agentprofile.ProcessFacts{}, false
+ 	}
+@@ -136,16 +139,17 @@ func (a *actor) agentProcess() (agentprofile.ProcessFacts, bool) {
+ 		return agentprofile.ProcessFacts{PID: p.PID, Executable: p.Executable, Cwd: p.Cwd, Start: p.Start, Domain: p.Domain}
+ 	}
+ 	root := convert(processes[0])
+-	if a.cmd.Profile.RunsProcess(root.Executable) {
++	if cmd.RunsProcess(root.Executable) {
+ 		return root, true
+ 	}
+-	if a.cmd.Profile.Launcher == "" || root.Executable != a.cmd.Profile.Launcher {
++	launcher := cmd.Launcher()
++	if launcher == "" || root.Executable != launcher {
+ 		return agentprofile.ProcessFacts{}, false
+ 	}
+ 	var selected agentprofile.ProcessFacts
+ 	for _, process := range processes[1:] {
+ 		candidate := convert(process)
+-		if !a.cmd.Profile.RunsProcess(candidate.Executable) {
++		if !cmd.RunsProcess(candidate.Executable) {
+ 			continue
+ 		}
+ 		if selected.PID != 0 {
+@@ -232,11 +236,14 @@ func (a *actor) agentIsRoot(id session.Identity) bool {
+ 	if id.PID == 0 {
+ 		return false
+ 	}
+-	p := a.cmd.Profile
+-	if p.RunsProcess(id.Executable) {
++	if a.cmd.RunsProcess(id.Executable) {
+ 		return true
+ 	}
+-	return p.Launcher != "" && id.Executable == p.Launcher && slices.ContainsFunc(a.shell.RunChildren(), p.RunsProcess)
++	if launcher := a.cmd.Launcher(); launcher == "" || id.Executable != launcher {
++		return false
++	}
++	_, ok := a.agentProcess()
++	return ok
+ }
+ 
+ // tracksLocks reports that the agent's session IDs come from its writer
 diff --git a/internal/hybrid/link.go b/internal/hybrid/link.go
-index b0e8305a..eb7693ff 100644
+index 1bb4f7ff..bfa3a61f 100644
 --- a/internal/hybrid/link.go
 +++ b/internal/hybrid/link.go
-@@ -362,7 +362,7 @@ func (a *actor) outdated(reported, agentVersion string) []Outdated {
+@@ -270,7 +270,7 @@ func (a *actor) outdated(reported, agentVersion string) []Outdated {
  	p := a.cmd.Profile
  	out := []Outdated{}
  	agent := reported
@@ -1874,10 +2049,10 @@ index b0e8305a..eb7693ff 100644
  		if order, ok := agentprofile.CompareVersions(reported, c.VerifiedVersion); ok && order < 0 {
  			out = append(out, Outdated{Name: c.Title, Version: reported, Verified: c.VerifiedVersion})
 diff --git a/internal/hybrid/service.go b/internal/hybrid/service.go
-index 0ff6cec1..73f6e0f7 100644
+index 6fe7ac57..0d522bc9 100644
 --- a/internal/hybrid/service.go
 +++ b/internal/hybrid/service.go
-@@ -54,6 +54,9 @@ type Options struct {
+@@ -52,6 +52,9 @@ type Options struct {
  	Version string
  	// Logger receives lifecycle events, method names and error codes only.
  	Logger *slog.Logger
@@ -1887,7 +2062,7 @@ index 0ff6cec1..73f6e0f7 100644
  	// Uploads validates that path is one of session id's uploaded files and
  	// returns it cleaned (artifacts.Service.UploadPath). Nil refuses every
  	// attachment.
-@@ -136,10 +139,14 @@ func New(o Options) *Service {
+@@ -134,10 +137,14 @@ func New(o Options) *Service {
  	if o.Version == "" {
  		o.Version = "dev"
  	}
@@ -1903,20 +2078,46 @@ index 0ff6cec1..73f6e0f7 100644
  		timing: defaultTiming, probes: make(chan struct{}, maxProbes), actors: make(map[string]*actor),
  		recovering: make(map[string]bool),
  	}
-@@ -263,7 +270,7 @@ type CreateInput struct {
- // only the connector lookup.
- func (s *Service) CheckCreate(ctx context.Context, in CreateInput) error {
- 	cmd, side, cwd, err := s.admit(in)
--	if err != nil || side != SideACP || cmd.Profile.Connector == nil {
-+	if err != nil || side != SideACP || cmd.Connector() == nil {
- 		return err
+diff --git a/internal/hybrid/service_test.go b/internal/hybrid/service_test.go
+index 3d35a090..464eef60 100644
+--- a/internal/hybrid/service_test.go
++++ b/internal/hybrid/service_test.go
+@@ -83,6 +83,7 @@ type harness struct {
+ 	logs      *syncBuffer
+ 	manager   *session.Manager
+ 	svc       *Service
++	agents    *agentprofile.Registry
+ 	configure []func(*session.Options)
+ }
+ 
+@@ -104,8 +105,12 @@ func (b *syncBuffer) String() string {
+ }
+ 
+ func newHarness(t *testing.T, scrollback int, configure ...func(*session.Options)) *harness {
++	return newHarnessWithAgents(t, scrollback, nil, configure...)
++}
++
++func newHarnessWithAgents(t *testing.T, scrollback int, registry *agentprofile.Registry, configure ...func(*session.Options)) *harness {
+ 	t.Helper()
+-	h := &harness{t: t, state: t.TempDir(), store: t.TempDir(), logs: &syncBuffer{}, configure: configure}
++	h := &harness{t: t, state: t.TempDir(), store: t.TempDir(), logs: &syncBuffer{}, agents: registry, configure: configure}
+ 	h.open(scrollback)
+ 	return h
+ }
+@@ -116,7 +121,7 @@ func (h *harness) open(scrollback int) {
+ 		configure(&options)
  	}
- 	probe, err := s.manager.ProbeShell(session.CreateInput{Cwd: cwd, Cmd: cmd.TUIArgv(), Env: in.Env, ConfigID: in.ConfigID})
+ 	h.manager = session.NewManager(options)
+-	h.svc = New(Options{StateDir: h.state, Manager: h.manager, ScrollbackBytes: scrollback, Version: "test", Logger: slog.New(slog.NewTextHandler(h.logs, nil)), Uploads: func(_, path string) (string, error) { return trust(path) }})
++	h.svc = New(Options{StateDir: h.state, Manager: h.manager, ScrollbackBytes: scrollback, Version: "test", Logger: slog.New(slog.NewTextHandler(h.logs, nil)), Agents: h.agents, Uploads: func(_, path string) (string, error) { return trust(path) }})
+ 	svc, manager := h.svc, h.manager
+ 	h.t.Cleanup(func() {
+ 		svc.Close()
 diff --git a/internal/hybrid/switch.go b/internal/hybrid/switch.go
-index 1921f1d1..306c1599 100644
+index aef387e2..cebd453f 100644
 --- a/internal/hybrid/switch.go
 +++ b/internal/hybrid/switch.go
-@@ -145,7 +145,7 @@ func (a *actor) beginSwitch(to Side, pick string) (<-chan switchOutcome, error)
+@@ -143,7 +143,7 @@ func (a *actor) beginSwitch(to Side, pick string) (<-chan switchOutcome, error)
  		case "":
  		case ReasonConnectorMissing:
  			a.setEligibility(reason)
@@ -1925,6 +2126,59 @@ index 1921f1d1..306c1599 100644
  		default:
  			a.setEligibility(reason)
  			return nil, &IneligibleError{Reason: reason}
+diff --git a/internal/hybrid/work_test.go b/internal/hybrid/work_test.go
+index 4a151186..ef0a1cc0 100644
+--- a/internal/hybrid/work_test.go
++++ b/internal/hybrid/work_test.go
+@@ -7,6 +7,7 @@ import (
+ 	"testing"
+ 
+ 	"github.com/rainchan/webmux/internal/acp"
++	"github.com/rainchan/webmux/internal/agentprofile"
+ 	"github.com/rainchan/webmux/internal/agentprofile/agy"
+ 	"github.com/rainchan/webmux/internal/agentprofile/kimi"
+ 	"github.com/rainchan/webmux/internal/agentprofile/omp"
+@@ -235,6 +236,40 @@ func TestTurnWithStartedBackgroundCommandIsDoneOnlyAfterItEnds(t *testing.T) {
+ 	}
+ }
+ 
++func TestExternalAgentBackgroundCommandLatchesDoneWithoutRefresh(t *testing.T) {
++	path := agentPath(t, "kimi")
++	registry := agentprofile.NewRegistry(agentprofile.Spec{
++		ProcessExecutables: []string{"external-native"},
++		Commands: []agentprofile.CommandSpec{{
++			Match:  []string{"external-agent"},
++			ACP:    []string{path, "--acp"},
++			Resume: []string{path},
++		}},
++	}.Agent("external-agent"))
++	h := newHarnessWithAgents(t, 0, registry)
++	h.fast()
++	in := h.input("kimi", SideACP)
++	in.Cmd = []string{"external-agent"}
++	s := h.create(in)
++	id := s.Info().ID
++	st := h.follow(id)
++	prompt(t, h, id, "hi /background-started")
++	st.until("turn end", hasKind(EventTurnEnd))
++	if !h.chatState(id).Turn.Unfinished {
++		t.Fatal("completed start call must not hide the running background command")
++	}
++	waitFor(t, "done once the external command ended", func() bool {
++		a := s.Info().Attention
++		return a != nil && a.Kind == attentionkind.Done
++	})
++	if h.chatState(id).Turn.Unfinished {
++		t.Fatal("external background command must clear the unfinished turn state")
++	}
++	if got := h.replayedUsers(id); !slices.Equal(got, []string{"hi /background-started"}) {
++		t.Fatalf("external agent must not start a profile-specific refresh: %q", got)
++	}
++}
++
+ func TestTurnWithOpenToolWithoutNewProcessBecomesDoneAfterQuietPolls(t *testing.T) {
+ 	h := newHarness(t, 0)
+ 	h.fast()
 diff --git a/internal/launch/inspect.go b/internal/launch/inspect.go
 index 0d205096..28cc623c 100644
 --- a/internal/launch/inspect.go
@@ -2191,10 +2445,18 @@ index b302d6af..33b4dca1 100644
  	closed := Open(t.TempDir())
  	closed.Close()
 diff --git a/internal/launch/types.go b/internal/launch/types.go
-index ccd3b51e..008d8912 100644
+index ccd3b51e..c1a45492 100644
 --- a/internal/launch/types.go
 +++ b/internal/launch/types.go
-@@ -88,11 +88,20 @@ type Config struct {
+@@ -16,6 +16,7 @@ import (
+ 
+ 	"github.com/rainchan/webmux/internal/agentprofile"
+ 	"github.com/rainchan/webmux/internal/agentprofile/agents"
++	"github.com/rainchan/webmux/internal/launchicon"
+ 	"github.com/rainchan/webmux/internal/session"
+ )
+ 
+@@ -88,11 +89,20 @@ type Config struct {
  	Hybrid    bool               `json:"hybrid,omitempty"`
  	CreatedAt time.Time          `json:"createdAt"`
  	UpdatedAt time.Time          `json:"updatedAt"`
@@ -2217,16 +2479,20 @@ index ccd3b51e..008d8912 100644
  
  // Summary is the list form: environment names only, never values.
  type Summary struct {
-@@ -128,7 +137,7 @@ func invalidf(format string, args ...any) error {
+@@ -128,10 +138,8 @@ func invalidf(format string, args ...any) error {
  
  // normalize validates in and returns a trimmed copy that shares no slice or
  // map with the caller. Errors never contain environment values.
 -func normalize(in Input) (Input, error) {
+-	switch in.Icon {
+-	case "", "terminal", "claudecode", "codex", "antigravity", "geminicli", "cursor", "githubcopilot", "opencode", "qwen", "kimi", "codebuddy", "pi", "qoder":
+-	default:
 +func normalize(in Input, registry *agentprofile.Registry) (Input, error) {
- 	switch in.Icon {
- 	case "", "terminal", "claudecode", "codex", "antigravity", "geminicli", "cursor", "githubcopilot", "opencode", "qwen", "kimi", "codebuddy", "pi", "qoder":
- 	default:
-@@ -187,8 +196,8 @@ func normalize(in Input) (Input, error) {
++	if !launchicon.Supported(in.Icon) {
+ 		return Input{}, invalidf("图标不受支持")
+ 	}
+ 	name := strings.TrimSpace(in.Name)
+@@ -187,8 +195,8 @@ func normalize(in Input) (Input, error) {
  		}
  	}
  	if in.Hybrid {
@@ -2237,7 +2503,7 @@ index ccd3b51e..008d8912 100644
  		}
  	}
  	return Input{Name: name, Icon: in.Icon, Cmd: slices.Clone(in.Cmd), Env: cloneEnv(in.Env), Preview: preview, Attention: attention, Hybrid: in.Hybrid}, nil
-@@ -227,7 +236,7 @@ func (c Config) clone() Config {
+@@ -227,7 +235,7 @@ func (c Config) clone() Config {
  	return c
  }
  
@@ -2246,7 +2512,7 @@ index ccd3b51e..008d8912 100644
  	names := slices.Sorted(maps.Keys(c.Env))
  	if names == nil {
  		names = []string{}
-@@ -241,7 +250,7 @@ func (c Config) summary() Summary {
+@@ -241,7 +249,7 @@ func (c Config) summary() Summary {
  		Preview:       clonePreview(c.Preview),
  		Attention:     cloneAttention(c.Attention),
  		Hybrid:        c.Hybrid,
@@ -2255,6 +2521,26 @@ index ccd3b51e..008d8912 100644
  		CreatedAt:     c.CreatedAt,
  		UpdatedAt:     c.UpdatedAt,
  	}
+diff --git a/internal/launchicon/catalog.go b/internal/launchicon/catalog.go
+new file mode 100644
+index 00000000..5724d9ea
+--- /dev/null
++++ b/internal/launchicon/catalog.go
+@@ -0,0 +1,14 @@
++// Package launchicon defines the browser launch-config icon catalog shared by
++// launch configs and agent profiles.
++package launchicon
++
++// Supported reports whether icon is a browser launch-config icon key. Empty
++// keeps legacy launch configs valid; callers choose their own fallback.
++func Supported(icon string) bool {
++	switch icon {
++	case "", "terminal", "claudecode", "codex", "antigravity", "geminicli", "cursor", "githubcopilot", "opencode", "qwen", "kimi", "codebuddy", "pi", "qoder":
++		return true
++	default:
++		return false
++	}
++}
 diff --git a/internal/service/render.go b/internal/service/render.go
 index b6ae33e7..ab7da69d 100644
 --- a/internal/service/render.go

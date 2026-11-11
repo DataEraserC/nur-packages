@@ -7,7 +7,7 @@
   pnpm_12,
   pnpmConfigHook,
   nodejs_26,
-  buildGoModule,
+  buildGo127Module,
   nix-update-script,
   unstableGitUpdater,
   versionCheckHook,
@@ -15,13 +15,13 @@
 }:
 
 let
-  version = "0.14.4-unstable-2026-11-11";
+  version = "0.14.5-unstable-2026-11-11";
 
   src = fetchFromGitHub {
     owner = "mzdluo123";
     repo = "webmux";
-    rev = "cf23a4036a525b569bc562c913c3ae05c5973fcc";
-    hash = "sha256-kFmtz744vHA9wqw+RfYE54u5NwBnU5F7sAm42UrSXzE=";
+    rev = "4c9589b85aad3987953cd3037eee7c90bd9f43fe";
+    hash = "sha256-UvJ0MqPHfLl17NkGuIlyTCnhMyFtXn0fmP3jmoIDIko=";
   };
 
   sourceUpdater = unstableGitUpdater {
@@ -56,7 +56,7 @@ let
     sourceRoot = "source/web";
     pnpm = pnpm_12;
     fetcherVersion = 4;
-    hash = "sha256-NP63QLqCd9tYgHBd7v+G90EupZF9MKoo3IKW48svUrs=";
+    hash = "sha256-AJEflSNtB60DwyJHkUM5i8Ju1DrsOULfC1MORuZLErU=";
   };
 
   frontendDist = stdenv.mkDerivation {
@@ -84,12 +84,12 @@ let
     '';
   };
 in
-buildGoModule (finalAttrs: {
+buildGo127Module (finalAttrs: {
   pname = "webmux";
   inherit version src;
   __structuredAttrs = true;
   strictDeps = true;
-  vendorHash = "sha256-Je+YqoTY0A5VCNtBBMpGjcmHLa2otbuKydnYGDEVCl0=";
+  vendorHash = "sha256-8jgAcb9znAtAlDfwuBD5+qTimc3mwoCRZ38i6pHr/d4=";
 
   subPackages = [ "cmd/webmux" ];
 
