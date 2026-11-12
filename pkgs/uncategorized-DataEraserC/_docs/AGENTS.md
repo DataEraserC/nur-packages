@@ -82,5 +82,5 @@
 AI 不写进 `meta.maintainers`（其语义是"谁负责、能 ping 谁"），AI 参与只用下面两个渠道，且 `passthru` 只写在迁移时会保留的 `pkgs/uncategorized-DataEraserC/` 内。
 
 - **包级来源用 `passthru.aiProvenance`**（不进 `meta`、不影响构建）：`passthru.aiProvenance = [ { agent = "dsh"; model = "deepseek-v4-flash"; involvement = "assisted"; } ];`——`agent` 必填，`model` 确实在用时才写、无法确证就省略（不要猜），`involvement` 取 `authored`/`assisted`/`reviewed`；查询 `nix eval --json .#<pkg>.passthru.aiProvenance`
-- **变更级来源用 commit trailer**：`passthru` 覆盖不到的文件（`modules/`、`update.sh`、`AGENTS.md` 等）加 `Assisted-by: dsh:deepseek-v4-flash`（`<agent>:<model>`，沿用内核 AI Coding Assistants 约定，不要用 `Co-authored-by`）
+- **变更级来源用 commit trailer**：`passthru` 覆盖不到的文件（`modules/`、`update.sh`、`AGENTS.md` 等）加 `Assisted-by: <agent harness> (<model>)`（沿用内核 AI Coding Assistants 约定，不要用 `Co-authored-by`）
 - **不要新增自定义 `meta.*` 字段**（`checkMeta = true` 会硬失败 `key '...' is unrecognized`，`passthru` 不在校验范围），并且只在实质性参与时标注（构建逻辑、模块、更新脚本标；纯机械改动不标）
