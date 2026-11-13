@@ -89,6 +89,20 @@ stdenv.mkDerivation (finalAttrs: {
           --set ZCODE_BIN ${lib.getExe zcode-cli} \
           --set NODE_ENV production
         ln -s zcode-acp-server $out/bin/zcode-acp
+        # WebMux resumes a hybrid session by appending the session id to this
+        # argv; the Martty TUI has no positional resume, so translate it into
+        # the bridge's boot-resume environment (ADR-0017) and open the TUI.
+        printf '%s\n' ${lib.escapeShellArg ''
+          #!/bin/sh
+          sid="$1"
+          [ -n "$sid" ] || {
+            echo "zcode-acp-resume: missing <session-id>" >&2
+            exit 2
+          }
+          exec env ZCODE_ACP_RESUME_SESSION="$sid" "@out@/bin/zcode-acp"
+        ''} > $out/bin/zcode-acp-resume
+        substituteInPlace $out/bin/zcode-acp-resume --replace-fail '@out@' "$out"
+        chmod +x $out/bin/zcode-acp-resume
         runHook postInstall
   '';
 

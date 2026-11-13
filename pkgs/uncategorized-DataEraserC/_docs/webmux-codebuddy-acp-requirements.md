@@ -137,13 +137,13 @@ WebMux upstream 不承载下游实例；NUR 不手工维护第二份实现；nix
 
 ### ZC-01：公开入口与 vendor CLI 注入
 
-`zcode-acp` 包公开 `bin/zcode-acp` 与 `bin/zcode-acp-server`（同一 dist 入口，argv 语义同上游 npm 包 `zcode-acp-server`）。vendor ZCode CLI 的公开命令名是 `zcode-cli`（`zcode-cli` 包），与桌面包的 `bin/zcode`（GUI 启动器）并存且互不遮蔽；两个名字都必须能上 `environment.systemPackages` 供 PATH 解析（multi-instance 按 `command -v` 解析 executable）。适配器自身仍通过 wrapper 注入的 `ZCODE_BIN` 定位 vendor CLI，不得依赖用户 PATH 上的任何 `zcode`。
+`zcode-acp` 包公开三个入口（同一 dist/TTY 分派）：`bin/zcode-acp-server`（stdio ACP server，无 TTY 或显式调用都进 server）、`bin/zcode-acp`（TTY 下进入 Martty 交互聊天 TUI，无 TTY 回落 server）、`bin/zcode-acp-resume <session-id>`（把 WebMux resume 追加的 session id 翻译成 `ZCODE_ACP_RESUME_SESSION` boot-resume 环境后打开 TUI）。vendor ZCode CLI 的公开命令名是 `zcode-cli`（`zcode-cli` 包），与桌面包的 `bin/zcode`（GUI 启动器）并存且互不遮蔽；相关名字都必须能上 `environment.systemPackages` 供 PATH 解析（multi-instance 按 `command -v` 解析 executable）。适配器自身仍通过 wrapper 注入的 `ZCODE_BIN` 定位 vendor CLI，不得依赖用户 PATH 上的任何 `zcode`。
 
-### ZC-02：vendor CLI 来自桌面 AppImage，版本与 GUI 同步；无 TUI
+### ZC-02：vendor CLI 来自桌面 AppImage，版本与 GUI 同步；官方 TUI 缺席
 
 `zcode-cli` 从 `zcode` 桌面包（GUI AppImage）的 `resources/glm/zcode.cjs` 提取，复用其 src 与版本，CLI 与 GUI 单一版本源。CLI 自身版本号（`zcode-cli --version`，如 `0.17.1`）与 GUI 版本（`3.x.y`）不同，因此 `zcode-cli` 不得使用 versionCheckHook，安装检查只验证 `--version` 退出 0 且输出非空。上游没有官方 Linux CLI tarball 分发（`ZCODE_DIST_BASE_URL` 是自建分发机制），不得改用社区第三方重打包（`@ljwei-stak/zcode-cli`、`zcode-app-cli`、ZCode-rs 等）。
 
-AppImage 内的 glm bundle 是 desktop-agent 子集：`app-server`（headless 协议）、`-p` 无头模式、`login/logout`、`commands/skills/plugins/doctor` 可用；**全屏 TUI 不可用**——TUI 需要 `@zcode/tui`，它只存在于上游独立发行版（`build:zcode` 产出的 SEA / staged runtime，含 runtime node_modules），AppImage 里任何位置都没有该包，GUI 自身也从不运行 TUI。provider 资产（`resources/config/provider/zcode-builtin.json`）同样不在 glm 内，必须复制到 `glm/provider/` 才能通过启动时的候选路径解析。
+AppImage 内的 glm bundle 是 desktop-agent 子集：`app-server`（headless 协议）、`-p` 无头模式、`login/logout`、`commands/skills/plugins/doctor` 可用；**官方全屏 TUI 不可用**——它需要 `@zcode/tui`，只存在于上游独立发行版（`build:zcode` 产出的 SEA / staged runtime），AppImage 里任何位置都没有该包，GUI 自身也从不运行它。zcode 的终端侧交互由 `zcode-acp` 的 Martty TUI 承担（桥接器自带聊天界面，驱动同一 app-server 会话库）。provider 资产（`resources/config/provider/zcode-builtin.json`）同样不在 glm 内，必须复制到 `glm/provider/` 才能通过启动时的候选路径解析。
 
 ### ZC-03：peer 依赖落地与运行时 node_modules
 
@@ -151,8 +151,9 @@ AppImage 内的 glm bundle 是 desktop-agent 子集：`app-server`（headless �
 
 ### ZC-04：nix-config 接线
 
-- canonical multi-instance app key：`zcode-acp`（executable `zcode-acp-server`，ACP 用）与 `zcode-cli`（executable `zcode-cli`，headless CLI 用）；两者共享 `stateDirectoryKey = "zcode-cli"` 与 `paths = [".zcode"]`。这些 app 是未来接入的脚手架，本身没有桌面入口。
-- **WebMux 混合模式对 zcode 结构性不可用，不得声明 acpAgents**：WM-ACP 契约的 `match`/`resume` 都是 TUI 表单（终端↔聊天切换以 TUI 为终端侧），而 ZC-02 已确认 AppImage bundle 无 TUI——声明了只会产出「启动即断」的死会话。zcode 的外部 ACP 消费方是 **acb**（通用 `acp_driver_acb` 预设按会话 spawn `zcode-acp-server`，恢复走 ACP `session/load`，全程无 TUI）。待上游独立 CLI runtime 从源码打包完成、`zcode-cli` 获得 TUI 后，再按 direct（`match = ["zcode-cli"]`）+ multi-instance（`launcher = "bwrap"`）形式恢复声明；`icon` 必须取 LaunchConfigIcon 支持的键（不在集合内的 icon 会让整个声明被加载器跳过），`processExecutables = ["node"]`。
+- canonical multi-instance app key：`zcode-acp`（executable `zcode-acp-server`，ACP 用）与 `zcode-cli`（executable `zcode-cli`，headless CLI 用）；两者共享 `stateDirectoryKey = "zcode-cli"` 与 `paths = [".zcode"]`。这些 app 是 multi-instance TUI 实例化之前的脚手架，本身没有桌面入口。
+- WebMux binding（direct 形式）：`match = ["zcode-acp"]`（Martty 聊天 TUI，TTY 分派）/ `acp = ["zcode-acp-server"]` / `resume = ["zcode-acp-resume"]`（boot-resume 包装器）。终端侧是桥接器自带的 Martty TUI 而非官方 zcode TUI（后者待上游独立 CLI 从源码打包）；聊天侧经 `session/list` 发现同一会话库。`icon` 必须取 LaunchConfigIcon 支持的键（不在集合内的 icon 会让整个声明被加载器跳过）；`processExecutables = ["node", "bun"]`（TUI 会换手 bun --smol）。multi-instance 形式（`launcher = "bwrap"`）待 multi-instance 侧有 TUI 可跑后再加。
+- zcode 的另一外部 ACP 消费方是 **acb**（通用 `acp_driver_acb` 预设按会话 spawn `zcode-acp-server`，恢复走 ACP `session/load`，全程无 TUI）。
 - 桌面 GUI 是单一 `zcode` 包（CN 与国际版为同一 AppImage，仅登录区域不同）；`zcode-cn`/`zcode-intl` 不再作为独立包存在，multi-instance alias 保留 `zcode-intl` → `zcode` 兼容旧 CLI 名称。
 
 ## 7. nix-config 部署不变量
