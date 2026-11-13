@@ -5,10 +5,19 @@
 }:
 let
   cfg = config.services.dataEraserc.pgy;
-  pkg = cfg.package.override {
-    dataDir = cfg.stateDir;
-    inherit (cfg) configFile;
-  };
+  # The FHS wrapper takes the bind mounts as arguments; the native package
+  # works directly against the host paths created by the activation script.
+  isFhs = cfg.package != null && (cfg.package.passthru.fhs or false);
+  pkg =
+    if cfg.package == null then
+      null
+    else if isFhs then
+      cfg.package.override {
+        dataDir = cfg.stateDir;
+        inherit (cfg) configFile;
+      }
+    else
+      cfg.package;
   defaultConfig = ''
     ;local configuration
     [base]
@@ -37,22 +46,32 @@ in
     enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
-      description = "Enable the Oray PgyVisitor software-defined networking client daemon (pgyvpn_svr) in an FHS sandbox.";
+      description = "Enable the Oray PgyVisitor software-defined networking client daemon (pgyvpn_svr).";
     };
 
     package = lib.mkOption {
       type = lib.types.package;
       default = null;
       description = ''
-        The pgy package (FHS wrapper) to use. Must be set if `services.dataEraserc.pgy.enable` is true.
-        Example: `nur-repo.packages."$PACKAGE_SYSTEM".pgy_fhs`
+        The pgy package to use. Both the native package and the FHS wrapper are
+        supported; the module detects the latter through its `passthru.fhs` marker.
+
+        Example: `nur-repo.packages."$PACKAGE_SYSTEM".pgy`
+        (or `...pgy-fhs` for the sandboxed variant)
       '';
     };
 
     stateDir = lib.mkOption {
       type = lib.types.str;
       default = "/var/lib/pgyvpn";
-      description = "Writable data directory bound read-write into the sandbox as `/etc/oray/pgyvpn` (status/login state).";
+      description = ''
+        Writable data directory for the daemon's status and login state.
+
+        - With the FHS package it is bound read-write into the sandbox as
+          `/etc/oray/pgyvpn`.
+        - With the native package `/etc/oray/pgyvpn` is created as a symlink to
+          this directory.
+      '';
     };
 
     configFile = lib.mkOption {
@@ -64,18 +83,19 @@ in
       );
       default = "${cfg.stateDir}/config.ini";
       description = ''
-        Config file mounted into the sandbox as `/etc/oray/pgyvpn/config.ini`.
+        Config file passed to the daemon as `/etc/oray/pgyvpn/config.ini`.
 
-        - A path in the Nix store (e.g. from `pkgs.writeText`) is bound read-write but
+        - A path in the Nix store (e.g. from `pkgs.writeText`) is usable but
           stays read-only because the store is immutable.
         - An absolute path outside the store (e.g. `/etc/pgy/config.ini` or an
-          out-of-store symlink target) is bound read-write and changes made by the
-          daemon (e.g. login state) are synced back to that file.
+          out-of-store symlink target) is writable and changes made by the
+          daemon (e.g. login state) are persisted there.
 
-        Defaults to `${cfg.stateDir}/config.ini`, a writable external path. If the
-        file does not exist yet, the activation script creates it with the default
-        configuration so the daemon can persist login state into it. Set to `null`
-        to keep the packaged read-only config instead.
+        Defaults to `${cfg.stateDir}/config.ini`. If the file does not exist
+        yet, the activation script creates it with the default configuration so
+        the daemon can persist login state into it. Set to `null` to keep the
+        packaged read-only config (FHS package) or let the daemon create its own
+        file (native package).
 
         Requires nixos-unstable / 26.05+ because `lib.types.externalPath` was added
         in nixpkgs 26.05; building this module against older branches (e.g. 24.11)
@@ -86,7 +106,7 @@ in
     logDir = lib.mkOption {
       type = lib.types.str;
       default = "/var/log/oray";
-      description = "Directory to store pgyvpn_svr logs.";
+      description = "Directory to store pgyvpn_svr logs and the `pgyvpn` log subdirectory.";
     };
 
     user = lib.mkOption {
@@ -97,8 +117,8 @@ in
         daemon typically needs root privileges to set up its virtual network
         interface. If a dedicated user is used, it must be able to write to
         `stateDir`, `logDir` and `configFile` (the activation script chowns them
-        accordingly), and unprivileged user namespaces must be enabled for the
-        FHS sandbox (bwrap) to work.
+        accordingly). The FHS package additionally requires unprivileged user
+        namespaces for its bwrap sandbox.
       '';
     };
 
@@ -171,19 +191,29 @@ in
     environment.systemPackages = [ pkg ];
 
     system.activationScripts.pgy = lib.stringAfter [ "specialfs" ] ''
-      mkdir -p ${cfg.logDir}/pgyvpn
-      mkdir -p ${cfg.stateDir}
+      mkdir -p ${lib.escapeShellArg cfg.logDir}/pgyvpn
+      mkdir -p ${lib.escapeShellArg cfg.stateDir}
       ${lib.optionalString (cfg.configFile != null) ''
-                if [ ! -e ${lib.escapeShellArg cfg.configFile} ]; then
-                  mkdir -p "$(dirname ${lib.escapeShellArg cfg.configFile})"
-                  cat > ${lib.escapeShellArg cfg.configFile} <<'EOF'
+        if [ ! -e ${lib.escapeShellArg cfg.configFile} ]; then
+          mkdir -p "$(dirname ${lib.escapeShellArg cfg.configFile})"
+          cat > ${lib.escapeShellArg cfg.configFile} <<'EOF'
         ${defaultConfig}
         EOF
-                fi
-                chown ${lib.escapeShellArg cfg.user}:${lib.escapeShellArg cfg.group} ${lib.escapeShellArg cfg.configFile} || true
+        fi
+        chown ${lib.escapeShellArg cfg.user}:${lib.escapeShellArg cfg.group} ${lib.escapeShellArg cfg.configFile} || true
       ''}
       chown -R ${lib.escapeShellArg cfg.user}:${lib.escapeShellArg cfg.group} ${lib.escapeShellArg cfg.stateDir} || true
       chown -R ${lib.escapeShellArg cfg.user}:${lib.escapeShellArg cfg.group} ${lib.escapeShellArg cfg.logDir}/pgyvpn || true
+      ${lib.optionalString (!isFhs) ''
+        # The native binaries still open these absolute paths at runtime.
+        mkdir -p /etc/oray
+        if [ ! -e /etc/oray/pgyvpn ] && [ ! -L /etc/oray/pgyvpn ]; then
+          ln -s ${lib.escapeShellArg cfg.stateDir} /etc/oray/pgyvpn
+        fi
+        if [ ! -e /var/log/oray ] && [ ! -L /var/log/oray ]; then
+          ln -s ${lib.escapeShellArg cfg.logDir} /var/log/oray
+        fi
+      ''}
     '';
   };
 }
