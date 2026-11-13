@@ -128,7 +128,10 @@ stdenv.mkDerivation (finalAttrs: {
   # The bundled Nuitka agent runtime carries a small trailer after its last
   # section, and its self-loading breaks if patchelf rewrites more than the
   # interpreter, so only the interpreter is patched and nothing is stripped.
+  # dontPatchELF keeps the stdenv fixup hook from rewriting the same ELFs a
+  # second time.
   dontStrip = true;
+  dontPatchELF = true;
 
   unpackPhase = ''
     runHook preUnpack
@@ -157,16 +160,25 @@ stdenv.mkDerivation (finalAttrs: {
 
     # autoPatchelfHook is not used: it adds a RUNPATH to every ELF it finds,
     # which makes the Nuitka runtime (`box-agent-acp`) segfault while parsing
-    # its own image. Rewriting only the interpreter leaves its layout intact;
-    # the runtime libraries come from the wrapper's LD_LIBRARY_PATH, which the
-    # app's child processes inherit.
+    # its own image. Rewriting only the interpreter leaves its layout intact.
     for exe in \
       raccoon-ai \
       chrome-sandbox \
-      chrome_crashpad_handler \
-      resources/box-agent-runtime/bin/box-agent-acp; do
+      chrome_crashpad_handler; do
       patchelf --set-interpreter ${stdenv.cc.bintools.dynamicLinker} "$out/opt/xiaohuanxiong/$exe"
     done
+
+    # The agent runtime is also spawned with a sanitized environment that drops
+    # LD_LIBRARY_PATH (its own MCP children), so its dependencies are rewritten
+    # to absolute store paths. A RUNPATH is not an option: patchelf 0.19 adds a
+    # segment for it and the Nuitka runtime then segfaults parsing itself.
+    patchelf \
+      --set-interpreter ${stdenv.cc.bintools.dynamicLinker} \
+      --replace-needed libz.so.1 ${lib.getLib zlib}/lib/libz.so.1 \
+      --replace-needed libc.so.6 ${lib.getLib stdenv.cc.libc}/lib/libc.so.6 \
+      --replace-needed libdl.so.2 ${lib.getLib stdenv.cc.libc}/lib/libdl.so.2 \
+      --replace-needed libpthread.so.0 ${lib.getLib stdenv.cc.libc}/lib/libpthread.so.0 \
+      "$out/opt/xiaohuanxiong/resources/box-agent-runtime/bin/box-agent-acp"
 
     cp -r usr/share/icons $out/share/icons
     # The app sets CHROME_DESKTOP=raccoon-ai.desktop on Linux, so the window's
