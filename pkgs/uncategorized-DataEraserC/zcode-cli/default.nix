@@ -20,7 +20,9 @@ stdenv.mkDerivation {
     runHook preInstall
     mkdir -p $out/share/zcode-cli $out/bin
     cp -r ${zcode.contents}/resources/glm $out/share/zcode-cli/glm
-    makeWrapper ${lib.getExe nodejs_24} $out/bin/zcode \
+    # Named zcode-cli, not zcode: the desktop package owns bin/zcode (its GUI
+    # launcher), and this command must be resolvable on PATH next to it.
+    makeWrapper ${lib.getExe nodejs_24} $out/bin/zcode-cli \
       --add-flags "$out/share/zcode-cli/glm/zcode.cjs" \
       --set NODE_ENV production
     runHook postInstall
@@ -30,9 +32,9 @@ stdenv.mkDerivation {
   installCheckPhase = ''
     runHook preInstallCheck
     local output
-    output=$($out/bin/zcode --version)
+    output=$($out/bin/zcode-cli --version)
     [ -n "$output" ] || {
-      echo "zcode --version produced no output" >&2
+      echo "zcode-cli --version produced no output" >&2
       exit 1
     }
     echo "zcode CLI version: $output"
@@ -45,7 +47,7 @@ stdenv.mkDerivation {
     license = lib.licenses.asl20;
     sourceProvenance = [ lib.sourceTypes.binaryNativeCode ];
     maintainers = import ../maintainers.nix;
-    mainProgram = "zcode";
+    mainProgram = "zcode-cli";
     platforms = [
       "x86_64-linux"
       "aarch64-linux"

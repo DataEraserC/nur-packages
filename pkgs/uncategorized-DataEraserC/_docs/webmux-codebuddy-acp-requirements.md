@@ -135,13 +135,13 @@ WebMux upstream 不承载下游实例；NUR 不手工维护第二份实现；nix
 
 ## 6. ZCode：`zcode-acp` 与 vendor CLI
 
-### ZC-01：唯一公开入口与 vendor CLI 注入
+### ZC-01：公开入口与 vendor CLI 注入
 
-`zcode-acp` 包公开 `bin/zcode-acp` 与 `bin/zcode-acp-server`（同一 dist 入口，argv 语义同上游 npm 包 `zcode-acp-server`）；vendor ZCode CLI（`zcode-cli` 包）是闭包依赖，不进 `environment.systemPackages`，通过 wrapper 注入的 `ZCODE_BIN` 传递，不得依赖用户 PATH 上的任何 `zcode`。
+`zcode-acp` 包公开 `bin/zcode-acp` 与 `bin/zcode-acp-server`（同一 dist 入口，argv 语义同上游 npm 包 `zcode-acp-server`）。vendor ZCode CLI 的公开命令名是 `zcode-cli`（`zcode-cli` 包），与桌面包的 `bin/zcode`（GUI 启动器）并存且互不遮蔽；两个名字都必须能上 `environment.systemPackages` 供 PATH 解析（multi-instance 按 `command -v` 解析 executable）。适配器自身仍通过 wrapper 注入的 `ZCODE_BIN` 定位 vendor CLI，不得依赖用户 PATH 上的任何 `zcode`。
 
 ### ZC-02：vendor CLI 来自桌面 AppImage，版本与 GUI 同步
 
-`zcode-cli` 从 `zcode` 桌面包（GUI AppImage）的 `resources/glm/zcode.cjs` 提取，复用其 src 与版本，CLI 与 GUI 单一版本源。CLI 自身版本号（`zcode --version`，如 `0.17.1`）与 GUI 版本（`3.x.y`）不同，因此 `zcode-cli` 不得使用 versionCheckHook，安装检查只验证 `--version` 退出 0 且输出非空。上游没有官方 Linux CLI tarball 分发（`ZCODE_DIST_BASE_URL` 是自建分发机制），不得改用社区第三方重打包（`@ljwei-stak/zcode-cli`、`zcode-app-cli`、ZCode-rs 等）。
+`zcode-cli` 从 `zcode` 桌面包（GUI AppImage）的 `resources/glm/zcode.cjs` 提取，复用其 src 与版本，CLI 与 GUI 单一版本源。CLI 自身版本号（`zcode-cli --version`，如 `0.17.1`）与 GUI 版本（`3.x.y`）不同，因此 `zcode-cli` 不得使用 versionCheckHook，安装检查只验证 `--version` 退出 0 且输出非空。上游没有官方 Linux CLI tarball 分发（`ZCODE_DIST_BASE_URL` 是自建分发机制），不得改用社区第三方重打包（`@ljwei-stak/zcode-cli`、`zcode-app-cli`、ZCode-rs 等）。
 
 ### ZC-03：peer 依赖落地与运行时 node_modules
 
@@ -149,8 +149,8 @@ WebMux upstream 不承载下游实例；NUR 不手工维护第二份实现；nix
 
 ### ZC-04：nix-config 接线
 
-- canonical multi-instance app key：`zcode-acp`（executable `zcode-acp-server`，ACP 用）与 `zcode-cli`（executable `zcode`，TUI 用）；两者共享 `stateDirectoryKey = "zcode-cli"` 与 `paths = [".zcode"]`，使 ACP 创建的会话能被 TUI `--resume` 恢复。
-- WebMux binding：direct 形式 `match = ["zcode"]` / `acp = ["zcode-acp-server"]` / `resume = ["zcode", "--resume"]`；multi-instance 形式 TUI 侧用 `zcode-cli`、ACP 侧用 `zcode-acp`，`launcher = "bwrap"`。
+- canonical multi-instance app key：`zcode-acp`（executable `zcode-acp-server`，ACP 用）与 `zcode-cli`（executable `zcode-cli`，TUI 用）；两者共享 `stateDirectoryKey = "zcode-cli"` 与 `paths = [".zcode"]`，使 ACP 创建的会话能被 TUI `--resume` 恢复。
+- WebMux binding：direct 形式 `match = ["zcode-cli"]` / `acp = ["zcode-acp-server"]` / `resume = ["zcode-cli", "--resume"]`；multi-instance 形式 TUI 侧用 `zcode-cli`、ACP 侧用 `zcode-acp`，`launcher = "bwrap"`。WebMux agent 的 `icon` 必须取 LaunchConfigIcon 支持的键（如 `terminal`），不在集合内的 icon 会让整个声明被加载器跳过。
 - `processExecutables = ["node"]`：vendor CLI 与 adapter 都是 node 进程（无独立 ELF 进程名）。
 - 桌面 GUI 是单一 `zcode` 包（CN 与国际版为同一 AppImage，仅登录区域不同）；`zcode-cn`/`zcode-intl` 不再作为独立包存在，multi-instance alias 保留 `zcode-intl` → `zcode` 兼容旧 CLI 名称。
 
