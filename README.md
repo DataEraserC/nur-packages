@@ -62,7 +62,7 @@ Or, use variables from this repository in case I change them:
 ## Packages
 
 <details>
-<summary>Package set: (Uncategorized) (368 packages)</summary>
+<summary>Package set: (Uncategorized) (370 packages)</summary>
 
 | State | Path | Name | Version | Description |
 | ----- | ---- | ---- | ------- | ----------- |
@@ -81,6 +81,8 @@ Or, use variables from this repository in case I change them:
 |  | `amule-dlp` | [amule-dlp](https://github.com/persmule/amule-dlp) | 2.3.2-dlp | Peer-to-peer client for the eD2K and Kademlia networks (with Dynamic Leech Protection) |
 |  | `anymd` | [anymd](https://github.com/SylphxAI/anymd) | 8.5.9 | Convert any file to clean Markdown for AI agents, as a CLI and MCP server |
 |  | `asterisk-g72x` | [asterisk-g72x](https://github.com/arkadijs/asterisk-g72x) | 0-unstable-2026-09-07 | G.729 and G.723.1 codecs for Asterisk (Only G.729 is enabled) |
+| `x86_64-linux` | `autoclaw-cn` | [autoclaw-cn](https://autoclaw.zhipuai.cn/) | 4.0.0 | AutoClaw (澳龙), Zhipu AI's general AI agent desktop app (China edition) |
+| `x86_64-linux` | `autoclaw-intl` | [autoclaw-intl](https://autoclaw.z.ai/) | 2.0.3 | AutoClaw, Z.ai's general AI agent desktop app (international edition) |
 | `x86_64-linux` | `aw88399-legion-audio-patch` | [aw88399-legion-audio-patch](https://github.com/nadimkobeissi/16iax10h-linux-sound-saga) | 0-unstable-2026-10-26 | Audio patches for aw88399 on Lenovo Legion laptops |
 | `x86_64-linux` | `aw88399-legion-firmware` | [aw88399-legion-firmware](https://github.com/nadimkobeissi/16iax10h-linux-sound-saga) | 0-unstable-2026-10-26 | Firmware for aw88399 audio codec on Lenovo Legion laptops |
 |  | `awawausb-native-stub` | [awawausb-native-stub](https://github.com/ArcaneNibble/awawausb) | 0.2 | Native messaging stub for the awawausb WebUSB Firefox extension |
@@ -1710,7 +1712,7 @@ Or, use variables from this repository in case I change them:
 </details>
 
 <details>
-<summary>Package set: uncategorized-DataEraserC (117 packages)</summary>
+<summary>Package set: uncategorized-DataEraserC (119 packages)</summary>
 
 | State | Path | Name | Version | Description |
 | ----- | ---- | ---- | ------- | ----------- |
@@ -1725,6 +1727,8 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized-DataEraserC.agent2api-desktop` | [agent2api-desktop](https://github.com/aimod-cc/Agent2API) | 3.4.2 | Desktop control panel for the multi-provider AI client gateway, wrapping logins as OpenAI-compatible APIs |
 |  | `uncategorized-DataEraserC.agent2api-server` | [agent2api-server](https://github.com/aimod-cc/Agent2API) | 3.4.2 | Headless gateway that exposes multi-provider AI client logins as OpenAI-compatible APIs |
 |  | `uncategorized-DataEraserC.anymd` | [anymd](https://github.com/SylphxAI/anymd) | 8.5.9 | Convert any file to clean Markdown for AI agents, as a CLI and MCP server |
+| `x86_64-linux` | `uncategorized-DataEraserC.autoclaw-cn` | [autoclaw-cn](https://autoclaw.zhipuai.cn/) | 4.0.0 | AutoClaw (澳龙), Zhipu AI's general AI agent desktop app (China edition) |
+| `x86_64-linux` | `uncategorized-DataEraserC.autoclaw-intl` | [autoclaw-intl](https://autoclaw.z.ai/) | 2.0.3 | AutoClaw, Z.ai's general AI agent desktop app (international edition) |
 |  | `uncategorized-DataEraserC.bas-remote` | [bas-remote](https://github.com/DataEraserC/bas-remote) | 0.7.3 | SAP Business Application Studio remote dev spaces, as a Rust library with a DeepSeek Harness host |
 | `x86_64-linux` | `uncategorized-DataEraserC.bqqnt` | [bqqnt](https://im.qq.com/index/) | 0.5.10 | Desktop client for QQ on Linux with bstar |
 | `x86_64-linux` | `uncategorized-DataEraserC.browser4` | [browser4](https://github.com/platonai/Browser4) | 4.13.27 | MCP-driven browser automation toolkit pairing a Rust command-line client with a Java automation server |
