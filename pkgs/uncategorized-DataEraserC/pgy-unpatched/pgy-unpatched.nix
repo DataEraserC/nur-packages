@@ -40,7 +40,7 @@ let
     .${HostPlatform};
 in
 stdenv.mkDerivation {
-  pname = "pgy";
+  pname = "pgy-unpatched";
   inherit version src;
 
   passthru.updateScript = [ (toString ./update.sh) ];
@@ -107,8 +107,9 @@ stdenv.mkDerivation {
     license = licenses.unfree;
     maintainers = import ../maintainers.nix;
     mainProgram = "pgyvisitor";
-    # Direct unpacking cannot replace the hard-coded /usr/share paths of the
-    # bundled binaries; use the FHS-wrapped pgy_fhs package instead.
+    # Unmodified upstream layout: the binaries still expect /usr/share/pgyvpn
+    # and /usr/sbin/* at their hard-coded locations. Kept for reference only;
+    # use the native pgy package or the FHS-wrapped pgy-fhs package instead.
     broken = true;
     platforms = SupportedPlatforms;
   };

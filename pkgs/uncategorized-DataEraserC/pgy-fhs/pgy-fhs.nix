@@ -106,5 +106,8 @@ in
   (old: {
     passthru = (old.passthru or { }) // {
       updateScript = [ (toString ./update.sh) ];
+      # Marker consumed by modules/pgy.nix: this package needs its data and
+      # config directories bound into the FHS sandbox at build/run time.
+      fhs = true;
     };
   })
