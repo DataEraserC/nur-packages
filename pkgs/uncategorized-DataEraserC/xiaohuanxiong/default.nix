@@ -169,10 +169,13 @@ stdenv.mkDerivation (finalAttrs: {
     done
 
     cp -r usr/share/icons $out/share/icons
+    # The app sets CHROME_DESKTOP=raccoon-ai.desktop on Linux, so the window's
+    # app id only resolves to an icon and a launcher entry when the file keeps
+    # that name; a different file name leaves the window with a generic icon.
     install -Dm644 usr/share/applications/raccoon-ai.desktop \
-      $out/share/applications/xiaohuanxiong.desktop
+      $out/share/applications/raccoon-ai.desktop
 
-    substituteInPlace $out/share/applications/xiaohuanxiong.desktop \
+    substituteInPlace $out/share/applications/raccoon-ai.desktop \
       --replace-fail 'Exec="/opt/商汤小浣熊/raccoon-ai" %U' "Exec=$out/bin/xiaohuanxiong %U"
 
     makeWrapper $out/opt/xiaohuanxiong/raccoon-ai $out/bin/xiaohuanxiong \
