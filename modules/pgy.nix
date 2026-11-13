@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }:
 let
@@ -8,6 +9,17 @@ let
   # The FHS wrapper takes the bind mounts as arguments; the native package
   # works directly against the host paths created by the activation script.
   isFhs = cfg.package != null && (cfg.package.passthru.fhs or false);
+  fixedMachineCode = cfg.machineCode.fixedValue != null;
+  # pgyvpn_svr derives its machine code from the first identifier source it
+  # can read. A shim that answers the SMBIOS UUID query makes that source
+  # deterministic without touching any NIC MAC.
+  fakeDmidecode = pkgs.writeShellScriptBin "dmidecode" ''
+    if [ "''${1:-}" = "-s" ] && [ "''${2:-}" = "system-uuid" ]; then
+      echo ${lib.escapeShellArg cfg.machineCode.fixedValue}
+      exit 0
+    fi
+    exit 1
+  '';
   pkg =
     if cfg.package == null then
       null
@@ -139,6 +151,64 @@ in
       default = [ ];
       description = "Extra arguments appended to the `pgyvpn_svr` command line.";
     };
+
+    machineCode = {
+      useDmidecode = lib.mkOption {
+        type = lib.types.bool;
+        default = true;
+        description = ''
+          Put `dmidecode` on the service PATH. `pgyvpn_svr` then prefers the
+          SMBIOS system UUID over the NIC MAC when deriving its machine code,
+          which is usually stable across NIC replacements.
+
+          The command only makes the DMI source available; firmware that does
+          not expose SMBIOS still falls back to the next source, and a
+          non-root `user` cannot read it. This changes the machine code, so the
+          stored login token may need a fresh login.
+          Applies to both the native and the FHS package.
+        '';
+      };
+
+      usePciutils = lib.mkOption {
+        type = lib.types.bool;
+        default = false;
+        description = ''
+          Put `pciutils` (lspci) on the service PATH so `pgyvpn_svr` can use
+          PCI IDs as another fingerprint source. The resulting machine code has
+          not been observed yet, so this is opt-in. Applies to both the native
+          and the FHS package.
+        '';
+      };
+
+      fixedValue = lib.mkOption {
+        type = lib.types.nullOr lib.types.nonEmptyStr;
+        default = null;
+        example = "3f2504e0-4f89-41d3-9a0c-0305e82c3301";
+        description = ''
+          Install a `dmidecode` shim that answers `-s system-uuid` with this
+          value. `pgyvpn_svr` then derives a deterministic machine code from it
+          instead of the real SMBIOS UUID or the NIC MAC.
+
+          Useful when the hardware fingerprint is unstable (Wi-Fi MAC
+          randomization, VM cloning, WSL) or when several hosts should share
+          one login token. The value is not a secret, but every host using the
+          same value looks like the same device to the pgy server. Changing it
+          invalidates the stored token. Takes precedence over `useDmidecode`.
+          Applies to both the native and the FHS package.
+        '';
+      };
+
+      extraPackages = lib.mkOption {
+        type = lib.types.listOf lib.types.package;
+        default = [ ];
+        description = ''
+          Additional packages to put on the service PATH. Use this when a new
+          pgy version probes another command for its machine code, so the
+          dependency can be supplied without changing this module.
+          Applies to both the native and the FHS package.
+        '';
+      };
+    };
   };
 
   config = lib.mkIf cfg.enable {
@@ -154,6 +224,11 @@ in
       after = [ "network.target" ];
       wants = [ "network-online.target" ];
       wantedBy = [ "multi-user.target" ];
+      path =
+        lib.optionals cfg.machineCode.usePciutils [ pkgs.pciutils ]
+        ++ lib.optionals (cfg.machineCode.useDmidecode && !fixedMachineCode) [ pkgs.dmidecode ]
+        ++ lib.optionals fixedMachineCode [ fakeDmidecode ]
+        ++ cfg.machineCode.extraPackages;
 
       serviceConfig = {
         Type = "simple";
