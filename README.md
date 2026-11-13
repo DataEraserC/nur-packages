@@ -62,7 +62,7 @@ Or, use variables from this repository in case I change them:
 ## Packages
 
 <details>
-<summary>Package set: (Uncategorized) (366 packages)</summary>
+<summary>Package set: (Uncategorized) (368 packages)</summary>
 
 | State | Path | Name | Version | Description |
 | ----- | ---- | ---- | ------- | ----------- |
@@ -316,8 +316,10 @@ Or, use variables from this repository in case I change them:
 |  | `pytorch-wpe` | [pytorch-wpe](https://github.com/nttcslab-sp/dnn_wpe) | 0.0.1 | WPE implementation using PyTorch |
 | `x86_64-linux` | `qdma` | [qdma](https://github.com/Xilinx/dma_ip_drivers) | 0-unstable-2026-10-22 | Xilinx QDMA PCIe kernel modules |
 |  | `qemu-user-static` | [qemu-user-static](http://www.qemu.org/) | 11.1.2+ds-3 | Generic and open source machine emulator, virtualizer |
-| `x86_64-linux` | `qoder-cn` | [qoder-cn](https://qoder.com.cn/) | 1.39.2-1794211749 | Qoder CN IDE, Alibaba's agentic coding platform (China edition) |
-| `x86_64-linux` | `qoder-intl` | [qoder-intl](https://qoder.com/) | 1.39.2-1794211870 | Qoder IDE, Alibaba's agentic coding platform (international edition) |
+| `x86_64-linux` | `qoder` | [qoder](https://qoder.com/) | 0.5.7 | Qoder App, Alibaba's agent workbench for human and AI software teams (international edition) |
+| `x86_64-linux` | `qoder-cn` | [qoder-cn](https://qoder.com.cn/) | 0.5.7 | Qoder CN App, Alibaba's agent workbench for human and AI software teams (China edition) |
+| `x86_64-linux` | `qoder-cn-ide` | [qoder-cn-ide](https://qoder.com.cn/) | 1.39.2-1794211749 | Qoder CN IDE, Alibaba's agentic coding platform (China edition) |
+| `x86_64-linux` | `qoder-ide` | [qoder-ide](https://qoder.com/) | 1.39.2-1794211870 | Qoder IDE, Alibaba's agentic coding platform (international edition) |
 |  | `qq` | [qq](https://im.qq.com/linuxqq/index.html) | 3.2.18 | Desktop client for QQ on Linux |
 |  | `qq-agent-presets` | [qq-agent-presets](https://github.com/Derpyu520/qq-bridge) | 0.2.1-r2 | DSH bundle for qq-bridge: agent presets (qq-chat, qq-chat-v2) and the qq-tool-restrict guard |
 |  | `qq-bridge` | [qq-bridge](https://github.com/Derpyu520/qq-bridge) | 0.2.1-r2 | QQ (SnowLuma OneBot v11) bridge for DeepSeek Harness agents |
@@ -1708,7 +1710,7 @@ Or, use variables from this repository in case I change them:
 </details>
 
 <details>
-<summary>Package set: uncategorized-DataEraserC (115 packages)</summary>
+<summary>Package set: uncategorized-DataEraserC (117 packages)</summary>
 
 | State | Path | Name | Version | Description |
 | ----- | ---- | ---- | ------- | ----------- |
@@ -1786,8 +1788,10 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized-DataEraserC.opencode2dsh` | [opencode2dsh](https://github.com/FishBottle7/opencode2dsh) | 0.3.14 | DSH plugin for free OpenCode Zen models with native adapter and no API key |
 |  | `uncategorized-DataEraserC.pgy` | [pgy](https://pgy.oray.com/download/) | 6.9.0 | Client for the Oray PgyVisitor software-defined networking platform |
 |  | `uncategorized-DataEraserC.pgy-fhs` | [pgy](https://pgy.oray.com/download/) |  | Client for the Oray PgyVisitor software-defined networking platform |
-| `x86_64-linux` | `uncategorized-DataEraserC.qoder-cn` | [qoder-cn](https://qoder.com.cn/) | 1.39.2-1794211749 | Qoder CN IDE, Alibaba's agentic coding platform (China edition) |
-| `x86_64-linux` | `uncategorized-DataEraserC.qoder-intl` | [qoder-intl](https://qoder.com/) | 1.39.2-1794211870 | Qoder IDE, Alibaba's agentic coding platform (international edition) |
+| `x86_64-linux` | `uncategorized-DataEraserC.qoder` | [qoder](https://qoder.com/) | 0.5.7 | Qoder App, Alibaba's agent workbench for human and AI software teams (international edition) |
+| `x86_64-linux` | `uncategorized-DataEraserC.qoder-cn` | [qoder-cn](https://qoder.com.cn/) | 0.5.7 | Qoder CN App, Alibaba's agent workbench for human and AI software teams (China edition) |
+| `x86_64-linux` | `uncategorized-DataEraserC.qoder-cn-ide` | [qoder-cn-ide](https://qoder.com.cn/) | 1.39.2-1794211749 | Qoder CN IDE, Alibaba's agentic coding platform (China edition) |
+| `x86_64-linux` | `uncategorized-DataEraserC.qoder-ide` | [qoder-ide](https://qoder.com/) | 1.39.2-1794211870 | Qoder IDE, Alibaba's agentic coding platform (international edition) |
 |  | `uncategorized-DataEraserC.qq-agent-presets` | [qq-agent-presets](https://github.com/Derpyu520/qq-bridge) | 0.2.1-r2 | DSH bundle for qq-bridge: agent presets (qq-chat, qq-chat-v2) and the qq-tool-restrict guard |
 |  | `uncategorized-DataEraserC.qq-bridge` | [qq-bridge](https://github.com/Derpyu520/qq-bridge) | 0.2.1-r2 | QQ (SnowLuma OneBot v11) bridge for DeepSeek Harness agents |
 |  | `uncategorized-DataEraserC.qq-bridge-dsh` | [qq-bridge-dsh](https://github.com/Derpyu520/qq-bridge) | 0.2.1-r2 | DSH bundle for qq-bridge: MCP servers (agent presets live in qq-agent-presets) |
