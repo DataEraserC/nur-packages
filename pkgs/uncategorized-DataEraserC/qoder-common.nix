@@ -5,6 +5,7 @@
   dpkg,
   autoPatchelfHook,
   makeShellWrapper,
+  bubblewrap,
   alsa-lib,
   at-spi2-core,
   cairo,
@@ -136,6 +137,7 @@ stdenv.mkDerivation {
     makeShellWrapper $out/opt/${appDir}/${executable} $out/bin/${mainProgram} \
       --add-flags "--no-sandbox" \
       --add-flags "\''${NIXOS_OZONE_WL:+\''${WAYLAND_DISPLAY:+--ozone-platform-hint=auto --enable-features=WaylandWindowDecorations --enable-wayland-ime=true --wayland-text-input-version=3}}" \
+      --prefix PATH : "${lib.makeBinPath [ bubblewrap ]}" \
       --prefix LD_LIBRARY_PATH : "${lib.makeLibraryPath libraries}"
 
     install -Dm644 usr/share/applications/${desktopName} \
