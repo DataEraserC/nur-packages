@@ -1,5 +1,6 @@
 #!/usr/bin/env nix-shell
 #!nix-shell -i bash -p bash -p curl -p jq -p gnused -p nix -p python3
+# shellcheck shell=bash
 set -euo pipefail
 
 FILE="$(dirname "$(readlink -f "$0")")/default.nix"
@@ -7,7 +8,10 @@ FILE="$(dirname "$(readlink -f "$0")")/default.nix"
 NEW_VERSION=$(curl -fsSL 'https://zcode.z.ai/cn/docs/install' |
   sed -n 's#.*/releases/\([0-9.]*\)/linux-x64/ZCode-[0-9.]*-linux-x64\.AppImage.*#\1#p' | head -1)
 
-[ -n "$NEW_VERSION" ] || { echo "Failed to detect new version"; exit 1; }
+[ -n "$NEW_VERSION" ] || {
+  echo "Failed to detect new version"
+  exit 1
+}
 echo "detected version: $NEW_VERSION"
 
 OLD_VERSION=$(sed -n 's/^  version = "\([^"]*\)";/\1/p' "$FILE")
