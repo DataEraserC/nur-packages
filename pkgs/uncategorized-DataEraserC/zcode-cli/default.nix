@@ -20,6 +20,11 @@ stdenv.mkDerivation {
     runHook preInstall
     mkdir -p $out/share/zcode-cli $out/bin
     cp -r ${zcode.contents}/resources/glm $out/share/zcode-cli/glm
+    # The desktop-agent bundle inside the AppImage does not carry the provider
+    # assets (resources/config/provider); the CLI resolves them from
+    # glm/provider at startup, so copy them in.
+    chmod -R u+w $out/share/zcode-cli/glm
+    cp -r ${zcode.contents}/resources/config/provider $out/share/zcode-cli/glm/provider
     # Named zcode-cli, not zcode: the desktop package owns bin/zcode (its GUI
     # launcher), and this command must be resolvable on PATH next to it.
     makeWrapper ${lib.getExe nodejs_24} $out/bin/zcode-cli \

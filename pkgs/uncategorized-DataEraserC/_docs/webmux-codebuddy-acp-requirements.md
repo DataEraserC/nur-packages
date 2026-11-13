@@ -139,9 +139,11 @@ WebMux upstream 不承载下游实例；NUR 不手工维护第二份实现；nix
 
 `zcode-acp` 包公开 `bin/zcode-acp` 与 `bin/zcode-acp-server`（同一 dist 入口，argv 语义同上游 npm 包 `zcode-acp-server`）。vendor ZCode CLI 的公开命令名是 `zcode-cli`（`zcode-cli` 包），与桌面包的 `bin/zcode`（GUI 启动器）并存且互不遮蔽；两个名字都必须能上 `environment.systemPackages` 供 PATH 解析（multi-instance 按 `command -v` 解析 executable）。适配器自身仍通过 wrapper 注入的 `ZCODE_BIN` 定位 vendor CLI，不得依赖用户 PATH 上的任何 `zcode`。
 
-### ZC-02：vendor CLI 来自桌面 AppImage，版本与 GUI 同步
+### ZC-02：vendor CLI 来自桌面 AppImage，版本与 GUI 同步；无 TUI
 
 `zcode-cli` 从 `zcode` 桌面包（GUI AppImage）的 `resources/glm/zcode.cjs` 提取，复用其 src 与版本，CLI 与 GUI 单一版本源。CLI 自身版本号（`zcode-cli --version`，如 `0.17.1`）与 GUI 版本（`3.x.y`）不同，因此 `zcode-cli` 不得使用 versionCheckHook，安装检查只验证 `--version` 退出 0 且输出非空。上游没有官方 Linux CLI tarball 分发（`ZCODE_DIST_BASE_URL` 是自建分发机制），不得改用社区第三方重打包（`@ljwei-stak/zcode-cli`、`zcode-app-cli`、ZCode-rs 等）。
+
+AppImage 内的 glm bundle 是 desktop-agent 子集：`app-server`（headless 协议）、`-p` 无头模式、`login/logout`、`commands/skills/plugins/doctor` 可用；**全屏 TUI 不可用**——TUI 需要 `@zcode/tui`，它只存在于上游独立发行版（`build:zcode` 产出的 SEA / staged runtime，含 runtime node_modules），AppImage 里任何位置都没有该包，GUI 自身也从不运行 TUI。provider 资产（`resources/config/provider/zcode-builtin.json`）同样不在 glm 内，必须复制到 `glm/provider/` 才能通过启动时的候选路径解析。
 
 ### ZC-03：peer 依赖落地与运行时 node_modules
 
@@ -149,9 +151,8 @@ WebMux upstream 不承载下游实例；NUR 不手工维护第二份实现；nix
 
 ### ZC-04：nix-config 接线
 
-- canonical multi-instance app key：`zcode-acp`（executable `zcode-acp-server`，ACP 用）与 `zcode-cli`（executable `zcode-cli`，TUI 用）；两者共享 `stateDirectoryKey = "zcode-cli"` 与 `paths = [".zcode"]`，使 ACP 创建的会话能被 TUI `--resume` 恢复。
-- WebMux binding：direct 形式 `match = ["zcode-cli"]` / `acp = ["zcode-acp-server"]` / `resume = ["zcode-cli", "--resume"]`；multi-instance 形式 TUI 侧用 `zcode-cli`、ACP 侧用 `zcode-acp`，`launcher = "bwrap"`。WebMux agent 的 `icon` 必须取 LaunchConfigIcon 支持的键（如 `terminal`），不在集合内的 icon 会让整个声明被加载器跳过。
-- `processExecutables = ["node"]`：vendor CLI 与 adapter 都是 node 进程（无独立 ELF 进程名）。
+- canonical multi-instance app key：`zcode-acp`（executable `zcode-acp-server`，ACP 用）与 `zcode-cli`（executable `zcode-cli`，headless CLI 用）；两者共享 `stateDirectoryKey = "zcode-cli"` 与 `paths = [".zcode"]`。这些 app 是未来接入的脚手架，本身没有桌面入口。
+- **WebMux 混合模式对 zcode 结构性不可用，不得声明 acpAgents**：WM-ACP 契约的 `match`/`resume` 都是 TUI 表单（终端↔聊天切换以 TUI 为终端侧），而 ZC-02 已确认 AppImage bundle 无 TUI——声明了只会产出「启动即断」的死会话。zcode 的外部 ACP 消费方是 **acb**（通用 `acp_driver_acb` 预设按会话 spawn `zcode-acp-server`，恢复走 ACP `session/load`，全程无 TUI）。待上游独立 CLI runtime 从源码打包完成、`zcode-cli` 获得 TUI 后，再按 direct（`match = ["zcode-cli"]`）+ multi-instance（`launcher = "bwrap"`）形式恢复声明；`icon` 必须取 LaunchConfigIcon 支持的键（不在集合内的 icon 会让整个声明被加载器跳过），`processExecutables = ["node"]`。
 - 桌面 GUI 是单一 `zcode` 包（CN 与国际版为同一 AppImage，仅登录区域不同）；`zcode-cn`/`zcode-intl` 不再作为独立包存在，multi-instance alias 保留 `zcode-intl` → `zcode` 兼容旧 CLI 名称。
 
 ## 7. nix-config 部署不变量
@@ -196,7 +197,7 @@ nix-config 通过一个 `WEBMUX_ACP_AGENTS` JSON 定义 direct、canonical wrapp
 | WM-ACP-06     | strict JSON、limits、skip/conflict/no panic、constructor wiring、service render round-trip tests                                                                                                                                |
 | PKG-01..04    | build definition/dependency identity、base/tip ancestry、逐 commit 身份、range scope/source hash、Nix builds、explicit internal Go tests                                                                                   |
 | CB-01..03     | dispatch/argv/env/transport ordering/initialize/session-list tests、`bin/` listing                                                                                                                                              |
-| ZC-01..04     | `zcode-cli`/`zcode-acp` installCheck（`bin/` listing、`--version`、ACP initialize smoke）、focused Nix expected-output test（app keys、共享 state key、direct/multi-instance bindings）、target host build、真实 vendor ACP smoke（initialize/session/list） |
+| ZC-01..04     | `zcode-cli`/`zcode-acp` installCheck（`bin/` listing、`--version`、ACP initialize smoke）、focused Nix expected-output test（app keys、共享 state key、无 WebMux 声明）、target host build、真实 vendor ACP smoke（initialize/session/list）、`app-server --stdio` 启动健康 |
 | NC-01..03     | focused Nix expected-output test（canonical app/CLI alias/old-key removal/exact bindings）、生产 spec runtime test（canonical/legacy/default/userDataDir）、shell syntax、module eval、target host build、state path assertions |
 
 真实 ACP 切换 smoke 至少覆盖一次 direct binding 和一次 launcher binding：launch support → TUI session → ACP initialize/session/list/session/load → resume TUI。若环境无法运行真实 vendor CLI，应明确记录为未运行，不以 fake-agent 单测替代。
