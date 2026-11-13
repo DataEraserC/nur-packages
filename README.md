@@ -62,7 +62,7 @@ Or, use variables from this repository in case I change them:
 ## Packages
 
 <details>
-<summary>Package set: (Uncategorized) (370 packages)</summary>
+<summary>Package set: (Uncategorized) (371 packages)</summary>
 
 | State | Path | Name | Version | Description |
 | ----- | ---- | ---- | ------- | ----------- |
@@ -413,8 +413,9 @@ Or, use variables from this repository in case I change them:
 |  | `xt_rtpengine` | [xt_rtpengine](https://github.com/sipwise/rtpengine) | 0-unstable-2026-11-05 | Sipwise media proxy for Kamailio (kernel module) |
 |  | `xue` | [xue](https://pypi.org/project/xue/) | 0.0.34 | Minimalist web front-end framework composed of HTMX and Python |
 |  | `xvcd` | [xvcd](https://github.com/tmbinc/xvcd) | 0-unstable-2025-03-06 | Xilinx Virtual Cable Daemon |
-|  | `zcode-cn` | [zcode-cn](https://zcode.z.ai/) | 3.17.2 | AI coding workspace by Z.ai with multi-agent development (China edition) |
-|  | `zcode-intl` | [zcode-intl](https://zcode.z.ai/en) | 3.17.2 | AI coding workspace by Z.ai with multi-agent development (international edition) |
+|  | `zcode` | [zcode](https://zcode.z.ai/) | 3.17.2 | AI coding workspace by Z.ai with multi-agent development |
+|  | `zcode-acp` | [zcode-acp](https://github.com/william0wang/zcode-acp) | 0.84.3 | Agent Client Protocol bridge for the headless ZCode coding agent |
+|  | `zcode-cli` | [zcode-cli](https://zcode.z.ai/) | 3.17.2 | ZCode coding agent CLI bundled in the Z.ai desktop app |
 |  | `zstd-nginx-module` | [zstd-nginx-module](https://github.com/HanadaLee/ngx_http_zstd_module) | 0-unstable-2026-10-18 | HTTP zstd compression module for nginx |
 | `Broken` `x86_64-linux` | `Adobe_Illustrator_CS6_appimage` | [Adobe_Illustrator_CS6](https://t.me/Linux_Appimages/1052) | CS6 | Adobe_Illustrator_CS6 |
 | `Broken` `x86_64-linux` | `Adobe_Photoshop_CS6_appimage` | [Adobe_Photoshop_CS6](https://t.me/Linux_Appimages/1042) | CS6 | Adobe_Photoshop_CS6 |
@@ -1712,7 +1713,7 @@ Or, use variables from this repository in case I change them:
 </details>
 
 <details>
-<summary>Package set: uncategorized-DataEraserC (119 packages)</summary>
+<summary>Package set: uncategorized-DataEraserC (120 packages)</summary>
 
 | State | Path | Name | Version | Description |
 | ----- | ---- | ---- | ------- | ----------- |
@@ -1819,8 +1820,9 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized-DataEraserC.workbuddy-ai` | [workbuddy-ai](https://www.workbuddy.ai) | 5.6.2.40046327 | AI agent desktop application for everyday office work, international deployment |
 |  | `uncategorized-DataEraserC.xcursor-genshin-nahida` | [xcursor-genshin-nahida](https://aur.archlinux.org/packages/xcursor-genshin-nahida) | 0-unstable-2023-02-12 | Cursor theme featuring Nahida from Genshin Impact |
 |  | `uncategorized-DataEraserC.xiaohuanxiong` | [xiaohuanxiong](https://xiaohuanxiong.com/) | 1.2.0 | SenseTime Raccoon Work AI office assistant desktop client |
-|  | `uncategorized-DataEraserC.zcode-cn` | [zcode-cn](https://zcode.z.ai/) | 3.17.2 | AI coding workspace by Z.ai with multi-agent development (China edition) |
-|  | `uncategorized-DataEraserC.zcode-intl` | [zcode-intl](https://zcode.z.ai/en) | 3.17.2 | AI coding workspace by Z.ai with multi-agent development (international edition) |
+|  | `uncategorized-DataEraserC.zcode` | [zcode](https://zcode.z.ai/) | 3.17.2 | AI coding workspace by Z.ai with multi-agent development |
+|  | `uncategorized-DataEraserC.zcode-acp` | [zcode-acp](https://github.com/william0wang/zcode-acp) | 0.84.3 | Agent Client Protocol bridge for the headless ZCode coding agent |
+|  | `uncategorized-DataEraserC.zcode-cli` | [zcode-cli](https://zcode.z.ai/) | 3.17.2 | ZCode coding agent CLI bundled in the Z.ai desktop app |
 | `Broken` `x86_64-linux` | `uncategorized-DataEraserC.Adobe_Illustrator_CS6_appimage` | [Adobe_Illustrator_CS6](https://t.me/Linux_Appimages/1052) | CS6 | Adobe_Illustrator_CS6 |
 | `Broken` `x86_64-linux` | `uncategorized-DataEraserC.Adobe_Photoshop_CS6_appimage` | [Adobe_Photoshop_CS6](https://t.me/Linux_Appimages/1042) | CS6 | Adobe_Photoshop_CS6 |
 | `Broken` | `uncategorized-DataEraserC.alipan` | [alipan](https://www.alipan.com/) | 6.9.3 | Aliyun aDrive |

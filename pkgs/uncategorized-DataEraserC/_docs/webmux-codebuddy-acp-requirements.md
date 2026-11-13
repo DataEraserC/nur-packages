@@ -1,6 +1,6 @@
-# WebMux / CodeBuddy ACP 下游需求与升级闸门
+# WebMux / CodeBuddy / ZCode ACP 下游需求与升级闸门
 
-本文件是 DataEraserC 下游对 WebMux 外部 ACP、`webmux-acp`、`codebuddy-acp` 与 nix-config 接线的单一需求源。修改或更新这些组件前先读本文件；完成后逐项记录验收结果。包级 `AGENTS.md` 只保留实现经验和指针，不复制本文件。
+本文件是 DataEraserC 下游对 WebMux 外部 ACP、`webmux-acp`、`codebuddy-acp`、`zcode-acp` 与 nix-config 接线的单一需求源。修改或更新这些组件前先读本文件；完成后逐项记录验收结果。包级 `AGENTS.md` 只保留实现经验和指针，不复制本文件。
 
 ## 1. 范围和术语
 
@@ -12,7 +12,7 @@
 - **launcher**：保持为 PTY 根进程、把 native process 作为直接子进程运行的可选程序。
 - **connector**：需要另装并由 WebMux 检查/提示的 ACP 程序元数据；它不参与命令推导。
 
-`multi-instance` 和 CodeBuddy 是下游部署实例，不属于 WebMux 的通用领域模型。WebMux 上游源码、测试和文档使用虚构的通用示例。
+`multi-instance`、CodeBuddy 和 ZCode 是下游部署实例，不属于 WebMux 的通用领域模型。WebMux 上游源码、测试和文档使用虚构的通用示例。
 
 ## 2. WebMux 通用外部 ACP 契约
 
@@ -133,7 +133,28 @@ WebMux upstream 不承载下游实例；NUR 不手工维护第二份实现；nix
 
 会话时间使用 RFC3339Nano，cwd 从 transcript 内容恢复，数据根按以下三态跟随 CodeBuddy 配置：`CODEBUDDY_CONFIG_DIR` 未设置时使用 `$HOME/.codebuddy/projects`；设置为非空时使用其 `projects` 子目录；显式设置为空是无效的显式配置，`session/list` 返回空列表且不得回退默认 profile。
 
-## 6. nix-config 部署不变量
+## 6. ZCode：`zcode-acp` 与 vendor CLI
+
+### ZC-01：唯一公开入口与 vendor CLI 注入
+
+`zcode-acp` 包公开 `bin/zcode-acp` 与 `bin/zcode-acp-server`（同一 dist 入口，argv 语义同上游 npm 包 `zcode-acp-server`）；vendor ZCode CLI（`zcode-cli` 包）是闭包依赖，不进 `environment.systemPackages`，通过 wrapper 注入的 `ZCODE_BIN` 传递，不得依赖用户 PATH 上的任何 `zcode`。
+
+### ZC-02：vendor CLI 来自桌面 AppImage，版本与 GUI 同步
+
+`zcode-cli` 从 `zcode` 桌面包（GUI AppImage）的 `resources/glm/zcode.cjs` 提取，复用其 src 与版本，CLI 与 GUI 单一版本源。CLI 自身版本号（`zcode --version`，如 `0.17.1`）与 GUI 版本（`3.x.y`）不同，因此 `zcode-cli` 不得使用 versionCheckHook，安装检查只验证 `--version` 退出 0 且输出非空。上游没有官方 Linux CLI tarball 分发（`ZCODE_DIST_BASE_URL` 是自建分发机制），不得改用社区第三方重打包（`@ljwei-stak/zcode-cli`、`zcode-app-cli`、ZCode-rs 等）。
+
+### ZC-03：peer 依赖落地与运行时 node_modules
+
+`zcode-acp` 的 dist 在运行时 import `zod`，但上游把它声明为 peerDependency，pnpm 的 `--prod` 安装与 prune 会丢弃 peer。打包必须在安装阶段把 zod 提升为 regular dependency：package.json 与 pnpm-lock.yaml importer 同步修改（保持 `--frozen-lockfile` 可用），再 `rm -rf node_modules && pnpm install --frozen-lockfile --prod --offline` 重装生产 node_modules，并随产物发布、与 dist 同级以满足 ESM 解析。dist 的版本号在运行时从同目录 `package.json` 读取，必须一并安装。
+
+### ZC-04：nix-config 接线
+
+- canonical multi-instance app key：`zcode-acp`（executable `zcode-acp-server`，ACP 用）与 `zcode-cli`（executable `zcode`，TUI 用）；两者共享 `stateDirectoryKey = "zcode-cli"` 与 `paths = [".zcode"]`，使 ACP 创建的会话能被 TUI `--resume` 恢复。
+- WebMux binding：direct 形式 `match = ["zcode"]` / `acp = ["zcode-acp-server"]` / `resume = ["zcode", "--resume"]`；multi-instance 形式 TUI 侧用 `zcode-cli`、ACP 侧用 `zcode-acp`，`launcher = "bwrap"`。
+- `processExecutables = ["node"]`：vendor CLI 与 adapter 都是 node 进程（无独立 ELF 进程名）。
+- 桌面 GUI 是单一 `zcode` 包（CN 与国际版为同一 AppImage，仅登录区域不同）；`zcode-cn`/`zcode-intl` 不再作为独立包存在，multi-instance alias 保留 `zcode-intl` → `zcode` 兼容旧 CLI 名称。
+
+## 7. nix-config 部署不变量
 
 ### NC-01：应用名、可执行文件与状态 key 分离
 
@@ -153,7 +174,7 @@ nix-config 通过一个 `WEBMUX_ACP_AGENTS` JSON 定义 direct、canonical wrapp
 - 已存在的 `launch-configs.json` 只由上游 seed-once 规则管理；迁移不得删除、逐项迁移或整体重写。旧 `multi-instance codebuddy 1` 由 multi-instance CLI alias 和同 argv 的 WebMux exact binding 兼容。
 - NUR commit 完成后再更新 nix-config 的 NUR lock；配置和 lock 必须指向包含相同 pinned package 的提交。
 
-## 7. 升级流程
+## 8. 升级流程
 
 每次更新 WebMux、CodeBuddy vendor、对应 NUR 包或 nix-config 接线时按顺序执行：
 
@@ -165,7 +186,7 @@ nix-config 通过一个 `WEBMUX_ACP_AGENTS` JSON 定义 direct、canonical wrapp
 6. 提交 NUR 后更新 nix-config NUR lock；运行 focused eval、格式化、module tests 与目标 host build。
 7. 在提交/PR 摘要按需求 ID 记录 pass、环境性限制和未运行项。任何未验证项保持未完成，不能用“构建成功”概括。
 
-## 8. 最低验收矩阵
+## 9. 最低验收矩阵
 
 | 需求          | 自动化证据                                                                                                                                                                                                                      |
 | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -175,6 +196,7 @@ nix-config 通过一个 `WEBMUX_ACP_AGENTS` JSON 定义 direct、canonical wrapp
 | WM-ACP-06     | strict JSON、limits、skip/conflict/no panic、constructor wiring、service render round-trip tests                                                                                                                                |
 | PKG-01..04    | build definition/dependency identity、base/tip ancestry、逐 commit 身份、range scope/source hash、Nix builds、explicit internal Go tests                                                                                   |
 | CB-01..03     | dispatch/argv/env/transport ordering/initialize/session-list tests、`bin/` listing                                                                                                                                              |
+| ZC-01..04     | `zcode-cli`/`zcode-acp` installCheck（`bin/` listing、`--version`、ACP initialize smoke）、focused Nix expected-output test（app keys、共享 state key、direct/multi-instance bindings）、target host build、真实 vendor ACP smoke（initialize/session/list） |
 | NC-01..03     | focused Nix expected-output test（canonical app/CLI alias/old-key removal/exact bindings）、生产 spec runtime test（canonical/legacy/default/userDataDir）、shell syntax、module eval、target host build、state path assertions |
 
 真实 ACP 切换 smoke 至少覆盖一次 direct binding 和一次 launcher binding：launch support → TUI session → ACP initialize/session/list/session/load → resume TUI。若环境无法运行真实 vendor CLI，应明确记录为未运行，不以 fake-agent 单测替代。

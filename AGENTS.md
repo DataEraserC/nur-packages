@@ -186,6 +186,7 @@
 - **重用现有桌面文件**：AppImage 通常包含桌面文件和图标，应该重用而不是手动创建
 - **使用 extraInstallCommands**：通过 `extraInstallCommands` 安装桌面文件和图标
 - **更新桌面文件路径**：使用 `substituteInPlace` 更新 `Exec` 和 `Icon` 字段以匹配 Nix 包装器名称
+- **同一 AppImage 的多个"版本"包应合并为一个**：上游为同一二进制发布多个"版本"命名（如 ZCode 的 CN/国际版共用同一下载 URL 与哈希，productName、状态目录、单实例锁也全部相同，区域差异只在登录账号层面）时，只保留一个包，命名用二进制在源码中的原始名字（AppImage 内的 `zcode`），不要为发行区域维护两份定义。多包并存浪费 store、产生两个桌面入口，且因共享用户数据目录与单实例锁而根本无法同时运行
 
 ### 示例结构
 
@@ -323,6 +324,7 @@ appimageTools.wrapType2 {
 - **使用 `sourceRoot = "source/<子目录>"`**：当 `src` 来自 `fetchFromGitHub` 而项目在子目录中时，`sourceRoot` 需加 `source/` 前缀（如 `source/frontend`）
 - **锁定 pnpm 版本**：当上游 lockfile 与最新 pnpm 版本不兼容时，通过 `pnpm = pnpm_10` 指定兼容的 pnpm 版本
 - **`pnpmConfigHook` 自动安装依赖**：该钩子在 `postConfigure` 阶段自动运行 `pnpm install --offline --frozen-lockfile`，无需手动安装
+- **pnpm `--prod` 安装与 prune 会丢弃 peerDependencies，ESM 运行时 import 的 peer 必须提升为 regular dependency**（zcode-acp 实例）：dist 在运行时 import `zod` 而上游声明它为 peerDependency，`pnpm install --prod`、`pnpm prune --prod` 都不会安装它（报 `ERR_MODULE_NOT_FOUND`）。修法：安装阶段用 jq 同时改 package.json（peer → dependencies）和 pnpm-lock.yaml importer（保持两边一致，`--frozen-lockfile` 才能通过），再 `rm -rf node_modules && pnpm install --frozen-lockfile --prod --offline` 冷装出纯生产 node_modules。三个坑：(1) 只改 package.json 不改锁文件报 `ERR_PNPM_OUTDATED_LOCKFILE`；(2) specifier 写成锁里没有的新值报 `ERR_PNPM_NO_OFFLINE_META`（非 frozen 安装对已删 devDependencies 也会全量对账报同一错——冷装 `--prod` 前必须把 importer 的 devDependencies/peerDependencies 块一并删掉）；(3) 锁文件手术用 pyyaml round-trip（`safe_load`/`safe_dump` + `sort_keys=False, width=1000000000`），不要手写正则删 YAML 块。另外 dist 在运行时从同目录 package.json 读版本号的，package.json 必须随产物 `cp` 进 $out，否则 versionCheckHook 读到缺省 `0.0.0`
 
 ### 多组件 pname 命名
 
