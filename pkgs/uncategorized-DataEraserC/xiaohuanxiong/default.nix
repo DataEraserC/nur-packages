@@ -214,7 +214,7 @@ stdenv.mkDerivation (finalAttrs: {
     updateScript = [ (toString ./update.sh) ];
     aiProvenance = [
       {
-        agent = "dsh";
+        agent = "trae-cn";
         model = "deepseek-v4.1-flash";
         involvement = "authored";
       }
