@@ -8,9 +8,14 @@
   patchelf,
   bash,
   coreutils,
+  dmidecode,
+  gawk,
+  gnugrep,
+  gnused,
   iproute2,
   iptables,
   nettools,
+  pciutils,
   procps,
   psmisc,
   ...
@@ -46,14 +51,19 @@ let
     }
     .${HostPlatform};
 
-  # pgyvpn_svr shells out to these tools, and both daemons need a POSIX shell
-  # for their iptables/route/status helpers.
+  # pgyvpn_svr shells out to these tools for route/iptables/status handling
+  # and for the machine fingerprint it builds from /proc and DMI/PCI data.
   runtimePath = lib.makeBinPath [
     bash
     coreutils
+    dmidecode
+    gawk
+    gnugrep
+    gnused
     iproute2
     iptables
     nettools
+    pciutils
     procps
     psmisc
   ];
