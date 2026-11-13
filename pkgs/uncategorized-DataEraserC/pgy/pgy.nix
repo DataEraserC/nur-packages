@@ -8,14 +8,12 @@
   patchelf,
   bash,
   coreutils,
-  dmidecode,
   gawk,
   gnugrep,
   gnused,
   iproute2,
   iptables,
   nettools,
-  pciutils,
   procps,
   psmisc,
   ...
@@ -52,18 +50,18 @@ let
     .${HostPlatform};
 
   # pgyvpn_svr shells out to these tools for route/iptables/status handling
-  # and for the machine fingerprint it builds from /proc and DMI/PCI data.
+  # and for the machine fingerprint it builds from /proc. Keep the set equal
+  # to what the FHS environment provided: adding dmidecode/pciutils changes
+  # the derived machine code and invalidates the stored login token.
   runtimePath = lib.makeBinPath [
     bash
     coreutils
-    dmidecode
     gawk
     gnugrep
     gnused
     iproute2
     iptables
     nettools
-    pciutils
     procps
     psmisc
   ];
