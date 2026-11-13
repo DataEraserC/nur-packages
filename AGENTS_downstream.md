@@ -19,6 +19,16 @@
 
 ## Nix 包定义规范
 
+### 禁止依赖 nix-ld（硬规则）
+
+- **任何包都不得把 `programs.nix-ld`、`nix-ld`、`stub-ld`、宿主 `/lib64` 的 FHS loader、`steam-run`/`nix-alien` 一类系统级 FHS 运行时作为可用性前提**：nix-ld 是留给用户临时运行上游预编译程序的逃生门，不是打包工具。包依赖它等于把「能不能跑」转嫁给宿主配置——Hydra、未开启 nix-ld 的机器、其它用户的系统上包直接不可用，同时掩盖真正的打包问题（interpreter、RPATH、依赖来源）。在 nix-config 里给宿主加 `programs.nix-ld` 来让某个包跑起来同样属于违规修法，评审看到应直接拒绝
+- 正确做法按优先级：
+  1. 构建期修：`autoPatchelfHook` 或手工 `patchelf --set-interpreter`，依赖进 `buildInputs`，RPATH 指向 Nix store；
+  2. 运行期才产生、构建期改不到的通用 FHS 二进制：在包内提供私有 mount namespace，把真实 Nix glibc loader 绑到它写死的解释器路径（实例：`xiaohuanxiong` 的 `launcher.sh.in` 用 bwrap 把 loader 绑到 `/lib64/ld-linux-x86-64.so.2`），只影响该应用进程树，不改变宿主；
+  3. 需要绝对路径依赖时用 `patchelf --replace-needed <soname> <store 路径>`；自解析自身 ELF 的二进制（Nuitka 等）不能用 `--set-RUNPATH`——patchelf 0.19 会新增段导致其启动段错误（实例：`xiaohuanxiong` 的 `box-agent-acp`），且要设 `dontPatchELF = true` 防 fixup 二次改写；
+  4. 上游运行时可由包内预置再复制到可写目录（seed），或把解释器换成 Nix 提供的版本
+- 自查：包定义里 `grep -n "nix-ld\|NIX_LD"` 必须为空；只有文档中说明「不要使用」的文字可以出现
+
 ### 最佳实践
 
 - **重型 Electron 应用拆 unwrapped + wrapper 两个包，启动逻辑照抄 nixpkgs qq 做 ozone 自适应**：当本体构建极慢（大型 npm 树拼装）而启动逻辑（平台 flag、环境变量、desktop 条目）需要频繁调整时，主包只产出原始应用树（如 `$out/opt/<app>`，无 `bin/`、无 desktop 条目，`meta.mainProgram` 一并去掉——`check_package_meta.py` 只在产物存在 `bin/` 时校验它），主包的目录名与 `pname` 都带 `-unwrapped` 后缀、在包名上写明它是未包装产物（如 `lobsterai-unwrapped`），另建 `<pkg>-wrapper` 目录用 `makeWrapper` 指向主包内的可执行文件，desktop 条目与图标也放 wrapper 使 launcher 自包含；wrapper 用 `inherit (pkg-unwrapped) version;` 跟版本、`passthru.unwrapped = pkg-unwrapped` 反向引用。Wayland ozone 自适应用 nixpkgs qq 的原文：`--add-flags "\''${NIXOS_OZONE_WL:+\''${WAYLAND_DISPLAY:+--ozone-platform-hint=auto --enable-features=WaylandWindowDecorations --enable-wayland-ime=true --wayland-text-input-version=3}}"`——`\''${` 让 Nix 输出字面 `\${`，使展开发生在 wrapper 脚本**运行期**而非 installPhase 构建期；写成 `''${...}` 会在构建期就展开成空串、flag 静默失效。ssh/waypipe 等远程会话通常没有 `NIXOS_OZONE_WL`（sshd 不透传），需沿用显式 `--ozone-platform=wayland`（实例：lobsterai-unwrapped / lobsterai-wrapper）
