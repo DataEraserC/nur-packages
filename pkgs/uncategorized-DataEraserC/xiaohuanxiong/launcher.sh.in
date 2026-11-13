@@ -1,0 +1,41 @@
+#!/bin/sh
+# Launch Raccoon Work inside a private mount namespace.
+#
+# The app provisions its own CPython and Node builds at first launch. Those are
+# generic Linux binaries whose interpreter is /lib64/ld-linux-x86-64.so.2; on
+# NixOS that path is a stub that refuses to run them. Binding the real glibc
+# loader over it here keeps the fix inside this app instead of changing the
+# system-wide loader (programs.nix-ld) for every package.
+set -eu
+
+app="@app@"
+loader="@loader@"
+loaderDir="@loaderDir@"
+loaderName="@loaderName@"
+libPath="@libPath@"
+
+runtimeArgs=
+runtime="/run/user/$(id -u)"
+if [ -d "$runtime" ]; then
+  runtimeArgs="--bind $runtime $runtime"
+fi
+
+ozoneArgs=
+if [ -n "${NIXOS_OZONE_WL:-}" ] && [ -n "${WAYLAND_DISPLAY:-}" ]; then
+  ozoneArgs="--ozone-platform-hint=auto --enable-features=WaylandWindowDecorations --enable-wayland-ime=true --wayland-text-input-version=3"
+fi
+
+# shellcheck disable=SC2086
+exec "@bwrap@" \
+  --die-with-parent \
+  --ro-bind / / \
+  --dev-bind /dev /dev \
+  --proc /proc \
+  --bind /tmp /tmp \
+  --bind "$HOME" "$HOME" \
+  $runtimeArgs \
+  --tmpfs "$loaderDir" \
+  --ro-bind "$loader" "$loaderDir/$loaderName" \
+  --chdir "$PWD" \
+  --setenv LD_LIBRARY_PATH "$libPath${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}" \
+  -- "$app" --no-sandbox $ozoneArgs "$@"

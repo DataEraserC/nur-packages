@@ -3,12 +3,12 @@
   stdenv,
   fetchurl,
   dpkg,
-  makeWrapper,
   patchelf,
   wrapGAppsHook3,
   alsa-lib,
   at-spi2-core,
   bashInteractive,
+  bubblewrap,
   cairo,
   coreutils,
   cups,
@@ -99,6 +99,15 @@ let
     xdg-utils
     zlib
   ];
+
+  # Where the generic Linux builds the app downloads look for their loader.
+  loaderDir = if stdenv.hostPlatform.isAarch64 then "/lib" else "/lib64";
+  loaderName =
+    if stdenv.hostPlatform.isAarch64 then "ld-linux-aarch64.so.1" else "ld-linux-x86-64.so.2";
+
+  # glibc is on the library path for those downloaded binaries; everything else
+  # is what the Electron process itself needs.
+  runtimeLibPath = lib.makeLibraryPath (libraries ++ [ stdenv.cc.libc ]);
 in
 stdenv.mkDerivation (finalAttrs: {
   pname = "xiaohuanxiong";
@@ -115,7 +124,6 @@ stdenv.mkDerivation (finalAttrs: {
 
   nativeBuildInputs = [
     dpkg
-    makeWrapper
     patchelf
     wrapGAppsHook3
   ];
@@ -190,10 +198,14 @@ stdenv.mkDerivation (finalAttrs: {
     substituteInPlace $out/share/applications/raccoon-ai.desktop \
       --replace-fail 'Exec="/opt/商汤小浣熊/raccoon-ai" %U' "Exec=$out/bin/xiaohuanxiong %U"
 
-    makeWrapper $out/opt/xiaohuanxiong/raccoon-ai $out/bin/xiaohuanxiong \
-      --add-flags "--no-sandbox" \
-      --add-flags "\''${NIXOS_OZONE_WL:+\''${WAYLAND_DISPLAY:+--ozone-platform-hint=auto --enable-features=WaylandWindowDecorations --enable-wayland-ime=true --wayland-text-input-version=3}}" \
-      --prefix LD_LIBRARY_PATH : "${lib.makeLibraryPath libraries}"
+    substitute ${./launcher.sh.in} $out/bin/xiaohuanxiong \
+      --replace-fail '@app@' "$out/opt/xiaohuanxiong/raccoon-ai" \
+      --replace-fail '@bwrap@' '${lib.getExe bubblewrap}' \
+      --replace-fail '@loader@' '${stdenv.cc.bintools.dynamicLinker}' \
+      --replace-fail '@loaderDir@' '${loaderDir}' \
+      --replace-fail '@loaderName@' '${loaderName}' \
+      --replace-fail '@libPath@' '${runtimeLibPath}'
+    chmod +x $out/bin/xiaohuanxiong
 
     runHook postInstall
   '';
