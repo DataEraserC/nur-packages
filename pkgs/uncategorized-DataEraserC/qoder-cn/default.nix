@@ -1,15 +1,14 @@
 { callPackage, ... }:
-(callPackage ../qoder-common.nix { }) {
+(callPackage ../qoder-app-common.nix { }) {
   pname = "qoder-cn";
-  version = "1.39.2-1794211749";
-  url = "https://qoder-ide-cn.oss-cn-hangzhou.aliyuncs.com/qoder/release/lastest/qoder-cn-ide_amd64.deb";
-  hash = "sha256-ZDAnvj844wraX8FlrCEp1KSGxHB5xhTMdHexzwSiTW8=";
-  appDir = "qoder-cn-ide";
-  executable = "qoder-cn-ide";
-  desktopName = "qoder-cn-ide.desktop";
-  iconName = "qoder-cn-ide";
+  version = "0.5.7";
+  url = "https://qoder-app.oss-cn-beijing.aliyuncs.com/qoder-app/releases/latest/Qoder-CN-linux-amd64.deb";
+  hash = "sha256-LfeopZRdIOjYzHZi1aP+HmCLX3TRFVDcvBhnuPJh4SA=";
+  appDir = "Qoder-CN";
+  executable = "qoder-cn";
+  desktopName = "qoder-cn.desktop";
   mainProgram = "qoder-cn";
-  description = "Qoder CN IDE, Alibaba's agentic coding platform (China edition)";
+  description = "Qoder CN App, Alibaba's agent workbench for human and AI software teams (China edition)";
   homepage = "https://qoder.com.cn/";
   updateScript = ./update.sh;
 }

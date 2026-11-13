@@ -5,12 +5,13 @@ set -euo pipefail
 
 DIR="$(dirname "$(readlink -f "$0")")"
 FILE="$DIR/default.nix"
-URL="https://qoder-ide-cn.oss-cn-hangzhou.aliyuncs.com/qoder/release/lastest/qoder-cn-ide_amd64.deb"
+URL="https://qoder-app.oss-cn-beijing.aliyuncs.com/qoder-app/releases/latest/Qoder-CN-linux-amd64.deb"
 
 info="$(nix store prefetch-file --json "$URL")"
 hash="$(jq -r '.hash' <<<"$info")"
 store="$(jq -r '.storePath' <<<"$info")"
 version="$(dpkg-deb -f "$store" Version)"
+version="${version#*:}"
 
 old_version="$(sed -n 's/^  version = "\([^"]*\)";/\1/p' "$FILE" | head -n1)"
 old_hash="$(sed -n 's/^  hash = "\([^"]*\)";/\1/p' "$FILE" | head -n1)"

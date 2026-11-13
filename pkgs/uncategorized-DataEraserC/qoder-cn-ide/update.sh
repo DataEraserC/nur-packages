@@ -5,7 +5,7 @@ set -euo pipefail
 
 DIR="$(dirname "$(readlink -f "$0")")"
 FILE="$DIR/default.nix"
-URL="https://download.qoder.com/release/latest/qoder-ide_amd64.deb"
+URL="https://qoder-ide-cn.oss-cn-hangzhou.aliyuncs.com/qoder/release/lastest/qoder-cn-ide_amd64.deb"
 
 info="$(nix store prefetch-file --json "$URL")"
 hash="$(jq -r '.hash' <<<"$info")"
@@ -16,7 +16,7 @@ old_version="$(sed -n 's/^  version = "\([^"]*\)";/\1/p' "$FILE" | head -n1)"
 old_hash="$(sed -n 's/^  hash = "\([^"]*\)";/\1/p' "$FILE" | head -n1)"
 
 if [ "$old_version" = "$version" ] && [ "$old_hash" = "$hash" ]; then
-  echo "qoder-intl: already at ${version}"
+  echo "qoder-cn-ide: already at ${version}"
   exit 0
 fi
 
@@ -33,11 +33,11 @@ text, hash_count = re.subn(
     r'(?m)^  hash = "[^"]+";', f'  hash = "{hash}";', text, count=1
 )
 if version_count != 1 or hash_count != 1:
-    raise SystemExit("qoder-intl: failed to update version/hash")
+    raise SystemExit("qoder-cn-ide: failed to update version/hash")
 open(path, "w").write(text)
 PYEOF
 
-echo "qoder-intl: updated ${old_version} -> ${version}"
+echo "qoder-cn-ide: updated ${old_version} -> ${version}"
 
 if [ -n "${UPDATE_NIX_ATTR_PATH:-}" ]; then
   nix build --no-link ".#${UPDATE_NIX_ATTR_PATH}"
