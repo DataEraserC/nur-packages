@@ -11,13 +11,13 @@ let
 in
 flutter.buildFlutterApplication (finalAttrs: {
   pname = "c001apk";
-  version = "1.5.1";
+  version = "1.5.2";
 
   src = fetchFromGitHub {
     owner = "TG-Twilight";
     repo = "c001apk";
     tag = "${finalAttrs.version}-release";
-    hash = "sha256-1IKcmCqQLQvr5b6B/R5mFK/9c7JC1WJV7qQTespbdkc=";
+    hash = "sha256-BwkB/+GRE+TO01+Hntf443MBeUM7V5AGbKWOh9JqxlQ=";
   };
 
   sourceRoot = "${finalAttrs.src.name}/apps/flutter";

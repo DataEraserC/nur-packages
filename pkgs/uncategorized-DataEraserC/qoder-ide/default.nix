@@ -1,9 +1,9 @@
 { callPackage, ... }:
 (callPackage ../qoder-common.nix { }) {
   pname = "qoder-ide";
-  version = "1.39.2-1794211870";
+  version = "1.40.1-1794541531";
   url = "https://download.qoder.com/release/latest/qoder-ide_amd64.deb";
-  hash = "sha256-2eSG78ACLGApOntjyFLyA7bYCW8DNCKn3jJ4VR3BM8M=";
+  hash = "sha256-ISwsbWDA30fPB+46U2RmP71a1AQXCmnFtllvWtR536s=";
   appDir = "qoder-ide";
   executable = "qoder-ide";
   desktopName = "qoder-ide.desktop";

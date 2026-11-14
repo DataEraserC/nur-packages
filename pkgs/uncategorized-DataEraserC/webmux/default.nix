@@ -15,13 +15,13 @@
   webmuxSource ? fetchFromGitHub {
     owner = "mzdluo123";
     repo = "webmux";
-    rev = "4c9589b85aad3987953cd3037eee7c90bd9f43fe";
-    hash = "sha256-UvJ0MqPHfLl17NkGuIlyTCnhMyFtXn0fmP3jmoIDIko=";
+    rev = "0bdd93c2f2c013e39252e0ca26fb8b623db4212d";
+    hash = "sha256-New0DtlYXOU7owGZ822HefOzB78E7TPSy3zvuKFI+Fk=";
   },
 }:
 
 let
-  version = "0.14.5-unstable-2026-11-11";
+  version = "0.16.0-unstable-2026-11-15";
   src = webmuxSource;
 
   sourceUpdater = unstableGitUpdater {
@@ -56,7 +56,7 @@ let
     sourceRoot = "source/web";
     pnpm = pnpm_12;
     fetcherVersion = 4;
-    hash = "sha256-AJEflSNtB60DwyJHkUM5i8Ju1DrsOULfC1MORuZLErU=";
+    hash = "sha256-5OyJovg1SiQN1yRygM5TH11Q5reWiGEj3xxmvp7HNN4=";
   };
 
   frontendDist = stdenv.mkDerivation {

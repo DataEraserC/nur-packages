@@ -16,7 +16,7 @@
   python3,
 }:
 let
-  version = "0.6.0";
+  version = "0.6.1";
 
   osdlyricsPython = python3Packages.buildPythonPackage (finalAttrs: {
     pname = "osdlyrics";
@@ -27,7 +27,7 @@ let
       owner = "osdlyrics";
       repo = "osdlyrics";
       tag = finalAttrs.version;
-      hash = "sha256-9/yl7UHd8fx/8IofeGRFQBCTIhKKYFZDV1zoQ6aikDA=";
+      hash = "sha256-POQMCNjVIG4iuOKPteIp0pPmT6MMLyQifoXyn3dav68=";
     };
     build-system = [ python3Packages.setuptools ];
 
@@ -74,7 +74,7 @@ stdenv.mkDerivation (finalAttrs: {
     owner = "osdlyrics";
     repo = "osdlyrics";
     tag = finalAttrs.version;
-    hash = "sha256-9/yl7UHd8fx/8IofeGRFQBCTIhKKYFZDV1zoQ6aikDA=";
+    hash = "sha256-POQMCNjVIG4iuOKPteIp0pPmT6MMLyQifoXyn3dav68=";
   };
   __structuredAttrs = true;
   strictDeps = true;
