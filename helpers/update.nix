@@ -37,7 +37,24 @@
 }:
 let
   inherit (pkgs) lib;
-  nurPkgs = import ../pkgs mode { inherit pkgs inputs; };
+
+  # nix-update 1.16.0 evaluates `--flake` packages through the store copy that
+  # `nix flake metadata --json` reports, and Nix 2.35.5+ deletes that copy of a
+  # dirty tree before it can be evaluated (see nix-update-overlay.nix). Patch
+  # both the copy baked into update scripts and the `<nixpkgs>` that update
+  # scripts resolve for their own `nix-shell -p nix-update`.
+  updatePkgs = pkgs.extend (import ./nix-update-overlay.nix);
+
+  nixpkgsForUpdates = pkgs.writeTextDir "default.nix" ''
+    args: import ${toString pkgs.path} (args // {
+      overlays = (args.overlays or [ ]) ++ [ (import ${./nix-update-overlay.nix}) ];
+    })
+  '';
+
+  nurPkgs = import ../pkgs mode {
+    pkgs = updatePkgs;
+    inherit inputs;
+  };
 
   updateScriptOf =
     pkg:
@@ -204,6 +221,9 @@ pkgs.stdenvNoCC.mkDerivation {
     LOGDIR=$(mktemp -d)
     trap 'rm -rf "$LOGDIR"' EXIT
     cd "${toString ./.}/.."
+    # Update scripts that run `nix-shell -p nix-update` resolve `<nixpkgs>`
+    # themselves; point it at the patched package set for the same reason.
+    export NIX_PATH="nixpkgs=${nixpkgsForUpdates}''${NIX_PATH:+:''$NIX_PATH}"
     RESULTS_FILE="''${UPDATE_RESULTS_FILE:-$(pwd)/update-results.json}"
 
     MAX_JOBS="''${UPDATE_PACKAGE_JOBS:-$(nproc)}"
