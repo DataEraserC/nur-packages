@@ -15,13 +15,13 @@ if inputs == null then
 else
   dshPkgs.dsh.buildDshBundle.fromPnpmWorkspace (finalAttrs: {
     pname = "dsh-free-search";
-    version = "0.9.32";
+    version = "0.9.51";
 
     src = fetchFromGitHub {
       owner = "DDDMUC";
       repo = "dsh-free-search";
       tag = "v${finalAttrs.version}";
-      hash = "sha256-CtUXlKzmh7vShJ9JZyC9MAx05UAV3t6ox008BbKb5jo=";
+      hash = "sha256-pre0K1VhV48udxFGlPHPvMImVQOgkVJceMQIBg6DaY8=";
     };
 
     deployPackage = "dsh-free-search";
@@ -29,12 +29,22 @@ else
     nativeBuildInputs = [ jq ];
 
     postPatch = ''
+      cp ${./pnpm-lock.yaml} pnpm-lock.yaml
       jq '.dsh.bundle.patch = "./cordis.patch.yml"' package.json > package.json.tmp
       mv package.json.tmp package.json
     '';
 
     pnpmDeps = dshPkgs.dsh.fetchPnpmDeps {
-      inherit (finalAttrs) pname version src;
+      # Upstream's lockfile predates its widened dependency ranges, so both the
+      # fetcher and the offline build reject it with ERR_PNPM_OUTDATED_LOCKFILE.
+      # The checked-in lock is a `pnpm install --lockfile-only` refresh of this
+      # release, applied to the fetcher source and in postPatch.
+      src = pkgs.runCommandLocal "dsh-free-search-${finalAttrs.version}-src" { } ''
+        cp -a ${finalAttrs.src}/. $out
+        chmod -R u+w $out
+        cp ${./pnpm-lock.yaml} $out/pnpm-lock.yaml
+      '';
+      inherit (finalAttrs) pname version;
       fetcherVersion = 4;
       hash = "sha256-8Fw5rawCXOpHPypdoiQoJWGPNTCw32ukEHnP6TJwv5I=";
     };
