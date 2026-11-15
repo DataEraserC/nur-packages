@@ -18,10 +18,6 @@
     rev = "289f9278e7f35ac6515135c18365f016ff8829db";
     hash = "sha256-4VVaI8hV0e0jP51C99BYi8uE+oyN7OAhhoTZ35JyTLg=";
   },
-  # `webmux-acp` still builds the 0.14.5-based downstream overlay, so it pins
-  # that tree's frontend deps hash and build command through these two knobs.
-  webPnpmDepsHash ? "sha256-5OyJovg1SiQN1yRygM5TH11Q5reWiGEj3xxmvp7HNN4=",
-  webBuildCommand ? "pnpm exec vp build",
 }:
 
 let
@@ -60,7 +56,7 @@ let
     sourceRoot = "source/web";
     pnpm = pnpm_12;
     fetcherVersion = 4;
-    hash = webPnpmDepsHash;
+    hash = "sha256-5OyJovg1SiQN1yRygM5TH11Q5reWiGEj3xxmvp7HNN4=";
   };
 
   frontendDist = stdenv.mkDerivation {
@@ -79,7 +75,7 @@ let
       runHook preBuild
       # Upstream aliases the `vite` catalog entry to @voidzero-dev/vite-plus-core
       # (no `vite` binary); the CLI is `vp`, which is what `vp build` runs.
-      ${webBuildCommand}
+      pnpm exec vp build
       runHook postBuild
     '';
     installPhase = ''

@@ -4,12 +4,12 @@
 
 ## 定位
 
-`webmux-acp` 复用主 `webmux` 的完整构建定义，但把 source 原子化替换为固定的匿名下游 overlay tip。该 overlay 只承载通用 external ACP、hybrid-session 修复与 ownership 治理，不携带某个 agent、wrapper 或部署的专用逻辑。两包共享 version、前端依赖和 Go vendor baseline；源码树分别是固定 upstream base 与 `downstream/ownership.json` 审计过的连续提交范围。
+`webmux-acp` 复用主 `webmux` 的完整构建定义，但把 source 原子化替换为固定的匿名下游 overlay tip。该 overlay 只承载通用 external ACP、hybrid-session 修复与 ownership 治理，不携带某个 agent、wrapper 或部署的专用逻辑。两包共享前端依赖哈希、前端构建命令与 Go vendor baseline；version 各自对应其源码 tip 日期，源码树分别是固定 upstream base 与 `downstream/ownership.json` 审计过的连续提交范围。
 
 ## 源码来源
 
 - `webmux-acp/default.nix` 直接固定 `mzdluo123/webmux` 中可解析的匿名 overlay tip 及对应 Nix source hash，不携带本地 patch。
-- 该 tip 尚未进入 upstream advertised refs；必须保留公开 fork `desktop-tools-which-may-be-useful/webmux` 的 `feat/downstream-overlay-v0.14.5` branch，使 GitHub fork network 持续保有对象。更新 pin 前用公开 HTTPS `git ls-remote --heads` 验证该 branch 精确指向 tip。
+- 该 tip 尚未进入 upstream advertised refs；必须保留公开 fork `desktop-tools-which-may-be-useful/webmux` 的 `feat/downstream-overlay-v0.16.0` branch，使 GitHub fork network 持续保有对象。更新 pin 前用公开 HTTPS `git ls-remote --heads` 验证该 branch 精确指向 tip。
 - `downstream/ownership.json` 固定 upstream base 并分类完整 `base..tip` 路径；范围内每个 commit 必须是单 parent、author/committer 均为 `anonymous <anonymous@users.noreply.github.com>`，不带协作者 trailer、私有路径或下游部署内容。
 - 基线升级时在新 upstream base 上按逻辑重放连续 overlay commits、运行上游与 ownership 验证，并把新的 tip/hash 一起写入本包。
 - `passthru.updateScript = null`：本包不能脱离主包单独自动更新。

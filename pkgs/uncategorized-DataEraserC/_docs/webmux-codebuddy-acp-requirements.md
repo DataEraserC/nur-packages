@@ -91,16 +91,16 @@ WebMux upstream 不承载下游实例；NUR 不手工维护第二份实现；nix
 | version                  | `0.16.0-unstable-2026-11-14`                          |
 | upstream rev             | `289f9278e7f35ac6515135c18365f016ff8829db`            |
 | upstream source hash     | `sha256-4VVaI8hV0e0jP51C99BYi8uE+oyN7OAhhoTZ35JyTLg=` |
-| downstream overlay tip   | `f0bb66ed27a24d5ee74b2cd3b0dc45e1723e1ba9`            |
-| downstream source hash   | `sha256-vuPOPvvL8K2NIRuADooaYssQb7QQ/k3NV31whg77jk8=` |
+| downstream overlay tip   | `f17eda53cd0f81da6041b88f07624aadaddc415b`            |
+| downstream source hash   | `sha256-wy7WqoVYObtXSCHa3cCsQGssDkyofomO+GZ/OkQlNW4=` |
 | pnpm hash                | `sha256-5OyJovg1SiQN1yRygM5TH11Q5reWiGEj3xxmvp7HNN4=` |
 | vendor hash              | `sha256-8jgAcb9znAtAlDfwuBD5+qTimc3mwoCRZ38i6pHr/d4=` |
 
-`webmux-acp` 的 overlay tip 仍基于 0.14.5 树，因此在 overlay rebase 到当前 base 之前，它显式保留旧基线：version `0.14.5-unstable-2026-11-11`、pnpm hash `sha256-AJEflSNtB60DwyJHkUM5i8Ju1DrsOULfC1MORuZLErU=`、前端命令 `pnpm exec vite build`（0.16.0 树改用 `pnpm exec vp build`）。rebase 完成后删掉 `webmux-acp` 里的这三个 override。
+`webmux-acp` 的 overlay 已 rebase 到 0.16.0 树，与主包共享前端依赖哈希、前端命令 `pnpm exec vp build` 与 Go vendor baseline；它只额外固定自己的 source 与 version `0.16.0-unstable-2026-11-15`（对应 overlay tip 的提交日期）。0.14.5 时期为兼容旧树而加的三个 override 已删除。
 
 ### PKG-02：ACP source 等于一个可审计的匿名下游 overlay 范围
 
-`webmux-acp` 必须直接固定 `mzdluo123/webmux` 中可解析的 downstream overlay tip 及其 Nix source hash，不携带本地 patch。该 tip 必须由公开 fork `desktop-tools-which-may-be-useful/webmux` 的 `feat/downstream-overlay-v0.14.5` advertised branch 保留，更新 pin 前用公开 HTTPS `git ls-remote --heads` 验证 branch 精确指向 tip。`downstream/ownership.json` 固定表中的 upstream rev，并分类该 base 到 tip 的所有新增和修改路径；ownership checker 还必须证明 base 属于 canonical upstream history。范围内每个 commit 都必须只有一个 parent、连续可追溯，并使用仓库局部身份 `anonymous <anonymous@users.noreply.github.com>` 与 WebMux Conventional Commit 规范；不得含真实身份、主机路径、私有部署名、会话/任务 ID、协作者 trailer 或下游 CodeBuddy/multi-instance 内容。
+`webmux-acp` 必须直接固定 `mzdluo123/webmux` 中可解析的 downstream overlay tip 及其 Nix source hash，不携带本地 patch。该 tip 必须由公开 fork `desktop-tools-which-may-be-useful/webmux` 的 `feat/downstream-overlay-v0.16.0` advertised branch 保留，更新 pin 前用公开 HTTPS `git ls-remote --heads` 验证 branch 精确指向 tip。`downstream/ownership.json` 固定表中的 upstream rev，并分类该 base 到 tip 的所有新增和修改路径；ownership checker 还必须证明 base 属于 canonical upstream history。范围内每个 commit 都必须只有一个 parent、连续可追溯，并使用仓库局部身份 `anonymous <anonymous@users.noreply.github.com>` 与 WebMux Conventional Commit 规范；不得含真实身份、主机路径、私有部署名、会话/任务 ID、协作者 trailer 或下游 CodeBuddy/multi-instance 内容。
 
 更新基线时：按逻辑重放仍需保留的 overlay commits，完成 WebMux 功能与 ownership 验证后同时更新 tip 与 source hash；验证 base/tip ancestry、逐 commit 身份、tree scope 与公开归档 hash，不从 patch 邮件头间接推导源码版本。
 
