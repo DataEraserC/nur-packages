@@ -4,7 +4,27 @@
 set -euo pipefail
 
 FILE="$(dirname "$(readlink -f "$0")")/watt-toolkit_bin.nix"
-python3 - "$FILE" <<'PYEOF'
+# shellcheck source=../../../tools/github-api.sh
+source "$(dirname "$(readlink -f "$0")")/../../../tools/github-api.sh"
+
+RELEASES_JSON="$(gh_api 'repos/BeyondDimension/SteamTools/releases?per_page=100' || true)"
+if ! jq -e 'type == "array" and length > 0' <<<"${RELEASES_JSON:-null}" >/dev/null 2>&1; then
+  # Fallback when the REST call is rate limited: rebuild the same release /
+  # asset view from the release feed and the web asset lists.
+  RELEASES_JSON="$(
+    while IFS= read -r tag; do
+      gh_release_assets BeyondDimension/SteamTools "$tag" 2>/dev/null |
+        jq -R -s --arg tag "$tag" '{tag_name: $tag, assets: (split("\n") | map(select(length > 0) | {name: .}))}'
+    done < <(gh_release_tags BeyondDimension/SteamTools 20 2>/dev/null) | jq -s '.'
+  )"
+fi
+# A hundred releases do not fit in an environment variable (max 128 KiB per
+# entry), so hand the data over as a file.
+RELEASES_FILE="$(mktemp)"
+trap 'rm -f "$RELEASES_FILE"' EXIT
+printf '%s' "${RELEASES_JSON:-[]}" >"$RELEASES_FILE"
+
+python3 - "$FILE" "$RELEASES_FILE" <<'PYEOF'
 import json
 import re
 import subprocess
@@ -12,14 +32,9 @@ import sys
 
 path = sys.argv[1]
 repo = "BeyondDimension/SteamTools"
-releases = json.loads(
-    subprocess.run(
-        ["curl", "-fsSL", f"https://api.github.com/repos/{repo}/releases?per_page=100"],
-        capture_output=True,
-        text=True,
-        check=True,
-    ).stdout
-)
+releases = json.load(open(sys.argv[2]))
+if not releases:
+    sys.exit("Failed to list SteamTools releases")
 
 assets = {}
 for rel in releases:

@@ -3,7 +3,10 @@
 # shellcheck shell=bash
 set -euo pipefail
 
-NEW_VERSION=$(curl -fsSL 'https://api.github.com/repos/msojocs/wechat-web-devtools-linux/releases/latest' | jq -r .tag_name | sed 's/^v//')
+# shellcheck source=../../../tools/github-api.sh
+source "$(dirname "$(readlink -f "$0")")/../../../tools/github-api.sh"
+
+NEW_VERSION="$(gh_latest_tag msojocs/wechat-web-devtools-linux | sed 's/^v//' || true)"
 [ -n "$NEW_VERSION" ] && [ "$NEW_VERSION" != "null" ] || {
   echo "Failed to detect new version" >&2
   exit 1

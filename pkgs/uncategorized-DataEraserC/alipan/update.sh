@@ -3,11 +3,15 @@
 # shellcheck shell=bash
 set -euo pipefail
 
-NEW_VERSION=$(curl -fsSL 'https://api.github.com/repos/DataEraserC/nur-packages/releases/tags/aDrive' |
-  jq -r '.assets[]?.name' |
-  grep -oP 'aDrive-\K[0-9][0-9.]*(?=\.exe)' |
-  sort -V |
-  tail -n1)
+# shellcheck source=../../../tools/github-api.sh
+source "$(dirname "$(readlink -f "$0")")/../../../tools/github-api.sh"
+
+NEW_VERSION="$(
+  gh_release_assets DataEraserC/nur-packages aDrive |
+    grep -oP 'aDrive-\K[0-9][0-9.]*(?=\.exe)' |
+    sort -V |
+    tail -n1 || true
+)"
 [ -n "$NEW_VERSION" ] || {
   echo "Failed to detect new version" >&2
   exit 1

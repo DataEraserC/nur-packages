@@ -4,11 +4,24 @@
 set -euo pipefail
 
 FILE="$(dirname "$(readlink -f "$0")")/devtunnel.nix"
-NEW_VERSION=$(curl -fsSL 'https://api.github.com/repos/microsoft/winget-pkgs/contents/manifests/m/Microsoft/devtunnel' |
-  jq -r '.[].name' |
-  grep -oP '1\.0\.[0-9]+\+[a-f0-9]+' |
-  sort -V |
-  tail -n1)
+# shellcheck source=../../../tools/github-api.sh
+source "$(dirname "$(readlink -f "$0")")/../../../tools/github-api.sh"
+
+NEW_VERSION="$(
+  gh_api 'repos/microsoft/winget-pkgs/contents/manifests/m/Microsoft/devtunnel' |
+    jq -r '.[].name' |
+    grep -oP '1\.0\.[0-9]+\+[a-f0-9]+' |
+    sort -V |
+    tail -n1 || true
+)"
+if [ -z "$NEW_VERSION" ]; then
+  # Fallback when the REST call is rate limited: the web directory listing
+  # embeds the same manifest folder names and does not consume the API quota.
+  NEW_VERSION="$(curl -sSL 'https://github.com/microsoft/winget-pkgs/tree/master/manifests/m/Microsoft/devtunnel' |
+    grep -oP '1\.0\.[0-9]+\+[a-f0-9]+' |
+    sort -V |
+    tail -n1 || true)"
+fi
 [ -n "$NEW_VERSION" ] || {
   echo "Failed to detect new version" >&2
   exit 1

@@ -72,6 +72,13 @@ jobs:
       - name: Update packages
         continue-on-error: true
         timeout-minutes: 100
+        env:
+          # api.github.com allows 60 unauthenticated requests per hour per IP
+          # and shared runners exhaust that, which surfaced as HTTP 403 in the
+          # update scripts' curl calls. Pass a token down to them (see
+          # tools/github-api.sh); fall back to the default token when the
+          # automerge token is unavailable.
+          GITHUB_TOKEN: ${{ secrets.AUTOMERGE_TOKEN || secrets.GITHUB_TOKEN }}
         run: |
           sudo mkdir -p /nix/tmpdir2
           sudo chown "$(whoami)" /nix/tmpdir2
