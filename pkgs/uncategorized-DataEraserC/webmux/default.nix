@@ -15,13 +15,17 @@
   webmuxSource ? fetchFromGitHub {
     owner = "mzdluo123";
     repo = "webmux";
-    rev = "4c9589b85aad3987953cd3037eee7c90bd9f43fe";
-    hash = "sha256-UvJ0MqPHfLl17NkGuIlyTCnhMyFtXn0fmP3jmoIDIko=";
+    rev = "289f9278e7f35ac6515135c18365f016ff8829db";
+    hash = "sha256-4VVaI8hV0e0jP51C99BYi8uE+oyN7OAhhoTZ35JyTLg=";
   },
+  # `webmux-acp` still builds the 0.14.5-based downstream overlay, so it pins
+  # that tree's frontend deps hash and build command through these two knobs.
+  webPnpmDepsHash ? "sha256-5OyJovg1SiQN1yRygM5TH11Q5reWiGEj3xxmvp7HNN4=",
+  webBuildCommand ? "pnpm exec vp build",
 }:
 
 let
-  version = "0.14.5-unstable-2026-11-11";
+  version = "0.16.0-unstable-2026-11-14";
   src = webmuxSource;
 
   sourceUpdater = unstableGitUpdater {
@@ -56,7 +60,7 @@ let
     sourceRoot = "source/web";
     pnpm = pnpm_12;
     fetcherVersion = 4;
-    hash = "sha256-AJEflSNtB60DwyJHkUM5i8Ju1DrsOULfC1MORuZLErU=";
+    hash = webPnpmDepsHash;
   };
 
   frontendDist = stdenv.mkDerivation {
@@ -73,7 +77,9 @@ let
     ];
     buildPhase = ''
       runHook preBuild
-      pnpm exec vite build
+      # Upstream aliases the `vite` catalog entry to @voidzero-dev/vite-plus-core
+      # (no `vite` binary); the CLI is `vp`, which is what `vp build` runs.
+      ${webBuildCommand}
       runHook postBuild
     '';
     installPhase = ''

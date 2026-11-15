@@ -88,13 +88,15 @@ WebMux upstream 不承载下游实例；NUR 不手工维护第二份实现；nix
 
 | 项目                     | 值                                                    |
 | ------------------------ | ----------------------------------------------------- |
-| version                  | `0.14.5-unstable-2026-11-11`                          |
-| upstream rev             | `4c9589b85aad3987953cd3037eee7c90bd9f43fe`            |
-| upstream source hash     | `sha256-UvJ0MqPHfLl17NkGuIlyTCnhMyFtXn0fmP3jmoIDIko=` |
+| version                  | `0.16.0-unstable-2026-11-14`                          |
+| upstream rev             | `289f9278e7f35ac6515135c18365f016ff8829db`            |
+| upstream source hash     | `sha256-4VVaI8hV0e0jP51C99BYi8uE+oyN7OAhhoTZ35JyTLg=` |
 | downstream overlay tip   | `f0bb66ed27a24d5ee74b2cd3b0dc45e1723e1ba9`            |
 | downstream source hash   | `sha256-vuPOPvvL8K2NIRuADooaYssQb7QQ/k3NV31whg77jk8=` |
-| pnpm hash                | `sha256-AJEflSNtB60DwyJHkUM5i8Ju1DrsOULfC1MORuZLErU=` |
+| pnpm hash                | `sha256-5OyJovg1SiQN1yRygM5TH11Q5reWiGEj3xxmvp7HNN4=` |
 | vendor hash              | `sha256-8jgAcb9znAtAlDfwuBD5+qTimc3mwoCRZ38i6pHr/d4=` |
+
+`webmux-acp` 的 overlay tip 仍基于 0.14.5 树，因此在 overlay rebase 到当前 base 之前，它显式保留旧基线：version `0.14.5-unstable-2026-11-11`、pnpm hash `sha256-AJEflSNtB60DwyJHkUM5i8Ju1DrsOULfC1MORuZLErU=`、前端命令 `pnpm exec vite build`（0.16.0 树改用 `pnpm exec vp build`）。rebase 完成后删掉 `webmux-acp` 里的这三个 override。
 
 ### PKG-02：ACP source 等于一个可审计的匿名下游 overlay 范围
 

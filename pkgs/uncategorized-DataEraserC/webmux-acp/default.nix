@@ -4,6 +4,11 @@
 }:
 
 let
+  # Frozen baseline: the audited overlay below extends the 0.14.5 tree, so the
+  # package keeps that tree's frontend deps hash, vite CLI and version until
+  # the overlay is rebased onto the current `webmux` base.
+  legacyVersion = "0.14.5-unstable-2026-11-11";
+
   pinnedWebmux = webmux.override {
     webmuxSource = fetchFromGitHub {
       owner = "mzdluo123";
@@ -11,10 +16,20 @@ let
       rev = "f0bb66ed27a24d5ee74b2cd3b0dc45e1723e1ba9";
       hash = "sha256-vuPOPvvL8K2NIRuADooaYssQb7QQ/k3NV31whg77jk8=";
     };
+    webPnpmDepsHash = "sha256-AJEflSNtB60DwyJHkUM5i8Ju1DrsOULfC1MORuZLErU=";
+    webBuildCommand = "pnpm exec vite build";
   };
 in
 pinnedWebmux.overrideAttrs (old: {
   pname = "webmux-acp";
+  version = legacyVersion;
+  # The source is the frozen overlay above, not the current main package tree.
+  __intentionallyOverridingVersion = true;
+  ldflags = [
+    "-s"
+    "-w"
+    "-X main.version=${legacyVersion}"
+  ];
 
   doCheck = true;
   checkPhase = ''

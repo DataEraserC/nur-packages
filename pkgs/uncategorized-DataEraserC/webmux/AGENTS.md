@@ -9,7 +9,7 @@
 - **两段式构建**：`web/` 是独立前端工程，`vite build` 由 `web/scripts/embed-assets.ts` 插件把 `dist/` 压成 `dist/embed.zip`，Go 侧 `web/embed.go` 用 `//go:embed dist/embed.zip` 读它（运行期交 `zip.NewReader` 按需解压，条目路径保留 `dist/` 前缀）。因此：
   - 前端派生 `frontendDist` 只需装出 `embed.zip`，其余 `dist/` 文件对最终产物无用
   - `buildGo127Module` 的 `preBuild` 把 `embed.zip` 拷进 `web/dist/` 即可，不必覆盖整个 `dist`
-- **用 `pnpm exec vite build`，不要用 `pnpm run build`**：`build` 脚本是 `svelte-check --fail-on-warnings && vite build`，类型检查对产物没有贡献却成倍拖慢构建，而且上游任何 warning 都会让构建失败；上游 `make frontend` 走的也是裸 `vite build`
+- **用 `pnpm exec vp build`，不要用 `pnpm run build`**：`build` 脚本是 `svelte-check --fail-on-warnings && vp build`，类型检查对产物没有贡献却成倍拖慢构建，而且上游任何 warning 都会让构建失败；上游 `make frontend` 走的也是 `vp build`。0.16.0 起 `web/pnpm-workspace.yaml` 的 catalog 把 `vite` 别名到 `@voidzero-dev/vite-plus-core`（该包无 `vite` 可执行文件），CLI 只有 `vp`，所以旧写法 `pnpm exec vite build` 会报 `Command "vite" not found`
 - **Go builder 跟随 `go.mod` 的 major/minor**：当前基线声明 Go 1.27，使用 nixpkgs 的 `buildGo127Module`；版本不能满足 `go` directive 时，固定输出哈希尚未计算就会失败
 - **工具链版本由上游钉死**：`.nvmrc` = `26.13.0`、`package.json` 的 `packageManager` = `pnpm@12.18.0`，nixpkgs 的 `nodejs_26`（26.13.0）与之逐字一致，`pnpm_12`（12.9.0）可用——pnpm ≥ 11 的 `pnpmConfigHook` 会设 `pnpm_config_pm_on_fail=ignore`，所以 lockfile 里的 pnpm 自管理切换失败也不会中断安装
 - **`fetcherVersion = 4`**：pnpm 12 的 store 布局要求 v4（与 it-tools 的 pnpm 11 同代）；`vendorHash` 与 pnpm 哈希都用占位值构建、从报错的 `got:` 行取值
@@ -27,8 +27,8 @@
 ```bash
 nix build .#webmux
 out=$(nix build .#webmux --no-link --print-out-paths)
-$out/bin/webmux --version            # webmux 0.14.5-unstable-2026-11-11
-$out/bin/webmux version --json       # {"v":1,"version":"0.14.5-unstable-2026-11-11","contract":1}
+$out/bin/webmux --version            # webmux 0.16.0-unstable-2026-11-14
+$out/bin/webmux version --json       # {"v":1,"version":"0.16.0-unstable-2026-11-14","contract":1}
 
 export HOME=$(mktemp -d)
 $out/bin/webmux serve --listen 127.0.0.1:7699 &

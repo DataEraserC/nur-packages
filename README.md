@@ -395,7 +395,7 @@ Or, use variables from this repository in case I change them:
 |  | `waline` | [waline](https://github.com/walinejs/waline) | 1.43.6 | Server for the Waline comment system |
 |  | `watt-toolkit_2` | [watt-toolkit](https://steampp.net) | 2.8.6 | Cross-platform Steam toolbox |
 |  | `watt-toolkit_bin` | [watt-toolkit_bin](https://steampp.net) | 3.1.0 | Open source cross-platform multi-purpose game toolkit |
-|  | `webmux` | [webmux](https://github.com/mzdluo123/webmux) | 0.14.5-unstable-2026-11-11 | Browser-based persistent terminal server that keeps sessions alive across disconnects |
+|  | `webmux` | [webmux](https://github.com/mzdluo123/webmux) | 0.16.0-unstable-2026-11-14 | Browser-based persistent terminal server that keeps sessions alive across disconnects |
 |  | `webmux-acp` | [webmux-acp](https://github.com/mzdluo123/webmux) | 0.14.5-unstable-2026-11-11 | WebMux with audited downstream ACP and hybrid-session fixes |
 |  | `wechat-uos-sandboxed` | [wechat-uos](https://weixin.qq.com/) | 4.1.1.7 | WeChat desktop with sandbox enabled ($HOME/Documents/WeChat_Data) (Adapted from https://aur.archlinux.org/packages/wechat-uos-bwrap) |
 | `x86_64-linux` | `wechat_dev_tools_appimage` | [wechat_dev_tools_appimage](https://github.com/msojocs/wechat-web-devtools-linux) | 2.02.2609240-2 | Development tools for WeChat mini program projects |
@@ -1812,7 +1812,7 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized-DataEraserC.video-login-abi` | [video-login-abi](https://github.com/DataEraserC/video-login) | 0.2.0 | C ABI shared library for multi-channel video site login |
 |  | `uncategorized-DataEraserC.watt-toolkit_2` | [watt-toolkit](https://steampp.net) | 2.8.6 | Cross-platform Steam toolbox |
 |  | `uncategorized-DataEraserC.watt-toolkit_bin` | [watt-toolkit_bin](https://steampp.net) | 3.1.0 | Open source cross-platform multi-purpose game toolkit |
-|  | `uncategorized-DataEraserC.webmux` | [webmux](https://github.com/mzdluo123/webmux) | 0.14.5-unstable-2026-11-11 | Browser-based persistent terminal server that keeps sessions alive across disconnects |
+|  | `uncategorized-DataEraserC.webmux` | [webmux](https://github.com/mzdluo123/webmux) | 0.16.0-unstable-2026-11-14 | Browser-based persistent terminal server that keeps sessions alive across disconnects |
 |  | `uncategorized-DataEraserC.webmux-acp` | [webmux-acp](https://github.com/mzdluo123/webmux) | 0.14.5-unstable-2026-11-11 | WebMux with audited downstream ACP and hybrid-session fixes |
 | `x86_64-linux` | `uncategorized-DataEraserC.wechat_dev_tools_appimage` | [wechat_dev_tools_appimage](https://github.com/msojocs/wechat-web-devtools-linux) | 2.02.2609240-2 | Development tools for WeChat mini program projects |
 | `x86_64-linux` | `uncategorized-DataEraserC.wechat_dev_tools_bin` | [wechat_dev_tools_bin](https://github.com/msojocs/wechat-web-devtools-linux) | 2.02.2609240-2 | Development tools for WeChat mini program projects |
