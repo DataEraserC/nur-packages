@@ -69,11 +69,21 @@ for ln in lines:
 
 changed = {}
 new_ver_of = {"x86_64-linux": new_x64, "x86_64-darwin": new_x64, "aarch64-linux": new_arm}
+suffixes = {
+    "x86_64-linux": "_linux_x64.tgz",
+    "aarch64-linux": "_linux_arm64.tgz",
+    "x86_64-darwin": "_macos.dmg",
+}
+new_urls = {}
 for plat, old in ver_by.items():
     new = new_ver_of[plat]
     if old != new:
-        # update url: replace download/<old>/ with download/<new>/
-        text = text.replace(f"/download/{old}/", f"/download/{new}/")
+        # Asset names embed the version (`Steam++_v<tag>_...`), so take the
+        # real name from the release instead of only swapping the tag segment.
+        asset = next((n for n in assets.get(new, ()) if n.endswith(suffixes[plat])), None)
+        if asset is None:
+            sys.exit(f"no {suffixes[plat]} asset in {new}")
+        new_urls[plat] = f"https://github.com/{repo}/releases/download/{new}/{asset}"
         # update version map entry
         text = text.replace(f"{plat} = \"{old}\";", f"{plat} = \"{new}\";")
         changed[plat] = (old, new)
@@ -89,12 +99,12 @@ for plat, (old, new) in changed.items():
         print(f"cannot find fetchurl block for {plat}", file=sys.stderr)
         sys.exit(1)
     h = subprocess.run(
-        ["nix", "store", "prefetch-file", "--json", um.group(2)],
+        ["nix", "store", "prefetch-file", "--json", new_urls[plat]],
         capture_output=True,
         text=True,
         check=True,
     )
-    text = text.replace(um.group(0), um.group(1) + um.group(2) + um.group(3) + json.loads(h.stdout)["hash"] + um.group(4))
+    text = text.replace(um.group(0), um.group(1) + new_urls[plat] + um.group(3) + json.loads(h.stdout)["hash"] + um.group(4))
     print(f"watt-toolkit_bin {plat}: {old} -> {new}")
 
 open(path, "w").write(text)
