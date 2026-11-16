@@ -13,16 +13,16 @@ if inputs == null then
 else
   dshPkgs.dsh.buildDshBundle (finalAttrs: {
     pname = "dsh-chat-import";
-    version = "0.26.4";
+    version = "0.26.7";
 
     src = fetchFromGitHub {
       owner = "Nwflower";
       repo = "dsh-chat-import";
       tag = "v${finalAttrs.version}";
-      hash = "sha256-mS15LdsShVlRWvqEVzJ+bNHqfhnshA+NESGSgBbRNis=";
+      hash = "sha256-8QyIqowU6hEbAE8Yj3jhptp/nI+OaHrORkipvAu2IwU=";
     };
 
-    npmDepsHash = "sha256-gSyJeJEvTxQq94DKOgF6Fyr0O0srA381zBzRv2uBs3g=";
+    npmDepsHash = "sha256-2SIhsfEXZrNb1MwcG7qGhrmXnbHylnkavOIMezwa9Tk=";
 
     doCheck = true;
 

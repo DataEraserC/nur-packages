@@ -13,18 +13,18 @@
 
 buildNpmPackage (finalAttrs: {
   pname = "omniroute";
-  version = "3.8.52";
+  version = "3.8.53";
 
   src = fetchFromGitHub {
     owner = "diegosouzapw";
     repo = "OmniRoute";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-k4+iy6aFWaFxVPcTStR4xNCJjw/UHeMqb5XnEvuqJZU=";
+    hash = "sha256-+ImTZzi10hvj02qTWlO9J0XF6Y95JHUSFUHv/wdCddQ=";
   };
 
   nodejs = nodejs_24;
 
-  npmDepsHash = "sha256-DJQl4JRBVX5zRh1b+YfhpkOmkP1ZcGMjySgSQnm/eR4=";
+  npmDepsHash = "sha256-/Z2Xm3us0Ag5cEb2O/vpcfAXNIKh6zGuCZ8CqdUsmA8=";
 
   npmRebuildFlags = [ "--ignore-scripts" ];
   npmFlags = [

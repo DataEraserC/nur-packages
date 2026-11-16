@@ -17,25 +17,25 @@ let
 
   version =
     {
-      x86_64-linux = "3.1.0";
-      aarch64-linux = "3.0.0-rc.16";
-      x86_64-darwin = "3.1.0";
+      x86_64-linux = "3.2.0";
+      aarch64-linux = "3.2.0";
+      x86_64-darwin = "3.2.0";
     }
     .${HostPlatform} or (throw "Unsupported platform: ${HostPlatform}");
 
   src =
     {
       x86_64-linux = fetchurl {
-        url = "https://github.com/BeyondDimension/SteamTools/releases/download/3.1.0/Steam++_v3.1.0_linux_x64.tgz";
-        hash = "sha256-+5m81PpqxkkihwD5CIGf4ZoWzCmoZq1D0oc+UEpBeD8=";
+        url = "https://github.com/BeyondDimension/SteamTools/releases/download/3.2.0/Steam++_v3.2.0_linux_x64.tgz;
+        hash = "sha256-VnJXV+XgswFklZ8o84lmp9YirOF/ELZ54OFtcaTa2/w=";
       };
       aarch64-linux = fetchurl {
-        url = "https://github.com/BeyondDimension/SteamTools/releases/download/3.0.0-rc.16/Steam++_v3.0.0-rc.16_linux_arm64.tgz";
-        hash = "sha256-xfzxxxMKsoMww9PzB/nvRcxqOqyn65escvxkzK9csCo=";
+        url = "https://github.com/BeyondDimension/SteamTools/releases/download/3.2.0/Steam++_v3.2.0_linux_arm64.tgz;
+        hash = "sha256-V63fHISvVX2OT/D28PJSUPlDTEkcjBhu8h9p3xACqHE=";
       };
       x86_64-darwin = fetchurl {
-        url = "https://github.com/BeyondDimension/SteamTools/releases/download/3.1.0/Steam++_v3.1.0_macos.dmg";
-        hash = "sha256-ft6K3rim8xHHAZOh48ZPN4UlVayrrfS8QXMZa+CrNas=";
+        url = "https://github.com/BeyondDimension/SteamTools/releases/download/3.2.0/Steam++_v3.2.0_macos.dmg;
+        hash = "sha256-tohgWEi8lPa2OpZ9alvM//+dRiFyztZ0mAq15IKNEtg=";
       };
     }
     .${HostPlatform} or (throw "Unsupported platform: ${HostPlatform}");

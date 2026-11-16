@@ -72,12 +72,12 @@ let
 in
 stdenv.mkDerivation (finalAttrs: {
   pname = "cyime";
-  version = "0-unstable-2026-10-31";
+  version = "1.14.156-unstable-2026-10-31";
   src = fetchFromGitHub {
     owner = "tuxKOH";
     repo = "CyIME";
     rev = "d177333626fcc8a69c39419527809a57e084d094";
-    hash = "sha256-CAfzSkWiZP++jhrHdc1FvMuBhTi0Zyu1nhpOytXSsj0=";
+    hash = "sha256-AzH1rZFqEH8sovZZfJykvsEmCedEZWigQFHWHl6/PdE=";
   };
   __structuredAttrs = true;
   strictDeps = true;

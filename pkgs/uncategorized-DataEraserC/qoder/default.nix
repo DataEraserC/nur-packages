@@ -1,9 +1,9 @@
 { callPackage, ... }:
 (callPackage ../qoder-app-common.nix { }) {
   pname = "qoder";
-  version = "0.5.7";
+  version = "0.5.12";
   url = "https://download.qoder.com/qoder-app/releases/latest/Qoder-linux-amd64.deb";
-  hash = "sha256-y/uOjgHIUkazQhCibjPfKds+wX0BsMXjifD4V0ZUJCE=";
+  hash = "sha256-zFIBHl+dp4yPesWOX9TkH0wIuZmU5Y0YQkzLFwan1Iw=";
   appDir = "Qoder";
   executable = "qoder";
   desktopName = "qoder.desktop";

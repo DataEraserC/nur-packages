@@ -8,11 +8,11 @@
 }:
 buildNpmPackage (finalAttrs: {
   pname = "9router";
-  version = "0.5.112";
+  version = "0.5.119";
 
   src = fetchurl {
     url = "https://registry.npmjs.org/9router/-/9router-${finalAttrs.version}.tgz";
-    hash = "sha256-QAc4wZGw+qtzoi8JkLfr6g5sk1gYBxxYnKeUI5DKruE=";
+    hash = "sha256-hhw2zMDx58OhrpqRImKXh8x4JNKUnE4wFvvE5RXctUM=";
   };
 
   __structuredAttrs = true;
