@@ -152,4 +152,59 @@ for attr in npmDeps skillWebSearch.npmDeps skillEmail.npmDeps skillPptx.npmDeps;
   (cd "$ROOT" && nix build --no-link ".#$FLAT.$attr")
 done
 
+# The openclaw runtime packs @openclaw/ai from the current source at build time,
+# then `npm ci` checks that tarball against the integrity recorded in
+# cfmind-package-lock.json. Those two lockfiles are a snapshot of a previous
+# build, so every app bump that changes openclaw's workspace packages makes the
+# recorded sha512 stale and the build dies with EINTEGRITY. Carrying that
+# forward is mechanical: build the runtime, read the hash npm computed from the
+# real tarball, and write it back.
+sync_cfmind_integrity() {
+  local drv log got
+  drv=$(cd "$ROOT" && nix eval --raw ".#$FLAT.openclawRuntime.drvPath" 2>/dev/null) ||
+    die "cannot evaluate the openclaw runtime derivation"
+  log=$(mktemp)
+  # A matching hash means nothing to sync; the build succeeds.
+  if (cd "$ROOT" && nix build --no-link "$drv" >"$log" 2>&1); then
+    rm -f "$log"
+    return 0
+  fi
+  # npm prints: "sha512-<want> integrity checksum failed when using sha512:
+  # wanted sha512-<want> but got sha512-<got>. (<n> bytes)"
+  got=$(sed -n 's/.*but got sha512-\([A-Za-z0-9+/=]*\).*/sha512-\1/p' "$log" | tail -n1)
+  if [ -z "$got" ]; then
+    echo "lobsterai: runtime build failed, but not on a cfmind integrity mismatch" >&2
+    tail -30 "$log" >&2
+    rm -f "$log"
+    die "openclaw runtime does not build"
+  fi
+  echo "lobsterai: syncing @openclaw/ai integrity to $got"
+  python3 - "$DIR/cfmind-package-lock.json" "$got" <<'PYEOF'
+import json
+import sys
+
+path, integrity = sys.argv[1:]
+doc = json.load(open(path))
+entry = doc["packages"].get("node_modules/@openclaw/ai")
+if entry is None:
+    sys.exit(f"{path}: no node_modules/@openclaw/ai entry")
+entry["integrity"] = integrity
+with open(path, "w") as handle:
+    json.dump(doc, handle, indent=2)
+    handle.write("\n")
+PYEOF
+  # The two lockfiles must agree: cfmind-package.json is the dependency set the
+  # runtime installs, and npm reads both.
+  if ! (cd "$ROOT" && nix build --no-link "$drv" >"$log" 2>&1); then
+    echo "lobsterai: runtime still fails after syncing the integrity" >&2
+    tail -30 "$log" >&2
+    rm -f "$log"
+    die "openclaw runtime does not build after the integrity sync"
+  fi
+  rm -f "$log"
+  echo "lobsterai: runtime builds after the integrity sync"
+}
+
+sync_cfmind_integrity
+
 echo "lobsterai: $new_version ready, run 'nix build .#$FLAT' before committing"
