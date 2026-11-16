@@ -26,15 +26,15 @@ let
   src =
     {
       x86_64-linux = fetchurl {
-        url = "https://github.com/BeyondDimension/SteamTools/releases/download/3.2.0/Steam++_v3.2.0_linux_x64.tgz;
+        url = "https://github.com/BeyondDimension/SteamTools/releases/download/3.2.0/Steam++_v3.2.0_linux_x64.tgz";
         hash = "sha256-VnJXV+XgswFklZ8o84lmp9YirOF/ELZ54OFtcaTa2/w=";
       };
       aarch64-linux = fetchurl {
-        url = "https://github.com/BeyondDimension/SteamTools/releases/download/3.2.0/Steam++_v3.2.0_linux_arm64.tgz;
+        url = "https://github.com/BeyondDimension/SteamTools/releases/download/3.2.0/Steam++_v3.2.0_linux_arm64.tgz";
         hash = "sha256-V63fHISvVX2OT/D28PJSUPlDTEkcjBhu8h9p3xACqHE=";
       };
       x86_64-darwin = fetchurl {
-        url = "https://github.com/BeyondDimension/SteamTools/releases/download/3.2.0/Steam++_v3.2.0_macos.dmg;
+        url = "https://github.com/BeyondDimension/SteamTools/releases/download/3.2.0/Steam++_v3.2.0_macos.dmg";
         hash = "sha256-tohgWEi8lPa2OpZ9alvM//+dRiFyztZ0mAq15IKNEtg=";
       };
     }
