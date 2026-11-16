@@ -19,6 +19,11 @@ pinnedWebmux.overrideAttrs (old: {
   pname = "webmux-acp";
   inherit version;
   __intentionallyOverridingVersion = true;
+  # Overriding webmuxSource alone reuses the base package's vendorHash, which
+  # tracks whatever release webmux/ is pinned to. When the main package moves
+  # on, that hash no longer matches this older overlay tip and the build fails
+  # with a hash mismatch. Pin the hash that belongs to this source.
+  vendorHash = "sha256-8jgAcb9znAtAlDfwuBD5+qTimc3mwoCRZ38i6pHr/d4=";
   ldflags = [
     "-s"
     "-w"
