@@ -41,8 +41,8 @@ else
       test ! -L $modlensRoot/node_modules/undici
     '';
 
-    linkKernelNodeModules = dshPkgs.dsh.dsh-kernel;
-    linkKernelNodeModulesKeep = [
+    installation = dshPkgs.dsh.dsh-runtime;
+    installationKeep = [
       "commander"
       "undici"
     ];

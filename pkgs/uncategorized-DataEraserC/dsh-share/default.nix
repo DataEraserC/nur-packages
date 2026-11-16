@@ -60,7 +60,7 @@ else
       if [ -f $out/lib/node_modules/.pnpm-workspace-state-v1.json ]; then sed -i -E 's#"lastValidatedTimestamp": [0-9]+#"lastValidatedTimestamp": 0#' $out/lib/node_modules/.pnpm-workspace-state-v1.json; fi
     '';
 
-    linkKernelNodeModules = dshPkgs.dsh.dsh-kernel;
+    installation = dshPkgs.dsh.dsh-runtime;
 
     passthru = {
       requiresWeb = true;

@@ -43,18 +43,18 @@ else
     doCheck = true;
 
     postPatch = ''
-      # 2.7.2's legacy-upgrade suite replays historical updaters through
-      # `git show <tag>:<path>` / `git archive <tag>` from tags v1.3.1 and
-      # v2.5.9; a fetched source tree has no object database, so it cannot run
-      # here (see ../dsh-our-free-model-standalone/AGENTS.md).
-      substituteInPlace scripts/test-all.mjs \
-        --replace-fail "  ['legacy-upgrade', 'legacy-upgrade-test.mjs', mode === 'contributor' ? [] : ['--production']],
-" ""
+            # 2.7.2's legacy-upgrade suite replays historical updaters through
+            # `git show <tag>:<path>` / `git archive <tag>` from tags v1.3.1 and
+            # v2.5.9; a fetched source tree has no object database, so it cannot run
+            # here (see ../dsh-our-free-model-standalone/AGENTS.md).
+            substituteInPlace scripts/test-all.mjs \
+              --replace-fail "  ['legacy-upgrade', 'legacy-upgrade-test.mjs', mode === 'contributor' ? [] : ['--production']],
+      " ""
 
-      substituteInPlace scripts/forward-test.mjs \
-        --replace-fail "resolveLoopbackBind('example.com'), /loopback/" "resolveLoopbackBind('example.com'), /loopback|could not resolve/"
-      substituteInPlace scripts/standalone-login-terminal-test.mjs \
-        --replace-fail "/usr/bin/printf '%s" "printf '%s"
+            substituteInPlace scripts/forward-test.mjs \
+              --replace-fail "resolveLoopbackBind('example.com'), /loopback/" "resolveLoopbackBind('example.com'), /loopback|could not resolve/"
+            substituteInPlace scripts/standalone-login-terminal-test.mjs \
+              --replace-fail "/usr/bin/printf '%s" "printf '%s"
     '';
 
     checkPhase = ''
@@ -119,7 +119,7 @@ else
       '') extraWebProfiles}
     '';
 
-    linkKernelNodeModules = dshPkgs.dsh.dsh-kernel;
+    installation = dshPkgs.dsh.dsh-runtime;
 
     runtimeDeps = [
       mihomo

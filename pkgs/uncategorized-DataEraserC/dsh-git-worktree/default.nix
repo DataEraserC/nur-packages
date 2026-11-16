@@ -51,7 +51,7 @@ else
       test -f $out/lib/node_modules/dsh-git-worktree/lib/index.js
     '';
 
-    linkKernelNodeModules = dshPkgs.dsh.dsh-kernel;
+    installation = dshPkgs.dsh.dsh-runtime;
 
     passthru = {
       aiProvenance = [

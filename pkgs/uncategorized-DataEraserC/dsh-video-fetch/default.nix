@@ -44,7 +44,7 @@ else
       runHook postCheck
     '';
 
-    linkKernelNodeModules = dshPkgs.dsh.dsh-kernel;
+    installation = dshPkgs.dsh.dsh-runtime;
 
     # spawn('yt-dlp') / spawn('ffmpeg') from the plugin; the dsh base bundle has neither.
     runtimeDeps = [

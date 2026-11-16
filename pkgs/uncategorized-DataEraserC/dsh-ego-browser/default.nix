@@ -34,7 +34,7 @@ else
     doCheck = true;
 
     preCheck = ''
-      kernelScope=${dshPkgs.dsh.dsh-kernel}/lib/deepseek-harness/node_modules/@deepseek-ai
+      kernelScope=${dshPkgs.dsh.dsh-runtime}/node_modules/@deepseek-ai
       mkdir -p node_modules/@deepseek-ai
       for pkg in "$kernelScope"/*; do
         name=$(basename "$pkg")
@@ -70,7 +70,7 @@ else
     '';
 
     runtimeDeps = [ google-chrome ];
-    linkKernelNodeModules = dshPkgs.dsh.dsh-kernel;
+    installation = dshPkgs.dsh.dsh-runtime;
 
     passthru = {
       aiProvenance = [

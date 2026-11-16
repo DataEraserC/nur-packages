@@ -55,7 +55,7 @@ else
     '';
 
     runtimeDeps = [ libnotify ];
-    linkKernelNodeModules = dshPkgs.dsh.dsh-kernel;
+    installation = dshPkgs.dsh.dsh-runtime;
 
     passthru = {
       aiProvenance = [

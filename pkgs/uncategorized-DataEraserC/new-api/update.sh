@@ -58,13 +58,16 @@ trap cleanup EXIT
 
 mkdir -p "$PROBE_DIR"
 cp "$PACKAGE_FILE" "$PROBE_FILE"
-# The package imports ../maintainers.nix, which resolves to PROBE_ROOT.
+# The package imports ../maintainers.nix and ./update.sh; both resolve relative
+# to the copied file, so mirror them into the probe tree or evaluation fails on
+# a missing path instead of on the hash we are probing for.
 cp "$SCRIPT_DIR/../maintainers.nix" "$PROBE_ROOT/maintainers.nix"
+cp "$SCRIPT_DIR/update.sh" "$PROBE_DIR/update.sh"
 sed -E 's#outputHash = ("sha256-[^"]*"|lib[.]fakeHash)#outputHash = lib.fakeHash#' "$PROBE_FILE" >"$PROBE_FILE.tmp"
 mv "$PROBE_FILE.tmp" "$PROBE_FILE"
 
 SYSTEM=$(nix eval --impure --raw --expr 'builtins.currentSystem')
-PROBE_EXPR="let f = builtins.getFlake \"path:${REPO_ROOT}\"; pkgs = f.inputs.nixpkgs.legacyPackages.${SYSTEM}; in pkgs.callPackage ${PROBE_FILE} { }"
+PROBE_EXPR="let f = builtins.getFlake \"git+file://${REPO_ROOT}\"; pkgs = f.inputs.nixpkgs.legacyPackages.${SYSTEM}; in pkgs.callPackage ${PROBE_FILE} { }"
 
 # The probe build is expected to fail with a hash mismatch; that error is the
 # only place Nix reports the real hash. Any other failure yields no hash and
@@ -101,7 +104,60 @@ if [ -z "$WEB_DEPS_HASH" ]; then
   exit 1
 fi
 
-# Step 3: write the new hash into a copy next to default.nix and rename it into
+# Step 3: prove the probed hash with a real build before writing it.
+#
+# The probe in step 2 only reports what this machine's bun produces. That is
+# not the same as a hash that will build on CI and on other hosts: the webDeps
+# output depends on which optional platform packages the bun release installs
+# (bun < 1.4.4 installed @rspack/binding-linux-x64-musl on glibc). Writing an
+# unverified hash is exactly how rc.51 ended up with a hash that passed the
+# probe here and failed everywhere else. So build the FOD for real and refuse
+# the write on any mismatch.
+#
+# This is a real build, not a lookup: Nix only reuses store content whose hash
+# matches the requested outputHash, so a passing build means "the tree this
+# hash names was produced by this bun here". It still cannot prove a different
+# bun release on a different host would produce the same tree; the libc pruning
+# in default.nix is what removes that cross-machine variance, and the pinned
+# nixpkgs bun in flake.lock is what keeps hosts on the same release.
+PROBE_FILE2="$PROBE_DIR/default.nix"
+cp "$PACKAGE_FILE" "$PROBE_FILE2"
+sed -E "s#outputHash = (\"sha256-[^\"]*\"|lib[.]fakeHash)#outputHash = \"$WEB_DEPS_HASH\"#" \
+  "$PROBE_FILE2" >"$PROBE_FILE2.tmp"
+mv "$PROBE_FILE2.tmp" "$PROBE_FILE2"
+
+VERIFY_EXPR="(let f = builtins.getFlake \"git+file://${REPO_ROOT}\"; pkgs = f.inputs.nixpkgs.legacyPackages.${SYSTEM}; in pkgs.callPackage ${PROBE_FILE2} { }).webDeps"
+VERIFY_LOG="$PROBE_ROOT/verify.log"
+
+if ! nix build --impure --no-link --print-out-paths --expr "$VERIFY_EXPR" >"$VERIFY_LOG" 2>&1; then
+  MANIFEST_HASH=$(
+    awk '
+      /hash mismatch in fixed-output derivation/ {
+        block = $0
+        for (i = 0; i < 3; i++) { if ((getline line) <= 0) break; block = block "\n" line }
+      }
+      block ~ /new-api-web-deps/ && block ~ /got:/ {
+        if (match(block, /got:[[:space:]]+sha256-[A-Za-z0-9\/+=]+/)) {
+          hash = substr(block, RSTART + 4, RLENGTH - 4)
+          gsub(/[[:space:]]/, "", hash)
+          print hash
+          exit
+        }
+      }
+    ' "$VERIFY_LOG"
+  ) || true
+  echo "ERROR: the probed webDeps hash does not build." >&2
+  echo "  probed:  $WEB_DEPS_HASH" >&2
+  [ -n "$MANIFEST_HASH" ] && echo "  build reports: $MANIFEST_HASH" >&2
+  echo "default.nix was left untouched." >&2
+  tail -20 "$VERIFY_LOG" >&2
+  exit 1
+fi
+
+VERIFIED_OUT=$(tail -1 "$VERIFY_LOG")
+echo "verified webDeps builds: $VERIFIED_OUT"
+
+# Step 4: write the new hash into a copy next to default.nix and rename it into
 # place. Same-directory rename is atomic, so the file is either the old content
 # or the finished new content, never a half-written one.
 FINAL_FILE=$(mktemp "$SCRIPT_DIR/.default.nix.XXXXXX")

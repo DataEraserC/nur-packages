@@ -32,7 +32,7 @@ else
     npmFlags = [ "--legacy-peer-deps" ];
     dontNpmBuild = true;
 
-    linkKernelNodeModules = dshPkgs.dsh.dsh-kernel;
+    installation = dshPkgs.dsh.dsh-runtime;
 
     passthru = {
       inherit unwrapped;

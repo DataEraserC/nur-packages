@@ -26,6 +26,13 @@ else
 
     deployPackage = "dsh-free-search";
 
+    # Upstream pins NOW for its offline assertions but searchBrave() never
+    # forwards a clock to parseBraveResponse(), so the "2 days ago" case reads
+    # the real calendar date and only passes on 2026-11-15. Thread the clock
+    # through instead of freezing the date, so the gate keeps testing the real
+    # relative-age logic instead of a hardcoded expectation.
+    patches = [ ./brave-clock.patch ];
+
     nativeBuildInputs = [ jq ];
 
     postPatch = ''
@@ -82,7 +89,7 @@ else
       if [ -f $out/lib/node_modules/.pnpm-workspace-state-v1.json ]; then sed -i -E 's#"lastValidatedTimestamp": [0-9]+#"lastValidatedTimestamp": 0#' $out/lib/node_modules/.pnpm-workspace-state-v1.json; fi
     '';
 
-    linkKernelNodeModules = dshPkgs.dsh.dsh-kernel;
+    installation = dshPkgs.dsh.dsh-runtime;
 
     passthru = {
       requiresWeb = true;

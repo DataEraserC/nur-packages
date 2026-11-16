@@ -77,7 +77,7 @@ else
     # gives this bundle package the kernel's single cordis / schemastery /
     # mcp-client instances.
     runtimeDeps = [ cua-cli ];
-    linkKernelNodeModules = dshPkgs.dsh.dsh-kernel;
+    installation = dshPkgs.dsh.dsh-runtime;
 
     passthru = {
       aiProvenance = [

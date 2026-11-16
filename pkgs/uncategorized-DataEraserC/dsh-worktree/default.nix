@@ -62,7 +62,7 @@ else
       test -f $out/lib/node_modules/dsh-worktree/lib/index.js
     '';
 
-    linkKernelNodeModules = dshPkgs.dsh.dsh-kernel;
+    installation = dshPkgs.dsh.dsh-runtime;
     runtimeDeps = [ git ];
 
     passthru = {

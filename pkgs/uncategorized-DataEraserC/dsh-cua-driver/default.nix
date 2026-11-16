@@ -98,7 +98,7 @@ else
     # the kernel link gives both provider packages (and this bundle package)
     # the kernel's single cordis/schemastery/mcp-client instances.
     runtimeDeps = [ cua-driver ];
-    linkKernelNodeModules = dshPkgs.dsh.dsh-kernel;
+    installation = dshPkgs.dsh.dsh-runtime;
 
     passthru = {
       aiProvenance = [

@@ -5,9 +5,23 @@
   fetchFromGitHub,
   nix-update-script,
   git,
+  pnpm_11,
 }:
 let
   dshPkgs = pkgs.extend inputs.deepseek-harness.overlays.default;
+
+  # scripts/check-install-channel.test.mjs pins pnpm 11.28.5 exactly: it drives
+  # the real CLI, asserts `pnpm --version` reports 11.28.5 (upstream's desktop
+  # release cadence), and refuses to run without DESKTOP_PNPM_CLI. nixpkgs'
+  # pnpm_11 is 11.27.0, so build the pinned release from the registry tarball
+  # rather than weakening a version assertion that guards release readiness.
+  desktopPnpm = pnpm_11.overrideAttrs (old: {
+    version = "11.28.5";
+    src = pkgs.fetchurl {
+      url = "https://registry.npmjs.org/pnpm/-/pnpm-11.28.5.tgz";
+      hash = "sha256-HvTkR6aHE2VgZPPxdMD0RxmWCgQ6P+IpkWnQjPHb+O4=";
+    };
+  });
 in
 if inputs == null then
   throw "dsh-agent-teams requires the deepseek-harness flake input; evaluate it through the flake (nix build .#dsh-agent-teams)"
@@ -39,10 +53,15 @@ else
 
     doCheck = true;
 
+    # scripts/check-install-channel.test.mjs drives a real pnpm CLI and refuses
+    # to run without DESKTOP_PNPM_CLI (upstream exports it only from
+    # .github/workflows/verify.yml). Point it at the pinned pnpm so the gate
+    # runs here instead of failing on the missing variable.
     checkPhase = ''
       runHook preCheck
       chmod -R u+w scripts
       patchShebangs scripts/doctor.mjs
+      export DESKTOP_PNPM_CLI=${desktopPnpm}/libexec/pnpm/bin/pnpm.mjs
       node --test scripts/*.test.mjs
       runHook postCheck
     '';
@@ -65,7 +84,7 @@ else
       if [ -f $out/lib/node_modules/.pnpm-workspace-state-v1.json ]; then sed -i -E 's#"lastValidatedTimestamp": [0-9]+#"lastValidatedTimestamp": 0#' $out/lib/node_modules/.pnpm-workspace-state-v1.json; fi
     '';
 
-    linkKernelNodeModules = dshPkgs.dsh.dsh-kernel;
+    installation = dshPkgs.dsh.dsh-runtime;
 
     passthru = {
       requiresWeb = true;

@@ -46,7 +46,7 @@ else
 
     runtimeDeps = [ xdg-utils ];
 
-    linkKernelNodeModules = dshPkgs.dsh.dsh-kernel;
+    installation = dshPkgs.dsh.dsh-runtime;
 
     passthru = {
       aiProvenance = [

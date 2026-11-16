@@ -47,7 +47,7 @@ else
       test -x $out/bin/dsh-chat-import
     '';
 
-    linkKernelNodeModules = dshPkgs.dsh.dsh-kernel;
+    installation = dshPkgs.dsh.dsh-runtime;
 
     passthru = {
       requiresWeb = true;

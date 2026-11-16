@@ -3,6 +3,7 @@
   pkgs,
   inputs ? null,
   fetchFromGitHub,
+  nix-update-script,
 }:
 let
   dshPkgs = pkgs.extend inputs.deepseek-harness.overlays.default;
@@ -45,6 +46,14 @@ else
     '';
 
     passthru = {
+      # Upstream tags vX.Y.Z at the pinned rev, so a plain nix-update follows
+      # releases. It has to run in flake mode with the bare attribute name: the
+      # package consumes the deepseek-harness input, so legacy evaluation (and
+      # the grouped attrPath the update runner passes) cannot resolve it.
+      updateScript = nix-update-script {
+        attrPath = "dsh-settings-persist";
+        extraArgs = [ "--flake" ];
+      };
       aiProvenance = [
         {
           agent = "dsh";
