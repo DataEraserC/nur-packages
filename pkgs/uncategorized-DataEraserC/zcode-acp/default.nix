@@ -14,13 +14,13 @@
   versionCheckHook,
 }:
 let
-  version = "0.85.3";
+  version = "0.86.1";
 
   src = fetchFromGitHub {
     owner = "william0wang";
     repo = "zcode-acp";
     tag = "v${version}";
-    hash = "sha256-WYCeaCmuiz8T5cf1dTsTaLSh6uX+iwMgPBo6XZpsVHM=";
+    hash = "sha256-wQ91vpTrJQ15Gcq0kxMWF3Adx9zjJO/meosypfXg260=";
   };
 
   pnpmDeps = fetchPnpmDeps {
