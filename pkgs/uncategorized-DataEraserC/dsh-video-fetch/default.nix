@@ -1,80 +1,31 @@
 {
-  lib,
   pkgs,
   inputs ? null,
-  fetchFromGitHub,
-  video-login-abi,
-  yt-dlp,
-  ffmpeg,
 }:
-let
-  dshPkgs = pkgs.extend inputs.deepseek-harness.overlays.default;
-in
 if inputs == null then
-  throw "dsh-video-fetch requires the deepseek-harness flake input; evaluate it through the flake (nix build .#dsh-video-fetch)"
+  throw "dsh-video-fetch requires the video-login flake input; evaluate it through the flake (nix build .#dsh-video-fetch)"
 else
-  dshPkgs.dsh.buildDshBundle (finalAttrs: {
-    pname = "dsh-video-fetch";
-    version = "0.5.0";
-
-    src = fetchFromGitHub {
-      owner = "DataEraserC";
-      repo = "dsh-video-fetch";
-      # Follow the release tag; update.sh bumps version, src hash and
-      # npmDepsHash together (the lockfile ships inside the tag).
-      rev = "v${finalAttrs.version}";
-      hash = "sha256-f6r49hWDJnQJJQcDHqUcIBsnpN+ATSYON9KjYhm44Mw=";
-    };
-
-    npmDepsHash = "sha256-XGaMRfO+3cOmDYwNloTjuc3jycxquxnfsqKTP5mXfAo=";
-
-    dontNpmBuild = true;
-
-    preCheck = ''
-      mkdir -p native
-      cp ${video-login-abi}/lib/libvlogin.so native/libvlogin.so
-    '';
-
-    doCheck = true;
-    checkPhase = ''
-      runHook preCheck
-
-      node --test test/*.test.js
-
-      runHook postCheck
-    '';
-
-    installation = dshPkgs.dsh.dsh-runtime;
-
-    # spawn('yt-dlp') / spawn('ffmpeg') from the plugin; the dsh base bundle has neither.
-    runtimeDeps = [
-      yt-dlp
-      ffmpeg
-    ];
-
-    postInstall = ''
-      test -f $out/lib/node_modules/dsh-video-fetch/lib/index.js
-
-      mkdir -p $out/lib/node_modules/dsh-video-fetch/native
-      cp ${video-login-abi}/lib/libvlogin.so $out/lib/node_modules/dsh-video-fetch/native/libvlogin.so
-    '';
-
-    passthru = {
-      updateScript = [ (toString ./update.sh) ];
-      aiProvenance = [
-        {
-          agent = "dsh";
-          model = "mimo-v2.6-flash-free";
-          involvement = "authored";
-        }
+  # The video-login flake builds both halves itself — vlogin-abi behind the C
+  # ABI and the DSH host under hosts/dsh/ that installs it at
+  # native/libvlogin.so — so re-export instead of repeating the recipe. Same
+  # shape as bas-remote: no hash to refresh per release, and the library and
+  # the host cannot drift apart.
+  (inputs.video-login.packages.${pkgs.stdenv.hostPlatform.system}.dsh.overrideAttrs (old: {
+    passthru = (old.passthru or { }) // {
+      # meta.position of a re-export points into the input's store path, which
+      # hides the package from tools/build_own_cachix.py's path filter. This
+      # marker is how that filter recognises own-group packages re-exported
+      # from a flake input.
+      ownPackage = true;
+      # yt-dlp / ffmpeg are spawned by the plugin; keep declaring them so the
+      # dsh launcher PATH keeps carrying them for this bundle.
+      runtimeDeps = [
+        pkgs.yt-dlp
+        pkgs.ffmpeg
       ];
     };
-
-    meta = {
-      description = "Video downloading for DeepSeek Harness with per-channel login (QR / cookie / SMS / password / browser) and ffmpeg compression";
-      homepage = "https://github.com/DataEraserC/dsh-video-fetch";
-      license = lib.licenses.mit;
+    meta = (old.meta or { }) // {
+      changelog = "https://github.com/DataEraserC/video-login/releases";
       maintainers = import ../maintainers.nix;
-      platforms = lib.platforms.unix;
     };
-  })
+  }))

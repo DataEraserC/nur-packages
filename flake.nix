@@ -57,6 +57,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.deepseek-harness.follows = "deepseek-harness";
     };
+    # Same shape as bas-remote: the repository is the library first (vlogin-core
+    # protocol layer, vlogin-abi C ABI, vlogin-cli) and `hosts/dsh/` is the DSH
+    # half. Its flake builds both, so the recipe is not duplicated here.
+    video-login = {
+      url = "github:DataEraserC/video-login";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs =
     { self, flake-parts, ... }@inputs:
