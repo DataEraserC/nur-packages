@@ -1,6 +1,7 @@
 {
   lib,
   stdenv,
+  aws-lc,
   fetchFromGitHub,
   rustPlatform,
   buildNpmPackage,
@@ -12,18 +13,19 @@
   libayatana-appindicator,
   libsoup_3,
   openssl,
+  sqlite,
   webkitgtk_4_1,
   gtk3,
   versionCheckHook,
 }:
 
 let
-  version = "0.3.108";
+  version = "0.3.107";
   src = fetchFromGitHub {
     owner = "router-for-me";
     repo = "EasyCLIProxyAPI";
     tag = "v${version}";
-    hash = "sha256-zocyPHvFhvJaOOsW09OMkJScUJeNpoOGGa5JnCzMZgM=";
+    hash = "sha256-EgkhoeU8NHm23/8Y2oVzytfdGOY1VQ/RJwVZLFc63JA=";
   };
 
   frontend = buildNpmPackage {
@@ -31,7 +33,7 @@ let
     inherit version src;
 
     nodejs = nodejs_24;
-    npmDepsHash = "sha256-FqgyjtmzIb1GA5bpj9d2xBvpMyG5WmZpGB+/eWJN/HM=";
+    npmDepsHash = "sha256-4sPKA6HrmHqIR3sRB6o+tILeqhfYnSr16AvkYG1Zz4o=";
 
     postPatch = ''
       cp ${./package-lock.json} package-lock.json
@@ -65,7 +67,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
 
   cargoRoot = "src-tauri";
   buildAndTestSubdir = finalAttrs.cargoRoot;
-  cargoHash = "sha256-xTgAlB6Hop0g7owVudsZWn+1eWwz728g0qWgvL1xIpg=";
+  cargoHash = "sha256-zhbi5qiO6fT9BtbZyoyWpeHzg+z61sghA1xj64PmHQs=";
 
   patches = [
     ./core-data-dir.patch
@@ -80,11 +82,13 @@ rustPlatform.buildRustPackage (finalAttrs: {
   ];
 
   buildInputs = [
+    aws-lc
     glib-networking
     gtk3
     libayatana-appindicator
     libsoup_3
     openssl
+    sqlite
     webkitgtk_4_1
   ];
 

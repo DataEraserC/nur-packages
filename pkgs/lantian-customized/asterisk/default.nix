@@ -3,8 +3,6 @@
   lib,
   callPackage,
   asterisk,
-  asteriskDigiumCodecs,
-  asterisk-g72x,
   opencore-amr,
   spandsp3,
   codec2,
@@ -33,10 +31,15 @@ let
     hash = "sha256-EzQA+j2QBilNWgoPzcNEkf/3XO6XNl8ygDD6Q65tdFk=";
   };
 
-  codecs-actual = asteriskDigiumCodecs."${lib.versions.major asterisk.version}";
-  asterisk-g72x-actual = asterisk-g72x.override { inherit asterisk; };
   _3gpp-evs = callPackage ./3gpp-evs.nix { };
 
+  # Upstream codec_evs.patch and codec_gsm_efr.patch were written against
+  # Asterisk 13 with two lines of context. On Asterisk 22 patch falls back to
+  # fuzz and inserts ast_rtp_engine_load_format() calls into unrelated
+  # functions; in ast_rtp_lookup_mime_subtype2 the call also deadlocks on
+  # mime_types_lock. Both are vendored here, regenerated against 22.11 with
+  # five lines of context so they apply exactly.
+  #
   # Patches that use patch -p0
   myPatches = [
     "${asteriskAmrSrc}/codec_amr.patch"
@@ -44,7 +47,7 @@ let
     ./codec_evs.patch
     "${asteriskEvsSrc}/build_evs.patch"
     "${asteriskEvsSrc}/force_limitations.patch"
-    "${asteriskGsmEfrSrc}/codec_gsm_efr.patch"
+    ./codec_gsm_efr.patch
   ];
 
   myExtraFiles = [
@@ -92,16 +95,6 @@ in
   preBuild = (old.preBuild or "") + ''
     sed -i "s/MENUSELECT_ADDONS=.*/MENUSELECT_ADDONS=chan_mobile res_config_mysql/" menuselect.makeopts
     export MAKEFLAGS=-j$(nproc)
-  '';
-
-  postInstall = (old.postInstall or "") + ''
-    ln -s ${codecs-actual.opus}/codec_opus.so $out/lib/asterisk/modules/codec_opus.so
-    ln -s ${codecs-actual.opus}/format_ogg_opus.so $out/lib/asterisk/modules/format_ogg_opus.so
-    ln -s ${codecs-actual.opus}/codec_opus_config-en_US.xml $out/var/lib/asterisk/documentation/thirdparty/codec_opus_config-en_US.xml
-    ln -s ${codecs-actual.silk}/codec_silk.so $out/lib/asterisk/modules/codec_silk.so
-    ln -s ${codecs-actual.siren7}/codec_siren7.so $out/lib/asterisk/modules/codec_siren7.so
-    ln -s ${codecs-actual.siren14}/codec_siren14.so $out/lib/asterisk/modules/codec_siren14.so
-    ln -s ${asterisk-g72x-actual}/lib/asterisk/modules/codec_g729.so $out/lib/asterisk/modules/codec_g729.so
   '';
 
   passthru.updateScript = [ (toString ./update.sh) ];

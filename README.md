@@ -62,7 +62,7 @@ Or, use variables from this repository in case I change them:
 ## Packages
 
 <details>
-<summary>Package set: (Uncategorized) (372 packages)</summary>
+<summary>Package set: (Uncategorized) (370 packages)</summary>
 
 | State | Path | Name | Version | Description |
 | ----- | ---- | ---- | ------- | ----------- |
@@ -116,7 +116,7 @@ Or, use variables from this repository in case I change them:
 |  | `clang_dev_env_fhs` | [clang_dev_env_fhs-shell](https://clang.llvm.org/) |  | FHS sandbox providing Clang and C language tooling |
 | `x86_64-linux` | `cleanuparr` | [cleanuparr](https://github.com/Cleanuparr/Cleanuparr) | 2.11.1 | Advanced download manager for the Servarr ecosystem |
 |  | `click-loglevel` | [click-loglevel](https://github.com/jwodder/click-loglevel) | 0.7.0 | Log level parameter type for Click |
-|  | `cliproxyapi` | [cliproxyapi](https://github.com/router-for-me/CLIProxyAPI) | 8.0.75 | Wrap Gemini CLI, Antigravity, ChatGPT Codex, Claude Code, Qwen Code, iFlow as an OpenAI/Gemini/Claude/Codex compatible API service |
+|  | `cliproxyapi` | [cliproxyapi](https://github.com/router-for-me/CLIProxyAPI) | 8.0.73 | Wrap Gemini CLI, Antigravity, ChatGPT Codex, Claude Code, Qwen Code, iFlow as an OpenAI/Gemini/Claude/Codex compatible API service |
 |  | `cliproxyapi-management-center` | [cliproxyapi-management-center](https://github.com/router-for-me/Cli-Proxy-API-Management-Center) | 1.28.0 | Web management interface for CLIProxyAPI |
 |  | `cliproxyapi-management-center-bin` | [cliproxyapi-management-center-bin](https://github.com/router-for-me/Cli-Proxy-API-Management-Center) | 1.28.0 | Prebuilt web management interface for CLIProxyAPI |
 |  | `cockpy` | [cockpy](https://github.com/Hiro420/CockPY) | 0-unstable-2024-09-07 | Public and open source version of the cbt2 ps I'm working on |
@@ -169,11 +169,11 @@ Or, use variables from this repository in case I change them:
 |  | `dsh-settings-persist` | [dsh-settings-persist](https://github.com/DataEraserC/dsh-settings-persist) | 0.4.0 | Persist DSH Settings edits across nix managed-profile syncs and rebuilds, with auto/manual snapshots, a settings page and a /snapshots command |
 |  | `dsh-share` | [dsh-share](https://github.com/hellodigua/dsh-share) | 0.5.0 | Share selected DeepSeek Harness conversations as PNG images or Markdown text |
 |  | `dsh-turn-rewind` | [dsh-turn-rewind](https://github.com/Anionex/dsh-turn-rewind) | 0.3.13-unstable-2026-11-12 | Turn-level conversation and workspace rewind for DeepSeek Harness powered by a persistent Change Ledger |
-|  | `dsh-video-fetch` | [dsh-video-fetch](https://github.com/DataEraserC/dsh-video-fetch) | 0.5.0 | Video downloading for DeepSeek Harness with per-channel login (QR / cookie / SMS / password / browser) and ffmpeg compression |
+|  | `dsh-video-fetch` | [dsh-video-fetch](https://github.com/DataEraserC/video-login) | 0.5.0 | Video downloading for DeepSeek Harness with per-channel login and ffmpeg compression |
 |  | `dsh-worktree` | [dsh-worktree](https://github.com/FlashingChen/dsh-worktree) | 0.1.0 | Codex-style permanent git worktrees for DeepSeek Harness: agent tools, a /worktree command, and session context for durable worktrees |
 |  | `dump978` | [dump978](https://github.com/flightaware/dump978) | 11.1 | FlightAware's 978MHz UAT demodulator |
 | `x86_64-linux` | `easy-cliproxyapi-bin` | [easy-cliproxyapi-bin](https://github.com/router-for-me/EasyCLIProxyAPI) | 0.3.108 | Desktop GUI for CLIProxyAPI that configures popular AI agents |
-|  | `easycliproxyapi` | [easycliproxyapi](https://github.com/router-for-me/EasyCLIProxyAPI) | 0.3.108 | Desktop GUI for managing CLIProxyAPI and configuring AI agent clients |
+|  | `easycliproxyapi` | [easycliproxyapi](https://github.com/router-for-me/EasyCLIProxyAPI) | 0.3.107 | Desktop GUI for managing CLIProxyAPI and configuring AI agent clients |
 |  | `edge-tts` | [edge-tts](https://github.com/rany2/edge-tts) | 7.3.1 | Use Microsoft Edge's online text-to-speech service from Python WITHOUT needing Microsoft Edge or Windows or an API key |
 |  | `ela-widget-tools` | [ela-widget-tools](https://github.com/Liniyous/ElaWidgetTools) | 0-unstable-2026-11-14 | Fluent-UI For QT-Widget |
 |  | `electron_11` | [electron](https://github.com/electron/electron) | 11.5.0 | Cross platform desktop application shell |
@@ -200,7 +200,7 @@ Or, use variables from this repository in case I change them:
 |  | `fr24feed` | [fr24feed](https://www.flightradar24.com/share-your-data) | 1.0.57-1 | Flightradar24 Decoder & Feeder lets you effortlessly share ADS-B data with Flightradar24 |
 |  | `ftp-proxy` | [ftp-proxy](http://www.ftpproxy.org/) | 1.2.3 | FTP Proxy Server |
 |  | `funasr` | [funasr](https://www.funasr.com/) | 1.4.26-unstable-2026-11-16 | Fundamental End-to-End Speech Recognition Toolkit and Open Source SOTA Pretrained Models |
-|  | `geolite2` | [geolite2](https://dev.maxmind.com/geoip/geoip2/geolite2/) | 2026.11.16 | MaxMind's GeoIP2 GeoLite2 Country, City, and ASN databases |
+|  | `geolite2` | [geolite2](https://dev.maxmind.com/geoip/geoip2/geolite2/) | 2026.11.13 | MaxMind's GeoIP2 GeoLite2 Country, City, and ASN databases |
 |  | `glauth` | [glauth](https://github.com/glauth/glauth) | 2.5.4 | Lightweight LDAP server for development, home use, or CI |
 | `x86_64-linux` | `google-earth-pro` | [google-earth-pro](https://www.google.com/earth/) | 7.3.7.1327 | Google Earth Pro |
 |  | `gopherus` | [gopherus](http://gopherus.sourceforge.net/) | 1.2.2 | Free, multiplatform, console-mode gopher client that provides a classic text interface to the gopherspace |
@@ -221,10 +221,10 @@ Or, use variables from this repository in case I change them:
 |  | `hoyo-glyphs` | [hoyo-glyphs](https://github.com/SpeedyOrc-C/Hoyo-Glyphs) | 20250529 | Constructed scripts by Hoyoverse 米哈游的架空文字 |
 | `x86_64-linux` | `i915-sriov` | [i915-sriov](https://github.com/strongtz/i915-sriov-dkms) | 2026.11.05-unstable-2026-11-06 | DKMS module of Linux i915 driver with SR-IOV support |
 |  | `igsc` | [igsc](https://github.com/intel/igsc) | 1.3.2 | Intel graphics system controller firmware update library |
-|  | `ik-llama-cpp` | [ik-llama-cpp](https://github.com/ikawrakow/ik_llama.cpp) | 0-unstable-2026-11-16 | High-performance llama.cpp fork with optimized i-quantization kernels |
-|  | `ik-llama-cpp-avx` | [ik-llama-cpp](https://github.com/ikawrakow/ik_llama.cpp) | 0-unstable-2026-11-16 | High-performance llama.cpp fork with optimized i-quantization kernels |
-|  | `ik-llama-cpp-avx2` | [ik-llama-cpp](https://github.com/ikawrakow/ik_llama.cpp) | 0-unstable-2026-11-16 | High-performance llama.cpp fork with optimized i-quantization kernels |
-|  | `ik-llama-cpp-cuda` | [ik-llama-cpp](https://github.com/ikawrakow/ik_llama.cpp) | 0-unstable-2026-11-16 | High-performance llama.cpp fork with optimized i-quantization kernels |
+|  | `ik-llama-cpp` | [ik-llama-cpp](https://github.com/ikawrakow/ik_llama.cpp) | 0-unstable-2026-11-14 | High-performance llama.cpp fork with optimized i-quantization kernels |
+|  | `ik-llama-cpp-avx` | [ik-llama-cpp](https://github.com/ikawrakow/ik_llama.cpp) | 0-unstable-2026-11-14 | High-performance llama.cpp fork with optimized i-quantization kernels |
+|  | `ik-llama-cpp-avx2` | [ik-llama-cpp](https://github.com/ikawrakow/ik_llama.cpp) | 0-unstable-2026-11-14 | High-performance llama.cpp fork with optimized i-quantization kernels |
+|  | `ik-llama-cpp-cuda` | [ik-llama-cpp](https://github.com/ikawrakow/ik_llama.cpp) | 0-unstable-2026-11-14 | High-performance llama.cpp fork with optimized i-quantization kernels |
 |  | `imewlconverter` | [imewlconverter](https://github.com/studyzy/imewlconverter) | 3.6.0 | FOSS program for converting IME dictionaries |
 |  | `invisible-firefox-unwrapped` | [invisible-firefox-unwrapped](https://github.com/feder-cr/invisible-firefox) | 151.0 | Firefox with anti fingerprinting modifications |
 |  | `invisible-firefox-unwrapped-bin` | [invisible-firefox-unwrapped-bin](https://github.com/feder-cr/firefox_antidetect_patch) | 159.0 | Anti-fingerprinting Firefox, packaged from upstream prebuilt Linux binaries |
@@ -276,7 +276,7 @@ Or, use variables from this repository in case I change them:
 |  | `nft-fullcone` | [nft-fullcone](https://github.com/fullcone-nat-nftables/nft-fullcone) | 0-unstable-2023-05-17 | Nftables fullcone expression kernel module |
 |  | `nftables-fullcone` | [nftables](https://netfilter.org/projects/nftables/) | 1.1.7 | Project that aims to replace the existing {ip,ip6,arp,eb}tables framework |
 |  | `nginx-auth-jwt` | [nginx-auth-jwt](https://github.com/kjdev/nginx-auth-jwt) | 0.15.1 | JWT authentication module for nginx |
-|  | `nginx-oidc` | [nginx-oidc](https://github.com/kjdev/nginx-oidc) | 0.10.0 | OpenID Connect authentication module for nginx |
+|  | `nginx-oidc` | [nginx-oidc](https://github.com/kjdev/nginx-oidc) | 0.9.0 | OpenID Connect authentication module for nginx |
 |  | `ngx_http_js_challenge_module` | [ngx_http_js_challenge_module](https://github.com/simon987/ngx_http_js_challenge_module) | 0-unstable-2023-03-17 | Simple JavaScript proof-of-work based DDoS protection module for nginx |
 |  | `noise-suppression-for-voice` | [noise-suppression-for-voice](https://github.com/werman/noise-suppression-for-voice) | 1.22 | Noise suppression plugin based on Xiph's RNNoise |
 |  | `nullfs` | [nullfs](https://github.com/xrgtn/nullfs) | 0-unstable-2016-01-28 | FUSE nullfs drivers |
@@ -293,8 +293,7 @@ Or, use variables from this repository in case I change them:
 |  | `opencode2api` | [opencode2api](https://github.com/jasonxu114514/opencode2api) | 1.4.7 | OpenCode Zen and Zen Go API gateway with OpenAI and Anthropic compatibility, key pooling, and WebUI |
 |  | `opencode2dsh` | [opencode2dsh](https://github.com/FishBottle7/opencode2dsh) | 0.3.14 | DSH plugin for free OpenCode Zen models with native adapter and no API key |
 |  | `openedai-speech` | [openedai-speech](https://github.com/matatonic/openedai-speech) | 0.18.2 | OpenAI API compatible text to speech server using Coqui AI's xtts_v2 and/or piper tts as the backend |
-|  | `openssl-oqs-provider` | [openssl-oqs-provider](https://openquantumsafe.org) | 0.12.0 | OpenSSL 3 provider containing post-quantum algorithms |
-|  | `osdlyrics` | [osdlyrics](https://github.com/osdlyrics/osdlyrics) | 0.6.1 | Standalone lyrics fetcher/displayer (windowed and OSD mode) |
+|  | `openssl-oqs-provider` | [openssl-oqs-provider](https://openquantumsafe.org) | 0.12.0-unstable-2026-11-15 | OpenSSL 3 provider containing post-quantum algorithms |
 |  | `palworld-exporter` | [palworld-exporter](https://github.com/palworldlol/palworld-exporter) | 1.3.1 | Prometheus exporter for Palworld Server |
 |  | `palworld-worldoptions` | [palworld-worldoptions](https://github.com/legoduded/palworld-worldoptions) | 1.11.0 | Tool for managing Palworld dedicated server settings |
 |  | `peerbanhelper` | [peerbanhelper](https://github.com/Ghost-chu/PeerBanHelper) | 9.5.5 | Automatically bans unwanted, leeching, and anomalous BT clients, with support for custom rules for qBittorrent and Transmission |
@@ -310,6 +309,7 @@ Or, use variables from this repository in case I change them:
 |  | `plasma-yesplaymusic-lyric` | [plasma-yesplaymusic-lyric](https://github.com/zsiothsu/org.kde.plasma.yesplaymusic-lyrics) | 0.2.3-unstable-2025-01-07 | Display YesPlayMusic lyrics on the plasma panel | 在KDE plasma面板中显示YesPlayMusic的歌词 |
 |  | `prismml-llama-cpp` | [prismml-llama-cpp](https://github.com/PrismML-Eng/llama.cpp) | b12128-d7b2896 | PrismML fork of llama.cpp with runtime CPU dispatch and unified llama binary |
 |  | `prismml-llama-cpp-cuda` | [prismml-llama-cpp](https://github.com/PrismML-Eng/llama.cpp) | b12128-d7b2896 | PrismML fork of llama.cpp with runtime CPU dispatch and unified llama binary |
+|  | `project-maya` | [project-maya](https://github.com/mw00/project-maya) | 1.1.65 | Local large language model inference stack with CUDA engines and a self-managed data folder |
 |  | `prometheus-knot-exporter-go` | [prometheus-knot-exporter-go](https://github.com/CZ-NIC/knot-exporter) | 3.5.3-unstable-2025-10-31 | Prometheus exporter for Knot DNS written in Go |
 |  | `pterodactyl-wings` | [pterodactyl-wings](https://pterodactyl.io) | 1.13.5-unstable-2026-11-11 | Server control plane for Pterodactyl Panel |
 |  | `py-rcon` | [rcon](https://github.com/ttk1/py-rcon) | 1.3.0 | Python implementation of RCON |
@@ -337,7 +337,6 @@ Or, use variables from this repository in case I change them:
 |  | `r8168` | [r8168](https://www.realtek.com/en/component/zoo/category/network-interface-controllers-10-100-1000m-gigabit-ethernet-pci-express-software) | 8.057.00 | Linux device driver for Realtek Ethernet controllers |
 |  | `rcon` | [rcon](https://github.com/ttk1/py-rcon) | 1.3.0 | Python implementation of RCON |
 |  | `rdp-primary-monitor` | [rdp-primary-monitor](https://github.com/michal-b-bozek/rdp-primary-monitor) | 0.1.0-unstable-2026-10-26 | GNOME Shell extension making an RDP client's virtual monitor primary while connected |
-| `x86_64-linux` | `red-star-os-rgjanggi` | [red-star-os-rgjanggi](https://archive.org/details/RedStarOS) | 3.0 | Rgjanggi game from DPRK Red Star OS 3.0, heavily sandboxed, use at your own risk |
 |  | `red-star-os-wallpapers` | [red-star-os-wallpapers](https://archive.org/details/RedStarOS) | 3.0 | Wallpapers from DPRK Red Star OS 3.0 |
 |  | `resin` | [resin](https://github.com/Resinat/Resin) | 1.3.0 | High-performance intelligent proxy pool gateway with sticky sessions |
 |  | `rime-aurora-pinyin` | [rime-aurora-pinyin](https://github.com/hosxy/rime-aurora-pinyin) | 0-unstable-2022-08-28 | 【极光拼音】输入方案 |
@@ -361,7 +360,7 @@ Or, use variables from this repository in case I change them:
 |  | `smfc` | [smfc](https://github.com/petersulyok/smfc) | 6.2.0 | Super Micro Fan Control |
 |  | `snell-server` | [snell-server](https://nssurge.com) | 6.0.0 | Proxy server implementing the Snell protocol |
 |  | `space-cadet-pinball-full-tilt` | [SpaceCadetPinball](https://github.com/k4zmu2a/SpaceCadetPinball) | 2.1.0 | Reverse engineering of 3D Pinball for Windows – Space Cadet, a game bundled with Windows (With Full Tilt Pinball data) |
-|  | `strata` | [strata-runtime](https://github.com/Niko1221/Strata) | 0.2.15 | Local large language model inference stack with a CUDA engine and a self-managed data folder |
+|  | `strata` | [strata-runtime](https://github.com/Niko1221/Strata) | 0.2.14.1 | Local large language model inference stack with a CUDA engine and a self-managed data folder |
 |  | `stream-echo-nginx-module` | [stream-echo-nginx-module](https://github.com/openresty/stream-echo-nginx-module) | 0-unstable-2016-12-18 | TCP stream echo module for nginx |
 |  | `suwayomi-server` | [suwayomi-server](https://github.com/Suwayomi/Suwayomi-Server) | 2.4.2366 | Rewrite of Tachiyomi for the Desktop |
 | `x86_64-linux` | `svp` | [svp](https://www.svp-team.com/wiki/SVP:Linux) | 4.7.305-1 | SmoothVideo Project 4 (SVP4) converts any video to 60 fps (and even higher) and performs this in real time right in your favorite video player |
@@ -388,7 +387,6 @@ Or, use variables from this repository in case I change them:
 |  | `v2ray-rules-dat` | [v2ray-rules-dat](https://github.com/Loyalsoldier/v2ray-rules-dat) | 202611152204 | Enhanced V2Ray routing rules replacing the official geoip.dat and geosite.dat |
 |  | `vbmeta-disable-verification` | [vbmeta-disable-verification](https://github.com/libxzr/vbmeta-disable-verification) | 1.0 | Patch Android vbmeta image and disable verification flags inside |
 |  | `vgpu-unlock-rs` | [vgpu-unlock-rs](https://github.com/mbilker/vgpu_unlock-rs) | 2.5.0 | Unlock vGPU functionality for consumer grade GPUs |
-|  | `video-login-abi` | [video-login-abi](https://github.com/DataEraserC/video-login) | 0.2.0 | C ABI shared library for multi-channel video site login |
 | `x86_64-linux` | `vivado` | [vivado](https://www.amd.com/en/products/software/fpga-and-adaptive-socs/vivado.html) | 2025.2.1 | AMD Vivado ML Standard design suite |
 |  | `vk-hdr-layer` | [vk-hdr-layer](https://github.com/Zamundaaa/VK_hdr_layer) | 0-unstable-2026-08-05 | Vulkan layer utilizing a small color management / HDR protocol for experimentation |
 |  | `vlmcsd` | [vlmcsd](https://github.com/Wind4/vlmcsd) | 1113-unstable-2023-07-28 | KMS Emulator in C |
@@ -594,16 +592,16 @@ Or, use variables from this repository in case I change them:
 
 | State | Path | Name | Version | Description |
 | ----- | ---- | ---- | ------- | ----------- |
-|  | `lantianLinuxCachyOS.lts` | [linux-cachyos-lts](https://www.kernel.org/) | 6.18.60 | Linux CachyOS Kernel |
-|  | `lantianLinuxCachyOS.lts-lto` | [linux-cachyos-lts-lto](https://www.kernel.org/) | 6.18.60 | Linux CachyOS Kernel with Clang+ThinLTO |
-|  | `lantianLinuxCachyOS.lts-lto-x86_64-v2` | [linux-cachyos-lts-lto-x86_64-v2](https://www.kernel.org/) | 6.18.60 | Linux CachyOS Kernel with Clang+ThinLTO |
-|  | `lantianLinuxCachyOS.lts-lto-x86_64-v3` | [linux-cachyos-lts-lto-x86_64-v3](https://www.kernel.org/) | 6.18.60 | Linux CachyOS Kernel with Clang+ThinLTO |
-|  | `lantianLinuxCachyOS.lts-lto-x86_64-v4` | [linux-cachyos-lts-lto-x86_64-v4](https://www.kernel.org/) | 6.18.60 | Linux CachyOS Kernel with Clang+ThinLTO |
-|  | `lantianLinuxCachyOS.lts-lto-zen4` | [linux-cachyos-lts-lto-zen4](https://www.kernel.org/) | 6.18.60 | Linux CachyOS Kernel with Clang+ThinLTO |
-|  | `lantianLinuxCachyOS.lts-x86_64-v2` | [linux-cachyos-lts-x86_64-v2](https://www.kernel.org/) | 6.18.60 | Linux CachyOS Kernel |
-|  | `lantianLinuxCachyOS.lts-x86_64-v3` | [linux-cachyos-lts-x86_64-v3](https://www.kernel.org/) | 6.18.60 | Linux CachyOS Kernel |
-|  | `lantianLinuxCachyOS.lts-x86_64-v4` | [linux-cachyos-lts-x86_64-v4](https://www.kernel.org/) | 6.18.60 | Linux CachyOS Kernel |
-|  | `lantianLinuxCachyOS.lts-zen4` | [linux-cachyos-lts-zen4](https://www.kernel.org/) | 6.18.60 | Linux CachyOS Kernel |
+|  | `lantianLinuxCachyOS.latest` | [linux-cachyos-latest](https://www.kernel.org/) | 7.3.4 | Linux CachyOS Kernel |
+|  | `lantianLinuxCachyOS.latest-lto` | [linux-cachyos-latest-lto](https://www.kernel.org/) | 7.3.4 | Linux CachyOS Kernel with Clang+ThinLTO |
+|  | `lantianLinuxCachyOS.latest-lto-x86_64-v2` | [linux-cachyos-latest-lto-x86_64-v2](https://www.kernel.org/) | 7.3.4 | Linux CachyOS Kernel with Clang+ThinLTO |
+|  | `lantianLinuxCachyOS.latest-lto-x86_64-v3` | [linux-cachyos-latest-lto-x86_64-v3](https://www.kernel.org/) | 7.3.4 | Linux CachyOS Kernel with Clang+ThinLTO |
+|  | `lantianLinuxCachyOS.latest-lto-x86_64-v4` | [linux-cachyos-latest-lto-x86_64-v4](https://www.kernel.org/) | 7.3.4 | Linux CachyOS Kernel with Clang+ThinLTO |
+|  | `lantianLinuxCachyOS.latest-lto-zen4` | [linux-cachyos-latest-lto-zen4](https://www.kernel.org/) | 7.3.4 | Linux CachyOS Kernel with Clang+ThinLTO |
+|  | `lantianLinuxCachyOS.latest-x86_64-v2` | [linux-cachyos-latest-x86_64-v2](https://www.kernel.org/) | 7.3.4 | Linux CachyOS Kernel |
+|  | `lantianLinuxCachyOS.latest-x86_64-v3` | [linux-cachyos-latest-x86_64-v3](https://www.kernel.org/) | 7.3.4 | Linux CachyOS Kernel |
+|  | `lantianLinuxCachyOS.latest-x86_64-v4` | [linux-cachyos-latest-x86_64-v4](https://www.kernel.org/) | 7.3.4 | Linux CachyOS Kernel |
+|  | `lantianLinuxCachyOS.latest-zen4` | [linux-cachyos-latest-zen4](https://www.kernel.org/) | 7.3.4 | Linux CachyOS Kernel |
 </details>
 
 <details>
@@ -621,7 +619,7 @@ Or, use variables from this repository in case I change them:
 | ----- | ---- | ---- | ------- | ----------- |
 |  | `nginx-modules.ja4-nginx-module` | [ja4-nginx-module](https://github.com/FoxIO-LLC/ja4-nginx-module) | 0-unstable-2026-11-06 | JA4+ TLS fingerprint module for nginx |
 |  | `nginx-modules.nginx-auth-jwt` | [nginx-auth-jwt](https://github.com/kjdev/nginx-auth-jwt) | 0.15.1 | JWT authentication module for nginx |
-|  | `nginx-modules.nginx-oidc` | [nginx-oidc](https://github.com/kjdev/nginx-oidc) | 0.10.0 | OpenID Connect authentication module for nginx |
+|  | `nginx-modules.nginx-oidc` | [nginx-oidc](https://github.com/kjdev/nginx-oidc) | 0.9.0 | OpenID Connect authentication module for nginx |
 |  | `nginx-modules.ngx_http_js_challenge_module` | [ngx_http_js_challenge_module](https://github.com/simon987/ngx_http_js_challenge_module) | 0-unstable-2023-03-17 | Simple JavaScript proof-of-work based DDoS protection module for nginx |
 |  | `nginx-modules.stream-echo-nginx-module` | [stream-echo-nginx-module](https://github.com/openresty/stream-echo-nginx-module) | 0-unstable-2016-12-18 | TCP stream echo module for nginx |
 |  | `nginx-modules.zstd-nginx-module` | [zstd-nginx-module](https://github.com/HanadaLee/ngx_http_zstd_module) | 0-unstable-2026-10-18 | HTTP zstd compression module for nginx |
@@ -1535,7 +1533,7 @@ Or, use variables from this repository in case I change them:
 </details>
 
 <details>
-<summary>Package set: uncategorized (188 packages)</summary>
+<summary>Package set: uncategorized (187 packages)</summary>
 
 | State | Path | Name | Version | Description |
 | ----- | ---- | ---- | ------- | ----------- |
@@ -1562,7 +1560,7 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized.calibre-cops` | [calibre-cops](http://blog.slucas.fr/en/oss/calibre-opds-php-server) | 4.6.1 | Web-based light alternative to Calibre content server / Calibre2OPDS to serve ebooks |
 |  | `uncategorized.cardpointers-cli` | [cardpointers-cli](https://github.com/cardpointers/cli) | 1.0.7 | Credit card rewards CLI for CardPointers |
 | `x86_64-linux` | `uncategorized.cleanuparr` | [cleanuparr](https://github.com/Cleanuparr/Cleanuparr) | 2.11.1 | Advanced download manager for the Servarr ecosystem |
-|  | `uncategorized.cliproxyapi` | [cliproxyapi](https://github.com/router-for-me/CLIProxyAPI) | 8.0.75 | Wrap Gemini CLI, Antigravity, ChatGPT Codex, Claude Code, Qwen Code, iFlow as an OpenAI/Gemini/Claude/Codex compatible API service |
+|  | `uncategorized.cliproxyapi` | [cliproxyapi](https://github.com/router-for-me/CLIProxyAPI) | 8.0.73 | Wrap Gemini CLI, Antigravity, ChatGPT Codex, Claude Code, Qwen Code, iFlow as an OpenAI/Gemini/Claude/Codex compatible API service |
 |  | `uncategorized.cockpy` | [cockpy](https://github.com/Hiro420/CockPY) | 0-unstable-2024-09-07 | Public and open source version of the cbt2 ps I'm working on |
 |  | `uncategorized.dbip-lite` | [dbip-lite](https://db-ip.com/db/lite.php) | 2026-08 | DBIP's Lite GeoIP Country, City, and ASN databases |
 |  | `uncategorized.decluttarr` | [decluttarr](https://github.com/ManiMatter/decluttarr) | 2.2.0 | Watches radarr, sonarr, lidarr and readarr download queues and removes downloads if they become stalled or no longer needed |
@@ -1571,7 +1569,7 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized.drone-file-secret` | [drone-file-secret](https://github.com/xddxdd/drone-file-secret) | 0-unstable-2023-06-26 | Secret provider for Drone CI that reads secrets from a given folder |
 |  | `uncategorized.drone-vault` | [drone-vault](https://docs.drone.io/configure/secrets/external/vault/) | 1.3.0 | Drone plugin for integrating with the Vault secrets manager |
 |  | `uncategorized.dump978` | [dump978](https://github.com/flightaware/dump978) | 11.1 | FlightAware's 978MHz UAT demodulator |
-|  | `uncategorized.easycliproxyapi` | [easycliproxyapi](https://github.com/router-for-me/EasyCLIProxyAPI) | 0.3.108 | Desktop GUI for managing CLIProxyAPI and configuring AI agent clients |
+|  | `uncategorized.easycliproxyapi` | [easycliproxyapi](https://github.com/router-for-me/EasyCLIProxyAPI) | 0.3.107 | Desktop GUI for managing CLIProxyAPI and configuring AI agent clients |
 |  | `uncategorized.ela-widget-tools` | [ela-widget-tools](https://github.com/Liniyous/ElaWidgetTools) | 0-unstable-2026-11-14 | Fluent-UI For QT-Widget |
 |  | `uncategorized.electron_11` | [electron](https://github.com/electron/electron) | 11.5.0 | Cross platform desktop application shell |
 |  | `uncategorized.electron_9` | [electron](https://github.com/electron/electron) | 9.4.4 | Cross platform desktop application shell |
@@ -1591,7 +1589,7 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized.folia-major-bin` | [folia-major-bin](https://github.com/chthollyphile/folia-major) | 0.7.28 | Music player with animated lyrics and audio visualization |
 |  | `uncategorized.fr24feed` | [fr24feed](https://www.flightradar24.com/share-your-data) | 1.0.57-1 | Flightradar24 Decoder & Feeder lets you effortlessly share ADS-B data with Flightradar24 |
 |  | `uncategorized.ftp-proxy` | [ftp-proxy](http://www.ftpproxy.org/) | 1.2.3 | FTP Proxy Server |
-|  | `uncategorized.geolite2` | [geolite2](https://dev.maxmind.com/geoip/geoip2/geolite2/) | 2026.11.16 | MaxMind's GeoIP2 GeoLite2 Country, City, and ASN databases |
+|  | `uncategorized.geolite2` | [geolite2](https://dev.maxmind.com/geoip/geoip2/geolite2/) | 2026.11.13 | MaxMind's GeoIP2 GeoLite2 Country, City, and ASN databases |
 |  | `uncategorized.glauth` | [glauth](https://github.com/glauth/glauth) | 2.5.4 | Lightweight LDAP server for development, home use, or CI |
 | `x86_64-linux` | `uncategorized.google-earth-pro` | [google-earth-pro](https://www.google.com/earth/) | 7.3.7.1327 | Google Earth Pro |
 |  | `uncategorized.gopherus` | [gopherus](http://gopherus.sourceforge.net/) | 1.2.2 | Free, multiplatform, console-mode gopher client that provides a classic text interface to the gopherspace |
@@ -1607,10 +1605,10 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized.hi3-ii-martian-font` | [hi3-ii-martian-font](https://github.com/Wenti-D/HI3IIMartianFont) | 0-unstable-2023-10-12 | Font for Martian in Honkai Impact 3rd |
 |  | `uncategorized.hoyo-glyphs` | [hoyo-glyphs](https://github.com/SpeedyOrc-C/Hoyo-Glyphs) | 20250529 | Constructed scripts by Hoyoverse 米哈游的架空文字 |
 |  | `uncategorized.igsc` | [igsc](https://github.com/intel/igsc) | 1.3.2 | Intel graphics system controller firmware update library |
-|  | `uncategorized.ik-llama-cpp` | [ik-llama-cpp](https://github.com/ikawrakow/ik_llama.cpp) | 0-unstable-2026-11-16 | High-performance llama.cpp fork with optimized i-quantization kernels |
-|  | `uncategorized.ik-llama-cpp-avx` | [ik-llama-cpp](https://github.com/ikawrakow/ik_llama.cpp) | 0-unstable-2026-11-16 | High-performance llama.cpp fork with optimized i-quantization kernels |
-|  | `uncategorized.ik-llama-cpp-avx2` | [ik-llama-cpp](https://github.com/ikawrakow/ik_llama.cpp) | 0-unstable-2026-11-16 | High-performance llama.cpp fork with optimized i-quantization kernels |
-|  | `uncategorized.ik-llama-cpp-cuda` | [ik-llama-cpp](https://github.com/ikawrakow/ik_llama.cpp) | 0-unstable-2026-11-16 | High-performance llama.cpp fork with optimized i-quantization kernels |
+|  | `uncategorized.ik-llama-cpp` | [ik-llama-cpp](https://github.com/ikawrakow/ik_llama.cpp) | 0-unstable-2026-11-14 | High-performance llama.cpp fork with optimized i-quantization kernels |
+|  | `uncategorized.ik-llama-cpp-avx` | [ik-llama-cpp](https://github.com/ikawrakow/ik_llama.cpp) | 0-unstable-2026-11-14 | High-performance llama.cpp fork with optimized i-quantization kernels |
+|  | `uncategorized.ik-llama-cpp-avx2` | [ik-llama-cpp](https://github.com/ikawrakow/ik_llama.cpp) | 0-unstable-2026-11-14 | High-performance llama.cpp fork with optimized i-quantization kernels |
+|  | `uncategorized.ik-llama-cpp-cuda` | [ik-llama-cpp](https://github.com/ikawrakow/ik_llama.cpp) | 0-unstable-2026-11-14 | High-performance llama.cpp fork with optimized i-quantization kernels |
 |  | `uncategorized.imewlconverter` | [imewlconverter](https://github.com/studyzy/imewlconverter) | 3.6.0 | FOSS program for converting IME dictionaries |
 |  | `uncategorized.invisible-firefox-unwrapped` | [invisible-firefox-unwrapped](https://github.com/feder-cr/invisible-firefox) | 151.0 | Firefox with anti fingerprinting modifications |
 |  | `uncategorized.invisible-firefox-unwrapped-bin` | [invisible-firefox-unwrapped-bin](https://github.com/feder-cr/firefox_antidetect_patch) | 159.0 | Anti-fingerprinting Firefox, packaged from upstream prebuilt Linux binaries |
@@ -1653,8 +1651,7 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized.oidc-tester-app` | [oidc-tester-app](https://github.com/authelia/oidc-tester-app) | 0-unstable-2026-11-10 | OpenID Connect relying party web application for testing OIDC providers such as Authelia |
 |  | `uncategorized.openai-edge-tts` | [openai-edge-tts](https://tts.travisvn.com/) | 2.0.0-unstable-2025-07-01 | Text-to-speech API endpoint compatible with OpenAI's TTS API endpoint, using Microsoft Edge TTS to generate speech for free locally |
 |  | `uncategorized.openedai-speech` | [openedai-speech](https://github.com/matatonic/openedai-speech) | 0.18.2 | OpenAI API compatible text to speech server using Coqui AI's xtts_v2 and/or piper tts as the backend |
-|  | `uncategorized.openssl-oqs-provider` | [openssl-oqs-provider](https://openquantumsafe.org) | 0.12.0 | OpenSSL 3 provider containing post-quantum algorithms |
-|  | `uncategorized.osdlyrics` | [osdlyrics](https://github.com/osdlyrics/osdlyrics) | 0.6.1 | Standalone lyrics fetcher/displayer (windowed and OSD mode) |
+|  | `uncategorized.openssl-oqs-provider` | [openssl-oqs-provider](https://openquantumsafe.org) | 0.12.0-unstable-2026-11-15 | OpenSSL 3 provider containing post-quantum algorithms |
 |  | `uncategorized.palworld-exporter` | [palworld-exporter](https://github.com/palworldlol/palworld-exporter) | 1.3.1 | Prometheus exporter for Palworld Server |
 |  | `uncategorized.palworld-worldoptions` | [palworld-worldoptions](https://github.com/legoduded/palworld-worldoptions) | 1.11.0 | Tool for managing Palworld dedicated server settings |
 |  | `uncategorized.peerbanhelper` | [peerbanhelper](https://github.com/Ghost-chu/PeerBanHelper) | 9.5.5 | Automatically bans unwanted, leeching, and anomalous BT clients, with support for custom rules for qBittorrent and Transmission |
@@ -1668,6 +1665,7 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized.plasma-yesplaymusic-lyric` | [plasma-yesplaymusic-lyric](https://github.com/zsiothsu/org.kde.plasma.yesplaymusic-lyrics) | 0.2.3-unstable-2025-01-07 | Display YesPlayMusic lyrics on the plasma panel | 在KDE plasma面板中显示YesPlayMusic的歌词 |
 |  | `uncategorized.prismml-llama-cpp` | [prismml-llama-cpp](https://github.com/PrismML-Eng/llama.cpp) | b12128-d7b2896 | PrismML fork of llama.cpp with runtime CPU dispatch and unified llama binary |
 |  | `uncategorized.prismml-llama-cpp-cuda` | [prismml-llama-cpp](https://github.com/PrismML-Eng/llama.cpp) | b12128-d7b2896 | PrismML fork of llama.cpp with runtime CPU dispatch and unified llama binary |
+|  | `uncategorized.project-maya` | [project-maya](https://github.com/mw00/project-maya) | 1.1.65 | Local large language model inference stack with CUDA engines and a self-managed data folder |
 |  | `uncategorized.prometheus-knot-exporter-go` | [prometheus-knot-exporter-go](https://github.com/CZ-NIC/knot-exporter) | 3.5.3-unstable-2025-10-31 | Prometheus exporter for Knot DNS written in Go |
 |  | `uncategorized.pterodactyl-wings` | [pterodactyl-wings](https://pterodactyl.io) | 1.13.5-unstable-2026-11-11 | Server control plane for Pterodactyl Panel |
 |  | `uncategorized.pyhss` | [pyhss](https://github.com/nickvsnetworking/pyhss) | 2.0.2-unstable-2026-11-12 | Python HSS / Diameter Server |
@@ -1677,7 +1675,6 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized.qsp` | [qsp](https://github.com/QSPFoundation/qspgui) | 5.9.5-unstable-2026-10-21 | Interactive Fiction development platform (GUI application) |
 |  | `uncategorized.qsp-lib` | [qsp-lib](https://github.com/QSPFoundation/qsp) | 5.9.5-unstable-2026-11-11 | Interactive fiction development platform (Game Library) |
 |  | `uncategorized.qtwebapp` | [qtwebapp](https://stefanfrings.de/qtwebapp/index-en.html) | 1.9.1 | HTTP server library in C++, inspired by Java Servlets |
-| `x86_64-linux` | `uncategorized.red-star-os-rgjanggi` | [red-star-os-rgjanggi](https://archive.org/details/RedStarOS) | 3.0 | Rgjanggi game from DPRK Red Star OS 3.0, heavily sandboxed, use at your own risk |
 |  | `uncategorized.red-star-os-wallpapers` | [red-star-os-wallpapers](https://archive.org/details/RedStarOS) | 3.0 | Wallpapers from DPRK Red Star OS 3.0 |
 |  | `uncategorized.resin` | [resin](https://github.com/Resinat/Resin) | 1.3.0 | High-performance intelligent proxy pool gateway with sticky sessions |
 |  | `uncategorized.rime-aurora-pinyin` | [rime-aurora-pinyin](https://github.com/hosxy/rime-aurora-pinyin) | 0-unstable-2022-08-28 | 【极光拼音】输入方案 |
@@ -1694,7 +1691,7 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized.sidestore-vpn` | [sidestore-vpn](https://github.com/xddxdd/sidestore-vpn) | 0-unstable-2026-05-21 | Allow SideStore to work across all iOS devices on your local network |
 | `x86_64-linux` | `uncategorized.skyline-speeder` | [skyline-speeder](https://github.com/CYBERVERSE-Research/skyline-speeder) | 0.5.5 | Sender-side TCP congestion control via eBPF struct_ops with a Rust control plane |
 |  | `uncategorized.space-cadet-pinball-full-tilt` | [SpaceCadetPinball](https://github.com/k4zmu2a/SpaceCadetPinball) | 2.1.0 | Reverse engineering of 3D Pinball for Windows – Space Cadet, a game bundled with Windows (With Full Tilt Pinball data) |
-|  | `uncategorized.strata` | [strata-runtime](https://github.com/Niko1221/Strata) | 0.2.15 | Local large language model inference stack with a CUDA engine and a self-managed data folder |
+|  | `uncategorized.strata` | [strata-runtime](https://github.com/Niko1221/Strata) | 0.2.14.1 | Local large language model inference stack with a CUDA engine and a self-managed data folder |
 |  | `uncategorized.suwayomi-server` | [suwayomi-server](https://github.com/Suwayomi/Suwayomi-Server) | 2.4.2366 | Rewrite of Tachiyomi for the Desktop |
 | `x86_64-linux` | `uncategorized.svp` | [svp](https://www.svp-team.com/wiki/SVP:Linux) | 4.7.305-1 | SmoothVideo Project 4 (SVP4) converts any video to 60 fps (and even higher) and performs this in real time right in your favorite video player |
 |  | `uncategorized.svp-mpv` | [mpv-with-scripts](https://mpv.io) | 0.42.0 | General-purpose media player, fork of MPlayer and mplayer2 |
@@ -1730,7 +1727,7 @@ Or, use variables from this repository in case I change them:
 </details>
 
 <details>
-<summary>Package set: uncategorized-DataEraserC (121 packages)</summary>
+<summary>Package set: uncategorized-DataEraserC (120 packages)</summary>
 
 | State | Path | Name | Version | Description |
 | ----- | ---- | ---- | ------- | ----------- |
@@ -1788,7 +1785,7 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized-DataEraserC.dsh-settings-persist` | [dsh-settings-persist](https://github.com/DataEraserC/dsh-settings-persist) | 0.4.0 | Persist DSH Settings edits across nix managed-profile syncs and rebuilds, with auto/manual snapshots, a settings page and a /snapshots command |
 |  | `uncategorized-DataEraserC.dsh-share` | [dsh-share](https://github.com/hellodigua/dsh-share) | 0.5.0 | Share selected DeepSeek Harness conversations as PNG images or Markdown text |
 |  | `uncategorized-DataEraserC.dsh-turn-rewind` | [dsh-turn-rewind](https://github.com/Anionex/dsh-turn-rewind) | 0.3.13-unstable-2026-11-12 | Turn-level conversation and workspace rewind for DeepSeek Harness powered by a persistent Change Ledger |
-|  | `uncategorized-DataEraserC.dsh-video-fetch` | [dsh-video-fetch](https://github.com/DataEraserC/dsh-video-fetch) | 0.5.0 | Video downloading for DeepSeek Harness with per-channel login (QR / cookie / SMS / password / browser) and ffmpeg compression |
+|  | `uncategorized-DataEraserC.dsh-video-fetch` | [dsh-video-fetch](https://github.com/DataEraserC/video-login) | 0.5.0 | Video downloading for DeepSeek Harness with per-channel login and ffmpeg compression |
 |  | `uncategorized-DataEraserC.dsh-worktree` | [dsh-worktree](https://github.com/FlashingChen/dsh-worktree) | 0.1.0 | Codex-style permanent git worktrees for DeepSeek Harness: agent tools, a /worktree command, and session context for durable worktrees |
 | `x86_64-linux` | `uncategorized-DataEraserC.easy-cliproxyapi-bin` | [easy-cliproxyapi-bin](https://github.com/router-for-me/EasyCLIProxyAPI) | 0.3.108 | Desktop GUI for CLIProxyAPI that configures popular AI agents |
 | `x86_64-linux` | `uncategorized-DataEraserC.escrcpy_appimage` | [escrcpy](https://github.com/keiko233/clash-nyanpasu) | 3.3.1 | Clash GUI based on tauri |
@@ -1827,7 +1824,6 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized-DataEraserC.ttyescape` | [ttyescape](https://gitlab.com/postmarketOS/ttyescape) | 0-unstable-2023-03-08 | Tools for switching a mobile device to a TTY |
 |  | `uncategorized-DataEraserC.v2dat` | [v2dat](https://github.com/urlesistiana/v2dat) | 0-unstable-2022-12-15 | Command-line tool for unpacking V2Ray data packages |
 |  | `uncategorized-DataEraserC.v2ray-rules-dat` | [v2ray-rules-dat](https://github.com/Loyalsoldier/v2ray-rules-dat) | 202611152204 | Enhanced V2Ray routing rules replacing the official geoip.dat and geosite.dat |
-|  | `uncategorized-DataEraserC.video-login-abi` | [video-login-abi](https://github.com/DataEraserC/video-login) | 0.2.0 | C ABI shared library for multi-channel video site login |
 |  | `uncategorized-DataEraserC.watt-toolkit_2` | [watt-toolkit](https://steampp.net) | 2.8.6 | Cross-platform Steam toolbox |
 |  | `uncategorized-DataEraserC.watt-toolkit_bin` | [watt-toolkit_bin](https://steampp.net) | 3.2.0 | Open source cross-platform multi-purpose game toolkit |
 |  | `uncategorized-DataEraserC.webmux` | [webmux](https://github.com/mzdluo123/webmux) | 0.17.0-unstable-2026-11-16 | Browser-based persistent terminal server that keeps sessions alive across disconnects |

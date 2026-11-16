@@ -34,6 +34,7 @@ let
     inherit version src;
     sourceRoot = "source/frontend";
     pnpmDeps = frontendPnpmDeps;
+    env.SWC_NATIVE_BINDING_CACHE_SKIP_SECURITY_CHECK = "1";
     nativeBuildInputs = [
       nodejs
       pnpmConfigHook
@@ -59,11 +60,18 @@ buildGoModule (finalAttrs: {
   inherit version src;
   __structuredAttrs = true;
   strictDeps = true;
-  vendorHash = "sha256-IC7KubPExmAbLAp0RotEEXy16VN0bXrZCaBQHv6BicE=";
+  vendorHash = "sha256-7x+K+i8qq833KLOKkXVD/97OG2eIHnLtpVlyawnnqiA=";
 
   tags = [ "nomsgpack" ];
 
   proxyVendor = true;
+
+  postPatch = ''
+    for f in go.mod llm/go.mod; do
+      sed -i 's/^go 1\.27\.4$/go 1.27.3/' "$f"
+      grep -qx 'go 1\.27\.3' "$f"
+    done
+  '';
 
   preBuild = ''
 

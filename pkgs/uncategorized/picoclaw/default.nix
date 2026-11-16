@@ -19,7 +19,7 @@ buildGo127Module (finalAttrs: {
   __structuredAttrs = true;
   strictDeps = true;
 
-  vendorHash = "sha256-rL9qbF9VpMaI5kb4aByfWs3XucHVYySJmWQCnA+eO8I=";
+  vendorHash = "sha256-2sYsbtGdqcDwGd+fzNvJuvUvBTDmOH3/IrF59btfbmE=";
 
   buildInputs = [ olm ];
   subPackages = [ "cmd/picoclaw" ];
