@@ -184,6 +184,7 @@
             pgy = import ./modules/pgy.nix;
             cliproxyapi = import ./modules/cliproxyapi.nix;
             m365-copilot2api = import ./modules/m365-copilot2api.nix;
+            meoo2api = import ./modules/meoo2api.nix;
             opencode2api = import ./modules/opencode2api.nix;
             new-api = import ./modules/new-api.nix;
             mimocode2api = import ./modules/mimocode2api.nix;
