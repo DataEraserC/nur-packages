@@ -16,6 +16,27 @@
 }:
 let
   dshPkgs = pkgs.extend inputs.deepseek-harness.overlays.default;
+
+  # Browser-based suites `require()` playwright from a Windows developer path
+  # baked into the scripts, with `OFM_PLAYWRIGHT_MODULE` as the documented
+  # override. The Nix builder has no browser, so point that override at a stub
+  # whose launch() rejects with a recognisable marker. checkPhase turns exactly
+  # those suites into an explicit SKIP instead of a green pass, so the log never
+  # claims browser coverage that did not happen.
+  noBrowserPlaywright = pkgs.writeText "ofm-no-browser-playwright.cjs" ''
+    const noBrowser = () => {
+      const error = new Error("OFM_NO_BROWSER: no browser is available in this build");
+      error.code = "OFM_NO_BROWSER";
+      return error;
+    };
+    const chromium = {
+      launch: async () => { throw noBrowser(); },
+      launchPersistentContext: async () => { throw noBrowser(); },
+      connect: async () => { throw noBrowser(); },
+      executablePath: () => { throw noBrowser(); },
+    };
+    module.exports = { chromium, firefox: chromium, webkit: chromium };
+  '';
 in
 if inputs == null then
   throw "dsh-our-free-model requires the deepseek-harness flake input; evaluate it through the flake (nix build .#dsh-our-free-model)"
@@ -60,7 +81,37 @@ else
     checkPhase = ''
       runHook preCheck
       git init -q
-      node scripts/test-all.mjs
+      # Point the browser suites at the no-browser stub and keep their real
+      # output, so the SKIP lines below quote what actually happened.
+      export OFM_PLAYWRIGHT_MODULE=${noBrowserPlaywright}
+      suiteStatus=0
+      node scripts/test-all.mjs 2>&1 | tee "$TMPDIR/test-all.log" || suiteStatus=$?
+      if [ "$suiteStatus" -eq 0 ]; then
+        runHook postCheck
+        return 0
+      fi
+      # Only the browser suites may fail here. Anything else is a real failure.
+      failedSuites=$(sed -n "s/^ *FAIL \([a-z0-9-]*\).*/\1/p" "$TMPDIR/test-all.log" | sort -u)
+      unexpected=""
+      skipped=""
+      for suite in $failedSuites; do
+        case "$suite" in
+          feedback-e2e | feedback-plugin-ui)
+            grep -q "OFM_NO_BROWSER" "$TMPDIR/test-all.log" &&
+              skipped="$skipped $suite" ||
+              unexpected="$unexpected $suite"
+            ;;
+          *) unexpected="$unexpected $suite" ;;
+        esac
+      done
+      if [ -n "$unexpected" ]; then
+        echo "checkPhase: non-browser suites failed:$unexpected" >&2
+        tail -40 "$TMPDIR/test-all.log" >&2
+        return 1
+      fi
+      for suite in $skipped; do
+        echo "SKIP $suite — requires a browser, which this build environment does not have" >&2
+      done
       runHook postCheck
     '';
 

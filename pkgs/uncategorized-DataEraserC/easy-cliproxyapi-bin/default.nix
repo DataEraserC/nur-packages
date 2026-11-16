@@ -4,7 +4,6 @@
   fetchurl,
   autoPatchelfHook,
   wrapGAppsHook3,
-  nix-update-script,
   coreutils,
   cliproxyapi,
   atk,
@@ -26,7 +25,7 @@ stdenv.mkDerivation (finalAttrs: {
   version = "0.3.108";
   src = fetchurl {
     url = "https://github.com/router-for-me/EasyCLIProxyAPI/releases/download/v${finalAttrs.version}/EasyCLIProxyAPI-v${finalAttrs.version}-Linux-amd64.tar.gz";
-    hash = "sha256-Ch5aR+4w6c0o20kG3uqHh9ySpkGxPEciLIHqnIx9Ts8=";
+    hash = "sha256-3gdftf6GTmAWgQYHQPXkkSToFoIhmI9h2fsakR97j0w=";
   };
 
   nativeBuildInputs = [
@@ -67,7 +66,11 @@ stdenv.mkDerivation (finalAttrs: {
     runHook postInstall
   '';
 
-  passthru.updateScript = nix-update-script { };
+  # The release entry goes live minutes before its assets finish uploading, so
+  # nix-update (which trusts releases.atom and prefetches immediately) rewrites
+  # `version` and then dies on a 404, leaving a stale hash behind; update.sh
+  # waits for the asset itself and writes both fields only once it answers.
+  passthru.updateScript = [ (toString ./update.sh) ];
 
   meta = {
     description = "Desktop GUI for CLIProxyAPI that configures popular AI agents";

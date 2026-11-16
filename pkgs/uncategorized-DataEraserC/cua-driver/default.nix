@@ -31,6 +31,7 @@
   libxtst,
   libei,
   pipewire,
+  zstd,
 }:
 let
   versionData = {
@@ -80,6 +81,9 @@ rustPlatform.buildRustPackage rec {
     libxkbcommon
     libei
     pipewire
+    # cursor-overlay compresses theme packs with zstd; cargo-setup-hook forces
+    # ZSTD_SYS_USE_PKG_CONFIG, so zstd-sys finds libzstd through pkg-config.
+    zstd
   ];
 
   postUnpack = ''

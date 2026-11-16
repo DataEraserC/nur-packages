@@ -22,13 +22,19 @@ NEW_TAG=$(
     sed -n "s#.*refs/tags/\(${TAG_PREFIX}[0-9][0-9.]*\)\$#\1#p" |
     sort -V | tail -1
 )
-[ -n "$NEW_TAG" ] || { echo "cua-driver: no ${TAG_PREFIX}* tag upstream" >&2; exit 1; }
+[ -n "$NEW_TAG" ] || {
+  echo "cua-driver: no ${TAG_PREFIX}* tag upstream" >&2
+  exit 1
+}
 export NEW_TAG
 
 CURRENT_TAG=$(
   sed -n "s/^[[:space:]]*tag = \"\(${TAG_PREFIX}[0-9.]*\)\";.*/\1/p" "$DEFAULT_NIX" | head -1
 )
-[ -n "$CURRENT_TAG" ] || { echo "cua-driver: no tag literal in $DEFAULT_NIX" >&2; exit 1; }
+[ -n "$CURRENT_TAG" ] || {
+  echo "cua-driver: no tag literal in $DEFAULT_NIX" >&2
+  exit 1
+}
 
 OLD_SRC_HASH=$(
   sed -n 's/^[[:space:]]*hash = "\(sha256-[^"]*\)".*/\1/p' "$DEFAULT_NIX" | head -1
@@ -37,7 +43,29 @@ OLD_SKILLS_HASH=$(
   sed -n 's/^[[:space:]]*skillsHash = "\(sha256-[^"]*\)".*/\1/p' "$DEFAULT_NIX" | head -1
 )
 [ -n "$OLD_SRC_HASH" ] && [ -n "$OLD_SKILLS_HASH" ] ||
-  { echo "cua-driver: no hash literals in $DEFAULT_NIX" >&2; exit 1; }
+  {
+    echo "cua-driver: no hash literals in $DEFAULT_NIX" >&2
+    exit 1
+  }
+
+# The verification build at the end can only reject the *rewritten* file, so
+# every rewrite below must be undoable: a release whose dependency graph does
+# not build would otherwise leave a bumped tag next to hashes that never
+# compiled, and the scheduled run commits whatever is on disk regardless of the
+# package's exit status (that is exactly how the 0.52.4 bump landed on main
+# broken). Keep the committed file and restore it on any failure.
+BACKUP_NIX=$(mktemp)
+cp "$DEFAULT_NIX" "$BACKUP_NIX"
+revert_on_exit() {
+  local status=$?
+  if [ "$status" -ne 0 ]; then
+    cp "$BACKUP_NIX" "$DEFAULT_NIX"
+    echo "cua-driver: the update does not build; restored $DEFAULT_NIX" >&2
+  fi
+  rm -f "$BACKUP_NIX"
+  exit "$status"
+}
+trap revert_on_exit EXIT
 
 # Compute a fixed-output hash with the package's own fetcher: build the
 # fetcher with a dummy hash and read the real hash back from the "got:" line
@@ -73,7 +101,15 @@ if [ "$NEW_TAG" = "$CURRENT_TAG" ]; then
   }
   sed -i "s|$OLD_SRC_HASH|$DRIFTED_HASH|" "$DEFAULT_NIX"
   grep -q "hash = \"$DRIFTED_HASH\";" "$DEFAULT_NIX" ||
-    { echo "cua-driver: src hash rewrite failed" >&2; exit 1; }
+    {
+      echo "cua-driver: src hash rewrite failed" >&2
+      exit 1
+    }
+  # The committed hash is provably wrong (the fetcher answered a different
+  # one), so this rewrite must survive even if the build after it fails: the
+  # file cannot get worse than "cannot be fetched".
+  trap - EXIT
+  rm -f "$BACKUP_NIX"
   echo "cua-driver: GitHub regenerated the $CURRENT_TAG archive; refreshed src hash -> $DRIFTED_HASH"
   cd "$REPO_ROOT"
   nix build --no-link ".#cua-driver"
@@ -94,7 +130,10 @@ SRC_HASH=$(fod_hash '
       tag = builtins.getEnv "NEW_TAG";
       hash = "'"$DUMMY_HASH"'";
     }')
-[ -n "$SRC_HASH" ] || { echo "cua-driver: src hash echo failed for $NEW_TAG" >&2; exit 1; }
+[ -n "$SRC_HASH" ] || {
+  echo "cua-driver: src hash echo failed for $NEW_TAG" >&2
+  exit 1
+}
 
 SKILLS_HASH=$(fod_hash '
   let
@@ -104,19 +143,31 @@ SKILLS_HASH=$(fod_hash '
       url = "https://github.com/trycua/cua/releases/download/${builtins.getEnv "NEW_TAG"}/${builtins.getEnv "NEW_TAG"}-skills.tar.gz";
       hash = "'"$DUMMY_HASH"'";
     }')
-[ -n "$SKILLS_HASH" ] || { echo "cua-driver: skills hash echo failed for $NEW_TAG" >&2; exit 1; }
+[ -n "$SKILLS_HASH" ] || {
+  echo "cua-driver: skills hash echo failed for $NEW_TAG" >&2
+  exit 1
+}
 
 # Rewrite the tag; `version` is derived from it, so both URLs follow
 # automatically.
 sed -i "s|tag = \"$CURRENT_TAG\";|tag = \"$NEW_TAG\";|" "$DEFAULT_NIX"
-grep -q "tag = \"$NEW_TAG\";" "$DEFAULT_NIX" || { echo "cua-driver: tag rewrite failed" >&2; exit 1; }
+grep -q "tag = \"$NEW_TAG\";" "$DEFAULT_NIX" || {
+  echo "cua-driver: tag rewrite failed" >&2
+  exit 1
+}
 
 [ "$SRC_HASH" = "$OLD_SRC_HASH" ] || sed -i "s|$OLD_SRC_HASH|$SRC_HASH|" "$DEFAULT_NIX"
 grep -q "hash = \"$SRC_HASH\";" "$DEFAULT_NIX" ||
-  { echo "cua-driver: src hash rewrite failed" >&2; exit 1; }
+  {
+    echo "cua-driver: src hash rewrite failed" >&2
+    exit 1
+  }
 [ "$SKILLS_HASH" = "$OLD_SKILLS_HASH" ] || sed -i "s|$OLD_SKILLS_HASH|$SKILLS_HASH|" "$DEFAULT_NIX"
 grep -q "skillsHash = \"$SKILLS_HASH\";" "$DEFAULT_NIX" ||
-  { echo "cua-driver: skills hash rewrite failed" >&2; exit 1; }
+  {
+    echo "cua-driver: skills hash rewrite failed" >&2
+    exit 1
+  }
 
 # Build once so a bad hash or a broken new release fails here instead of
 # waiting for CI.
