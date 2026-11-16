@@ -3,6 +3,9 @@
 # shellcheck shell=bash
 set -euo pipefail
 
+# shellcheck source=../../../tools/github-api.sh
+source "$(dirname "$(readlink -f "$0")")/../../../tools/github-api.sh"
+
 DIR=$(dirname "$(readlink -f "$0")")
 FILE="$DIR/MIO_KITCHEN_bin.nix"
 REPO="ColdWindScholar/MIO-KITCHEN-SOURCE"
@@ -10,7 +13,9 @@ REPO="ColdWindScholar/MIO-KITCHEN-SOURCE"
 OLD_TAG=$(sed -n 's/^  releaseTag = "\([^"]*\)";/\1/p' "$FILE")
 OLD_VER=$(sed -n 's/^  version = "\([^"]*\)";/\1/p' "$FILE")
 
-JSON=$(curl -fsSL "https://api.github.com/repos/$REPO/releases/latest")
+# gh_api authenticates with GITHUB_TOKEN and falls back to the web endpoints
+# when the shared runner's REST quota is exhausted (a bare curl gets 403).
+JSON=$(gh_api "repos/$REPO/releases/latest")
 TAG=$(jq -r .tag_name <<<"$JSON")
 ASSET=$(jq -r '.assets[].name | select(test("^MIO-KITCHEN-.*-linux\\.zip$"))' <<<"$JSON" | head -n1)
 [ -n "$TAG" ] && [ "$TAG" != "null" ] || {
