@@ -196,6 +196,7 @@
             new-api = import ./modules/new-api.nix;
             mimocode2api = import ./modules/mimocode2api.nix;
             omniroute = import ./modules/omniroute.nix;
+            workbuddy2api = import ./modules/workbuddy2api.nix;
             browser4 = import ./modules/browser4.nix;
             our-free-model-standalone = import ./modules/our-free-model-standalone.nix;
             nix-cache-cachix = import ./modules/nix-cache-cachix.nix;
