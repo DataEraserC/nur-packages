@@ -83,6 +83,9 @@ jobs:
           sudo mkdir -p /nix/tmpdir2
           sudo chown "$(whoami)" /nix/tmpdir2
           export TMPDIR=/nix/tmpdir2
+          # Per-package logs land here instead of a scratch dir that is deleted
+          # on exit, so the upload step below can ship them.
+          export UPDATE_LOG_DIR="$PWD/update-logs"
 
           nix run .#update
 
@@ -96,11 +99,18 @@ jobs:
             {
               echo "## Update Results"
               echo ""
-              echo "| Package | Status |"
-              echo "|---------|--------|"
-              jq -r 'sort_by(.status != "failed") | .[] | "| \(.attrPath) | \(.status) |"' update-results.json
+              echo "| Package | Status | Log |"
+              echo "|---------|--------|-----|"
+              # Failed packages keep a per-package log (see UPDATE_LOG_DIR in
+              # helpers/update.nix); name it here so the artifact is easy to
+              # navigate instead of being a pile of anonymous files.
+              jq -r 'sort_by(.status != "failed") | .[] | .attrPath as $a | "| \($a) | \(.status) | \(if .status == "failed" then "\($a | gsub("[./]"; "__")).log" else "-" end) |"' update-results.json
               echo ""
               echo "**Total:** $TOTAL | **Success:** $SUCCESS | **Failed:** $FAILED"
+              if [ "$FAILED" -gt 0 ]; then
+                echo ""
+                echo "Failed package logs are in the **update-logs** artifact."
+              fi
             } >> "$GITHUB_STEP_SUMMARY"
           fi
 
@@ -110,6 +120,18 @@ jobs:
         with:
           name: update-results
           path: update-results.json
+          if-no-files-found: ignore
+
+      # The console interleaves package output, because the runner drives
+      # UPDATE_PACKAGE_JOBS packages in parallel and prints each one's block
+      # whenever it finishes. Only failures keep a log, so this artifact is
+      # one self-contained file per failed package.
+      - name: Upload per-package update logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: update-logs
+          path: update-logs/
           if-no-files-found: ignore
 
       # bd04579e ("auto: update packages") published new-api with

@@ -12,3 +12,4 @@ update-git-commits.txt
 *.fetchlog
 __pycache__/
 update-results.json
+update-logs/

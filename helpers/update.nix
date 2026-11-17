@@ -218,8 +218,17 @@ pkgs.stdenvNoCC.mkDerivation {
 
     FAILED=""
     SUCCEEDED=""
-    LOGDIR=$(mktemp -d)
-    trap 'rm -rf "$LOGDIR"' EXIT
+    # Per-package logs are the only usable record of a failed update: the
+    # console interleaves them, because packages run MAX_JOBS in parallel and
+    # each one's block is printed whenever it happens to finish. Keep them as
+    # individual files so the workflow can upload them as an artifact.
+    if [ -n "''${UPDATE_LOG_DIR:-}" ]; then
+      LOGDIR="''${UPDATE_LOG_DIR}"
+      mkdir -p "$LOGDIR"
+    else
+      LOGDIR=$(mktemp -d)
+      trap 'rm -rf "$LOGDIR"' EXIT
+    fi
     cd "${toString ./.}/.."
     # Update scripts that run `nix-shell -p nix-update` resolve `<nixpkgs>`
     # themselves; point it at the patched package set for the same reason.
@@ -234,7 +243,8 @@ pkgs.stdenvNoCC.mkDerivation {
       local PKG="$1" ATTR_PATH OLD_VERSION LOG
       ATTR_PATH=$(jq -r .attrPath <<<"$PKG")
       OLD_VERSION=$(jq -r .oldVersion <<<"$PKG")
-      LOG=$(mktemp "$LOGDIR/log.XXXXXX")
+      # A readable name per package: the attrPath with path separators flattened.
+      LOG="$LOGDIR/''${ATTR_PATH//[.\/]/__}.log"
       echo ">>> $ATTR_PATH: updating ($OLD_VERSION)"
       (
         # A single hung update script (a stalled download or nix build) used
@@ -270,11 +280,13 @@ pkgs.stdenvNoCC.mkDerivation {
       LOG="''${JOB_LOG[$PID]}"
       echo ""
       cat "$LOG"
-      rm -f "$LOG"
       if [ "$STATUS" -ne 0 ]; then
         FAILED="$FAILED $ATTR_PATH"
       else
+        # Only failures keep a log: they are what the uploaded artifact is for,
+        # and a full run would otherwise carry hundreds of files.
         SUCCEEDED="$SUCCEEDED $ATTR_PATH"
+        [ -n "''${UPDATE_LOG_DIR:-}" ] && rm -f "$LOG"
       fi
       unset "JOB_ATTR[$PID]" "JOB_LOG[$PID]"
       RUNNING=$((RUNNING - 1))
