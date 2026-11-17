@@ -33,7 +33,7 @@ let
     inherit version src;
 
     nodejs = nodejs_24;
-    npmDepsHash = "sha256-FqgyjtmzIb1GA5bpj9d2xBvpMyG5WmZpGB+/eWJN/HM=";
+    npmDepsHash = "sha256-pC3O4G9Qna/qO/QRHFYgjbZWE2WIG3+iek/H/HggS9U=";
 
     postPatch = ''
       cp ${./package-lock.json} package-lock.json

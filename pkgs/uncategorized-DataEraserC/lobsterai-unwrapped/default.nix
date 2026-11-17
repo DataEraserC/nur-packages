@@ -10,13 +10,13 @@
 }:
 
 let
-  version = "2026.11.6";
+  version = "2026.11.16";
 
   src = fetchFromGitHub {
     owner = "netease-youdao";
     repo = "LobsterAI";
     tag = version;
-    hash = "sha256-CxJ5sIUB+7k92Qp+3gYWRkjWdDv5S/Pus8hpVYHCXwI=";
+    hash = "sha256-xj3WDeeb9zKVgBDgCSUIKN95QQ1aM5qB7DT1A4ZHZis=";
   };
 
   openclawRuntime = callPackage ./openclaw-runtime.nix { lobsteraiSrc = src; };
@@ -83,7 +83,7 @@ let
     description = "Bundled dependencies for the LobsterAI web-search skill";
     skillDir = "SKILLs/web-search";
     lockfile = ./skills/web-search/package-lock.json;
-    hash = "sha256-S/+68Q6kPFACpFEluOwwP6IVcvQWzUp+9pfdIwBcCBA=";
+    hash = "sha256-NPqgo44sadjEp4X4CCYInOSuso1JuOh3eQBzUcRNvrk=";
     buildScript = ''
       (
         cd SKILLs/web-search
@@ -112,7 +112,7 @@ let
   appDeps = fetchNpmDeps {
     name = "lobsterai-${version}-npm-deps";
     inherit src;
-    hash = "sha256-TjnCveKOvsdoaiSNQj+Qpk4XpsUEXc1UmJIFfe5GoqQ=";
+    hash = "sha256-YmsNi1sBcA+V/HnvQRDkjW8b3RqRlPGv+LU+PzEbNXY=";
     postPatch = ''
       cp ${./package-lock.json} package-lock.json
     '';
