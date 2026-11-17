@@ -162,7 +162,6 @@ stdenv.mkDerivation (finalAttrs: {
 
     npm run build
     npm run compile:electron
-    npm run build:skill:tech-news
 
     runHook postBuild
   '';
