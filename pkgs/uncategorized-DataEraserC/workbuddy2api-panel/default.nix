@@ -7,13 +7,13 @@
 }:
 buildGo126Module (finalAttrs: {
   pname = "workbuddy2api-panel";
-  version = "1.15.9-panel";
+  version = "1.15.11-panel";
 
   src = fetchFromGitHub {
     owner = "xu20060420fan-cell";
     repo = "workbuddy2api-trae-qoder-minimax-panel";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-j8Xz+uKYiL3Ly5xW/O62MOYM68QI39iTCltvzmFTrrk=";
+    hash = "sha256-827zQq7nQZKXTWQJ41G2Z/Z36ra0u+SRtHhTbBQVOug=";
   };
 
   __structuredAttrs = true;

@@ -15,13 +15,13 @@
   webmuxSource ? fetchFromGitHub {
     owner = "mzdluo123";
     repo = "webmux";
-    rev = "23e78ee54c933266d77736cfc02891d49b69c265";
-    hash = "sha256-0t262aQDmMLxhW+7MP43IHRdZwMR5QBodWKHeYW2gAE=";
+    rev = "81a1c628cb33b01fc56cd94977ea87c5f654af22";
+    hash = "sha256-0Pwq+D4q/981yao9nLfpGyDcTgOPgy7vmMugDMGsUV0=";
   },
 }:
 
 let
-  version = "0.17.0-unstable-2026-11-17";
+  version = "0.17.3-unstable-2026-11-18";
   src = webmuxSource;
 
   sourceUpdater = unstableGitUpdater {
@@ -56,7 +56,7 @@ let
     sourceRoot = "source/web";
     pnpm = pnpm_12;
     fetcherVersion = 4;
-    hash = "sha256-YFJYjDFe4V+43aOuNgUObKTDLlGXXAOMmiL81eIdDWs=";
+    hash = "sha256-/uAw2y9dPHc2XdqsaxqmXbM1sQ6sjDajePaioiceOxg=";
   };
 
   frontendDist = stdenv.mkDerivation {
@@ -91,7 +91,7 @@ buildGo127Module (finalAttrs: {
   inherit version src;
   __structuredAttrs = true;
   strictDeps = true;
-  vendorHash = "sha256-ffWOtQlIlzHeayORQdMpQVAfVK7F2cbS0Ej5lvVUlSM=";
+  vendorHash = "sha256-MgJHAW4nYErnvG8alg1PnDbvZClTPQKLd/To3NGjkUw=";
 
   subPackages = [ "cmd/webmux" ];
 
