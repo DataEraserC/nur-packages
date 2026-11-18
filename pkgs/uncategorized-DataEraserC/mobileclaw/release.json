@@ -1,0 +1,13 @@
+{
+  "version": "1.9.8",
+  "x86_64-linux": {
+    "url": "https://zhenze-huhehaote.cmecloud.cn/desktop/manager/public/link/download?os=linuxX64Client",
+    "file": "MobileClaw_1.9.8_x86_64.deb",
+    "hash": "sha256-pPUiMGVYiJalPR84GU2lDQPmaHq0hkhjJHD5WSUSWao="
+  },
+  "aarch64-linux": {
+    "url": "https://zhenze-huhehaote.cmecloud.cn/desktop/manager/public/link/download?os=linuxArm64Client",
+    "file": "MobileClaw_1.9.8_aarch64.deb",
+    "hash": "sha256-kDD4mz8n8tdErSYubUf9p8auXMGTHu70MtKbgTC0tj4="
+  }
+}
