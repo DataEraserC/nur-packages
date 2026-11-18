@@ -56,7 +56,7 @@ let
     sourceRoot = "source/web";
     pnpm = pnpm_12;
     fetcherVersion = 4;
-    hash = "sha256-/uAw2y9dPHc2XdqsaxqmXbM1sQ6sjDajePaioiceOxg=";
+    hash = "sha256-5OyJovg1SiQN1yRygM5TH11Q5reWiGEj3xxmvp7HNN4=";
   };
 
   frontendDist = stdenv.mkDerivation {
