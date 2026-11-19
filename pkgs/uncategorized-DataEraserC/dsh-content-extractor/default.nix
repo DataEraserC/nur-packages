@@ -3,14 +3,14 @@
   inputs ? null,
 }:
 if inputs == null then
-  throw "dsh-video-fetch requires the video-login flake input; evaluate it through the flake (nix build .#dsh-video-fetch)"
+  throw "dsh-content-extractor requires the content-extractor flake input; evaluate it through the flake (nix build .#dsh-content-extractor)"
 else
-  # The video-login flake builds both halves itself — vlogin-abi behind the C
-  # ABI and the DSH host under hosts/dsh/ that installs it at
-  # native/libvlogin.so — so re-export instead of repeating the recipe. Same
+  # The content-extractor flake builds both halves itself — extractor-abi behind
+  # the C ABI and the DSH host under hosts/dsh/ that installs it at
+  # native/libextractor.so — so re-export instead of repeating the recipe. Same
   # shape as bas-remote: no hash to refresh per release, and the library and
   # the host cannot drift apart.
-  (inputs.video-login.packages.${pkgs.stdenv.hostPlatform.system}.dsh.overrideAttrs (old: {
+  (inputs.content-extractor.packages.${pkgs.stdenv.hostPlatform.system}.dsh.overrideAttrs (old: {
     passthru = (old.passthru or { }) // {
       # meta.position of a re-export points into the input's store path, which
       # hides the package from tools/build_own_cachix.py's path filter. This
@@ -18,14 +18,16 @@ else
       # from a flake input.
       ownPackage = true;
       # yt-dlp / ffmpeg are spawned by the plugin; keep declaring them so the
-      # dsh launcher PATH keeps carrying them for this bundle.
+      # dsh launcher PATH keeps carrying them for this bundle. The non-video
+      # extractors (articles, posts, replays, direct files) use plain HTTP and
+      # need nothing extra.
       runtimeDeps = [
         pkgs.yt-dlp
         pkgs.ffmpeg
       ];
     };
     meta = (old.meta or { }) // {
-      changelog = "https://github.com/DataEraserC/video-login/releases";
+      changelog = "https://github.com/DataEraserC/content-extractor/releases";
       maintainers = import ../maintainers.nix;
     };
   }))

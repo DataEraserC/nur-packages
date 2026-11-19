@@ -155,6 +155,7 @@ Or, use variables from this repository in case I change them:
 |  | `dsh-annotation` | [dsh-annotation](https://github.com/omdsh-dev/dsh-annotation) | 1.4.11-preview.1 | Annotate selected assistant text in the DeepSeek Harness web UI and reply to each annotation by number |
 |  | `dsh-chat-import` | [dsh-chat-import](https://github.com/Nwflower/dsh-chat-import) | 0.26.8 | Import conversation history from 25+ AI coding agents into DeepSeek Harness as resumable sessions with tool calls and reasoning intact |
 |  | `dsh-comfyui` | [dsh-comfyui](https://github.com/fandc520/dsh-comfyui) | 0.5.5 | Drive a local or remote ComfyUI from DeepSeek Harness with workflow, asset and queue panels plus per-workflow skill packs |
+|  | `dsh-content-extractor` | [dsh-content-extractor](https://github.com/DataEraserC/content-extractor) | 0.6.0 | Content extraction for DeepSeek Harness with per-platform login and ffmpeg compression |
 |  | `dsh-cua-driver` | [dsh-cua-driver](https://github.com/trycua/cua) | 0.54.0 | Computer use for DeepSeek Harness through an installed Cua Driver MCP executable |
 |  | `dsh-cua-sandbox` | [dsh-cua-sandbox](https://github.com/trycua/cua) | 0.28.3 | Sandboxed desktop control for DeepSeek Harness through the cua CLI MCP server |
 |  | `dsh-ego-browser` | [dsh-ego-browser](https://github.com/Fisfzy/dsh-ego-browser) | 0.14.1 | Chrome-driven browser automation bundle for DeepSeek Harness with 32 ego_* tools, CDP/FFmpeg capture, casting and a live observation panel |
@@ -169,7 +170,6 @@ Or, use variables from this repository in case I change them:
 |  | `dsh-settings-persist` | [dsh-settings-persist](https://github.com/DataEraserC/dsh-settings-persist) | 0.4.0 | Persist DSH Settings edits across nix managed-profile syncs and rebuilds, with auto/manual snapshots, a settings page and a /snapshots command |
 |  | `dsh-share` | [dsh-share](https://github.com/hellodigua/dsh-share) | 0.5.0 | Share selected DeepSeek Harness conversations as PNG images or Markdown text |
 |  | `dsh-turn-rewind` | [dsh-turn-rewind](https://github.com/Anionex/dsh-turn-rewind) | 0.3.13-unstable-2026-11-12 | Turn-level conversation and workspace rewind for DeepSeek Harness powered by a persistent Change Ledger |
-|  | `dsh-video-fetch` | [dsh-video-fetch](https://github.com/DataEraserC/video-login) | 0.5.0 | Video downloading for DeepSeek Harness with per-channel login and ffmpeg compression |
 |  | `dsh-worktree` | [dsh-worktree](https://github.com/FlashingChen/dsh-worktree) | 0.1.0 | Codex-style permanent git worktrees for DeepSeek Harness: agent tools, a /worktree command, and session context for durable worktrees |
 |  | `dump978` | [dump978](https://github.com/flightaware/dump978) | 11.1 | FlightAware's 978MHz UAT demodulator |
 | `x86_64-linux` | `easy-cliproxyapi-bin` | [easy-cliproxyapi-bin](https://github.com/router-for-me/EasyCLIProxyAPI) | 0.3.113 | Desktop GUI for CLIProxyAPI that configures popular AI agents |
@@ -1773,6 +1773,7 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized-DataEraserC.dsh-annotation` | [dsh-annotation](https://github.com/omdsh-dev/dsh-annotation) | 1.4.11-preview.1 | Annotate selected assistant text in the DeepSeek Harness web UI and reply to each annotation by number |
 |  | `uncategorized-DataEraserC.dsh-chat-import` | [dsh-chat-import](https://github.com/Nwflower/dsh-chat-import) | 0.26.8 | Import conversation history from 25+ AI coding agents into DeepSeek Harness as resumable sessions with tool calls and reasoning intact |
 |  | `uncategorized-DataEraserC.dsh-comfyui` | [dsh-comfyui](https://github.com/fandc520/dsh-comfyui) | 0.5.5 | Drive a local or remote ComfyUI from DeepSeek Harness with workflow, asset and queue panels plus per-workflow skill packs |
+|  | `uncategorized-DataEraserC.dsh-content-extractor` | [dsh-content-extractor](https://github.com/DataEraserC/content-extractor) | 0.6.0 | Content extraction for DeepSeek Harness with per-platform login and ffmpeg compression |
 |  | `uncategorized-DataEraserC.dsh-cua-driver` | [dsh-cua-driver](https://github.com/trycua/cua) | 0.54.0 | Computer use for DeepSeek Harness through an installed Cua Driver MCP executable |
 |  | `uncategorized-DataEraserC.dsh-cua-sandbox` | [dsh-cua-sandbox](https://github.com/trycua/cua) | 0.28.3 | Sandboxed desktop control for DeepSeek Harness through the cua CLI MCP server |
 |  | `uncategorized-DataEraserC.dsh-ego-browser` | [dsh-ego-browser](https://github.com/Fisfzy/dsh-ego-browser) | 0.14.1 | Chrome-driven browser automation bundle for DeepSeek Harness with 32 ego_* tools, CDP/FFmpeg capture, casting and a live observation panel |
@@ -1787,7 +1788,6 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized-DataEraserC.dsh-settings-persist` | [dsh-settings-persist](https://github.com/DataEraserC/dsh-settings-persist) | 0.4.0 | Persist DSH Settings edits across nix managed-profile syncs and rebuilds, with auto/manual snapshots, a settings page and a /snapshots command |
 |  | `uncategorized-DataEraserC.dsh-share` | [dsh-share](https://github.com/hellodigua/dsh-share) | 0.5.0 | Share selected DeepSeek Harness conversations as PNG images or Markdown text |
 |  | `uncategorized-DataEraserC.dsh-turn-rewind` | [dsh-turn-rewind](https://github.com/Anionex/dsh-turn-rewind) | 0.3.13-unstable-2026-11-12 | Turn-level conversation and workspace rewind for DeepSeek Harness powered by a persistent Change Ledger |
-|  | `uncategorized-DataEraserC.dsh-video-fetch` | [dsh-video-fetch](https://github.com/DataEraserC/video-login) | 0.5.0 | Video downloading for DeepSeek Harness with per-channel login and ffmpeg compression |
 |  | `uncategorized-DataEraserC.dsh-worktree` | [dsh-worktree](https://github.com/FlashingChen/dsh-worktree) | 0.1.0 | Codex-style permanent git worktrees for DeepSeek Harness: agent tools, a /worktree command, and session context for durable worktrees |
 | `x86_64-linux` | `uncategorized-DataEraserC.easy-cliproxyapi-bin` | [easy-cliproxyapi-bin](https://github.com/router-for-me/EasyCLIProxyAPI) | 0.3.113 | Desktop GUI for CLIProxyAPI that configures popular AI agents |
 | `x86_64-linux` | `uncategorized-DataEraserC.escrcpy_appimage` | [escrcpy](https://github.com/keiko233/clash-nyanpasu) | 3.3.1 | Clash GUI based on tauri |
