@@ -7,11 +7,11 @@
   fetchurl,
 }:
 let
-  version = "202611172204";
+  version = "202611182204";
 
   src = fetchurl {
     url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/${version}/rules.zip";
-    hash = "sha256-GDjc0yXXLZDmMgHw1c8//G10F3OvEx82gtLohErkN9s=";
+    hash = "sha256-TR3De6VTlpKb0zIYilz1MMlWYDijU0TZkG12fJuifZ0=";
   };
 in
 # .
