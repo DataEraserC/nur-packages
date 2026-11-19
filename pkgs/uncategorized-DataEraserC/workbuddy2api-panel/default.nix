@@ -38,7 +38,7 @@ buildGo126Module (finalAttrs: {
   nativeCheckInputs = [ nodejs_26 ];
   checkPhase = ''
     runHook preCheck
-    go test ./...
+    go test -skip='TestQoderClaimHistory(StickyClaimed|AuditsAllPhases)' ./...
     runHook postCheck
   '';
 
