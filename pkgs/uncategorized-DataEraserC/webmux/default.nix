@@ -12,6 +12,7 @@
   unstableGitUpdater,
   versionCheckHook,
   writeShellApplication,
+  webPnpmDepsHash ? "sha256-jeufMwHqygtsf2FdXQIN/okE2lyVjS+EjYy+2fxXGv4=",
   webmuxSource ? fetchFromGitHub {
     owner = "mzdluo123";
     repo = "webmux";
@@ -56,7 +57,7 @@ let
     sourceRoot = "source/web";
     pnpm = pnpm_12;
     fetcherVersion = 4;
-    hash = "sha256-jeufMwHqygtsf2FdXQIN/okE2lyVjS+EjYy+2fxXGv4=";
+    hash = webPnpmDepsHash;
   };
 
   frontendDist = stdenv.mkDerivation {

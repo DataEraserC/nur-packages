@@ -17,6 +17,7 @@
 - **版本注入走 `-X main.version`**：与上游 `Makefile` 的 `LDFLAGS` 一致，`--version` 打印 `webmux <ver>`，可直接给 `versionCheckHook` 用（`versionCheckProgramArg = "--version"`）
 - **快照更新需组合两步**：上游同时有 `dev` 与 `v*` tag，`unstableGitUpdater` 必须用 `tagFormat = "v*"` 和 `tagPrefix = "v"`，先更新 version/rev/src hash；随后运行 `nix-update --version skip --no-src` 刷新 Go `vendorHash` 与公开的 `passthru.pnpmDeps` hash。只运行前一步会留下不可构建的依赖哈希
 - **`passthru.pnpmDeps` 必须指向 `let` 里的前端依赖派生**：否则 nix-update 看不到 pnpm 哈希，版本 bump 后只更新 src/vendor 哈希，构建在 pnpm 阶段失败
+- **`webmux-acp` 换源码时必须同时覆盖 `webPnpmDepsHash`**：基线包的前端依赖哈希属于基线源码；ACP 变体固定较旧 overlay tip，若只覆盖 `webmuxSource`/`vendorHash` 而沿用基线 pnpm 哈希，pnpm store 缺少旧 lockfile 的 tarball（如 three@0.187.0），离线安装报 `ERR_PNPM_NO_OFFLINE_TARBALL`。修法与 vendorHash 同理：把 `webPnpmDepsHash = ""` 传入 `.override`，构建 `.#webmux-acp.pnpmDeps` 从 `got:` 行取哈希回填
 
 ## 已知风险
 

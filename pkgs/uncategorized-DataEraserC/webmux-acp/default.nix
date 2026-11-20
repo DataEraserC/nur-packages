@@ -7,6 +7,9 @@ let
   version = "0.16.0-unstable-2026-11-15";
 
   pinnedWebmux = webmux.override {
+    # The pinned overlay tip predates the base package's frontend dependency
+    # bump, so its pnpm store differs; pin the hash belonging to this source.
+    webPnpmDepsHash = "sha256-5OyJovg1SiQN1yRygM5TH11Q5reWiGEj3xxmvp7HNN4=";
     webmuxSource = fetchFromGitHub {
       owner = "mzdluo123";
       repo = "webmux";
