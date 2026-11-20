@@ -38,6 +38,8 @@
 
 - **Bun 编译的单文件可执行不能 strip**：Bun 把业务 JS 作为 payload 放在 ELF 段之外（`codebuddy`/`codearts` 的原生发布物都是这种 150MB 左右的二进制）。stdenv fixupPhase 默认的 `strip` 会删掉 payload，二进制退化成裸 Bun CLI：`--version` 打印 Bun 帮助而不是应用版本，versionCheckHook 随之失败。必须 `dontStrip = true;`；`patchelf --set-interpreter`/autoPatchelfHook 本身不会破坏 payload。排查特征：versionCheckPhase 输出一大段 `bun install --help`（实例：codebuddy / codearts）
 - **`helpers/update.nix` 的 `usesSources` 启发式会误伤多源包**：它读 `meta.position` 指向的文件内容，只要出现 `sources.` 子串（包括 `builtins.readFile ./sources.json` 这种文件名引用）就把整包从更新列表里跳过，`passthru.updateScript` 永远不会执行。多平台预编译包若用自定义 `update.sh` 维护哈希，把 JSON 命名为 `release.json`（绑定叫 `release`）即可规避，不必放弃自定义更新脚本（实例：codebuddy / codearts / workbuddy）
+- **npm 发布的 pnpm monorepo 插件 tarball 可能残留 `workspace:*` devDependencies**：`ds-harness-remote` 的发布包 `devDependencies` 仍含 `@dsh-remote/*: workspace:*`，直接 `npm install` 报 `EUNSUPPORTEDPROTOCOL`。打包时用 `jq 'del(.devDependencies)'` 去掉（update.sh 也必须做同样处理），再用真实 `npm install --legacy-peer-deps --ignore-scripts` 生成 lockfile，并以 `prefetch-npm-deps` 算 `npmDepsHash`；`buildNpmPackage` 的 `--ignore-scripts` 不会替你跳过 devDependencies 解析
+- **DSH 插件版本必须按 peerDependencies 对齐锁定内核**：`ds-harness-remote` 0.4.1 的 peer 范围是 DSH `<0.2.0`，而本 fork 的 deepseek-harness 锁定 `dsh-runtime 0.2.2-rc.3`，装上也无法加载。选版本时先看 npm registry 的 `peerDependencies`（或 tarball 的 package.json），而不是只看文档里提到的那个旧版本号（实例：ds-harness-remote 选 0.6.6）
 
 ## updateScript 包更新机制（nixpkgs 风格）
 
