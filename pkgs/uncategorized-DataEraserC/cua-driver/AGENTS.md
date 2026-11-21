@@ -49,9 +49,20 @@ nix-update 驱动不了这个包：①releases atom feed 只列最近约 10 条�
 ②版本在 `versionData.tag` 里派生，文件里没有 `version = "..."` 字面量，
 nix-update 无法重写 tag，src/skills 哈希也无从更新。所以 update.sh 自己来：
 `git ls-remote --tags` 过滤 `cua-driver-rs-v<semver>`（行尾锚定，自动排除
-`nightly-*` 与 `^{}` peeled ref）→ 与 default.nix 里的 tag 比较，相同就
+`nightly-*` 与 `^{}` peeled ref）→ **从新到旧取第一个 skills 资产真实存在的
+tag**（`curl -fsIL` 打 `releases/download/<tag>/<tag>-skills.tar.gz`，200/404
+且不耗 API 配额）→ 与 default.nix 里的 tag 比较，相同就
 `exit 0` → 否则先算好两个新哈希再一次性 sed tag + 2 处哈希，最后
 `nix build .#cua-driver` 验证。
+
+**tag ≠ release**：release-please 开 PR 的瞬间就推 git tag，GitHub release
+（连带 `-skills.tar.gz` 资产）可以滞后甚至发布失败——2026-11-21
+`cua-driver-rs-v0.56.5` 裸 tag 挂在仓库里而最新已发布 release 是 v0.56.4。
+裸 tag 做 `fetchFromGitHub` 的 src 毫无问题（tag 存在即可），但 skills 的
+fetchurl 会 404，「取最新 tag」的写法在 tag 早于 release 的窗口里每 run 必挂。
+所以选 tag 必须以**资产存在性**为准，不能只看 `ls-remote` 的最大值；也不要用
+release 的 pre-release 标志过滤——上游每个 driver release 都是 pre-release
+（0.55.0 亦然），按它过滤会永远停更。
 
 **哈希必须用 FOD-echo 算，不能用 `nix store prefetch-file`**：GitHub 的
 `archive/refs/tags/*.tar.gz` 是按需生成的归档，宿主机 prefetch 下载到的

@@ -1,5 +1,5 @@
 #!/usr/bin/env nix-shell
-#!nix-shell -i bash -p bash -p git -p nix
+#!nix-shell -i bash -p bash -p curl -p git -p nix
 # shellcheck shell=bash
 set -e
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)
@@ -17,13 +17,31 @@ DUMMY_HASH="sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
 # run; read the full tag list instead. The version also lives in
 # versionData.tag (there is no `version = "..."` literal for nix-update to
 # rewrite), so the tag and both hashes are all maintained here.
-NEW_TAG=$(
+#
+# release-please cuts the git tag the moment it opens the release PR, but the
+# GitHub release (and with it the -skills.tar.gz asset) can lag behind or fail
+# to publish: cua-driver-rs-v0.56.5 sat as a bare tag on 2026-11-21 while the
+# newest published release was v0.56.4. A bare tag builds fine as a
+# fetchFromGitHub src but 404s the skills fetchurl, so the newest tag alone is
+# not enough - walk newest-first and take the first tag whose release actually
+# serves the asset. HEAD requests on the release download URL answer 200/404
+# without any API quota (upstream also marks every driver release
+# pre-release, so that flag must not be the filter).
+NEW_TAG=
+for TAG in $(
   git ls-remote --tags "$UPSTREAM" |
     sed -n "s#.*refs/tags/\(${TAG_PREFIX}[0-9][0-9.]*\)\$#\1#p" |
-    sort -V | tail -1
-)
+    sort -Vr | head -n 10
+); do
+  if curl -fsIL --max-time 30 \
+    "https://github.com/trycua/cua/releases/download/${TAG}/${TAG}-skills.tar.gz" \
+    >/dev/null 2>&1; then
+    NEW_TAG=$TAG
+    break
+  fi
+done
 [ -n "$NEW_TAG" ] || {
-  echo "cua-driver: no ${TAG_PREFIX}* tag upstream" >&2
+  echo "cua-driver: none of the newest ${TAG_PREFIX}* tags has a published release" >&2
   exit 1
 }
 export NEW_TAG
