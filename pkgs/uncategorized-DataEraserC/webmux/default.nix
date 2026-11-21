@@ -92,7 +92,7 @@ buildGo127Module (finalAttrs: {
   inherit version src;
   __structuredAttrs = true;
   strictDeps = true;
-  vendorHash = "sha256-MgJHAW4nYErnvG8alg1PnDbvZClTPQKLd/To3NGjkUw=";
+  vendorHash = "sha256-0WjfEw9/sV9mnTdA4N4BYv2IlQNbN3g9yR/ow8IU4XI=";
 
   subPackages = [ "cmd/webmux" ];
 
