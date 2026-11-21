@@ -9,10 +9,30 @@
 set -eu
 
 app="@app@"
+appDir=$(dirname "$app")
 loader="@loader@"
 loaderDir="@loaderDir@"
 loaderName="@loaderName@"
 libPath="@libPath@"
+
+# The app copies bundled resource trees into $HOME (fs.cp/fs.cpSync), which
+# preserves the source modes, and Nix store files are read-only for everyone;
+# so the copies come out 0444/0555 and the app then cannot rewrite its staged
+# copies (it injects policy metadata into SKILL.md) nor remove them later:
+# every startup aborts with EACCES on unlink. Bind writable-mode copies of
+# every resource tree the app copies over the store originals, so its copies
+# land user-writable as they do on a deb install. The stage is unique per
+# launch, so concurrent instances never race; leftovers are bounded by the
+# /tmp tmpfiles rules.
+resourceStage=$(mktemp -d "${TMPDIR:-/tmp}/xiaohuanxiong-resources.XXXXXX")
+resourceBinds=
+for tree in conversation-skills hyperframes-assets; do
+  if [ -d "$appDir/resources/$tree" ]; then
+    cp -a "$appDir/resources/$tree" "$resourceStage/$tree"
+    chmod -R u+w "$resourceStage/$tree"
+    resourceBinds="$resourceBinds --ro-bind $resourceStage/$tree $appDir/resources/$tree"
+  fi
+done
 
 runtimeArgs=
 runtime="/run/user/$(id -u)"
@@ -34,6 +54,7 @@ exec "@bwrap@" \
   --bind /tmp /tmp \
   --bind "$HOME" "$HOME" \
   $runtimeArgs \
+  $resourceBinds \
   --tmpfs "$loaderDir" \
   --ro-bind "$loader" "$loaderDir/$loaderName" \
   --chdir "$PWD" \
