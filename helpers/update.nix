@@ -297,6 +297,14 @@ pkgs.stdenvNoCC.mkDerivation {
       STATUS=0
       # Requires bash >= 5.1 for `wait -n -p`
       wait -n -p PID || STATUS=$?
+      # `wait -n` also reports the process substitution feeding the package
+      # loop below, which no launch() tracked. Counting it as one of ours would
+      # decrement RUNNING for a package that is still running, so the drain loop
+      # exits with that package stranded: its edits get committed unverified and
+      # it appears in neither update-results.json nor update-rollback.jsonl.
+      if [ -z "''${JOB_ATTR[$PID]:-}" ]; then
+        return 0
+      fi
       ATTR_PATH="''${JOB_ATTR[$PID]}"
       DIR="''${JOB_DIR[$PID]}"
       LOG="''${JOB_LOG[$PID]}"
