@@ -188,7 +188,15 @@ else
       ];
       updateScript = nix-update-script {
         attrPath = "dsh-our-free-model";
-        extraArgs = [ "--flake" ];
+        # Upstream also publishes releases with no git tag, which reach the
+        # releases feed as `untagged-<hex>`; nix-update ranks that string above
+        # 2.8.9 and rewrites `version` to it. Require the `v<digits>` tag shape
+        # this package pins, so only a real release is ever picked.
+        extraArgs = [
+          "--flake"
+          "--version-regex"
+          "^v([0-9].*)$"
+        ];
       };
     };
 

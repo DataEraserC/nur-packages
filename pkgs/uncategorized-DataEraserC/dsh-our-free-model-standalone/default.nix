@@ -174,7 +174,15 @@ stdenv.mkDerivation (finalAttrs: {
         involvement = "authored";
       }
     ];
-    updateScript = nix-update-script { };
+    # Same untagged-release trap as ../dsh-our-free-model: only `v<digits>`
+    # tags are real releases, and `rev` interpolates the `v` back onto the
+    # version, so the regex must strip it.
+    updateScript = nix-update-script {
+      extraArgs = [
+        "--version-regex"
+        "^v([0-9].*)$"
+      ];
+    };
   };
 
   meta = {
