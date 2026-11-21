@@ -43,7 +43,7 @@ if inputs == null then
 else
   dshPkgs.dsh.buildDshBundle (finalAttrs: {
     pname = "dsh-our-free-model";
-    version = "untagged-77a23c49484f405e5bd5";
+    version = "2.8.9-macos-unofficial";
 
     src = fetchFromGitHub {
       owner = "Ebony-Vinyl";
