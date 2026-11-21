@@ -134,31 +134,44 @@ jobs:
           path: update-logs/
           if-no-files-found: ignore
 
-      # bd04579e ("auto: update packages") published new-api with
-      # outputHash = lib.fakeHash: the update script writes the placeholder
-      # before probing for the real value, and this job commits the working
-      # tree even when an update script fails. Refuse the commit instead.
-      - name: Reject placeholder hashes
-        id: placeholder-guard
+      # A failed update script may leave partial edits in the working tree:
+      # e.g. nix-update bumps version + src hash, then fails while probing
+      # pnpmDeps.hash, and the stale lockfile is never regenerated. Those
+      # edits must not be committed. The update runner records each failed
+      # package's repo-relative dir in update-rollback.jsonl while evaluation
+      # is still good; restore just those dirs here, after all updates finish.
+      # This is the single source of truth for "a failed package is not
+      # updated" — no placeholder-hash heuristics needed.
+      - name: Roll back failed package updates
         if: always()
         run: |
           set -euo pipefail
-          if [ ! -d pkgs ]; then
-            echo "::error::pkgs/ is missing; cannot check for placeholder hashes"
-            exit 1
+          if [ ! -s update-rollback.jsonl ]; then
+            echo "No failed packages to roll back."
+            exit 0
           fi
-          matches=$(grep -rnE \
-            'lib\.fakeHash|sha256-A{16,}|sha256-0{16,}|outputHash[[:space:]]*=[[:space:]]*""' \
-            --include='*.nix' pkgs || true)
-          if [ -n "$matches" ]; then
-            echo "::error::placeholder hashes left in package definitions; refusing to commit"
-            printf '%s\n' "$matches"
-            exit 1
-          fi
-          echo "No placeholder hashes found in pkgs/*.nix"
+          while IFS= read -r entry; do
+            dir=$(jq -r .dir <<<"$entry")
+            attr=$(jq -r .attrPath <<<"$entry")
+            # Safety: only ever restore paths inside pkgs/ with no traversal.
+            case "$dir" in
+              pkgs/*) ;;
+              *) echo "::error::refusing rollback of unexpected dir '$dir' for $attr"; exit 1 ;;
+            esac
+            case "$dir" in
+              *..*) echo "::error::refusing rollback path with '..': '$dir' for $attr"; exit 1 ;;
+            esac
+            if [ ! -d "$dir" ]; then
+              echo "::warning::rollback dir missing, skipping: $dir ($attr)"
+              continue
+            fi
+            echo "Rolling back $attr -> $dir"
+            git checkout HEAD -- "$dir"
+            git clean -fd -- "$dir"
+          done < update-rollback.jsonl
 
       - name: Commit back to repository
-        if: always() && steps.placeholder-guard.outcome == 'success'
+        if: always()
         env:
           API_TOKEN_GITHUB: ${{ secrets.AUTOMERGE_TOKEN }}
         run: |
@@ -167,7 +180,7 @@ jobs:
           git config --global user.email "DataEraserC-bot@users.noreply.github.com"
           git config --global user.name "DataEraserC-bot"
 
-          rm -f update-results.json
+          rm -f update-results.json update-rollback.jsonl
           git add .
           if git diff --cached --quiet; then
             echo "Nothing to commit"

@@ -181,6 +181,20 @@ let
         inherit (p) pname;
         name = p.pkgName;
         updateScript = p.script;
+        # Repo-relative package dir, derived while evaluation is still known
+        # good. The workflow uses it to roll back a failed package's partial
+        # edits even if that package no longer evaluates after the failure.
+        dir =
+          let
+            pos = p.position or null;
+            file = if pos == null then "" else lib.head (lib.splitString ":" (toString pos));
+            # Imported via a local path (this runner) the position is
+            # /repo/pkgs/...; via the flake it is /nix/store/<hash>-source/pkgs/...
+            m1 = builtins.match ".*-source/(.*)" file;
+            m2 = builtins.match ".*/(pkgs/.*)" file;
+            matches = (if m1 == null then [ ] else m1) ++ (if m2 == null then [ ] else m2);
+          in
+          if matches == [ ] then "" else builtins.dirOf (builtins.head matches);
       }) selected
     )
   );
@@ -234,15 +248,21 @@ pkgs.stdenvNoCC.mkDerivation {
     # themselves; point it at the patched package set for the same reason.
     export NIX_PATH="nixpkgs=${nixpkgsForUpdates}''${NIX_PATH:+:''$NIX_PATH}"
     RESULTS_FILE="''${UPDATE_RESULTS_FILE:-$(pwd)/update-results.json}"
+    # One JSON object per failed package ({attrPath, dir}). The workflow reads
+    # this to roll back partial edits; kept separate from update-results.json
+    # so an interrupted run cannot lose the rollback list.
+    ROLLBACK_FILE="''${UPDATE_ROLLBACK_FILE:-$(pwd)/update-rollback.jsonl}"
+    : > "$ROLLBACK_FILE"
 
     MAX_JOBS="''${UPDATE_PACKAGE_JOBS:-$(nproc)}"
-    declare -A JOB_ATTR=() JOB_LOG=()
+    declare -A JOB_ATTR=() JOB_DIR=() JOB_LOG=()
     RUNNING=0
 
     launch() {
-      local PKG="$1" ATTR_PATH OLD_VERSION LOG
+      local PKG="$1" ATTR_PATH OLD_VERSION LOG DIR
       ATTR_PATH=$(jq -r .attrPath <<<"$PKG")
       OLD_VERSION=$(jq -r .oldVersion <<<"$PKG")
+      DIR=$(jq -r .dir <<<"$PKG")
       # A readable name per package: the attrPath with path separators flattened.
       LOG="$LOGDIR/''${ATTR_PATH//[.\/]/__}.log"
       echo ">>> $ATTR_PATH: updating ($OLD_VERSION)"
@@ -266,29 +286,36 @@ pkgs.stdenvNoCC.mkDerivation {
         fi
       ) >"$LOG" 2>&1 &
       JOB_ATTR[$!]="$ATTR_PATH"
+      JOB_DIR[$!]="$DIR"
       JOB_LOG[$!]="$LOG"
       RUNNING=$((RUNNING + 1))
     }
 
     reap_one() {
-      local PID STATUS ATTR_PATH LOG
+      local PID STATUS ATTR_PATH LOG DIR
       PID=""
       STATUS=0
       # Requires bash >= 5.1 for `wait -n -p`
       wait -n -p PID || STATUS=$?
       ATTR_PATH="''${JOB_ATTR[$PID]}"
+      DIR="''${JOB_DIR[$PID]}"
       LOG="''${JOB_LOG[$PID]}"
       echo ""
       cat "$LOG"
       if [ "$STATUS" -ne 0 ]; then
         FAILED="$FAILED $ATTR_PATH"
+        # Record the failed package's dir for the workflow to roll back.
+        if [ -n "$DIR" ]; then
+          jq -nc --arg a "$ATTR_PATH" --arg d "$DIR" \
+            '{attrPath: $a, dir: $d}' >> "$ROLLBACK_FILE"
+        fi
       else
         # Only failures keep a log: they are what the uploaded artifact is for,
         # and a full run would otherwise carry hundreds of files.
         SUCCEEDED="$SUCCEEDED $ATTR_PATH"
         [ -n "''${UPDATE_LOG_DIR:-}" ] && rm -f "$LOG"
       fi
-      unset "JOB_ATTR[$PID]" "JOB_LOG[$PID]"
+      unset "JOB_ATTR[$PID]" "JOB_DIR[$PID]" "JOB_LOG[$PID]"
       RUNNING=$((RUNNING - 1))
     }
 
@@ -350,6 +377,7 @@ pkgs.stdenvNoCC.mkDerivation {
 
     echo "========================================="
     echo "Results written to: $RESULTS_FILE"
+    echo "Rollback list written to: $ROLLBACK_FILE"
 
     if [ -n "$FAILED" ]; then
       echo ""
