@@ -15,7 +15,7 @@ buildNpmPackage (finalAttrs: {
   };
 
   nodejs = nodejs_24;
-  npmDepsHash = "sha256-HJ6CEFYw0j/LqXqXQagumYsKWK5p0J80rlzWzFCe2Os=";
+  npmDepsHash = "sha256-Qh33YU8it/n1vJ8IeHUwoJy8NyJDPftvAuNbcYe92NY=";
 
   env.VERSION = finalAttrs.version;
 
