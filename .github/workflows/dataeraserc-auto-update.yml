@@ -19,7 +19,11 @@ jobs:
       GIT_SSL_NO_VERIFY: 'true'
       # Bound each package's update script (see helpers/update.nix) so one
       # stalled download cannot hold `wait -n` until GitHub cancels the run.
-      UPDATE_PACKAGE_TIMEOUT: '600'
+      # Scripts that verify a bump with a full `nix build` (cua-driver) spend
+      # that on a cold Rust compile with no cache entry for the new version,
+      # which does not fit in 600s; 1800s still leaves the step's 100 minutes
+      # untouched, because packages run in parallel.
+      UPDATE_PACKAGE_TIMEOUT: '1800'
     steps:
       - name: Maximize build space
         uses: easimon/maximize-build-space@master
