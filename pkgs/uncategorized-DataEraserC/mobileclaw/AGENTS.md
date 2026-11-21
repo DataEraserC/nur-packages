@@ -18,7 +18,11 @@
 
 **直连对象存储（去掉签名）恒 403**，所以不要把解析出的带签名 URL 写进 `release.json`——30 分钟后失效。正确做法是 pin **管理器端点本身**：`fetchurl` 会跟随 302，`hash` 仍然钉住字节。`name = source.file` 让 store 路径可读（否则会叫 `download?os=linuxX64Client`）。实测 `builtins.fetchurl` 走同一路径也能校验通过。
 
-**版本号以解析出的 `.deb` 文件名为准**（`sed -nE 's#.*/MobileClaw_([0-9][^/]*)_[a-z0-9_]+\.deb$#\1#p'`），不要让 `release.json` 里的 `version` 与文件名成为两份会漂移的事实。`update.sh` 就是按这个口径写的。
+**版本号以解析出的 `.deb` 文件名为准**（`sed -nE 's#.*/MobileClaw_([0-9][0-9.]*)_[a-z0-9_]+\.deb$#\1#p'`），不要让 `release.json` 里的 `version` 与文件名成为两份会漂移的事实。`update.sh` 就是按这个口径写的。
+
+**版本捕获组必须是 `[0-9][0-9.]*`，不能是 `[^/]*`**：文件名是 `MobileClaw_<版本>_x86_64.deb`，arch 里的下划线让 `[^/]*` 能回溯出更长的合法匹配——`1.9.8_x86`（剩下的 `_64` 恰好接上 `_` 分隔符 + `[a-z0-9_]+` + `.deb`），于是「无更新」的运行也会得到 `new_version=1.9.8_x86 ≠ old`，白走一轮 prefetch（2026-11-21 CI 实例，mobileclaw 每 run 必挂）。数字加点匹配不到 `_`，天然免疫。
+
+**prefetch 与 `release.json` 的 url 都要写管理器端点**：`update.sh` 曾把 302 解析出的裸对象 URL（剥掉 SigV4 签名）直接交给 `nix store prefetch-file`——裸 URL 现在无论 UA 一律 403（2026-11-21 实测），签名 URL 又 30 分钟过期不能 pin。端点链路（GET 跟随 302）实测任何 UA 都通，且与 `default.nix` 的 fetchurl 同一条链路，算出的哈希即构建所用。对象存储还拒绝 HEAD（403），只接受 GET，所以探测用 ranged GET（`-r 0-0`）而不是 `-I`。
 
 **探测方法**：页面是 React SPA，`strings` 前端 bundle 找不到下载链接（里面 28 处 `.exe` 全是正则 `.exec`）。用 ego 浏览器打开后从按钮的 React props 里取：`el.getAttribute('data-url')`，或 `Object.keys(el).find(k=>k.startsWith('__reactProps$'))` 后读 `.props['data-url']`。
 
