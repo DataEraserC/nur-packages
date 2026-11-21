@@ -13,3 +13,8 @@ update-git-commits.txt
 __pycache__/
 update-results.json
 update-logs/
+
+# local agent scratch/state
+.box-agent-scratch/
+.zcode/
+state/
