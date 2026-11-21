@@ -37,13 +37,13 @@ let
 in
 stdenv.mkDerivation (finalAttrs: {
   pname = "dsh-our-free-model-standalone";
-  version = "2.8.6-macos-unofficial";
+  version = "2.8.9-macos-unofficial";
 
   src = fetchFromGitHub {
     owner = "Ebony-Vinyl";
     repo = "dsh-our-free-model";
     rev = "v${finalAttrs.version}";
-    hash = "sha256-zE4qI/Zha5HA1PCfXIawD63AOae12qO89hJozkGQvc4=";
+    hash = "sha256-FIQ3edvpx7SSpKhrdo+8jOxBa0dAy+K5g2tD3BbpoCA=";
   };
 
   __structuredAttrs = true;
@@ -60,7 +60,7 @@ stdenv.mkDerivation (finalAttrs: {
   env.npmDeps = fetchNpmDeps {
     name = "dsh-our-free-model-standalone-npm-deps";
     inherit (finalAttrs) src;
-    hash = "sha256-tqyEKjh0uN/uTLsrZJ9yfoJ3j4l0SQPdXUHDa7RODvU=";
+    hash = "sha256-dqyxdnU0mLY/fQ320jLGSY/AspERSwKi0gGy3RGh1Gs=";
   };
 
   nativeBuildInputs = [

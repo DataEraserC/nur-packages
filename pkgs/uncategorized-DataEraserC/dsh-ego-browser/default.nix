@@ -13,16 +13,16 @@ if inputs == null then
 else
   dshPkgs.dsh.buildDshBundle (finalAttrs: {
     pname = "dsh-ego-browser";
-    version = "0.14.1";
+    version = "0.14.2";
 
     src = fetchFromGitHub {
       owner = "Fisfzy";
       repo = "dsh-ego-browser";
       tag = "v${finalAttrs.version}";
-      hash = "sha256-p8iGDOGm+cJG4h0q9IjyfmzH7cv6KAaqOb4BaggQ+jA=";
+      hash = "sha256-IHofFFUyz6Esx9Ucy0bIa299I3CTe86VpikJC5YN1Vg=";
     };
 
-    npmDepsHash = "sha256-onIms9Ph2ByYo169dXOt9l6DUX6JDncF8KSZdlfcBVw=";
+    npmDepsHash = "sha256-GjpJcySsNtJMpFbC0H8d/eN6itLpfnaxOxTFkDuu38E=";
 
     patches = [ ./tests-cross-platform.patch ];
 
