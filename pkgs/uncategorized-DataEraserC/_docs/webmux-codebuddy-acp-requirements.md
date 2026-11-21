@@ -1,6 +1,6 @@
-# WebMux / CodeBuddy / ZCode ACP 下游需求与升级闸门
+# WebMux / CodeBuddy / ZCode / Qoder CLI ACP 下游需求与升级闸门
 
-本文件是 DataEraserC 下游对 WebMux 外部 ACP、`webmux-acp`、`codebuddy-acp`、`zcode-acp` 与 nix-config 接线的单一需求源。修改或更新这些组件前先读本文件；完成后逐项记录验收结果。包级 `AGENTS.md` 只保留实现经验和指针，不复制本文件。
+本文件是 DataEraserC 下游对 WebMux 外部 ACP、`webmux-acp`、`codebuddy-acp`、`zcode-acp`、`qodercli`/`qoderclicn` 与 nix-config 接线的单一需求源。修改或更新这些组件前先读本文件；完成后逐项记录验收结果。包级 `AGENTS.md` 只保留实现经验和指针，不复制本文件。
 
 ## 1. 范围和术语
 
@@ -73,7 +73,8 @@
 | NUR `webmux`             | upstream base 源码、前端/Go 依赖哈希与组合 updater                                                        | `pkgs/uncategorized-DataEraserC/webmux/default.nix`             |
 | NUR `webmux-acp`         | 复用 `webmux` 构建定义，源码直接固定到审计 overlay tip，并扩大 check 范围                                  | `webmux-acp/default.nix`                                        |
 | NUR `codebuddy-acp`    | CodeBuddy 专用双模式入口及 stdio ACP compatibility proxy                                                   | `codebuddy-acp/`                                                |
-| nix-config             | CodeBuddy 实例声明、state compatibility、WebMux JSON 与 NUR pin                                            | 对应 module、host 与 focused test                               |
+| NUR `qodercli` / `qoderclicn` | Qoder CLI 两个 edition 的上游二进制固定来源与更新闸门                                          | `qoder-cli-common.nix` 与各自 `release.json`、`update.sh`        |
+| nix-config             | CodeBuddy/ZCode/Qoder CLI 实例声明、state compatibility、WebMux JSON 与 NUR pin                              | 对应 module、host 与 focused test                               |
 | 本文件                 | 跨层不变量、升级顺序与验收矩阵                                                                             | 本文件；其它 `AGENTS.md` 只保留触发指针和本地实现经验           |
 
 WebMux upstream 不承载下游实例；NUR 不手工维护第二份实现；nix-config 不内嵌包实现；包级指南不复制本文件的规范正文。
@@ -158,7 +159,40 @@ AppImage 内的 glm bundle 是 desktop-agent 子集：`app-server`（headless �
 - zcode 的另一外部 ACP 消费方是 **acb**（通用 `acp_driver_acb` 预设按会话 spawn `zcode-acp-server`，恢复走 ACP `session/load`，全程无 TUI）。
 - 桌面 GUI 是单一 `zcode` 包（CN 与国际版为同一 AppImage，仅登录区域不同）；`zcode-cn`/`zcode-intl` 不再作为独立包存在，multi-instance alias 保留 `zcode-intl` → `zcode` 兼容旧 CLI 名称。
 
-## 7. nix-config 部署不变量
+## 7. Qoder CLI：`qodercli` 与 `qoderclicn`
+
+### QC-01：版本源是 CLI 自更新通道，不是 npm
+
+两个包是同一上游产品的两个分发 edition：国际版 `https://download.qoder.com/qodercli/channels/manifest.json`，中国版 `https://static.qoder.com.cn/qoder-cli-cn/channels/manifest.json`。该 feed 就是 `qodercli update` 轮询的清单，`.latest` 才是真正的最新发布版本；npm 包 `@qoder-ai/qodercli` 只是下载器包装，不得作为版本或产物来源（其 tarball 不含可构建源码，只提供 bootstrap）。
+
+`update.sh` 只在 `.latest` 匹配 `^[0-9]+\.[0-9]+\.[0-9]+$` 时推进；按 `os == "linux"` 且 `arch` 精确等于 `amd64`/`arm64` 取资产并要求恰好命中一条（同 arch 还并列 `-musl` 变体，前缀匹配会双命中）；把每个平台的 `url` 与 `sha256` 写进本包 `release.json`。清单里的 `sha256` 是十六进制串，与 `nix store prefetch-file --json` 对同一 URL 报的 SRI 是同一摘要，直接 `nix hash convert --hash-algo sha256 --to sri` 换算，无需二次下载。写回后必须 `nix build ".#$UPDATE_NIX_ATTR_PATH"` 全量验证；无新版本时静默 `exit 0`，脚本可重复执行。
+
+多平台多产物的版本与哈希写 `release.json` 而不是 `sources.json`：`helpers/update.nix` 的 `usesSources` 启发式会跳过表达式里出现 `sources.` 引用的包，写错文件名等于自动更新永久看不到它。两包共享 `qoder-cli-common.nix`，由它按 `stdenv.hostPlatform.system` 索引 `release.json`，缺平台 `throw`；该 helper 直接放在分组目录下，`createLoadPackages` 过滤所有 `.nix` 结尾条目，因此不会变成一个包（`maintainers.nix` 同理）。
+
+### QC-02：Bun 单文件 ELF 的打包约束
+
+上游资产是 Bun 编译的单文件可执行文件（约 200 MB），运行时 JS 载荷作为裸数据追加在 ELF 段之后：
+
+- 必须 `dontStrip = true`：默认 `stripPhase` 会把 ELF 段之后的载荷当废尾截掉，几百 MB 产物削成十几 MB 的残桩。
+- 需要 `autoPatchelfHook`：产物硬解释器是 `/lib64/ld-linux-x86-64.so.2`，NixOS 上不存在该路径；只改解释器，不用 `patchelf --set-rpath` 重排段布局。
+- tarball 顶层直接是单个可执行文件（无版本目录），用 `sourceRoot = "."`。
+- `--version` 打印与清单一致的版本号，可用 `versionCheckHook` 做安装检查。
+- `meta.license = unfree`、`sourceProvenance = [ binaryNativeCode ]`，`platforms` 只列 `x86_64-linux`/`aarch64-linux`（清单里另有 darwin 资产，不由本包分发）。
+
+### QC-03：CLI 自带 ACP server，不引入第二层包装
+
+`qodercli --acp` / `qoderclicn --acp` 直接在 stdio 上服务 ACP（1.1.81 起；更早的构建只认 `--experimental-acp`），`--resume <session-id>` 回到同一二进制的 TUI。`initialize` 回报 `agentInfo.name` 为 `qoder-cli` / `qoder-cli-cn`，`sessionCapabilities` 含 `list`、`resume`、`fork`、`close`、`delete`，所以 chat 侧能发现并续用终端侧创建的会话。与 `codebuddy-acp` 必须自建 `session/list` proxy 不同，这里没有任何需要补的缺口，产物就应是上游二进制本身，不额外提供 wrapper、libexec 或改名入口。
+
+状态是单一目录：国际版 `~/.qoder`、中国版 `~/.qoder-cn`，登录、`projects` 下的会话、skills 与 plugins 全在其下（同品牌的 IDE 与桌面 App 复用同一目录）。`qodercli update`/`rollback` 在 Nix 里禁用：store 是唯一二进制副本，自更新会往用户目录写第二份不受管理的二进制并造成版本漂移。
+
+### QC-04：nix-config 接线
+
+- module `modules.qodercli` 与 `modules.qoderclicn`（与包名一致，形状照 `modules.codebuddy-acp`）：默认取 pinned `nur-DataEraserC.legacyPackages.${system}.<pkg> or null`，启用时用 assertion 要求非 null。
+- multi-instance app key `qodercli`（state key `qoder-cli`，paths `.qoder`）与 `qoderclicn`（state key `qoder-cn-cli`，paths `.qoder-cn`）：`executable` 留空即取 app key，`desktop = null` 表示 CLI-only、不生成启动器。state key 必须与同品牌桌面 app（`qoder`/`qoder-cn`）不同，CLI 登录不继承桌面账号。`persist` 写成纯字符串，让 `lib.unique` 把与桌面/IDE 条目同形状的声明折叠成一条 `preserveDirectories`，而不是把同一 `$HOME` 路径声明两次。
+- WebMux 只声明 wrapped 形式：`launcher = "bwrap"`、`processExecutables = [ "qoderclicn" ]`（bwrap 的直接子进程就是 CLI 本身，没有 node/bun 换手）。不得再加 bare `qoderclicn` 直连声明——它已是 WebMux 内置 adapter（`qodercn`）的 executable，而 `match[0]` 命中内置 executable 的外部声明会被当作 shadow 整条丢弃，加直连形式等于删掉这个 agent。`icon` 必须取 LaunchConfigIcon 支持的键，未知 icon 会让加载器跳过整份声明。
+- CN 实例数与 `modules.agent-accounts.desktopAccounts.qoder-cn` 对齐（2 个，各自 `multi-instance qoderclicn N login` 登录一次）；国际版与 `modules.qoder` 同状态：打包但不在 host 上启用，因此也没有 agent 声明。
+
+## 8. nix-config 部署不变量
 
 ### NC-01：应用名、可执行文件与状态 key 分离
 
@@ -178,19 +212,20 @@ nix-config 通过一个 `WEBMUX_ACP_AGENTS` JSON 定义 direct、canonical wrapp
 - 已存在的 `launch-configs.json` 只由上游 seed-once 规则管理；迁移不得删除、逐项迁移或整体重写。旧 `multi-instance codebuddy 1` 由 multi-instance CLI alias 和同 argv 的 WebMux exact binding 兼容。
 - NUR commit 完成后再更新 nix-config 的 NUR lock；配置和 lock 必须指向包含相同 pinned package 的提交。
 
-## 8. 升级流程
+## 9. 升级流程
 
-每次更新 WebMux、CodeBuddy vendor、对应 NUR 包或 nix-config 接线时按顺序执行：
+每次更新 WebMux、CodeBuddy vendor、Qoder CLI、对应 NUR 包或 nix-config 接线时按顺序执行：
 
 1. 读取本文件，列出本次可能受影响的需求 ID。
 2. 更新主 `webmux` 基线与三类固定输出哈希；证明 updater 不会选择无关 tag。
 3. 在该 base 上按逻辑重放仍需保留的 downstream overlay commits；运行 upstream tests/docs/architecture/user-story 与 ownership gates。
 4. 做隐私检查后发布固定 overlay tip；验证 base/tip ancestry、逐 commit 身份与 scope，并把 tip 与 Nix source hash 写入 `webmux-acp`。
-5. 构建并测试 `webmux`、`webmux-acp`、`codebuddy-acp`；检查公开 `bin/`。
-6. 提交 NUR 后更新 nix-config NUR lock；运行 focused eval、格式化、module tests 与目标 host build。
-7. 在提交/PR 摘要按需求 ID 记录 pass、环境性限制和未运行项。任何未验证项保持未完成，不能用“构建成功”概括。
+5. Qoder CLI 走各自 `update.sh`：从 edition 的 `channels/manifest.json` 取 `.latest` 与双平台资产，清单 `sha256` 换算成 SRI 后写 `release.json`，再 `nix build` 验证（见 QC-01）。
+6. 构建并测试 `webmux`、`webmux-acp`、`codebuddy-acp`、`qodercli`、`qoderclicn`；检查公开 `bin/`。
+7. 提交 NUR 后更新 nix-config NUR lock；运行 focused eval、格式化、module tests 与目标 host build。
+8. 在提交/PR 摘要按需求 ID 记录 pass、环境性限制和未运行项。任何未验证项保持未完成，不能用“构建成功”概括。
 
-## 9. 最低验收矩阵
+## 10. 最低验收矩阵
 
 | 需求          | 自动化证据                                                                                                                                                                                                                      |
 | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -201,6 +236,7 @@ nix-config 通过一个 `WEBMUX_ACP_AGENTS` JSON 定义 direct、canonical wrapp
 | PKG-01..04    | build definition/dependency identity、base/tip ancestry、逐 commit 身份、range scope/source hash、Nix builds、explicit internal Go tests                                                                                   |
 | CB-01..03     | dispatch/argv/env/transport ordering/initialize/session-list tests、`bin/` listing                                                                                                                                              |
 | ZC-01..04     | `zcode-cli`/`zcode-acp` installCheck（`bin/` listing、`--version`、ACP initialize smoke）、focused Nix expected-output test（app keys、共享 state key、无 WebMux 声明）、target host build、真实 vendor ACP smoke（initialize/session/list）、`app-server --stdio` 启动健康 |
+| QC-01..04     | `update.sh` 幂等 no-op、双平台 `nix build` 与 `--version` installCheck、真实 `--acp` initialize smoke（`agentInfo.name`、`sessionCapabilities`）、focused Nix expected-output test（module 开关、state key 与桌面端分离、spec 行、`preserveDirectories` 折叠、CN 两条 wrapped 命令、无直连声明） |
 | NC-01..03     | focused Nix expected-output test（canonical app/CLI alias/old-key removal/exact bindings）、生产 spec runtime test（canonical/legacy/default/userDataDir）、shell syntax、module eval、target host build、state path assertions |
 
 真实 ACP 切换 smoke 至少覆盖一次 direct binding 和一次 launcher binding：launch support → TUI session → ACP initialize/session/list/session/load → resume TUI。若环境无法运行真实 vendor CLI，应明确记录为未运行，不以 fake-agent 单测替代。

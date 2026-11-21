@@ -1,0 +1,11 @@
+{
+  "version": "1.1.95",
+  "x86_64-linux": {
+    "url": "https://qoder-ide.oss-accelerate.aliyuncs.com/qodercli/releases/1.1.95/qodercli-linux-x64.tar.gz",
+    "hash": "sha256-o3RtTsw5e7Pua/ek0NTR+3VqwGtsabCQacde6LawrU8="
+  },
+  "aarch64-linux": {
+    "url": "https://qoder-ide.oss-accelerate.aliyuncs.com/qodercli/releases/1.1.95/qodercli-linux-arm64.tar.gz",
+    "hash": "sha256-XsR02rFg56o7YqaYfffHnhEwVqG2rcKl4Fa3vSNRPIY="
+  }
+}

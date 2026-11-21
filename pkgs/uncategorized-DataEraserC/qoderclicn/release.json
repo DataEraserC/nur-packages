@@ -1,0 +1,11 @@
+{
+  "version": "1.1.95",
+  "x86_64-linux": {
+    "url": "https://static.qoder.com.cn/qoder-cli-cn/releases/1.1.95/qoderclicn-linux-x64.tar.gz",
+    "hash": "sha256-i/vbxFfdJnmfu5l5/ID8RoY2yXQge3hEJfY8YNp6J8U="
+  },
+  "aarch64-linux": {
+    "url": "https://static.qoder.com.cn/qoder-cli-cn/releases/1.1.95/qoderclicn-linux-arm64.tar.gz",
+    "hash": "sha256-Yf+guOErPyVp9FdenfcYbuNmdLavkuJ4JzC2YfFRmTA="
+  }
+}
