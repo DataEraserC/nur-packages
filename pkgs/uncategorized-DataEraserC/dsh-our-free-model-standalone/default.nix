@@ -37,7 +37,7 @@ let
 in
 stdenv.mkDerivation (finalAttrs: {
   pname = "dsh-our-free-model-standalone";
-  version = "2.8.9-macos-unofficial";
+  version = "untagged-77a23c49484f405e5bd5";
 
   src = fetchFromGitHub {
     owner = "Ebony-Vinyl";
