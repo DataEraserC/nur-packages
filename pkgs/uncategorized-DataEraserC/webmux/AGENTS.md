@@ -28,8 +28,8 @@
 ```bash
 nix build .#webmux
 out=$(nix build .#webmux --no-link --print-out-paths)
-$out/bin/webmux --version            # webmux 0.16.0-unstable-2026-11-14
-$out/bin/webmux version --json       # {"v":1,"version":"0.16.0-unstable-2026-11-14","contract":1}
+$out/bin/webmux --version            # webmux 0.18.0-unstable-2026-11-22
+$out/bin/webmux version --json       # {"v":1,"version":"0.18.0-unstable-2026-11-22","contract":1}
 
 export HOME=$(mktemp -d)
 $out/bin/webmux serve --listen 127.0.0.1:7699 &

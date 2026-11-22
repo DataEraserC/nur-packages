@@ -4,17 +4,18 @@
 }:
 
 let
-  version = "0.16.0-unstable-2026-11-15";
+  version = "0.18.0-unstable-2026-11-22";
 
   pinnedWebmux = webmux.override {
-    # The pinned overlay tip predates the base package's frontend dependency
-    # bump, so its pnpm store differs; pin the hash belonging to this source.
-    webPnpmDepsHash = "sha256-5OyJovg1SiQN1yRygM5TH11Q5reWiGEj3xxmvp7HNN4=";
+    # The overlay tip is a frozen commit while the base package floats to newer
+    # upstream releases, so pin both hashes belonging to this source rather than
+    # inherit whatever the base package currently needs.
+    webPnpmDepsHash = "sha256-jeufMwHqygtsf2FdXQIN/okE2lyVjS+EjYy+2fxXGv4=";
     webmuxSource = fetchFromGitHub {
       owner = "mzdluo123";
       repo = "webmux";
-      rev = "f17eda53cd0f81da6041b88f07624aadaddc415b";
-      hash = "sha256-wy7WqoVYObtXSCHa3cCsQGssDkyofomO+GZ/OkQlNW4=";
+      rev = "f55f8f4ce1ed1f9b2d26f8aa042edc532ce96ee6";
+      hash = "sha256-hwiGhJc+qLXSxuUgO/ijMhzcaMMuh4jfy++F4m6feHo=";
     };
   };
 in
@@ -26,7 +27,7 @@ pinnedWebmux.overrideAttrs (old: {
   # tracks whatever release webmux/ is pinned to. When the main package moves
   # on, that hash no longer matches this older overlay tip and the build fails
   # with a hash mismatch. Pin the hash that belongs to this source.
-  vendorHash = "sha256-8jgAcb9znAtAlDfwuBD5+qTimc3mwoCRZ38i6pHr/d4=";
+  vendorHash = "sha256-0WjfEw9/sV9mnTdA4N4BYv2IlQNbN3g9yR/ow8IU4XI=";
   ldflags = [
     "-s"
     "-w"
@@ -41,13 +42,14 @@ pinnedWebmux.overrideAttrs (old: {
     go test -race ./internal/agentprofile/... ./internal/launch
     go test -race ./internal/service -run '^(TestEnvironmentCapturesOnlySupportedVariables|TestExternalAgentsEnvironmentRoundTripsServiceDefinitions)$' -count=1
     go test -race ./internal/hybrid -run '^TestSelectDeclaredAgentProcess$' -count=20
+    go test -race ./internal/hybrid -run '^TestDeclaredAgentOverForeignSignal$' -count=1
     go test -race ./internal/hybrid -run '^(TestCheckCreate|TestCodexConnectorMissing|TestCreateACPFailureRemovesSessionAndReturnsStderr|TestStartFailurePreservesCause)$' -count=1
-    go test -race ./internal/hybrid -run '^(TestExternalAgentBackgroundCommandLatchesDoneWithoutRefresh|TestTurnWithBackgroundCommandIsDoneOnlyAfterItEnds|TestTurnWithStartedBackgroundCommandIsDoneOnlyAfterItEnds|TestBackgroundWatchStoppedByNewTurnOrSwitch)$' -count=1
-    go test -race ./internal/clicmd -run '^(TestViewChangePaths|TestViewChoicePending)$' -count=1
+    go test -race ./internal/hybrid -run '^(TestTurnWithBackgroundCommandIsDoneOnlyAfterItEnds|TestTurnWithStartedBackgroundCommandIsDoneOnlyAfterItEnds|TestBackgroundWatchStoppedByNewTurnOrSwitch)$' -count=1
+    go test -race ./internal/clicmd -run '^TestViewChangeAnswersPausedSwitch$' -count=1
     go test -race ./internal/session -run '^TestAttentionPolicyModesAndSources$' -count=1
-    go test -race ./internal/hybrid -run '^(TestTUITurnState|TestSwitchUnknownTurnState|TestSwitchUnknownTurnStateLegacyClient|TestSwitchChoiceFirstAnswerWins|TestSwitchChoiceRacesIdle)$' -count=1
+    go test -race ./internal/hybrid -run '^(TestTurnUncertain|TestSwitchAwaitingChoice|TestSwitchUnknownTurnState|TestSwitchUnknownTurnStateLegacyClient|TestSwitchChoiceFirstAnswerWins|TestSwitchChoiceRacesIdle)$' -count=1
     go test -race ./downstream -count=1
-    go test -race ./cmd/internal/assemble -run '^TestSessionOptionsUsesInjectedRegistry$'
+    go test -race ./cmd/internal/assemble -run '^TestSessionOptionsEmptyAgentSelection$'
     go test -race ./internal/api -run '^(TestP2PEndpointsSecurityAndValidation|TestLocalSessionProcessCannotControlP2P|TestP2PRPCAuthAndRouting|TestP2PRPCUsesInjectedRegistryLikeHTTP|TestOneInjectedRegistryServesLaunchAPIAndHybrid|TestViewTurnChoiceCapability)$' -count=1
     go test ./internal/archtest ./internal/docguard
     runHook postCheck

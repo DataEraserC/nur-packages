@@ -53,7 +53,9 @@
 
 若 PTY 根进程本身是 native process，直接使用它。否则只有在根进程 basename 等于 command 的 launcher，且其直接子进程中恰好一个匹配 `processExecutables` 时才接受。
 
-验收条件：0 个或 2 个匹配 child 均拒绝；无关 child 不影响唯一匹配；身份与 cwd 取被选中的 native child，不取 launcher。
+声明式 command 自带 operator 写下的启动 argv，因此它确认到的 native process 优先于 terminal signal 指向的另一个 agent；built-in session 仍按 signal 优先。signal 指向别的 agent 且进程身份不匹配本 command 时继续报 `unknown_agent`。
+
+验收条件：0 个或 2 个匹配 child 均拒绝；无关 child 不影响唯一匹配；身份与 cwd 取被选中的 native child，不取 launcher；声明 agent 在 fake agent 广播 built-in profile 的 `app` 时仍能完成 terminal→chat 切换。切换用例走真实进程链，而进程事实需要 machine identity，所以该用例在无 machine identity 的构建沙箱里显式 skip，只在有进程事实的机器上给出证据；纯逻辑的 child 选择用例不受此约束。
 
 ### WM-ACP-06：严格、有界、显式加载
 
@@ -89,19 +91,19 @@ WebMux upstream 不承载下游实例；NUR 不手工维护第二份实现；nix
 
 | 项目                     | 值                                                    |
 | ------------------------ | ----------------------------------------------------- |
-| version                  | `0.16.0-unstable-2026-11-14`                          |
-| upstream rev             | `289f9278e7f35ac6515135c18365f016ff8829db`            |
-| upstream source hash     | `sha256-4VVaI8hV0e0jP51C99BYi8uE+oyN7OAhhoTZ35JyTLg=` |
-| downstream overlay tip   | `f17eda53cd0f81da6041b88f07624aadaddc415b`            |
-| downstream source hash   | `sha256-wy7WqoVYObtXSCHa3cCsQGssDkyofomO+GZ/OkQlNW4=` |
-| pnpm hash                | `sha256-5OyJovg1SiQN1yRygM5TH11Q5reWiGEj3xxmvp7HNN4=` |
-| vendor hash              | `sha256-8jgAcb9znAtAlDfwuBD5+qTimc3mwoCRZ38i6pHr/d4=` |
+| version                  | `0.18.0-unstable-2026-11-22`                          |
+| upstream rev             | `c0f9d3f15514412fe37c7ba57abe88c5fb21d8db`            |
+| upstream source hash     | `sha256-hBJWLbp8i9Ex374H6WMRRS8pOeGdyabxsUbLr2RuJu4=` |
+| downstream overlay tip   | `f55f8f4ce1ed1f9b2d26f8aa042edc532ce96ee6`            |
+| downstream source hash   | `sha256-hwiGhJc+qLXSxuUgO/ijMhzcaMMuh4jfy++F4m6feHo=` |
+| pnpm hash                | `sha256-jeufMwHqygtsf2FdXQIN/okE2lyVjS+EjYy+2fxXGv4=` |
+| vendor hash              | `sha256-0WjfEw9/sV9mnTdA4N4BYv2IlQNbN3g9yR/ow8IU4XI=` |
 
-`webmux-acp` 的 overlay 已 rebase 到 0.16.0 树，与主包共享前端依赖哈希、前端命令 `pnpm exec vp build` 与 Go vendor baseline；它只额外固定自己的 source 与 version `0.16.0-unstable-2026-11-15`（对应 overlay tip 的提交日期）。0.14.5 时期为兼容旧树而加的三个 override 已删除。
+`webmux-acp` 的 overlay 已 rebase 到 tag `v0.18.0`（upstream rev 即 `downstream/ownership.json` 的 `upstreamBase`），与主包共享前端依赖哈希与 Go vendor baseline；主包 updater 之后把 `webmux/` 推进到更新的 upstream HEAD，两者的依赖集合未变，但 acp 仍显式固定自己的 source、version 与这两类哈希，避免主包漂移时破坏冻结 tip 的可构建性。0.14.5 时期为兼容旧树而加的三个 override 已删除。
 
 ### PKG-02：ACP source 等于一个可审计的匿名下游 overlay 范围
 
-`webmux-acp` 必须直接固定 `mzdluo123/webmux` 中可解析的 downstream overlay tip 及其 Nix source hash，不携带本地 patch。该 tip 必须由公开 fork `desktop-tools-which-may-be-useful/webmux` 的 `feat/downstream-overlay-v0.16.0` advertised branch 保留，更新 pin 前用公开 HTTPS `git ls-remote --heads` 验证 branch 精确指向 tip。`downstream/ownership.json` 固定表中的 upstream rev，并分类该 base 到 tip 的所有新增和修改路径；ownership checker 还必须证明 base 属于 canonical upstream history。范围内每个 commit 都必须只有一个 parent、连续可追溯，并使用仓库局部身份 `anonymous <anonymous@users.noreply.github.com>` 与 WebMux Conventional Commit 规范；不得含真实身份、主机路径、私有部署名、会话/任务 ID、协作者 trailer 或下游 CodeBuddy/multi-instance 内容。
+`webmux-acp` 必须直接固定 `mzdluo123/webmux` 中可解析的 downstream overlay tip 及其 Nix source hash，不携带本地 patch。该 tip 必须由公开 fork `desktop-tools-which-may-be-useful/webmux` 的 `feat/downstream-overlay-v0.18.0` advertised branch 保留，更新 pin 前用公开 HTTPS `git ls-remote --heads` 验证 branch 精确指向 tip。`downstream/ownership.json` 固定表中的 upstream rev，并分类该 base 到 tip 的所有新增和修改路径；ownership checker 还必须证明 base 属于 canonical upstream history。范围内每个 commit 都必须只有一个 parent、连续可追溯，并使用仓库局部身份 `anonymous <anonymous@users.noreply.github.com>` 与 WebMux Conventional Commit 规范；不得含真实身份、主机路径、私有部署名、会话/任务 ID、协作者 trailer 或下游 CodeBuddy/multi-instance 内容。
 
 更新基线时：按逻辑重放仍需保留的 overlay commits，完成 WebMux 功能与 ownership 验证后同时更新 tip 与 source hash；验证 base/tip ancestry、逐 commit 身份、tree scope 与公开归档 hash，不从 patch 邮件头间接推导源码版本。
 
@@ -231,7 +233,7 @@ nix-config 通过一个 `WEBMUX_ACP_AGENTS` JSON 定义 direct、canonical wrapp
 | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | WM-ACP-01..03 | exact match/path first token/no scan/empty args/connector per command tests                                                                                                                                                     |
 | WM-ACP-04     | env bash、bare bash、zsh startup argv 与 fd 3 tests                                                                                                                                                                             |
-| WM-ACP-05     | native root 与 launcher 0/1/2 matching child、child cwd tests                                                                                                                                                                   |
+| WM-ACP-05     | native root 与 launcher 0/1/2 matching child、child cwd、declared command 对 foreign signal 优先级 tests                                                                                                                              |
 | WM-ACP-06     | strict JSON、limits、skip/conflict/no panic、constructor wiring、service render round-trip tests                                                                                                                                |
 | PKG-01..04    | build definition/dependency identity、base/tip ancestry、逐 commit 身份、range scope/source hash、Nix builds、explicit internal Go tests                                                                                   |
 | CB-01..03     | dispatch/argv/env/transport ordering/initialize/session-list tests、`bin/` listing                                                                                                                                              |

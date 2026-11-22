@@ -9,7 +9,7 @@
 ## 源码来源
 
 - `webmux-acp/default.nix` 直接固定 `mzdluo123/webmux` 中可解析的匿名 overlay tip 及对应 Nix source hash，不携带本地 patch。
-- 该 tip 尚未进入 upstream advertised refs；必须保留公开 fork `desktop-tools-which-may-be-useful/webmux` 的 `feat/downstream-overlay-v0.16.0` branch，使 GitHub fork network 持续保有对象。更新 pin 前用公开 HTTPS `git ls-remote --heads` 验证该 branch 精确指向 tip。
+- 该 tip 尚未进入 upstream advertised refs；必须保留公开 fork `desktop-tools-which-may-be-useful/webmux` 的 `feat/downstream-overlay-v0.18.0` branch，使 GitHub fork network 持续保有对象。更新 pin 前用公开 HTTPS `git ls-remote --heads` 验证该 branch 精确指向 tip。新推的 rev 在 `mzdluo123/webmux` 的归档端点上可能暂时 404（负面缓存，父提交已可取，实测几分钟内自愈），pin 前先用 `curl -sSLo /dev/null -w '%{http_code}'`（必须 `-L`，`/archive/<rev>.tar.gz` 先 302 到 codeload）重试确认，否则包构建会一直取不到源码。
 - `downstream/ownership.json` 固定 upstream base 并分类完整 `base..tip` 路径；范围内每个 commit 必须是单 parent、author/committer 均为 `anonymous <anonymous@users.noreply.github.com>`，不带协作者 trailer、私有路径或下游部署内容。
 - 基线升级时在新 upstream base 上按逻辑重放连续 overlay commits、运行上游与 ownership 验证，并把新的 tip/hash 一起写入本包。
 - `passthru.updateScript = null`：本包不能脱离主包单独自动更新。
@@ -17,6 +17,9 @@
 ## 构建测试
 
 主包的 `subPackages = [ "cmd/webmux" ]` 会收窄默认 Go tests。本变体的 `checkPhase` 必须显式覆盖 overlay 涉及的 external ACP、terminal→chat 与 ownership internal tests、架构/doc guards 和适用 hybrid tests，不能只继承主包 check。terminal→chat 至少覆盖 opt-in 新阶段、无 capability 的 interrupt-first 旧客户端、真实 HTTP query 与 CLI 初始/回答路径。`cmd/baseline` 的 `TestFixtureIsolatesAPIGitAndRestoresEnvironment` 硬编码 `/usr/bin/env`，Nix sandbox 只跳过这一项；package 仍完整编译并运行其余 tests，registry wiring 由 assemble/API/P2P/hybrid focused tests 覆盖。
+
+- **每次换 tip 都要核对 `checkPhase` 里每个 `-run` 名字仍存在**：`go test -run '^TestFoo$'` 匹配不到任何测试时照样输出 `ok` 并退出 0，上游改名或删除该测试后这条命令就变成空跑，PKG-04 要求的覆盖静默消失。核对方法：`grep -rhoE '^func Test[A-Za-z0-9_]+' --include='*_test.go' .` 取全集，与包文件里出现的名字求差集；0.16.0→0.18.0 一次就有 5 个名字失效（`TestTUITurnState`→`TestTurnUncertain`、`TestSessionOptionsUsesInjectedRegistry`→`TestSessionOptionsEmptyAgentSelection`、`TestViewChangePaths`/`TestViewChoicePending`→`TestViewChangeAnswersPausedSwitch`、`TestExternalAgentBackgroundCommandLatchesDoneWithoutRefresh` 已无同名测试）。
+- **`TestDeclaredAgentOverForeignSignal` 在无 machine identity 的沙箱里 skip**：该用例走真实进程链，而 `internal/procpeek` 的进程事实在读不到 machine identity 时一律拒绝返回，于是 eligibility 永远停在 `unknown_agent`、用例在等待处超时（纯 Nix builder 里 `/etc` 只读且两处 machine id 文件都不存在，无法造出来）。overlay 里该用例开头用 `session.LookupProcess(os.Getpid())` 声明前置条件并 `t.Skip`，沿用 `internal/procpeek/process_facts_unix_test.go` 的写法。所以 Nix 构建的 `ok` 只证明纯逻辑与切换状态机用例，切换本身的可信证据必须在有 machine id 的机器上跑一次 `go test -race ./internal/hybrid -run '^TestDeclaredAgentOverForeignSignal$' -v` 并确认输出是 PASS 而非 SKIP。
 
 验收至少包括：
 
