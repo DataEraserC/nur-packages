@@ -37,13 +37,13 @@ let
 in
 stdenv.mkDerivation (finalAttrs: {
   pname = "dsh-our-free-model-standalone";
-  version = "2.8.9-macos-unofficial";
+  version = "2.9.0-macos-unofficial";
 
   src = fetchFromGitHub {
     owner = "Ebony-Vinyl";
     repo = "dsh-our-free-model";
     rev = "v${finalAttrs.version}";
-    hash = "sha256-FIQ3edvpx7SSpKhrdo+8jOxBa0dAy+K5g2tD3BbpoCA=";
+    hash = "sha256-OGl5KhlPgjxPZrBfc3rGk98mkJe9rtu9RDI5QwhvWL4=";
   };
 
   __structuredAttrs = true;

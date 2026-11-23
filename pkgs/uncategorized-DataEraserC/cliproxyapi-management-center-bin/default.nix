@@ -6,10 +6,10 @@
 }:
 stdenv.mkDerivation (finalAttrs: {
   pname = "cliproxyapi-management-center-bin";
-  version = "1.28.3";
+  version = "1.29.0";
   src = fetchurl {
     url = "https://github.com/router-for-me/Cli-Proxy-API-Management-Center/releases/download/v${finalAttrs.version}/management.html";
-    hash = "sha256-bU4AVCDuGIme8RWk5o1h9wDds3KETyMXVGoNCqRVPfw=";
+    hash = "sha256-QbUcryKsHUbcwNsbyt9/f6pXK4LqnrlhRALb1nBiVq0=";
   };
 
   dontUnpack = true;
