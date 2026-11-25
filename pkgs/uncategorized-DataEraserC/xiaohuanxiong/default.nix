@@ -189,6 +189,11 @@ stdenv.mkDerivation (finalAttrs: {
       "$out/opt/xiaohuanxiong/resources/box-agent-runtime/bin/box-agent-acp"
 
     cp -r usr/share/icons $out/share/icons
+    # hicolor's index.theme declares no 1024x1024 directory, so an icon that
+    # ships only there is invisible to every themed lookup: mirror it into a
+    # declared size and let the toolkit scale it down.
+    install -Dm644 usr/share/icons/hicolor/1024x1024/apps/raccoon-ai.png \
+      $out/share/icons/hicolor/512x512/apps/raccoon-ai.png
     # The app sets CHROME_DESKTOP=raccoon-ai.desktop on Linux, so the window's
     # app id only resolves to an icon and a launcher entry when the file keeps
     # that name; a different file name leaves the window with a generic icon.
@@ -217,6 +222,11 @@ stdenv.mkDerivation (finalAttrs: {
         agent = "trae-cn";
         model = "deepseek-v4.1-flash";
         involvement = "authored";
+      }
+      {
+        agent = "qoder-cn";
+        model = "auto";
+        involvement = "assisted";
       }
     ];
   };
