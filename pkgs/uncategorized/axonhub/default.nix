@@ -11,13 +11,13 @@
   stdenv,
 }:
 let
-  version = "1.0.0-rc.4";
+  version = "1.0.0-rc.5";
 
   src = fetchFromGitHub {
     owner = "looplj";
     repo = "axonhub";
     tag = "v${version}";
-    hash = "sha256-jpPnjn36VL4LEZhAfkxhnX9t9Dr+Vk2RjC5PRFEfatE=";
+    hash = "sha256-w7OAJf5pFLKcdBhRgVKKYmllQDnhzQcpAz1YpAxdPkM=";
   };
 
   frontendPnpmDeps = fetchPnpmDeps {
@@ -26,7 +26,7 @@ let
     sourceRoot = "source/frontend";
     pnpm = pnpm_10;
     fetcherVersion = 3;
-    hash = "sha256-cv00YAtncpv2oB6mgqMY7DU03Ilct4J78KEJDkLFYI8=";
+    hash = "sha256-KfKYHMjMPbkjriVF1lAGfnlytqC8CqFJfqhGt/CGSc4=";
   };
 
   frontendDist = stdenv.mkDerivation {
@@ -60,7 +60,7 @@ buildGoModule (finalAttrs: {
   inherit version src;
   __structuredAttrs = true;
   strictDeps = true;
-  vendorHash = "sha256-7x+K+i8qq833KLOKkXVD/97OG2eIHnLtpVlyawnnqiA=";
+  vendorHash = "sha256-60iNM4piJmUqVIL+MsVsE0BgjgP2AH7Kx7SM6OmJ3Yk=";
 
   tags = [ "nomsgpack" ];
 

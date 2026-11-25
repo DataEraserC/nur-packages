@@ -1,11 +1,11 @@
 {
-  "version": "26.11.11",
+  "version": "26.11.21",
   "x86_64-linux": {
-    "url": "https://codearts-agent-obs-cdn.huaweicloud.com/codearts/cli_tui/latest/codearts-install-26.11.11-linux-x64.tar.gz",
-    "hash": "sha256-CoJ+udoKTobijsZVPIr3akouRNPRRVlF3HQ2B/9MHDI="
+    "url": "https://codearts-agent-obs-cdn.huaweicloud.com/codearts/cli_tui/latest/codearts-install-26.11.21-linux-x64.tar.gz",
+    "hash": "sha256-YIrMkPtkbqVWHgmHm1aVFDNT2rZLgWitimiMYXWOFgU="
   },
   "aarch64-linux": {
-    "url": "https://codearts-agent-obs-cdn.huaweicloud.com/codearts/cli_tui/latest/codearts-install-26.11.11-linux-arm64.tar.gz",
-    "hash": "sha256-QGq7dB0tCAw1OPRBBOCmfAqWgPBjzQMHg/x9k1p2/cs="
+    "url": "https://codearts-agent-obs-cdn.huaweicloud.com/codearts/cli_tui/latest/codearts-install-26.11.21-linux-arm64.tar.gz",
+    "hash": "sha256-OTeWgI0mjInBVNcj+RmVV+0Ln2Zm31sK72Yh2wo9aw4="
   }
 }

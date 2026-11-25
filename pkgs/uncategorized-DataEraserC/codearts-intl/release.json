@@ -1,11 +1,11 @@
 {
-  "version": "26.11.12",
+  "version": "26.11.22",
   "x86_64-linux": {
-    "url": "https://apsoutheast1-cloudide-marketplace.obs.ap-southeast-1.myhuaweicloud.com/codearts/cli_tui/latest/codearts-install-26.11.12-linux-x64.tar.gz",
-    "hash": "sha256-6ZmEcR/gEbS9/tS5Q6fFEzgxno87XsCJNLk2HDFK7Ps="
+    "url": "https://apsoutheast1-cloudide-marketplace.obs.ap-southeast-1.myhuaweicloud.com/codearts/cli_tui/latest/codearts-install-26.11.22-linux-x64.tar.gz",
+    "hash": "sha256-+cDOROZUEXfd28lPz9rF6lT95rz4RDiQXzhkuxJJ3pI="
   },
   "aarch64-linux": {
-    "url": "https://apsoutheast1-cloudide-marketplace.obs.ap-southeast-1.myhuaweicloud.com/codearts/cli_tui/latest/codearts-install-26.11.12-linux-arm64.tar.gz",
-    "hash": "sha256-50LcLK5POS82JLS6pZiAaNyWnpbrOhndtSRZSWSnFZI="
+    "url": "https://apsoutheast1-cloudide-marketplace.obs.ap-southeast-1.myhuaweicloud.com/codearts/cli_tui/latest/codearts-install-26.11.22-linux-arm64.tar.gz",
+    "hash": "sha256-HOeOqnbKwxow6ZyHS5yrMKRb61xGDn5Cbt6cEDwgD/A="
   }
 }

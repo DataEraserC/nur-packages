@@ -1,11 +1,11 @@
 {
-  "version": "1.1.95",
+  "version": "1.1.97",
   "x86_64-linux": {
-    "url": "https://static.qoder.com.cn/qoder-cli-cn/releases/1.1.95/qoderclicn-linux-x64.tar.gz",
-    "hash": "sha256-i/vbxFfdJnmfu5l5/ID8RoY2yXQge3hEJfY8YNp6J8U="
+    "url": "https://static.qoder.com.cn/qoder-cli-cn/releases/1.1.97/qoderclicn-linux-x64.tar.gz",
+    "hash": "sha256-QuX1A/xg4fDXq2MV9lIY1eMVPH2uaoV/zTWcRCkVCig="
   },
   "aarch64-linux": {
-    "url": "https://static.qoder.com.cn/qoder-cli-cn/releases/1.1.95/qoderclicn-linux-arm64.tar.gz",
-    "hash": "sha256-Yf+guOErPyVp9FdenfcYbuNmdLavkuJ4JzC2YfFRmTA="
+    "url": "https://static.qoder.com.cn/qoder-cli-cn/releases/1.1.97/qoderclicn-linux-arm64.tar.gz",
+    "hash": "sha256-+HF1i7WY864voph4bC+dgZe7PZuDziRZhlZM22ZUGXc="
   }
 }
