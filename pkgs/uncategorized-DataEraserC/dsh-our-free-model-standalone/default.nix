@@ -9,6 +9,7 @@
   nodejs,
   makeWrapper,
   mihomo,
+  openssl,
   xdg-utils,
   nix-update-script,
 }:
@@ -70,6 +71,10 @@ stdenv.mkDerivation (finalAttrs: {
     nodejs.python
     makeWrapper
     npmHooks.npmConfigHook
+    # 2.9.0's lane-exit suite mints a throwaway self-signed certificate with
+    # `openssl req -x509` so its stand-in exits can terminate TLS; without the
+    # binary the suite dies with `spawnSync openssl ENOENT`.
+    openssl
   ];
 
   postPatch = ''
@@ -172,6 +177,11 @@ stdenv.mkDerivation (finalAttrs: {
         agent = "dsh";
         model = "mimo-v2.6-flash-free";
         involvement = "authored";
+      }
+      {
+        agent = "qoder-cn";
+        model = "auto";
+        involvement = "assisted";
       }
     ];
     # Same untagged-release trap as ../dsh-our-free-model: only `v<digits>`
