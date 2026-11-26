@@ -49,7 +49,10 @@ cp package-lock.json "$SCRIPT_DIR/package-lock.json"
 NEW_HASH=$(prefetch-npm-deps "$SCRIPT_DIR/package-lock.json")
 sed -i "s|npmDepsHash = \"sha256-[^\"]*\";|npmDepsHash = \"$NEW_HASH\";|" "$SCRIPT_DIR/default.nix"
 
-# Build once so a bad npmDepsHash or a broken new release fails here instead
-# of waiting for CI.
+# Verify the two fixed-output derivations this script maintains (src hash and
+# npmDepsHash) with real builds. A full package build would compile the
+# deepseek-harness kernel from source whenever no cache carries the pinned
+# revision — more than the per-package update timeout allows; the build-cache
+# workflow builds and pushes the full closure without that timeout.
 cd "$REPO_ROOT"
-nix build --no-link ".#$FLAT_PATH"
+nix build --no-link ".#$FLAT_PATH.src" ".#$FLAT_PATH.npmDeps"
