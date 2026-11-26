@@ -58,17 +58,40 @@ _: {
         update = ''
           set -uo pipefail
           export LANG=en_US.UTF-8
+          # The own-package list and every update script resolve <nixpkgs>;
+          # pin it to the freshly locked tree rather than the runner's
+          # ambient channel.
           nix flake update
+          export NIX_PATH=nixpkgs=$(nix eval --impure --raw --expr '(builtins.getFlake (toString ./.)).inputs.nixpkgs.outPath')
           STATUS=0
-          for S in $(command find pkgs/ \( -name 'update-standalone.*' \) -type f); do
-            echo "Executing $S"
-            chmod +x "$S"
-            "$S" || STATUS=1
-          done
-          ./tools/update-package --all || STATUS=1
+          # Only downstream-maintained ("own") packages are auto-updated.
+          # The rules live in helpers/own-packages.nix, shared with
+          # tools/build_own_cachix.py and tools/update-package --own;
+          # upstream packages follow upstream merges instead.
+          OWN_LIST=$(nix-build --no-out-link helpers/own-packages-list.nix \
+            --arg inputs '(builtins.getFlake (toString ./.)).inputs') || STATUS=1
+          while IFS= read -r A; do
+            D="pkgs/''${A//.//}"
+            for F in $(command find "$D" -name 'update-standalone.*' -type f 2>/dev/null); do
+              echo "Executing $F"
+              chmod +x "$F"
+              "$F" || STATUS=1
+            done
+          done <"$OWN_LIST"
+          ./tools/update-package --own || STATUS=1
           # Regenerate README even when individual updates failed
           ${readme}
           exit $STATUS
+        '';
+
+        # List downstream-maintained package attrPaths, one per line
+        # (rules: helpers/own-packages.nix).
+        own-packages = ''
+          set -euo pipefail
+          export NIX_PATH=nixpkgs=$(nix eval --impure --raw --expr '(builtins.getFlake (toString ./.)).inputs.nixpkgs.outPath')
+          LIST=$(nix-build --no-out-link helpers/own-packages-list.nix \
+            --arg inputs '(builtins.getFlake (toString ./.)).inputs')
+          cat "$LIST"
         '';
       };
     };

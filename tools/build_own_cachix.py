@@ -5,36 +5,63 @@ import os
 import subprocess
 import sys
 
-EXPR = """
-x: builtins.filter
-  (n:
-    let
-      d = x.${n};
-      pos = (d.meta.position or "");
-    in
-    (builtins.tryEval d).success
-    && (d ? drvPath)
-    && !(d.meta.broken or false)
-    && ((d.meta.platforms or [ ]) == [ ] || builtins.elem "x86_64-linux" d.meta.platforms)
-    # meta.position of a package re-exported from a flake input points into
-    # that input's store path, so own-group packages set passthru.ownPackage.
-    && (builtins.match ".*/pkgs/uncategorized-DataEraserC/.*" pos != null
-        || builtins.match ".*/pkgs/kernel-modules/aw88399-legion.*" pos != null
-        || (d.passthru or { }).ownPackage or false)
-  )
-  (builtins.attrNames x)
-"""
-
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SYSTEM = "x86_64-linux"
 DEFAULT_BATCH_SIZE = 2
 
+# The own-package rules (directories + passthru.ownPackage) live in
+# helpers/own-packages.nix, shared with the auto-update selection
+# (helpers/update.nix ownOnly / tools/update-package --own).
+
 
 def candidates():
-    out = subprocess.run(
-        ["nix", "eval", "--json", f".#legacyPackages.{SYSTEM}", "--apply", EXPR],
+    # Pin <nixpkgs> to the flake-locked tree so the lib used by the filter
+    # matches what the flake builds; --impure because the filter imports
+    # helpers/own-packages.nix from the working tree.
+    nixpkgs = subprocess.run(
+        [
+            "nix",
+            "eval",
+            "--impure",
+            "--raw",
+            "--expr",
+            "(builtins.getFlake (toString ./.)).inputs.nixpkgs.outPath",
+        ],
         capture_output=True,
         text=True,
         check=True,
+        cwd=ROOT,
+    ).stdout.strip()
+    expr = f"""
+      x:
+      let
+        lib = (import {nixpkgs} {{ }}).lib;
+        inherit (import {ROOT}/helpers/own-packages.nix {{ inherit lib; }}) isOwnPackage;
+      in
+      builtins.filter
+        (n:
+          let d = x.${{n}}; in
+          (builtins.tryEval d).success
+          && (d ? drvPath)
+          && !(d.meta.broken or false)
+          && ((d.meta.platforms or [ ]) == [ ] || builtins.elem "{SYSTEM}" d.meta.platforms)
+          && isOwnPackage d)
+        (builtins.attrNames x)
+    """
+    out = subprocess.run(
+        [
+            "nix",
+            "eval",
+            "--impure",
+            "--json",
+            f".#legacyPackages.{SYSTEM}",
+            "--apply",
+            expr,
+        ],
+        capture_output=True,
+        text=True,
+        check=True,
+        cwd=ROOT,
     )
     return json.loads(out.stdout)
 
