@@ -1,11 +1,11 @@
 {
-  "version": "1.1.97",
+  "version": "1.1.98",
   "x86_64-linux": {
-    "url": "https://qoder-ide.oss-accelerate.aliyuncs.com/qodercli/releases/1.1.97/qodercli-linux-x64.tar.gz",
-    "hash": "sha256-jbehtEFgy7gofncwFuXdpQuE718sgBie0bUBaN6QeL0="
+    "url": "https://qoder-ide.oss-accelerate.aliyuncs.com/qodercli/releases/1.1.98/qodercli-linux-x64.tar.gz",
+    "hash": "sha256-sRL56wDY50p4HQ0+2UTwSROx7bFSxtDY8HU+ul6UdFY="
   },
   "aarch64-linux": {
-    "url": "https://qoder-ide.oss-accelerate.aliyuncs.com/qodercli/releases/1.1.97/qodercli-linux-arm64.tar.gz",
-    "hash": "sha256-CnEjlG+k7JIyK3NcMqklShwmxUPcmNpmzED4/b10jKE="
+    "url": "https://qoder-ide.oss-accelerate.aliyuncs.com/qodercli/releases/1.1.98/qodercli-linux-arm64.tar.gz",
+    "hash": "sha256-agVcveHaD0IiMEIo6nubCOJDXp9x/4biPYFjFWn9jss="
   }
 }

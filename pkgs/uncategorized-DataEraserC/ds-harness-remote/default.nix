@@ -12,20 +12,20 @@ if inputs == null then
 else
   dshPkgs.dsh.buildDshBundle (finalAttrs: {
     pname = "ds-harness-remote";
-    version = "0.6.7";
+    version = "0.6.8";
 
     # Published npm tarball, immutable per version. The GitHub repository is a
     # pnpm monorepo whose HEAD (and README-pinned 0.6.5) drifts independently of
     # the released plugin; pin the tarball so the bundle is reproducible.
     src = fetchurl {
       url = "https://registry.npmjs.org/ds-harness-remote/-/ds-harness-remote-${finalAttrs.version}.tgz";
-      hash = "sha256-WgB2Dxn5roBpMJ3Uc+8X0Kj4dWzIgsY+5JQvdoFCtwA=";
+      hash = "sha256-8lzYajbrsuzvZo80Wj1D1L4UiZHn8M5VS/RBwysmZOM=";
     };
 
     # Generated from the tarball's package.json with
     # `npm install --legacy-peer-deps --ignore-scripts` after removing its
     # monorepo-only workspace:* devDependencies.
-    npmDepsHash = "sha256-KOjrjNysvxFXW+yjudUWj98lsuITKMQ6goHhAnAlOVc=";
+    npmDepsHash = "sha256-mNpt+1CrJDeDEk7R8mXj/jOtA3DrZe1Bfw02Jnv+WT4=";
 
     npmFlags = [
       "--legacy-peer-deps"

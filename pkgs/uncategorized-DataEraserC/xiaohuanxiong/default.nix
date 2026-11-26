@@ -44,7 +44,7 @@
   zlib,
 }:
 let
-  version = "1.2.5";
+  version = "1.2.6";
 
   plat =
     {
@@ -57,8 +57,8 @@ let
 
   hash =
     {
-      x86_64-linux = "sha256-wE86fyBk/vXfPbxkTqyQt09Zpk+4APaoYLpIgTe7tys=";
-      aarch64-linux = "sha256-0PlBY1NwjWHjlRw7RVNWD2Kwd4KMizm9DIOrMKy2xgw=";
+      x86_64-linux = "sha256-mkkW5NJL5wCQ9fuR0TsxINdTo5QskpyNLMvMidcbOp4=";
+      aarch64-linux = "sha256-YR8geA62L1/jrZzGYuC6BF2KdFBMtmNFDhS48M+9UOI=";
     }
     .${stdenv.hostPlatform.system};
 

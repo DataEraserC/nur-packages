@@ -1,6 +1,6 @@
 {
   "name": "dsh-cua-driver",
-  "version": "0.59.2",
+  "version": "0.62.1",
   "private": true,
   "description": "Computer use for DeepSeek Harness through an installed cua-driver MCP executable",
   "type": "module",

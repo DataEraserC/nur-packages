@@ -8,18 +8,18 @@
 }:
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "anymd";
-  version = "8.5.16";
+  version = "8.5.17";
 
   src = fetchFromGitHub {
     owner = "SylphxAI";
     repo = "anymd";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-/mL3HGXJQKQrJR1Yswc5AgAYPxDbcuSS2Lnl6VmVvjc=";
+    hash = "sha256-7Ol/cWcqjHBr7TzO5v+esG84mkt2Ez/q+3cB2uUjhPo=";
   };
   __structuredAttrs = true;
   strictDeps = true;
 
-  cargoHash = "sha256-exlFT332w2fRwUpD0kfxBeCEP2pA2+19XemVok2dLHw=";
+  cargoHash = "sha256-SJw28UTvJDoOaoFE5cPPaBjqZ3ixUYmOJxDlHHZpaJ0=";
 
   nativeBuildInputs = [ cmake ];
 
