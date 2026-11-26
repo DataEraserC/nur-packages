@@ -4,12 +4,13 @@
 # Usage:
 #   ./tools/update-package <attr-path> [<attr-path>...]
 #   ./tools/update-package --path <group-prefix>
+#   ./tools/update-package --own
 #   ./tools/update-package --all
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
 if [ $# -eq 0 ]; then
-	echo "Usage: $0 <attr-path>... | --path <prefix> | --all" >&2
+	echo "Usage: $0 <attr-path>... | --path <prefix> | --own | --all" >&2
 	exit 1
 fi
 
@@ -27,6 +28,12 @@ fi
 case "$1" in
 --all)
 	exec nix-shell helpers/update.nix "${INPUT_ARGS[@]}" --argstr packages ""
+	;;
+--own)
+	# Downstream-maintained packages only; the selection rules live in
+	# helpers/own-packages.nix (shared with tools/build_own_cachix.py).
+	exec nix-shell helpers/update.nix "${INPUT_ARGS[@]}" \
+		--arg ownOnly true
 	;;
 --path)
 	[ $# -ge 2 ] || { echo "Usage: $0 --path <prefix>" >&2; exit 1; }

@@ -91,6 +91,10 @@ jobs:
           # on exit, so the upload step below can ship them.
           export UPDATE_LOG_DIR="$PWD/update-logs"
 
+          # Downstream fork: only update packages this fork maintains (rules
+          # in helpers/own-packages.nix, shared with the cache builder).
+          # Upstream packages are bumped by upstream's own auto-update and
+          # arrive here through upstream merges.
           nix run .#update
 
       - name: Write job summary
