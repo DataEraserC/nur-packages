@@ -1,0 +1,36 @@
+Subject: [PATCH] webui: use Referrer-Policy same-origin so Firefox keeps real Origin
+
+The console served `Referrer-Policy: no-referrer` on every response.
+Per the Fetch standard ("append a request Origin header"), when the
+request's referrer policy is no-referrer the Origin header of a
+non-CORS-mode request (the console uses fetch mode:'same-origin') is
+serialized as the string "null". Firefox implements this; Chromium
+currently still sends the real origin, which is why only Firefox hits
+the admin API's sameOrigin() check and gets 403 "仅支持同源控制台请求"
+on /admin/api/login.
+
+Switch the header to `same-origin`: cross-site navigations still get
+no Referer, while the console's own same-origin POSTs carry the real
+Origin and pass the CSRF check unchanged. The sameOrigin() logic and
+its tests (Origin:null without same-origin metadata is still rejected)
+are untouched.
+
+Verified against rev e0183ac0981d07c6a916c2fc81716db5d9e8cdc7:
+go test ./... passes; patched binary serves `Referrer-Policy:
+same-origin`, same-origin login returns 200, spoofed `Origin: null`
+still returns 403.
+---
+--- a/cmd/server/main.go
++++ b/cmd/server/main.go
+@@ -142,7 +142,10 @@
+ 		}()
+ 		r.Body = http.MaxBytesReader(w, r.Body, maxBodyBytes)
+ 		w.Header().Set("X-Content-Type-Options", "nosniff")
+-		w.Header().Set("Referrer-Policy", "no-referrer")
++		// same-origin keeps the real Origin on the console's own POSTs;
++		// no-referrer makes Firefox serialize Origin as "null" (Fetch spec),
++		// which the admin sameOrigin check rejects with 403.
++		w.Header().Set("Referrer-Policy", "same-origin")
+ 		path := strings.TrimRight(r.URL.Path, "/")
+ 		if path == "" {
+ 			path = "/"

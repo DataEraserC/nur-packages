@@ -62,7 +62,7 @@ Or, use variables from this repository in case I change them:
 ## Packages
 
 <details>
-<summary>Package set: (Uncategorized) (373 packages)</summary>
+<summary>Package set: (Uncategorized) (374 packages)</summary>
 
 | State | Path | Name | Version | Description |
 | ----- | ---- | ---- | ------- | ----------- |
@@ -256,6 +256,7 @@ Or, use variables from this repository in case I change them:
 |  | `magiskboot` | [magiskboot](https://topjohnwu.github.io/Magisk/tools.html) | 31.1 | Tool to unpack / repack boot images, parse / patch / extract cpio, patch dtb, hex patch binaries, and compress / decompress files with multiple algorithms |
 |  | `mautrix-gmessages` | [mautrix-gmessages](https://github.com/mautrix/gmessages) | 0.2611.0 | Matrix-Google Messages puppeting bridge |
 |  | `meoo2api` | [meoo2api](https://github.com/LazyBonesLZY/meoo2api) | 0-unstable-2026-11-12 | Meoo model gateway proxy with an OpenAI compatible API and account console |
+|  | `meoo2api-firefox` | [meoo2api-firefox](https://github.com/LazyBonesLZY/meoo2api) | 0-unstable-2026-11-12 | Meoo model gateway proxy patched so Firefox keeps a real Origin on console logins |
 |  | `metapi` | [metapi](https://github.com/cita-777/metapi) | 1.3.1 | Meta-layer management and unified proxy for AI API aggregation platforms |
 |  | `metee` | [metee](https://github.com/intel/metee) | 6.2.6 | C library to access CSE/CSME/GSC firmware via a MEI interface |
 |  | `mimocode2api` | [mimocode2api](https://github.com/wx8472235-cell/mimocode2api) | 0.2.0 | Converts Xiaomi MiMo Code built-in free models into an OpenAI-compatible API without API keys |
@@ -1801,6 +1802,7 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized-DataEraserC.lobsterai-wrapper` | [lobsterai-wrapper](https://github.com/netease-youdao/LobsterAI) | 2026.11.20 | Launcher wrapper for LobsterAI with automatic Wayland ozone platform detection |
 |  | `uncategorized-DataEraserC.m365-copilot2api` | [m365-copilot2api](https://github.com/HEXUXIU/M365-Copilot2API) | 0.7.3 | Microsoft 365 Copilot to OpenAI/Anthropic compatible API gateway |
 |  | `uncategorized-DataEraserC.meoo2api` | [meoo2api](https://github.com/LazyBonesLZY/meoo2api) | 0-unstable-2026-11-12 | Meoo model gateway proxy with an OpenAI compatible API and account console |
+|  | `uncategorized-DataEraserC.meoo2api-firefox` | [meoo2api-firefox](https://github.com/LazyBonesLZY/meoo2api) | 0-unstable-2026-11-12 | Meoo model gateway proxy patched so Firefox keeps a real Origin on console logins |
 |  | `uncategorized-DataEraserC.mimocode2api` | [mimocode2api](https://github.com/wx8472235-cell/mimocode2api) | 0.2.0 | Converts Xiaomi MiMo Code built-in free models into an OpenAI-compatible API without API keys |
 |  | `uncategorized-DataEraserC.mobileclaw` | [mobileclaw](https://ecloud.10086.cn/portal/product/hotCase) | 1.9.8 | China Mobile Cloud desktop AI office agent |
 |  | `uncategorized-DataEraserC.modlens` | [modlens](https://github.com/liustack/modlens) | 3.27.6 | Vision plugin for DeepSeek Harness that turns pasted images into structured JSON evidence through pluggable vision engines |
