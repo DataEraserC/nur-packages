@@ -13,16 +13,16 @@ if inputs == null then
 else
   dshPkgs.dsh.buildDshBundle (finalAttrs: {
     pname = "dsh-ego-browser";
-    version = "0.15.1";
+    version = "0.15.2";
 
     src = fetchFromGitHub {
       owner = "Fisfzy";
       repo = "dsh-ego-browser";
       tag = "v${finalAttrs.version}";
-      hash = "sha256-InbDuJQdSLRbyzTp96W8WPgHhJXYGff9UG832VkMGfQ=";
+      hash = "sha256-FwiXV2s5SI6kzrAeB6+LgEy1w/Lp9IXTV8E/Uv/njTA=";
     };
 
-    npmDepsHash = "sha256-AZQEXckp3o9AsY1KA/c79Cw+4lDEuP5cakpWbtgOGak=";
+    npmDepsHash = "sha256-uFcUfTSe1LO4BD1k1gpBx9e4qkgwzJtFLwJeMOtsC+I=";
 
     patches = [ ./tests-cross-platform.patch ];
 
@@ -89,7 +89,7 @@ else
       description = "Chrome-driven browser automation bundle for DeepSeek Harness with 32 ego_* tools, CDP/FFmpeg capture, casting and a live observation panel";
       descriptions.zh-CN = "由 Chrome 驱动的 DeepSeek Harness 浏览器自动化插件，提供 32 个 ego_* 工具、CDP/FFmpeg 录制、投屏与实时观察面板";
       homepage = "https://github.com/Fisfzy/dsh-ego-browser";
-      license = lib.licenses.mit;
+      license = lib.licenses.gpl3Only;
       maintainers = import ../maintainers.nix;
       platforms = lib.platforms.unix;
     };

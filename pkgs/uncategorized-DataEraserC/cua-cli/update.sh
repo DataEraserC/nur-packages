@@ -1,5 +1,5 @@
 #!/usr/bin/env nix-shell
-#!nix-shell -i bash -p bash -p git -p nix
+#!nix-shell -i bash -p bash -p git -p nix -p curl -p jq
 # shellcheck shell=bash
 set -e
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)
@@ -8,23 +8,17 @@ DEFAULT_NIX="$SCRIPT_DIR/default.nix"
 TAG_PREFIX="cua-sdk-v"
 UPSTREAM="https://github.com/trycua/cua"
 RAW="https://raw.githubusercontent.com/trycua/cua"
+source "$REPO_ROOT/tools/github-api.sh"
 
 # The GitHub releases atom feed only lists the ~10 most recent releases,
 # which upstream fills with nightly-*/cua-spaces-* tags, so nix-update's
-# --version-regex never matches and fails the whole CI run; read the full
-# tag list instead. The version also lives in versionData.tag (there is no
-# `version = "..."` literal for nix-update to rewrite), so the tag, the src
-# hash and the skill hashes are all maintained here.
-NEW_TAG=$(
-  git ls-remote --tags "$UPSTREAM" |
-    sed -n "s#.*refs/tags/\(${TAG_PREFIX}[0-9][0-9.]*\)\$#\1#p" |
-    sort -V | tail -1
-)
-[ -n "$NEW_TAG" ] || {
-  echo "cua-cli: no ${TAG_PREFIX}* tag upstream" >&2
-  exit 1
-}
-
+# --version-regex never matches and fails the whole CI run. Read the release
+# list instead of the tag list: upstream also pushes cua-sdk-v* tags that
+# never get a release object (cua-sdk-v0.31.1), and a tag without a release
+# has no downloadable assets, so prefetching it can only fail. The version
+# also lives in versionData.tag (there is no `version = "..."` literal for
+# nix-update to rewrite), so the tag, the src hash and the skill hashes are
+# all maintained here.
 CURRENT_TAG=$(
   sed -n "s/^[[:space:]]*tag = \"\(${TAG_PREFIX}[0-9.]*\)\";.*/\1/p" "$DEFAULT_NIX" | head -1
 )
@@ -33,17 +27,34 @@ CURRENT_TAG=$(
   exit 1
 }
 
+NEW_TAG=$(
+  gh_release_tags trycua/cua 100 |
+    grep -x "${TAG_PREFIX}[0-9][0-9.]*" |
+    sort -V | tail -1
+)
+[ -n "$NEW_TAG" ] || {
+  echo "cua-cli: no ${TAG_PREFIX}* release upstream" >&2
+  exit 1
+}
+
 [ "$NEW_TAG" = "$CURRENT_TAG" ] && exit 0
 
 NEW_VERSION=${NEW_TAG#"$TAG_PREFIX"}
+
+# A freshly created release can still be uploading its assets: on 2026-11-03
+# the cua-sdk-v0.10.1 release existed while cua-cli-0.10.1-linux-x64.tar.gz
+# still answered 404, downloadable minutes later. Skip such a release for
+# this run (exit 0, nothing written) instead of failing; the next run picks
+# it up once the asset is there.
+if ! gh_release_assets trycua/cua "$NEW_TAG" | grep -qx "cua-cli-$NEW_VERSION-linux-x64.tar.gz"; then
+  echo "cua-cli: release $NEW_TAG has no cua-cli-$NEW_VERSION-linux-x64.tar.gz asset yet; skipping this run" >&2
+  exit 0
+fi
 echo "cua-cli: $CURRENT_TAG -> $NEW_TAG"
 
-# A tag can be visible before its release assets finish uploading: on
-# 2026-11-03 the cua-sdk-v0.10.1 tag was already listed while
-# cua-cli-0.10.1-linux-x64.tar.gz still answered 404, which failed the whole
-# weekly run for a release that was downloadable minutes later. The same lag
-# applies to raw.githubusercontent.com serving a just-pushed tag, so retry
-# instead of trusting the first answer.
+# Prefetch with retries: raw.githubusercontent.com can lag a just-pushed
+# tag, and transient network failures must not leave a new tag next to
+# stale hashes (everything is prefetched before the file is touched).
 prefetch() {
   local attempt out
   for attempt in 1 2 3 4; do

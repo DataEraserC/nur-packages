@@ -236,13 +236,15 @@ pkgs.stdenvNoCC.mkDerivation {
     # console interleaves them, because packages run MAX_JOBS in parallel and
     # each one's block is printed whenever it happens to finish. Keep them as
     # individual files so the workflow can upload them as an artifact.
-    if [ -n "''${UPDATE_LOG_DIR:-}" ]; then
-      LOGDIR="''${UPDATE_LOG_DIR}"
-      mkdir -p "$LOGDIR"
-    else
-      LOGDIR=$(mktemp -d)
-      trap 'rm -rf "$LOGDIR"' EXIT
-    fi
+    # Active logs live OUTSIDE the repository: nix-update evaluates the whole
+    # flake from the working tree (see nix-update-overlay.nix), and Nix's git
+    # source copies index-listed files, so creating/deleting logs inside the
+    # tree while parallel packages evaluate aborts the run with
+    # "path '.../<pkg>.log' does not exist". Only finished failure logs are
+    # copied into UPDATE_LOG_DIR after the drain loop, when no evaluation is
+    # running anymore; the workflow uploads them from there.
+    LOGDIR=$(mktemp -d)
+    trap 'rm -rf "$LOGDIR"' EXIT
     cd "${toString ./.}/.."
     # Update scripts that run `nix-shell -p nix-update` resolve `<nixpkgs>`
     # themselves; point it at the patched package set for the same reason.
@@ -321,7 +323,7 @@ pkgs.stdenvNoCC.mkDerivation {
         # Only failures keep a log: they are what the uploaded artifact is for,
         # and a full run would otherwise carry hundreds of files.
         SUCCEEDED="$SUCCEEDED $ATTR_PATH"
-        [ -n "''${UPDATE_LOG_DIR:-}" ] && rm -f "$LOG"
+        rm -f "$LOG"
       fi
       unset "JOB_ATTR[$PID]" "JOB_DIR[$PID]" "JOB_LOG[$PID]"
       RUNNING=$((RUNNING - 1))
@@ -337,6 +339,16 @@ pkgs.stdenvNoCC.mkDerivation {
     while [ "$RUNNING" -gt 0 ]; do
       reap_one
     done
+
+    # All packages finished: publishing the failure logs into the repository
+    # can no longer race a parallel flake evaluation.
+    if [ -n "''${UPDATE_LOG_DIR:-}" ]; then
+      mkdir -p "''${UPDATE_LOG_DIR}"
+      for LOG in "$LOGDIR"/*.log; do
+        [ -e "$LOG" ] || continue
+        cp "$LOG" "''${UPDATE_LOG_DIR}/"
+      done
+    fi
 
     echo ""
 
