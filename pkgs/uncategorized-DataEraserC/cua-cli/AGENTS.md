@@ -9,10 +9,12 @@
 `--version-regex` 永远匹配不到，直接抛 `VersionError` 让整个 CI 挂；
 ②版本在 `versionData.tag` 里派生，文件里没有 `version = "..."` 字面量，
 nix-update 无法重写 tag，src/skills 哈希也无从更新。所以 update.sh 自己来：
-`git ls-remote --tags` 过滤 `cua-sdk-v<semver>`（行尾锚定，自动排除
-`nightly-*` 与 `^{}`  peeled ref）→ 与 default.nix 里的 tag 比较，相同就
-`exit 0` → 否则先 `nix store prefetch-file` 算好 src tarball 与 3 个 skill
-的新哈希，再一次性 sed tag + 4 处哈希，最后 `nix build .#cua-cli` 验证。
+`tools/github-api.sh` 的 `gh_release_tags` 取 **release 列表**（不是 tag 列表）
+过滤 `cua-sdk-v<semver>` → 与 default.nix 里的 tag 比较，相同就 `exit 0` →
+用 `gh_release_assets` 确认该 release 挂着 `cua-cli-<ver>-linux-x64.tar.gz`
+（没挂就告警 `exit 0`、本轮不写文件）→ 先 `nix store prefetch-file` 算好
+src tarball 与 3 个 skill 的新哈希，再一次性 sed tag + 4 处哈希，最后
+`nix build .#cua-cli` 验证。
 
 这里用 `nix store prefetch-file` 是安全的：src 是 release asset、skills 是
 raw.githubusercontent.com 的源码树文件，两者字节稳定，宿主机 prefetch 与
@@ -20,11 +22,14 @@ raw.githubusercontent.com 的源码树文件，两者字节稳定，宿主机 pr
 prefetch 与沙箱 fetchurl 会下载到不同的字节变体，prefetch 出的哈希过不了
 FOD 校验（实测与做法见 cua-driver 打包笔记「更新机制」）。
 
-**tag 可见 ≠ asset 已上传完**：2026-11-03 的周更里 `cua-sdk-v0.10.1` 已经在
-tag 列表里，但 `cua-cli-0.10.1-linux-x64.tar.gz` 仍返回 404，整包因此
-FAILED——几分钟后同一 URL 就能下载（tag 先建、asset 后传的竞态，发版当晚
-跑更新必踩）。所以 prefetch 改成 4 次重试、间隔 30 s，src 与 skills 都走这个
-helper；真缺 asset（改名/删档）只是把报错推迟 90 s，判定不变。
+**tag 存在 ≠ 有 release**：2026-11-26 的周更里 `cua-sdk-v0.31.1` 已在 tag
+列表里，但上游从未给它建 release 对象（API 404、asset 404，0.31.0 正常），
+按 tag 选版本的脚本对着不存在的 asset 重试 4 次后整包 FAILED。所以选版本
+必须走 release 列表（`gh_release_tags`），并在写文件前用 `gh_release_assets`
+确认 asset 在列；release 刚建、asset 还在上传的竞态（2026-11-03 的
+0.10.1）同样表现为「asset 不在列」，跳过本轮、下次运行再拾起。prefetch
+仍保留 4 次重试、间隔 30 s，兜 raw.githubusercontent.com 对新 tag 的滞后
+与传输抖动。
 
 ## 预编译二进制 + autoPatchelf，不源码构建
 
