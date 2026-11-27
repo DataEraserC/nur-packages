@@ -10,14 +10,14 @@
 }:
 buildPythonPackage (finalAttrs: {
   pname = "pyosmocom";
-  version = "0.0.12-unstable-2026-11-26";
+  version = "0.0.12-unstable-2026-08-23";
   pyproject = true;
 
   src = fetchgit {
     url = "https://gitea.osmocom.org/osmocom/pyosmocom.git";
-    rev = "bbc21debbab70e39ad8609033cd5861cd255af35";
+    rev = "e1701b243335277b5214619e3edbbcb7099ccecf";
     fetchSubmodules = false;
-    hash = "sha256-RR2gRLwBIYuD1huVXZsjdlkLETXXI9zfEp50CRrcVT4=";
+    hash = "sha256-/QPEadNkCYvjXFW1DB5vKvxlxx6KTv2sYqJ09NhCY8Y=";
   };
   __structuredAttrs = true;
   strictDeps = true;
