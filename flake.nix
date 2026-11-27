@@ -202,6 +202,7 @@
             mimocode2api = import ./modules/mimocode2api.nix;
             omniroute = import ./modules/omniroute.nix;
             workbuddy2api = import ./modules/workbuddy2api.nix;
+            xiaohuanxiong2api = import ./modules/xiaohuanxiong2api.nix;
             mobileclaw = import ./modules/mobileclaw.nix;
             browser4 = import ./modules/browser4.nix;
             our-free-model-standalone = import ./modules/our-free-model-standalone.nix;
