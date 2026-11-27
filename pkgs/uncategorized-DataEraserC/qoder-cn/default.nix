@@ -1,9 +1,9 @@
 { callPackage, ... }:
 (callPackage ../qoder-app-common.nix { }) {
   pname = "qoder-cn";
-  version = "0.5.18";
+  version = "0.5.20";
   url = "https://qoder-app.oss-cn-beijing.aliyuncs.com/qoder-app/releases/latest/Qoder-CN-linux-amd64.deb";
-  hash = "sha256-Sq3A+JuXxY5PZee3bhGtvZvUHCcp8APx2cCdO8PabLo=";
+  hash = "sha256-rF49uLWtjDrg74RJ8fAw02YLWr73SX1xZqoBGIuCWg8=";
   appDir = "Qoder-CN";
   executable = "qoder-cn";
   desktopName = "qoder-cn.desktop";

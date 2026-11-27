@@ -13,12 +13,12 @@ rustPlatform.buildRustPackage (finalAttrs: {
   src = fetchFromGitHub {
     owner = "yym68686";
     repo = "uni-api";
-    rev = "a5b99552ab89db89c5eeecd900a0be65aa33044c";
-    hash = "sha256-b3kpzSjgIzDW5HEAwi3aBEfVc8AEqjWFke986kjEJQ0=";
+    rev = "3f8e8a51a0508205021ec8ce6fd32d8b3dd358d1";
+    hash = "sha256-dB4VmGrFio0SsmxnRBkb16AYwzkfPBDgS0ksC745uFE=";
   };
   __structuredAttrs = true;
   strictDeps = true;
-  cargoHash = "sha256-FGMBlOOGFHhExOmdxpTy8IkSPCth50GCj2onxoSUlaw=";
+  cargoHash = "sha256-PMNlGaOE5neSQKcfLVE1yY9OxSw75rn/DA7Y6YQQt24=";
 
   nativeBuildInputs = [ pkg-config ];
 
