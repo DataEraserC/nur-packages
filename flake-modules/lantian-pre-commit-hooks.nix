@@ -14,7 +14,12 @@
           ".*\\.age"
         ];
         hooks = {
-          check-added-large-files.enable = true;
+          check-added-large-files = {
+            enable = true;
+            # npm lock files for bundled CLIs legitimately exceed the 500 KB
+            # default (martty is ~519 KB, the lobsterai lock is ~960 KB).
+            args = [ "--maxkb=1024" ];
+          };
           check-builtin-literals.enable = true;
           check-case-conflicts.enable = true;
           check-executables-have-shebangs.enable = true;
