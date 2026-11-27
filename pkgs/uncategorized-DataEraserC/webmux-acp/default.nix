@@ -14,8 +14,8 @@ let
     webmuxSource = fetchFromGitHub {
       owner = "mzdluo123";
       repo = "webmux";
-      rev = "4d3d8c3f4d93824fbbef318ed0b755b98a9611be";
-      hash = "sha256-ntQ8e4LQBUO6kX6IryzOn7O0Eiqz/GM+Din461Hkawc=";
+      rev = "0144ed0c85b124b8b7a2aaf24ba4476ed5db8ab0";
+      hash = "sha256-JMpnMdIFgJYDc83nMEN0P3c/bKC3545L/9BRODG0qEA=";
     };
   };
 in

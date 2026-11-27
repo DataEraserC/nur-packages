@@ -94,8 +94,8 @@ WebMux upstream 不承载下游实例；NUR 不手工维护第二份实现；nix
 | version                  | `0.19.1-unstable-2026-11-28`                          |
 | upstream rev             | `20743140a0b1559fdb1424e892ff7a64760e2229`            |
 | upstream source hash     | `sha256-0aDgDamIMnlY4R5jOjhHaLxGT5BKgf/f9lwg4eLZ26Y=` |
-| downstream overlay tip   | `4d3d8c3f4d93824fbbef318ed0b755b98a9611be`            |
-| downstream source hash   | `sha256-ntQ8e4LQBUO6kX6IryzOn7O0Eiqz/GM+Din461Hkawc=` |
+| downstream overlay tip   | `0144ed0c85b124b8b7a2aaf24ba4476ed5db8ab0`            |
+| downstream source hash   | `sha256-JMpnMdIFgJYDc83nMEN0P3c/bKC3545L/9BRODG0qEA=` |
 | pnpm hash                | `sha256-jeufMwHqygtsf2FdXQIN/okE2lyVjS+EjYy+2fxXGv4=` |
 | vendor hash              | `sha256-3DGb4/ib8UVDke83n2lJtmAurgPnRc63gybQv+aWIxc=` |
 
