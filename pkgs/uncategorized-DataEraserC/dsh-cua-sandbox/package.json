@@ -1,6 +1,6 @@
 {
   "name": "dsh-cua-sandbox",
-  "version": "0.31.1",
+  "version": "0.31.2",
   "dsh": {
     "bundle": {
       "patch": "./cordis.patch.yml"

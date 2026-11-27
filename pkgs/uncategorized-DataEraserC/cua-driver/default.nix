@@ -36,11 +36,11 @@
 let
   versionData = {
     # The tag that release-please cut for the driver, e.g. cua-driver-rs-v0.38.0.
-    tag = "cua-driver-rs-v0.63.2";
-    hash = "sha256-Bot+i9w0Fi39CSuuIxAHkLgkV9vzPql23HvnVbpfrWM=";
+    tag = "cua-driver-rs-v0.64.0";
+    hash = "sha256-xXrR62+VxFSmZG32ADKKpR1y0woubVCx9yyXYq/1tlY=";
     # cua-driver-rs-v<version>-skills.tar.gz from the same release; the asset
     # name keeps the legacy -rs suffix.
-    skillsHash = "sha256-luElOTCX8l9rzWX3TYjiTn5rLDQT2V7EQ5rHIc+S39g=";
+    skillsHash = "sha256-dAk5Yaw+duGpvJ7mzd9tWMvJXGHyyvVEvltzct0/13M=";
   };
   version = lib.removePrefix "cua-driver-rs-v" versionData.tag;
   src = fetchFromGitHub {

@@ -16,13 +16,13 @@
   webmuxSource ? fetchFromGitHub {
     owner = "mzdluo123";
     repo = "webmux";
-    rev = "42287a1ac2a993467ae79bdb9152b0d2b8283e04";
-    hash = "sha256-0aDgDamIMnlY4R5jOjhHaLxGT5BKgf/f9lwg4eLZ26Y=";
+    rev = "36b4f803b0ac29ff76a5842e6614377fa409660e";
+    hash = "sha256-JWl8UvcEM1RVXwUuQTQvi7Jo0laUZ6g0PJAnlRsMhLU=";
   },
 }:
 
 let
-  version = "0.19.1-unstable-2026-11-26";
+  version = "0.19.1-unstable-2026-11-27";
   src = webmuxSource;
 
   sourceUpdater = unstableGitUpdater {
