@@ -300,7 +300,7 @@ Or, use variables from this repository in case I change them:
 |  | `peerbanhelper` | [peerbanhelper](https://github.com/Ghost-chu/PeerBanHelper) | 9.6.0 | Automatically bans unwanted, leeching, and anomalous BT clients, with support for custom rules for qBittorrent and Transmission |
 |  | `pgy` | [pgy](https://pgy.oray.com/download/) | 6.9.0 | Client for the Oray PgyVisitor software-defined networking platform |
 |  | `pgy-fhs` | [pgy](https://pgy.oray.com/download/) |  | Client for the Oray PgyVisitor software-defined networking platform |
-|  | `phpmyadmin` | [phpmyadmin](https://www.phpmyadmin.net/) |  | Web interface for MySQL and MariaDB |
+|  | `phpmyadmin` | [phpmyadmin](https://www.phpmyadmin.net/) | 5.2.3 | Web interface for MySQL and MariaDB |
 |  | `phppgadmin` | [phppgadmin](https://github.com/phppgadmin/phppgadmin) | 7.14.8-mod | Premier web-based administration tool for PostgreSQL |
 |  | `pi-web` | [pi-web](https://github.com/agegr/pi-web) | 0.18.0 | Web UI for the pi coding agent |
 |  | `picoclaw` | [picoclaw](https://github.com/afjcjsbx/picoclaw) | 0.5.6 | Lightweight personal AI assistant and agent gateway |
@@ -1659,7 +1659,7 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized.palworld-exporter` | [palworld-exporter](https://github.com/palworldlol/palworld-exporter) | 1.3.1 | Prometheus exporter for Palworld Server |
 |  | `uncategorized.palworld-worldoptions` | [palworld-worldoptions](https://github.com/legoduded/palworld-worldoptions) | 1.11.0 | Tool for managing Palworld dedicated server settings |
 |  | `uncategorized.peerbanhelper` | [peerbanhelper](https://github.com/Ghost-chu/PeerBanHelper) | 9.6.0 | Automatically bans unwanted, leeching, and anomalous BT clients, with support for custom rules for qBittorrent and Transmission |
-|  | `uncategorized.phpmyadmin` | [phpmyadmin](https://www.phpmyadmin.net/) |  | Web interface for MySQL and MariaDB |
+|  | `uncategorized.phpmyadmin` | [phpmyadmin](https://www.phpmyadmin.net/) | 5.2.3 | Web interface for MySQL and MariaDB |
 |  | `uncategorized.phppgadmin` | [phppgadmin](https://github.com/phppgadmin/phppgadmin) | 7.14.8-mod | Premier web-based administration tool for PostgreSQL |
 |  | `uncategorized.pi-web` | [pi-web](https://github.com/agegr/pi-web) | 0.18.0 | Web UI for the pi coding agent |
 |  | `uncategorized.picoclaw` | [picoclaw](https://github.com/afjcjsbx/picoclaw) | 0.5.6 | Lightweight personal AI assistant and agent gateway |
