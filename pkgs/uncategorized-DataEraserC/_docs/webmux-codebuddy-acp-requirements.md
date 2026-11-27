@@ -91,19 +91,19 @@ WebMux upstream 不承载下游实例；NUR 不手工维护第二份实现；nix
 
 | 项目                     | 值                                                    |
 | ------------------------ | ----------------------------------------------------- |
-| version                  | `0.18.0-unstable-2026-11-22`                          |
-| upstream rev             | `c0f9d3f15514412fe37c7ba57abe88c5fb21d8db`            |
-| upstream source hash     | `sha256-hBJWLbp8i9Ex374H6WMRRS8pOeGdyabxsUbLr2RuJu4=` |
-| downstream overlay tip   | `f55f8f4ce1ed1f9b2d26f8aa042edc532ce96ee6`            |
-| downstream source hash   | `sha256-hwiGhJc+qLXSxuUgO/ijMhzcaMMuh4jfy++F4m6feHo=` |
+| version                  | `0.19.1-unstable-2026-11-28`                          |
+| upstream rev             | `20743140a0b1559fdb1424e892ff7a64760e2229`            |
+| upstream source hash     | `sha256-0aDgDamIMnlY4R5jOjhHaLxGT5BKgf/f9lwg4eLZ26Y=` |
+| downstream overlay tip   | `4d3d8c3f4d93824fbbef318ed0b755b98a9611be`            |
+| downstream source hash   | `sha256-ntQ8e4LQBUO6kX6IryzOn7O0Eiqz/GM+Din461Hkawc=` |
 | pnpm hash                | `sha256-jeufMwHqygtsf2FdXQIN/okE2lyVjS+EjYy+2fxXGv4=` |
-| vendor hash              | `sha256-0WjfEw9/sV9mnTdA4N4BYv2IlQNbN3g9yR/ow8IU4XI=` |
+| vendor hash              | `sha256-3DGb4/ib8UVDke83n2lJtmAurgPnRc63gybQv+aWIxc=` |
 
-`webmux-acp` 的 overlay 已 rebase 到 tag `v0.18.0`（upstream rev 即 `downstream/ownership.json` 的 `upstreamBase`），与主包共享前端依赖哈希与 Go vendor baseline；主包 updater 之后把 `webmux/` 推进到更新的 upstream HEAD，两者的依赖集合未变，但 acp 仍显式固定自己的 source、version 与这两类哈希，避免主包漂移时破坏冻结 tip 的可构建性。0.14.5 时期为兼容旧树而加的三个 override 已删除。
+`webmux-acp` 的 overlay 已 rebase 到 tag `v0.19.1`（upstream rev 即 `downstream/ownership.json` 的 `upstreamBase`），与主包共享前端依赖哈希与 Go vendor baseline；主包 updater 之后把 `webmux/` 推进到更新的 upstream HEAD，两者的依赖集合未变，但 acp 仍显式固定自己的 source、version 与这两类哈希，避免主包漂移时破坏冻结 tip 的可构建性。0.14.5 时期为兼容旧树而加的三个 override 已删除。
 
 ### PKG-02：ACP source 等于一个可审计的匿名下游 overlay 范围
 
-`webmux-acp` 必须直接固定 `mzdluo123/webmux` 中可解析的 downstream overlay tip 及其 Nix source hash，不携带本地 patch。该 tip 必须由公开 fork `desktop-tools-which-may-be-useful/webmux` 的 `feat/downstream-overlay-v0.18.0` advertised branch 保留，更新 pin 前用公开 HTTPS `git ls-remote --heads` 验证 branch 精确指向 tip。`downstream/ownership.json` 固定表中的 upstream rev，并分类该 base 到 tip 的所有新增和修改路径；ownership checker 还必须证明 base 属于 canonical upstream history。范围内每个 commit 都必须只有一个 parent、连续可追溯，并使用仓库局部身份 `anonymous <anonymous@users.noreply.github.com>` 与 WebMux Conventional Commit 规范；不得含真实身份、主机路径、私有部署名、会话/任务 ID、协作者 trailer 或下游 CodeBuddy/multi-instance 内容。
+`webmux-acp` 必须直接固定 `mzdluo123/webmux` 中可解析的 downstream overlay tip 及其 Nix source hash，不携带本地 patch。该 tip 必须由公开 fork `desktop-tools-which-may-be-useful/webmux` 的 advertised branch（当前为 `feat/external-acp-commands-v0.19.1`）保留，更新 pin 前用公开 HTTPS `git ls-remote --heads` 验证 branch 精确指向 tip。`downstream/ownership.json` 固定表中的 upstream rev，并分类该 base 到 tip 的所有新增和修改路径；ownership checker 还必须证明 base 属于 canonical upstream history。范围内每个 commit 都必须只有一个 parent、连续可追溯，并使用仓库局部身份 `anonymous <anonymous@users.noreply.github.com>` 与 WebMux Conventional Commit 规范；不得含真实身份、主机路径、私有部署名、会话/任务 ID、协作者 trailer 或下游 CodeBuddy/multi-instance 内容。
 
 更新基线时：按逻辑重放仍需保留的 overlay commits，完成 WebMux 功能与 ownership 验证后同时更新 tip 与 source hash；验证 base/tip ancestry、逐 commit 身份、tree scope 与公开归档 hash，不从 patch 邮件头间接推导源码版本。
 

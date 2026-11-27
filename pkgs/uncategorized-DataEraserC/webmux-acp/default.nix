@@ -4,7 +4,7 @@
 }:
 
 let
-  version = "0.18.0-unstable-2026-11-22";
+  version = "0.19.1-unstable-2026-11-28";
 
   pinnedWebmux = webmux.override {
     # The overlay tip is a frozen commit while the base package floats to newer
@@ -14,8 +14,8 @@ let
     webmuxSource = fetchFromGitHub {
       owner = "mzdluo123";
       repo = "webmux";
-      rev = "f55f8f4ce1ed1f9b2d26f8aa042edc532ce96ee6";
-      hash = "sha256-hwiGhJc+qLXSxuUgO/ijMhzcaMMuh4jfy++F4m6feHo=";
+      rev = "4d3d8c3f4d93824fbbef318ed0b755b98a9611be";
+      hash = "sha256-ntQ8e4LQBUO6kX6IryzOn7O0Eiqz/GM+Din461Hkawc=";
     };
   };
 in
@@ -27,7 +27,7 @@ pinnedWebmux.overrideAttrs (old: {
   # tracks whatever release webmux/ is pinned to. When the main package moves
   # on, that hash no longer matches this older overlay tip and the build fails
   # with a hash mismatch. Pin the hash that belongs to this source.
-  vendorHash = "sha256-0WjfEw9/sV9mnTdA4N4BYv2IlQNbN3g9yR/ow8IU4XI=";
+  vendorHash = "sha256-3DGb4/ib8UVDke83n2lJtmAurgPnRc63gybQv+aWIxc=";
   ldflags = [
     "-s"
     "-w"

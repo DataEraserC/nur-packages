@@ -9,7 +9,7 @@
 ## 源码来源
 
 - `webmux-acp/default.nix` 直接固定 `mzdluo123/webmux` 中可解析的匿名 overlay tip 及对应 Nix source hash，不携带本地 patch。
-- 该 tip 尚未进入 upstream advertised refs；必须保留公开 fork `desktop-tools-which-may-be-useful/webmux` 的 `feat/downstream-overlay-v0.18.0` branch，使 GitHub fork network 持续保有对象。更新 pin 前用公开 HTTPS `git ls-remote --heads` 验证该 branch 精确指向 tip。新推的 rev 在 `mzdluo123/webmux` 的归档端点上可能暂时 404（负面缓存，父提交已可取，实测几分钟内自愈），pin 前先用 `curl -sSLo /dev/null -w '%{http_code}'`（必须 `-L`，`/archive/<rev>.tar.gz` 先 302 到 codeload）重试确认，否则包构建会一直取不到源码。
+- 该 tip 尚未进入 upstream advertised refs；必须保留公开 fork `desktop-tools-which-may-be-useful/webmux` 的对应 overlay branch（当前为 `feat/external-acp-commands-v0.19.1`），使 GitHub fork network 持续保有对象。更新 pin 前用公开 HTTPS `git ls-remote --heads` 验证该 branch 精确指向 tip。新推的 rev 在 `mzdluo123/webmux` 的归档端点上可能暂时 404（负面缓存，父提交已可取，实测几分钟内自愈），pin 前先用 `curl -sSLo /dev/null -w '%{http_code}'`（必须 `-L`，`/archive/<rev>.tar.gz` 先 302 到 codeload）重试确认，否则包构建会一直取不到源码。
 - `downstream/ownership.json` 固定 upstream base 并分类完整 `base..tip` 路径；范围内每个 commit 必须是单 parent、author/committer 均为 `anonymous <anonymous@users.noreply.github.com>`，不带协作者 trailer、私有路径或下游部署内容。
 - 基线升级时在新 upstream base 上按逻辑重放连续 overlay commits、运行上游与 ownership 验证，并把新的 tip/hash 一起写入本包。
 - `passthru.updateScript = null`：本包不能脱离主包单独自动更新。
