@@ -12,7 +12,7 @@ let
   src = fetchFromGitHub {
     owner = "desktop-tools-which-may-be-useful";
     repo = "zcode-acp-native";
-    rev = "d8c876fc60b16422bed5b49dd1f442344cc72b81";
+    rev = "d4d2aac15a77ddb457df43510fa133ed19e71f59";
     sha256 = "19p6b0gg76rr7ps94p9b2bqxy18xjlkm1mgjqqivnp2d2b9lriq9";
   };
 in
