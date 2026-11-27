@@ -14,6 +14,7 @@
   fetchurl,
   autoPatchelfHook,
   makeWrapper,
+  zcode-cli,
 }:
 let
   sources = import ./sources.nix;
@@ -64,6 +65,10 @@ stdenv.mkDerivation {
     mkdir -p $out/libexec/zcode-server
     cp -a source/. $out/libexec/zcode-server/
     chmod -R u+w $out/libexec/zcode-server
+    # The archive ships no provider table: the desktop hands the path over in
+    # ZCODE_BUILTIN_PROVIDER_CONFIG_FILE when it spawns the server. Standalone
+    # runs need it on disk, at the sibling `provider/` the CLI probes.
+    ln -s ${zcode-cli}/share/zcode-cli/glm/provider $out/libexec/zcode-server/runtime/provider
     makeWrapper $out/libexec/zcode-server/bin/zcode $out/bin/zcode-server
     runHook postInstall
   '';
