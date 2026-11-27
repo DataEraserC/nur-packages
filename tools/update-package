@@ -32,8 +32,10 @@ case "$1" in
 --own)
 	# Downstream-maintained packages only; the selection rules live in
 	# helpers/own-packages.nix (shared with tools/build_own_cachix.py).
+	# Uses the runner's upstream `predicate` argument so helpers/update.nix
+	# needs no fork-specific parameter.
 	exec nix-shell helpers/update.nix "${INPUT_ARGS[@]}" \
-		--arg ownOnly true
+		--arg predicate '(attrPath: pkg: (import ./helpers/own-packages.nix { lib = (import <nixpkgs> { }).lib; }).isOwnPackage pkg)'
 	;;
 --path)
 	[ $# -ge 2 ] || { echo "Usage: $0 --path <prefix>" >&2; exit 1; }

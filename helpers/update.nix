@@ -21,10 +21,6 @@
   packages ? "",
   path ? null,
   predicate ? null,
-  # Restrict the run to downstream-maintained ("own") packages, using the
-  # same rules as tools/build_own_cachix.py (helpers/own-packages.nix).
-  # Applies on top of packages/path/predicate when those are given.
-  ownOnly ? false,
   # Packages whose updateScript is inherited from overridden nixpkgs
   # derivations and cannot run inside this repository; they follow
   # nixpkgs updates through flake.lock instead.
@@ -121,7 +117,6 @@ let
               pkgName = result.value.name;
               oldVersion = result.value.version or "";
               inherit position;
-              ownPackage = (result.value.passthru or { }).ownPackage or false;
             }
           else if lib.isAttrs result.value then
             collect (prefix ++ [ name ]) result.value
@@ -155,37 +150,21 @@ let
   # (pkgs/default.nix flattens groups), so accept any dotted suffix.
   matchesSelection = p: sel: p.attrPath == sel || lib.hasSuffix ".${sel}" p.attrPath;
 
-  own = import ./own-packages.nix { inherit lib; };
-
   # Default to running everything when no filter is given.
   selected =
     let
       candidates = lib.filter (p: !lib.any (exclude: matchesSelection p exclude) excludes) deduplicated;
-      # --own selects downstream-maintained packages with the same rules as
-      # tools/build_own_cachix.py (helpers/own-packages.nix): own package
-      # dir or passthru.ownPackage. Not by attrPath: aliased derivations
-      # may deduplicate to a bare attrPath while their source still lives
-      # in the own group.
-      isOwnEntry = p: own.isOwnPosition p.position || p.ownPackage;
-      ownCandidates = lib.filter isOwnEntry candidates;
-      base =
-        if packages != "" then
-          lib.filter (p: lib.any (sel: matchesSelection p sel) (lib.splitString " " packages)) candidates
-        else if path != null then
-          lib.filter (p: p.attrPath == path || lib.hasPrefix "${path}." p.attrPath) candidates
-        else if predicate != null then
-          lib.filter (
-            p: predicate p.attrPath (lib.attrByPath (lib.splitString "." p.attrPath) null nurPkgs)
-          ) candidates
-        else if ownOnly then
-          ownCandidates
-        else
-          candidates;
     in
-    if ownOnly && (packages != "" || path != null || predicate != null) then
-      lib.filter isOwnEntry base
+    if packages != "" then
+      lib.filter (p: lib.any (sel: matchesSelection p sel) (lib.splitString " " packages)) candidates
+    else if path != null then
+      lib.filter (p: p.attrPath == path || lib.hasPrefix "${path}." p.attrPath) candidates
+    else if predicate != null then
+      lib.filter (
+        p: predicate p.attrPath (lib.attrByPath (lib.splitString "." p.attrPath) null nurPkgs)
+      ) candidates
     else
-      base;
+      candidates;
 
   invalidSelections = builtins.filter (sel: !lib.any (p: matchesSelection p sel) selected) (
     lib.filter (s: s != "") (lib.splitString " " packages)
