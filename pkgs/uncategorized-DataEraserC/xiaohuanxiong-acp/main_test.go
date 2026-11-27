@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"errors"
+	"io"
 	"net/http"
 	"net/http/httptest"
 	"net/url"
@@ -441,5 +442,30 @@ func TestProxyModelSelection(t *testing.T) {
 	state.interceptClient([]byte(`{"jsonrpc":"2.0","id":10,"method":"session/set_config_option","params":{"sessionId":"acp-v1-x","configId":"mode","value":"x"}}` + "\n"))
 	if !strings.Contains(out.String(), `"error"`) {
 		t.Fatalf("unknown config option was accepted: %q", out.String())
+	}
+}
+
+func TestDropInternalToolUpdate(t *testing.T) {
+	state := newProxyState(io.Discard, "", nil)
+	cases := []struct {
+		name string
+		line string
+		drop bool
+	}{
+		{"llm output", `{"jsonrpc":"2.0","method":"session/update","params":{"sessionId":"s","update":{"sessionUpdate":"tool_call_update","toolCallId":"llm-output-1","rawOutput":{"type":"llm_output"}}}}`, true},
+		{"turn usage", `{"jsonrpc":"2.0","method":"session/update","params":{"sessionId":"s","update":{"sessionUpdate":"tool_call_update","toolCallId":"turn-usage-1","rawOutput":{"type":"turn_usage"}}}}`, true},
+		{"agent activity", `{"jsonrpc":"2.0","method":"session/update","params":{"sessionId":"s","update":{"sessionUpdate":"tool_call_update","toolCallId":"agent-activity-1","rawOutput":{"type":"agent_activity_v1"}}}}`, true},
+		{"prefix only", `{"jsonrpc":"2.0","method":"session/update","params":{"sessionId":"s","update":{"sessionUpdate":"tool_call","toolCallId":"llm-output-9"}}}`, true},
+		{"real tool", `{"jsonrpc":"2.0","method":"session/update","params":{"sessionId":"s","update":{"sessionUpdate":"tool_call","toolCallId":"call_1","title":"bash","kind":"execute"}}}`, false},
+		{"real completion", `{"jsonrpc":"2.0","method":"session/update","params":{"sessionId":"s","update":{"sessionUpdate":"tool_call_update","toolCallId":"call_1","status":"completed","content":[]}}}`, false},
+	}
+	for _, testCase := range cases {
+		got := state.rewriteServer([]byte(testCase.line + "\n"))
+		if testCase.drop && len(got) != 0 {
+			t.Fatalf("%s was forwarded: %q", testCase.name, got)
+		}
+		if !testCase.drop && len(got) == 0 {
+			t.Fatalf("%s was dropped", testCase.name)
+		}
 	}
 }

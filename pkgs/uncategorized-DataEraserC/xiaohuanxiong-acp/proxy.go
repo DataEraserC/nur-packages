@@ -330,6 +330,11 @@ func (s *proxyState) rewriteServer(line []byte) []byte {
 	if json.Unmarshal(line, &msg) != nil {
 		return line
 	}
+	if method, ok := msg["method"]; ok && string(method) == `"session/update"` {
+		if dropInternalToolUpdate(msg["params"]) {
+			return nil
+		}
+	}
 	id, ok := msg["id"]
 	if !ok {
 		return line
@@ -395,6 +400,48 @@ func (s *proxyState) rewriteServer(line []byte) []byte {
 		return line
 	}
 	return append(out, '\n')
+}
+
+// dropInternalToolUpdate filters box-agent's internal progress markers. They
+// arrive as tool_call/tool_call_update with a synthetic toolCallId but no
+// title, status or content, so ACP clients (WebMux) render them as tool cards
+// that stay pending forever.
+func dropInternalToolUpdate(rawParams json.RawMessage) bool {
+	var params struct {
+		Update struct {
+			SessionUpdate string            `json:"sessionUpdate"`
+			ToolCallID    string            `json:"toolCallId"`
+			Title         *string           `json:"title"`
+			Status        *string           `json:"status"`
+			Content       []json.RawMessage `json:"content"`
+			RawOutput     struct {
+				Type string `json:"type"`
+			} `json:"rawOutput"`
+		} `json:"update"`
+	}
+	if json.Unmarshal(rawParams, &params) != nil {
+		return false
+	}
+	update := params.Update
+	if update.SessionUpdate != "tool_call" && update.SessionUpdate != "tool_call_update" {
+		return false
+	}
+	if update.Title != nil && strings.TrimSpace(*update.Title) != "" {
+		return false
+	}
+	if update.Status != nil || len(update.Content) > 0 {
+		return false
+	}
+	switch update.RawOutput.Type {
+	case "llm_output", "turn_usage", "agent_activity_v1":
+		return true
+	}
+	for _, prefix := range []string{"llm-output-", "turn-usage-", "agent-activity-"} {
+		if strings.HasPrefix(update.ToolCallID, prefix) {
+			return true
+		}
+	}
+	return false
 }
 
 func addListCapability(result json.RawMessage) (json.RawMessage, error) {
