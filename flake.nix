@@ -175,38 +175,42 @@
 
           inherit flakeModules;
 
-          nixosModules = {
-            # keep-sorted start
-            kata-containers = import ./modules/kata-containers.nix;
-            lyrica = import ./modules/lyrica.nix;
-            nix-cache-attic = import ./modules/nix-cache-attic.nix;
-            openssl-conf = import ./modules/openssl-conf.nix;
-            openssl-gost-engine = import ./modules/openssl-gost-engine.nix;
-            openssl-oqs-provider = import ./modules/openssl-oqs-provider.nix;
-            qemu-user-static-binfmt = import ./modules/qemu-user-static-binfmt.nix;
-            setupOverlay = _: { nixpkgs.overlays = [ self.overlays.default ]; };
-            wireguard-remove-lingering-links = import ./modules/wireguard-remove-lingering-links.nix;
-            # keep-sorted end
-
-            # My additions
-            "9router" = import ./modules/9router.nix;
-            aw88399-legion-audio = import ./modules/aw88399-legion-audio.nix;
-            hkdm = import ./modules/hkdm.nix;
-            cpolar = import ./modules/cpolar.nix;
-            pgy = import ./modules/pgy.nix;
-            cliproxyapi = import ./modules/cliproxyapi.nix;
-            m365-copilot2api = import ./modules/m365-copilot2api.nix;
-            meoo2api = import ./modules/meoo2api.nix;
-            opencode2api = import ./modules/opencode2api.nix;
-            new-api = import ./modules/new-api.nix;
-            mimocode2api = import ./modules/mimocode2api.nix;
-            omniroute = import ./modules/omniroute.nix;
-            workbuddy2api = import ./modules/workbuddy2api.nix;
-            mobileclaw = import ./modules/mobileclaw.nix;
-            browser4 = import ./modules/browser4.nix;
-            our-free-model-standalone = import ./modules/our-free-model-standalone.nix;
-            nix-cache-cachix = import ./modules/nix-cache-cachix.nix;
-          };
+          nixosModules =
+            let
+              dataErasercModules = {
+                "9router" = import ./modules/9router.nix;
+                aw88399-legion-audio = import ./modules/aw88399-legion-audio.nix;
+                hkdm = import ./modules/hkdm.nix;
+                cpolar = import ./modules/cpolar.nix;
+                pgy = import ./modules/pgy.nix;
+                cliproxyapi = import ./modules/cliproxyapi.nix;
+                m365-copilot2api = import ./modules/m365-copilot2api.nix;
+                meoo2api = import ./modules/meoo2api.nix;
+                opencode2api = import ./modules/opencode2api.nix;
+                new-api = import ./modules/new-api.nix;
+                mimocode2api = import ./modules/mimocode2api.nix;
+                omniroute = import ./modules/omniroute.nix;
+                workbuddy2api = import ./modules/workbuddy2api.nix;
+                mobileclaw = import ./modules/mobileclaw.nix;
+                browser4 = import ./modules/browser4.nix;
+                our-free-model-standalone = import ./modules/our-free-model-standalone.nix;
+                nix-cache-cachix = import ./modules/nix-cache-cachix.nix;
+              };
+            in
+            {
+              # keep-sorted start
+              kata-containers = import ./modules/kata-containers.nix;
+              lyrica = import ./modules/lyrica.nix;
+              nix-cache-attic = import ./modules/nix-cache-attic.nix;
+              openssl-conf = import ./modules/openssl-conf.nix;
+              openssl-gost-engine = import ./modules/openssl-gost-engine.nix;
+              openssl-oqs-provider = import ./modules/openssl-oqs-provider.nix;
+              qemu-user-static-binfmt = import ./modules/qemu-user-static-binfmt.nix;
+              setupOverlay = _: { nixpkgs.overlays = [ self.overlays.default ]; };
+              wireguard-remove-lingering-links = import ./modules/wireguard-remove-lingering-links.nix;
+              # keep-sorted end
+            }
+            // dataErasercModules;
 
           hydraJobs.packages.x86_64-linux = self.hydraPackages.x86_64-linux;
         };
