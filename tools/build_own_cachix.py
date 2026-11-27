@@ -11,7 +11,7 @@ DEFAULT_BATCH_SIZE = 2
 
 # The own-package rules (directories + passthru.ownPackage) live in
 # helpers/own-packages.nix, shared with the auto-update selection
-# (helpers/update.nix ownOnly / tools/update-package --own).
+# (tools/update-package --own via the runner's predicate argument).
 
 
 def candidates():

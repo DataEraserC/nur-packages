@@ -106,6 +106,7 @@
           ./flake-modules/_internal/commands.nix
           ./flake-modules/_internal/meta.nix
           ./flake-modules/_internal/modules-test-nixos-config.nix
+          ./flake-modules/dataeraserc-commands.nix
           flakeModules.commands
           flakeModules.lantian-pre-commit-hooks
           flakeModules.lantian-treefmt
