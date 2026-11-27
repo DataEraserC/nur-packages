@@ -62,7 +62,7 @@ Or, use variables from this repository in case I change them:
 ## Packages
 
 <details>
-<summary>Package set: (Uncategorized) (375 packages)</summary>
+<summary>Package set: (Uncategorized) (378 packages)</summary>
 
 | State | Path | Name | Version | Description |
 | ----- | ---- | ---- | ------- | ----------- |
@@ -254,6 +254,7 @@ Or, use variables from this repository in case I change them:
 |  | `m365-copilot2api` | [m365-copilot2api](https://github.com/HEXUXIU/M365-Copilot2API) | 0.7.3 | Microsoft 365 Copilot to OpenAI/Anthropic compatible API gateway |
 |  | `mages-bin` | [mages-bin](https://github.com/mlm-games/Mages) | 5.4.7 | Experimental Matrix chat client built with Compose Multiplatform and matrix-rust-sdk |
 |  | `magiskboot` | [magiskboot](https://topjohnwu.github.io/Magisk/tools.html) | 31.1 | Tool to unpack / repack boot images, parse / patch / extract cpio, patch dtb, hex patch binaries, and compress / decompress files with multiple algorithms |
+|  | `martty` | [martty](https://martty.sh) | 0.3.3 | Terminal-native ACP client UI that runs any ACP agent |
 |  | `mautrix-gmessages` | [mautrix-gmessages](https://github.com/mautrix/gmessages) | 0.2611.0 | Matrix-Google Messages puppeting bridge |
 |  | `meoo2api` | [meoo2api](https://github.com/LazyBonesLZY/meoo2api) | 0-unstable-2026-11-12 | Meoo model gateway proxy with an OpenAI compatible API and account console |
 |  | `meoo2api-firefox` | [meoo2api-firefox](https://github.com/LazyBonesLZY/meoo2api) | 0-unstable-2026-11-12 | Meoo model gateway proxy patched so Firefox keeps a real Origin on console logins |
@@ -411,6 +412,8 @@ Or, use variables from this repository in case I change them:
 |  | `xcursor-genshin-nahida` | [xcursor-genshin-nahida](https://aur.archlinux.org/packages/xcursor-genshin-nahida) | 0-unstable-2023-02-12 | Cursor theme featuring Nahida from Genshin Impact |
 | `x86_64-linux` | `xdma` | [xdma](https://github.com/Xilinx/dma_ip_drivers) | 0-unstable-2026-10-22 | Xilinx XDMA PCIe kernel module |
 |  | `xiaohuanxiong` | [xiaohuanxiong](https://xiaohuanxiong.com/) | 1.2.6 | SenseTime Raccoon Work AI office assistant desktop client |
+|  | `xiaohuanxiong-acp` | [xiaohuanxiong-acp](https://xiaohuanxiong.com/) | 1.2.6 | ACP bridge and terminal client for the Raccoon Work agent |
+|  | `xiaohuanxiong-box-agent` | [xiaohuanxiong-box-agent](https://xiaohuanxiong.com/) | 1.2.6 | Box-Agent runtime extracted from the Raccoon Work desktop client |
 |  | `xiaohuanxiong2api` | [xiaohuanxiong2api](https://github.com/haoxinyu1/xiaohuanxiong2api) | 0-unstable-2026-10-09 | OpenAI-compatible reverse proxy for the SenseTime Raccoon client with account pooling and admin panel |
 |  | `xstatic-asciinema-player` | [xstatic-asciinema-player](https://github.com/asciinema/asciinema-player) | 2.6.1.1 | Asciinema-player packaged for setuptools (easy_install) / pip |
 |  | `xstatic-font-awesome` | [xstatic-font-awesome](https://github.com/FortAwesome/Font-Awesome) | 6.2.1.2 | Font Awesome packaged for setuptools (easy_install) / pip |
@@ -1730,7 +1733,7 @@ Or, use variables from this repository in case I change them:
 </details>
 
 <details>
-<summary>Package set: uncategorized-DataEraserC (127 packages)</summary>
+<summary>Package set: uncategorized-DataEraserC (130 packages)</summary>
 
 | State | Path | Name | Version | Description |
 | ----- | ---- | ---- | ------- | ----------- |
@@ -1802,6 +1805,7 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized-DataEraserC.lobsterai-unwrapped` | [lobsterai-unwrapped](https://github.com/netease-youdao/LobsterAI) | 2026.11.20 | Unwrapped LobsterAI application tree without the launcher wrapper, for use with lobsterai-wrapper |
 |  | `uncategorized-DataEraserC.lobsterai-wrapper` | [lobsterai-wrapper](https://github.com/netease-youdao/LobsterAI) | 2026.11.20 | Launcher wrapper for LobsterAI with automatic Wayland ozone platform detection |
 |  | `uncategorized-DataEraserC.m365-copilot2api` | [m365-copilot2api](https://github.com/HEXUXIU/M365-Copilot2API) | 0.7.3 | Microsoft 365 Copilot to OpenAI/Anthropic compatible API gateway |
+|  | `uncategorized-DataEraserC.martty` | [martty](https://martty.sh) | 0.3.3 | Terminal-native ACP client UI that runs any ACP agent |
 |  | `uncategorized-DataEraserC.meoo2api` | [meoo2api](https://github.com/LazyBonesLZY/meoo2api) | 0-unstable-2026-11-12 | Meoo model gateway proxy with an OpenAI compatible API and account console |
 |  | `uncategorized-DataEraserC.meoo2api-firefox` | [meoo2api-firefox](https://github.com/LazyBonesLZY/meoo2api) | 0-unstable-2026-11-12 | Meoo model gateway proxy patched so Firefox keeps a real Origin on console logins |
 |  | `uncategorized-DataEraserC.mimocode2api` | [mimocode2api](https://github.com/wx8472235-cell/mimocode2api) | 0.2.0 | Converts Xiaomi MiMo Code built-in free models into an OpenAI-compatible API without API keys |
@@ -1843,6 +1847,8 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized-DataEraserC.workbuddy2api-panel` | [workbuddy2api-panel](https://github.com/xu20060420fan-cell/workbuddy2api-trae-qoder-minimax-panel) | 1.15.14-panel | Multi-provider OpenAI-compatible gateway with account pools, check-ins, and a management panel |
 |  | `uncategorized-DataEraserC.xcursor-genshin-nahida` | [xcursor-genshin-nahida](https://aur.archlinux.org/packages/xcursor-genshin-nahida) | 0-unstable-2023-02-12 | Cursor theme featuring Nahida from Genshin Impact |
 |  | `uncategorized-DataEraserC.xiaohuanxiong` | [xiaohuanxiong](https://xiaohuanxiong.com/) | 1.2.6 | SenseTime Raccoon Work AI office assistant desktop client |
+|  | `uncategorized-DataEraserC.xiaohuanxiong-acp` | [xiaohuanxiong-acp](https://xiaohuanxiong.com/) | 1.2.6 | ACP bridge and terminal client for the Raccoon Work agent |
+|  | `uncategorized-DataEraserC.xiaohuanxiong-box-agent` | [xiaohuanxiong-box-agent](https://xiaohuanxiong.com/) | 1.2.6 | Box-Agent runtime extracted from the Raccoon Work desktop client |
 |  | `uncategorized-DataEraserC.xiaohuanxiong2api` | [xiaohuanxiong2api](https://github.com/haoxinyu1/xiaohuanxiong2api) | 0-unstable-2026-10-09 | OpenAI-compatible reverse proxy for the SenseTime Raccoon client with account pooling and admin panel |
 |  | `uncategorized-DataEraserC.zcode` | [zcode](https://zcode.z.ai/) | 4.0.0 | AI coding workspace by Z.ai with multi-agent development |
 |  | `uncategorized-DataEraserC.zcode-acp` | [zcode-acp](https://github.com/william0wang/zcode-acp) | 0.94.1 | Agent Client Protocol bridge for the headless ZCode coding agent |
