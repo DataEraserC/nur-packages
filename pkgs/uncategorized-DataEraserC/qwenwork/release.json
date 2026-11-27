@@ -1,0 +1,15 @@
+{
+  "version": "2.0.2-26111601",
+  "x86_64-linux": {
+    "url": "https://assets.qwenwork.cn/release/latest/qwenworkcn-linux-amd64.deb",
+    "file": "qwenworkcn-linux-amd64.deb",
+    "hash": "sha256-nDCHvmlLqqVl69YD1otiirozT2q2b9Wiyw9NO5abtGg=",
+    "etag": "\"9F833DF3B33DAED52009DDA96B6F440E-153\""
+  },
+  "aarch64-linux": {
+    "url": "https://assets.qwenwork.cn/release/latest/qwenworkcn-linux-arm64.deb",
+    "file": "qwenworkcn-linux-arm64.deb",
+    "hash": "sha256-F1NWSHg5/1cn8CMBqZKp4ZuthxYczJluzxtSLyoujPM=",
+    "etag": "\"9F8438A1582F7ED22D7ABB1122F9ABB3-147\""
+  }
+}
