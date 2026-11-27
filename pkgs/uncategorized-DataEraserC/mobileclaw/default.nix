@@ -24,6 +24,7 @@
   libsecret,
   libx11,
   libxcomposite,
+  libxcrypt-legacy,
   libxdamage,
   libxext,
   libxfixes,
@@ -65,6 +66,7 @@ let
     libsecret
     libx11
     libxcomposite
+    libxcrypt-legacy
     libxdamage
     libxext
     libxfixes

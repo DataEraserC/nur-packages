@@ -24,6 +24,8 @@
 
 **prefetch 与 `release.json` 的 url 都要写管理器端点**：`update.sh` 曾把 302 解析出的裸对象 URL（剥掉 SigV4 签名）直接交给 `nix store prefetch-file`——裸 URL 现在无论 UA 一律 403（2026-11-21 实测），签名 URL 又 30 分钟过期不能 pin。端点链路（GET 跟随 302）实测任何 UA 都通，且与 `default.nix` 的 fetchurl 同一条链路，算出的哈希即构建所用。对象存储还拒绝 HEAD（403），只接受 GET，所以探测用 ranged GET（`-r 0-0`）而不是 `-I`。
 
+**端点在发布窗口内会「打架」，hash mismatch 先重试、别急着改 pin**：2026-11-27 22:55 前后，`os=linuxX64Client` 连续 10 次都 302 到 `1.9.8`（而同一时刻 arm64 已指 `1.9.9`，`release.json` 也是 1.9.9），十几分钟后同一个请求又 100% 回到 `1.9.9`。后果是构建报 `hash mismatch ... got: sha256-pPUiMG...`（那正是 1.9.8 的哈希）。判据：`curl -sSL -o /dev/null -w '%{url_effective}' "$ENDPOINT?os=linuxX64Client"` 解析出的版本与 `release.json` 的 `file` 不一致 → 上游正在换版，隔几分钟重试即可；`nix store prefetch-file` 同一端点重新算一遍哈希就能确认。别在这个窗口里让 `update.sh` 落盘：版本探测和 prefetch 是两次独立请求，撞窗口会把「1.9.9 的文件名 + 1.9.8 的哈希」写进 `release.json`。
+
 **探测方法**：页面是 React SPA，`strings` 前端 bundle 找不到下载链接（里面 28 处 `.exe` 全是正则 `.exec`）。用 ego 浏览器打开后从按钮的 React props 里取：`el.getAttribute('data-url')`，或 `Object.keys(el).find(k=>k.startsWith('__reactProps$'))` 后读 `.props['data-url']`。
 
 **注意**：不少中文二手文章（含 ai-bot.cn、搜狐、知乎转载）称「MobileClaw 只提供 Windows/macOS 双平台安装包」，**已过时**——当前页面明确有 Linux(x64) 与 Linux(ARM) 两个 `.deb`。
@@ -31,6 +33,7 @@
 ## 打包要点
 
 - 标准 Electron deb 布局：`/opt/MobileClaw/{mobileclaw-desktop,resources/app.asar,resources/binaries/node-x86_64-unknown-linux-gnu}`，`usr/share/applications/mobileclaw-desktop.desktop`。desktop 文件里 `StartupWMClass=MobileClaw`、`Icon=mobileclaw-desktop`、`MimeType=x-scheme-handler/mobileclaw`。
+- **1.9.9 起要加 `libxcrypt-legacy`**：该版本 deb 里多了 `resources/task-runtime/python`（内置 CPython 3.12），其中 `lib-dynload/_crypt.cpython-312-*.so` 依赖 `libcrypt.so.1`（`__crypt`/`crypt` 符号）。nixpkgs 的 glibc 不再提供 `libcrypt.so.1`，不加就 `auto-patchelf` 直接失败（2026-11-27，1.9.9 首次构建即撞）。`pkgs.libxcrypt-legacy` 的 `lib/libcrypt.so.1` 正好填上；`libxcrypt`（so.2）不行。
 - **`makeShellWrapper` 而不是 `makeWrapper`**：`wrapGAppsHook3` 会把 `make-binary-wrapper` 的 setup hook 带进链里，它把 `makeWrapper` 重定义为 `makeBinaryWrapper`；二进制版把 `--add-flags` 在**构建期**就编进 argv，`${NIXOS_OZONE_WL:+...}` 会原样（还被空格切碎）传给 Electron，任何环境都不生效。用 `makeShellWrapper` 后实测 `$out/bin/.mobileclaw-wrapped` 里保留了字面 `${NIXOS_OZONE_WL:+...}`，运行期才展开。验证方法：`grep -c NIXOS_OZONE_WL $out/bin/.mobileclaw-wrapped` 应为 1；`$out/bin/mobileclaw` 本身是 gapps 的 ELF 层，`strings` 找不到这个串是正常的。
 - `autoPatchelfIgnoreMissingDeps = [ "libc.musl-*.so.*" ]`：它带的 `resources/binaries/node_modules/node-pty/prebuilds/` 只有 linux-x64，没有 musl 变体，但保留这条以防上游加回来。
 - 依赖清单照 workbuddy（同一套 Electron/GTK 栈），实测 `ldd $out/opt/MobileClaw/mobileclaw-desktop` 零 `not found`。
