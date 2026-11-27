@@ -21,7 +21,7 @@ stdenv.mkDerivation (finalAttrs: {
   patches = [
     ./fix-install-path.patch
     ./qt6-qchar-fix.patch
-    ./linux-example.patch
+    ./qt6-missing-includes.patch
   ];
 
   # Qt CMake private include path is empty, generate one ourselves

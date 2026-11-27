@@ -9,7 +9,12 @@
       nix-shell helpers/update.nix --arg predicate '(attrPath: pkg: lib.hasPrefix "python3Packages." attrPath)'
 */
 {
-  pkgs ? import <nixpkgs> { },
+  # Evaluate against the nixpkgs pinned by flake.lock, never the ambient
+  # <nixpkgs>.  A channel bump would otherwise turn unrelated package
+  # attributes into throws (e.g. `openssl_3_6 has been removed`) and red the
+  # whole auto-update run for reasons that have nothing to do with the
+  # packages being updated.
+  pkgs ? import (builtins.getFlake "git+file://${toString ./..}").inputs.nixpkgs.outPath { },
   # Flake inputs of this repository, for packages that consume sibling flake
   # inputs (e.g. opencode2dsh). Without them those packages throw while being
   # evaluated and are skipped, matching what a plain `nix-build` sees.
@@ -232,6 +237,14 @@ pkgs.stdenvNoCC.mkDerivation {
 
     FAILED=""
     SUCCEEDED=""
+    ALLOWED_FAILED=""
+    # Persistent upstream breakage is listed by package name in
+    # tools/auto-update-allowed-failures.txt so that it cannot freeze the
+    # nightly update (see AGENTS.md).
+    is_allowed() {
+      [ -f tools/auto-update-allowed-failures.txt ] &&
+        grep -qxF "$1" tools/auto-update-allowed-failures.txt
+    }
     # Per-package logs are the only usable record of a failed update: the
     # console interleaves them, because packages run MAX_JOBS in parallel and
     # each one's block is printed whenever it happens to finish. Keep them as
@@ -313,11 +326,17 @@ pkgs.stdenvNoCC.mkDerivation {
       echo ""
       cat "$LOG"
       if [ "$STATUS" -ne 0 ]; then
-        FAILED="$FAILED $ATTR_PATH"
-        # Record the failed package's dir for the workflow to roll back.
+        # Record the failed package's dir for the workflow to roll back,
+        # even when the failure is on the allowed list: its partial edits
+        # must not be committed either.
         if [ -n "$DIR" ]; then
           jq -nc --arg a "$ATTR_PATH" --arg d "$DIR" \
             '{attrPath: $a, dir: $d}' >> "$ROLLBACK_FILE"
+        fi
+        if is_allowed "''${ATTR_PATH##*.}"; then
+          ALLOWED_FAILED="$ALLOWED_FAILED $ATTR_PATH"
+        else
+          FAILED="$FAILED $ATTR_PATH"
         fi
       else
         # Only failures keep a log: they are what the uploaded artifact is for,
@@ -360,6 +379,11 @@ pkgs.stdenvNoCC.mkDerivation {
       FIRST=false
       RESULTS="$RESULTS$(jq -n --arg a "$ATTR_PATH" '{attrPath: $a, status: "failed"}')"
     done
+    for ATTR_PATH in $ALLOWED_FAILED; do
+      $FIRST || RESULTS="$RESULTS,"
+      FIRST=false
+      RESULTS="$RESULTS$(jq -n --arg a "$ATTR_PATH" '{attrPath: $a, status: "allowed-failure"}')"
+    done
     for ATTR_PATH in $SUCCEEDED; do
       $FIRST || RESULTS="$RESULTS,"
       FIRST=false
@@ -371,7 +395,8 @@ pkgs.stdenvNoCC.mkDerivation {
     # Print summary table
     SUCCEEDED_COUNT=$(echo "$SUCCEEDED" | wc -w)
     FAILED_COUNT=$(echo "$FAILED" | wc -w)
-    TOTAL_COUNT=$((SUCCEEDED_COUNT + FAILED_COUNT))
+    ALLOWED_FAILED_COUNT=$(echo "$ALLOWED_FAILED" | wc -w)
+    TOTAL_COUNT=$((SUCCEEDED_COUNT + FAILED_COUNT + ALLOWED_FAILED_COUNT))
 
     echo "========================================="
     echo "  Update Summary"
@@ -379,8 +404,12 @@ pkgs.stdenvNoCC.mkDerivation {
     echo "Total:   $TOTAL_COUNT"
     echo "Success: $SUCCEEDED_COUNT"
     echo "Failed:  $FAILED_COUNT"
+    echo "Allowed failures: $ALLOWED_FAILED_COUNT"
     echo "-----------------------------------------"
 
+    if [ -n "$ALLOWED_FAILED" ]; then
+      echo "Allowed failures:$ALLOWED_FAILED" >&2
+    fi
     if [ -n "$FAILED" ]; then
       echo "Failed:"
       for ATTR_PATH in $FAILED; do
@@ -404,7 +433,7 @@ pkgs.stdenvNoCC.mkDerivation {
       echo "Finished with failures:$FAILED" >&2
       exit 1
     fi
-    echo "All update scripts finished successfully."
+    [ -z "$ALLOWED_FAILED" ] && echo "All update scripts finished successfully."
     exit 0
   '';
 }
