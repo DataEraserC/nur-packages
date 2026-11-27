@@ -85,7 +85,7 @@ Or, use variables from this repository in case I change them:
 | `x86_64-linux` | `aw88399-legion-firmware` | [aw88399-legion-firmware](https://github.com/nadimkobeissi/16iax10h-linux-sound-saga) | 0-unstable-2026-11-16 | Firmware for aw88399 audio codec on Lenovo Legion laptops |
 |  | `awawausb-native-stub` | [awawausb-native-stub](https://github.com/ArcaneNibble/awawausb) | 0.2 | Native messaging stub for the awawausb WebUSB Firefox extension |
 |  | `axiom-syslog-proxy` | [axiom-syslog-proxy](https://github.com/axiomhq/axiom-syslog-proxy) | 0.8.0 | Syslog push interface to Axiom |
-|  | `axonhub` | [axonhub](https://github.com/looplj/axonhub) | 1.0.0-rc.5 | Open-source AI gateway with built-in failover, load balancing, cost control and end-to-end tracing |
+|  | `axonhub` | [axonhub](https://github.com/looplj/axonhub) | 1.0.0-rc.4 | Open-source AI gateway with built-in failover, load balancing, cost control and end-to-end tracing |
 | `x86_64-linux` | `baidunetdisk` | [baidunetdisk](https://pan.baidu.com/) | 8.9.7 | Baidu Netdisk |
 |  | `baidupcs-go` | [baidupcs-go](https://github.com/qjfoidnh/BaiduPCS-Go) | 4.0.2-unstable-2026-09-09 | Baidu Netdisk commandline client, mimicking Linux shell file handling commands |
 | `x86_64-linux` | `bambu-studio-bin` | [bambu-studio-bin](https://github.com/bambulab/BambuStudio) | 02.05.02.51 | PC Software for BambuLab and other 3D printers |
@@ -218,7 +218,7 @@ Or, use variables from this repository in case I change them:
 |  | `hi3-ii-martian-font` | [hi3-ii-martian-font](https://github.com/Wenti-D/HI3IIMartianFont) | 0-unstable-2023-10-12 | Font for Martian in Honkai Impact 3rd |
 |  | `hkdm` | [hkdm](https://gitlab.com/postmarketOS/hkdm) | 0.2.1-unstable-2023-03-06 | Lighter-weight hotkey daemon |
 |  | `hoyo-glyphs` | [hoyo-glyphs](https://github.com/SpeedyOrc-C/Hoyo-Glyphs) | 20250529 | Constructed scripts by Hoyoverse 米哈游的架空文字 |
-| `x86_64-linux` | `i915-sriov` | [i915-sriov](https://github.com/strongtz/i915-sriov-dkms) | 2026.11.26-unstable-2026-11-26 | DKMS module of Linux i915 driver with SR-IOV support |
+| `x86_64-linux` | `i915-sriov` | [i915-sriov](https://github.com/strongtz/i915-sriov-dkms) | 2026.11.05-unstable-2026-11-06 | DKMS module of Linux i915 driver with SR-IOV support |
 |  | `igsc` | [igsc](https://github.com/intel/igsc) | 1.3.2 | Intel graphics system controller firmware update library |
 |  | `ik-llama-cpp` | [ik-llama-cpp](https://github.com/ikawrakow/ik_llama.cpp) | 0-unstable-2026-11-23 | High-performance llama.cpp fork with optimized i-quantization kernels |
 |  | `ik-llama-cpp-avx` | [ik-llama-cpp](https://github.com/ikawrakow/ik_llama.cpp) | 0-unstable-2026-11-23 | High-performance llama.cpp fork with optimized i-quantization kernels |
@@ -263,7 +263,7 @@ Or, use variables from this repository in case I change them:
 |  | `mlat-client` | [mlat-client](https://github.com/adsb-related-code/mlat-client) | 0.4.2 | Client that selectively forwards Mode S messages to a server that resolves the transmitter position by multilateration |
 |  | `mobileclaw` | [mobileclaw](https://ecloud.10086.cn/portal/product/hotCase) | 1.9.8 | China Mobile Cloud desktop AI office agent |
 |  | `modelscope` | [modelscope](https://www.modelscope.cn/) | 1.40.3 | Bring the notion of Model-as-a-Service to life |
-|  | `modelscope-hub` | [modelscope-hub](https://github.com/modelscope/modelscope_hub) | 0.7.2 | Official Python client to connect with ModelScope Hub |
+|  | `modelscope-hub` | [modelscope-hub](https://github.com/modelscope/modelscope_hub) | 0.7.1 | Official Python client to connect with ModelScope Hub |
 |  | `modlens` | [modlens](https://github.com/liustack/modlens) | 3.27.6 | Vision plugin for DeepSeek Harness that turns pasted images into structured JSON evidence through pluggable vision engines |
 |  | `mtkclient` | [mtkclient](https://github.com/bkerler/mtkclient) | 2.1.4.1-unstable-2026-11-20 | MTK reverse engineering and flash tool |
 | `x86_64-linux` | `mtranservercore-rs` | [linguaspark-server](https://github.com/LinguaSpark/server) | 0-unstable-2026-11-04 | Lightweight multilingual translation service powered by the pure Rust LinguaSpark inference engine, compatible with multiple translation frontend APIs |
@@ -308,14 +308,14 @@ Or, use variables from this repository in case I change them:
 |  | `plasma-panel-transparency-toggle` | [plasma-panel-transparency-toggle](https://github.com/sanjay-kr-commit/panelTransparencyToggleForPlasma6) | 0-unstable-2024-04-17 | Rewrite of Panel Transparency Button for Plasma 6 |
 |  | `plasma-smart-video-wallpaper-reborn` | [plasma-smart-video-wallpaper-reborn](https://store.kde.org/p/2139746) | 2.17.0 | Plasma 6 wallpaper plugin to play videos on your Desktop/Lock Screen |
 |  | `plasma-yesplaymusic-lyric` | [plasma-yesplaymusic-lyric](https://github.com/zsiothsu/org.kde.plasma.yesplaymusic-lyrics) | 0.2.3-unstable-2025-01-07 | Display YesPlayMusic lyrics on the plasma panel | 在KDE plasma面板中显示YesPlayMusic的歌词 |
-|  | `prismml-llama-cpp` | [prismml-llama-cpp](https://github.com/PrismML-Eng/llama.cpp) | b12232-f702476 | PrismML fork of llama.cpp with runtime CPU dispatch and unified llama binary |
-|  | `prismml-llama-cpp-cuda` | [prismml-llama-cpp](https://github.com/PrismML-Eng/llama.cpp) | b12232-f702476 | PrismML fork of llama.cpp with runtime CPU dispatch and unified llama binary |
+|  | `prismml-llama-cpp` | [prismml-llama-cpp](https://github.com/PrismML-Eng/llama.cpp) | b12128-d7b2896 | PrismML fork of llama.cpp with runtime CPU dispatch and unified llama binary |
+|  | `prismml-llama-cpp-cuda` | [prismml-llama-cpp](https://github.com/PrismML-Eng/llama.cpp) | b12128-d7b2896 | PrismML fork of llama.cpp with runtime CPU dispatch and unified llama binary |
 |  | `project-maya` | [project-maya](https://github.com/mw00/project-maya) | 1.1.76 | Local large language model inference stack with CUDA engines and a self-managed data folder |
 |  | `prometheus-knot-exporter-go` | [prometheus-knot-exporter-go](https://github.com/CZ-NIC/knot-exporter) | 3.5.3-unstable-2025-10-31 | Prometheus exporter for Knot DNS written in Go |
 |  | `pterodactyl-wings` | [pterodactyl-wings](https://pterodactyl.io) | 1.13.5-unstable-2026-11-11 | Server control plane for Pterodactyl Panel |
 |  | `py-rcon` | [rcon](https://github.com/ttk1/py-rcon) | 1.3.0 | Python implementation of RCON |
 |  | `pyhss` | [pyhss](https://github.com/nickvsnetworking/pyhss) | 2.0.2-unstable-2026-11-23 | Python HSS / Diameter Server |
-|  | `pyosmocom` | [pyosmocom](https://gitea.osmocom.org/osmocom/pyosmocom) | 0.0.12-unstable-2026-11-26 | Python implementation of key Osmocom protocols/interfaces |
+|  | `pyosmocom` | [pyosmocom](https://gitea.osmocom.org/osmocom/pyosmocom) | 0.0.12-unstable-2026-08-23 | Python implementation of key Osmocom protocols/interfaces |
 |  | `pysctp` | [pysctp](https://github.com/p1sec/pysctp) | 0.7.3 | SCTP stack for Python |
 |  | `pytorch-wpe` | [pytorch-wpe](https://github.com/nttcslab-sp/dnn_wpe) | 0.0.1 | WPE implementation using PyTorch |
 | `x86_64-linux` | `qdma` | [qdma](https://github.com/Xilinx/dma_ip_drivers) | 0-unstable-2026-10-22 | Xilinx QDMA PCIe kernel modules |
@@ -547,20 +547,18 @@ Or, use variables from this repository in case I change them:
 </details>
 
 <details>
-<summary>Package set: kernel-modules (17 packages)</summary>
+<summary>Package set: kernel-modules (15 packages)</summary>
 
 | State | Path | Name | Version | Description |
 | ----- | ---- | ---- | ------- | ----------- |
 |  | `kernel-modules.acpi-ec` | [acpi-ec](https://github.com/musikid/acpi_ec) | 1.0.4 | Kernel module to access directly to the ACPI EC |
-| `x86_64-linux` | `kernel-modules.aw88399-legion-audio-patch` | [aw88399-legion-audio-patch](https://github.com/nadimkobeissi/16iax10h-linux-sound-saga) | 0-unstable-2026-11-16 | Audio patches for aw88399 on Lenovo Legion laptops |
-| `x86_64-linux` | `kernel-modules.aw88399-legion-firmware` | [aw88399-legion-firmware](https://github.com/nadimkobeissi/16iax10h-linux-sound-saga) | 0-unstable-2026-11-16 | Firmware for aw88399 audio codec on Lenovo Legion laptops |
 |  | `kernel-modules.cryptodev-unstable` | [cryptodev-linux](http://cryptodev-linux.org/) | 1.14-unstable-2025-11-03 | Device that allows access to Linux kernel cryptographic drivers |
 | `x86_64-linux` | `kernel-modules.crystalhd` | [crystalhd](https://github.com/dbason/crystalhd) | 0-unstable-2021-01-26 | Broadcom Crystal HD Hardware Decoder (BCM70012/70015) driver |
 |  | `kernel-modules.dpdk-kmod` | [dpdk-kmod](https://git.dpdk.org/dpdk-kmods/) | 0-unstable-2024-11-20 | DPDK kernel modules or add-ons |
 |  | `kernel-modules.emperors-scepter` | [emperors-scepter](https://honkai-star-rail.fandom.com/wiki/As_I%27ve_Written/%CE%B4-me13.exe) | 0.1.0-6.18.64 | Idle kthreads for the twelve Scepter δ-me13 signals |
 | `x86_64-linux` | `kernel-modules.gpu-unlock` | [gpu-unlock](https://github.com/Zagitta/gpu-unlock) | unraid-unstable-2026-10-28 | Early-boot Ampere GPU floating-point instruction rate unlock |
 | `x86_64-linux` | `kernel-modules.gpu-unlock-firmware` | [gpu-unlock-firmware](https://github.com/Zagitta/gpu-unlock) | unraid-unstable-2026-10-28 | Pinned NVIDIA firmware assets for gpu-unlock |
-| `x86_64-linux` | `kernel-modules.i915-sriov` | [i915-sriov](https://github.com/strongtz/i915-sriov-dkms) | 2026.11.26-unstable-2026-11-26 | DKMS module of Linux i915 driver with SR-IOV support |
+| `x86_64-linux` | `kernel-modules.i915-sriov` | [i915-sriov](https://github.com/strongtz/i915-sriov-dkms) | 2026.11.05-unstable-2026-11-06 | DKMS module of Linux i915 driver with SR-IOV support |
 |  | `kernel-modules.nft-fullcone` | [nft-fullcone](https://github.com/fullcone-nat-nftables/nft-fullcone) | 0-unstable-2023-05-17 | Nftables fullcone expression kernel module |
 |  | `kernel-modules.nullfsvfs` | [nullfsvfs](https://github.com/abbbi/nullfsvfs) | 0.28 | Virtual black hole file system that behaves like /dev/null |
 | `x86_64-linux` | `kernel-modules.qdma` | [qdma](https://github.com/Xilinx/dma_ip_drivers) | 0-unstable-2026-10-22 | Xilinx QDMA PCIe kernel modules |
@@ -1512,12 +1510,12 @@ Or, use variables from this repository in case I change them:
 |  | `python3Packages.kb-manager` | [kb-manager](https://github.com/dubh3124/OpenWebUI-KB-Manager) | 0.2.0 | Command-line interface (CLI) tool for managing files and knowledge bases in OpenWebUI |
 |  | `python3Packages.loralib` | [loralib](https://arxiv.org/abs/2106.09685) | 0-unstable-2024-12-16 | Implementation of "LoRA: Low-Rank Adaptation of Large Language Models" |
 |  | `python3Packages.modelscope` | [modelscope](https://www.modelscope.cn/) | 1.40.3 | Bring the notion of Model-as-a-Service to life |
-|  | `python3Packages.modelscope-hub` | [modelscope-hub](https://github.com/modelscope/modelscope_hub) | 0.7.2 | Official Python client to connect with ModelScope Hub |
+|  | `python3Packages.modelscope-hub` | [modelscope-hub](https://github.com/modelscope/modelscope_hub) | 0.7.1 | Official Python client to connect with ModelScope Hub |
 |  | `python3Packages.mtkclient` | [mtkclient](https://github.com/bkerler/mtkclient) | 2.1.4.1-unstable-2026-11-20 | MTK reverse engineering and flash tool |
 |  | `python3Packages.open-webui-kb-manager` | [kb-manager](https://github.com/dubh3124/OpenWebUI-KB-Manager) | 0.2.0 | Command-line interface (CLI) tool for managing files and knowledge bases in OpenWebUI |
 |  | `python3Packages.opencc-python-reimplemented` | [opencc-python-reimplemented](https://github.com/yichen0831/opencc-python) | 0-unstable-2023-02-11 | OpenCC made with Python |
 |  | `python3Packages.py-rcon` | [rcon](https://github.com/ttk1/py-rcon) | 1.3.0 | Python implementation of RCON |
-|  | `python3Packages.pyosmocom` | [pyosmocom](https://gitea.osmocom.org/osmocom/pyosmocom) | 0.0.12-unstable-2026-11-26 | Python implementation of key Osmocom protocols/interfaces |
+|  | `python3Packages.pyosmocom` | [pyosmocom](https://gitea.osmocom.org/osmocom/pyosmocom) | 0.0.12-unstable-2026-08-23 | Python implementation of key Osmocom protocols/interfaces |
 |  | `python3Packages.pysctp` | [pysctp](https://github.com/p1sec/pysctp) | 0.7.3 | SCTP stack for Python |
 |  | `python3Packages.pytorch-wpe` | [pytorch-wpe](https://github.com/nttcslab-sp/dnn_wpe) | 0.0.1 | WPE implementation using PyTorch |
 |  | `python3Packages.rcon` | [rcon](https://github.com/ttk1/py-rcon) | 1.3.0 | Python implementation of RCON |
@@ -1546,7 +1544,7 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized.asterisk-g72x` | [asterisk-g72x](https://github.com/arkadijs/asterisk-g72x) | 0-unstable-2026-09-07 | G.729 and G.723.1 codecs for Asterisk (Only G.729 is enabled) |
 |  | `uncategorized.awawausb-native-stub` | [awawausb-native-stub](https://github.com/ArcaneNibble/awawausb) | 0.2 | Native messaging stub for the awawausb WebUSB Firefox extension |
 |  | `uncategorized.axiom-syslog-proxy` | [axiom-syslog-proxy](https://github.com/axiomhq/axiom-syslog-proxy) | 0.8.0 | Syslog push interface to Axiom |
-|  | `uncategorized.axonhub` | [axonhub](https://github.com/looplj/axonhub) | 1.0.0-rc.5 | Open-source AI gateway with built-in failover, load balancing, cost control and end-to-end tracing |
+|  | `uncategorized.axonhub` | [axonhub](https://github.com/looplj/axonhub) | 1.0.0-rc.4 | Open-source AI gateway with built-in failover, load balancing, cost control and end-to-end tracing |
 | `x86_64-linux` | `uncategorized.baidunetdisk` | [baidunetdisk](https://pan.baidu.com/) | 8.9.7 | Baidu Netdisk |
 |  | `uncategorized.baidupcs-go` | [baidupcs-go](https://github.com/qjfoidnh/BaiduPCS-Go) | 4.0.2-unstable-2026-09-09 | Baidu Netdisk commandline client, mimicking Linux shell file handling commands |
 | `x86_64-linux` | `uncategorized.bambu-studio-bin` | [bambu-studio-bin](https://github.com/bambulab/BambuStudio) | 02.05.02.51 | PC Software for BambuLab and other 3D printers |
@@ -1667,8 +1665,8 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized.plasma-panel-transparency-toggle` | [plasma-panel-transparency-toggle](https://github.com/sanjay-kr-commit/panelTransparencyToggleForPlasma6) | 0-unstable-2024-04-17 | Rewrite of Panel Transparency Button for Plasma 6 |
 |  | `uncategorized.plasma-smart-video-wallpaper-reborn` | [plasma-smart-video-wallpaper-reborn](https://store.kde.org/p/2139746) | 2.17.0 | Plasma 6 wallpaper plugin to play videos on your Desktop/Lock Screen |
 |  | `uncategorized.plasma-yesplaymusic-lyric` | [plasma-yesplaymusic-lyric](https://github.com/zsiothsu/org.kde.plasma.yesplaymusic-lyrics) | 0.2.3-unstable-2025-01-07 | Display YesPlayMusic lyrics on the plasma panel | 在KDE plasma面板中显示YesPlayMusic的歌词 |
-|  | `uncategorized.prismml-llama-cpp` | [prismml-llama-cpp](https://github.com/PrismML-Eng/llama.cpp) | b12232-f702476 | PrismML fork of llama.cpp with runtime CPU dispatch and unified llama binary |
-|  | `uncategorized.prismml-llama-cpp-cuda` | [prismml-llama-cpp](https://github.com/PrismML-Eng/llama.cpp) | b12232-f702476 | PrismML fork of llama.cpp with runtime CPU dispatch and unified llama binary |
+|  | `uncategorized.prismml-llama-cpp` | [prismml-llama-cpp](https://github.com/PrismML-Eng/llama.cpp) | b12128-d7b2896 | PrismML fork of llama.cpp with runtime CPU dispatch and unified llama binary |
+|  | `uncategorized.prismml-llama-cpp-cuda` | [prismml-llama-cpp](https://github.com/PrismML-Eng/llama.cpp) | b12128-d7b2896 | PrismML fork of llama.cpp with runtime CPU dispatch and unified llama binary |
 |  | `uncategorized.project-maya` | [project-maya](https://github.com/mw00/project-maya) | 1.1.76 | Local large language model inference stack with CUDA engines and a self-managed data folder |
 |  | `uncategorized.prometheus-knot-exporter-go` | [prometheus-knot-exporter-go](https://github.com/CZ-NIC/knot-exporter) | 3.5.3-unstable-2025-10-31 | Prometheus exporter for Knot DNS written in Go |
 |  | `uncategorized.pterodactyl-wings` | [pterodactyl-wings](https://pterodactyl.io) | 1.13.5-unstable-2026-11-11 | Server control plane for Pterodactyl Panel |
@@ -1731,7 +1729,7 @@ Or, use variables from this repository in case I change them:
 </details>
 
 <details>
-<summary>Package set: uncategorized-DataEraserC (124 packages)</summary>
+<summary>Package set: uncategorized-DataEraserC (126 packages)</summary>
 
 | State | Path | Name | Version | Description |
 | ----- | ---- | ---- | ------- | ----------- |
@@ -1746,6 +1744,8 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized-DataEraserC.anymd` | [anymd](https://github.com/SylphxAI/anymd) | 8.5.19 | Convert any file to clean Markdown for AI agents, as a CLI and MCP server |
 | `x86_64-linux` | `uncategorized-DataEraserC.autoclaw-cn` | [autoclaw-cn](https://autoclaw.zhipuai.cn/) | 4.0.0 | AutoClaw (澳龙), Zhipu AI's general AI agent desktop app (China edition) |
 | `x86_64-linux` | `uncategorized-DataEraserC.autoclaw-intl` | [autoclaw-intl](https://autoclaw.z.ai/) | 2.0.3 | AutoClaw, Z.ai's general AI agent desktop app (international edition) |
+| `x86_64-linux` | `uncategorized-DataEraserC.aw88399-legion-audio-patch` | [aw88399-legion-audio-patch](https://github.com/nadimkobeissi/16iax10h-linux-sound-saga) | 0-unstable-2026-11-16 | Audio patches for aw88399 on Lenovo Legion laptops |
+| `x86_64-linux` | `uncategorized-DataEraserC.aw88399-legion-firmware` | [aw88399-legion-firmware](https://github.com/nadimkobeissi/16iax10h-linux-sound-saga) | 0-unstable-2026-11-16 | Firmware for aw88399 audio codec on Lenovo Legion laptops |
 |  | `uncategorized-DataEraserC.bas-remote` | [bas-remote](https://github.com/DataEraserC/bas-remote) | 0.7.3 | SAP Business Application Studio remote dev spaces, as a Rust library with a DeepSeek Harness host |
 | `x86_64-linux` | `uncategorized-DataEraserC.bqqnt` | [bqqnt](https://im.qq.com/index/) | 0.5.10 | Desktop client for QQ on Linux with bstar |
 | `x86_64-linux` | `uncategorized-DataEraserC.browser4` | [browser4](https://github.com/platonai/Browser4) | 4.13.27 | MCP-driven browser automation toolkit pairing a Rust command-line client with a Java automation server |

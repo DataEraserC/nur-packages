@@ -5,7 +5,7 @@
   unstableGitUpdater,
 }:
 stdenv.mkDerivation {
-  pname = "aw88399-legion-firmware";
+  pname = "aw88399-legion-audio-patch";
   version = "0-unstable-2026-11-16";
 
   src = fetchgit {
@@ -19,8 +19,8 @@ stdenv.mkDerivation {
 
   installPhase = ''
     runHook preInstall
-    mkdir -p $out/lib/firmware
-    cp -f fix/firmware/aw88399_acf.bin $out/lib/firmware/
+    mkdir -p $out
+    cp -f patch-archive/*.patch $out/
     runHook postInstall
   '';
 
@@ -30,10 +30,10 @@ stdenv.mkDerivation {
   };
 
   meta = {
-    description = "Firmware for aw88399 audio codec on Lenovo Legion laptops";
+    description = "Audio patches for aw88399 on Lenovo Legion laptops";
     homepage = "https://github.com/nadimkobeissi/16iax10h-linux-sound-saga";
-    license = lib.licenses.unfree;
-    maintainers = import ../../uncategorized-DataEraserC/maintainers.nix;
+    license = lib.licenses.gpl3Only;
+    maintainers = import ../maintainers.nix;
     platforms = [ "x86_64-linux" ];
   };
 }
