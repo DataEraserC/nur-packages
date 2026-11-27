@@ -16,13 +16,13 @@
   webmuxSource ? fetchFromGitHub {
     owner = "mzdluo123";
     repo = "webmux";
-    rev = "69cc5558c78b1a1c4f1fc31591d793751a901fec";
-    hash = "sha256-JnV6CwFhI1q69EOwrpDh4xvvGqi58ntKcerSq0LWV9g=";
+    rev = "42287a1ac2a993467ae79bdb9152b0d2b8283e04";
+    hash = "sha256-0aDgDamIMnlY4R5jOjhHaLxGT5BKgf/f9lwg4eLZ26Y=";
   },
 }:
 
 let
-  version = "0.19.0-unstable-2026-11-25";
+  version = "0.19.1-unstable-2026-11-26";
   src = webmuxSource;
 
   sourceUpdater = unstableGitUpdater {
@@ -92,7 +92,7 @@ buildGo127Module (finalAttrs: {
   inherit version src;
   __structuredAttrs = true;
   strictDeps = true;
-  vendorHash = "sha256-rjdRRAxvTJpyxjln13ohPNUuP3V5j9PjnncpEmNNhfI=";
+  vendorHash = "sha256-3DGb4/ib8UVDke83n2lJtmAurgPnRc63gybQv+aWIxc=";
 
   subPackages = [ "cmd/webmux" ];
 
