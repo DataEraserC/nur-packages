@@ -150,23 +150,33 @@ func loginWithCode(state localState, code string) error {
 		return errors.New("授权码不能为空")
 	}
 	client := &http.Client{Timeout: 30 * time.Second}
-	body, err := json.Marshal(map[string]string{"authorization_code": code})
+	creds, err := exchangeAuthorizationCode(context.Background(), client, code)
 	if err != nil {
 		return err
-	}
-	data, err := postAPI(context.Background(), client, "/login_with_authorization_code", body, "")
-	if err != nil {
-		return err
-	}
-	creds := credentialsFromMap(data)
-	if creds.accessToken == "" || creds.refreshToken == "" {
-		return errors.New("授权码登录未返回完整的 access_token/refresh_token")
 	}
 	if err := saveAuth(state, creds); err != nil {
 		return err
 	}
 	fmt.Println("登录成功，凭据已写入", authPath(state))
 	return nil
+}
+
+// exchangeAuthorizationCode trades a one-time web login code for credentials.
+// IAM-issued tokens carry no refresh token; saveAuth only stores what came back.
+func exchangeAuthorizationCode(ctx context.Context, client *http.Client, code string) (credentials, error) {
+	body, err := json.Marshal(map[string]string{"authorization_code": code})
+	if err != nil {
+		return credentials{}, err
+	}
+	data, err := postAPI(ctx, client, "/login_with_authorization_code", body, "")
+	if err != nil {
+		return credentials{}, err
+	}
+	creds := credentialsFromMap(data)
+	if creds.accessToken == "" {
+		return credentials{}, errors.New("授权码登录未返回 access_token")
+	}
+	return creds, nil
 }
 
 func fetchUserInfo(ctx context.Context, client *http.Client, accessToken string) (map[string]json.RawMessage, error) {

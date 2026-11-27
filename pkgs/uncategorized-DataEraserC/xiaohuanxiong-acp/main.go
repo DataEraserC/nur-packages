@@ -57,6 +57,11 @@ func main() {
 	if len(args) > 0 {
 		switch args[0] {
 		case "--login":
+			if err := loginWeb(state); err != nil {
+				fatal(err)
+			}
+			return
+		case "--login-qr":
 			if err := loginQR(state); err != nil {
 				fatal(err)
 			}
@@ -104,7 +109,8 @@ USAGE:
   xiaohuanxiong-acp                 open the terminal UI
   xiaohuanxiong-acp --resume <id>   resume a Raccoon session in the terminal UI
   xiaohuanxiong-acp --acp           speak ACP over stdio (used by WebMux)
-  xiaohuanxiong-acp --login         log in by scanning a QR code
+  xiaohuanxiong-acp --login         log in through the browser (local callback)
+  xiaohuanxiong-acp --login-qr      log in by scanning a QR code (phone App)
   xiaohuanxiong-acp --login-code <code>
                                     log in with a web authorization code
   xiaohuanxiong-acp --version       print the version

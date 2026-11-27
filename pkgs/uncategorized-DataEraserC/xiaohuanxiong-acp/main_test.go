@@ -2,8 +2,10 @@ package main
 
 import (
 	"encoding/json"
+	"errors"
 	"net/http"
 	"net/http/httptest"
+	"net/url"
 	"os"
 	"path/filepath"
 	"strings"
@@ -184,5 +186,116 @@ func TestQRCodeFormat(t *testing.T) {
 	}
 	if strings.Trim(code[13:], "0123456789abcdef") != "" {
 		t.Fatalf("code nonce = %q", code[13:])
+	}
+}
+
+func TestLoginWebLoopbackWritesAuth(t *testing.T) {
+	var sawPath string
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		sawPath = r.URL.Path
+		if r.Method != http.MethodPost || r.URL.Path != "/login_with_authorization_code" {
+			t.Errorf("unexpected request %s %s", r.Method, r.URL.Path)
+		}
+		var payload map[string]string
+		if err := json.NewDecoder(r.Body).Decode(&payload); err != nil {
+			t.Errorf("decode: %v", err)
+		}
+		if payload["authorization_code"] != "web-code" {
+			t.Errorf("authorization_code = %q", payload["authorization_code"])
+		}
+		_, _ = w.Write([]byte(`{"code":0,"data":{"access_token":"iam-access","office_identity":"org-1","office_org_name":"Org","office_org_role":"admin"}}`))
+	}))
+	defer server.Close()
+	t.Setenv("XIAOHUANXIONG_AUTH_BASE", server.URL)
+	t.Setenv("XIAOHUANXIONG_LOGIN_BASE", "https://login.example")
+
+	state := localState{configDir: t.TempDir()}
+	links := make(chan string, 1)
+	result := make(chan error, 1)
+	go func() {
+		result <- loginWebWith(state, 5*time.Second, func(link string) { links <- link })
+	}()
+
+	link := <-links
+	parsed, err := url.Parse(link)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if parsed.Scheme != "https" || parsed.Host != "login.example" || parsed.Path != "/authorize" {
+		t.Fatalf("login link = %q", link)
+	}
+	query := parsed.Query()
+	if query.Get("login_source") != "desktop" || query.Get("desktop_callback") != "loopback" {
+		t.Fatalf("login params = %v", query)
+	}
+	redirect, nonce := query.Get("redirect"), query.Get("state")
+	if len(nonce) != 64 || !strings.HasPrefix(redirect, "http://127.0.0.1:") ||
+		!strings.HasSuffix(redirect, "/auth/callback") {
+		t.Fatalf("redirect = %q state = %q", redirect, nonce)
+	}
+
+	callback := redirect + "?code=web-code&state=" + url.QueryEscape(nonce)
+	response, err := http.Get(callback)
+	if err != nil {
+		t.Fatal(err)
+	}
+	body := make([]byte, 4096)
+	n, _ := response.Body.Read(body)
+	response.Body.Close()
+	if response.StatusCode != http.StatusOK || !strings.Contains(string(body[:n]), "登录成功") {
+		t.Fatalf("callback status = %d body = %q", response.StatusCode, body[:n])
+	}
+	if err := <-result; err != nil {
+		t.Fatal(err)
+	}
+	if sawPath != "/login_with_authorization_code" {
+		t.Fatalf("exchange path = %q", sawPath)
+	}
+	raw, err := os.ReadFile(authPath(state))
+	if err != nil {
+		t.Fatal(err)
+	}
+	var payload map[string]string
+	if err := json.Unmarshal(raw, &payload); err != nil {
+		t.Fatal(err)
+	}
+	if payload["access_token"] != "iam-access" || payload["refresh_token"] != "" {
+		t.Fatalf("auth payload = %+v", payload)
+	}
+}
+
+func TestLoginWebRejectsForeignState(t *testing.T) {
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		t.Error("exchange must not run for a foreign state")
+	}))
+	defer server.Close()
+	t.Setenv("XIAOHUANXIONG_AUTH_BASE", server.URL)
+	t.Setenv("XIAOHUANXIONG_LOGIN_BASE", "https://login.example")
+
+	state := localState{configDir: t.TempDir()}
+	links := make(chan string, 1)
+	result := make(chan error, 1)
+	go func() {
+		result <- loginWebWith(state, 300*time.Millisecond, func(link string) { links <- link })
+	}()
+
+	parsed, err := url.Parse(<-links)
+	if err != nil {
+		t.Fatal(err)
+	}
+	query := parsed.Query()
+	response, err := http.Get(query.Get("redirect") + "?code=web-code&state=" + strings.Repeat("a", 64))
+	if err != nil {
+		t.Fatal(err)
+	}
+	response.Body.Close()
+	if response.StatusCode != http.StatusBadRequest {
+		t.Fatalf("callback status = %d", response.StatusCode)
+	}
+	if err := <-result; err == nil || !strings.Contains(err.Error(), "超时") {
+		t.Fatalf("login result = %v", err)
+	}
+	if _, err := os.Stat(authPath(state)); !errors.Is(err, os.ErrNotExist) {
+		t.Fatalf("auth file exists: %v", err)
 	}
 }
