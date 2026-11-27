@@ -62,7 +62,7 @@ Or, use variables from this repository in case I change them:
 ## Packages
 
 <details>
-<summary>Package set: (Uncategorized) (378 packages)</summary>
+<summary>Package set: (Uncategorized) (379 packages)</summary>
 
 | State | Path | Name | Version | Description |
 | ----- | ---- | ---- | ------- | ----------- |
@@ -324,6 +324,7 @@ Or, use variables from this repository in case I change them:
 | `x86_64-linux` | `qoder` | [qoder](https://qoder.com/) | 0.5.20 | Qoder App, Alibaba's agent workbench for human and AI software teams (international edition) |
 | `x86_64-linux` | `qoder-cn` | [qoder-cn](https://qoder.com.cn/) | 0.5.20 | Qoder CN App, Alibaba's agent workbench for human and AI software teams (China edition) |
 | `x86_64-linux` | `qoder-cn-ide` | [qoder-cn-ide](https://qoder.com.cn/) | 1.42.0-1795663953 | Qoder CN IDE, Alibaba's agentic coding platform (China edition) |
+| `x86_64-linux` | `qoder-cn-wayland` | [qoder-cn-wayland](https://qoder.com.cn/) | 0.5.20 | Qoder CN App with the Wayland/waypipe ready-to-show fallback |
 | `x86_64-linux` | `qoder-ide` | [qoder-ide](https://qoder.com/) | 1.41.1-1795077337 | Qoder IDE, Alibaba's agentic coding platform (international edition) |
 |  | `qodercli` | [qodercli](https://qoder.com/cli) | 1.1.99 | Qoder CLI, Alibaba's terminal agent client for human and AI software teams (international edition) |
 |  | `qoderclicn` | [qoderclicn](https://qoder.com.cn/cli) | 1.1.99 | Qoder CN CLI, Alibaba's terminal agent client for human and AI software teams (China edition) |
@@ -1733,7 +1734,7 @@ Or, use variables from this repository in case I change them:
 </details>
 
 <details>
-<summary>Package set: uncategorized-DataEraserC (130 packages)</summary>
+<summary>Package set: uncategorized-DataEraserC (131 packages)</summary>
 
 | State | Path | Name | Version | Description |
 | ----- | ---- | ---- | ------- | ----------- |
@@ -1821,6 +1822,7 @@ Or, use variables from this repository in case I change them:
 | `x86_64-linux` | `uncategorized-DataEraserC.qoder` | [qoder](https://qoder.com/) | 0.5.20 | Qoder App, Alibaba's agent workbench for human and AI software teams (international edition) |
 | `x86_64-linux` | `uncategorized-DataEraserC.qoder-cn` | [qoder-cn](https://qoder.com.cn/) | 0.5.20 | Qoder CN App, Alibaba's agent workbench for human and AI software teams (China edition) |
 | `x86_64-linux` | `uncategorized-DataEraserC.qoder-cn-ide` | [qoder-cn-ide](https://qoder.com.cn/) | 1.42.0-1795663953 | Qoder CN IDE, Alibaba's agentic coding platform (China edition) |
+| `x86_64-linux` | `uncategorized-DataEraserC.qoder-cn-wayland` | [qoder-cn-wayland](https://qoder.com.cn/) | 0.5.20 | Qoder CN App with the Wayland/waypipe ready-to-show fallback |
 | `x86_64-linux` | `uncategorized-DataEraserC.qoder-ide` | [qoder-ide](https://qoder.com/) | 1.41.1-1795077337 | Qoder IDE, Alibaba's agentic coding platform (international edition) |
 |  | `uncategorized-DataEraserC.qodercli` | [qodercli](https://qoder.com/cli) | 1.1.99 | Qoder CLI, Alibaba's terminal agent client for human and AI software teams (international edition) |
 |  | `uncategorized-DataEraserC.qoderclicn` | [qoderclicn](https://qoder.com.cn/cli) | 1.1.99 | Qoder CN CLI, Alibaba's terminal agent client for human and AI software teams (China edition) |
