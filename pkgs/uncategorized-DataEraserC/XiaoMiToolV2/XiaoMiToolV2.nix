@@ -10,7 +10,7 @@
   jdk21_with_openjfx ? jdk21.override (
     lib.optionalAttrs stdenv.hostPlatform.isLinux {
       enableJavaFX = true;
-      openjfx21 = openjfx21.override { withWebKit = true; };
+      openjfx_jdk = openjfx21.override { withWebKit = true; };
     }
   ),
   libGL,
