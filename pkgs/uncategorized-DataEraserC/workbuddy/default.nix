@@ -132,7 +132,14 @@ stdenv.mkDerivation (finalAttrs: {
     # Patch safe-bin shims: upstream uses #!/bin/bash and /bin/rm which don't
     # exist on NixOS. Fix the shebangs and set the real-rm paths via env vars
     # that safe-delete-common.sh reads (SAFE_DELETE_REAL_*).
-    patchShebangs $out/opt/WorkBuddy/resources/app.asar.unpacked/cli/vendor/shim/safe-bin
+    # 5.11.6 moved the shims from cli/vendor/shim/safe-bin to
+    # cli/vendor/sandbox-center-runtime-kit/shim/safe-bin and ships a second
+    # copy under node_modules/@genie/agent-harness; patch every safe-bin dir
+    # (brokered-bin uses #!/usr/bin/env sh and is intentionally untouched).
+    # patchShebangs is a shell function, so it cannot go through find -exec.
+    while IFS= read -r -d "" shimDir; do
+      patchShebangs "$shimDir"
+    done < <(find $out/opt/WorkBuddy/resources/app.asar.unpacked -type d -name safe-bin -print0)
 
     # Repack app.asar with the Wayland/waypipe show() fix.
     # WorkBuddy creates the main BrowserWindow with show:false and only calls
@@ -179,6 +186,11 @@ stdenv.mkDerivation (finalAttrs: {
         agent = "dsh";
         model = "deepseek-v4-flash";
         involvement = "authored";
+      }
+      {
+        agent = "xiaohuanxiong";
+        model = "Qwen4Max";
+        involvement = "assisted";
       }
     ];
   };

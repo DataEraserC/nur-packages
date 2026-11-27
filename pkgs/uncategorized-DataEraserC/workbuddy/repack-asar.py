@@ -1,10 +1,15 @@
 #!/usr/bin/env python3
 """Minimal asar re-packer for the workbuddy Nix package.
 
-Replaces one file (main/index.js) inside app.asar so that the main window is
-shown on a fallback timer instead of waiting only for `ready-to-show`, which
-can stay silent forever on Wayland/waypipe and leaves the app running with no
-visible window.
+Historically this replaced main/index.js so the main window was shown on a
+fallback timer instead of waiting only for `ready-to-show`, which can stay
+silent forever on Wayland/waypipe (window never mapped -> no first frame).
+
+Since 5.11.6 upstream ships that fix natively: main/main-bootstrap.js has an
+`InitialRevealGate` that arms a 3 s fallback on `did-finish-load` (independent
+of window mapping) and calls show() on `ready-to-show-timeout`. When that
+mechanism is present this script verifies it and repacks nothing; the legacy
+main/index.js patch is kept only so older pinned releases still build.
 
 The repack preserves asar structure (header + payload), recalculates
 offsets/sizes/integrity hashes for all entries, and keeps the original
@@ -23,6 +28,12 @@ import json
 import struct
 import sys
 from pathlib import Path
+
+# Legacy anchor (<= 5.6.x): window-created log line in main/index.js.
+LEGACY_ANCHOR = '\t\trequire_log_acl_guard.windowLog.info("[WindowManager] Window created");'
+# Upstream native fix (>= 5.11.6): fallback reveal gate in main/main-bootstrap.js.
+UPSTREAM_GATE = b"var READY_TO_SHOW_FALLBACK_MS=3e3,InitialRevealGate=class{"
+UPSTREAM_TIMEOUT = b"ready-to-show-timeout"
 
 
 def read_asar(path: str):
@@ -50,6 +61,23 @@ def walk(node, prefix=""):
             yield from walk(meta, cur)
         else:
             yield cur, meta
+
+
+def read_entry(header, payload, want):
+    """Return (meta, bytes) for one packed asar path, or (None, None)."""
+    for asar_path, meta in walk(header):
+        if asar_path == want and not meta.get("unpacked"):
+            off = int(meta["offset"])
+            data = payload[off : off + int(meta["size"])]
+            orig_hash = meta["integrity"]["hash"]
+            actual_hash = hashlib.sha256(data).hexdigest()
+            if actual_hash != orig_hash:
+                raise SystemExit(
+                    f"integrity mismatch for {want}: "
+                    f"header={orig_hash} actual={actual_hash}"
+                )
+            return meta, data
+    return None, None
 
 
 def rebuild(header, payload, origin, replace=None):
@@ -97,7 +125,7 @@ def rebuild(header, payload, origin, replace=None):
 
 
 def apply_wayland_patch(orig_bytes: bytes) -> bytes:
-    """Apply the Wayland show() fix to main/index.js content.
+    """Apply the legacy Wayland show() fix to main/index.js content.
 
     The main window is created with `show: false` and upstream only calls
     show() from the `ready-to-show` callback. That callback is emitted after
@@ -111,7 +139,7 @@ def apply_wayland_patch(orig_bytes: bytes) -> bytes:
     within the timeout, so the timer finds the window already visible and
     does nothing; under waypipe it is what surfaces the window.
     """
-    old = '\t\trequire_log_acl_guard.windowLog.info("[WindowManager] Window created");'
+    old = LEGACY_ANCHOR
     new = (
         old + "\n"
         "\t\t// [nixos-patch] Wayland/waypipe: `ready-to-show` can stay silent\n"
@@ -174,29 +202,33 @@ def main():
 
     header, payload, origin = read_asar(asar_in)
 
-    # Find main/index.js in the asar and patch it.
-    patched_js = None
-    for asar_path, meta in walk(header):
-        if asar_path == "main/index.js" and not meta.get("unpacked"):
-            off = int(meta["offset"])
-            orig_js = payload[off : off + int(meta["size"])]
-            # Verify integrity
-            orig_hash = meta["integrity"]["hash"]
-            actual_hash = hashlib.sha256(orig_js).hexdigest()
-            if actual_hash != orig_hash:
-                raise SystemExit(
-                    f"integrity mismatch for main/index.js: "
-                    f"header={orig_hash} actual={actual_hash}"
-                )
-            patched_js = apply_wayland_patch(orig_js)
-            print(
-                f"Patched main/index.js: {len(orig_js)} -> {len(patched_js)} bytes",
-                file=sys.stderr,
+    # >= 5.11.6: upstream ships the fallback reveal natively. Verify both the
+    # gate and its timeout branch are present, then copy the asar unchanged.
+    _, bootstrap_js = read_entry(header, payload, "main/main-bootstrap.js")
+    if bootstrap_js is not None and UPSTREAM_GATE in bootstrap_js:
+        if UPSTREAM_TIMEOUT not in bootstrap_js:
+            raise SystemExit(
+                "wayland-show-fix: InitialRevealGate found but the "
+                "ready-to-show-timeout branch is missing; upstream changed "
+                "the fallback mechanism, re-check the patch"
             )
-            break
+        Path(asar_out).write_bytes(Path(asar_in).read_bytes())
+        print(
+            "wayland-show-fix: upstream InitialRevealGate fallback present, "
+            "asar copied unchanged",
+            file=sys.stderr,
+        )
+        return
 
-    if patched_js is None:
+    # Legacy releases: patch main/index.js with the fallback show() timer.
+    meta, orig_js = read_entry(header, payload, "main/index.js")
+    if orig_js is None:
         raise SystemExit("main/index.js not found in asar")
+    patched_js = apply_wayland_patch(orig_js)
+    print(
+        f"Patched main/index.js: {len(orig_js)} -> {len(patched_js)} bytes",
+        file=sys.stderr,
+    )
 
     out = rebuild(header, payload, origin, replace={"main/index.js": patched_js})
 
