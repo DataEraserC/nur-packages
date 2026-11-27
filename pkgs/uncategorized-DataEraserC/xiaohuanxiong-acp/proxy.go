@@ -8,6 +8,7 @@ import (
 	"io"
 	"os"
 	"os/exec"
+	"strings"
 	"sync"
 )
 
@@ -31,6 +32,8 @@ type proxyState struct {
 	resumeID   string
 	resumeDone bool
 	out        *frameWriter
+	models     *modelStore
+	pending    map[string]string
 }
 
 type frameWriter struct {
@@ -57,11 +60,20 @@ func (w *frameWriter) Write(p []byte) (int, error) {
 	return written, nil
 }
 
-func newProxyState(out io.Writer, resumeID string) *proxyState {
-	return &proxyState{out: &frameWriter{w: out}, resumeID: resumeID}
+func newProxyState(out io.Writer, resumeID string, models *modelStore) *proxyState {
+	state := &proxyState{
+		out:      &frameWriter{w: out},
+		resumeID: resumeID,
+		models:   models,
+		pending:  map[string]string{},
+	}
+	if models != nil {
+		go models.models()
+	}
+	return state
 }
 
-func serve(real string) error {
+func serve(real, configDir string) error {
 	cmd := exec.Command(real)
 	cmd.Stderr = os.Stderr
 	stdin, err := cmd.StdinPipe()
@@ -75,7 +87,7 @@ func serve(real string) error {
 	if err := cmd.Start(); err != nil {
 		return err
 	}
-	return proxyProcess(os.Stdin, os.Stdout, stdin, stdout, cmd.Wait)
+	return proxyProcess(os.Stdin, os.Stdout, stdin, stdout, cmd.Wait, configDir)
 }
 
 func proxyProcess(
@@ -84,8 +96,9 @@ func proxyProcess(
 	vendorIn io.WriteCloser,
 	vendorOut io.Reader,
 	waitVendor func() error,
+	configDir string,
 ) error {
-	state := newProxyState(clientOut, os.Getenv("XIAOHUANXIONG_ACP_RESUME_SESSION"))
+	state := newProxyState(clientOut, os.Getenv("XIAOHUANXIONG_ACP_RESUME_SESSION"), newModelStore(configDir))
 	var closeVendorIn sync.Once
 	closeInput := func() {
 		closeVendorIn.Do(func() { _ = vendorIn.Close() })
@@ -129,10 +142,7 @@ func (s *proxyState) interceptClient(line []byte) []byte {
 	var msg struct {
 		ID     json.RawMessage `json:"id"`
 		Method string          `json:"method"`
-		Params struct {
-			Cwd    string `json:"cwd"`
-			Cursor string `json:"cursor"`
-		} `json:"params"`
+		Params json.RawMessage `json:"params"`
 	}
 	if json.Unmarshal(line, &msg) != nil || len(msg.ID) == 0 {
 		return line
@@ -144,9 +154,20 @@ func (s *proxyState) interceptClient(line []byte) []byte {
 		s.mu.Unlock()
 		return line
 	case "session/list":
-		_, _ = s.out.Write(listAnswer(msg.ID, msg.Params.Cwd, msg.Params.Cursor))
+		var params struct {
+			Cwd    string `json:"cwd"`
+			Cursor string `json:"cursor"`
+		}
+		_ = json.Unmarshal(msg.Params, &params)
+		_, _ = s.out.Write(listAnswer(msg.ID, params.Cwd, params.Cursor))
 		return nil
-	case "session/new":
+	case "session/new", "session/load":
+		s.mu.Lock()
+		s.pending[string(msg.ID)] = msg.Method
+		s.mu.Unlock()
+		if msg.Method != "session/new" {
+			return line
+		}
 		s.mu.Lock()
 		resumeID := s.resumeID
 		rewrite := resumeID != "" && !s.resumeDone
@@ -161,8 +182,115 @@ func (s *proxyState) interceptClient(line []byte) []byte {
 			return rewritten
 		}
 		return line
+	case "session/set_config_option":
+		if answer := s.setConfigOption(msg.ID, msg.Params); answer != nil {
+			_, _ = s.out.Write(answer)
+		}
+		return nil
+	case "session/prompt":
+		return s.injectBinding(line, msg.Params)
 	}
 	return line
+}
+
+// setConfigOption answers the ACP model picker locally: box-agent has no
+// session/set_config_option, so the choice is stored and applied on prompts.
+func (s *proxyState) setConfigOption(id json.RawMessage, rawParams json.RawMessage) []byte {
+	if s.models == nil {
+		return errorAnswer(id, -32601, "config options are unavailable")
+	}
+	var params struct {
+		SessionID string          `json:"sessionId"`
+		ConfigID  string          `json:"configId"`
+		Value     json.RawMessage `json:"value"`
+	}
+	if json.Unmarshal(rawParams, &params) != nil || params.SessionID == "" {
+		return errorAnswer(id, -32602, "invalid config option request")
+	}
+	if params.ConfigID != modelOptionID {
+		return errorAnswer(id, -32602, "unknown config option")
+	}
+	model := configValueString(params.Value)
+	if model == "" {
+		return errorAnswer(id, -32602, "model value must be a string")
+	}
+	if _, ok := s.models.selectModel(params.SessionID, model); !ok {
+		return errorAnswer(id, -32602, "unknown model")
+	}
+	body, err := json.Marshal(map[string]any{"configOptions": s.models.configOptions(params.SessionID)})
+	if err != nil {
+		return errorAnswer(id, -32603, "config option update failed")
+	}
+	return jsonAnswer(id, body)
+}
+
+// configValueString accepts both ACP's plain select value and an object form.
+func configValueString(raw json.RawMessage) string {
+	var value string
+	if json.Unmarshal(raw, &value) == nil {
+		return strings.TrimSpace(value)
+	}
+	var object struct {
+		ID    string `json:"id"`
+		Value string `json:"value"`
+	}
+	if json.Unmarshal(raw, &object) == nil {
+		return strings.TrimSpace(firstNonEmpty(object.ID, object.Value))
+	}
+	return ""
+}
+
+// injectBinding adds the desktop client's per-prompt llm_binding to a prompt
+// when the session selected a model. The runtime ignores unknown metadata.
+func (s *proxyState) injectBinding(line []byte, rawParams json.RawMessage) []byte {
+	if s.models == nil {
+		return line
+	}
+	var params map[string]json.RawMessage
+	if json.Unmarshal(rawParams, &params) != nil {
+		return line
+	}
+	var sessionID string
+	if json.Unmarshal(params["sessionId"], &sessionID) != nil || sessionID == "" {
+		return line
+	}
+	binding := s.models.binding(sessionID)
+	if binding == nil {
+		return line
+	}
+	meta := map[string]json.RawMessage{}
+	if raw, ok := params["_meta"]; ok && len(raw) > 0 && string(raw) != "null" {
+		if json.Unmarshal(raw, &meta) != nil {
+			return line
+		}
+	}
+	if _, exists := meta["llm_binding"]; exists {
+		return line
+	}
+	encoded, err := json.Marshal(binding)
+	if err != nil {
+		return line
+	}
+	meta["llm_binding"] = encoded
+	encodedMeta, err := json.Marshal(meta)
+	if err != nil {
+		return line
+	}
+	params["_meta"] = encodedMeta
+	encodedParams, err := json.Marshal(params)
+	if err != nil {
+		return line
+	}
+	var message map[string]json.RawMessage
+	if json.Unmarshal(line, &message) != nil {
+		return line
+	}
+	message["params"] = encodedParams
+	out, err := json.Marshal(message)
+	if err != nil {
+		return line
+	}
+	return append(out, '\n')
 }
 
 func rewriteNewAsLoad(line []byte, sessionID string) ([]byte, error) {
@@ -206,29 +334,62 @@ func (s *proxyState) rewriteServer(line []byte) []byte {
 	if !ok {
 		return line
 	}
+
 	s.mu.Lock()
-	if s.initID == "" || string(id) != s.initID {
-		s.mu.Unlock()
-		return line
-	}
-	if _, hasResult := msg["result"]; !hasResult {
-		if _, hasError := msg["error"]; !hasError {
+	if s.initID != "" && string(id) == s.initID {
+		_, hasResult := msg["result"]
+		_, hasError := msg["error"]
+		if !hasResult && !hasError {
 			s.mu.Unlock()
 			return line
 		}
+		s.initID = ""
+		s.mu.Unlock()
+		if !hasResult {
+			return line
+		}
+		patched, err := addListCapability(msg["result"])
+		if err != nil {
+			return line
+		}
+		msg["result"] = patched
+		out, err := json.Marshal(msg)
+		if err != nil {
+			return line
+		}
+		return append(out, '\n')
 	}
-	s.initID = ""
+	method := s.pending[string(id)]
+	if method != "" {
+		delete(s.pending, string(id))
+	}
 	s.mu.Unlock()
 
+	if method == "" || s.models == nil {
+		return line
+	}
 	result, ok := msg["result"]
 	if !ok {
 		return line
 	}
-	patched, err := addListCapability(result)
+	var res map[string]json.RawMessage
+	if json.Unmarshal(result, &res) != nil {
+		return line
+	}
+	var sessionID string
+	if json.Unmarshal(res["sessionId"], &sessionID) != nil || sessionID == "" {
+		return line
+	}
+	options, err := json.Marshal(s.models.configOptions(sessionID))
 	if err != nil {
 		return line
 	}
-	msg["result"] = patched
+	res["configOptions"] = options
+	encoded, err := json.Marshal(res)
+	if err != nil {
+		return line
+	}
+	msg["result"] = encoded
 	out, err := json.Marshal(msg)
 	if err != nil {
 		return line
@@ -317,6 +478,19 @@ func errorAnswer(id json.RawMessage, code int, message string) []byte {
 	out, err := json.Marshal(resp)
 	if err != nil {
 		return []byte("{\"jsonrpc\":\"2.0\",\"id\":null,\"error\":{\"code\":-32603,\"message\":\"session/list failed\"}}\n")
+	}
+	return append(out, '\n')
+}
+
+func jsonAnswer(id json.RawMessage, result json.RawMessage) []byte {
+	resp := struct {
+		JSONRPC string          `json:"jsonrpc"`
+		ID      json.RawMessage `json:"id"`
+		Result  json.RawMessage `json:"result"`
+	}{JSONRPC: "2.0", ID: id, Result: result}
+	out, err := json.Marshal(resp)
+	if err != nil {
+		return errorAnswer(id, -32603, "response encoding failed")
 	}
 	return append(out, '\n')
 }

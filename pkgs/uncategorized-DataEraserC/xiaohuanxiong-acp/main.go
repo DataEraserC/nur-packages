@@ -287,5 +287,5 @@ func serveACP(state localState, resumeID string, args []string) error {
 	if err := os.Setenv("BOX_AGENT_CONFIG_DIR", state.configDir); err != nil {
 		return err
 	}
-	return serve(real)
+	return serve(real, state.configDir)
 }

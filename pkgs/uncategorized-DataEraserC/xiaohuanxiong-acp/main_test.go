@@ -299,3 +299,147 @@ func TestLoginWebRejectsForeignState(t *testing.T) {
 		t.Fatalf("auth file exists: %v", err)
 	}
 }
+
+func newCatalogServer(t *testing.T) *httptest.Server {
+	t.Helper()
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if r.URL.Path != catalogPath {
+			t.Errorf("catalog path = %q", r.URL.Path)
+		}
+		if r.Header.Get("Authorization") != "Bearer test-token" {
+			t.Errorf("authorization = %q", r.Header.Get("Authorization"))
+		}
+		_, _ = w.Write([]byte(`{"code":0,"data":{"categories":[{"type":"chat","models":[
+			{"model_name":"m1","name":"Model One","description":"first","params":{"context_window":123456,"max_output_tokens":7890}},
+			{"model_name":"m2","name":"Model Two","params":{"context_window":2222}}
+		]}]}}`))
+	}))
+	t.Cleanup(server.Close)
+	return server
+}
+
+func newTestModelStore(t *testing.T) *modelStore {
+	t.Helper()
+	server := newCatalogServer(t)
+	t.Setenv("XIAOHUANXIONG_LLM_ORIGIN", server.URL)
+	dir := t.TempDir()
+	if err := os.WriteFile(filepath.Join(dir, "auth.json"), []byte(`{"access_token":"test-token"}`), 0o600); err != nil {
+		t.Fatal(err)
+	}
+	if err := os.WriteFile(filepath.Join(dir, "config.yaml"), []byte("model: \"m0\"\ncontext_window: 1000\nmax_output_tokens: 100\n"), 0o600); err != nil {
+		t.Fatal(err)
+	}
+	return newModelStore(dir)
+}
+
+func TestModelCatalogOptions(t *testing.T) {
+	store := newTestModelStore(t)
+	options := store.configOptions("s1")
+	if len(options) != 1 || options[0].ID != "model" || options[0].Type != "select" {
+		t.Fatalf("options = %+v", options)
+	}
+	if options[0].CurrentValue != "m0" {
+		t.Fatalf("current = %q", options[0].CurrentValue)
+	}
+	values := map[string]bool{}
+	for _, option := range options[0].Options {
+		values[option.Value] = true
+	}
+	for _, want := range []string{"m0", "m1", "m2"} {
+		if !values[want] {
+			t.Fatalf("option %q missing from %+v", want, options[0].Options)
+		}
+	}
+	selection, ok := store.selectModel("s1", "m1")
+	if !ok || selection.ContextWindow != 123456 || selection.MaxTokens != 7890 {
+		t.Fatalf("selection = %+v ok=%v", selection, ok)
+	}
+	if _, ok := store.selectModel("s1", "nope"); ok {
+		t.Fatal("unknown model was accepted")
+	}
+	if _, ok := store.selectModel("s2", "m0"); !ok {
+		t.Fatal("default model was rejected")
+	} else if selection, _ := store.selected("s2"); selection.ContextWindow != 1000 || selection.MaxTokens != 100 {
+		t.Fatalf("defaults not applied: %+v", selection)
+	}
+	reloaded := newModelStore(store.configDir)
+	if selection, ok := reloaded.selected("s1"); !ok || selection.Model != "m1" {
+		t.Fatalf("selection not persisted: %+v ok=%v", selection, ok)
+	}
+}
+
+func TestProxyModelSelection(t *testing.T) {
+	store := newTestModelStore(t)
+	var out strings.Builder
+	state := newProxyState(&out, "", store)
+
+	newLine := []byte(`{"jsonrpc":"2.0","id":7,"method":"session/new","params":{"cwd":"/tmp","mcpServers":[]}}` + "\n")
+	if got := state.interceptClient(newLine); string(got) != string(newLine) {
+		t.Fatalf("session/new was rewritten: %q", got)
+	}
+	response := []byte(`{"jsonrpc":"2.0","id":7,"result":{"sessionId":"acp-v1-x"}}` + "\n")
+	patched := state.rewriteServer(response)
+	var parsed struct {
+		Result struct {
+			ConfigOptions []struct {
+				ID           string `json:"id"`
+				CurrentValue string `json:"currentValue"`
+				Options      []struct {
+					Value string `json:"value"`
+				} `json:"options"`
+			} `json:"configOptions"`
+		} `json:"result"`
+	}
+	if err := json.Unmarshal(patched, &parsed); err != nil {
+		t.Fatal(err)
+	}
+	if len(parsed.Result.ConfigOptions) != 1 || parsed.Result.ConfigOptions[0].CurrentValue != "m0" {
+		t.Fatalf("session/new configOptions = %+v", parsed.Result.ConfigOptions)
+	}
+
+	selectLine := []byte(`{"jsonrpc":"2.0","id":8,"method":"session/set_config_option","params":{"sessionId":"acp-v1-x","configId":"model","value":"m1"}}` + "\n")
+	if answer := state.interceptClient(selectLine); answer != nil {
+		t.Fatalf("set_config_option was forwarded: %q", answer)
+	}
+	var selected struct {
+		Result struct {
+			ConfigOptions []struct {
+				CurrentValue string `json:"currentValue"`
+			} `json:"configOptions"`
+		} `json:"result"`
+	}
+	if err := json.Unmarshal([]byte(out.String()), &selected); err != nil {
+		t.Fatalf("set_config_option answer = %q", out.String())
+	}
+	out.Reset()
+	if selected.Result.ConfigOptions[0].CurrentValue != "m1" {
+		t.Fatalf("current = %+v", selected.Result.ConfigOptions)
+	}
+
+	promptLine := []byte(`{"jsonrpc":"2.0","id":9,"method":"session/prompt","params":{"sessionId":"acp-v1-x","prompt":[{"type":"text","text":"hi"}]}}` + "\n")
+	prompt := state.interceptClient(promptLine)
+	var promptMsg struct {
+		Params struct {
+			Meta struct {
+				Binding struct {
+					Source        string `json:"source"`
+					Model         string `json:"model"`
+					ContextWindow int    `json:"contextWindow"`
+					MaxTokens     int    `json:"maxTokens"`
+				} `json:"llm_binding"`
+			} `json:"_meta"`
+		} `json:"params"`
+	}
+	if err := json.Unmarshal(prompt, &promptMsg); err != nil {
+		t.Fatalf("prompt = %q", prompt)
+	}
+	binding := promptMsg.Params.Meta.Binding
+	if binding.Source != "builtin" || binding.Model != "m1" || binding.ContextWindow != 123456 || binding.MaxTokens != 7890 {
+		t.Fatalf("binding = %+v", binding)
+	}
+
+	state.interceptClient([]byte(`{"jsonrpc":"2.0","id":10,"method":"session/set_config_option","params":{"sessionId":"acp-v1-x","configId":"mode","value":"x"}}` + "\n"))
+	if !strings.Contains(out.String(), `"error"`) {
+		t.Fatalf("unknown config option was accepted: %q", out.String())
+	}
+}
