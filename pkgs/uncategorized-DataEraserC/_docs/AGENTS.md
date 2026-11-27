@@ -77,7 +77,7 @@
 
 ## Fork 特有规则（下游对上游 AGENTS.md 的差异）
 
-以下规则仅适用于本 DataEraserC fork，不适用于上游 xddxdd/nur-packages。根目录 `AGENTS.md` 中对应位置已替换为指向本文件的引用。
+以下规则仅适用于本 DataEraserC fork，不适用于上游 xddxdd/nur-packages。根目录 `AGENTS.md` 保持上游原文（连引用横幅也不加）；下游规则的入口是根目录的 [`AGENTS_downstream.md`](../../../AGENTS_downstream.md)。
 
 ### Fork 仓库管理
 

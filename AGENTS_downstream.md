@@ -2,9 +2,15 @@
 
 本文件收纳 [xddxdd/nur-packages](https://github.com/xddxdd/nur-packages) 的 DataEraserC fork 的下游经验与规则（上游仓库没有的内容）；根 [`AGENTS.md`](AGENTS.md) 保持上游原文，以最小化同步上游时的合并冲突。
 
-- **硬规则**：根 `AGENTS.md`「工作流程」要求的『修改包后更新经验教训』，在本 fork 一律写入本文件，禁止写入根 `AGENTS.md`
+- **硬规则**：根 `AGENTS.md` 保持 upstream/master 逐字节原文（下游内容一律不写入，包括引用横幅）；「工作流程」要求的『修改包后更新经验教训』在本 fork 写入本文件或最近的一处自有 `AGENTS.md`。下游规则入口即本文件
 - Fork 仓库管理、维护者列表、AI 参与记录等 Fork 特有规则见 [`pkgs/uncategorized-DataEraserC/_docs/AGENTS.md`](pkgs/uncategorized-DataEraserC/_docs/AGENTS.md) 中的「Fork 特有规则」章节；自有模块的规则在 [`modules/AGENTS.md`](modules/AGENTS.md)；单包经验在各包目录的 `AGENTS.md`
 - **更新 WebMux、`webmux-acp`、`codebuddy-acp` 或其 nix-config 接线时**，先读 [`webmux-codebuddy-acp-requirements.md`](pkgs/uncategorized-DataEraserC/_docs/webmux-codebuddy-acp-requirements.md)，按稳定需求 ID 逐项验证并在交付摘要记录结果；该文件是这些跨包/跨仓不变量的单一事实源
+
+## 从根 AGENTS.md 迁出的下游经验（上游文件保持原文）
+
+- **nixpkgs cargo-setup-hook 的第四、五类系统库探测（补充上游 AGENTS.md 的 cargoUseSystemLibs 条目）**。第四类是 `tikv-jemalloc-sys`：钩子把 `JEMALLOC_OVERRIDE` 指向刻意不存在的哨兵路径（`nixpkgs.XXXX/use/system/library/lib/libjemalloc`），`build.rs` 报 `Path to 'jemalloc' in 'JEMALLOC_OVERRIDE=...' does not exist`，修法是在 `buildInputs` 加 `rust-jemalloc-sys`（nixpkgs 专用包，自带 `_rjem_` 前缀并经 setupHook 把 `JEMALLOC_OVERRIDE` 指回真库；agent2api-server 实例）。第五类是 `libgit2-sys`：钩子**无条件** `export LIBGIT2_NO_VENDOR="1"`（覆盖派生 env，预置 `env.LIBGIT2_NO_VENDOR = "0"` 无效），系统 libgit2 版本（1.9.7）超出 crate 约束（如 git2 0.19 的 `<1.9.0`）时探测硬失败——若包本意就是 vendored 编译，用 `dontCargoUseSystemLibs = true` 跳过整个钩子，回到「探测失败即 vendored」的默认行为（vendored libgit2 1.8 需要 `cmake`；AgentChatBridge/acb 实例），也可换用版本兼容的系统库。**flake input 再导出的上游包同样会中招**：此类包的 nixpkgs 通常 `follows` 本仓库，内部派生（bas-remote 的 bas-native）在没有声明系统库时会原样触发同一 panic；不要试图在再导出处对 bundle 的 `postInstall` 做字符串手术来重定向内部派生——`builtins.replaceStrings` 会保留原字符串的 context（旧 drv 仍被拉进构建），丢弃 context 后 `appendContext` 复原又会碰上严格的 store 路径引用校验——修复应落在上游 flake 本身（bas-remote 实例：上游 `basNative` 加 `buildInputs = [ aws-lc ]` + `nativeBuildInputs = [ pkg-config ]` 后 `nix flake update bas-remote` 收编）
+- **同一 AppImage 的多个"版本"包应合并为一个**：上游为同一二进制发布多个"版本"命名（如 ZCode 的 CN/国际版共用同一下载 URL 与哈希，productName、状态目录、单实例锁也全部相同，区域差异只在登录账号层面）时，只保留一个包，命名用二进制在源码中的原始名字（AppImage 内的 `zcode`），不要为发行区域维护两份定义。多包并存浪费 store、产生两个桌面入口，且因共享用户数据目录与单实例锁而根本无法同时运行
+- **pnpm `--prod` 安装与 prune 会丢弃 peerDependencies，ESM 运行时 import 的 peer 必须提升为 regular dependency**（zcode-acp 实例）：dist 在运行时 import `zod` 而上游声明它为 peerDependency，`pnpm install --prod`、`pnpm prune --prod` 都不会安装它（报 `ERR_MODULE_NOT_FOUND`）。修法：安装阶段用 jq 同时改 package.json（peer → dependencies）和 pnpm-lock.yaml importer（保持两边一致，`--frozen-lockfile` 才能通过），再 `rm -rf node_modules && pnpm install --frozen-lockfile --prod --offline` 冷装出纯生产 node_modules。三个坑：(1) 只改 package.json 不改锁文件报 `ERR_PNPM_OUTDATED_LOCKFILE`；(2) specifier 写成锁里没有的新值报 `ERR_PNPM_NO_OFFLINE_META`（非 frozen 安装对已删 devDependencies 也会全量对账报同一错——冷装 `--prod` 前必须把 importer 的 devDependencies/peerDependencies 块一并删掉）；(3) 锁文件手术用 pyyaml round-trip（`safe_load`/`safe_dump` + `sort_keys=False, width=1000000000`），不要手写正则删 YAML 块。另外 dist 在运行时从同目录 package.json 读版本号的，package.json 必须随产物 `cp` 进 $out，否则 versionCheckHook 读到缺省 `0.0.0`
 
 ## 提交信息格式
 
