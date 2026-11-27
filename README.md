@@ -62,7 +62,7 @@ Or, use variables from this repository in case I change them:
 ## Packages
 
 <details>
-<summary>Package set: (Uncategorized) (374 packages)</summary>
+<summary>Package set: (Uncategorized) (375 packages)</summary>
 
 | State | Path | Name | Version | Description |
 | ----- | ---- | ---- | ------- | ----------- |
@@ -411,6 +411,7 @@ Or, use variables from this repository in case I change them:
 |  | `xcursor-genshin-nahida` | [xcursor-genshin-nahida](https://aur.archlinux.org/packages/xcursor-genshin-nahida) | 0-unstable-2023-02-12 | Cursor theme featuring Nahida from Genshin Impact |
 | `x86_64-linux` | `xdma` | [xdma](https://github.com/Xilinx/dma_ip_drivers) | 0-unstable-2026-10-22 | Xilinx XDMA PCIe kernel module |
 |  | `xiaohuanxiong` | [xiaohuanxiong](https://xiaohuanxiong.com/) | 1.2.6 | SenseTime Raccoon Work AI office assistant desktop client |
+|  | `xiaohuanxiong2api` | [xiaohuanxiong2api](https://github.com/haoxinyu1/xiaohuanxiong2api) | 0-unstable-2026-10-09 | OpenAI-compatible reverse proxy for the SenseTime Raccoon client with account pooling and admin panel |
 |  | `xstatic-asciinema-player` | [xstatic-asciinema-player](https://github.com/asciinema/asciinema-player) | 2.6.1.1 | Asciinema-player packaged for setuptools (easy_install) / pip |
 |  | `xstatic-font-awesome` | [xstatic-font-awesome](https://github.com/FortAwesome/Font-Awesome) | 6.2.1.2 | Font Awesome packaged for setuptools (easy_install) / pip |
 |  | `xt_rtpengine` | [xt_rtpengine](https://github.com/sipwise/rtpengine) | 0-unstable-2026-11-23 | Sipwise media proxy for Kamailio (kernel module) |
@@ -1729,7 +1730,7 @@ Or, use variables from this repository in case I change them:
 </details>
 
 <details>
-<summary>Package set: uncategorized-DataEraserC (126 packages)</summary>
+<summary>Package set: uncategorized-DataEraserC (127 packages)</summary>
 
 | State | Path | Name | Version | Description |
 | ----- | ---- | ---- | ------- | ----------- |
@@ -1842,6 +1843,7 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized-DataEraserC.workbuddy2api-panel` | [workbuddy2api-panel](https://github.com/xu20060420fan-cell/workbuddy2api-trae-qoder-minimax-panel) | 1.15.14-panel | Multi-provider OpenAI-compatible gateway with account pools, check-ins, and a management panel |
 |  | `uncategorized-DataEraserC.xcursor-genshin-nahida` | [xcursor-genshin-nahida](https://aur.archlinux.org/packages/xcursor-genshin-nahida) | 0-unstable-2023-02-12 | Cursor theme featuring Nahida from Genshin Impact |
 |  | `uncategorized-DataEraserC.xiaohuanxiong` | [xiaohuanxiong](https://xiaohuanxiong.com/) | 1.2.6 | SenseTime Raccoon Work AI office assistant desktop client |
+|  | `uncategorized-DataEraserC.xiaohuanxiong2api` | [xiaohuanxiong2api](https://github.com/haoxinyu1/xiaohuanxiong2api) | 0-unstable-2026-10-09 | OpenAI-compatible reverse proxy for the SenseTime Raccoon client with account pooling and admin panel |
 |  | `uncategorized-DataEraserC.zcode` | [zcode](https://zcode.z.ai/) | 4.0.0 | AI coding workspace by Z.ai with multi-agent development |
 |  | `uncategorized-DataEraserC.zcode-acp` | [zcode-acp](https://github.com/william0wang/zcode-acp) | 0.94.1 | Agent Client Protocol bridge for the headless ZCode coding agent |
 |  | `uncategorized-DataEraserC.zcode-cli` | [zcode-cli](https://zcode.z.ai/) | 4.0.0 | ZCode coding agent CLI bundled in the Z.ai desktop app |

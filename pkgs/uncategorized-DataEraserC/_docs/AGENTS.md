@@ -71,6 +71,10 @@
 - **上游「先打 tag、再 bump 版本号」时，修正必须同步进更新脚本**：部分仓库的 tag `vX.Y.Z` 里 package.json 仍是上一版，release 资产 tgz 才是 bump 后打包的。此时 postPatch 的 sed 只改构建期不够——若包同时维护生成式 lockfile，`update.sh` 生成 lockfile 前必须做**同一条 sed**（lockfile 根 version 来自 package.json），否则每次更新都会重写 lockfile 的 version 字段、且产物版本与 src 标签长期错位；`npm ci` 实测容忍根 version 与 package.json 不一致，但不要依赖这个容错
 - **`.src` 是 tarball 文件时必须先解包，不能 `cp -r` 当目录用**：`fetchurl`（npm registry、release 资产等）的 `.src` 在 store 里是单个 `.tgz`/`.tar.gz` **文件**，`cp -r "$SRC" "$TMPDIR/source"` 得到的 `source` 仍是文件，`cd "$TMPDIR/source"` 报「不是目录」使整个更新失败（dsh-git-worktree 实例）。应先 `[ -d "$SRC" ]` 判断：目录源（`fetchFromGitHub` 等）才 `cp -r`；文件源用 `mkdir -p "$TMPDIR/source" && tar -xf "$SRC" -C "$TMPDIR/source" --strip-components=1`（npm tarball 顶层固定为 `package/`，需剥一层）后再 `cd`
 
+## Go 包（buildGoModule）
+
+- **`subPackages` 会把 `go test` 限制在这些子包上，`internal/` 的测试被静默跳过**：nixpkgs `buildGoModule` 的 `getGoDirs` 在 `subPackages` 非空时只为列出的包执行 `go build`/`go test`（`pkgs/build-support/go/module.nix`），不设时才用 `find` 遍历所有带测试文件的目录。只有单个 main 包的项目不要设 `subPackages`——`go install` 本来就只会把 main 包放进 `$out/bin`，而不设时 checkPhase 能覆盖全部单测（xiaohuanxiong2api 实例：设 `subPackages = [ "cmd/xhx2api" ]` 时 checkPhase 只有 `? xhx2api/cmd/xhx2api [no test files]`，去掉后 5 个 internal 包全部 `ok`）
+
 ## Fork 特有规则（下游对上游 AGENTS.md 的差异）
 
 以下规则仅适用于本 DataEraserC fork，不适用于上游 xddxdd/nur-packages。根目录 `AGENTS.md` 中对应位置已替换为指向本文件的引用。
