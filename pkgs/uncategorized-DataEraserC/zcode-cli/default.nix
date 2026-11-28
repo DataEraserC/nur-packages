@@ -4,7 +4,6 @@
   makeWrapper,
   nodejs_24,
   zcode,
-  zcode-tui,
 }:
 stdenv.mkDerivation {
   pname = "zcode-cli";
@@ -26,10 +25,6 @@ stdenv.mkDerivation {
     # glm/provider at startup, so copy them in.
     chmod -R u+w $out/share/zcode-cli/glm
     cp -r ${zcode.contents}/resources/config/provider $out/share/zcode-cli/glm/provider
-    # zcode.cjs imports @zcode/tui when it is not running as a Node SEA; the
-    # AppImage does not ship that package, so the server archive's TUI bundle
-    # and its runtime deps are linked here.
-    ln -s ${zcode-tui}/lib/node_modules $out/share/zcode-cli/glm/node_modules
     # Named zcode-cli, not zcode: the desktop package owns bin/zcode (its GUI
     # launcher), and this command must be resolvable on PATH next to it.
     makeWrapper ${lib.getExe nodejs_24} $out/bin/zcode-cli \
