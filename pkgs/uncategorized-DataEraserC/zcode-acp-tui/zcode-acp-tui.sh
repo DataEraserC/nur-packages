@@ -10,10 +10,37 @@ set -eu
 
 session_root="${HOME:?}/.zcode/martty/sessions"
 
+run_native() {
+	resume="${ZCODE_ACP_TUI_RESUME_SESSION:-}"
+	if [ -z "$resume" ]; then
+		"$ZCODE_ACP_NATIVE" "$@"
+		return
+	fi
+	# Martty keeps its own durable session id. When WebMux asks us to resume,
+	# it starts Martty without --session-id and we bind the ACP session by
+	# rewriting its first session/new (or session/resume) to the WebMux id.
+	while IFS= read -r line; do
+		case "$line" in
+		*'"session/new"'* | *'"session/resume"'*)
+			line=$(printf '%s\n' "$line" | sed -E \
+				-e 's/"method"[[:space:]]*:[[:space:]]*"session\/(new|resume)"/"method":"session\/resume"/')
+			if printf '%s\n' "$line" | grep -q '"sessionId"'; then
+				line=$(printf '%s\n' "$line" | sed -E \
+					-e "s/\"sessionId\"[[:space:]]*:[[:space:]]*\"[^\"]*\"/\"sessionId\":\"$resume\"/g")
+			else
+				line=$(printf '%s\n' "$line" | sed -E \
+					-e "s/\"params\"[[:space:]]*:[[:space:]]*\{/\"params\":{\"sessionId\":\"$resume\",/")
+			fi
+			;;
+		esac
+		printf '%s\n' "$line"
+	done | "$ZCODE_ACP_NATIVE" "$@"
+}
+
 case "${1:-}" in
 --acp)
 	shift
-	exec "$ZCODE_ACP_NATIVE" "$@"
+	run_native "$@"
 	;;
 --resume)
 	if [ "$#" -lt 2 ]; then
@@ -28,7 +55,6 @@ case "${1:-}" in
 		--agent zcode-acp-tui \
 		--agent-arg --acp \
 		--session-root "$session_root" \
-		--session-id "$session_id" \
 		"$@"
 	;;
 *)
