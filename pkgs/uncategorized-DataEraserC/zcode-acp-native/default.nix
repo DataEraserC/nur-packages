@@ -12,8 +12,8 @@ let
   src = fetchFromGitHub {
     owner = "desktop-tools-which-may-be-useful";
     repo = "zcode-acp-native";
-    rev = "78596027b9420c8f9a88df3eea8ca29d03ab4810";
-    sha256 = "1ig573in67wn5vx2267d86m20vi0i52l4zgkcjmmivapj3wziipj";
+    rev = "59c5d0ef85c808fbf0964f7333c67ab090c61b10";
+    sha256 = "0pl7483pkx6yxdw97mfl8xld1z7azi870zxih83rcl4cdlb0xwc5";
   };
 in
 rustPlatform.buildRustPackage {
