@@ -25,8 +25,8 @@
 }:
 let
   versionData = {
-    tag = "cua-sdk-v0.31.2";
-    hash = "sha256-ZMOjKZAor+IjJCAGDAjYSfFID1Btsdz1+pRO/I1OYK4=";
+    tag = "cua-sdk-v0.31.5";
+    hash = "sha256-5Amc/MQ9AAdmeXx6patYAojwIGW3LxApGVFAejgAVzg=";
   };
   version = lib.removePrefix "cua-sdk-v" versionData.tag;
   # Same tag as the binary: the skills describe the CLI's own commands, so a

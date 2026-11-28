@@ -11,13 +11,13 @@
 }:
 
 let
-  version = "1.0.0-rc.51";
+  version = "1.0.0-rc.52";
 
   src = fetchFromGitHub {
     owner = "QuantumNous";
     repo = "new-api";
     tag = "v${version}";
-    hash = "sha256-+XqwHVCHs89gxWn0lNMkAnI3IF34RSlaq4XX3g9eSFg=";
+    hash = "sha256-EYeZaj4TvzJYU0sHioyLzPgZHzmENv7FP2kyNrxkDRQ=";
   };
 
   # nixpkgs has no fetcher for bun lockfiles, so node_modules is a
@@ -93,7 +93,7 @@ buildGo127Module {
   pname = "new-api";
   inherit version src;
 
-  vendorHash = "sha256-qmc7w/dLlBUzt0Am3KHmIXmuglGCymWFzdLRdHf8I3w=";
+  vendorHash = "sha256-mTzgikr2YPFYjwCAythnP90tb+JfLxT8yBPfOQrJEmc=";
 
   # The vendor derivation must not depend on the frontend build.
   overrideModAttrs = _: {
